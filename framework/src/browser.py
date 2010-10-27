@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/python -Es
 # Author: Thomas Liu <tliu@redhat.com>
 # Author: Dan Walsh <dwalsh@redhat.com>
 # Copyright (C) 2006-2010 Red Hat, Inc.
@@ -19,6 +19,7 @@
 #
 
 import gettext
+from math import pi
 from subprocess import *
 import random
 from gettext import ngettext as P_
@@ -26,7 +27,6 @@ import sys, os
 from xml.dom import minidom
 import datetime
 import time
-import gtkhtml2
 import xmlrpclib
 import pygtk
 import gobject
@@ -54,32 +54,71 @@ import report.io
 import report.io.GTKIO
 import report.accountmanager
 
+import gio
+
 GLADE_DIRECTORY = "/usr/share/setroubleshoot/gui/"
 PREF_DIRECTORY = os.environ['HOME'] + "/"
 PREF_FILENAME = ".setroubleshoot"
 PREF_PATH = PREF_DIRECTORY + PREF_FILENAME
 UPDATE_PROGRAM = "/usr/bin/gpk-update-viewer"
 
+dict = { "file": "text-x-generic",
+         "dir":"inode/directory",
+         "chr_file":"inode/chardevice",
+         "blk_file":"inode/blockdevice",
+         "lnk_file":"inode/symlink",
+         "sock_file":"inode/socket",
+         "executable":"application/x-executable",
+         "socket":"text-x-generic",
+         "capability":"text-x-generic",
+         "process":"text-x-generic",
+         "*":"text-x-generic",
+ }
+
+def get_icon(path, tclass="*"):
+    try:
+        base = os.path.basename(path)
+        matches = []
+        for desktop_app_info in gio.app_info_get_all():
+            if (os.path.basename(desktop_app_info.get_executable()) == base):
+                matches.append(desktop_app_info)
+
+        for m in matches:
+            icon = m.get_icon()
+            if icon:
+                return icon
+
+        file = gio.File(path)
+        info = file.query_info("standard::*", flags=gio.FILE_QUERY_INFO_NOFOLLOW_SYMLINKS)
+        icon = info.get_icon()
+        if icon:
+            icon.append_name("text-x-generic")
+            return icon
+
+    except gio.Error:
+        pass
+
+    if tclass in dict:
+        return gio.content_type_get_icon(dict[tclass])
+    else:
+        return gio.content_type_get_icon(dict["*"])
+
 package_list = set()
 # The main security alert window
-import syslog
 class BrowserApplet:
     """Security Alert Browser"""
 
     def on_troubleshoot_button_clicked(self, widget):
-        if self.troubleshoot_visible:
-            self.solutions_pane.hide()
-            self.troubleshoot_visible = False
-        else:
-            self.solutions_pane.show()
-            self.troubleshoot_visible = True
-            self.window.set_size_request(900, 630)
+        widget.set_sensitive(False)
+        self.solutions_pane.show()
+        self.troubleshoot_visible = True
+        self.x,self.y = self.window.get_size()
+        self.window.set_size_request(1000,630)
 
     def empty_load(self):
         self.clear_rows()
         self.alert_count_label.set_label("No alerts.")
         self.date_label.set_label("")
-        self.start_label.set_label("")
 
     def __init__(self, username=None, server=None, list=False, domain=None):
         self.RECT_SIZE = 30
@@ -91,11 +130,13 @@ class BrowserApplet:
         server.connect('signatures_updated', self.update_alerts)
         self.pane = builder.get_object("solutions_pane")
         self.table = builder.get_object("solutions_table")
-        self.window = builder.get_object("main_window")
+        self.window = builder.get_object("window")
         self.window.connect("destroy", self.quit)
-       
         self.source_label = builder.get_object("source_label")
+        self.source_image = builder.get_object("source_image")
         self.target_label = builder.get_object("target_label")
+        self.target_image = builder.get_object("target_image")
+        self.yes_radiobutton = builder.get_object("yes_radiobutton")
         self.class_label = builder.get_object("class_label")
         self.access_label = builder.get_object("access_label")
         self.access_title_label = builder.get_object("access_title_label")
@@ -106,13 +147,8 @@ class BrowserApplet:
         self.do_label = builder.get_object("do_label")
         self.alert_count_label = builder.get_object("alert_count_label")
         self.date_label = builder.get_object("date_label")
-        self.start_label = builder.get_object("start_label")
-        self.first_label = builder.get_object("first_label")
-        self.latest_label = builder.get_object("latest_label")
-        self.occurance_label = builder.get_object("occurance_label")
         self.current_policy_label = builder.get_object("current_policy_label")
         self.newer_policy_label = builder.get_object("newer_policy_label")
-        self.troubleshoot_checkbutton = builder.get_object("troubleshoot_checkbutton")
 
         self.next_button = builder.get_object("next_button")
         self.previous_button = builder.get_object("previous_button")
@@ -140,13 +176,11 @@ class BrowserApplet:
         self.alert_list_window.hide()
         self.empty_load()
         self.load_data()
-        self.liststore = gtk.ListStore(int, str, str, str, str, str) 
+        self.liststore = gtk.ListStore(int, str, str, str, str) 
         self.make_treeview()
-        self.updaterpipe = Popen(["/usr/bin/python", "/usr/share/setroubleshoot/updater.py"], stdout=PIPE)
-        gobject.timeout_add(1000, self.read_pipe().next)
+#        self.updaterpipe = Popen(["/usr/bin/python", "/usr/share/setroubleshoot/updater.py"], stdout=PIPE)
+#        gobject.timeout_add(1000, self.read_pipe().next)
         self.troubleshoot_visible=False
-        if self.troubleshoot_checkbutton.get_active():
-            self.on_troubleshoot_button_clicked(None)
         self.current_alert = -1
         self.accounts = report.accountmanager.AccountManager()
 
@@ -176,12 +210,12 @@ class BrowserApplet:
             return
 
         if os.fork() == 0:
-            os.execv(UPDATE_PROGRAM, [])
+            os.execv(UPDATE_PROGRAM, [UPDATE_PROGRAM])
 
     def make_treeview(self):
         tmsort = gtk.TreeModelSort(self.liststore)
        
-        cols = [_("#"), _("Source"), _("Target"), _("Class"), _("Access"), _("Last Seen")]
+        cols = [_("#"), _("Source"), _("Access"), _("Target"), _("Occured")]
         self.treeview = gtk.TreeView(tmsort)
         x = 0
         for c in cols:
@@ -223,16 +257,15 @@ class BrowserApplet:
         alert_date = alert.last_seen_date
         start_date = alert.first_seen_date
         self.date_label.set_label(alert_date.format(date_format))
-        self.start_label.set_label(start_date.format(date_format))
-        start_label_text = P_("Alert occurred %d time", "Alert occurred %d times", alert.report_count) % (alert.report_count)
-        self.occurance_label.set_label(start_label_text)
 
-    def on_troubleshoot_checkbutton_toggled(self, widget):
-        if widget.get_active():
-            print "On"
-        else:
-            print "Off"
-            
+    def on_receive_button_changed(self, widget):
+        print self.yes_radiobutton.get_active()
+
+    def on_report_button_clicked(self, widget):
+        if self.current_alert < len(self.alert_list):
+            sig = self.alert_list[self.current_alert]
+            self.updaterpipe = Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text()], stdout=PIPE)
+
     def on_ignore_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
             sig = self.alert_list[self.current_alert]
@@ -253,178 +286,126 @@ class BrowserApplet:
             self.current_alert = len(self.alert_list) -1
 
         self.show_current_alert()
-    
+
     # TODO        
     def database_error(self, method, errno, strerror):
         pass
 
-
-
     def clear_rows(self):
+        self.radio = gtk.RadioButton(None)
         for child in self.table.get_children():
             self.table.remove(child)
         cols = int(self.table.get_property("n-columns"))
         self.table.resize(1, cols)
+        col = 0
         label = gtk.Label()
-        label.set_markup("<b>%s</b>" % _("Severity"))
+        label.set_markup("<b>%s</b>" % _("If you were trying to..."))
         label.show()
-        self.table.attach(label, 0, 1, 0, 1, xoptions=0, yoptions=0)
-        label = gtk.Label()
-        label.set_markup("<b>%s</b>" % _("Probability"))
-        label.show()
-        self.table.attach(label, 1, 2, 0, 1, xoptions=0, yoptions=0)
+        col += 1
+        self.table.attach(label, col, col + 1, 0, 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
 
         label = gtk.Label()
-        label.set_markup("<b>%s</b>" % _("If"))
+        label.set_markup("<b>%s</b>" % _("Then this is the solution."))
         label.show()
-        self.table.attach(label, 2, 3, 0, 1, yoptions=0)
+        col += 1
+        self.table.attach(label, col, col + 1, 0, 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
 
-        label = gtk.Label()
-        label.set_markup("<b>%s</b>" % _("Then"))
-        label.show()
-        self.table.attach(label, 3, 4, 0, 1, yoptions=0)
-
-        label = gtk.Label()
-        label.set_markup("<b>%s</b>" % _("Do"))
-        label.show()
-        self.table.attach(label, 4, 5, 0, 1, yoptions=0)
-
-    def add_row(self, plugin, sig, args, likelihood):
+    def add_row(self, plugin, sig, args):
         avc = sig.audit_event.records
-        if_text = sig.substitute(plugin.get_if_text(avc, args))
+        if_text = _("If ") + sig.substitute(plugin.get_if_text(avc, args))
         then_text = sig.substitute(plugin.get_then_text(avc, args))
-        do_text = sig.substitute(plugin.get_do_text(avc, args))
+        then_text += "\n" + sig.substitute(plugin.get_do_text(avc, args))
 
         if not if_text:
             return
-        sev_label = gtk.Image()
+
+        rows = int(self.table.get_property("n-rows"))
+        cols = int(self.table.get_property("n-columns"))
+
+        sev_image = gtk.Image()
         pixmap = gtk.gdk.Pixmap(None, self.RECT_SIZE, self.RECT_SIZE, 24)
         cr = pixmap.cairo_create()
-        bg_color = sev_label.get_style().bg[0]
+
+        bg_color = sev_image.get_style().bg[gtk.STATE_PRELIGHT]
         cr.set_source_color(bg_color)
+
         cr.paint()
-        cr.set_source_rgb(0, 0, 0)
-        cr.rectangle(0, 0, self.RECT_SIZE, self.RECT_SIZE)
-        cr.fill()
+        cr.arc(self.RECT_SIZE/2 , self.RECT_SIZE/2, self.RECT_SIZE / 2.0, 0, 2 * pi)
         if plugin.level == "red":
             cr.set_source_rgb(1, 0 ,0)
         elif plugin.level == "yellow":
             cr.set_source_rgb(1, 1 ,0)
         elif plugin.level == "green":
             cr.set_source_rgb(0, 1 ,0)
-        cr.rectangle(2, 2, self.RECT_SIZE - 4, self.RECT_SIZE - 4)
-        cr.fill()
-        sev_label.set_from_pixmap(pixmap, None)
-        
-        like_label = gtk.Image()
-        pixmap = gtk.gdk.Pixmap(None, self.RECT_SIZE, self.RECT_SIZE, 24)
-        cr = pixmap.cairo_create()
-        bg_color = like_label.get_style().bg[0]
-        cr.set_source_color(bg_color)
-        cr.paint()
-        cr.set_source_rgb(0, 0, 0)
-        cr.rectangle(0, 0, self.RECT_SIZE, self.RECT_SIZE)
-        cr.fill()
-        cr.set_source_rgb(237/255., 236/255., 235/255.)
-        cr.rectangle(2, 2, self.RECT_SIZE - 4, self.RECT_SIZE - 4)
+        cr.arc(self.RECT_SIZE/2 , self.RECT_SIZE/2, self.RECT_SIZE / 2.0, 0, 2 * pi)
         cr.fill()
 
-        cr.set_source_rgb(0.3, 0.5, 1)
-        total = int((self.RECT_SIZE - 4) * (likelihood / 100.))
-        cr.rectangle(2, 2 + self.RECT_SIZE - 4 - total, self.RECT_SIZE - 4, total) 
-        cr.fill()
-
-        like_label.set_from_pixmap(pixmap, None)
-
-        if_scroll = gtk.ScrolledWindow()
-        if_scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        then_scroll = gtk.ScrolledWindow()
-        then_scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        do_scroll = gtk.ScrolledWindow()
-        do_scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
-        if_label = gtk.Label()
-        if_scroll.add_with_viewport(if_label)
-        if_label.set_text(if_text)
-        then_label = gtk.Label()
-        then_scroll.add_with_viewport(then_label)
-        then_label.set_text(then_text)
-        do_label = gtk.Label()
-        do_scroll.add_with_viewport(do_label)
-        do_label.set_text(do_text)
-        then_label.set_alignment(0.0, 0.0)
-        if_label.set_alignment(0.0, 0.0)
-        do_label.set_alignment(0.0, 0.0)
-#        if_label.set_width_chars(25)
-        if_label.set_justify(gtk.JUSTIFY_LEFT)
-#        then_label.set_width_chars(25)
-        then_label.set_justify(gtk.JUSTIFY_LEFT)
-#        do_label.set_width_chars(25)
-        do_label.set_justify(gtk.JUSTIFY_LEFT)
-        then_label.set_padding(10, 10)
-        if_label.set_padding(10, 10)
-        do_label.set_padding(10, 10)
-        sev_label.show()
-        like_label.show()
-        if_scroll.show()
-        if_label.show()
-        then_scroll.show()
-        then_label.show()
-        do_scroll.show()
-        do_label.show()
-
+        sev_image.set_from_pixmap(pixmap, None)
         sev_frame = gtk.Frame()
-
         sev_frame.set_shadow_type(gtk.SHADOW_NONE)
         sev_frame.show()
-        sev_frame.add(sev_label)
-
-        like_frame = gtk.Frame()
-        like_frame.set_shadow_type(gtk.SHADOW_NONE)
-        like_frame.show()
-        like_frame.add(like_label)
-
+        sev_frame.add(sev_image)
+#        sev_frame.set_label_align(1.0, 0.0)
+        sev_image.show()
+        
         if_frame = gtk.Frame()
-        if_frame.set_shadow_type(gtk.SHADOW_OUT)
+        if_label = gtk.Label()
+        if_label.set_justify(gtk.JUSTIFY_LEFT)
+        if_radiobutton = gtk.RadioButton(self.radio)
+        if_radiobutton.show()
+        if_radiobutton.add(if_label)
+        if_label.set_line_wrap(True)
+        if_label.set_text(if_text)
+        if_label.show()
+        if_radiobutton.show()
+        if_frame.add(if_radiobutton)
+        if_frame
         if_frame.show()
-        if_frame.add(if_scroll)
-        if_frame.set_size_request(220, 90)
+        if_frame.set_shadow_type(gtk.SHADOW_IN)
+#        if_frame.set_border_width(1)
+#        if_frame.set_padding(1)
+#        then_textview = gtk.TextView()
+#        then_label = then_textview.get_buffer()
+        then_label = gtk.Label()
+        then_label.set_text(then_text)
+        then_label.set_selectable(True)
+#        then_textview.set_editable(True)
+        then_label.set_alignment(0.0, 0.0)
+        then_label.set_justify(gtk.JUSTIFY_LEFT)
+        then_label.show()
+        then_scroll = gtk.ScrolledWindow()
+        then_scroll.set_shadow_type(gtk.SHADOW_NONE)
+        then_scroll.set_border_width(0)
+        then_scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        then_scroll.add_with_viewport(then_label)
+#        then_textview.set_sensitive(False)
+#        then_textview.show()
+#        then_scroll.add(then_textview)
+        then_scroll.show()
+        then_scroll.set_sensitive(False)
+        then_scroll.set_size_request(500, 90)
 
-        then_frame = gtk.Frame()
-        then_frame.set_shadow_type(gtk.SHADOW_OUT)
-        then_frame.show()
-        then_frame.add(then_scroll)
-        then_frame.set_size_request(220, 90)
+        self.table.resize(rows, cols)
+        if_radiobutton.connect("toggled", self.on_if_radiobutton_activated, rows)
+        col = 0
+        self.table.attach(sev_frame, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
 
-        do_frame = gtk.Frame()
-        do_frame.set_shadow_type(gtk.SHADOW_OUT)
-        do_frame.show()
-        box = gtk.HBox()
-        do_frame.add(box)
-        do_frame.set_size_request(220, 90)
+        col += 1
+        self.table.attach(if_frame, col, col+1, rows, rows + 1, xoptions=gtk.FILL, yoptions=gtk.FILL)
 
-        box.pack_start(do_scroll)
-        #do_button = gtk.Button(label = "Show\nme how")
-        #box.pack_end(do_button)
-
-        box.show()
-        #do_button.show()
-
-        rows = int(self.table.get_property("n-rows"))
-        cols = int(self.table.get_property("n-columns"))
-        self.table.resize(rows + 1, cols)
-        self.table.attach(sev_frame, 0, 1, rows, rows + 1, xoptions=0, yoptions=0)
-        self.table.attach(like_frame, 1, 2, rows, rows + 1, xoptions=0, yoptions=0)
-        self.table.attach(if_frame, 2, 3, rows, rows + 1, yoptions=0)
-        self.table.attach(then_frame, 3, 4, rows, rows + 1, yoptions=0)
-        self.table.attach(do_frame, 4, 5, rows, rows + 1, yoptions=0)
+        col += 1
+        self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
+#, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
 
         if plugin.fixable:
             self.table.resize(rows + 1, cols + 1)
             report_button = gtk.Button()
             report_button.set_label(plugin.button_text)
             report_button.show()
+            report_button.set_sensitive(False)
             report_button.connect("clicked", self.fix_bug, sig, plugin)
-            self.table.attach(report_button, 5, 6, rows, rows + 1,xoptions=0, yoptions=0)
+            col += 1
+            self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
 
         if plugin.report_bug:
             self.table.resize(rows + 1, cols + 1)
@@ -432,8 +413,19 @@ class BrowserApplet:
             report_button.set_label(_("Report\nBug"))
             report_button.show()
             report_button.connect("clicked", self.report_bug, sig)
-            self.table.attach(report_button, 5, 6, rows, rows + 1,xoptions=0, yoptions=0)
+            report_button.set_sensitive(False)
+            col += 1
+            self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
 
+#        if rows == 1:
+#            self.on_if_radiobutton_activated(if_radiobutton, rows)
+
+    def on_if_radiobutton_activated(self, widget, row):
+        for child in self.table.get_children():
+            r, c = self.table.child_get(child, "top_attach", "left_attach")
+            if (r == row and c > 1):
+                child.set_sensitive(widget.get_active())
+    
     def quit(self, widget):
         gtk.main_quit() 
 
@@ -461,7 +453,7 @@ class BrowserApplet:
             for siginfo in sigs.signature_list:
                 self.add_siginfo(siginfo)
                 self.update_num_label()
-                self.show_current_alert()
+
         if type == "add" or type == "modify": 
             async_rpc = self.database.query_alerts(item)
             async_rpc.add_callback(new_siginfo_callback)
@@ -546,13 +538,27 @@ class BrowserApplet:
         if size < self.current_alert:
             self.current_alert = size
         sig = self.alert_list[self.current_alert]
-        self.source_label.set_label(sig.spath)
-        self.target_label.set_label(sig.tpath)
+        if len(sig.spath) > 30:
+            self.source_label.set_label(os.path.basename(sig.spath))
+        else:
+            self.source_label.set_label(sig.spath)
+        self.source_label.set_tooltip_text(sig.spath)
+        self.source_image.set_from_gicon(get_icon(sig.spath, "file"), gtk.ICON_SIZE_DIALOG)
+        if sig.tclass == "capability" or sig.tclass == "process":
+            self.target_label.set_label("")
+            self.target_label.set_tooltip_text("")
+        else:
+            if len(sig.tpath) > 30:
+                self.target_label.set_label(os.path.basename(sig.tpath))
+            else:
+                self.target_label.set_label(sig.tpath)
+            self.target_label.set_tooltip_text(sig.tpath)
+        self.target_image.set_from_gicon(get_icon(sig.tpath, sig.tclass), gtk.ICON_SIZE_DIALOG)
         if sig.tclass == "dir":
             tclass = "directory"
         else:
             tclass = sig.tclass
-        self.class_label.set_label(_("On the %s:") % tclass)
+        self.class_label.set_label(tclass)
         self.access_label.set_label(",".join(sig.sig.access))
 
         total_priority, plugins = sig.get_plugins()
@@ -560,7 +566,8 @@ class BrowserApplet:
         sig.update_derived_template_substitutions()
 
         for p, args in plugins:
-            self.add_row(p, sig, args, ((float(p.priority) / float(total_priority)) * 100))
+            self.add_row(p, sig, args)
+
         self.show_date(sig)
 
         self.alert_count_label.set_label(_("Alert %d of %d" % (self.current_alert + 1, len(self.alert_list))))
@@ -586,47 +593,37 @@ class BrowserApplet:
             self.show_current_alert()
                 
     def on_list_all_button_clicked(self, widget):
-        date_format = "%e-%b-%y %R" 
         self.liststore.clear()
         ctr = 1
         for alert in self.alert_list:
-            
-            summary = "%s %s %s %s", alert.spath, alert.tclass, alert.tpath, ",".join(alert.sig.access)
-	    self.liststore.append([ctr, os.path.basename(alert.spath), alert.tpath, alert.tclass, ",".join(alert.sig.access), alert.last_seen_date.format(date_format)])
+	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),alert.tpath, alert.report_count])
             ctr = ctr + 1
        
         self.alert_list_window.show_all()
         
     def update_button_visibility(self):
         size = len(self.alert_list)
-#        self.grant_button.hide()
 
         if size < 2:
-            self.next_button.hide()
-            self.previous_button.hide()
+            self.next_button.set_sensitive(False)
+            self.previous_button.set_sensitive(False)
 
         if size == 0:
-            self.delete_button.hide()
-            self.ignore_button.hide()
-            self.report_button.hide()
-            self.list_all_button.hide()
-            self.first_label.hide()
-            self.latest_label.hide()
-            self.occurance_label.hide()
-            self.alert_count_label.hide()
+            self.delete_button.set_sensitive(False)
+            self.ignore_button.set_sensitive(False)
+            self.report_button.set_sensitive(False)
+            self.list_all_button.set_sensitive(False)
+            self.alert_count_label.set_sensitive(False)
             return
 
-        self.delete_button.show()
-        self.ignore_button.show()
-        self.report_button.show()
-        self.list_all_button.show()
-        self.first_label.show()
-        self.latest_label.show()
-        self.occurance_label.show()
-        self.alert_count_label.show()
+        self.delete_button.set_sensitive(True)
+        self.ignore_button.set_sensitive(True)
+        self.report_button.set_sensitive(True)
+        self.list_all_button.set_sensitive(True)
+        self.alert_count_label.set_sensitive(True)
         if size > 1:
-            self.next_button.show()
-            self.previous_button.show()
+            self.next_button.set_sensitive(True)
+            self.previous_button.set_sensitive(True)
         
         self.next_button.set_sensitive(self.current_alert < (size - 1))
         self.previous_button.set_sensitive(self.current_alert != 0)
@@ -740,3 +737,5 @@ class MessageDialog():
         rc = dlg.run()
         dlg.destroy()
 
+def compare_alert(a, b):
+    return cmp(a.last_seen_date, b.last_seen_date)

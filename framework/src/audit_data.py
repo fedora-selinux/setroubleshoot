@@ -740,7 +740,9 @@ class AVC:
         # First try to get the path from the AVC record, new kernel
         # versions put it there rather than in AVC_PATH
 
-        path = self.avc_record.get_field('path').strip('"')
+        path = self.avc_record.get_field('path')
+        if path:
+            path = path.strip('"')
         inodestr = self.avc_record.get_field("ino")
 
         if path is None:
