@@ -45,7 +45,7 @@ class plugin(Plugin):
     Please file a bug report.
     ''')
 
-    if_text = _('you want to allow $SOURCE_PATH to have $ACCESS access on the $TARGET_PATH $TARGET_CLASS by default.')
+    if_text = _('you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS by default.')
     then_text = _('You should report this as a bug.\nYou can generate a local policy module to allow this access.')
     do_text = _("""Allow this access for now by executing:
 # grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol

@@ -36,7 +36,7 @@ class plugin(Plugin):
     problem_description = _('''
     SELinux denied access requested by $SOURCE. $TARGET_PATH may
     be a mislabeled.  $TARGET_PATH default SELinux type is
-    <B>$MATCHTYPE</B>, but its current type is <B>$TARGET_TYPE</B>. Changing
+    <B>$MATCTYPE</B>, but its current type is <B>$TARGET_TYPE</B>. Changing
     this file back to the default type, may fix your problem.
     <p>
     File contexts can be assigned to a file in the following ways.
@@ -65,18 +65,18 @@ class plugin(Plugin):
     you can recursively restore using restorecon -R '$TARGET_PATH'.
     ''')
 
-    fix_cmd = "/sbin/restorecon '$TARGET_PATH'"
+    fix_cmd = "/sbin/restorecon $TARGET_PATH"
 
-    if_text = _('you want to fix the label.')
+    if_text = _('you want to fix the label, $TARGET_BASE_PATH does not have the default system label.')
     then_text = _('you can run restorecon.')
     do_text = '# /sbin/restorecon -v $TARGET_PATH'
     
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(100)
-        self.level="yellow"
-        self.fixable=True
-        self.button_text=_("Restore Context")
+        self.level = "yellow"
+        self.fixable = True
+        self.button_text=_("Restore\nContext")
 
     def analyze(self, avc):
         if not avc.query_environment: return None
@@ -86,18 +86,15 @@ class plugin(Plugin):
         restorecon_files['lnk_file'] = S_IFLNK
         restorecon_files['chr_file'] = S_IFCHR
         restorecon_files['blk_file'] = S_IFBLK
-        try:
-            if avc.has_tclass_in(restorecon_files.keys()):               
-                if avc.tpath is None: return None
-		if avc.tpath == "/": return None
-                mcon = selinux.matchpathcon(avc.tpath, restorecon_files[avc.tclass])[1]
-                mcon_type=mcon.split(":")[2]
-                if mcon_type != avc.tcontext.type:
-                    # MATCH
-                    avc.set_template_substitutions(MATCHTYPE=mcon_type)
-                    return self.report()
-        except:
-            pass
+        if avc.has_tclass_in(restorecon_files.keys()):               
+            if avc.tpath is None: return None
+            if avc.tpath == "/": return None
+            
+            mcon = selinux.matchpathcon(avc.tpath.strip('"'), restorecon_files[avc.tclass])[1]
+            mcon_type=mcon.split(":")[2]
+            if mcon_type != avc.tcontext.type:
+                # MATCH
+                avc.set_template_substitutions(MATCHTYPE=mcon_type)
+                return self.report()
 
         return None
-        

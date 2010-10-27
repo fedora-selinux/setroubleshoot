@@ -34,13 +34,14 @@ class plugin(Plugin):
     have to be labeled with a file context which httpd can access.
     ''')
 
-    then_text = _("You need to change the label on '$FIX_TARGET_PATH")
+    then_text = _("You need to change the label on $FIX_TARGET_PATH")
 
     def get_do_text(self, avc, args):
         return _("""# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'
 where FILE_TYPE is one of the following: %s. 
 Then execute: 
-restorecon -v '$FIX_TARGET_PATH'""") % ", ".join(args)
+restorecon -v '$FIX_TARGET_PATH'
+""") % ", ".join(args)
 
     def __init__(self):
         Plugin.__init__(self, __name__)
