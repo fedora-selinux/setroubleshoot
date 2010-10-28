@@ -75,18 +75,48 @@ dict = { "file": "text-x-generic",
          "*":"text-x-generic",
  }
 
+def fullpath(cmd):
+       for i in [ "/", "./", "../" ]:
+              if cmd.startswith(i):
+                     return cmd
+       for i in  os.environ["PATH"].split(':'):
+              f = "%s/%s" % (i, cmd)
+              if os.access(f, os.X_OK):
+                     return f
+       return cmd
+
+sealert_app_info = None
+desktop_icon_dict = {}
+for desktop_app_info in gio.app_info_get_all():
+    exe = fullpath(desktop_app_info.get_executable())
+    rpmver = get_rpm_nvr_by_file_path(exe)
+    if rpmver:
+        if rpmver in desktop_icon_dict:
+            desktop_icon_dict[rpmver].append(desktop_app_info)
+        else:
+            desktop_icon_dict[rpmver] = [ desktop_app_info ]
+
+    basename = os.path.basename(exe)
+    if basename in desktop_icon_dict:
+        desktop_icon_dict[basename].append(desktop_app_info)
+    else:
+        desktop_icon_dict[basename] = [ desktop_app_info ]
+
 def get_icon(path, tclass="*"):
     try:
         base = os.path.basename(path)
-        matches = []
-        for desktop_app_info in gio.app_info_get_all():
-            if (os.path.basename(desktop_app_info.get_executable()) == base):
-                matches.append(desktop_app_info)
+        if base in desktop_icon_dict:
+            for m in desktop_icon_dict[base]:
+                icon = m.get_icon()
+                if icon:
+                    return icon
 
-        for m in matches:
-            icon = m.get_icon()
-            if icon:
-                return icon
+        rpmver = get_rpm_nvr_by_file_path(path)
+        if rpmver in desktop_icon_dict:
+            for m in desktop_icon_dict[rpmver]:
+                icon = m.get_icon()
+                if icon:
+                    return icon
 
         file = gio.File(path)
         info = file.query_info("standard::*", flags=gio.FILE_QUERY_INFO_NOFOLLOW_SYMLINKS)
@@ -259,12 +289,32 @@ class BrowserApplet:
         self.date_label.set_label(alert_date.format(date_format))
 
     def on_receive_button_changed(self, widget):
-        print self.yes_radiobutton.get_active()
+        found = False
+        run_seapplet = self.yes_radiobutton.get_active()
+        if run_seapplet:
+            os.system("/usr/bin/seapplet &")
+        else:
+            os.system("/usr/bin/killall -9 seapplet")
+        infile = open("/etc/xdg/autostart/sealertauto.desktop", "r")
+        buf = infile.readlines()
+        infile.close()
+        try:
+            os.makedirs(PREF_DIRECTORY + ".config/autostart/")
+        except OSError:
+            pass
+        outfile = open(PREF_DIRECTORY + ".config/autostart/sealertauto.desktop", "w")
+        for line in buf:
+            if line.startswith("X-GNOME-Autostart-enabled="):
+                continue
+            else:
+                outfile.write(line)
+        outfile.write("X-GNOME-Autostart-enabled=%s\n" % str(run_seapplet).lower())
+        outfile.close()
 
     def on_report_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
             sig = self.alert_list[self.current_alert]
-            self.updaterpipe = Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text()], stdout=PIPE)
+            Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text()], stdout=PIPE)
 
     def on_ignore_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
