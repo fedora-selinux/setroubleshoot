@@ -7,15 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-20 13:55-0400\n"
+"POT-Creation-Date: 2010-10-28 17:25-0400\n"
 "PO-Revision-Date: 2007-03-24 00:32+0100\n"
 "Last-Translator: Renato Pavicic <renato@translator-shop.org>\n"
 "Language-Team: Croatian <http://translator-shop.org>\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 :  n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 :  n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;;\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 #, fuzzy
@@ -26,108 +27,150 @@ msgstr "SETroubleshoot pretraživač"
 msgid "Troubleshoot SELinux access denials"
 msgstr ""
 
-#: ../src/browser.py:64 ../src/browser.py:65 ../src/browser.py:66
-#: ../src/browser.py:85
-msgid "(removed)"
+#: ../src/audit_data.py:861
+#, python-format
+msgid "port %s"
 msgstr ""
 
-#: ../src/browser.py:143
-msgid "Sealert Error"
+#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/rpc.py:544 ../src/util.py:223
+msgid "Unknown"
+msgstr "Nepoznato"
+
+#: ../src/audit_data.py:948
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
 
-#: ../src/browser.py:154
-#, fuzzy
-msgid "Sealert Message"
-msgstr "Sirova poruke revizije"
+#: ../src/audit_data.py:950
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
 
-#: ../src/browser.py:243
-#, fuzzy
-msgid "Copy to Clipboard"
-msgstr "Odabrane uzbune kopiraj u međuspremnik"
+#: ../src/audit_data.py:952
+msgid "Must call policy_init first"
+msgstr ""
 
-#: ../src/browser.py:312
+#: ../src/audit_data.py:954
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad target context. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:956
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad source context. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:958
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad type class ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:960
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad permission ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:962
+msgid "Error during access vector computation"
+msgstr ""
+
+#: ../src/browser.py:225
+msgid "Error while checking policy version."
+msgstr ""
+
+#: ../src/browser.py:230
 msgid ""
 "There is a newer version of policy available.  Updating your policy may fix "
 "the denial that you having problems with."
 msgstr ""
 
-#: ../src/browser.py:315 ../src/browser.py:541
+#: ../src/browser.py:231
+msgid "Newest Version"
+msgstr ""
+
+#: ../src/browser.py:233
 msgid "Update Policy"
 msgstr ""
 
-#: ../src/browser.py:327
-msgid "No alerts to view."
-msgstr ""
-
-#: ../src/browser.py:345
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-"Browser</span>"
-msgstr ""
-
-#: ../src/browser.py:390
+#: ../src/browser.py:250
 msgid "#"
 msgstr ""
 
-#. Note: The following string items returned by a plugin
-#. already have had their template substitutions HTML escaped
-#. when the plugin generated it's report
-#: ../src/browser.py:390 ../src/signature.py:404 ../src/signature.py:478
-msgid "Summary"
-msgstr "Sažetak"
-
-#: ../src/browser.py:390
+#: ../src/browser.py:250
 #, fuzzy
-msgid "Count"
-msgstr "Broj uzbuna"
+msgid "Source Process"
+msgstr "Zahvaćeni RPM paketi"
 
-#: ../src/browser.py:390 ../src/run_cmd.py:389
-msgid "Command"
+#: ../src/browser.py:250
+msgid "Attempted Access"
 msgstr ""
 
-#: ../src/browser.py:390
-msgid "Date"
+#: ../src/browser.py:250
+msgid "On this"
 msgstr ""
 
-#: ../src/browser.py:544
-msgid "Report Bug..."
+#: ../src/browser.py:250
+msgid "Occured"
 msgstr ""
 
-#: ../src/browser.py:561
+#: ../src/browser.py:250
+msgid "Edit Status"
+msgstr ""
+
+#: ../src/browser.py:374
+msgid "If you were trying to..."
+msgstr ""
+
+#: ../src/browser.py:380
+msgid "Then this is the solution."
+msgstr ""
+
+#: ../src/browser.py:387
+msgid "If "
+msgstr ""
+
+#: ../src/browser.py:485
+msgid ""
+"Report\n"
+"Bug"
+msgstr ""
+
+#: ../src/browser.py:513
 msgid "Unable to grant access."
 msgstr ""
 
-#: ../src/browser.py:595
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-"seriously compromised!</span>"
-msgstr ""
-
-#: ../src/browser.py:602
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-"suspicious behavior on your system</span>"
-msgstr ""
-
-#: ../src/browser.py:672
-msgid "Today"
-msgstr ""
-
-#: ../src/browser.py:674
-msgid "Yesterday"
-msgstr ""
-
-#: ../src/browser.py:691
+#: ../src/browser.py:538 ../src/browser.py:646
 #, python-format
-msgid "<span foreground='#555555'>%s on %s</span>"
+msgid "Alert %d of %d"
 msgstr ""
 
-#: ../src/browser.py:746
-#, python-format
-msgid ""
-"Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-"weight='bold' size='large' face='verdana'>%d</span>"
+#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
+#: ../src/browser.py:752
+msgid "(removed)"
 msgstr ""
+
+#: ../src/browser.py:799
+msgid "Sealert Error"
+msgstr ""
+
+#: ../src/browser.py:810
+#, fuzzy
+msgid "Sealert Message"
+msgstr "Sirova poruke revizije"
 
 #: ../src/email_dialog.py:47
 #, fuzzy
@@ -263,13 +306,11 @@ msgstr "Ups! %s je susreto pogrešku!"
 msgid "Error"
 msgstr ""
 
-#: ../src/Plugin.py:86 ../gui/browser.glade.h:18
-msgid "Fix it"
+#: ../src/Plugin.py:79
+msgid ""
+"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-
-#: ../src/rpc.py:544 ../src/util.py:223
-msgid "Unknown"
-msgstr "Nepoznato"
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -285,6 +326,10 @@ msgstr ""
 
 #: ../src/run_cmd.py:378
 msgid "SELinux Fix"
+msgstr ""
+
+#: ../src/run_cmd.py:389
+msgid "Command"
 msgstr ""
 
 #: ../src/run_cmd.py:399
@@ -340,160 +385,215 @@ msgstr ""
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr ""
 
-#: ../src/server.py:461 ../src/sealert:276
+#: ../src/server.py:461 ../src/sealert:295
 msgid "Started"
 msgstr ""
 
-#: ../src/server.py:505
+#: ../src/server.py:508
 msgid "AVC"
 msgstr ""
 
-#: ../src/server.py:572
+#: ../src/server.py:575
 msgid "Audit Listener"
 msgstr ""
 
-#: ../src/signature.py:70
+#: ../src/signature.py:75
 msgid "Never Ignore"
 msgstr "Uvijek ne ignoriraj"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:76
 #, fuzzy
 msgid "Ignore Always"
 msgstr "Ignoriraj 1 dan"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:77
 msgid "Ignore After First Alert"
 msgstr ""
 
-#: ../src/signature.py:361
+#: ../src/signature.py:196
+msgid "directory"
+msgstr ""
+
+#: ../src/signature.py:197
+msgid "semaphore"
+msgstr ""
+
+#: ../src/signature.py:198
+msgid "shared memory"
+msgstr ""
+
+#: ../src/signature.py:199
+msgid "message queue"
+msgstr ""
+
+#: ../src/signature.py:200
+msgid "message"
+msgstr ""
+
+#: ../src/signature.py:201
+msgid "file"
+msgstr ""
+
+#: ../src/signature.py:202
+msgid "socket"
+msgstr ""
+
+#: ../src/signature.py:203
+msgid "process"
+msgstr ""
+
+#: ../src/signature.py:204
+msgid "filesystem"
+msgstr ""
+
+#: ../src/signature.py:205
+msgid "node"
+msgstr ""
+
+#: ../src/signature.py:206
+msgid "capability"
+msgstr ""
+
+#: ../src/signature.py:382
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr ""
 
-#: ../src/signature.py:364
-msgid "SELinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:385
+msgid "SEinux is in permissive mode. This access was not denied."
 msgstr ""
 
-#: ../src/signature.py:367
+#: ../src/signature.py:468
 #, python-format
-msgid "<font color=\"0000FF\">[%s]</font><p>%s"
+msgid ""
+"\n"
+"\n"
+"*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
 
-#: ../src/signature.py:407 ../src/signature.py:480
-msgid "Detailed Description"
-msgstr "Detaljan opis"
-
-#: ../src/signature.py:410 ../src/signature.py:482
-msgid "Allowing Access"
-msgstr "Dopuštanje pristupa"
-
-#: ../src/signature.py:414 ../src/signature.py:485
-msgid "Fix Command"
+#: ../src/signature.py:474
+msgid ""
+"\n"
+"If "
 msgstr ""
 
-#: ../src/signature.py:417 ../src/signature.py:488
+#: ../src/signature.py:476
+msgid ""
+"\n"
+"Then "
+msgstr ""
+
+#: ../src/signature.py:479
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
+
+#: ../src/signature.py:480
 msgid "Additional Information"
 msgstr "Dodatni podaci"
 
-#: ../src/signature.py:429 ../src/signature.py:490
+#: ../src/signature.py:482
 msgid "Source Context"
 msgstr "Izvorni kontekst"
 
-#: ../src/signature.py:430 ../src/signature.py:491
+#: ../src/signature.py:483
 msgid "Target Context"
 msgstr "Ciljani kontekst"
 
-#: ../src/signature.py:431 ../src/signature.py:492
+#: ../src/signature.py:484
 msgid "Target Objects"
 msgstr "Ciljani objekti"
 
-#: ../src/signature.py:432 ../src/signature.py:493
+#: ../src/signature.py:485
 #, fuzzy
 msgid "Source"
 msgstr "Izvorni kontekst"
 
-#: ../src/signature.py:433 ../src/signature.py:494
+#: ../src/signature.py:486
 #, fuzzy
 msgid "Source Path"
 msgstr "Izvorni kontekst"
 
-#: ../src/signature.py:434 ../src/signature.py:495
+#: ../src/signature.py:487
 msgid "Port"
 msgstr ""
 
-#: ../src/signature.py:435 ../src/signature.py:496
+#: ../src/signature.py:488
 #, fuzzy
 msgid "Host"
 msgstr "Naziv računala"
 
-#: ../src/signature.py:436 ../src/signature.py:497
+#: ../src/signature.py:489
 #, fuzzy
 msgid "Source RPM Packages"
 msgstr "Zahvaćeni RPM paketi"
 
-#: ../src/signature.py:437 ../src/signature.py:498
+#: ../src/signature.py:490
 #, fuzzy
 msgid "Target RPM Packages"
 msgstr "Zahvaćeni RPM paketi"
 
-#: ../src/signature.py:438 ../src/signature.py:499
+#: ../src/signature.py:491
 msgid "Policy RPM"
 msgstr "RPM pravila"
 
-#: ../src/signature.py:439 ../src/signature.py:500
+#: ../src/signature.py:492
 msgid "Selinux Enabled"
 msgstr "Selinux je omogućen"
 
-#: ../src/signature.py:440 ../src/signature.py:501
+#: ../src/signature.py:493
 msgid "Policy Type"
 msgstr "Vrsta pravila"
 
-#: ../src/signature.py:441 ../src/signature.py:502
+#: ../src/signature.py:494
 msgid "Enforcing Mode"
 msgstr "Način prisile"
 
-#: ../src/signature.py:442 ../src/signature.py:503
-msgid "Plugin Name"
-msgstr "Naziv dodatka"
-
-#: ../src/signature.py:443 ../src/signature.py:504
+#: ../src/signature.py:495
 msgid "Host Name"
 msgstr "Naziv računala"
 
-#: ../src/signature.py:444 ../src/signature.py:505
+#: ../src/signature.py:496
 msgid "Platform"
 msgstr "Platforma"
 
-#: ../src/signature.py:445 ../src/signature.py:506
+#: ../src/signature.py:497
 msgid "Alert Count"
 msgstr "Broj uzbuna"
 
-#: ../src/signature.py:446 ../src/signature.py:507
+#: ../src/signature.py:498
 msgid "First Seen"
 msgstr ""
 
-#: ../src/signature.py:447 ../src/signature.py:508
+#: ../src/signature.py:499
 msgid "Last Seen"
 msgstr ""
 
-#: ../src/signature.py:448 ../src/signature.py:509
+#: ../src/signature.py:500
 msgid "Local ID"
 msgstr ""
 
-#: ../src/signature.py:449 ../src/signature.py:510
-msgid "Line Numbers"
-msgstr "Brojevi redaka"
-
-#: ../src/signature.py:452 ../src/signature.py:513
+#: ../src/signature.py:502
 msgid "Raw Audit Messages"
 msgstr "Sirova poruke revizije"
+
+#: ../src/updater.py:18
+#, python-format
+msgid "current: %s "
+msgstr ""
+
+#: ../src/updater.py:27
+#, python-format
+msgid "newer: %s "
+msgstr ""
 
 #: ../src/seapplet.c:188
 #, fuzzy
 msgid "New SELinux security alert"
 msgstr "Prikaži uzbune revizija"
 
-#: ../src/seapplet.c:189 ../src/sealert:312
+#: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
 msgstr ""
 
@@ -505,142 +605,143 @@ msgstr ""
 msgid "Show"
 msgstr ""
 
-#: ../src/sealert:65
+#. set tooltip
+#: ../src/seapplet.c:432 ../src/sealert:67
 msgid "SELinux AVC denial, click to view"
 msgstr ""
 
-#: ../src/sealert:139
+#: ../src/sealert:104
+msgid "SELinux not enabled, sealert will not run on non SELinux systems"
+msgstr ""
+
+#: ../src/sealert:154
 msgid "Not fixable."
 msgstr ""
 
-#: ../src/sealert:145
+#: ../src/sealert:161
 #, c-format
 msgid "Successfully ran %s"
 msgstr ""
 
-#: ../src/sealert:311
-msgid "SELinux"
+#: ../src/sealert:166
+#, c-format
+msgid "Plugin %s not valid for %s id"
 msgstr ""
 
-#: ../src/setroubleshootd:92
+#: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr ""
 
-#: ../src/setroubleshootd:123
+#: ../src/setroubleshootd:113
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr ""
 
 #: ../gui/browser.glade.h:1
-msgid "<small><b>Error while trying to check policy version.</b></small>"
+msgid "<b>SELinux has detected a problem.</b>"
 msgstr ""
 
 #: ../gui/browser.glade.h:2
-msgid "<small>Click here to install updates using PackageKit</small>"
-msgstr ""
+#, fuzzy
+msgid "Access:"
+msgstr "Izvorni kontekst"
 
 #: ../gui/browser.glade.h:3
-msgid "<small>There is a newer version of policy available.</small>"
-msgstr ""
-
-#: ../gui/browser.glade.h:4
 msgid ""
-"<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
-msgstr ""
-
-#: ../gui/browser.glade.h:5
-msgid "<span foreground='grey'>date</span>"
-msgstr ""
-
-#: ../gui/browser.glade.h:6
-msgid ""
-"<span size='large' weight='bold' \tface='verdana'>No alerts to view.</span>"
-msgstr ""
-
-#: ../gui/browser.glade.h:7
-msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-msgstr ""
-
-#: ../gui/browser.glade.h:8
-msgid ""
-"Certain signatures allow administrators to correct your system with "
-"setroubleshoot."
-msgstr ""
-
-#: ../gui/browser.glade.h:9
-#, fuzzy
-msgid "Copy full error output to clipboard."
-msgstr "Odabrane uzbune kopiraj u međuspremnik"
-
-#: ../gui/browser.glade.h:10
-msgid ""
-"Copyright (c) 2009 \n"
+"Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
 
-#: ../gui/browser.glade.h:16
+#: ../gui/browser.glade.h:9
+msgid "Delete current alert from the database."
+msgstr ""
+
+#: ../gui/browser.glade.h:10
+msgid "Do not show alert message, when this alert is triggered."
+msgstr ""
+
+#: ../gui/browser.glade.h:11
+msgid "Email alert to system administrator."
+msgstr ""
+
+#: ../gui/browser.glade.h:12
 #, fuzzy
-msgid "Delete _All Alerts"
+msgid "Ignore"
+msgstr "Uvijek ne ignoriraj"
+
+#: ../gui/browser.glade.h:13
+#, fuzzy
+msgid "List All Alerts"
 msgstr "Odaberi sve uzbune"
 
-#: ../gui/browser.glade.h:17
+#: ../gui/browser.glade.h:14
+msgid "List all alerts in the database."
+msgstr ""
+
+#: ../gui/browser.glade.h:15
+msgid "No"
+msgstr ""
+
+#: ../gui/browser.glade.h:16
 #, fuzzy
-msgid "Delete alert."
-msgstr "Odaberi sve uzbune"
+msgid "No Alerts"
+msgstr "Kopiraj uzbunu"
+
+#: ../gui/browser.glade.h:17
+msgid ""
+"Read alert troubleshoot information.  May require administrative privledge "
+"to remedy."
+msgstr ""
+
+#: ../gui/browser.glade.h:18
+msgid "Report"
+msgstr ""
 
 #: ../gui/browser.glade.h:19
 #, fuzzy
-msgid "Ignore Alert"
-msgstr "Ignoriraj 1 dan"
+msgid "SELinux Alert Browser"
+msgstr "Prikaži uzbune revizija"
 
 #: ../gui/browser.glade.h:20
-#, fuzzy
-msgid "Ignore this SELinux Security Alert in the future."
-msgstr "Prikaži uzbune revizija"
-
-#: ../gui/browser.glade.h:21
-msgid "Next"
-msgstr ""
-
-#: ../gui/browser.glade.h:22
-msgid "Previous"
-msgstr ""
-
-#: ../gui/browser.glade.h:23
-msgid "Reports a bug to bugzilla.redhat.com."
-msgstr ""
-
-#: ../gui/browser.glade.h:24
-#, fuzzy
-msgid "SELinux Security Alerts"
-msgstr "Prikaži uzbune revizija"
-
-#: ../gui/browser.glade.h:25
 #, fuzzy
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot pretraživač"
 
+#: ../gui/browser.glade.h:21
+#, fuzzy
+msgid "Show next alert."
+msgstr "Odaberi sve uzbune"
+
+#: ../gui/browser.glade.h:22
+msgid "Show previous alert."
+msgstr ""
+
+#: ../gui/browser.glade.h:23
+#, fuzzy
+msgid "Troubleshoot"
+msgstr "SETroubleshoot pretraživač"
+
+#: ../gui/browser.glade.h:24
+msgid "Turn off alert pop-ups."
+msgstr ""
+
+#: ../gui/browser.glade.h:25
+msgid "Turn on alert pop-ups."
+msgstr ""
+
 #: ../gui/browser.glade.h:26
-msgid "Show all..."
+msgid "Would you like to receive alerts?"
 msgstr ""
 
 #: ../gui/browser.glade.h:27
-msgid "Show full error output"
+msgid "Yes"
 msgstr ""
 
 #: ../gui/browser.glade.h:28
-msgid "_File"
-msgstr ""
-
-#: ../gui/browser.glade.h:29
-msgid "_Help"
-msgstr ""
-
-#: ../gui/browser.glade.h:30
-msgid "_Report this Bug..."
+msgid "label"
 msgstr ""
 
 #: ../gui/bug_report.glade.h:1
@@ -665,10 +766,6 @@ msgid ""
 "report and modify it to exclude any sensitive data below."
 msgstr ""
 
-#: ../gui/bug_report.glade.h:6
-msgid "gtk-cancel"
-msgstr ""
-
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
@@ -682,6 +779,41 @@ msgstr "Izvorni kontekst"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Odabrane uzbune kopiraj u međuspremnik"
+
+#~ msgid "Summary"
+#~ msgstr "Sažetak"
+
+#, fuzzy
+#~ msgid "Count"
+#~ msgstr "Broj uzbuna"
+
+#~ msgid "Detailed Description"
+#~ msgstr "Detaljan opis"
+
+#~ msgid "Allowing Access"
+#~ msgstr "Dopuštanje pristupa"
+
+#~ msgid "Plugin Name"
+#~ msgstr "Naziv dodatka"
+
+#~ msgid "Line Numbers"
+#~ msgstr "Brojevi redaka"
+
+#, fuzzy
+#~ msgid "Copy full error output to clipboard."
+#~ msgstr "Odabrane uzbune kopiraj u međuspremnik"
+
+#, fuzzy
+#~ msgid "Ignore Alert"
+#~ msgstr "Ignoriraj 1 dan"
+
+#, fuzzy
+#~ msgid "Ignore this SELinux Security Alert in the future."
+#~ msgstr "Prikaži uzbune revizija"
 
 #~ msgid "MLS Enabled"
 #~ msgstr "MLS je omogućen"
@@ -737,9 +869,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Copy selected text in detail pane"
 #~ msgstr "Kopiraj odabir unutar okna detalja"
-
-#~ msgid "Copy Alert"
-#~ msgstr "Kopiraj uzbunu"
 
 #~ msgid "Mark _Delete"
 #~ msgstr "Označi za _brisanje"

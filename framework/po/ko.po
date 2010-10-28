@@ -3,15 +3,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Eunju Kim <eukim@redhat.com>, 2006, 2007, 2009.
-#: ../src/browser.py:774
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-01-27 09:51-0500\n"
+"POT-Creation-Date: 2010-10-28 17:25-0400\n"
 "PO-Revision-Date: 2010-04-18 21:22+1000\n"
 "Last-Translator: \n"
 "Language-Team: Korean <en@li.org>\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -27,84 +27,152 @@ msgstr "SELinux 문제 해결사 "
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux 액세스 거부 문제 해결 "
 
-#: ../src/browser.py:162
-msgid "Sealert Error"
-msgstr "Sealert 오류  "
+#: ../src/audit_data.py:861
+#, python-format
+msgid "port %s"
+msgstr ""
 
-#: ../src/browser.py:173
-msgid "Sealert Message"
-msgstr "Sealert 메세지 "
+#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/rpc.py:544 ../src/util.py:223
+msgid "Unknown"
+msgstr "알려지지 않음"
 
-#: ../src/browser.py:393
+#: ../src/audit_data.py:948
+#, python-format
 msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-"Browser</span>"
-msgstr "<span face=\"Helvetica\" size='large' weight='bold'>SELinux 문제 해결 브라우저</span>"
+"%s \n"
+"**** Invalid AVC allowed in current policy ***\n"
+msgstr ""
 
-#: ../src/browser.py:435
+#: ../src/audit_data.py:950
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:952
+msgid "Must call policy_init first"
+msgstr ""
+
+#: ../src/audit_data.py:954
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad target context. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:956
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad source context. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:958
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad type class ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:960
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad permission ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:962
+msgid "Error during access vector computation"
+msgstr ""
+
+#: ../src/browser.py:225
+#, fuzzy
+msgid "Error while checking policy version."
+msgstr "<small><b>정책 버전을 확인하는 동안 오류 발생</b></small>  "
+
+#: ../src/browser.py:230
+msgid ""
+"There is a newer version of policy available.  Updating your policy may fix "
+"the denial that you having problems with."
+msgstr ""
+
+#: ../src/browser.py:231
+msgid "Newest Version"
+msgstr ""
+
+#: ../src/browser.py:233
+msgid "Update Policy"
+msgstr ""
+
+#: ../src/browser.py:250
 msgid "#"
 msgstr "#"
 
-#. Note: The following string items returned by a plugin
-#. already have had their template substitutions HTML escaped
-#. when the plugin generated it's report
-#: ../src/browser.py:435 ../src/signature.py:405 ../src/signature.py:479
-msgid "Summary"
-msgstr "요약"
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Source Process"
+msgstr "소스 RPM 패키지 "
 
-#: ../src/browser.py:435
-msgid "Count"
-msgstr "카운트 カウント"
+#: ../src/browser.py:250
+msgid "Attempted Access"
+msgstr ""
 
-#: ../src/browser.py:435 ../src/run_cmd.py:389
-msgid "Command"
-msgstr "명령 "
+#: ../src/browser.py:250
+msgid "On this"
+msgstr ""
 
-#: ../src/browser.py:435
-msgid "Date"
-msgstr "날짜 "
+#: ../src/browser.py:250
+msgid "Occured"
+msgstr ""
 
-#: ../src/browser.py:591
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Edit Status"
+msgstr "상태 "
+
+#: ../src/browser.py:374
+msgid "If you were trying to..."
+msgstr ""
+
+#: ../src/browser.py:380
+msgid "Then this is the solution."
+msgstr ""
+
+#: ../src/browser.py:387
+msgid "If "
+msgstr ""
+
+#: ../src/browser.py:485
+#, fuzzy
+msgid ""
+"Report\n"
+"Bug"
+msgstr "버그 보고(_R)...  "
+
+#: ../src/browser.py:513
 msgid "Unable to grant access."
 msgstr "액세스 권한을 부여할 수 없습니다.   "
 
-#: ../src/browser.py:625
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-"seriously compromised!</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>귀하의 시스템은 심각"
-"한 위험에 노출될 수 있습니다!</span>  "
-
-#: ../src/browser.py:632
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-"suspicious behavior on your system</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux는 시스템에서 "
-"의심스러운 동작을 감지했습니다</span> "
-
-#: ../src/browser.py:702
-msgid "Today"
-msgstr "오늘  "
-
-#: ../src/browser.py:704
-msgid "Yesterday"
-msgstr "어제  "
-
-#: ../src/browser.py:721
+#: ../src/browser.py:538 ../src/browser.py:646
 #, python-format
-msgid "<span foreground='#555555'>%s on %s</span>"
-msgstr "<span foreground='#555555'>%s 상의 %s</span>  "
-
-#: ../src/browser.py:776
-#, python-format
-msgid ""
-"Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-"weight='bold' size='large' face='verdana'>%d</span>"
+msgid "Alert %d of %d"
 msgstr ""
-"통지<span weight='bold' size='large' face='verdana'> %d</span> / <span "
-"weight='bold' size='large' face='verdana'>%d</span>  "
+
+#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
+#: ../src/browser.py:752
+msgid "(removed)"
+msgstr ""
+
+#: ../src/browser.py:799
+msgid "Sealert Error"
+msgstr "Sealert 오류  "
+
+#: ../src/browser.py:810
+msgid "Sealert Message"
+msgstr "Sealert 메세지 "
 
 #: ../src/email_dialog.py:47
 msgid "Setroubleshoot Email Preferences"
@@ -255,13 +323,11 @@ msgstr "%s이(가) 오류를 발생시켰습니다!  "
 msgid "Error"
 msgstr "오류 "
 
-#: ../src/Plugin.py:82 ../gui/browser.glade.h:18
-msgid "Fix it"
-msgstr "수정  "
-
-#: ../src/rpc.py:544 ../src/util.py:223
-msgid "Unknown"
-msgstr "알려지지 않음"
+#: ../src/Plugin.py:79
+msgid ""
+"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS"
+msgstr ""
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -278,6 +344,10 @@ msgstr "암호:  "
 #: ../src/run_cmd.py:378
 msgid "SELinux Fix"
 msgstr "SELinux Fix"
+
+#: ../src/run_cmd.py:389
+msgid "Command"
+msgstr "명령 "
 
 #: ../src/run_cmd.py:399
 msgid "Run Command"
@@ -321,313 +391,376 @@ msgstr "실패, 종료 상태 = %d "
 msgid "Done: "
 msgstr "완료:  "
 
-#: ../src/server.py:204
+#: ../src/server.py:205
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr "완전한 SELinux 메시지를 보려면 sealert -l %s 을(를) 실행합니다 "
 
-#: ../src/server.py:396
+#: ../src/server.py:397
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "사용자 (%s)는 (%s)에 대한 데이터를 수정할 수 없습니다  "
 
-#: ../src/server.py:480 ../src/sealert:275
+#: ../src/server.py:461 ../src/sealert:295
 msgid "Started"
 msgstr "시작 "
 
-#: ../src/server.py:520
+#: ../src/server.py:508
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:587
+#: ../src/server.py:575
 msgid "Audit Listener"
 msgstr "청취자 감사 "
 
-#: ../src/signature.py:70
+#: ../src/signature.py:75
 msgid "Never Ignore"
 msgstr "절대 무시하지 않음"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:76
 msgid "Ignore Always"
 msgstr "항상 무시 "
 
-#: ../src/signature.py:72
+#: ../src/signature.py:77
 msgid "Ignore After First Alert"
 msgstr "첫 번째 통지 이후는 무시 "
 
-#: ../src/signature.py:362
+#: ../src/signature.py:196
+msgid "directory"
+msgstr ""
+
+#: ../src/signature.py:197
+msgid "semaphore"
+msgstr ""
+
+#: ../src/signature.py:198
+msgid "shared memory"
+msgstr ""
+
+#: ../src/signature.py:199
+msgid "message queue"
+msgstr ""
+
+#: ../src/signature.py:200
+msgid "message"
+msgstr ""
+
+#: ../src/signature.py:201
+msgid "file"
+msgstr ""
+
+#: ../src/signature.py:202
+#, fuzzy
+msgid "socket"
+msgstr "소켓 오류 "
+
+#: ../src/signature.py:203
+msgid "process"
+msgstr ""
+
+#: ../src/signature.py:204
+msgid "filesystem"
+msgstr ""
+
+#: ../src/signature.py:205
+msgid "node"
+msgstr ""
+
+#: ../src/signature.py:206
+msgid "capability"
+msgstr ""
+
+#: ../src/signature.py:382
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
-msgstr "%s은(는) 허용 유형 (%s)이 있습니다. 이 액세스는 거부되지 않습니다.       "
+msgstr ""
+"%s은(는) 허용 유형 (%s)이 있습니다. 이 액세스는 거부되지 않습니다.       "
 
-#: ../src/signature.py:365
-msgid "SELinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:385
+#, fuzzy
+msgid "SEinux is in permissive mode. This access was not denied."
 msgstr "SELinux는 허용 모드로 되어 있습니다. 이 액세스는 거부되지 않습니다.  "
 
-#: ../src/signature.py:368
+#: ../src/signature.py:468
 #, python-format
-msgid "<font color=\"0000FF\">[%s]</font><p>%s"
-msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+msgid ""
+"\n"
+"\n"
+"*****  Plugin %s (%.4s confidence) suggests  "
+msgstr ""
 
-#: ../src/signature.py:408 ../src/signature.py:481
-msgid "Detailed Description"
-msgstr "상세 설명"
+#: ../src/signature.py:474
+msgid ""
+"\n"
+"If "
+msgstr ""
 
-#: ../src/signature.py:411 ../src/signature.py:483
-msgid "Allowing Access"
-msgstr "액세스 허용"
+#: ../src/signature.py:476
+msgid ""
+"\n"
+"Then "
+msgstr ""
 
-#: ../src/signature.py:415 ../src/signature.py:486
-msgid "Fix Command"
-msgstr "Fix 명령 "
+#: ../src/signature.py:479
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
 
-#: ../src/signature.py:418 ../src/signature.py:489
+#: ../src/signature.py:480
 msgid "Additional Information"
 msgstr "자세한 정보"
 
-#: ../src/signature.py:430 ../src/signature.py:491
+#: ../src/signature.py:482
 msgid "Source Context"
 msgstr "소스 문맥"
 
-#: ../src/signature.py:431 ../src/signature.py:492
+#: ../src/signature.py:483
 msgid "Target Context"
 msgstr "대상 문맥"
 
-#: ../src/signature.py:432 ../src/signature.py:493
+#: ../src/signature.py:484
 msgid "Target Objects"
 msgstr "대상 객체"
 
-#: ../src/signature.py:433 ../src/signature.py:494
+#: ../src/signature.py:485
 msgid "Source"
 msgstr "소스 "
 
-#: ../src/signature.py:434 ../src/signature.py:495
+#: ../src/signature.py:486
 msgid "Source Path"
 msgstr "소스 경로 "
 
-#: ../src/signature.py:435 ../src/signature.py:496
+#: ../src/signature.py:487
 msgid "Port"
 msgstr "포트 "
 
-#: ../src/signature.py:436 ../src/signature.py:497
+#: ../src/signature.py:488
 msgid "Host"
 msgstr "호스트 "
 
-#: ../src/signature.py:437 ../src/signature.py:498
+#: ../src/signature.py:489
 msgid "Source RPM Packages"
 msgstr "소스 RPM 패키지 "
 
-#: ../src/signature.py:438 ../src/signature.py:499
+#: ../src/signature.py:490
 msgid "Target RPM Packages"
 msgstr "대상 RPM 패키지 "
 
-#: ../src/signature.py:439 ../src/signature.py:500
+#: ../src/signature.py:491
 msgid "Policy RPM"
 msgstr "정책 RPM"
 
-#: ../src/signature.py:440 ../src/signature.py:501
+#: ../src/signature.py:492
 msgid "Selinux Enabled"
 msgstr "Selinux 활성화"
 
-#: ../src/signature.py:441 ../src/signature.py:502
+#: ../src/signature.py:493
 msgid "Policy Type"
 msgstr "정책 유형"
 
-#: ../src/signature.py:442 ../src/signature.py:503
+#: ../src/signature.py:494
 msgid "Enforcing Mode"
 msgstr "강제 모드"
 
-#: ../src/signature.py:443 ../src/signature.py:504
-msgid "Plugin Name"
-msgstr "플러그인명"
-
-#: ../src/signature.py:444 ../src/signature.py:505
+#: ../src/signature.py:495
 msgid "Host Name"
 msgstr "호스트명"
 
-#: ../src/signature.py:445 ../src/signature.py:506
+#: ../src/signature.py:496
 msgid "Platform"
 msgstr "플랫폼"
 
-#: ../src/signature.py:446 ../src/signature.py:507
+#: ../src/signature.py:497
 msgid "Alert Count"
 msgstr "통지 카운트"
 
-#: ../src/signature.py:447 ../src/signature.py:508
+#: ../src/signature.py:498
 msgid "First Seen"
 msgstr "초기 화면 "
 
-#: ../src/signature.py:448 ../src/signature.py:509
+#: ../src/signature.py:499
 msgid "Last Seen"
 msgstr "마지막 화면 "
 
-#: ../src/signature.py:449 ../src/signature.py:510
+#: ../src/signature.py:500
 msgid "Local ID"
 msgstr "로컬 ID "
 
-#: ../src/signature.py:450 ../src/signature.py:511
-msgid "Line Numbers"
-msgstr "줄 번호"
-
-#: ../src/signature.py:453 ../src/signature.py:514
+#: ../src/signature.py:502
 msgid "Raw Audit Messages"
 msgstr "원 감사 메세지"
 
-#: ../src/seapplet.c:189
+#: ../src/updater.py:18
+#, python-format
+msgid "current: %s "
+msgstr ""
+
+#: ../src/updater.py:27
+#, python-format
+msgid "newer: %s "
+msgstr ""
+
+#: ../src/seapplet.c:188
 msgid "New SELinux security alert"
 msgstr "새 SELinux 보안 통지 "
 
-#: ../src/seapplet.c:190 ../src/sealert:311
+#: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
 msgstr "AVC 거부, 아이콘 클릭하여 보기 "
 
-#: ../src/seapplet.c:198 ../src/seapplet.c:250
+#: ../src/seapplet.c:197 ../src/seapplet.c:249
 msgid "Dismiss"
 msgstr "취소  "
 
-#: ../src/seapplet.c:208 ../src/seapplet.c:260
+#: ../src/seapplet.c:207 ../src/seapplet.c:259
 msgid "Show"
 msgstr "보기 "
 
-#: ../src/sealert:64
+#. set tooltip
+#: ../src/seapplet.c:432 ../src/sealert:67
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC 거부, 클릭하여 보기 "
 
-#: ../src/sealert:138
+#: ../src/sealert:104
+msgid "SELinux not enabled, sealert will not run on non SELinux systems"
+msgstr ""
+
+#: ../src/sealert:154
 msgid "Not fixable."
 msgstr "수정할 수 없음  "
 
-#: ../src/sealert:144
+#: ../src/sealert:161
 #, c-format
 msgid "Successfully ran %s"
 msgstr "성공적으로 %s 실행  "
 
-#: ../src/sealert:310
-msgid "SELinux"
-msgstr "SELinux"
+#: ../src/sealert:166
+#, c-format
+msgid "Plugin %s not valid for %s id"
+msgstr ""
 
-#: ../src/setroubleshootd:83
+#: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux가 활성화되어 있지 않습니다. setroubleshootd를 종료합니다..."
 
-#: ../src/setroubleshootd:114
+#: ../src/setroubleshootd:113
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork #1 실패: %d (%s)"
 
 #: ../gui/browser.glade.h:1
-msgid "<small><b>Error while trying to check policy version.</b></small>"
-msgstr "<small><b>정책 버전을 확인하는 동안 오류 발생</b></small>  "
+msgid "<b>SELinux has detected a problem.</b>"
+msgstr ""
 
 #: ../gui/browser.glade.h:2
-msgid "<small>Click here to install updates using PackageKit</small>"
-msgstr "<small>여기를 클릭하여 PackageKit를 사용하여 업데이트 설치</small>  "
+#, fuzzy
+msgid "Access:"
+msgstr "성공 "
 
 #: ../gui/browser.glade.h:3
-msgid "<small>There is a newer version of policy available.</small>"
-msgstr "<small>정책의 최신 버전을 사용할 수 있습니다.</small>  "
-
-#: ../gui/browser.glade.h:4
-msgid "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux 문제해결 "
-"브라우저</span>  "
-
-#: ../gui/browser.glade.h:5
-msgid "<span foreground='grey'>date</span>"
-msgstr "<span foreground='grey'>날짜</span>  "
-
-#: ../gui/browser.glade.h:6
-msgid "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</span>"
-msgstr ""
-"<span size='large' weight='bold' \tface='verdana'>확인할 수 있는 통지가 없습"
-"니다.</span>  "
-
-#: ../gui/browser.glade.h:7
-msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-msgstr "<span weight='bold' size='large' face='verdana'>통지 내용</span>  "
-
-#: ../gui/browser.glade.h:8
+#, fuzzy
 msgid ""
-"Certain signatures allow administrators to correct your system with "
-"setroubleshoot."
+"Copyright (c) 2010 \n"
+"Thomas Liu <tliu@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 msgstr ""
-"일부 서명으로 관리자는 setroubleshoot을 통해 시스템을 올바르게 수정할 수 있습"
-"니다.   "
+"Copyright (c) 2009 \n"
+"Thomas Liu <tliu@redhat.com>\n"
+"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
-msgid "Copy full error output to clipboard."
-msgstr "전체 오류 출력 결과를 클립보드로 복사   "
+msgid "Delete current alert from the database."
+msgstr ""
 
 #: ../gui/browser.glade.h:10
-msgid ""
-"Copyright (c) 2009 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+msgid "Do not show alert message, when this alert is triggered."
 msgstr ""
-"Copyright (c) 2009 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:16
-msgid "Delete _All Alerts"
+#: ../gui/browser.glade.h:11
+msgid "Email alert to system administrator."
+msgstr ""
+
+#: ../gui/browser.glade.h:12
+#, fuzzy
+msgid "Ignore"
+msgstr "절대 무시하지 않음"
+
+#: ../gui/browser.glade.h:13
+#, fuzzy
+msgid "List All Alerts"
 msgstr "모든 통지 삭제(_A)"
 
-#: ../gui/browser.glade.h:17
-msgid "Delete alert."
-msgstr "통지 삭제."
+#: ../gui/browser.glade.h:14
+msgid "List all alerts in the database."
+msgstr ""
 
-#: ../gui/browser.glade.h:19
-msgid "Ignore Alert"
+#: ../gui/browser.glade.h:15
+msgid "No"
+msgstr ""
+
+#: ../gui/browser.glade.h:16
+#, fuzzy
+msgid "No Alerts"
 msgstr "통지 무시  "
 
-#: ../gui/browser.glade.h:20
-msgid "Ignore this SELinux Security Alert in the future."
-msgstr "앞으로 SELinux 보안 통지를 무시합니다.  "
+#: ../gui/browser.glade.h:17
+msgid ""
+"Read alert troubleshoot information.  May require administrative privledge "
+"to remedy."
+msgstr ""
 
-#: ../gui/browser.glade.h:21
-msgid "Next"
-msgstr "다음  "
+#: ../gui/browser.glade.h:18
+#, fuzzy
+msgid "Report"
+msgstr "보고서 제출  "
 
-#: ../gui/browser.glade.h:22
-msgid "Previous"
-msgstr "이전  "
-
-#: ../gui/browser.glade.h:23
-msgid "Reports a bug to bugzilla.redhat.com."
-msgstr "bugzilla.redhat.com에 버그를 보고합니다.  "
-
-#: ../gui/browser.glade.h:24
-msgid "SELinux Security Alerts"
+#: ../gui/browser.glade.h:19
+#, fuzzy
+msgid "SELinux Alert Browser"
 msgstr "SELinux 보안 통지      "
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:20
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot 통지 목록  "
 
+#: ../gui/browser.glade.h:21
+#, fuzzy
+msgid "Show next alert."
+msgstr "통지 삭제."
+
+#: ../gui/browser.glade.h:22
+msgid "Show previous alert."
+msgstr ""
+
+#: ../gui/browser.glade.h:23
+#, fuzzy
+msgid "Troubleshoot"
+msgstr "SELinux 문제 해결사 "
+
+#: ../gui/browser.glade.h:24
+msgid "Turn off alert pop-ups."
+msgstr ""
+
+#: ../gui/browser.glade.h:25
+msgid "Turn on alert pop-ups."
+msgstr ""
+
 #: ../gui/browser.glade.h:26
-msgid "Show all..."
-msgstr "모두 보기...   "
+msgid "Would you like to receive alerts?"
+msgstr ""
 
 #: ../gui/browser.glade.h:27
-msgid "Show full error output"
-msgstr "오류 출력 결과 모두 보기  "
+msgid "Yes"
+msgstr ""
 
 #: ../gui/browser.glade.h:28
-msgid "_File"
-msgstr "파일(_F) "
-
-#: ../gui/browser.glade.h:29
-msgid "_Help"
-msgstr "도움말(_H) "
-
-#: ../gui/browser.glade.h:30
-msgid "_Report this Bug..."
-msgstr "버그 보고(_R)...  "
+msgid "label"
+msgstr ""
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
@@ -650,15 +783,12 @@ msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
 msgstr ""
-"이 버그 보고에 포함된 오류 출력 결과를 다시 확인하여 기밀 데이터를 제외시키실 수도 "
-"있습니다."
-
-#: ../gui/bug_report.glade.h:6
-msgid "gtk-cancel"
-msgstr "gtk-cancel"
+"이 버그 보고에 포함된 오류 출력 결과를 다시 확인하여 기밀 데이터를 제외시키"
+"실 수도 있습니다."
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
-msgid "This operation was completed.  The quick brown fox jumped over the lazy dog."
+msgid ""
+"This operation was completed.  The quick brown fox jumped over the lazy dog."
 msgstr ""
 "이 작업이 완료되었습니다.  재빠른 갈색 여우가 느림보 개를 뛰어 넘습니"
 "다.        "
@@ -671,3 +801,135 @@ msgstr "성공!  "
 msgid "button"
 msgstr "버튼  "
 
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
+#~ "Browser</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux 문제 해결 브라"
+#~ "우저</span>"
+
+#~ msgid "Summary"
+#~ msgstr "요약"
+
+#~ msgid "Count"
+#~ msgstr "카운트 カウント"
+
+#~ msgid "Date"
+#~ msgstr "날짜 "
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
+#~ "seriously compromised!</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>귀하의 시스템은 심각"
+#~ "한 위험에 노출될 수 있습니다!</span>  "
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
+#~ "suspicious behavior on your system</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux는 시스템에서 "
+#~ "의심스러운 동작을 감지했습니다</span> "
+
+#~ msgid "Today"
+#~ msgstr "오늘  "
+
+#~ msgid "Yesterday"
+#~ msgstr "어제  "
+
+#~ msgid "<span foreground='#555555'>%s on %s</span>"
+#~ msgstr "<span foreground='#555555'>%s 상의 %s</span>  "
+
+#~ msgid ""
+#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span>"
+#~ msgstr ""
+#~ "통지<span weight='bold' size='large' face='verdana'> %d</span> / <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span>  "
+
+#~ msgid "Fix it"
+#~ msgstr "수정  "
+
+#~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
+#~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+
+#~ msgid "Detailed Description"
+#~ msgstr "상세 설명"
+
+#~ msgid "Allowing Access"
+#~ msgstr "액세스 허용"
+
+#~ msgid "Fix Command"
+#~ msgstr "Fix 명령 "
+
+#~ msgid "Plugin Name"
+#~ msgstr "플러그인명"
+
+#~ msgid "Line Numbers"
+#~ msgstr "줄 번호"
+
+#~ msgid "SELinux"
+#~ msgstr "SELinux"
+
+#~ msgid "<small>Click here to install updates using PackageKit</small>"
+#~ msgstr ""
+#~ "<small>여기를 클릭하여 PackageKit를 사용하여 업데이트 설치</small>  "
+
+#~ msgid "<small>There is a newer version of policy available.</small>"
+#~ msgstr "<small>정책의 최신 버전을 사용할 수 있습니다.</small>  "
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux 문제해결 브라"
+#~ "우저</span>  "
+
+#~ msgid "<span foreground='grey'>date</span>"
+#~ msgstr "<span foreground='grey'>날짜</span>  "
+
+#~ msgid ""
+#~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
+#~ "span>"
+#~ msgstr ""
+#~ "<span size='large' weight='bold' \tface='verdana'>확인할 수 있는 통지가 없"
+#~ "습니다.</span>  "
+
+#~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
+#~ msgstr "<span weight='bold' size='large' face='verdana'>통지 내용</span>  "
+
+#~ msgid ""
+#~ "Certain signatures allow administrators to correct your system with "
+#~ "setroubleshoot."
+#~ msgstr ""
+#~ "일부 서명으로 관리자는 setroubleshoot을 통해 시스템을 올바르게 수정할 수 "
+#~ "있습니다.   "
+
+#~ msgid "Copy full error output to clipboard."
+#~ msgstr "전체 오류 출력 결과를 클립보드로 복사   "
+
+#~ msgid "Ignore this SELinux Security Alert in the future."
+#~ msgstr "앞으로 SELinux 보안 통지를 무시합니다.  "
+
+#~ msgid "Next"
+#~ msgstr "다음  "
+
+#~ msgid "Previous"
+#~ msgstr "이전  "
+
+#~ msgid "Reports a bug to bugzilla.redhat.com."
+#~ msgstr "bugzilla.redhat.com에 버그를 보고합니다.  "
+
+#~ msgid "Show all..."
+#~ msgstr "모두 보기...   "
+
+#~ msgid "Show full error output"
+#~ msgstr "오류 출력 결과 모두 보기  "
+
+#~ msgid "_File"
+#~ msgstr "파일(_F) "
+
+#~ msgid "_Help"
+#~ msgstr "도움말(_H) "
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"

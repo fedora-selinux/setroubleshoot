@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: abrt.master.kn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-20 13:55-0400\n"
+"POT-Creation-Date: 2010-10-28 17:25-0400\n"
 "PO-Revision-Date: 2010-07-26 15:59+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: kn_IN <kde-i18n-doc@kde.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,24 +26,75 @@ msgstr "SELinux ತೊಂದರೆನಿವಾರಕ"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux ತೊಂದರೆನಿವಾರಕದ ನಿಲುಕಣಾ ನಿರಾಕರಣೆಗಳು"
 
-#: ../src/browser.py:64 ../src/browser.py:65 ../src/browser.py:66
-#: ../src/browser.py:85
-msgid "(removed)"
-msgstr "(ತೆಗೆದು ಹಾಕಲಾಗಿದೆ)"
+#: ../src/audit_data.py:861
+#, python-format
+msgid "port %s"
+msgstr ""
 
-#: ../src/browser.py:143
-msgid "Sealert Error"
-msgstr "Sealert ದೋಷ"
+#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/rpc.py:544 ../src/util.py:223
+msgid "Unknown"
+msgstr "ಅಜ್ಞಾತ"
 
-#: ../src/browser.py:154
-msgid "Sealert Message"
-msgstr "Sealert ಸಂದೇಶಗಳು"
+#: ../src/audit_data.py:948
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC allowed in current policy ***\n"
+msgstr ""
 
-#: ../src/browser.py:243
-msgid "Copy to Clipboard"
-msgstr "ಕ್ಲಿಪ್‌ಬೋರ್ಡಿಗೆ ಅಂಟಿಸು"
+#: ../src/audit_data.py:950
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
 
-#: ../src/browser.py:312
+#: ../src/audit_data.py:952
+msgid "Must call policy_init first"
+msgstr ""
+
+#: ../src/audit_data.py:954
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad target context. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:956
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad source context. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:958
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad type class ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:960
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad permission ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:962
+msgid "Error during access vector computation"
+msgstr ""
+
+#: ../src/browser.py:225
+#, fuzzy
+msgid "Error while checking policy version."
+msgstr ""
+"<small><b>ಪಾಲಿಸಿ ಆವೃತ್ತಿಯನ್ನು ಪರಿಶೀಲಿಸಲು ಪ್ರಯತ್ನಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ.</b></"
+"small>"
+
+#: ../src/browser.py:230
 msgid ""
 "There is a newer version of policy available.  Updating your policy may fix "
 "the denial that you having problems with."
@@ -50,91 +102,81 @@ msgstr ""
 "ಪಾಲಿಸಿಯ ಹೊಸ ಆವೃತ್ತಿಯು ಲಭ್ಯವಿದೆ. ನಿಮ್ಮ ಪಾಲಿಸಿಯನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡುವುದರಿಂದ, "
 "ನಿರಾಕರಣೆಯಿಂದ ನಿಮಗೆ ಉಂಟಾಗುತ್ತಿರುವ ತೊಂದರೆಯು ಸರಿಹೊಂದುವ ಸಾಧ್ಯತೆ ಇದೆ."
 
-#: ../src/browser.py:315 ../src/browser.py:541
+#: ../src/browser.py:231
+#, fuzzy
+msgid "Newest Version"
+msgstr "ಆವೃತ್ತಿ:"
+
+#: ../src/browser.py:233
 msgid "Update Policy"
 msgstr "ಅಪ್‌ಡೇಟ್ ನಿಯಮ"
 
-#: ../src/browser.py:327
-msgid "No alerts to view."
-msgstr "ನೋಡಲು ಯಾವುದೆ ಎಚ್ಚರಿಕೆಗಳಿಲ್ಲ."
-
-#: ../src/browser.py:345
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-"Browser</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux ದೋಷನಿವಾರಣಾ "
-"ವೀಕ್ಷಕ</span>"
-
-#: ../src/browser.py:390
+#: ../src/browser.py:250
 msgid "#"
 msgstr "#"
 
-#. Note: The following string items returned by a plugin
-#. already have had their template substitutions HTML escaped
-#. when the plugin generated it's report
-#: ../src/browser.py:390 ../src/signature.py:404 ../src/signature.py:478
-msgid "Summary"
-msgstr "ಸಾರಾಂಶ"
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Source Process"
+msgstr "ಆಕರ RPM ಪ್ಯಾಕೇಜ್‍ಗಳು"
 
-#: ../src/browser.py:390
-msgid "Count"
-msgstr "ಎಣಿಕೆ"
+#: ../src/browser.py:250
+msgid "Attempted Access"
+msgstr ""
 
-#: ../src/browser.py:390 ../src/run_cmd.py:389
-msgid "Command"
-msgstr "ಆಜ್ಞೆ"
+#: ../src/browser.py:250
+msgid "On this"
+msgstr ""
 
-#: ../src/browser.py:390
-msgid "Date"
-msgstr "ದಿನಾಂಕ"
+#: ../src/browser.py:250
+msgid "Occured"
+msgstr ""
 
-#: ../src/browser.py:544
-msgid "Report Bug..."
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Edit Status"
+msgstr "ಸ್ಥಿತಿ"
+
+#: ../src/browser.py:374
+msgid "If you were trying to..."
+msgstr ""
+
+#: ../src/browser.py:380
+msgid "Then this is the solution."
+msgstr ""
+
+#: ../src/browser.py:387
+msgid "If "
+msgstr ""
+
+#: ../src/browser.py:485
+#, fuzzy
+msgid ""
+"Report\n"
+"Bug"
 msgstr "ಈ ದೋಷವನ್ನು ವರದಿ ಮಾಡು..."
 
-#: ../src/browser.py:561
+#: ../src/browser.py:513
 msgid "Unable to grant access."
 msgstr "ಅನುಮತಿಯನ್ನು ನೀಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: ../src/browser.py:595
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-"seriously compromised!</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>ನಿಮ್ಮ ಗಣಕವು ಗಂಭೀರ "
-"ರೂಪದಲ್ಲಿ "
-"ರಾಜಿ ಮಾಡಿಕೊಂಡಿರಬಹುದು!</span>"
-
-#: ../src/browser.py:602
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-"suspicious behavior on your system</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux ನಿಮ್ಮ ಗಣಕದಲ್ಲಿ "
-"ಸಂಶಯಾಸ್ಪದ ವರ್ತನೆಯನ್ನು ಗುರುತಿಸಿದೆ</span>"
-
-#: ../src/browser.py:672
-msgid "Today"
-msgstr "ಇಂದು"
-
-#: ../src/browser.py:674
-msgid "Yesterday"
-msgstr "ನಿನ್ನೆ"
-
-#: ../src/browser.py:691
+#: ../src/browser.py:538 ../src/browser.py:646
 #, python-format
-msgid "<span foreground='#555555'>%s on %s</span>"
-msgstr "<span foreground='#555555'>%s, %s ನಲ್ಲಿ</span>"
-
-#: ../src/browser.py:746
-#, python-format
-msgid ""
-"Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-"weight='bold' size='large' face='verdana'>%d</span>"
+msgid "Alert %d of %d"
 msgstr ""
-"<span weight='bold' size='large' face='verdana'> %d</span> ಎಚ್ಚರಿಕೆ, <span "
-"weight='bold' size='large' face='verdana'>%d</span> ರಲ್ಲಿ"
+
+#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
+#: ../src/browser.py:752
+msgid "(removed)"
+msgstr "(ತೆಗೆದು ಹಾಕಲಾಗಿದೆ)"
+
+#: ../src/browser.py:799
+msgid "Sealert Error"
+msgstr "Sealert ದೋಷ"
+
+#: ../src/browser.py:810
+msgid "Sealert Message"
+msgstr "Sealert ಸಂದೇಶಗಳು"
 
 #: ../src/email_dialog.py:47
 msgid "Setroubleshoot Email Preferences"
@@ -286,13 +328,11 @@ msgstr "ಅಯ್ಯೋ, %s ಕ್ಕೆ ಒಂದು ದೋಷ ಎದುರಾ�
 msgid "Error"
 msgstr "ದೋಷ"
 
-#: ../src/Plugin.py:86 ../gui/browser.glade.h:18
-msgid "Fix it"
-msgstr "ಅದನ್ನು ಸರಿಪಡಿಸು"
-
-#: ../src/rpc.py:544 ../src/util.py:223
-msgid "Unknown"
-msgstr "ಅಜ್ಞಾತ"
+#: ../src/Plugin.py:79
+msgid ""
+"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS"
+msgstr ""
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -310,6 +350,10 @@ msgstr "ಗುಪ್ತಪದ: "
 msgid "SELinux Fix"
 msgstr "SELinux ಪರಿಹಾರ"
 
+#: ../src/run_cmd.py:389
+msgid "Command"
+msgstr "ಆಜ್ಞೆ"
+
 #: ../src/run_cmd.py:399
 msgid "Run Command"
 msgstr "ಆಜ್ಞೆಯನ್ನು ಚಲಾಯಿಸು"
@@ -324,8 +368,7 @@ msgstr "ಸ್ಥಿತಿ"
 
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
-msgstr ""
-"ಎಚ್ಚರಿಕೆ: ಈ ಆಜ್ಞೆಯು ಸರಿ ಇದೆಯೆ ಎಂದು ಪರಿಶೀಲಿಸುವ ಜವಾಬ್ದಾರಿಯು ನಿಮ್ಮ ಮೇಲಿದೆ"
+msgstr "ಎಚ್ಚರಿಕೆ: ಈ ಆಜ್ಞೆಯು ಸರಿ ಇದೆಯೆ ಎಂದು ಪರಿಶೀಲಿಸುವ ಜವಾಬ್ದಾರಿಯು ನಿಮ್ಮ ಮೇಲಿದೆ"
 
 #: ../src/run_cmd.py:466
 msgid "Not Run Yet"
@@ -363,154 +406,211 @@ msgstr " ಸಂಪೂರ್ಣ SELinux ಸಂದೇಶಗಳಿಗಾಗಿ. sea
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "ಬಳಕೆದಾರ (%s) ನು (%s) ಗಾಗಿ ದತ್ತಾಂಶವನ್ನು ಮಾರ್ಪಡಿಸಲಾಗುವುದಿಲ್ಲ"
 
-#: ../src/server.py:461 ../src/sealert:276
+#: ../src/server.py:461 ../src/sealert:295
 msgid "Started"
 msgstr "ಆರಂಭಗೊಂಡಿದೆ"
 
-#: ../src/server.py:505
+#: ../src/server.py:508
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:572
+#: ../src/server.py:575
 msgid "Audit Listener"
 msgstr "ಆಡಿಟ್ ಆಲಿಸುವವ"
 
-#: ../src/signature.py:70
+#: ../src/signature.py:75
 msgid "Never Ignore"
 msgstr "ಎಂದಿಗೂ ಅಲಕ್ಷಿಸದಿರು"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:76
 msgid "Ignore Always"
 msgstr "ಪ್ರತಿಬಾರಿಯೂ ಆಲಕ್ಷಿಸು"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:77
 msgid "Ignore After First Alert"
 msgstr "ಮೊದಲ ಎಚ್ಚರಿಕೆಯ ನಂತರ ಅಲಕ್ಷಿಸು"
 
-#: ../src/signature.py:361
+#: ../src/signature.py:196
+msgid "directory"
+msgstr ""
+
+#: ../src/signature.py:197
+msgid "semaphore"
+msgstr ""
+
+#: ../src/signature.py:198
+msgid "shared memory"
+msgstr ""
+
+#: ../src/signature.py:199
+msgid "message queue"
+msgstr ""
+
+#: ../src/signature.py:200
+msgid "message"
+msgstr ""
+
+#: ../src/signature.py:201
+msgid "file"
+msgstr ""
+
+#: ../src/signature.py:202
+#, fuzzy
+msgid "socket"
+msgstr "ಸಾಕೆಟ್ ದೋಷ"
+
+#: ../src/signature.py:203
+msgid "process"
+msgstr ""
+
+#: ../src/signature.py:204
+msgid "filesystem"
+msgstr ""
+
+#: ../src/signature.py:205
+msgid "node"
+msgstr ""
+
+#: ../src/signature.py:206
+msgid "capability"
+msgstr ""
+
+#: ../src/signature.py:382
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr ""
 "%s ಅನುಮತಿ ಪೂರ್ವಕವಾದ ಬಗೆಯನ್ನು ಹೊಂದಿದೆ (%s). ಈ ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಲಾಗಿರಲಿಲ್ಲ."
 
-#: ../src/signature.py:364
-msgid "SELinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:385
+#, fuzzy
+msgid "SEinux is in permissive mode. This access was not denied."
 msgstr "SELinux ಅನುಮತಿ ಪೂರ್ವಕ ಕ್ರಮದಲ್ಲಿದೆ. ಈ ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಲಾಗಿರಲಿಲ್ಲ."
 
-#: ../src/signature.py:367
+#: ../src/signature.py:468
 #, python-format
-msgid "<font color=\"0000FF\">[%s]</font><p>%s"
-msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+msgid ""
+"\n"
+"\n"
+"*****  Plugin %s (%.4s confidence) suggests  "
+msgstr ""
 
-#: ../src/signature.py:407 ../src/signature.py:480
-msgid "Detailed Description"
-msgstr "ವಿವರವಾದ ನಿರೂಪಣೆ"
+#: ../src/signature.py:474
+msgid ""
+"\n"
+"If "
+msgstr ""
 
-#: ../src/signature.py:410 ../src/signature.py:482
-msgid "Allowing Access"
-msgstr "ನಿಲುಕಣೆಯನ್ನು ಅನುಮತಿಸುವುದು"
+#: ../src/signature.py:476
+msgid ""
+"\n"
+"Then "
+msgstr ""
 
-#: ../src/signature.py:414 ../src/signature.py:485
-msgid "Fix Command"
-msgstr "ಪರಿಹಾರ ಆಜ್ಞೆ"
+#: ../src/signature.py:479
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
 
-#: ../src/signature.py:417 ../src/signature.py:488
+#: ../src/signature.py:480
 msgid "Additional Information"
 msgstr "ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ"
 
-#: ../src/signature.py:429 ../src/signature.py:490
+#: ../src/signature.py:482
 msgid "Source Context"
 msgstr "ಆಕರ ಸನ್ನಿವೇಶ"
 
-#: ../src/signature.py:430 ../src/signature.py:491
+#: ../src/signature.py:483
 msgid "Target Context"
 msgstr "ಉದ್ದೇಶಿತ ಸನ್ನಿವೇಶ"
 
-#: ../src/signature.py:431 ../src/signature.py:492
+#: ../src/signature.py:484
 msgid "Target Objects"
 msgstr "ಉದ್ದೇಶಿತ ವಸ್ತುಗಳು"
 
-#: ../src/signature.py:432 ../src/signature.py:493
+#: ../src/signature.py:485
 msgid "Source"
 msgstr "ಆಕರ"
 
-#: ../src/signature.py:433 ../src/signature.py:494
+#: ../src/signature.py:486
 msgid "Source Path"
 msgstr "ಆಕರ ಪಥ"
 
-#: ../src/signature.py:434 ../src/signature.py:495
+#: ../src/signature.py:487
 msgid "Port"
 msgstr "ಸಂಪರ್ಕಸ್ಥಾನ"
 
-#: ../src/signature.py:435 ../src/signature.py:496
+#: ../src/signature.py:488
 msgid "Host"
 msgstr "ಅತಿಥೇಯ"
 
-#: ../src/signature.py:436 ../src/signature.py:497
+#: ../src/signature.py:489
 msgid "Source RPM Packages"
 msgstr "ಆಕರ RPM ಪ್ಯಾಕೇಜ್‍ಗಳು"
 
-#: ../src/signature.py:437 ../src/signature.py:498
+#: ../src/signature.py:490
 msgid "Target RPM Packages"
 msgstr "ಉದ್ದೇಶಿತ RPM ಪ್ಯಾಕೇಜ್‍ಗಳು"
 
-#: ../src/signature.py:438 ../src/signature.py:499
+#: ../src/signature.py:491
 msgid "Policy RPM"
 msgstr "ಪಾಲಿಸಿ RPM"
 
-#: ../src/signature.py:439 ../src/signature.py:500
+#: ../src/signature.py:492
 msgid "Selinux Enabled"
 msgstr "Selinux ಶಕ್ತಗೊಂಡ"
 
-#: ../src/signature.py:440 ../src/signature.py:501
+#: ../src/signature.py:493
 msgid "Policy Type"
 msgstr "ಪಾಲಿಸಿಯ ಬಗೆ"
 
-#: ../src/signature.py:441 ../src/signature.py:502
+#: ../src/signature.py:494
 msgid "Enforcing Mode"
 msgstr "ಒತ್ತಾಯಪೂರ್ವಕ ಕ್ರಮ"
 
-#: ../src/signature.py:442 ../src/signature.py:503
-msgid "Plugin Name"
-msgstr "ಪ್ಲಗ್ಇನ್ ಹೆಸರು"
-
-#: ../src/signature.py:443 ../src/signature.py:504
+#: ../src/signature.py:495
 msgid "Host Name"
 msgstr "ಅತಿಥೇಯದ ಹೆಸರು"
 
-#: ../src/signature.py:444 ../src/signature.py:505
+#: ../src/signature.py:496
 msgid "Platform"
 msgstr "ಪ್ಲಾಟ್‍ಫಾರ್ಮ್"
 
-#: ../src/signature.py:445 ../src/signature.py:506
+#: ../src/signature.py:497
 msgid "Alert Count"
 msgstr "ಎಚ್ಚರಿಕೆಗಳ ಲೆಕ್ಕ"
 
-#: ../src/signature.py:446 ../src/signature.py:507
+#: ../src/signature.py:498
 msgid "First Seen"
 msgstr "ಮೊದಲು ನೋಡಿದ"
 
-#: ../src/signature.py:447 ../src/signature.py:508
+#: ../src/signature.py:499
 msgid "Last Seen"
 msgstr "ಕಡೆಯ ಬಾರಿಗೆ ನೋಡಿದ"
 
-#: ../src/signature.py:448 ../src/signature.py:509
+#: ../src/signature.py:500
 msgid "Local ID"
 msgstr "ಸ್ಥಳೀಯ ಐಡಿ"
 
-#: ../src/signature.py:449 ../src/signature.py:510
-msgid "Line Numbers"
-msgstr "ಸಾಲಿನ ಸಂಖ್ಯೆಗಳು"
-
-#: ../src/signature.py:452 ../src/signature.py:513
+#: ../src/signature.py:502
 msgid "Raw Audit Messages"
 msgstr "ಕಚ್ಛಾ ಆಡಿಟ್ ಸಂದೇಶಗಳು"
+
+#: ../src/updater.py:18
+#, python-format
+msgid "current: %s "
+msgstr ""
+
+#: ../src/updater.py:27
+#, python-format
+msgid "newer: %s "
+msgstr ""
 
 #: ../src/seapplet.c:188
 msgid "New SELinux security alert"
 msgstr "ಹೊಸ SELinux ಸುರಕ್ಷತಾ ಎಚ್ಚರಿಕೆ"
 
-#: ../src/seapplet.c:189 ../src/sealert:312
+#: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
 msgstr "AVC ನಿರಾಕರಣೆ, ನೋಡಲು ಚಿಹ್ನೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ಕಿಸಿ"
 
@@ -522,89 +622,53 @@ msgstr "ವಜಾಗೊಳಿಸು"
 msgid "Show"
 msgstr "ತೋರಿಸು"
 
-#: ../src/sealert:65
+#. set tooltip
+#: ../src/seapplet.c:432 ../src/sealert:67
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC ನಿರಾಕರಣೆ, ನೋಡಲು ಕ್ಲಿಕ್ಕಿಸಿ"
 
-#: ../src/sealert:139
+#: ../src/sealert:104
+msgid "SELinux not enabled, sealert will not run on non SELinux systems"
+msgstr ""
+
+#: ../src/sealert:154
 msgid "Not fixable."
 msgstr "ಸರಿಪಡಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ."
 
-#: ../src/sealert:145
+#: ../src/sealert:161
 #, c-format
 msgid "Successfully ran %s"
 msgstr "%s ಅನ್ನು ಯಶಸ್ವಿಯಾಗಿ ಚಲಾಯಿಸಲಾಗಿದೆ"
 
-#: ../src/sealert:311
-msgid "SELinux"
-msgstr "SELinux"
+#: ../src/sealert:166
+#, c-format
+msgid "Plugin %s not valid for %s id"
+msgstr ""
 
-#: ../src/setroubleshootd:92
+#: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux ಅನ್ನು ಶಕ್ತಗೊಳಿಸಲಾಗಿಲ್ಲ, setroubleshootd ನಿರ್ಮಿಸುತ್ತಿದೆ..."
 
-#: ../src/setroubleshootd:123
+#: ../src/setroubleshootd:113
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "ಫೋರ್ಕ್ #1 ವಿಫಲಗೊಂಡಿದೆ: %d (%s)"
 
 #: ../gui/browser.glade.h:1
-msgid "<small><b>Error while trying to check policy version.</b></small>"
+msgid "<b>SELinux has detected a problem.</b>"
 msgstr ""
-"<small><b>ಪಾಲಿಸಿ ಆವೃತ್ತಿಯನ್ನು ಪರಿಶೀಲಿಸಲು ಪ್ರಯತ್ನಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ.</b></"
-"small>"
 
 #: ../gui/browser.glade.h:2
-msgid "<small>Click here to install updates using PackageKit</small>"
-msgstr ""
-"<small>PackageKit ಅನ್ನು ಬಳಸಿಕೊಂಡು ಅಪ್‌ಡೇಟ್‌ಗಳನ್ನು ಅನುಸ್ಥಾಪಿಸಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ "
-"ಮಾಡಿ</"
-"small>"
+#, fuzzy
+msgid "Access:"
+msgstr "ಯಶಸ್ವಿಯಾಗಿದೆ"
 
 #: ../gui/browser.glade.h:3
-msgid "<small>There is a newer version of policy available.</small>"
-msgstr "<small>ಪಾಲಿಸಿಯ ಹೊಸ ಆವೃತ್ತಿಯು ಲಭ್ಯವಿದೆ.</small>"
-
-#: ../gui/browser.glade.h:4
+#, fuzzy
 msgid ""
-"<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' >SELinux ದೋಷನಿವಾರಣಾ ವೀಕ್ಷಕ</span>"
-
-#: ../gui/browser.glade.h:5
-msgid "<span foreground='grey'>date</span>"
-msgstr "<span foreground='grey'>ದಿನಾಂಕ</span>"
-
-#: ../gui/browser.glade.h:6
-msgid ""
-"<span size='large' weight='bold' \tface='verdana'>No alerts to view.</span>"
-msgstr ""
-"<span size='large' weight='bold' \tface='verdana'>ನೋಡಲು ಯಾವುದೆ "
-"ಎಚ್ಚರಿಕೆಗಳಿಲ್ಲ."
-"</span>"
-
-#: ../gui/browser.glade.h:7
-msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-msgstr "<span weight='bold' size='large' face='verdana'>ಇದರ ಎಚ್ಚರಿಕೆ -</span>"
-
-#: ../gui/browser.glade.h:8
-msgid ""
-"Certain signatures allow administrators to correct your system with "
-"setroubleshoot."
-msgstr ""
-"setroubleshoot ಅನ್ನು ಬಳಸಿಕೊಂಡು ನಿರ್ವಾಹಕರು ನಿಮ್ಮ ವ್ಯವಸ್ಥೆಯನ್ನು ಸರಿಪಡಿಸಲು "
-"ಕೆಲವು "
-"ಸಹಿಗಳು ಅನುಮತಿಸುತ್ತವೆ."
-
-#: ../gui/browser.glade.h:9
-msgid "Copy full error output to clipboard."
-msgstr "ಸಂಪೂರ್ಣ ದೋಷ ಔಟ್‌ಪುಟ್ ಅನ್ನು ನಕಲುಫಲಕಕ್ಕೆ ಅಂಟಿಸು."
-
-#: ../gui/browser.glade.h:10
-msgid ""
-"Copyright (c) 2009 \n"
+"Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
@@ -614,61 +678,94 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:16
-msgid "Delete _All Alerts"
+#: ../gui/browser.glade.h:9
+msgid "Delete current alert from the database."
+msgstr ""
+
+#: ../gui/browser.glade.h:10
+msgid "Do not show alert message, when this alert is triggered."
+msgstr ""
+
+#: ../gui/browser.glade.h:11
+msgid "Email alert to system administrator."
+msgstr ""
+
+#: ../gui/browser.glade.h:12
+#, fuzzy
+msgid "Ignore"
+msgstr "ಎಂದಿಗೂ ಅಲಕ್ಷಿಸದಿರು"
+
+#: ../gui/browser.glade.h:13
+#, fuzzy
+msgid "List All Alerts"
 msgstr "ಎಲ್ಲಾ ಎಚ್ಚರಿಕೆಗಳನ್ನು ಅಳಿಸು(_A)"
 
-#: ../gui/browser.glade.h:17
-msgid "Delete alert."
-msgstr "ಎಚ್ಚರಿಕೆಯನ್ನು ಅಳಿಸು."
+#: ../gui/browser.glade.h:14
+msgid "List all alerts in the database."
+msgstr ""
 
-#: ../gui/browser.glade.h:19
-msgid "Ignore Alert"
+#: ../gui/browser.glade.h:15
+msgid "No"
+msgstr ""
+
+#: ../gui/browser.glade.h:16
+#, fuzzy
+msgid "No Alerts"
 msgstr "ಎಚ್ಚರಿಕೆಯನ್ನು ಕಡೆಗಣಿಸು"
 
-#: ../gui/browser.glade.h:20
-msgid "Ignore this SELinux Security Alert in the future."
-msgstr "ಭವಿಷ್ಯದಲ್ಲಿ ಈ SELinux ಸುರಕ್ಷತಾ ಎಚ್ಚರಿಕೆಯನ್ನು ಕಡೆಗಣಿಸು."
+#: ../gui/browser.glade.h:17
+msgid ""
+"Read alert troubleshoot information.  May require administrative privledge "
+"to remedy."
+msgstr ""
 
-#: ../gui/browser.glade.h:21
-msgid "Next"
-msgstr "ಮುಂದಿನ"
+#: ../gui/browser.glade.h:18
+#, fuzzy
+msgid "Report"
+msgstr "ವರದಿ ಮಾಡಲಾಗಿದೆ"
 
-#: ../gui/browser.glade.h:22
-msgid "Previous"
-msgstr "ಹಿಂದಿನ"
-
-#: ../gui/browser.glade.h:23
-msgid "Reports a bug to bugzilla.redhat.com."
-msgstr "ದೋಷವನ್ನು bugzilla.redhat.com ಗೆ ವರದಿ ಮಾಡಿ."
-
-#: ../gui/browser.glade.h:24
-msgid "SELinux Security Alerts"
+#: ../gui/browser.glade.h:19
+#, fuzzy
+msgid "SELinux Alert Browser"
 msgstr "SELinux ಸುರಕ್ಷತಾ ಎಚ್ಚರಿಕೆಗಳು"
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:20
 msgid "SETroubleshoot Alert List"
 msgstr "SEtroubleshoot ಎಚ್ಚರಿಕೆ ಪಟ್ಟಿ"
 
+#: ../gui/browser.glade.h:21
+#, fuzzy
+msgid "Show next alert."
+msgstr "ಎಚ್ಚರಿಕೆಯನ್ನು ಅಳಿಸು."
+
+#: ../gui/browser.glade.h:22
+msgid "Show previous alert."
+msgstr ""
+
+#: ../gui/browser.glade.h:23
+#, fuzzy
+msgid "Troubleshoot"
+msgstr "SELinux ತೊಂದರೆನಿವಾರಕ"
+
+#: ../gui/browser.glade.h:24
+msgid "Turn off alert pop-ups."
+msgstr ""
+
+#: ../gui/browser.glade.h:25
+msgid "Turn on alert pop-ups."
+msgstr ""
+
 #: ../gui/browser.glade.h:26
-msgid "Show all..."
-msgstr "ಎಲ್ಲವನ್ನೂ ತೋರಿಸು..."
+msgid "Would you like to receive alerts?"
+msgstr ""
 
 #: ../gui/browser.glade.h:27
-msgid "Show full error output"
-msgstr "ಸಂಪೂರ್ಣ ದೋಷ ಔಟ್‌ಪುಟ್ ಅನ್ನು ತೋರಿಸು"
+msgid "Yes"
+msgstr ""
 
 #: ../gui/browser.glade.h:28
-msgid "_File"
-msgstr "ಕಡತ(_F)"
-
-#: ../gui/browser.glade.h:29
-msgid "_Help"
-msgstr "ಸಹಾಯ (_H)"
-
-#: ../gui/browser.glade.h:30
-msgid "_Report this Bug..."
-msgstr "ಈ ದೋಷವನ್ನು ವರದಿ ಮಾಡು(_R)..."
+msgid "label"
+msgstr ""
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
@@ -692,20 +789,14 @@ msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
 msgstr ""
-"ನೀವು ಬಯಸಿದಲ್ಲಿ ಈ ದೋಷ ವರದಿಯಲ್ಲಿ ಸೇರಿಸಲಾಗುವ ದೋಷದ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಅವಲೋಕಿಸಬಹುದು "
-"ಹಾಗು "
+"ನೀವು ಬಯಸಿದಲ್ಲಿ ಈ ದೋಷ ವರದಿಯಲ್ಲಿ ಸೇರಿಸಲಾಗುವ ದೋಷದ ಔಟ್‌ಪುಟ್ ಅನ್ನು ಅವಲೋಕಿಸಬಹುದು ಹಾಗು "
 "ಅದರಲ್ಲಿ ಯಾವುದೆ ಸೂಕ್ಷ್ಮಸಂವೇದಿ ಮಾಹಿತಿಯು ಇರದಂತೆ ಮಾರ್ಪಡಿಸಬಹುದು."
-
-#: ../gui/bug_report.glade.h:6
-msgid "gtk-cancel"
-msgstr "gtk-cancel"
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
 msgstr ""
-"ಈ ಕಾರ್ಯವನ್ನು ಪೂರ್ಣಗೊಳಿಸಲಾಗಿದೆ.  The quick brown fox jumped over the lazy "
-"dog."
+"ಈ ಕಾರ್ಯವನ್ನು ಪೂರ್ಣಗೊಳಿಸಲಾಗಿದೆ.  The quick brown fox jumped over the lazy dog."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
@@ -714,6 +805,149 @@ msgstr "ಯಶಸ್ವಿಯಾಗಿದೆ!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "ಗುಂಡಿ"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "ಕ್ಲಿಪ್‌ಬೋರ್ಡಿಗೆ ಅಂಟಿಸು"
+
+#~ msgid "No alerts to view."
+#~ msgstr "ನೋಡಲು ಯಾವುದೆ ಎಚ್ಚರಿಕೆಗಳಿಲ್ಲ."
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
+#~ "Browser</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux ದೋಷನಿವಾರಣಾ "
+#~ "ವೀಕ್ಷಕ</span>"
+
+#~ msgid "Summary"
+#~ msgstr "ಸಾರಾಂಶ"
+
+#~ msgid "Count"
+#~ msgstr "ಎಣಿಕೆ"
+
+#~ msgid "Date"
+#~ msgstr "ದಿನಾಂಕ"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
+#~ "seriously compromised!</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>ನಿಮ್ಮ ಗಣಕವು ಗಂಭೀರ "
+#~ "ರೂಪದಲ್ಲಿ ರಾಜಿ ಮಾಡಿಕೊಂಡಿರಬಹುದು!</span>"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
+#~ "suspicious behavior on your system</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux ನಿಮ್ಮ ಗಣಕದಲ್ಲಿ "
+#~ "ಸಂಶಯಾಸ್ಪದ ವರ್ತನೆಯನ್ನು ಗುರುತಿಸಿದೆ</span>"
+
+#~ msgid "Today"
+#~ msgstr "ಇಂದು"
+
+#~ msgid "Yesterday"
+#~ msgstr "ನಿನ್ನೆ"
+
+#~ msgid "<span foreground='#555555'>%s on %s</span>"
+#~ msgstr "<span foreground='#555555'>%s, %s ನಲ್ಲಿ</span>"
+
+#~ msgid ""
+#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span>"
+#~ msgstr ""
+#~ "<span weight='bold' size='large' face='verdana'> %d</span> ಎಚ್ಚರಿಕೆ, <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span> ರಲ್ಲಿ"
+
+#~ msgid "Fix it"
+#~ msgstr "ಅದನ್ನು ಸರಿಪಡಿಸು"
+
+#~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
+#~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+
+#~ msgid "Detailed Description"
+#~ msgstr "ವಿವರವಾದ ನಿರೂಪಣೆ"
+
+#~ msgid "Allowing Access"
+#~ msgstr "ನಿಲುಕಣೆಯನ್ನು ಅನುಮತಿಸುವುದು"
+
+#~ msgid "Fix Command"
+#~ msgstr "ಪರಿಹಾರ ಆಜ್ಞೆ"
+
+#~ msgid "Plugin Name"
+#~ msgstr "ಪ್ಲಗ್ಇನ್ ಹೆಸರು"
+
+#~ msgid "Line Numbers"
+#~ msgstr "ಸಾಲಿನ ಸಂಖ್ಯೆಗಳು"
+
+#~ msgid "SELinux"
+#~ msgstr "SELinux"
+
+#~ msgid "<small>Click here to install updates using PackageKit</small>"
+#~ msgstr ""
+#~ "<small>PackageKit ಅನ್ನು ಬಳಸಿಕೊಂಡು ಅಪ್‌ಡೇಟ್‌ಗಳನ್ನು ಅನುಸ್ಥಾಪಿಸಲು ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</"
+#~ "small>"
+
+#~ msgid "<small>There is a newer version of policy available.</small>"
+#~ msgstr "<small>ಪಾಲಿಸಿಯ ಹೊಸ ಆವೃತ್ತಿಯು ಲಭ್ಯವಿದೆ.</small>"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' >SELinux ದೋಷನಿವಾರಣಾ ವೀಕ್ಷಕ</span>"
+
+#~ msgid "<span foreground='grey'>date</span>"
+#~ msgstr "<span foreground='grey'>ದಿನಾಂಕ</span>"
+
+#~ msgid ""
+#~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
+#~ "span>"
+#~ msgstr ""
+#~ "<span size='large' weight='bold' \tface='verdana'>ನೋಡಲು ಯಾವುದೆ "
+#~ "ಎಚ್ಚರಿಕೆಗಳಿಲ್ಲ.</span>"
+
+#~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
+#~ msgstr ""
+#~ "<span weight='bold' size='large' face='verdana'>ಇದರ ಎಚ್ಚರಿಕೆ -</span>"
+
+#~ msgid ""
+#~ "Certain signatures allow administrators to correct your system with "
+#~ "setroubleshoot."
+#~ msgstr ""
+#~ "setroubleshoot ಅನ್ನು ಬಳಸಿಕೊಂಡು ನಿರ್ವಾಹಕರು ನಿಮ್ಮ ವ್ಯವಸ್ಥೆಯನ್ನು ಸರಿಪಡಿಸಲು ಕೆಲವು "
+#~ "ಸಹಿಗಳು ಅನುಮತಿಸುತ್ತವೆ."
+
+#~ msgid "Copy full error output to clipboard."
+#~ msgstr "ಸಂಪೂರ್ಣ ದೋಷ ಔಟ್‌ಪುಟ್ ಅನ್ನು ನಕಲುಫಲಕಕ್ಕೆ ಅಂಟಿಸು."
+
+#~ msgid "Ignore this SELinux Security Alert in the future."
+#~ msgstr "ಭವಿಷ್ಯದಲ್ಲಿ ಈ SELinux ಸುರಕ್ಷತಾ ಎಚ್ಚರಿಕೆಯನ್ನು ಕಡೆಗಣಿಸು."
+
+#~ msgid "Next"
+#~ msgstr "ಮುಂದಿನ"
+
+#~ msgid "Previous"
+#~ msgstr "ಹಿಂದಿನ"
+
+#~ msgid "Reports a bug to bugzilla.redhat.com."
+#~ msgstr "ದೋಷವನ್ನು bugzilla.redhat.com ಗೆ ವರದಿ ಮಾಡಿ."
+
+#~ msgid "Show all..."
+#~ msgstr "ಎಲ್ಲವನ್ನೂ ತೋರಿಸು..."
+
+#~ msgid "Show full error output"
+#~ msgstr "ಸಂಪೂರ್ಣ ದೋಷ ಔಟ್‌ಪುಟ್ ಅನ್ನು ತೋರಿಸು"
+
+#~ msgid "_File"
+#~ msgstr "ಕಡತ(_F)"
+
+#~ msgid "_Help"
+#~ msgstr "ಸಹಾಯ (_H)"
+
+#~ msgid "_Report this Bug..."
+#~ msgstr "ಈ ದೋಷವನ್ನು ವರದಿ ಮಾಡು(_R)..."
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"
 
 #~ msgid "Another client is already running, trying to wake it."
 #~ msgstr ""
@@ -817,9 +1051,6 @@ msgstr "ಗುಂಡಿ"
 
 #~ msgid "translator-credits"
 #~ msgstr "ಶಂಕರ್ ಪ್ರಸಾದ್ <svenkate@redhat.com>"
-
-#~ msgid "Reported"
-#~ msgstr "ವರದಿ ಮಾಡಲಾಗಿದೆ"
 
 #~ msgid "Application"
 #~ msgstr "ಅನ್ವಯ"
@@ -1080,9 +1311,6 @@ msgstr "ಗುಂಡಿ"
 
 #~ msgid "Preferences"
 #~ msgstr "ಆದ್ಯತೆಗಳು"
-
-#~ msgid "Version:"
-#~ msgstr "ಆವೃತ್ತಿ:"
 
 #~ msgid "Web Site:"
 #~ msgstr "ಜಾಲತಾಣ:"

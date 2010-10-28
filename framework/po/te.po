@@ -7,10 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: te\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-20 13:55-0400\n"
+"POT-Creation-Date: 2010-10-28 17:25-0400\n"
 "PO-Revision-Date: 2010-05-05 17:01+0530\n"
 "Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <en@li.org>\n"
+"Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,24 +35,86 @@ msgstr "SELinux పరిష్కారిణి"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux వాడుక డినైల్స్‍‌ను పరిష్కరించుము"
 
-#: ../src/browser.py:64 ../src/browser.py:65 ../src/browser.py:66
-#: ../src/browser.py:85
-msgid "(removed)"
-msgstr "(తీసివేయబడెను)"
+#: ../src/audit_data.py:861
+#, python-format
+msgid "port %s"
+msgstr ""
 
-#: ../src/browser.py:143
-msgid "Sealert Error"
-msgstr "Sealert దోషము"
+#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/rpc.py:544 ../src/util.py:223
+msgid "Unknown"
+msgstr "తెలియని"
 
-#: ../src/browser.py:154
-msgid "Sealert Message"
-msgstr "Sealert సందేశము"
+#: ../src/audit_data.py:948
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC allowed in current policy ***\n"
+msgstr ""
+"%s \n"
+"**** చెల్లని AVC ప్రస్తుత పాలసీనందు అనుమతించబడెను ***\n"
 
-#: ../src/browser.py:243
-msgid "Copy to Clipboard"
-msgstr "క్లిప్‌బోర్డునకు నకలుతీయుము"
+#: ../src/audit_data.py:950
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
+"%s \n"
+"**** ప్రస్తుత పాలసీనందు చెల్లని AVC dontaudit.  'semodule -B' అనునదిdontaudit నియమాలను "
+"ఆన్ చేయును. ***\n"
 
-#: ../src/browser.py:312
+#: ../src/audit_data.py:952
+msgid "Must call policy_init first"
+msgstr "ముందుగా policy_init తప్పక కాల్ చేయాలి"
+
+#: ../src/audit_data.py:954
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad target context. ***\n"
+msgstr ""
+"%s \n"
+"**** చెల్లని AVC చెడ్డ లక్ష్యపు సందర్భము. ***\n"
+
+#: ../src/audit_data.py:956
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad source context. ***\n"
+msgstr ""
+"%s \n"
+"**** చెల్లని AVC చెడ్డ మూలపు సందర్భము. ***\n"
+
+#: ../src/audit_data.py:958
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad type class ***\n"
+msgstr ""
+"%s \n"
+"**** చెల్లని AVC చెడ్డ రకము క్లాస్ ***\n"
+
+#: ../src/audit_data.py:960
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad permission ***\n"
+msgstr ""
+"%s \n"
+"**** చెల్లని AVC చెడ్డ అనుమతి ***\n"
+
+#: ../src/audit_data.py:962
+msgid "Error during access vector computation"
+msgstr "వెక్టార్ లెక్కింపును యాక్సెస్ చేయునప్పుడు దోషము"
+
+#: ../src/browser.py:225
+#, fuzzy
+msgid "Error while checking policy version."
+msgstr "<small><b>పాలసీ వర్షన్ పరిశీలించుటలో దోషము.</b></small>"
+
+#: ../src/browser.py:230
 msgid ""
 "There is a newer version of policy available.  Updating your policy may fix "
 "the denial that you having problems with."
@@ -59,90 +122,80 @@ msgstr ""
 "అక్కడ కొత్త వర్షన్ పాలసీ అందుబాటులో వున్నది.  మీరు తిరస్కరణతో యెదుర్కొనుచున్న సమస్యలను ఈ పాలసీ "
 "నవీకరణ పరిష్కరించవచ్చును."
 
-#: ../src/browser.py:315 ../src/browser.py:541
+#: ../src/browser.py:231
+msgid "Newest Version"
+msgstr ""
+
+#: ../src/browser.py:233
 msgid "Update Policy"
 msgstr "పాలసీను నవీకరించుము"
 
-#: ../src/browser.py:327
-msgid "No alerts to view."
-msgstr "దర్శించుటకు యే అప్రమత్తాలు లేవు."
-
-#: ../src/browser.py:345
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-"Browser</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux సమస్యాపరిష్కారిణి బ్రౌజర్</"
-"span>"
-
-#: ../src/browser.py:390
+#: ../src/browser.py:250
 msgid "#"
 msgstr "#"
 
-#. Note: The following string items returned by a plugin
-#. already have had their template substitutions HTML escaped
-#. when the plugin generated it's report
-#: ../src/browser.py:390 ../src/signature.py:404 ../src/signature.py:478
-msgid "Summary"
-msgstr "సక్షేపము"
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Source Process"
+msgstr "మూలం RPM సంకలనాలు"
 
-#: ../src/browser.py:390
-msgid "Count"
-msgstr "లెక్క"
+#: ../src/browser.py:250
+msgid "Attempted Access"
+msgstr ""
 
-#: ../src/browser.py:390 ../src/run_cmd.py:389
-msgid "Command"
-msgstr "ఆదేశము"
+#: ../src/browser.py:250
+msgid "On this"
+msgstr ""
 
-#: ../src/browser.py:390
-msgid "Date"
-msgstr "తేది"
+#: ../src/browser.py:250
+msgid "Occured"
+msgstr ""
 
-#: ../src/browser.py:544
-msgid "Report Bug..."
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Edit Status"
+msgstr "స్థితి"
+
+#: ../src/browser.py:374
+msgid "If you were trying to..."
+msgstr ""
+
+#: ../src/browser.py:380
+msgid "Then this is the solution."
+msgstr ""
+
+#: ../src/browser.py:387
+msgid "If "
+msgstr ""
+
+#: ../src/browser.py:485
+#, fuzzy
+msgid ""
+"Report\n"
+"Bug"
 msgstr "బగ్‌ను నివేదించుము..."
 
-#: ../src/browser.py:561
+#: ../src/browser.py:513
 msgid "Unable to grant access."
 msgstr "యాక్సెస్‌ను యివ్వలేక పోయింది."
 
-#: ../src/browser.py:595
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-"seriously compromised!</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>మీ సిస్టమ్ తీవ్రముగా రాజీపడ(లోబడ)"
-"గలదు!</span>"
-
-#: ../src/browser.py:602
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-"suspicious behavior on your system</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>మీ సిస్టమ్ నందు SELinux "
-"అనుమానాస్పద ప్రవర్తనను గుర్తించినది</span>"
-
-#: ../src/browser.py:672
-msgid "Today"
-msgstr "ఈ రోజు"
-
-#: ../src/browser.py:674
-msgid "Yesterday"
-msgstr "నిన్న"
-
-#: ../src/browser.py:691
+#: ../src/browser.py:538 ../src/browser.py:646
 #, python-format
-msgid "<span foreground='#555555'>%s on %s</span>"
-msgstr "<span foreground='#555555'>%s %s పైన</span>"
-
-#: ../src/browser.py:746
-#, python-format
-msgid ""
-"Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-"weight='bold' size='large' face='verdana'>%d</span>"
+msgid "Alert %d of %d"
 msgstr ""
-"Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-"weight='bold' size='large' face='verdana'>%d</span>"
+
+#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
+#: ../src/browser.py:752
+msgid "(removed)"
+msgstr "(తీసివేయబడెను)"
+
+#: ../src/browser.py:799
+msgid "Sealert Error"
+msgstr "Sealert దోషము"
+
+#: ../src/browser.py:810
+msgid "Sealert Message"
+msgstr "Sealert సందేశము"
 
 #: ../src/email_dialog.py:47
 msgid "Setroubleshoot Email Preferences"
@@ -294,13 +347,11 @@ msgstr "అయ్యో, %s దోషాన్ని తాకినది!"
 msgid "Error"
 msgstr "దోషము"
 
-#: ../src/Plugin.py:86 ../gui/browser.glade.h:18
-msgid "Fix it"
-msgstr "దీనిని పరిష్కరించుము"
-
-#: ../src/rpc.py:544 ../src/util.py:223
-msgid "Unknown"
-msgstr "తెలియని"
+#: ../src/Plugin.py:79
+msgid ""
+"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS"
+msgstr ""
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -317,6 +368,10 @@ msgstr "సంకేతపదము: "
 #: ../src/run_cmd.py:378
 msgid "SELinux Fix"
 msgstr "SELinux ఫిక్స్‍"
+
+#: ../src/run_cmd.py:389
+msgid "Command"
+msgstr "ఆదేశము"
 
 #: ../src/run_cmd.py:399
 msgid "Run Command"
@@ -370,153 +425,210 @@ msgstr "పూర్తి SELinux సందేశాల కొరకు. sealer
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "వినియోగదారి (%s) డాటాను (%s) కొరకు సవరించలేడు"
 
-#: ../src/server.py:461 ../src/sealert:276
+#: ../src/server.py:461 ../src/sealert:295
 msgid "Started"
 msgstr "ప్రారంభమైంది"
 
-#: ../src/server.py:505
+#: ../src/server.py:508
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:572
+#: ../src/server.py:575
 msgid "Audit Listener"
 msgstr "ఆలకించుదానిని ఆడిట్‌చేయుము"
 
-#: ../src/signature.py:70
+#: ../src/signature.py:75
 msgid "Never Ignore"
 msgstr "ఎప్పుడు వదిలివేయవద్దు"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:76
 msgid "Ignore Always"
 msgstr "ఎప్పుడు వదిలివేయి"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:77
 msgid "Ignore After First Alert"
 msgstr "మొదటి అప్రమత్తత తర్వాత వదిలివేయి"
 
-#: ../src/signature.py:361
+#: ../src/signature.py:196
+msgid "directory"
+msgstr ""
+
+#: ../src/signature.py:197
+msgid "semaphore"
+msgstr ""
+
+#: ../src/signature.py:198
+msgid "shared memory"
+msgstr ""
+
+#: ../src/signature.py:199
+msgid "message queue"
+msgstr ""
+
+#: ../src/signature.py:200
+msgid "message"
+msgstr ""
+
+#: ../src/signature.py:201
+msgid "file"
+msgstr ""
+
+#: ../src/signature.py:202
+#, fuzzy
+msgid "socket"
+msgstr "సాకెట్ దోషము"
+
+#: ../src/signature.py:203
+msgid "process"
+msgstr ""
+
+#: ../src/signature.py:204
+msgid "filesystem"
+msgstr ""
+
+#: ../src/signature.py:205
+msgid "node"
+msgstr ""
+
+#: ../src/signature.py:206
+msgid "capability"
+msgstr ""
+
+#: ../src/signature.py:382
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s అనుమతి రకము (%s) కలిగివుంది. ఈ యాక్సెస్ తిరస్కరించబడలేదు."
 
-#: ../src/signature.py:364
-msgid "SELinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:385
+#, fuzzy
+msgid "SEinux is in permissive mode. This access was not denied."
 msgstr "SELinux అనునది అనుమతి రీతినందు వుంది. యాక్సెస్ తిరస్కరించబడలేదు."
 
-#: ../src/signature.py:367
+#: ../src/signature.py:468
 #, python-format
-msgid "<font color=\"0000FF\">[%s]</font><p>%s"
-msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+msgid ""
+"\n"
+"\n"
+"*****  Plugin %s (%.4s confidence) suggests  "
+msgstr ""
 
-#: ../src/signature.py:407 ../src/signature.py:480
-msgid "Detailed Description"
-msgstr "వివరిత వివరణము"
+#: ../src/signature.py:474
+msgid ""
+"\n"
+"If "
+msgstr ""
 
-#: ../src/signature.py:410 ../src/signature.py:482
-msgid "Allowing Access"
-msgstr "వాడుకను అనుమతిస్తోంది"
+#: ../src/signature.py:476
+msgid ""
+"\n"
+"Then "
+msgstr ""
 
-#: ../src/signature.py:414 ../src/signature.py:485
-msgid "Fix Command"
-msgstr "ఆదేశాన్ని ఫిక్స్‍‌చేయి"
+#: ../src/signature.py:479
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
 
-#: ../src/signature.py:417 ../src/signature.py:488
+#: ../src/signature.py:480
 msgid "Additional Information"
 msgstr "అదనపు సమాచారం"
 
-#: ../src/signature.py:429 ../src/signature.py:490
+#: ../src/signature.py:482
 msgid "Source Context"
 msgstr "మూలం సందర్భం"
 
-#: ../src/signature.py:430 ../src/signature.py:491
+#: ../src/signature.py:483
 msgid "Target Context"
 msgstr "లక్ష్యం సందర్బం"
 
-#: ../src/signature.py:431 ../src/signature.py:492
+#: ../src/signature.py:484
 msgid "Target Objects"
 msgstr "లక్ష్యం ఆబ్జక్ట్స్‍"
 
-#: ../src/signature.py:432 ../src/signature.py:493
+#: ../src/signature.py:485
 msgid "Source"
 msgstr "మూలం"
 
-#: ../src/signature.py:433 ../src/signature.py:494
+#: ../src/signature.py:486
 msgid "Source Path"
 msgstr "మూలం పాత్"
 
-#: ../src/signature.py:434 ../src/signature.py:495
+#: ../src/signature.py:487
 msgid "Port"
 msgstr "పోర్ట్‍"
 
-#: ../src/signature.py:435 ../src/signature.py:496
+#: ../src/signature.py:488
 msgid "Host"
 msgstr "అతిధేయ"
 
-#: ../src/signature.py:436 ../src/signature.py:497
+#: ../src/signature.py:489
 msgid "Source RPM Packages"
 msgstr "మూలం RPM సంకలనాలు"
 
-#: ../src/signature.py:437 ../src/signature.py:498
+#: ../src/signature.py:490
 msgid "Target RPM Packages"
 msgstr "లక్ష్యం RPM సంకలనాలు"
 
-#: ../src/signature.py:438 ../src/signature.py:499
+#: ../src/signature.py:491
 msgid "Policy RPM"
 msgstr "విధానం RPM"
 
-#: ../src/signature.py:439 ../src/signature.py:500
+#: ../src/signature.py:492
 msgid "Selinux Enabled"
 msgstr "Selinux చేతనమైంది"
 
-#: ../src/signature.py:440 ../src/signature.py:501
+#: ../src/signature.py:493
 msgid "Policy Type"
 msgstr "విధానం రకము"
 
-#: ../src/signature.py:441 ../src/signature.py:502
+#: ../src/signature.py:494
 msgid "Enforcing Mode"
 msgstr "బలవంతపు రీతి"
 
-#: ../src/signature.py:442 ../src/signature.py:503
-msgid "Plugin Name"
-msgstr "ప్లగ్ఇన్ నామము"
-
-#: ../src/signature.py:443 ../src/signature.py:504
+#: ../src/signature.py:495
 msgid "Host Name"
 msgstr "అతిధేయ నామము"
 
-#: ../src/signature.py:444 ../src/signature.py:505
+#: ../src/signature.py:496
 msgid "Platform"
 msgstr "ప్లాట్‌ఫాం"
 
-#: ../src/signature.py:445 ../src/signature.py:506
+#: ../src/signature.py:497
 msgid "Alert Count"
 msgstr "అప్రమత్తత లెక్క"
 
-#: ../src/signature.py:446 ../src/signature.py:507
+#: ../src/signature.py:498
 msgid "First Seen"
 msgstr "మొదటి ఘటన"
 
-#: ../src/signature.py:447 ../src/signature.py:508
+#: ../src/signature.py:499
 msgid "Last Seen"
 msgstr "చివరి ఘటన"
 
-#: ../src/signature.py:448 ../src/signature.py:509
+#: ../src/signature.py:500
 msgid "Local ID"
 msgstr "స్థానిక ID"
 
-#: ../src/signature.py:449 ../src/signature.py:510
-msgid "Line Numbers"
-msgstr "వరుస సంఖ్యలు"
-
-#: ../src/signature.py:452 ../src/signature.py:513
+#: ../src/signature.py:502
 msgid "Raw Audit Messages"
 msgstr "రా ఆడిట్ సందేశాలు"
+
+#: ../src/updater.py:18
+#, python-format
+msgid "current: %s "
+msgstr ""
+
+#: ../src/updater.py:27
+#, python-format
+msgid "newer: %s "
+msgstr ""
 
 #: ../src/seapplet.c:188
 msgid "New SELinux security alert"
 msgstr "కొత్త SELinux రక్షణ అప్రమత్తత"
 
-#: ../src/seapplet.c:189 ../src/sealert:312
+#: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
 msgstr "AVC డినైల్, దర్శించుటకు ప్రతిమను నొక్కుము"
 
@@ -528,81 +640,53 @@ msgstr "తీసివేయి"
 msgid "Show"
 msgstr "చూపుము"
 
-#: ../src/sealert:65
+#. set tooltip
+#: ../src/seapplet.c:432 ../src/sealert:67
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC డానియల్, దర్శించుటకు నొక్కుము"
 
-#: ../src/sealert:139
+#: ../src/sealert:104
+msgid "SELinux not enabled, sealert will not run on non SELinux systems"
+msgstr ""
+
+#: ../src/sealert:154
 msgid "Not fixable."
 msgstr "పరిష్కరించదగినది కాదు."
 
-#: ../src/sealert:145
+#: ../src/sealert:161
 #, c-format
 msgid "Successfully ran %s"
 msgstr "%sను సమర్ధవంతంగా నడిపింది"
 
-#: ../src/sealert:311
-msgid "SELinux"
-msgstr "SELinux"
+#: ../src/sealert:166
+#, c-format
+msgid "Plugin %s not valid for %s id"
+msgstr ""
 
-#: ../src/setroubleshootd:92
+#: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux చేతనము చేయబడలేదు, setroubleshootd నిష్క్రమిస్తోంది..."
 
-#: ../src/setroubleshootd:123
+#: ../src/setroubleshootd:113
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork #1 విఫలమైంది: %d (%s)"
 
 #: ../gui/browser.glade.h:1
-msgid "<small><b>Error while trying to check policy version.</b></small>"
-msgstr "<small><b>పాలసీ వర్షన్ పరిశీలించుటలో దోషము.</b></small>"
+msgid "<b>SELinux has detected a problem.</b>"
+msgstr ""
 
 #: ../gui/browser.glade.h:2
-msgid "<small>Click here to install updates using PackageKit</small>"
-msgstr "<small>PackageKit వుపయోగించి నవీకరణలను సంస్థాపించుటకు యిచట నొక్కుము</small>"
+#, fuzzy
+msgid "Access:"
+msgstr "సఫలం"
 
 #: ../gui/browser.glade.h:3
-msgid "<small>There is a newer version of policy available.</small>"
-msgstr "<small>కొత్త వర్షన్ పాలసీ అందుబాటులో వుంది.</small>"
-
-#: ../gui/browser.glade.h:4
+#, fuzzy
 msgid ""
-"<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux సమస్యాపరిష్కారిణి బ్రౌజర్</"
-"span>"
-
-#: ../gui/browser.glade.h:5
-msgid "<span foreground='grey'>date</span>"
-msgstr "<span foreground='grey'>తేది</span>"
-
-#: ../gui/browser.glade.h:6
-msgid ""
-"<span size='large' weight='bold' \tface='verdana'>No alerts to view.</span>"
-msgstr ""
-"<span size='large' weight='bold' \tface='verdana'>దర్శించుటకు ఏ అప్రమత్తతలు లేవు."
-"</span>"
-
-#: ../gui/browser.glade.h:7
-msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-msgstr "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-
-#: ../gui/browser.glade.h:8
-msgid ""
-"Certain signatures allow administrators to correct your system with "
-"setroubleshoot."
-msgstr "నిర్వహణాధికారులు మీ సిస్టమ్‌ను setroubleshootతో సరిదిద్దుటకు అటువంటి సంతకాలు అనుమతిస్తాయి."
-
-#: ../gui/browser.glade.h:9
-msgid "Copy full error output to clipboard."
-msgstr "దోషము పూర్తి అవుట్పుట్‌ను క్లిప్‌బోర్డునకు నకలుతీయుము."
-
-#: ../gui/browser.glade.h:10
-msgid ""
-"Copyright (c) 2009 \n"
+"Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
@@ -612,61 +696,94 @@ msgstr ""
 "డానియల్ వాల్ష్ <dwalsh@redhat.com>\n"
 "జాన్ డెన్నిష్ <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:16
-msgid "Delete _All Alerts"
+#: ../gui/browser.glade.h:9
+msgid "Delete current alert from the database."
+msgstr ""
+
+#: ../gui/browser.glade.h:10
+msgid "Do not show alert message, when this alert is triggered."
+msgstr ""
+
+#: ../gui/browser.glade.h:11
+msgid "Email alert to system administrator."
+msgstr ""
+
+#: ../gui/browser.glade.h:12
+#, fuzzy
+msgid "Ignore"
+msgstr "ఎప్పుడు వదిలివేయవద్దు"
+
+#: ../gui/browser.glade.h:13
+#, fuzzy
+msgid "List All Alerts"
 msgstr "అన్ని అప్రమత్తతలను తొలగించుము (_A)"
 
-#: ../gui/browser.glade.h:17
-msgid "Delete alert."
-msgstr "అప్రమత్తతను తొలగించుము."
+#: ../gui/browser.glade.h:14
+msgid "List all alerts in the database."
+msgstr ""
 
-#: ../gui/browser.glade.h:19
-msgid "Ignore Alert"
+#: ../gui/browser.glade.h:15
+msgid "No"
+msgstr ""
+
+#: ../gui/browser.glade.h:16
+#, fuzzy
+msgid "No Alerts"
 msgstr "హెచ్చరికను వదిలివేయుము"
 
-#: ../gui/browser.glade.h:20
-msgid "Ignore this SELinux Security Alert in the future."
-msgstr "భవిష్యత్తులో ఈ SELinux రక్షణ హెచ్చరికను వదిలివేయుము."
+#: ../gui/browser.glade.h:17
+msgid ""
+"Read alert troubleshoot information.  May require administrative privledge "
+"to remedy."
+msgstr ""
 
-#: ../gui/browser.glade.h:21
-msgid "Next"
-msgstr "తరువాతి"
+#: ../gui/browser.glade.h:18
+#, fuzzy
+msgid "Report"
+msgstr "బగ్‌ను నివేదించుము..."
 
-#: ../gui/browser.glade.h:22
-msgid "Previous"
-msgstr "ముందరి"
-
-#: ../gui/browser.glade.h:23
-msgid "Reports a bug to bugzilla.redhat.com."
-msgstr "ఒక బగ్‌ను bugzilla.redhat.comకు నివేదిస్తుంది."
-
-#: ../gui/browser.glade.h:24
-msgid "SELinux Security Alerts"
+#: ../gui/browser.glade.h:19
+#, fuzzy
+msgid "SELinux Alert Browser"
 msgstr "SELinux రక్షణ హెచ్చరికలు"
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:20
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot అప్రమత్త జాబితా"
 
+#: ../gui/browser.glade.h:21
+#, fuzzy
+msgid "Show next alert."
+msgstr "అప్రమత్తతను తొలగించుము."
+
+#: ../gui/browser.glade.h:22
+msgid "Show previous alert."
+msgstr ""
+
+#: ../gui/browser.glade.h:23
+#, fuzzy
+msgid "Troubleshoot"
+msgstr "SELinux పరిష్కారిణి"
+
+#: ../gui/browser.glade.h:24
+msgid "Turn off alert pop-ups."
+msgstr ""
+
+#: ../gui/browser.glade.h:25
+msgid "Turn on alert pop-ups."
+msgstr ""
+
 #: ../gui/browser.glade.h:26
-msgid "Show all..."
-msgstr "అన్నిటిని చూపుము..."
+msgid "Would you like to receive alerts?"
+msgstr ""
 
 #: ../gui/browser.glade.h:27
-msgid "Show full error output"
-msgstr "పూర్తి దోష అవుట్పుట్‌ను చూపుము"
+msgid "Yes"
+msgstr ""
 
 #: ../gui/browser.glade.h:28
-msgid "_File"
-msgstr "దస్త్రము(_F)"
-
-#: ../gui/browser.glade.h:29
-msgid "_Help"
-msgstr "సహాయం(_H)"
-
-#: ../gui/browser.glade.h:30
-msgid "_Report this Bug..."
-msgstr "ఈ బగ్‌ను నివేదించుము... (_R)"
+msgid "label"
+msgstr ""
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
@@ -694,10 +811,6 @@ msgstr ""
 "ఈ బగ్ నివేదికనందు చేర్చబడే దోషపు అవుట్పుట్‌ను మీరు పునఃపరిశీలించవచ్చు మరియు ఎదేని సున్నిత డాటా వుంటే "
 "విడిచిపెట్టుటకు దానిని సవరించుము."
 
-#: ../gui/bug_report.glade.h:6
-msgid "gtk-cancel"
-msgstr "gtk-cancel"
-
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
@@ -711,52 +824,142 @@ msgstr "సఫలం!"
 msgid "button"
 msgstr "బటన్"
 
-#~ msgid ""
-#~ "%s \n"
-#~ "**** Invalid AVC allowed in current policy ***\n"
-#~ msgstr ""
-#~ "%s \n"
-#~ "**** చెల్లని AVC ప్రస్తుత పాలసీనందు అనుమతించబడెను ***\n"
+#~ msgid "Copy to Clipboard"
+#~ msgstr "క్లిప్‌బోర్డునకు నకలుతీయుము"
+
+#~ msgid "No alerts to view."
+#~ msgstr "దర్శించుటకు యే అప్రమత్తాలు లేవు."
 
 #~ msgid ""
-#~ "%s \n"
-#~ "**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn "
-#~ "on dontaudit rules. ***\n"
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
+#~ "Browser</span>"
 #~ msgstr ""
-#~ "%s \n"
-#~ "**** ప్రస్తుత పాలసీనందు చెల్లని AVC dontaudit.  'semodule -B' అనునదిdontaudit "
-#~ "నియమాలను ఆన్ చేయును. ***\n"
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux సమస్యాపరిష్కారిణి "
+#~ "బ్రౌజర్</span>"
 
-#~ msgid "Must call policy_init first"
-#~ msgstr "ముందుగా policy_init తప్పక కాల్ చేయాలి"
+#~ msgid "Summary"
+#~ msgstr "సక్షేపము"
+
+#~ msgid "Count"
+#~ msgstr "లెక్క"
+
+#~ msgid "Date"
+#~ msgstr "తేది"
 
 #~ msgid ""
-#~ "%s \n"
-#~ "**** Invalid AVC bad target context. ***\n"
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
+#~ "seriously compromised!</span>"
 #~ msgstr ""
-#~ "%s \n"
-#~ "**** చెల్లని AVC చెడ్డ లక్ష్యపు సందర్భము. ***\n"
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>మీ సిస్టమ్ తీవ్రముగా రాజీపడ"
+#~ "(లోబడ)గలదు!</span>"
 
 #~ msgid ""
-#~ "%s \n"
-#~ "**** Invalid AVC bad source context. ***\n"
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
+#~ "suspicious behavior on your system</span>"
 #~ msgstr ""
-#~ "%s \n"
-#~ "**** చెల్లని AVC చెడ్డ మూలపు సందర్భము. ***\n"
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>మీ సిస్టమ్ నందు SELinux "
+#~ "అనుమానాస్పద ప్రవర్తనను గుర్తించినది</span>"
+
+#~ msgid "Today"
+#~ msgstr "ఈ రోజు"
+
+#~ msgid "Yesterday"
+#~ msgstr "నిన్న"
+
+#~ msgid "<span foreground='#555555'>%s on %s</span>"
+#~ msgstr "<span foreground='#555555'>%s %s పైన</span>"
 
 #~ msgid ""
-#~ "%s \n"
-#~ "**** Invalid AVC bad type class ***\n"
+#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span>"
 #~ msgstr ""
-#~ "%s \n"
-#~ "**** చెల్లని AVC చెడ్డ రకము క్లాస్ ***\n"
+#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span>"
+
+#~ msgid "Fix it"
+#~ msgstr "దీనిని పరిష్కరించుము"
+
+#~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
+#~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+
+#~ msgid "Detailed Description"
+#~ msgstr "వివరిత వివరణము"
+
+#~ msgid "Allowing Access"
+#~ msgstr "వాడుకను అనుమతిస్తోంది"
+
+#~ msgid "Fix Command"
+#~ msgstr "ఆదేశాన్ని ఫిక్స్‍‌చేయి"
+
+#~ msgid "Plugin Name"
+#~ msgstr "ప్లగ్ఇన్ నామము"
+
+#~ msgid "Line Numbers"
+#~ msgstr "వరుస సంఖ్యలు"
+
+#~ msgid "SELinux"
+#~ msgstr "SELinux"
+
+#~ msgid "<small>Click here to install updates using PackageKit</small>"
+#~ msgstr "<small>PackageKit వుపయోగించి నవీకరణలను సంస్థాపించుటకు యిచట నొక్కుము</small>"
+
+#~ msgid "<small>There is a newer version of policy available.</small>"
+#~ msgstr "<small>కొత్త వర్షన్ పాలసీ అందుబాటులో వుంది.</small>"
 
 #~ msgid ""
-#~ "%s \n"
-#~ "**** Invalid AVC bad permission ***\n"
+#~ "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
 #~ msgstr ""
-#~ "%s \n"
-#~ "**** చెల్లని AVC చెడ్డ అనుమతి ***\n"
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux సమస్యాపరిష్కారిణి "
+#~ "బ్రౌజర్</span>"
 
-#~ msgid "Error during access vector computation"
-#~ msgstr "వెక్టార్ లెక్కింపును యాక్సెస్ చేయునప్పుడు దోషము"
+#~ msgid "<span foreground='grey'>date</span>"
+#~ msgstr "<span foreground='grey'>తేది</span>"
+
+#~ msgid ""
+#~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
+#~ "span>"
+#~ msgstr ""
+#~ "<span size='large' weight='bold' \tface='verdana'>దర్శించుటకు ఏ అప్రమత్తతలు "
+#~ "లేవు.</span>"
+
+#~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
+#~ msgstr "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
+
+#~ msgid ""
+#~ "Certain signatures allow administrators to correct your system with "
+#~ "setroubleshoot."
+#~ msgstr ""
+#~ "నిర్వహణాధికారులు మీ సిస్టమ్‌ను setroubleshootతో సరిదిద్దుటకు అటువంటి సంతకాలు అనుమతిస్తాయి."
+
+#~ msgid "Copy full error output to clipboard."
+#~ msgstr "దోషము పూర్తి అవుట్పుట్‌ను క్లిప్‌బోర్డునకు నకలుతీయుము."
+
+#~ msgid "Ignore this SELinux Security Alert in the future."
+#~ msgstr "భవిష్యత్తులో ఈ SELinux రక్షణ హెచ్చరికను వదిలివేయుము."
+
+#~ msgid "Next"
+#~ msgstr "తరువాతి"
+
+#~ msgid "Previous"
+#~ msgstr "ముందరి"
+
+#~ msgid "Reports a bug to bugzilla.redhat.com."
+#~ msgstr "ఒక బగ్‌ను bugzilla.redhat.comకు నివేదిస్తుంది."
+
+#~ msgid "Show all..."
+#~ msgstr "అన్నిటిని చూపుము..."
+
+#~ msgid "Show full error output"
+#~ msgstr "పూర్తి దోష అవుట్పుట్‌ను చూపుము"
+
+#~ msgid "_File"
+#~ msgstr "దస్త్రము(_F)"
+
+#~ msgid "_Help"
+#~ msgstr "సహాయం(_H)"
+
+#~ msgid "_Report this Bug..."
+#~ msgstr "ఈ బగ్‌ను నివేదించుము... (_R)"
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"

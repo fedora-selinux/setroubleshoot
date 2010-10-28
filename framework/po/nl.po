@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-04-20 13:55-0400\n"
+"POT-Creation-Date: 2010-10-28 17:25-0400\n"
 "PO-Revision-Date: 2010-07-04 17:11+0200\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Fedora\n"
@@ -27,24 +27,75 @@ msgstr "SELinux probleem oplosser"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Los SELinux toegang weigeringen op"
 
-#: ../src/browser.py:64 ../src/browser.py:65 ../src/browser.py:66
-#: ../src/browser.py:85
-msgid "(removed)"
-msgstr "(verwijderd)"
+#: ../src/audit_data.py:861
+#, python-format
+msgid "port %s"
+msgstr ""
 
-#: ../src/browser.py:143
-msgid "Sealert Error"
-msgstr "Sealert fout"
+#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/rpc.py:544 ../src/util.py:223
+msgid "Unknown"
+msgstr "Onbekend"
 
-#: ../src/browser.py:154
-msgid "Sealert Message"
-msgstr "Sealert boodschap"
+#: ../src/audit_data.py:948
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC allowed in current policy ***\n"
+msgstr ""
 
-#: ../src/browser.py:243
-msgid "Copy to Clipboard"
-msgstr "Kopieer naar klembord"
+#: ../src/audit_data.py:950
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
 
-#: ../src/browser.py:312
+#: ../src/audit_data.py:952
+msgid "Must call policy_init first"
+msgstr ""
+
+#: ../src/audit_data.py:954
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad target context. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:956
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad source context. ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:958
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad type class ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:960
+#, python-format
+msgid ""
+"%s \n"
+"**** Invalid AVC bad permission ***\n"
+msgstr ""
+
+#: ../src/audit_data.py:962
+msgid "Error during access vector computation"
+msgstr ""
+
+#: ../src/browser.py:225
+#, fuzzy
+msgid "Error while checking policy version."
+msgstr ""
+"<small><b>Fout opgetreden bij het controleren van de tactiek versie.</b></"
+"small>"
+
+#: ../src/browser.py:230
 msgid ""
 "There is a newer version of policy available.  Updating your policy may fix "
 "the denial that you having problems with."
@@ -52,90 +103,80 @@ msgstr ""
 "Er is een nieuwere versie van de tactiek beschikbaar.  Vernieuwen van jouw "
 "tactiek kan de weigering waarmee je problemen hebt repareren."
 
-#: ../src/browser.py:315 ../src/browser.py:541
+#: ../src/browser.py:231
+msgid "Newest Version"
+msgstr ""
+
+#: ../src/browser.py:233
 msgid "Update Policy"
 msgstr "Vernieuw tactiek"
 
-#: ../src/browser.py:327
-msgid "No alerts to view."
-msgstr "Er zijn geen waarschuwingen."
-
-#: ../src/browser.py:345
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-"Browser</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux probleem oplosser "
-"browser</span>"
-
-#: ../src/browser.py:390
+#: ../src/browser.py:250
 msgid "#"
 msgstr "#"
 
-#. Note: The following string items returned by a plugin
-#. already have had their template substitutions HTML escaped
-#. when the plugin generated it's report
-#: ../src/browser.py:390 ../src/signature.py:404 ../src/signature.py:478
-msgid "Summary"
-msgstr "Samenvatting"
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Source Process"
+msgstr "Bron RPM pakketten"
 
-#: ../src/browser.py:390
-msgid "Count"
-msgstr "Aantal"
+#: ../src/browser.py:250
+msgid "Attempted Access"
+msgstr ""
 
-#: ../src/browser.py:390 ../src/run_cmd.py:389
-msgid "Command"
-msgstr "Commando"
+#: ../src/browser.py:250
+msgid "On this"
+msgstr ""
 
-#: ../src/browser.py:390
-msgid "Date"
-msgstr "Datum"
+#: ../src/browser.py:250
+msgid "Occured"
+msgstr ""
 
-#: ../src/browser.py:544
-msgid "Report Bug..."
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Edit Status"
+msgstr "Status"
+
+#: ../src/browser.py:374
+msgid "If you were trying to..."
+msgstr ""
+
+#: ../src/browser.py:380
+msgid "Then this is the solution."
+msgstr ""
+
+#: ../src/browser.py:387
+msgid "If "
+msgstr ""
+
+#: ../src/browser.py:485
+#, fuzzy
+msgid ""
+"Report\n"
+"Bug"
 msgstr "Rapporteer fout..."
 
-#: ../src/browser.py:561
+#: ../src/browser.py:513
 msgid "Unable to grant access."
 msgstr "Niet in staat toegang te geven."
 
-#: ../src/browser.py:595
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-"seriously compromised!</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>Jouw systeem kan ernstig "
-"in gevaar gebracht zijn!</span>"
-
-#: ../src/browser.py:602
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-"suspicious behavior on your system</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux heeft verdacht "
-"gedrag op jouw systeem ontdekt</span>"
-
-#: ../src/browser.py:672
-msgid "Today"
-msgstr "Vandaag"
-
-#: ../src/browser.py:674
-msgid "Yesterday"
-msgstr "Gisteren"
-
-#: ../src/browser.py:691
+#: ../src/browser.py:538 ../src/browser.py:646
 #, python-format
-msgid "<span foreground='#555555'>%s on %s</span>"
-msgstr "<span foreground='#555555'>%s op %s</span>"
-
-#: ../src/browser.py:746
-#, python-format
-msgid ""
-"Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-"weight='bold' size='large' face='verdana'>%d</span>"
+msgid "Alert %d of %d"
 msgstr ""
-"Waarschuwing<span weight='bold' size='large' face='verdana'> %d</span> van "
-"<span weight='bold' size='large' face='verdana'>%d</span>"
+
+#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
+#: ../src/browser.py:752
+msgid "(removed)"
+msgstr "(verwijderd)"
+
+#: ../src/browser.py:799
+msgid "Sealert Error"
+msgstr "Sealert fout"
+
+#: ../src/browser.py:810
+msgid "Sealert Message"
+msgstr "Sealert boodschap"
 
 #: ../src/email_dialog.py:47
 msgid "Setroubleshoot Email Preferences"
@@ -175,7 +216,8 @@ msgstr ""
 "zijn niet toegestaan.\n"
 "\n"
 "Om een of meer email adressen te verwijderen selecteer je de adressen\n"
-"in de lijst en klik je op de Verwijderen knop of gebruik je de Delete toets.\n"
+"in de lijst en klik je op de Verwijderen knop of gebruik je de Delete "
+"toets.\n"
 "Of je kunt het adres bewerken en leeg maken.\n"
 "\n"
 "Om een adres te bewerken klik op het adres en begin met bewerken.\n"
@@ -287,13 +329,11 @@ msgstr "Oeps, %s loopt tegen een fout aan!"
 msgid "Error"
 msgstr "Fout"
 
-#: ../src/Plugin.py:86 ../gui/browser.glade.h:18
-msgid "Fix it"
-msgstr "Repareer dit"
-
-#: ../src/rpc.py:544 ../src/util.py:223
-msgid "Unknown"
-msgstr "Onbekend"
+#: ../src/Plugin.py:79
+msgid ""
+"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS"
+msgstr ""
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -310,6 +350,10 @@ msgstr "Wachtwoord: "
 #: ../src/run_cmd.py:378
 msgid "SELinux Fix"
 msgstr "SELinux reparatie"
+
+#: ../src/run_cmd.py:389
+msgid "Command"
+msgstr "Commando"
 
 #: ../src/run_cmd.py:399
 msgid "Run Command"
@@ -365,153 +409,210 @@ msgstr " Voor complete SELinux boodschappen. voer sealert -l %s uit"
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "De gebruiker (%s) kan geen data veranderen voor (%s)"
 
-#: ../src/server.py:461 ../src/sealert:276
+#: ../src/server.py:461 ../src/sealert:295
 msgid "Started"
 msgstr "Gestart"
 
-#: ../src/server.py:505
+#: ../src/server.py:508
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:572
+#: ../src/server.py:575
 msgid "Audit Listener"
 msgstr "Audit luisteraar"
 
-#: ../src/signature.py:70
+#: ../src/signature.py:75
 msgid "Never Ignore"
 msgstr "Nooit negeren"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:76
 msgid "Ignore Always"
 msgstr "Altijd negeren"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:77
 msgid "Ignore After First Alert"
 msgstr "Negeer na eerste waarschuwing"
 
-#: ../src/signature.py:361
+#: ../src/signature.py:196
+msgid "directory"
+msgstr ""
+
+#: ../src/signature.py:197
+msgid "semaphore"
+msgstr ""
+
+#: ../src/signature.py:198
+msgid "shared memory"
+msgstr ""
+
+#: ../src/signature.py:199
+msgid "message queue"
+msgstr ""
+
+#: ../src/signature.py:200
+msgid "message"
+msgstr ""
+
+#: ../src/signature.py:201
+msgid "file"
+msgstr ""
+
+#: ../src/signature.py:202
+#, fuzzy
+msgid "socket"
+msgstr "socket fout"
+
+#: ../src/signature.py:203
+msgid "process"
+msgstr ""
+
+#: ../src/signature.py:204
+msgid "filesystem"
+msgstr ""
+
+#: ../src/signature.py:205
+msgid "node"
+msgstr ""
+
+#: ../src/signature.py:206
+msgid "capability"
+msgstr ""
+
+#: ../src/signature.py:382
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s heeft een toelatend type (%s). Deze toegang was niet verboden."
 
-#: ../src/signature.py:364
-msgid "SELinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:385
+#, fuzzy
+msgid "SEinux is in permissive mode. This access was not denied."
 msgstr "SELinux is in de toelatende mode. Deze toegang werd niet geweigerd."
 
-#: ../src/signature.py:367
+#: ../src/signature.py:468
 #, python-format
-msgid "<font color=\"0000FF\">[%s]</font><p>%s"
-msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+msgid ""
+"\n"
+"\n"
+"*****  Plugin %s (%.4s confidence) suggests  "
+msgstr ""
 
-#: ../src/signature.py:407 ../src/signature.py:480
-msgid "Detailed Description"
-msgstr "Gedetailleerde omschrijving"
+#: ../src/signature.py:474
+msgid ""
+"\n"
+"If "
+msgstr ""
 
-#: ../src/signature.py:410 ../src/signature.py:482
-msgid "Allowing Access"
-msgstr "Toegang toestaan"
+#: ../src/signature.py:476
+msgid ""
+"\n"
+"Then "
+msgstr ""
 
-#: ../src/signature.py:414 ../src/signature.py:485
-msgid "Fix Command"
-msgstr "Commando repareren"
+#: ../src/signature.py:479
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
 
-#: ../src/signature.py:417 ../src/signature.py:488
+#: ../src/signature.py:480
 msgid "Additional Information"
 msgstr "Extra informatie"
 
-#: ../src/signature.py:429 ../src/signature.py:490
+#: ../src/signature.py:482
 msgid "Source Context"
 msgstr "Bron context"
 
-#: ../src/signature.py:430 ../src/signature.py:491
+#: ../src/signature.py:483
 msgid "Target Context"
 msgstr "Doel context"
 
-#: ../src/signature.py:431 ../src/signature.py:492
+#: ../src/signature.py:484
 msgid "Target Objects"
 msgstr "Doel objecten"
 
-#: ../src/signature.py:432 ../src/signature.py:493
+#: ../src/signature.py:485
 msgid "Source"
 msgstr "Bron"
 
-#: ../src/signature.py:433 ../src/signature.py:494
+#: ../src/signature.py:486
 msgid "Source Path"
 msgstr "Bron pad"
 
-#: ../src/signature.py:434 ../src/signature.py:495
+#: ../src/signature.py:487
 msgid "Port"
 msgstr "Poort"
 
-#: ../src/signature.py:435 ../src/signature.py:496
+#: ../src/signature.py:488
 msgid "Host"
 msgstr "Host"
 
-#: ../src/signature.py:436 ../src/signature.py:497
+#: ../src/signature.py:489
 msgid "Source RPM Packages"
 msgstr "Bron RPM pakketten"
 
-#: ../src/signature.py:437 ../src/signature.py:498
+#: ../src/signature.py:490
 msgid "Target RPM Packages"
 msgstr "Doel RPM pakketten"
 
-#: ../src/signature.py:438 ../src/signature.py:499
+#: ../src/signature.py:491
 msgid "Policy RPM"
 msgstr "Tactiek RPM"
 
-#: ../src/signature.py:439 ../src/signature.py:500
+#: ../src/signature.py:492
 msgid "Selinux Enabled"
 msgstr "SELinux aangezet"
 
-#: ../src/signature.py:440 ../src/signature.py:501
+#: ../src/signature.py:493
 msgid "Policy Type"
 msgstr "Tactiek type"
 
-#: ../src/signature.py:441 ../src/signature.py:502
+#: ../src/signature.py:494
 msgid "Enforcing Mode"
 msgstr "Afdwingende mode"
 
-#: ../src/signature.py:442 ../src/signature.py:503
-msgid "Plugin Name"
-msgstr "Plug-in naam"
-
-#: ../src/signature.py:443 ../src/signature.py:504
+#: ../src/signature.py:495
 msgid "Host Name"
 msgstr "Host naam"
 
-#: ../src/signature.py:444 ../src/signature.py:505
+#: ../src/signature.py:496
 msgid "Platform"
 msgstr "Platform"
 
-#: ../src/signature.py:445 ../src/signature.py:506
+#: ../src/signature.py:497
 msgid "Alert Count"
 msgstr "Aantal waarschuwingen"
 
-#: ../src/signature.py:446 ../src/signature.py:507
+#: ../src/signature.py:498
 msgid "First Seen"
 msgstr "Eerst gezien op"
 
-#: ../src/signature.py:447 ../src/signature.py:508
+#: ../src/signature.py:499
 msgid "Last Seen"
 msgstr "Laatst gezien op"
 
-#: ../src/signature.py:448 ../src/signature.py:509
+#: ../src/signature.py:500
 msgid "Local ID"
 msgstr "Locale ID"
 
-#: ../src/signature.py:449 ../src/signature.py:510
-msgid "Line Numbers"
-msgstr "Regel nummers"
-
-#: ../src/signature.py:452 ../src/signature.py:513
+#: ../src/signature.py:502
 msgid "Raw Audit Messages"
 msgstr "Onbewerkte audit boodschappen"
+
+#: ../src/updater.py:18
+#, python-format
+msgid "current: %s "
+msgstr ""
+
+#: ../src/updater.py:27
+#, python-format
+msgid "newer: %s "
+msgstr ""
 
 #: ../src/seapplet.c:188
 msgid "New SELinux security alert"
 msgstr "Nieuwe SELinux beveiliging waarschuwing"
 
-#: ../src/seapplet.c:189 ../src/sealert:312
+#: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
 msgstr "AVC weigering, klik op icoon om te bekijken"
 
@@ -523,151 +624,151 @@ msgstr "Verwerp"
 msgid "Show"
 msgstr "Laat zien"
 
-#: ../src/sealert:65
+#. set tooltip
+#: ../src/seapplet.c:432 ../src/sealert:67
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC weigering, klik om te bekijken"
 
-#: ../src/sealert:139
+#: ../src/sealert:104
+msgid "SELinux not enabled, sealert will not run on non SELinux systems"
+msgstr ""
+
+#: ../src/sealert:154
 msgid "Not fixable."
 msgstr "Niet te repareren."
 
-#: ../src/sealert:145
+#: ../src/sealert:161
 #, c-format
 msgid "Successfully ran %s"
 msgstr "%s succesvol gedraaid"
 
-#: ../src/sealert:311
-msgid "SELinux"
-msgstr "SELinux"
+#: ../src/sealert:166
+#, c-format
+msgid "Plugin %s not valid for %s id"
+msgstr ""
 
-#: ../src/setroubleshootd:92
+#: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux is niet aangezet, setroubleshootd gaat afsluiten..."
 
-#: ../src/setroubleshootd:123
+#: ../src/setroubleshootd:113
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "afsplitsen #1 faalde: %d (%s)"
 
 #: ../gui/browser.glade.h:1
-msgid "<small><b>Error while trying to check policy version.</b></small>"
+msgid "<b>SELinux has detected a problem.</b>"
 msgstr ""
-"<small><b>Fout opgetreden bij het controleren van de tactiek "
-"versie.</b></small>"
 
 #: ../gui/browser.glade.h:2
-msgid "<small>Click here to install updates using PackageKit</small>"
-msgstr ""
-"<small>Klik hier on vernieuwingen te installeren met gebruik van "
-"PackageKit</small>"
+#, fuzzy
+msgid "Access:"
+msgstr "Succes"
 
 #: ../gui/browser.glade.h:3
-msgid "<small>There is a newer version of policy available.</small>"
-msgstr "<small>Er is een nieuwere versie van de tactiek beschikbaar.</small>"
-
-#: ../gui/browser.glade.h:4
+#, fuzzy
 msgid ""
-"<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
+"Copyright (c) 2010 \n"
+"Thomas Liu <tliu@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 msgstr ""
-"<span face=\"Helvetica\" size='large'>SELinux probleem oplosser browser</span>"
-
-#: ../gui/browser.glade.h:5
-msgid "<span foreground='grey'>date</span>"
-msgstr "<span foreground='grey'>datum</span>"
-
-#: ../gui/browser.glade.h:6
-msgid ""
-"<span size='large' weight='bold' \tface='verdana'>No alerts to view.</span>"
-msgstr ""
-"<span size='large' weight='bold' \tface='verdana'>Er zijn geen waarschuwingen "
-"te bekijken.</span>"
-
-#: ../gui/browser.glade.h:7
-msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-msgstr ""
-"<span weight='bold' size='large' face='verdana'>Waarschuwing - van -</span>"
-
-#: ../gui/browser.glade.h:8
-msgid ""
-"Certain signatures allow administrators to correct your system with "
-"setroubleshoot."
-msgstr ""
-"Bepaalde ondertekeningen staan beheerders toe om jouw systeem met "
-"setroubleshoot te herstellen."
+"Copyright (c) 2009 \n"
+"Thomas Liu <tliu@redhat.com>\n"
+"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
-msgid "Copy full error output to clipboard."
-msgstr "Kopieer de volledige fout output naar het klembord"
+msgid "Delete current alert from the database."
+msgstr ""
 
 #: ../gui/browser.glade.h:10
-msgid ""
-"Copyright (c) 2009 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+msgid "Do not show alert message, when this alert is triggered."
 msgstr ""
-"Copyright (c) 2009 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:16
-msgid "Delete _All Alerts"
+#: ../gui/browser.glade.h:11
+msgid "Email alert to system administrator."
+msgstr ""
+
+#: ../gui/browser.glade.h:12
+#, fuzzy
+msgid "Ignore"
+msgstr "Nooit negeren"
+
+#: ../gui/browser.glade.h:13
+#, fuzzy
+msgid "List All Alerts"
 msgstr "Verwijder _alle waarschuwingen"
 
+#: ../gui/browser.glade.h:14
+msgid "List all alerts in the database."
+msgstr ""
+
+#: ../gui/browser.glade.h:15
+#, fuzzy
+msgid "No"
+msgstr "Geen"
+
+#: ../gui/browser.glade.h:16
+#, fuzzy
+msgid "No Alerts"
+msgstr "Copieer waarschuwing"
+
 #: ../gui/browser.glade.h:17
-msgid "Delete alert."
-msgstr "Verwijder waarschuwingen."
+msgid ""
+"Read alert troubleshoot information.  May require administrative privledge "
+"to remedy."
+msgstr ""
+
+#: ../gui/browser.glade.h:18
+#, fuzzy
+msgid "Report"
+msgstr "Rapporteer fout..."
 
 #: ../gui/browser.glade.h:19
-msgid "Ignore Alert"
-msgstr "Negeer waarschuwing"
-
-#: ../gui/browser.glade.h:20
-msgid "Ignore this SELinux Security Alert in the future."
-msgstr "Negeer deze SELinux beveiliging waarschuwing in het vervolg."
-
-#: ../gui/browser.glade.h:21
-msgid "Next"
-msgstr "Volgende"
-
-#: ../gui/browser.glade.h:22
-msgid "Previous"
-msgstr "Vorige"
-
-#: ../gui/browser.glade.h:23
-msgid "Reports a bug to bugzilla.redhat.com."
-msgstr "Rapporteer een fout op bugzilla.redhat.com."
-
-#: ../gui/browser.glade.h:24
-msgid "SELinux Security Alerts"
+#, fuzzy
+msgid "SELinux Alert Browser"
 msgstr "SELinux beveiliging waarschuwingen"
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:20
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot waarschuwingen lijst"
 
+#: ../gui/browser.glade.h:21
+#, fuzzy
+msgid "Show next alert."
+msgstr "Verwijder waarschuwingen."
+
+#: ../gui/browser.glade.h:22
+msgid "Show previous alert."
+msgstr ""
+
+#: ../gui/browser.glade.h:23
+#, fuzzy
+msgid "Troubleshoot"
+msgstr "SELinux probleem oplosser"
+
+#: ../gui/browser.glade.h:24
+msgid "Turn off alert pop-ups."
+msgstr ""
+
+#: ../gui/browser.glade.h:25
+msgid "Turn on alert pop-ups."
+msgstr ""
+
 #: ../gui/browser.glade.h:26
-msgid "Show all..."
-msgstr "Laat alles zien..."
+msgid "Would you like to receive alerts?"
+msgstr ""
 
 #: ../gui/browser.glade.h:27
-msgid "Show full error output"
-msgstr "Laat de volledige fout output zien"
+msgid "Yes"
+msgstr ""
 
 #: ../gui/browser.glade.h:28
-msgid "_File"
-msgstr "_Bestand"
-
-#: ../gui/browser.glade.h:29
-msgid "_Help"
-msgstr "_Hulp"
-
-#: ../gui/browser.glade.h:30
-msgid "_Report this Bug..."
-msgstr "_Rapporteer deze fout..."
+msgid "label"
+msgstr ""
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
@@ -694,14 +795,11 @@ msgstr ""
 "Je wilt de fout output, die aan dit fout rapport toegevoegd wordt, misschien "
 "bekijken en het veranderen om gevoelige data te verwijderen."
 
-#: ../gui/bug_report.glade.h:6
-msgid "gtk-cancel"
-msgstr "gtk-cancel"
-
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr "Deze handeling is klaar.  The quick brown fox jumped over the lazy dog."
+msgstr ""
+"Deze handeling is klaar.  The quick brown fox jumped over the lazy dog."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
@@ -710,6 +808,155 @@ msgstr "Succes!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "knop"
+
+#~ msgid "Copy to Clipboard"
+#~ msgstr "Kopieer naar klembord"
+
+#~ msgid "No alerts to view."
+#~ msgstr "Er zijn geen waarschuwingen."
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
+#~ "Browser</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux probleem "
+#~ "oplosser browser</span>"
+
+#~ msgid "Summary"
+#~ msgstr "Samenvatting"
+
+#~ msgid "Count"
+#~ msgstr "Aantal"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
+#~ "seriously compromised!</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>Jouw systeem kan "
+#~ "ernstig in gevaar gebracht zijn!</span>"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
+#~ "suspicious behavior on your system</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux heeft "
+#~ "verdacht gedrag op jouw systeem ontdekt</span>"
+
+#~ msgid "Today"
+#~ msgstr "Vandaag"
+
+#~ msgid "Yesterday"
+#~ msgstr "Gisteren"
+
+#~ msgid "<span foreground='#555555'>%s on %s</span>"
+#~ msgstr "<span foreground='#555555'>%s op %s</span>"
+
+#~ msgid ""
+#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span>"
+#~ msgstr ""
+#~ "Waarschuwing<span weight='bold' size='large' face='verdana'> %d</span> "
+#~ "van <span weight='bold' size='large' face='verdana'>%d</span>"
+
+#~ msgid "Fix it"
+#~ msgstr "Repareer dit"
+
+#~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
+#~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+
+#~ msgid "Detailed Description"
+#~ msgstr "Gedetailleerde omschrijving"
+
+#~ msgid "Allowing Access"
+#~ msgstr "Toegang toestaan"
+
+#~ msgid "Fix Command"
+#~ msgstr "Commando repareren"
+
+#~ msgid "Plugin Name"
+#~ msgstr "Plug-in naam"
+
+#~ msgid "Line Numbers"
+#~ msgstr "Regel nummers"
+
+#~ msgid "SELinux"
+#~ msgstr "SELinux"
+
+#~ msgid "<small>Click here to install updates using PackageKit</small>"
+#~ msgstr ""
+#~ "<small>Klik hier on vernieuwingen te installeren met gebruik van "
+#~ "PackageKit</small>"
+
+#~ msgid "<small>There is a newer version of policy available.</small>"
+#~ msgstr ""
+#~ "<small>Er is een nieuwere versie van de tactiek beschikbaar.</small>"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large'>SELinux probleem oplosser browser</"
+#~ "span>"
+
+#~ msgid "<span foreground='grey'>date</span>"
+#~ msgstr "<span foreground='grey'>datum</span>"
+
+#~ msgid ""
+#~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
+#~ "span>"
+#~ msgstr ""
+#~ "<span size='large' weight='bold' \tface='verdana'>Er zijn geen "
+#~ "waarschuwingen te bekijken.</span>"
+
+#~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
+#~ msgstr ""
+#~ "<span weight='bold' size='large' face='verdana'>Waarschuwing - van -</"
+#~ "span>"
+
+#~ msgid ""
+#~ "Certain signatures allow administrators to correct your system with "
+#~ "setroubleshoot."
+#~ msgstr ""
+#~ "Bepaalde ondertekeningen staan beheerders toe om jouw systeem met "
+#~ "setroubleshoot te herstellen."
+
+#~ msgid "Copy full error output to clipboard."
+#~ msgstr "Kopieer de volledige fout output naar het klembord"
+
+#~ msgid "Ignore Alert"
+#~ msgstr "Negeer waarschuwing"
+
+#~ msgid "Ignore this SELinux Security Alert in the future."
+#~ msgstr "Negeer deze SELinux beveiliging waarschuwing in het vervolg."
+
+#~ msgid "Next"
+#~ msgstr "Volgende"
+
+#~ msgid "Previous"
+#~ msgstr "Vorige"
+
+#~ msgid "Reports a bug to bugzilla.redhat.com."
+#~ msgstr "Rapporteer een fout op bugzilla.redhat.com."
+
+#~ msgid "Show all..."
+#~ msgstr "Laat alles zien..."
+
+#~ msgid "Show full error output"
+#~ msgstr "Laat de volledige fout output zien"
+
+#~ msgid "_File"
+#~ msgstr "_Bestand"
+
+#~ msgid "_Help"
+#~ msgstr "_Hulp"
+
+#~ msgid "_Report this Bug..."
+#~ msgstr "_Rapporteer deze fout..."
+
+#~ msgid "gtk-cancel"
+#~ msgstr "gtk-cancel"
 
 #~ msgid ""
 #~ "Your bug could not be filed due to the following error when communicating "
@@ -947,9 +1194,6 @@ msgstr "knop"
 #~ msgid "Copy selected text in detail pane"
 #~ msgstr "Copieer geselecteerde tekst in detail venster"
 
-#~ msgid "Copy Alert"
-#~ msgstr "Copieer waarschuwing"
-
 #~ msgid "Copy selected alerts in entirety to clipboard"
 #~ msgstr "Copieer geselecteerde waarschuwingen in het geheel naar clipboard"
 
@@ -1018,9 +1262,6 @@ msgstr "knop"
 
 #~ msgid "Show/Hide %s Column"
 #~ msgstr "%s kolom tonen/verbergen"
-
-#~ msgid "None"
-#~ msgstr "Geen"
 
 #~ msgid "loading data ..."
 #~ msgstr "laden van gegevens ..."

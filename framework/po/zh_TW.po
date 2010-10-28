@@ -11,10 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-20 13:00+0530\n"
+"POT-Creation-Date: 2010-10-28 17:25-0400\n"
 "PO-Revision-Date: 2010-07-21 11:08+1000\n"
 "Last-Translator: Terry Chuang <tchuang@redhat.com>\n"
 "Language-Team: Traditional Chinese <zh@li.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +30,17 @@ msgstr "SELinux 疑難排解程式"
 msgid "Troubleshoot SELinux access denials"
 msgstr "為 SELinux 被拒絕存取進行疑難排解"
 
-#: ../src/audit_data.py:903
+#: ../src/audit_data.py:861
+#, python-format
+msgid "port %s"
+msgstr ""
+
+#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/rpc.py:544 ../src/util.py:223
+msgid "Unknown"
+msgstr "不明"
+
+#: ../src/audit_data.py:948
 #, python-format
 msgid ""
 "%s \n"
@@ -38,7 +49,7 @@ msgstr ""
 "%s \n"
 "**** 目前政策中允許了無效的 AVC ***\n"
 
-#: ../src/audit_data.py:905
+#: ../src/audit_data.py:950
 #, python-format
 msgid ""
 "%s \n"
@@ -49,11 +60,11 @@ msgstr ""
 "**** 已在目前的政策中 dontaudited 了無效的 AVC。'semodule -B' 將會開啟 "
 "dontaudit 規則。***\n"
 
-#: ../src/audit_data.py:907
+#: ../src/audit_data.py:952
 msgid "Must call policy_init first"
 msgstr "必須先呼叫 policy_init"
 
-#: ../src/audit_data.py:909
+#: ../src/audit_data.py:954
 #, python-format
 msgid ""
 "%s \n"
@@ -62,7 +73,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，目標內容無效。***\n"
 
-#: ../src/audit_data.py:911
+#: ../src/audit_data.py:956
 #, python-format
 msgid ""
 "%s \n"
@@ -71,7 +82,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，來源內容無效。***\n"
 
-#: ../src/audit_data.py:913
+#: ../src/audit_data.py:958
 #, python-format
 msgid ""
 "%s \n"
@@ -80,7 +91,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，類別類型無效。***\n"
 
-#: ../src/audit_data.py:915
+#: ../src/audit_data.py:960
 #, python-format
 msgid ""
 "%s \n"
@@ -89,137 +100,94 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，權限無效。***\n"
 
-#: ../src/audit_data.py:917
+#: ../src/audit_data.py:962
 msgid "Error during access vector computation"
 msgstr "存取 vector 運算時發生了錯誤"
 
-#: ../src/browser.py:65 ../src/browser.py:66 ../src/browser.py:67
-#: ../src/browser.py:86
-msgid "(removed)"
-msgstr "（已移除）"
-
-#: ../src/browser.py:144
-msgid "Sealert Error"
-msgstr "Sealert 錯誤"
-
-#: ../src/browser.py:155
-msgid "Sealert Message"
-msgstr "Sealert 訊息"
-
-#: ../src/browser.py:245
-msgid "Copy to Clipboard"
-msgstr "複製至剪貼簿"
-
-#: ../src/browser.py:300
+#: ../src/browser.py:225
 msgid "Error while checking policy version."
 msgstr "嘗試檢查政策版本時發生了錯誤。"
 
-#: ../src/browser.py:303
-msgid "newer"
-msgstr "較新"
-
-#: ../src/browser.py:304
+#: ../src/browser.py:230
 msgid ""
 "There is a newer version of policy available.  Updating your policy may fix "
 "the denial that you having problems with."
 msgstr "有可用的新版政策。更新您的政策可能可修正您遇上的存取問題。"
 
-#: ../src/browser.py:305
+#: ../src/browser.py:231
 msgid "Newest Version"
 msgstr "最新版本"
 
-#: ../src/browser.py:307 ../src/browser.py:540
+#: ../src/browser.py:233
 msgid "Update Policy"
 msgstr "更新政策"
 
-#: ../src/browser.py:309
-msgid "current"
-msgstr "目前"
-
-#: ../src/browser.py:310
-msgid "Policy Version"
-msgstr "政策版本"
-
-#: ../src/browser.py:320
-msgid "No alerts to view."
-msgstr "沒有可檢視的警告。"
-
-#: ../src/browser.py:338
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-"Browser</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux 疑難排解瀏覽器</"
-"span>"
-
-#: ../src/browser.py:384
+#: ../src/browser.py:250
 msgid "#"
 msgstr "#"
 
-#. Note: The following string items returned by a plugin
-#. already have had their template substitutions HTML escaped
-#. when the plugin generated it's report
-#: ../src/browser.py:384 ../src/signature.py:404 ../src/signature.py:478
-msgid "Summary"
-msgstr "摘要"
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Source Process"
+msgstr "來源 RPM 套件"
 
-#: ../src/browser.py:384
-msgid "Count"
-msgstr "計數"
+#: ../src/browser.py:250
+msgid "Attempted Access"
+msgstr ""
 
-#: ../src/browser.py:384 ../src/run_cmd.py:389
-msgid "Command"
-msgstr "指令"
+#: ../src/browser.py:250
+msgid "On this"
+msgstr ""
 
-#: ../src/browser.py:384
-msgid "Date"
-msgstr "日期"
+#: ../src/browser.py:250
+msgid "Occured"
+msgstr ""
 
-#: ../src/browser.py:542
-msgid "Report Bug..."
+#: ../src/browser.py:250
+#, fuzzy
+msgid "Edit Status"
+msgstr "狀態"
+
+#: ../src/browser.py:374
+msgid "If you were trying to..."
+msgstr ""
+
+#: ../src/browser.py:380
+msgid "Then this is the solution."
+msgstr ""
+
+#: ../src/browser.py:387
+msgid "If "
+msgstr ""
+
+#: ../src/browser.py:485
+#, fuzzy
+msgid ""
+"Report\n"
+"Bug"
 msgstr "回報錯誤..."
 
-#: ../src/browser.py:559
+#: ../src/browser.py:513
 msgid "Unable to grant access."
 msgstr "無法存取"
 
-#: ../src/browser.py:594
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-"seriously compromised!</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>您的系統可能已遭到嚴重入"
-"侵了！</span>"
-
-#: ../src/browser.py:601
-msgid ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-"suspicious behavior on your system</span>"
-msgstr ""
-"<span face=\"Helvetica\" size='large' weight='bold'>SELinux 在您的系統上偵測"
-"到了可疑的動作</span>"
-
-#: ../src/browser.py:670
-msgid "Today"
-msgstr "今天"
-
-#: ../src/browser.py:672
-msgid "Yesterday"
-msgstr "昨天"
-
-#: ../src/browser.py:689
+#: ../src/browser.py:538 ../src/browser.py:646
 #, python-format
-msgid "<span foreground='#555555'>%s on %s</span>"
-msgstr "<span foreground='#555555'>%s on %s</span>"
-
-#: ../src/browser.py:744
-#, python-format
-msgid ""
-"Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-"weight='bold' size='large' face='verdana'>%d</span>"
+msgid "Alert %d of %d"
 msgstr ""
-"警示 <span weight='bold' size='large' face='verdana'> %d</span> <span "
-"weight='bold' size='large' face='verdana'>%d</span>"
+
+#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
+#: ../src/browser.py:752
+msgid "(removed)"
+msgstr "（已移除）"
+
+#: ../src/browser.py:799
+msgid "Sealert Error"
+msgstr "Sealert 錯誤"
+
+#: ../src/browser.py:810
+msgid "Sealert Message"
+msgstr "Sealert 訊息"
 
 #: ../src/email_dialog.py:47
 msgid "Setroubleshoot Email Preferences"
@@ -371,13 +339,11 @@ msgstr "噢，%s 遇到了錯誤！"
 msgid "Error"
 msgstr "錯誤"
 
-#: ../src/Plugin.py:86 ../gui/browser.glade.h:18
-msgid "Fix it"
-msgstr "修復問題"
-
-#: ../src/rpc.py:544 ../src/util.py:223
-msgid "Unknown"
-msgstr "不明"
+#: ../src/Plugin.py:79
+msgid ""
+"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS"
+msgstr ""
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -394,6 +360,10 @@ msgstr "密碼："
 #: ../src/run_cmd.py:378
 msgid "SELinux Fix"
 msgstr "SELinux 修正"
+
+#: ../src/run_cmd.py:389
+msgid "Command"
+msgstr "指令"
 
 #: ../src/run_cmd.py:399
 msgid "Run Command"
@@ -447,7 +417,7 @@ msgstr " 若要檢視完整的 SELinux 訊息，請執行 sealert -l %s"
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "用戶（%s）無法修改（%s）的資料"
 
-#: ../src/server.py:461 ../src/sealert:276
+#: ../src/server.py:461 ../src/sealert:295
 msgid "Started"
 msgstr "已啟用"
 
@@ -459,133 +429,180 @@ msgstr "AVC"
 msgid "Audit Listener"
 msgstr "稽核監聽者"
 
-#: ../src/signature.py:70
+#: ../src/signature.py:75
 msgid "Never Ignore"
 msgstr "絕不略過"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:76
 msgid "Ignore Always"
 msgstr "總是略過"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:77
 msgid "Ignore After First Alert"
 msgstr "第一個警示後略過"
 
-#: ../src/signature.py:361
+#: ../src/signature.py:196
+msgid "directory"
+msgstr ""
+
+#: ../src/signature.py:197
+msgid "semaphore"
+msgstr ""
+
+#: ../src/signature.py:198
+msgid "shared memory"
+msgstr ""
+
+#: ../src/signature.py:199
+msgid "message queue"
+msgstr ""
+
+#: ../src/signature.py:200
+msgid "message"
+msgstr ""
+
+#: ../src/signature.py:201
+msgid "file"
+msgstr ""
+
+#: ../src/signature.py:202
+#, fuzzy
+msgid "socket"
+msgstr "socket 錯誤"
+
+#: ../src/signature.py:203
+msgid "process"
+msgstr ""
+
+#: ../src/signature.py:204
+msgid "filesystem"
+msgstr ""
+
+#: ../src/signature.py:205
+msgid "node"
+msgstr ""
+
+#: ../src/signature.py:206
+msgid "capability"
+msgstr ""
+
+#: ../src/signature.py:382
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s 目前處於寬鬆模式 (%s)。這次存取未有被拒絕。"
 
-#: ../src/signature.py:364
-msgid "SELinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:385
+#, fuzzy
+msgid "SEinux is in permissive mode. This access was not denied."
 msgstr "SELinux 目前處於寬鬆模式。這次存取未有被拒絕。"
 
-#: ../src/signature.py:367
+#: ../src/signature.py:468
 #, python-format
-msgid "<font color=\"0000FF\">[%s]</font><p>%s"
-msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+msgid ""
+"\n"
+"\n"
+"*****  Plugin %s (%.4s confidence) suggests  "
+msgstr ""
 
-#: ../src/signature.py:407 ../src/signature.py:480
-msgid "Detailed Description"
-msgstr "詳細描述"
+#: ../src/signature.py:474
+msgid ""
+"\n"
+"If "
+msgstr ""
 
-#: ../src/signature.py:410 ../src/signature.py:482
-msgid "Allowing Access"
-msgstr "允許存取"
+#: ../src/signature.py:476
+msgid ""
+"\n"
+"Then "
+msgstr ""
 
-#: ../src/signature.py:414 ../src/signature.py:485
-msgid "Fix Command"
-msgstr "修復指令"
+#: ../src/signature.py:479
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
 
-#: ../src/signature.py:417 ../src/signature.py:488
+#: ../src/signature.py:480
 msgid "Additional Information"
 msgstr "額外資訊"
 
-#: ../src/signature.py:429 ../src/signature.py:490
+#: ../src/signature.py:482
 msgid "Source Context"
 msgstr "來源 Context"
 
-#: ../src/signature.py:430 ../src/signature.py:491
+#: ../src/signature.py:483
 msgid "Target Context"
 msgstr "目標 Context"
 
-#: ../src/signature.py:431 ../src/signature.py:492
+#: ../src/signature.py:484
 msgid "Target Objects"
 msgstr "目標物件"
 
-#: ../src/signature.py:432 ../src/signature.py:493
+#: ../src/signature.py:485
 msgid "Source"
 msgstr "來源"
 
-#: ../src/signature.py:433 ../src/signature.py:494
+#: ../src/signature.py:486
 msgid "Source Path"
 msgstr "來源路徑"
 
-#: ../src/signature.py:434 ../src/signature.py:495
+#: ../src/signature.py:487
 msgid "Port"
 msgstr "通訊埠"
 
-#: ../src/signature.py:435 ../src/signature.py:496
+#: ../src/signature.py:488
 msgid "Host"
 msgstr "主機"
 
-#: ../src/signature.py:436 ../src/signature.py:497
+#: ../src/signature.py:489
 msgid "Source RPM Packages"
 msgstr "來源 RPM 套件"
 
-#: ../src/signature.py:437 ../src/signature.py:498
+#: ../src/signature.py:490
 msgid "Target RPM Packages"
 msgstr "目標 RPM 套件"
 
-#: ../src/signature.py:438 ../src/signature.py:499
+#: ../src/signature.py:491
 msgid "Policy RPM"
 msgstr "政策 RPM"
 
-#: ../src/signature.py:439 ../src/signature.py:500
+#: ../src/signature.py:492
 msgid "Selinux Enabled"
 msgstr "Selinux 已啟用"
 
-#: ../src/signature.py:440 ../src/signature.py:501
+#: ../src/signature.py:493
 msgid "Policy Type"
 msgstr "政策類型"
 
-#: ../src/signature.py:441 ../src/signature.py:502
+#: ../src/signature.py:494
 msgid "Enforcing Mode"
 msgstr "強制模式"
 
-#: ../src/signature.py:442 ../src/signature.py:503
-msgid "Plugin Name"
-msgstr "插件名稱"
-
-#: ../src/signature.py:443 ../src/signature.py:504
+#: ../src/signature.py:495
 msgid "Host Name"
 msgstr "主機名稱"
 
-#: ../src/signature.py:444 ../src/signature.py:505
+#: ../src/signature.py:496
 msgid "Platform"
 msgstr "平台"
 
-#: ../src/signature.py:445 ../src/signature.py:506
+#: ../src/signature.py:497
 msgid "Alert Count"
 msgstr "警示計數"
 
-#: ../src/signature.py:446 ../src/signature.py:507
+#: ../src/signature.py:498
 msgid "First Seen"
 msgstr "第一次看見"
 
-#: ../src/signature.py:447 ../src/signature.py:508
+#: ../src/signature.py:499
 msgid "Last Seen"
 msgstr "最後一次看見"
 
-#: ../src/signature.py:448 ../src/signature.py:509
+#: ../src/signature.py:500
 msgid "Local ID"
 msgstr "本地 ID"
 
-#: ../src/signature.py:449 ../src/signature.py:510
-msgid "Line Numbers"
-msgstr "行列編號"
-
-#: ../src/signature.py:452 ../src/signature.py:513
+#: ../src/signature.py:502
 msgid "Raw Audit Messages"
 msgstr "原始稽核訊息"
 
@@ -603,7 +620,7 @@ msgstr "較新：%s"
 msgid "New SELinux security alert"
 msgstr "新的 SELinux 安全性警告"
 
-#: ../src/seapplet.c:189 ../src/sealert:312
+#: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
 msgstr "AVC 否定，請點選圖像來進行檢視"
 
@@ -615,75 +632,53 @@ msgstr "消除"
 msgid "Show"
 msgstr "顯示"
 
-#: ../src/sealert:65
+#. set tooltip
+#: ../src/seapplet.c:432 ../src/sealert:67
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC 否定，請點選以進行檢視"
 
-#: ../src/sealert:139
+#: ../src/sealert:104
+msgid "SELinux not enabled, sealert will not run on non SELinux systems"
+msgstr ""
+
+#: ../src/sealert:154
 msgid "Not fixable."
 msgstr "無法修復。"
 
-#: ../src/sealert:145
+#: ../src/sealert:161
 #, c-format
 msgid "Successfully ran %s"
 msgstr "成功地執行了 %s"
 
-#: ../src/sealert:311
-msgid "SELinux"
-msgstr "SELinux"
+#: ../src/sealert:166
+#, c-format
+msgid "Plugin %s not valid for %s id"
+msgstr ""
 
-#: ../src/setroubleshootd:92
+#: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux未有啟用，setroubleshootd離開..."
 
-#: ../src/setroubleshootd:123
+#: ../src/setroubleshootd:113
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork 指令失敗: %d (%s)"
 
 #: ../gui/browser.glade.h:1
-msgid "<small><b>Checking policy version...</b></small>"
-msgstr "<small><b>正在檢查政策版本...</b></small>"
+msgid "<b>SELinux has detected a problem.</b>"
+msgstr ""
 
 #: ../gui/browser.glade.h:2
-msgid "<small>Click here to install updates using PackageKit</small>"
-msgstr "<small>請按此以使用 PackageKit 來安裝更新</small>"
+#, fuzzy
+msgid "Access:"
+msgstr "成功"
 
 #: ../gui/browser.glade.h:3
-msgid "<small>There is a newer version of policy available.</small>"
-msgstr "<small>已有更新版本的可用政策。</small>"
-
-#: ../gui/browser.glade.h:4
-msgid "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
-msgstr "<span face=\"Helvetica\" size='large' >SELinux 疑難排解瀏覽器</span>"
-
-#: ../gui/browser.glade.h:5
-msgid "<span foreground='grey'>date</span>"
-msgstr "<span foreground='grey'>日期</span>"
-
-#: ../gui/browser.glade.h:6
-msgid "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</span>"
-msgstr "<span size='large' weight='bold' \tface='verdana'>沒有警示可看</span>"
-
-#: ../gui/browser.glade.h:7
-msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-msgstr "<span weight='bold' size='large' face='verdana'>警示</span>"
-
-#: ../gui/browser.glade.h:8
+#, fuzzy
 msgid ""
-"Certain signatures allow administrators to correct your system with "
-"setroubleshoot."
-msgstr "特定簽章能讓管理員特過 setroubleshoot 來修正您的系統。"
-
-#: ../gui/browser.glade.h:9
-msgid "Copy full error output to clipboard."
-msgstr "把完整的錯誤輸出複製到剪貼簿。"
-
-#: ../gui/browser.glade.h:10
-msgid ""
-"Copyright (c) 2009 \n"
+"Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
@@ -693,61 +688,94 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:16
-msgid "Delete _All Alerts"
+#: ../gui/browser.glade.h:9
+msgid "Delete current alert from the database."
+msgstr ""
+
+#: ../gui/browser.glade.h:10
+msgid "Do not show alert message, when this alert is triggered."
+msgstr ""
+
+#: ../gui/browser.glade.h:11
+msgid "Email alert to system administrator."
+msgstr ""
+
+#: ../gui/browser.glade.h:12
+#, fuzzy
+msgid "Ignore"
+msgstr "絕不略過"
+
+#: ../gui/browser.glade.h:13
+#, fuzzy
+msgid "List All Alerts"
 msgstr "刪除所有警示(_A)"
 
-#: ../gui/browser.glade.h:17
-msgid "Delete alert."
-msgstr "刪除警示。"
+#: ../gui/browser.glade.h:14
+msgid "List all alerts in the database."
+msgstr ""
 
-#: ../gui/browser.glade.h:19
-msgid "Ignore Alert"
+#: ../gui/browser.glade.h:15
+msgid "No"
+msgstr ""
+
+#: ../gui/browser.glade.h:16
+#, fuzzy
+msgid "No Alerts"
 msgstr "略過警示"
 
-#: ../gui/browser.glade.h:20
-msgid "Ignore this SELinux Security Alert in the future."
-msgstr "在將來略過 SELinux 的安全性警示"
+#: ../gui/browser.glade.h:17
+msgid ""
+"Read alert troubleshoot information.  May require administrative privledge "
+"to remedy."
+msgstr ""
 
-#: ../gui/browser.glade.h:21
-msgid "Next"
-msgstr "下一步"
+#: ../gui/browser.glade.h:18
+#, fuzzy
+msgid "Report"
+msgstr "回報錯誤..."
 
-#: ../gui/browser.glade.h:22
-msgid "Previous"
-msgstr "上一步"
-
-#: ../gui/browser.glade.h:23
-msgid "Reports a bug to bugzilla.redhat.com."
-msgstr "向 bugzilla.redhat.com 回報錯誤。"
-
-#: ../gui/browser.glade.h:24
-msgid "SELinux Security Alerts"
+#: ../gui/browser.glade.h:19
+#, fuzzy
+msgid "SELinux Alert Browser"
 msgstr "SELinux 安全性警示"
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:20
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot 警示清單"
 
+#: ../gui/browser.glade.h:21
+#, fuzzy
+msgid "Show next alert."
+msgstr "刪除警示。"
+
+#: ../gui/browser.glade.h:22
+msgid "Show previous alert."
+msgstr ""
+
+#: ../gui/browser.glade.h:23
+#, fuzzy
+msgid "Troubleshoot"
+msgstr "SELinux 疑難排解程式"
+
+#: ../gui/browser.glade.h:24
+msgid "Turn off alert pop-ups."
+msgstr ""
+
+#: ../gui/browser.glade.h:25
+msgid "Turn on alert pop-ups."
+msgstr ""
+
 #: ../gui/browser.glade.h:26
-msgid "Show all..."
-msgstr "顯示全部..."
+msgid "Would you like to receive alerts?"
+msgstr ""
 
 #: ../gui/browser.glade.h:27
-msgid "Show full error output"
-msgstr "顯示完整的錯誤輸出"
+msgid "Yes"
+msgstr ""
 
 #: ../gui/browser.glade.h:28
-msgid "_File"
-msgstr "檔案(_F)"
-
-#: ../gui/browser.glade.h:29
-msgid "_Help"
-msgstr "協助(_H)"
-
-#: ../gui/browser.glade.h:30
-msgid "_Report this Bug..."
-msgstr "回報這項錯誤(_R)..."
+msgid "label"
+msgstr ""
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
@@ -769,10 +797,12 @@ msgstr "提交報告"
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr "建議您檢查並修改即將包含在此錯誤報告中的錯誤輸出，並排除以下所有敏感資料。"
+msgstr ""
+"建議您檢查並修改即將包含在此錯誤報告中的錯誤輸出，並排除以下所有敏感資料。"
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
-msgid "This operation was completed.  The quick brown fox jumped over the lazy dog."
+msgid ""
+"This operation was completed.  The quick brown fox jumped over the lazy dog."
 msgstr "這項作業已完成。The quick brown fox jumped over the lazy dog。"
 
 #: ../gui/success_dialog.glade.h:1
@@ -783,3 +813,148 @@ msgstr "成功！"
 msgid "button"
 msgstr "按鈕"
 
+#~ msgid "Copy to Clipboard"
+#~ msgstr "複製至剪貼簿"
+
+#~ msgid "newer"
+#~ msgstr "較新"
+
+#~ msgid "current"
+#~ msgstr "目前"
+
+#~ msgid "Policy Version"
+#~ msgstr "政策版本"
+
+#~ msgid "No alerts to view."
+#~ msgstr "沒有可檢視的警告。"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
+#~ "Browser</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux 疑難排解瀏覽器"
+#~ "</span>"
+
+#~ msgid "Summary"
+#~ msgstr "摘要"
+
+#~ msgid "Count"
+#~ msgstr "計數"
+
+#~ msgid "Date"
+#~ msgstr "日期"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
+#~ "seriously compromised!</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>您的系統可能已遭到嚴重"
+#~ "入侵了！</span>"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
+#~ "suspicious behavior on your system</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux 在您的系統上偵"
+#~ "測到了可疑的動作</span>"
+
+#~ msgid "Today"
+#~ msgstr "今天"
+
+#~ msgid "Yesterday"
+#~ msgstr "昨天"
+
+#~ msgid "<span foreground='#555555'>%s on %s</span>"
+#~ msgstr "<span foreground='#555555'>%s on %s</span>"
+
+#~ msgid ""
+#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span>"
+#~ msgstr ""
+#~ "警示 <span weight='bold' size='large' face='verdana'> %d</span> <span "
+#~ "weight='bold' size='large' face='verdana'>%d</span>"
+
+#~ msgid "Fix it"
+#~ msgstr "修復問題"
+
+#~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
+#~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+
+#~ msgid "Detailed Description"
+#~ msgstr "詳細描述"
+
+#~ msgid "Allowing Access"
+#~ msgstr "允許存取"
+
+#~ msgid "Fix Command"
+#~ msgstr "修復指令"
+
+#~ msgid "Plugin Name"
+#~ msgstr "插件名稱"
+
+#~ msgid "Line Numbers"
+#~ msgstr "行列編號"
+
+#~ msgid "SELinux"
+#~ msgstr "SELinux"
+
+#~ msgid "<small><b>Checking policy version...</b></small>"
+#~ msgstr "<small><b>正在檢查政策版本...</b></small>"
+
+#~ msgid "<small>Click here to install updates using PackageKit</small>"
+#~ msgstr "<small>請按此以使用 PackageKit 來安裝更新</small>"
+
+#~ msgid "<small>There is a newer version of policy available.</small>"
+#~ msgstr "<small>已有更新版本的可用政策。</small>"
+
+#~ msgid ""
+#~ "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
+#~ msgstr ""
+#~ "<span face=\"Helvetica\" size='large' >SELinux 疑難排解瀏覽器</span>"
+
+#~ msgid "<span foreground='grey'>date</span>"
+#~ msgstr "<span foreground='grey'>日期</span>"
+
+#~ msgid ""
+#~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
+#~ "span>"
+#~ msgstr ""
+#~ "<span size='large' weight='bold' \tface='verdana'>沒有警示可看</span>"
+
+#~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
+#~ msgstr "<span weight='bold' size='large' face='verdana'>警示</span>"
+
+#~ msgid ""
+#~ "Certain signatures allow administrators to correct your system with "
+#~ "setroubleshoot."
+#~ msgstr "特定簽章能讓管理員特過 setroubleshoot 來修正您的系統。"
+
+#~ msgid "Copy full error output to clipboard."
+#~ msgstr "把完整的錯誤輸出複製到剪貼簿。"
+
+#~ msgid "Ignore this SELinux Security Alert in the future."
+#~ msgstr "在將來略過 SELinux 的安全性警示"
+
+#~ msgid "Next"
+#~ msgstr "下一步"
+
+#~ msgid "Previous"
+#~ msgstr "上一步"
+
+#~ msgid "Reports a bug to bugzilla.redhat.com."
+#~ msgstr "向 bugzilla.redhat.com 回報錯誤。"
+
+#~ msgid "Show all..."
+#~ msgstr "顯示全部..."
+
+#~ msgid "Show full error output"
+#~ msgstr "顯示完整的錯誤輸出"
+
+#~ msgid "_File"
+#~ msgstr "檔案(_F)"
+
+#~ msgid "_Help"
+#~ msgstr "協助(_H)"
+
+#~ msgid "_Report this Bug..."
+#~ msgstr "回報這項錯誤(_R)..."
