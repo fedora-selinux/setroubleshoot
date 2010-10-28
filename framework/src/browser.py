@@ -167,6 +167,8 @@ class BrowserApplet:
         self.target_label = builder.get_object("target_label")
         self.target_image = builder.get_object("target_image")
         self.yes_radiobutton = builder.get_object("yes_radiobutton")
+        self.no_radiobutton = builder.get_object("no_radiobutton")
+        self.no_radiobutton.set_active(self.alert_disabled())
         self.class_label = builder.get_object("class_label")
         self.access_label = builder.get_object("access_label")
         self.access_title_label = builder.get_object("access_title_label")
@@ -206,7 +208,7 @@ class BrowserApplet:
         self.alert_list_window.hide()
         self.empty_load()
         self.load_data()
-        self.liststore = gtk.ListStore(int, str, str, str, str) 
+        self.liststore = gtk.ListStore(int, str, str, str, str, str) 
         self.make_treeview()
 #        self.updaterpipe = Popen(["/usr/bin/python", "/usr/share/setroubleshoot/updater.py"], stdout=PIPE)
 #        gobject.timeout_add(1000, self.read_pipe().next)
@@ -245,7 +247,7 @@ class BrowserApplet:
     def make_treeview(self):
         tmsort = gtk.TreeModelSort(self.liststore)
        
-        cols = [_("#"), _("Source"), _("Access"), _("Target"), _("Occured")]
+        cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occured"), _("Edit Status")]
         self.treeview = gtk.TreeView(tmsort)
         x = 0
         for c in cols:
@@ -279,7 +281,6 @@ class BrowserApplet:
             async_rpc = self.database.query_alerts(item)
             async_rpc.add_callback(new_siginfo_callback)
    
-
     def show_date(self, alert):
         from setroubleshoot.util import TimeStamp
         # Format the data that we get and display it in the appropriate places
@@ -299,10 +300,11 @@ class BrowserApplet:
         buf = infile.readlines()
         infile.close()
         try:
-            os.makedirs(PREF_DIRECTORY + ".config/autostart/")
+            os.makedirs(os.path.expanduser("~/.config/autostart"))
         except OSError:
             pass
-        outfile = open(PREF_DIRECTORY + ".config/autostart/sealertauto.desktop", "w")
+
+        outfile = open(os.path.expanduser("~/.config/autostart/sealertauto.desktop"), "w")
         for line in buf:
             if line.startswith("X-GNOME-Autostart-enabled="):
                 continue
@@ -311,15 +313,35 @@ class BrowserApplet:
         outfile.write("X-GNOME-Autostart-enabled=%s\n" % str(run_seapplet).lower())
         outfile.close()
 
+    def alert_disabled(self):
+           import re
+           desktop_file = os.path.expanduser("~/.config/autostart/sealertauto.desktop")
+           try:
+                  infile = open(desktop_file , "r")
+                  buf = infile.readlines()
+                  infile.close()
+                  for line in buf:
+                         if re.search("X-GNOME-Autostart-enabled *= *false", line):
+                                return True
+           except:
+                  pass
+           return False
+
     def on_report_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
             sig = self.alert_list[self.current_alert]
             Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text()], stdout=PIPE)
 
+    def set_ignore_sig(self, sig, state):
+        if state == True:
+            self.server.set_filter(sig, self.username, FILTER_ALWAYS, '')
+        else:
+            self.server.set_filter(sig, self.username, FILTER_NEVER, '')
+
     def on_ignore_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
-            sig = self.alert_list[self.current_alert]
-            curr_id = sig.local_id
+            alert = self.alert_list[self.current_alert]
+            self.set_ignore_sig(alert.sig, True)
 
     def load_data(self):
         if self.database is not None:
@@ -507,7 +529,8 @@ class BrowserApplet:
         if type == "add" or type == "modify": 
             async_rpc = self.database.query_alerts(item)
             async_rpc.add_callback(new_siginfo_callback)
-   
+        self.update_button_visibility()
+
     def update_num_label(self, empty=False):
         if empty is True:
             self.alert_count_label.set_text("")
@@ -594,7 +617,7 @@ class BrowserApplet:
             self.source_label.set_label(sig.spath)
         self.source_label.set_tooltip_text(sig.spath)
         self.source_image.set_from_gicon(get_icon(sig.spath, "file"), gtk.ICON_SIZE_DIALOG)
-        if sig.tclass == "capability" or sig.tclass == "process":
+        if sig.tpath == _("Unknown"):
             self.target_label.set_label("")
             self.target_label.set_tooltip_text("")
         else:
@@ -646,7 +669,10 @@ class BrowserApplet:
         self.liststore.clear()
         ctr = 1
         for alert in self.alert_list:
-	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),alert.tpath, alert.report_count])
+            tpath = alert.tpath
+            if alert.tpath == _("Unknown"):
+                   tpath = alert.tclass
+	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),tpath, alert.report_count, alert.evaluate_filter_for_user(self.username)])
             ctr = ctr + 1
        
         self.alert_list_window.show_all()

@@ -2,9 +2,79 @@
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy toplevel-contextual -->
+  <object class="GtkAboutDialog" id="aboutdialog1">
+    <property name="border_width">5</property>
+    <property name="window_position">center</property>
+    <property name="icon">setroubleshoot_icon.png</property>
+    <property name="type_hint">normal</property>
+    <property name="program_name">SETroubleshoot</property>
+    <property name="copyright" translatable="yes">Copyright (c) 2010 
+Thomas Liu &lt;tliu@redhat.com&gt;
+Máirín Duffy &lt;duffy@redhat.com&gt;
+Daniel Walsh &lt;dwalsh@redhat.com&gt;
+John Dennis &lt;jdennis@redhat.com&gt;
+</property>
+    <property name="authors">Thomas Liu &lt;tliu@redhat.com&gt;
+Máirín Duffy &lt;duffy@redhat.com&gt;
+Daniel Walsh &lt;dwalsh@redhat.com&gt;
+John Dennis &lt;jdennis@redhat.com&gt;</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox3">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="alert_list_window">
+    <property name="title" translatable="yes">SETroubleshoot Alert List</property>
+    <property name="window_position">center</property>
+    <property name="default_width">825</property>
+    <property name="default_height">400</property>
+    <property name="icon">setroubleshoot_icon.png</property>
+    <child>
+      <object class="GtkVBox" id="vbox3">
+        <property name="visible">True</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="treeview_window">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <child>
+              <placeholder/>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder/>
+        </child>
+      </object>
+    </child>
+  </object>
   <object class="GtkWindow" id="window">
     <property name="width_request">800</property>
     <property name="title" translatable="yes">SELinux Alert Browser</property>
+    <property name="icon">setroubleshoot_icon.png</property>
     <child>
       <object class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
@@ -41,6 +111,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_markup">Turn on alert pop-ups.</property>
                 <property name="use_action_appearance">False</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
@@ -59,6 +130,7 @@
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
+                <property name="tooltip_markup">Turn off alert pop-ups.</property>
                 <property name="use_action_appearance">False</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">yes_radiobutton</property>
@@ -233,6 +305,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="tooltip_markup">Read alert troubleshoot information.  May require administrative privledge to remedy.</property>
                                 <property name="use_action_appearance">False</property>
                                 <accelerator key="t" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                                 <signal name="clicked" handler="on_troubleshoot_button_clicked" swapped="no"/>
@@ -250,6 +323,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="tooltip_markup">Email alert to system administrator.</property>
                                 <property name="use_action_appearance">False</property>
                                 <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                                 <signal name="clicked" handler="on_report_button_clicked" swapped="no"/>
@@ -277,6 +351,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="tooltip_markup">Do not show alert message, when this alert is triggered.</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="image_position">right</property>
                                 <signal name="clicked" handler="on_ignore_button_clicked" swapped="no"/>
@@ -294,6 +369,7 @@
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
+                                <property name="tooltip_markup">Delete current alert from the database.</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="use_stock">True</property>
                                 <property name="image_position">right</property>
@@ -397,6 +473,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="tooltip_markup">Show previous alert.</property>
                     <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
                     <accelerator key="p" signal="clicked" modifiers="GDK_MOD1_MASK"/>
@@ -427,6 +504,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="tooltip_markup">Show next alert.</property>
                     <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
                     <accelerator key="n" signal="clicked" modifiers="GDK_MOD1_MASK"/>
@@ -444,6 +522,7 @@
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
+                    <property name="tooltip_markup">List all alerts in the database.</property>
                     <property name="use_action_appearance">False</property>
                     <accelerator key="l" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                     <signal name="clicked" handler="on_list_all_button_clicked" swapped="no"/>
@@ -469,74 +548,6 @@
             <property name="fill">False</property>
             <property name="padding">5</property>
             <property name="position">3</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkWindow" id="alert_list_window">
-    <property name="title" translatable="yes">SETroubleshoot Alert List</property>
-    <property name="window_position">center</property>
-    <property name="default_width">825</property>
-    <property name="default_height">400</property>
-    <property name="icon">setroubleshoot_icon.png</property>
-    <child>
-      <object class="GtkVBox" id="vbox3">
-        <property name="visible">True</property>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <object class="GtkScrolledWindow" id="treeview_window">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="hscrollbar_policy">automatic</property>
-            <property name="vscrollbar_policy">automatic</property>
-            <child>
-              <placeholder/>
-            </child>
-          </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <placeholder/>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkAboutDialog" id="aboutdialog1">
-    <property name="border_width">5</property>
-    <property name="window_position">center</property>
-    <property name="type_hint">normal</property>
-    <property name="program_name">SETroubleshoot</property>
-    <property name="copyright" translatable="yes">Copyright (c) 2010 
-Thomas Liu &lt;tliu@redhat.com&gt;
-Máirín Duffy &lt;duffy@redhat.com&gt;
-Daniel Walsh &lt;dwalsh@redhat.com&gt;
-John Dennis &lt;jdennis@redhat.com&gt;
-</property>
-    <property name="authors">Thomas Liu &lt;tliu@redhat.com&gt;
-Máirín Duffy &lt;duffy@redhat.com&gt;
-Daniel Walsh &lt;dwalsh@redhat.com&gt;
-John Dennis &lt;jdennis@redhat.com&gt;</property>
-    <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox3">
-        <property name="visible">True</property>
-        <property name="spacing">2</property>
-        <child>
-          <placeholder/>
-        </child>
-        <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area1">
-            <property name="visible">True</property>
-            <property name="layout_style">end</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
           </packing>
         </child>
       </object>
