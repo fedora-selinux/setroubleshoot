@@ -506,7 +506,7 @@ class BrowserApplet:
         # Stop showing the current alert that we've just granted access to
         try:
             dbus_proxy = DBusProxy()
-            resp = dbus_proxy.run_fix(sig, plugin.analsys_id)
+            resp = dbus_proxy.run_fix(sig, plugin.analysis_id)
             MessageDialog(resp)
         except dbus.DBusException, e:
             print e
