@@ -44,17 +44,35 @@ home directory from a previous installation that did not use SELinux, 'restoreco
     computer system: "touch /.autorelabel; reboot"
     ''')
 
-    if_text = _('this is a newly created file system.')
-    then_text = _('you need to add labels to it.')
-    do_text = '/sbin/restorecon -v $TARGET_PATH'
+    def get_if_text(self, avc, args):
+        if args == (1,0):
+            return _('this is caused by a newly created file system.')            
+        else:
+            return _('you think this is caused by a badly mislabeled machine.')
+
+    def get_then_text(self, avc, args):
+        if args == (1,0):
+            return _('you need to add labels to it.')
+        else:
+            return _('you need to fully relabel.')
+
+    def get_do_text(self, avc, args):
+        if args == (1,0):
+            return '/sbin/restorecon -R -v $TARGET_PATH'
+        else:
+            return 'touch /.autorelabel; reboot'
     
     def __init__(self):
         Plugin.__init__(self,__name__)
         self.level="green"
+        self.set_priority(8)
 
     def analyze(self, avc):
         if avc.matches_target_types(['file_t']):
             # MATCH
-            return self.report()
+            reports = []
+            reports.append(self.report((1,0)))
+            reports.append(self.report((2,0)))
+            return reports
         else:
             return None

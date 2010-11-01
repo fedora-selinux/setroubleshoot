@@ -611,7 +611,7 @@ class BrowserApplet:
         if size < self.current_alert:
             self.current_alert = size
         sig = self.alert_list[self.current_alert]
-        if len(sig.spath) > 30:
+        if sig.spath and len(sig.spath) > 30:
             self.source_label.set_label(os.path.basename(sig.spath))
         else:
             self.source_label.set_label(sig.spath)
@@ -621,7 +621,7 @@ class BrowserApplet:
             self.target_label.set_label("")
             self.target_label.set_tooltip_text("")
         else:
-            if len(sig.tpath) > 30:
+            if sig.tpath and len(sig.tpath) > 30:
                 self.target_label.set_label(os.path.basename(sig.tpath))
             else:
                 self.target_label.set_label(sig.tpath)
