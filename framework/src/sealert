@@ -540,6 +540,9 @@ class SEAlert(object):
         if debug:
             log_alert.debug("evaluating alert")
 
+        def alert_filter_result(result):
+            pass
+
         self.alert_siginfo = siginfo
         async_rpc = self.browser.server.evaluate_alert_filter(siginfo.sig, self.username)
         async_rpc.add_callback(alert_filter_result)
@@ -714,7 +717,8 @@ if __name__ == '__main__':
         -V --debug           log DEBUG level and higher messages to console
         -u --user            logon user name
         -p --password        logon password
-        -f --fix             fix avc with the given uuid
+        -P --plugin          Plugin Name Required for -f
+        -f --fix             fix avc with the given uuid, requires plugin
         ''')
 
     def validate_invocation_style(style):

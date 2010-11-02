@@ -179,6 +179,7 @@ class BrowserApplet:
         self.do_label = builder.get_object("do_label")
         self.alert_count_label = builder.get_object("alert_count_label")
         self.date_label = builder.get_object("date_label")
+        self.selinux_label = builder.get_object("selinux_label")
         self.current_policy_label = builder.get_object("current_policy_label")
         self.newer_policy_label = builder.get_object("newer_policy_label")
 
@@ -186,13 +187,18 @@ class BrowserApplet:
         self.previous_button = builder.get_object("previous_button")
         self.report_button = builder.get_object("report_button")
         self.ignore_button = builder.get_object("ignore_button")
+        self.troubleshoot_button = builder.get_object("troubleshoot_button")
         self.delete_button = builder.get_object("delete_button")
+        self.delete_list_button = builder.get_object("delete_list_button")
+        self.troubleshoot_list_button = builder.get_object("troubleshoot_list_button")
         self.grant_button = builder.get_object("grant_button")
         self.alert_list_window = builder.get_object("alert_list_window") 
         self.alert_list_window.connect("delete-event", self.close_alert_window)
         self.list_all_button = builder.get_object("list_all_button")
         self.treeview_window = builder.get_object("treeview_window") 
-
+        self.treeview = builder.get_object("treeview") 
+        self.treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
+        self.treeview.get_selection().connect("changed", self.itemSelected)
         self.solutions_pane = builder.get_object("solutions_pane")
         self.solutions_pane.hide()
 
@@ -216,6 +222,10 @@ class BrowserApplet:
         self.current_alert = -1
         self.accounts = report.accountmanager.AccountManager()
 
+    def itemSelected(self, widget):
+           self.troubleshoot_list_button.set_sensitive(widget.count_selected_rows() == 1)
+           self.delete_list_button.set_sensitive(widget.count_selected_rows() > 0)
+           
     def read_pipe(self):
         while True:
             if not self.updaterpipe.poll() is None:
@@ -248,11 +258,12 @@ class BrowserApplet:
         tmsort = gtk.TreeModelSort(self.liststore)
        
         cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occured"), _("Edit Status")]
-        self.treeview = gtk.TreeView(tmsort)
+        self.treeview.set_model(tmsort)
         x = 0
         for c in cols:
             cell = gtk.CellRendererText()
             col = gtk.TreeViewColumn(c)
+            col.width = 20
             col.pack_start(cell, True)
             col.set_attributes(cell, text=x)
             col.set_sort_column_id(x)
@@ -260,7 +271,6 @@ class BrowserApplet:
             self.treeview.append_column(col)
             x +=1 
         self.treeview.set_headers_clickable(True)
-        self.treeview_window.add(self.treeview)
         self.treeview.connect("row-activated", self.row_activated)
     
     def row_activated(self, x, y, z):
@@ -466,8 +476,8 @@ class BrowserApplet:
         self.table.attach(if_frame, col, col+1, rows, rows + 1, xoptions=gtk.FILL, yoptions=gtk.FILL)
 
         col += 1
-        self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
-#, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
+        self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
+#, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, 
 
         if plugin.fixable:
             self.table.resize(rows + 1, cols + 1)
@@ -475,7 +485,7 @@ class BrowserApplet:
             report_button.set_label(plugin.button_text)
             report_button.show()
             report_button.set_sensitive(False)
-            report_button.connect("clicked", self.fix_bug, sig, plugin)
+            report_button.connect("clicked", self.fix_bug, sig.local_id, plugin.analysis_id)
             col += 1
             self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
 
@@ -499,14 +509,28 @@ class BrowserApplet:
                 child.set_sensitive(widget.get_active())
     
     def quit(self, widget):
+        filename = PREF_PATH 
+        try:
+            fd = open(filename, "w")
+        except IOError:
+            gtk.main_quit()
+            return
+
+        if len(self.alert_list) > 0:
+            fd.write("last=" + self.alert_list[-1].local_id)    
+        else:
+            fd.write("last=")    
+
+        fd.write("\n");
+        fd.close()
         gtk.main_quit() 
 
-    def fix_bug(self, widget, sig, plugin):
+    def fix_bug(self, widget, local_id, analysis_id):
         # Grant access here
         # Stop showing the current alert that we've just granted access to
         try:
             dbus_proxy = DBusProxy()
-            resp = dbus_proxy.run_fix(sig, plugin.analysis_id)
+            resp = dbus_proxy.run_fix(local_id, analysis_id)
             MessageDialog(resp)
         except dbus.DBusException, e:
             print e
@@ -522,6 +546,9 @@ class BrowserApplet:
     def update_alerts(self, database, type, item):
 
         def new_siginfo_callback(sigs):
+            if self.current_alert == -1:
+                self.current_alert = 0
+
             for siginfo in sigs.signature_list:
                 self.add_siginfo(siginfo)
                 self.update_num_label()
@@ -542,6 +569,39 @@ class BrowserApplet:
             if siginfo.local_id == local_id:
                 return siginfo
         return None
+
+    def foreach(self, model, path, iter, selected):
+           selected.append(model.get_value(iter, 0))
+
+    def on_delete_list_button_clicked(self, widget):
+           selected = []
+           self.treeview.get_selection().selected_foreach(self.foreach, selected)
+           if len(selected) == 0:
+                  return 
+
+           alert = self.alert_list[self.current_alert]
+           selected.sort(reverse=True)
+           for i in selected:
+                  key = self.alert_list[i - 1]
+                  self.database.delete_signature(key.sig)
+                  del self.alert_list[i - 1]
+           try:
+                  self.current_alert = self.alert_list.index(alert)
+           except ValueError:
+                  self.current_alert = 0
+           self.on_list_all_button_clicked(widget)
+           self.show_current_alert()
+
+    def on_troubleshoot_list_button_clicked(self, widget):
+           selected = []
+           self.treeview.get_selection().selected_foreach(self.foreach, selected)
+           if len(selected) != 1:
+                  return 
+
+           self.current_alert = selected[0] - 1
+           self.alert_list_window.hide()
+           self.show_current_alert()
+           self.on_troubleshoot_button_clicked(self.troubleshoot_button)
 
     def on_delete_check_toggled(self, widget):
         store, iter = self.treeview.get_selection().get_selected()
@@ -600,6 +660,7 @@ class BrowserApplet:
         self.show_current_alert()
 
     def show_current_alert(self):
+        print "Current Alert", self.current_alert
         self.clear_rows()
         size = len(self.alert_list)
         self.update_button_visibility()
@@ -608,6 +669,7 @@ class BrowserApplet:
             return
 
         size = size - 1
+
         if size < self.current_alert:
             self.current_alert = size
         sig = self.alert_list[self.current_alert]
@@ -669,10 +731,10 @@ class BrowserApplet:
         self.liststore.clear()
         ctr = 1
         for alert in self.alert_list:
-            tpath = alert.tpath
+            tpath = alert.tpath.rstrip("/")
             if alert.tpath == _("Unknown"):
                    tpath = alert.tclass
-	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),tpath, alert.report_count, alert.evaluate_filter_for_user(self.username)])
+	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),os.path.basename(tpath), alert.report_count, alert.evaluate_filter_for_user(self.username)])
             ctr = ctr + 1
        
         self.alert_list_window.show_all()
@@ -690,6 +752,16 @@ class BrowserApplet:
             self.report_button.set_sensitive(False)
             self.list_all_button.set_sensitive(False)
             self.alert_count_label.set_sensitive(False)
+            self.source_label.hide()
+            self.source_image.hide()
+            self.target_label.hide()
+            self.target_image.hide()
+            self.class_label.hide()
+            self.access_label.hide()
+            self.date_label.hide()
+            self.access_title_label.hide()
+            self.alert_count_label.set_text(_("No Alerts"))
+            self.selinux_label.set_text(_("No Alerts"))
             return
 
         self.delete_button.set_sensitive(True)
@@ -697,6 +769,15 @@ class BrowserApplet:
         self.report_button.set_sensitive(True)
         self.list_all_button.set_sensitive(True)
         self.alert_count_label.set_sensitive(True)
+        self.source_label.show()
+        self.source_image.show()
+        self.target_label.show()
+        self.target_image.show()
+        self.class_label.show()
+        self.access_label.show()
+        self.access_title_label.show()
+        self.date_label.show()
+        self.selinux_label.set_text(_("SELinux has detected a problem."))
         if size > 1:
             self.next_button.set_sensitive(True)
             self.previous_button.set_sensitive(True)

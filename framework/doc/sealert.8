@@ -4,7 +4,7 @@ sealert \- setroubleshoot client tool
 
 .SH "SYNOPSIS"
 .B sealert
-.I [\-b] [-\f] [\-h] [\H] [\-s] [-S] [\-l id] [\-a file] [-v] [-V] [-u] [-p]
+.I [\-b] [-f local_id] [-h] [-H] [-s] [-S] [\-l id] [\-a file] [-v] [-V] [-u] [-p] [-P plugin_name]
 
 .SH "DESCRIPTION"
 This manual page describes the
@@ -111,7 +111,7 @@ viewing the audit system reports and the scanned file reports.
 Launch the browser
 .TP 
 .B \-f \-\-fix
-Execute the fix command for the avc with the given uuid
+Execute the fix command for the avc with the given uuid and plugin, requires --plugin option.
 .TP 
 .B \-h \-\-help           
 Show this message
@@ -141,6 +141,9 @@ logon as user
 .TP 
 .B \-p \-\-password        
 set user password
+.TP 
+.B \-P \-\-plugin
+Set plugin name associated with the --fix option
 
 .SH "GUI MENU"
 .TP 

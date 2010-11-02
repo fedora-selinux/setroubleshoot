@@ -197,12 +197,16 @@ class AlertPluginReportReceiver(PluginReportReceiver):
         if debug:
             log_alert.debug("sending alert to all clients")
 
-        send_alert_notification(siginfo)
-
         # FIXME: should this be using our logging objects in log.py?
         from setroubleshoot.html_util import html_to_text
-        summary = html_to_text(siginfo.summary(), 1024)
-        syslog.syslog(syslog.LOG_ERR, summary + _(" For complete SELinux messages. run sealert -l %s" % siginfo.local_id ))
+        syslog.syslog(syslog.LOG_ERR, siginfo.summary() + _(" For complete SELinux messages. run sealert -l %s") % siginfo.local_id )
+
+        for u in sig.users:
+                action = siginfo.evaluate_filter_for_user(u.username, recipient.filter_type)
+                if action == "ignore":
+                    return siginfo
+
+        send_alert_notification(siginfo)
         return siginfo
 
 #-----------------------------------------------------------------------------

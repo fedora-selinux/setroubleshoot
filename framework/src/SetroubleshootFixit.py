@@ -12,10 +12,10 @@ class RunFix(slip.dbus.service.Object):
     def __init__ (self, *p, **k):
         super(RunFix, self).__init__(*p, **k)
         
-    @dbus.service.method ("org.fedoraproject.SetroubleshootFixit", in_signature='s', out_signature='s')
-    def run_fix(self, local_id):
+    @dbus.service.method ("org.fedoraproject.SetroubleshootFixit", in_signature='ss', out_signature='s')
+    def run_fix(self, local_id, analysis_id):
         import commands
-        command = "sealert -f %s" % local_id
+        command = "sealert -f %s -P %s" % ( local_id, analysis_id)
         return commands.getoutput(command)
 
 if __name__ == "__main__":
