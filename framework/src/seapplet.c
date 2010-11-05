@@ -185,10 +185,7 @@ static void show_star(gpointer ptr, int red, char *local_id) {
 	if ((! gtk_status_icon_get_visible (alert->trayIcon) || red ) &&
 		alert->need_bubble == FALSE) {
 		gtk_status_icon_set_visible(alert->trayIcon, TRUE);
-		alert->notify = notify_notification_new_with_status_icon(_("New SELinux security alert"),
-									 _("AVC denial, click icon to view"),
-									 red ? file : GTK_STOCK_DIALOG_WARNING,
-									   alert->trayIcon);
+		alert->notify = notify_notification_new(_("New SELinux security alert"),_("AVC denial, click icon to view"), red ? file : GTK_STOCK_DIALOG_WARNING);
 		if (!red) {
 			notify_notification_set_timeout (alert->notify, NOTIFY_EXPIRES_DEFAULT);
 
