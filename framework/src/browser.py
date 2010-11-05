@@ -163,9 +163,9 @@ class BrowserApplet:
         self.window = builder.get_object("window")
         self.window.connect("destroy", self.quit)
         self.source_label = builder.get_object("source_label")
-        self.source_image = builder.get_object("source_image")
+#        self.source_image = builder.get_object("source_image")
         self.target_label = builder.get_object("target_label")
-        self.target_image = builder.get_object("target_image")
+#        self.target_image = builder.get_object("target_image")
         self.yes_radiobutton = builder.get_object("yes_radiobutton")
         self.no_radiobutton = builder.get_object("no_radiobutton")
         self.no_radiobutton.set_active(self.alert_disabled())
@@ -257,7 +257,7 @@ class BrowserApplet:
     def make_treeview(self):
         tmsort = gtk.TreeModelSort(self.liststore)
        
-        cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occured"), _("Edit Status")]
+        cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occured"), _("Status")]
         self.treeview.set_model(tmsort)
         x = 0
         for c in cols:
@@ -274,12 +274,7 @@ class BrowserApplet:
         self.treeview.connect("row-activated", self.row_activated)
     
     def row_activated(self, x, y, z):
-        store, iter = x.get_selection().get_selected()
-        if iter == None:
-            return
-        self.current_alert = store.get_value(iter, 0) - 1
-        self.alert_list_window.hide()
-        self.show_current_alert()
+        self.on_troubleshoot_list_button_clicked(None)
 
     def update_alerts(self, database, type, item):
         def new_siginfo_callback(sigs):
@@ -344,14 +339,18 @@ class BrowserApplet:
 
     def set_ignore_sig(self, sig, state):
         if state == True:
+	    self.ignore_button.set_label(_("Notify"))
+	    self.ignore_button.set_tooltip_text("Notify alert in the future.")
             self.server.set_filter(sig, self.username, FILTER_ALWAYS, '')
         else:
+	    self.ignore_button.set_label(_("Ignore"))
+	    self.ignore_button.set_tooltip_text("Ignore alert in the future.")
             self.server.set_filter(sig, self.username, FILTER_NEVER, '')
 
     def on_ignore_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
             alert = self.alert_list[self.current_alert]
-            self.set_ignore_sig(alert.sig, True)
+            self.set_ignore_sig(alert.sig, alert.evaluate_filter_for_user(self.username) != "ignore")
 
     def load_data(self):
         if self.database is not None:
@@ -381,13 +380,15 @@ class BrowserApplet:
         self.table.resize(1, cols)
         col = 0
         label = gtk.Label()
-        label.set_markup("<b>%s</b>" % _("If you were trying to..."))
+        label.set_markup(_("If you were trying to..."))
+        label.set_alignment(0.0, 0.0)
         label.show()
         col += 1
         self.table.attach(label, col, col + 1, 0, 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
 
         label = gtk.Label()
-        label.set_markup("<b>%s</b>" % _("Then this is the solution."))
+        label.set_alignment(0.0, 0.0)
+        label.set_markup(_("Then this is the solution."))
         label.show()
         col += 1
         self.table.attach(label, col, col + 1, 0, 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
@@ -430,20 +431,22 @@ class BrowserApplet:
 #        sev_frame.set_label_align(1.0, 0.0)
         sev_image.show()
         
-        if_frame = gtk.Frame()
+#        if_frame = gtk.Frame()
         if_label = gtk.Label()
         if_label.set_justify(gtk.JUSTIFY_LEFT)
         if_radiobutton = gtk.RadioButton(self.radio)
+        if_radiobutton.set_alignment(0.0, 0.0)
         if_radiobutton.show()
         if_radiobutton.add(if_label)
         if_label.set_line_wrap(True)
         if_label.set_text(if_text)
         if_label.show()
         if_radiobutton.show()
-        if_frame.add(if_radiobutton)
-        if_frame
-        if_frame.show()
-        if_frame.set_shadow_type(gtk.SHADOW_IN)
+        if_radiobutton.set_border_width(0)
+#        if_frame.add(if_radiobutton)
+#        if_frame
+#        if_frame.show()
+#        if_frame.set_shadow_type(gtk.SHADOW_IN)
 #        if_frame.set_border_width(1)
 #        if_frame.set_padding(1)
 #        then_textview = gtk.TextView()
@@ -452,7 +455,7 @@ class BrowserApplet:
         then_label.set_text(then_text)
         then_label.set_selectable(True)
 #        then_textview.set_editable(True)
-        then_label.set_alignment(0.0, 0.0)
+        then_label.set_alignment(0.5, 0.0)
         then_label.set_justify(gtk.JUSTIFY_LEFT)
         then_label.show()
         then_scroll = gtk.ScrolledWindow()
@@ -473,7 +476,7 @@ class BrowserApplet:
         self.table.attach(sev_frame, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
 
         col += 1
-        self.table.attach(if_frame, col, col+1, rows, rows + 1, xoptions=gtk.FILL, yoptions=gtk.FILL)
+        self.table.attach(if_radiobutton, col, col+1, rows, rows + 1, xoptions=gtk.FILL, yoptions=gtk.FILL)
 
         col += 1
         self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
@@ -603,24 +606,6 @@ class BrowserApplet:
            self.show_current_alert()
            self.on_troubleshoot_button_clicked(self.troubleshoot_button)
 
-    def on_delete_check_toggled(self, widget):
-        store, iter = self.treeview.get_selection().get_selected()
-        if iter == None:
-            return
-        self.current_alert = store.get_value(iter, 0) - 1
-        self.database.delete_signature(self.alert_list[self.current_alert].sig)
-        self.delete_current_alert()
-        self.show_all_button_clicked(widget)
-
-    def on_delete_all_check_toggled(self, widget):
-        for alert in self.alert_list:
-            self.database.delete_signature(alert.sig)
-        self.current_alert = 0
-        self.alert_list = []
-        self.empty_load()
-        self.alert_list_window.hide()
-        self.update_button_visibility()
-
     def on_delete_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
             self.database.delete_signature(self.alert_list[self.current_alert].sig)
@@ -660,7 +645,6 @@ class BrowserApplet:
         self.show_current_alert()
 
     def show_current_alert(self):
-        print "Current Alert", self.current_alert
         self.clear_rows()
         size = len(self.alert_list)
         self.update_button_visibility()
@@ -678,7 +662,7 @@ class BrowserApplet:
         else:
             self.source_label.set_label(sig.spath)
         self.source_label.set_tooltip_text(sig.spath)
-        self.source_image.set_from_gicon(get_icon(sig.spath, "file"), gtk.ICON_SIZE_DIALOG)
+#        self.source_image.set_from_gicon(get_icon(sig.spath, "file"), gtk.ICON_SIZE_DIALOG)
         if sig.tpath == _("Unknown"):
             self.target_label.set_label("")
             self.target_label.set_tooltip_text("")
@@ -688,12 +672,12 @@ class BrowserApplet:
             else:
                 self.target_label.set_label(sig.tpath)
             self.target_label.set_tooltip_text(sig.tpath)
-        self.target_image.set_from_gicon(get_icon(sig.tpath, sig.tclass), gtk.ICON_SIZE_DIALOG)
+#        self.target_image.set_from_gicon(get_icon(sig.tpath, sig.tclass), gtk.ICON_SIZE_DIALOG)
         if sig.tclass == "dir":
             tclass = "directory"
         else:
             tclass = sig.tclass
-        self.class_label.set_label(tclass)
+        self.class_label.set_label(_("On this %s:") % tclass)
         self.access_label.set_label(",".join(sig.sig.access))
 
         total_priority, plugins = sig.get_plugins()
@@ -706,6 +690,10 @@ class BrowserApplet:
         self.show_date(sig)
 
         self.alert_count_label.set_label(_("Alert %d of %d" % (self.current_alert + 1, len(self.alert_list))))
+        if sig.evaluate_filter_for_user(self.username) == "ignore":
+		self.ignore_button.set_label("Notify")
+	else:
+		self.ignore_button.set_label("Ignore")
         
     def on_close_button_clicked(self, widget):
         gtk.main_quit()
@@ -734,7 +722,11 @@ class BrowserApplet:
             tpath = alert.tpath.rstrip("/")
             if alert.tpath == _("Unknown"):
                    tpath = alert.tclass
-	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),os.path.basename(tpath), alert.report_count, alert.evaluate_filter_for_user(self.username)])
+	    if alert.evaluate_filter_for_user(self.username) == "ignore":
+		   status = _("Ignore")
+            else:
+		   status = _("Notify")
+	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),os.path.basename(tpath), alert.report_count, status])
             ctr = ctr + 1
        
         self.alert_list_window.show_all()
@@ -753,9 +745,9 @@ class BrowserApplet:
             self.list_all_button.set_sensitive(False)
             self.alert_count_label.set_sensitive(False)
             self.source_label.hide()
-            self.source_image.hide()
+#            self.source_image.hide()
             self.target_label.hide()
-            self.target_image.hide()
+#            self.target_image.hide()
             self.class_label.hide()
             self.access_label.hide()
             self.date_label.hide()
@@ -770,9 +762,9 @@ class BrowserApplet:
         self.list_all_button.set_sensitive(True)
         self.alert_count_label.set_sensitive(True)
         self.source_label.show()
-        self.source_image.show()
+#        self.source_image.show()
         self.target_label.show()
-        self.target_image.show()
+#        self.target_image.show()
         self.class_label.show()
         self.access_label.show()
         self.access_title_label.show()
