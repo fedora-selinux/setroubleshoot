@@ -110,7 +110,7 @@ DONE:
 
 static void show_notification_now(sealert *alert) {
 		GError *err = NULL;
-#	notify_notification_attach_to_status_icon (alert->notify, alert->trayIcon);
+//	notify_notification_attach_to_status_icon (alert->notify, alert->trayIcon);
 	notify_notification_show (alert->notify, &err);
 	if (err) {
 		g_warning ("Error showing notification: %s", err->message);
