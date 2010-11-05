@@ -110,8 +110,7 @@ DONE:
 
 static void show_notification_now(sealert *alert) {
 		GError *err = NULL;
-	notify_notification_attach_to_status_icon (alert->notify, alert->trayIcon);
-		
+#	notify_notification_attach_to_status_icon (alert->notify, alert->trayIcon);
 	notify_notification_show (alert->notify, &err);
 	if (err) {
 		g_warning ("Error showing notification: %s", err->message);
@@ -234,10 +233,9 @@ static void show_login_star(gpointer ptr, int yellow, int red) {
 	char title[50];
 	sprintf(title, P_("%d New Security Alert", "%d New Security Alerts", yellow+red), yellow+red);
 	gtk_status_icon_set_visible(alert->trayIcon, TRUE);
-	alert->notify = notify_notification_new_with_status_icon(title,
-								 msg,
-								 red ? file : GTK_STOCK_DIALOG_WARNING,
-								   alert->trayIcon);
+	alert->notify = notify_notification_new(title,
+						msg,
+						red ? file : GTK_STOCK_DIALOG_WARNING);
 	if (!red) {
 		notify_notification_set_timeout (alert->notify, NOTIFY_EXPIRES_DEFAULT);
 
