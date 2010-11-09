@@ -75,6 +75,15 @@ dict = { "file": "text-x-generic",
          "*":"text-x-generic",
  }
 
+def msg(message):
+    dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_INFO,
+                            gtk.BUTTONS_CLOSE,
+                            message)
+    dlg.set_position(gtk.WIN_POS_MOUSE)
+    dlg.show_all()
+    dlg.run()
+    dlg.destroy()
+
 def fullpath(cmd):
        for i in [ "/", "./", "../" ]:
               if cmd.startswith(i):
@@ -163,6 +172,7 @@ class BrowserApplet:
         self.window = builder.get_object("window")
         self.window.connect("destroy", self.quit)
         self.source_label = builder.get_object("source_label")
+        self.source_title_label = builder.get_object("source_title_label")
 #        self.source_image = builder.get_object("source_image")
         self.target_label = builder.get_object("target_label")
 #        self.target_image = builder.get_object("target_image")
@@ -492,25 +502,43 @@ class BrowserApplet:
             col += 1
             self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
 
-        if plugin.report_bug:
-            self.table.resize(rows + 1, cols + 1)
-            report_button = gtk.Button()
-            report_button.set_label(_("Report\nBug"))
-            report_button.show()
-            report_button.connect("clicked", self.report_bug, sig)
-            report_button.set_sensitive(False)
-            col += 1
-            self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
+        elif plugin.report_bug:
+               self.table.resize(rows + 1, cols + 1)
+               report_button = gtk.Button()
+               report_button.set_label(_("Report\nBug"))
+               report_button.show()
+               report_button.connect("clicked", self.report_bug, sig)
+               report_button.set_sensitive(False)
+               col += 1
+               self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
+        else:
+               self.table.resize(rows + 1, cols + 1)
+               report_button = gtk.Button()
+               report_button.set_label(_("Details"))
+               report_button.show()
+               report_button.connect("clicked", self.details, sig, plugin, args)
+               report_button.set_sensitive(False)
+               col += 1
+               self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
 
 #        if rows == 1:
 #            self.on_if_radiobutton_activated(if_radiobutton, rows)
-
+        return if_radiobutton
     def on_if_radiobutton_activated(self, widget, row):
         for child in self.table.get_children():
             r, c = self.table.child_get(child, "top_attach", "left_attach")
             if (r == row and c > 1):
                 child.set_sensitive(widget.get_active())
     
+    def details(self, widget, sig, plugin, args):
+           avc = sig.audit_event.records
+           message = sig.substitute(sig.summary()) + "\n"
+           message += sig.substitute(plugin.problem_description) + "\n"
+           message += sig.substitute(_("If ") + plugin.get_if_text(avc, args)) + "\n"
+           message += sig.substitute(plugin.get_then_text(avc, args)) + "\n"
+           message += sig.substitute(plugin.get_do_text(avc, args)) + "\n"
+           msg(message)
+
     def quit(self, widget):
         filename = PREF_PATH 
         try:
@@ -560,6 +588,9 @@ class BrowserApplet:
             async_rpc = self.database.query_alerts(item)
             async_rpc.add_callback(new_siginfo_callback)
         self.update_button_visibility()
+        self.show_current_alert()
+        if self.alert_list_window.get_visible():
+               self.update_list_all()
 
     def update_num_label(self, empty=False):
         if empty is True:
@@ -592,7 +623,8 @@ class BrowserApplet:
                   self.current_alert = self.alert_list.index(alert)
            except ValueError:
                   self.current_alert = 0
-           self.on_list_all_button_clicked(widget)
+           if self.alert_list_window.get_visible():
+                  self.update_list_all()
            self.show_current_alert()
 
     def on_troubleshoot_list_button_clicked(self, widget):
@@ -685,8 +717,12 @@ class BrowserApplet:
         sig.update_derived_template_substitutions()
 
         for p, args in plugins:
-            self.add_row(p, sig, args)
+               rb = self.add_row(p, sig, args)
 
+        if len(plugins) == 1:
+               rb.set_active(True)
+               self.on_if_radiobutton_activated(rb, 1)
+               
         self.show_date(sig)
 
         self.alert_count_label.set_label(_("Alert %d of %d" % (self.current_alert + 1, len(self.alert_list))))
@@ -715,7 +751,7 @@ class BrowserApplet:
             self.current_alert += 1
             self.show_current_alert()
                 
-    def on_list_all_button_clicked(self, widget):
+    def update_list_all(self):
         self.liststore.clear()
         ctr = 1
         for alert in self.alert_list:
@@ -728,7 +764,9 @@ class BrowserApplet:
 		   status = _("Notify")
 	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),os.path.basename(tpath), alert.report_count, status])
             ctr = ctr + 1
-       
+
+    def on_list_all_button_clicked(self, widget):
+        self.update_list_all()
         self.alert_list_window.show_all()
         
     def update_button_visibility(self):
@@ -744,6 +782,7 @@ class BrowserApplet:
             self.report_button.set_sensitive(False)
             self.list_all_button.set_sensitive(False)
             self.alert_count_label.set_sensitive(False)
+            self.source_title_label.hide()
             self.source_label.hide()
 #            self.source_image.hide()
             self.target_label.hide()
@@ -761,6 +800,7 @@ class BrowserApplet:
         self.report_button.set_sensitive(True)
         self.list_all_button.set_sensitive(True)
         self.alert_count_label.set_sensitive(True)
+        self.source_title_label.show()
         self.source_label.show()
 #        self.source_image.show()
         self.target_label.show()
