@@ -286,16 +286,6 @@ class BrowserApplet:
     def row_activated(self, x, y, z):
         self.on_troubleshoot_list_button_clicked(None)
 
-    def update_alerts(self, database, type, item):
-        def new_siginfo_callback(sigs):
-            for siginfo in sigs.signature_list:
-                self.alert_list.append(siginfo)
-            self.show_current_alert()
-
-        if type == "add" or type == "modify": 
-            async_rpc = self.database.query_alerts(item)
-            async_rpc.add_callback(new_siginfo_callback)
-   
     def show_date(self, alert):
         from setroubleshoot.util import TimeStamp
         # Format the data that we get and display it in the appropriate places
@@ -584,13 +574,14 @@ class BrowserApplet:
                 self.add_siginfo(siginfo)
                 self.update_num_label()
 
+            self.update_button_visibility()
+            self.show_current_alert()
+            if self.alert_list_window.get_visible():
+                self.update_list_all()
+
         if type == "add" or type == "modify": 
             async_rpc = self.database.query_alerts(item)
             async_rpc.add_callback(new_siginfo_callback)
-        self.update_button_visibility()
-        self.show_current_alert()
-        if self.alert_list_window.get_visible():
-               self.update_list_all()
 
     def update_num_label(self, empty=False):
         if empty is True:

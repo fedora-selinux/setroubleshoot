@@ -201,8 +201,8 @@ class AlertPluginReportReceiver(PluginReportReceiver):
         from setroubleshoot.html_util import html_to_text
         syslog.syslog(syslog.LOG_ERR, siginfo.summary() + _(" For complete SELinux messages. run sealert -l %s") % siginfo.local_id )
 
-        for u in sig.users:
-                action = siginfo.evaluate_filter_for_user(u.username, recipient.filter_type)
+        for u in siginfo.users:
+                action = siginfo.evaluate_filter_for_user(u.username)
                 if action == "ignore":
                     return siginfo
 

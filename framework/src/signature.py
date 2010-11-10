@@ -291,13 +291,12 @@ class SEFaultSignatureInfo(XmlSerialize):
         self.plugin_list = []
 
     def update_merge(self, siginfo):
+        if siginfo.last_seen_date != self.last_seen_date:
+            self.last_seen_date = siginfo.last_seen_date
+            self.report_count += 1
+
         for name in self.merge_include:
             setattr(self, name, getattr(siginfo, name))
-
-        last_seen_date = TimeStamp(siginfo.last_seen_date)
-        if last_seen_date != self.last_seen_date:
-            self.last_seen_date = last_seen_date
-            self.report_count += 1
 
     def get_hash_str(self):
         return  "%s,%s,%s,%s,%s" % (self.source, self.scontext.type, self.tcontext.type, self.tclass, ",".join(self.sig.access))

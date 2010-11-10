@@ -249,12 +249,12 @@ class PluginReportReceiver(object):
             database_siginfo.update_merge(siginfo)
             self.database.modify_siginfo(database_siginfo)
             if debug:
-                log_database.debug("signature found in database")
+               log_database.debug("signature found in database")
         except ProgramError, e:
             if e.errno == ERR_NO_SIGNATURE_MATCH:
                 if debug:
                     log_database.debug("not in database yet")
-                siginfo.first_seen_date = TimeStamp(siginfo.last_seen_date)
+                siginfo.first_seen_date = siginfo.last_seen_date
                 database_siginfo = self.database.add_siginfo(siginfo)
             else:
                 raise
