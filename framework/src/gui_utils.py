@@ -57,7 +57,7 @@ __all__ = ['map_column_types',
 #------------------------------------------------------------------------------
 
 map_column_types = {
-    'icon'     : gtk.gdk.Pixbuf,
+#    'icon'     : gtk.gdk.Pixbuf,
     'string'   : gobject.TYPE_STRING,
     'int'      : gobject.TYPE_INT,
     'pyobject' : gobject.TYPE_PYOBJECT,

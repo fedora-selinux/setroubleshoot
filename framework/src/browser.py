@@ -1,3 +1,4 @@
+
 #!/usr/bin/python -Es
 # Author: Thomas Liu <tliu@redhat.com>
 # Author: Dan Walsh <dwalsh@redhat.com>
@@ -34,16 +35,15 @@ import gnomekeyring
 import gtk
 import gtk.glade
 from setroubleshoot.log import *
-from setroubleshoot.analyze import *
-from setroubleshoot.config import get_config
-from setroubleshoot.email_dialog import *
+#from setroubleshoot.analyze import *
+#from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
-from setroubleshoot.html_util import *
-from setroubleshoot.rpc import *
-from setroubleshoot.rpc_interfaces import *
-from setroubleshoot.run_cmd import *
+#from setroubleshoot.html_util import *
+#from setroubleshoot.rpc import *
+#from setroubleshoot.rpc_interfaces import *
+#from setroubleshoot.run_cmd import *
 import re
 import dbus
 import slip.dbus.service
@@ -94,22 +94,23 @@ def fullpath(cmd):
                      return f
        return cmd
 
-sealert_app_info = None
-desktop_icon_dict = {}
-for desktop_app_info in gio.app_info_get_all():
-    exe = fullpath(desktop_app_info.get_executable())
-    rpmver = get_rpm_nvr_by_file_path(exe)
-    if rpmver:
-        if rpmver in desktop_icon_dict:
-            desktop_icon_dict[rpmver].append(desktop_app_info)
-        else:
-            desktop_icon_dict[rpmver] = [ desktop_app_info ]
+def old():
+    sealert_app_info = None
+    desktop_icon_dict = {}
+    for desktop_app_info in gio.app_info_get_all():
+        exe = fullpath(desktop_app_info.get_executable())
+        rpmver = get_rpm_nvr_by_file_path(exe)
+        if rpmver:
+            if rpmver in desktop_icon_dict:
+                desktop_icon_dict[rpmver].append(desktop_app_info)
+            else:
+                desktop_icon_dict[rpmver] = [ desktop_app_info ]
 
-    basename = os.path.basename(exe)
-    if basename in desktop_icon_dict:
-        desktop_icon_dict[basename].append(desktop_app_info)
-    else:
-        desktop_icon_dict[basename] = [ desktop_app_info ]
+        basename = os.path.basename(exe)
+        if basename in desktop_icon_dict:
+            desktop_icon_dict[basename].append(desktop_app_info)
+        else:
+            desktop_icon_dict[basename] = [ desktop_app_info ]
 
 def get_icon(path, tclass="*"):
     try:
@@ -192,6 +193,9 @@ class BrowserApplet:
         self.selinux_label = builder.get_object("selinux_label")
         self.current_policy_label = builder.get_object("current_policy_label")
         self.newer_policy_label = builder.get_object("newer_policy_label")
+        self.details_window = builder.get_object("details_window")
+        self.details_textview = builder.get_object("details_textview")
+        self.details_window.connect("delete-event", self.on_close_details_button_clicked)
 
         self.next_button = builder.get_object("next_button")
         self.previous_button = builder.get_object("previous_button")
@@ -527,7 +531,12 @@ class BrowserApplet:
            message += sig.substitute(_("If ") + plugin.get_if_text(avc, args)) + "\n"
            message += sig.substitute(plugin.get_then_text(avc, args)) + "\n"
            message += sig.substitute(plugin.get_do_text(avc, args)) + "\n"
-           msg(message)
+           self.details_textview.get_buffer().set_text(message)
+           self.details_window.show_all()
+
+    def on_close_details_button_clicked(self, widget, args=None):
+           self.details_window.hide()
+           return True
 
     def quit(self, widget):
         filename = PREF_PATH 

@@ -9,9 +9,7 @@ PYTHON_FILES =			\
 	browser.py			\
 	config.py			\
 	email_alert.py			\
-	email_dialog.py			\
 	errcode.py			\
-	gui_utils.py			\
 	html_util.py			\
 	log.py				\
 	Plugin.py			\
@@ -19,6 +17,7 @@ PYTHON_FILES =			\
 	rpc_interfaces.py		\
 	run_cmd.py			\
 	server.py			\
+	serverconnection.py		\
 	signature.py			\
 	util.py				\
 	uuid.py				\

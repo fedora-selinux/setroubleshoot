@@ -52,14 +52,14 @@ class plugin(Plugin):
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(8)
-        self.level = "green"
+        self.level = "yellow"
 
     def get_if_text(self, avc, args):
         txt = seobject.boolean_desc(args[0])
         return _("you want to %s") % txt[0].lower() + txt[1:]
         
     def get_do_text(self, avc, args):
-        return _("# setsebool -P %s %s") % args
+        return _("setsebool -P %s %s") % args
 
     def get_then_text(self, avc, args):
         return _("You must tell SELinux about this by enabling the '%s' boolean.") % args[0]
