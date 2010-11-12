@@ -600,4 +600,55 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
       </object>
     </child>
   </object>
+  <object class="GtkWindow" id="details_window">
+    <property name="title" translatable="yes">SETroubleshoot Details Window</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="icon">setroubleshoot_icon.png</property>
+    <child>
+      <object class="GtkVBox" id="vbox301">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkTextView" id="details_textview">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="editable">False</property>
+          </object>
+          <packing>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="hbox301">
+            <property name="visible">True</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkButton" id="close_details_button">
+                <property name="label">gtk-close</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_close_details_button_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
 </interface>
