@@ -486,34 +486,33 @@ class BrowserApplet:
         self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
 #, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, 
 
+        self.table.resize(rows + 1, cols + 1)
+        col += 1
+
+        vbox = gtk.VBox(spacing=5)
+        report_button = gtk.Button()
+        report_button.set_label(_("Details"))
+        report_button.show()
+        report_button.connect("clicked", self.details, sig, plugin, args)
+        vbox.add(report_button)
+
         if plugin.fixable:
-            self.table.resize(rows + 1, cols + 1)
             report_button = gtk.Button()
             report_button.set_label(plugin.button_text)
             report_button.show()
-            report_button.set_sensitive(False)
             report_button.connect("clicked", self.fix_bug, sig.local_id, plugin.analysis_id)
-            col += 1
-            self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
+            vbox.add(report_button)
 
         elif plugin.report_bug:
-               self.table.resize(rows + 1, cols + 1)
                report_button = gtk.Button()
                report_button.set_label(_("Report\nBug"))
                report_button.show()
                report_button.connect("clicked", self.report_bug, sig)
-               report_button.set_sensitive(False)
-               col += 1
-               self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
-        else:
-               self.table.resize(rows + 1, cols + 1)
-               report_button = gtk.Button()
-               report_button.set_label(_("Details"))
-               report_button.show()
-               report_button.connect("clicked", self.details, sig, plugin, args)
-               report_button.set_sensitive(False)
-               col += 1
-               self.table.attach(report_button, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
+               vbox.add(report_button)
+
+        vbox.set_sensitive(False)
+        vbox.show()
+        self.table.attach(vbox, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
 
 #        if rows == 1:
 #            self.on_if_radiobutton_activated(if_radiobutton, rows)
@@ -526,11 +525,15 @@ class BrowserApplet:
     
     def details(self, widget, sig, plugin, args):
            avc = sig.audit_event.records
-           message = sig.substitute(sig.summary()) + "\n"
-           message += sig.substitute(plugin.problem_description) + "\n"
+           message = sig.substitute(sig.summary()) + "\n\n"
+           message += _("Plugin: %s ") % plugin.analysis_id + "\n"
+           for i in plugin.problem_description.split("\n"):
+               message += sig.substitute(i.strip()) + "\n"
            message += sig.substitute(_("If ") + plugin.get_if_text(avc, args)) + "\n"
            message += sig.substitute(plugin.get_then_text(avc, args)) + "\n"
            message += sig.substitute(plugin.get_do_text(avc, args)) + "\n"
+#           message += sig.substitute(sig.format_details()) + "\n"
+
            self.details_textview.get_buffer().set_text(message)
            self.details_window.show_all()
 

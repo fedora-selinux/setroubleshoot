@@ -323,10 +323,6 @@ class SEAlert(object):
 
         try:
             self.username = username
-
-            if get_display() is None:
-                print >> sys.stderr, "cannot open X display, exiting ..."
-                sys.exit(1)
             from setroubleshoot.browser import BrowserApplet
 
             if presentation_manager is None:
@@ -680,7 +676,6 @@ if __name__ == '__main__':
         elif invocation_style == 'service':
             try:
                 # This import must come before importing gtk to silence warnings
-                from setroubleshoot.gui_utils import get_display
                 import gtk
                 run_as_dbus_service(username)
             except RuntimeError, e:
@@ -689,7 +684,6 @@ if __name__ == '__main__':
             sys.exit()
         elif invocation_style == 'noservice':
             # This import must come before importing gtk to silence warnings
-            from setroubleshoot.gui_utils import *
             import gtk
             run_app(username)
             sys.exit()
@@ -748,6 +742,5 @@ if __name__ == '__main__':
 
     except Exception, e:
         log_program.exception("exception %s: %s",e.__class__.__name__, str(e))
-        from setroubleshoot.gui_utils import *
         display_traceback('sealert')
         sys.exit(3)
