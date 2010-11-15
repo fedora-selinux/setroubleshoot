@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-07-28 10:49-0400\n"
+"POT-Creation-Date: 2010-11-15 14:31-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,79 +17,46 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../src/allow_cvs_read_shadow.py:29
+#: ../src/allow_anon_write.py:27
 msgid ""
 "\n"
-"    SELinux prevented the CVS application from reading the shadow password "
-"file.\n"
+"    SELinux policy is preventing an httpd script from writing to a public\n"
+"    directory.\n"
 "    "
 msgstr ""
 
-#: ../src/allow_cvs_read_shadow.py:33
+#: ../src/allow_anon_write.py:32
 msgid ""
 "\n"
-"    SELinux prevented the CVS application from reading the shadow password "
-"file.\n"
-"    The CVS application requires this access when it is configured for "
-"direct\n"
-"    connection (i.e., pserver) and to authenticate to the system password / "
-"shadow\n"
-"    files without PAM. It is possible that this access request signals an "
-"intrusion\n"
-"    attempt.\n"
-"\n"
-"    It is recommended that CVS be configured to use PAM, authenticate to a "
-"separate\n"
-"    user file, or use another protocol (e.g., SSH) instead of allowing this "
-"access.\n"
-"    See the CVS manual for more details on why this access is potentially "
-"insecure: \n"
-"    (<a href=\"http://ximbiot.com/cvs/manual/cvs-1.11.22/cvs_2.html\">http://"
-"ximbiot.com/cvs/manual/cvs-1.11.22/cvs_2.html</a>).\n"
+"    SELinux policy is preventing an httpd script from writing to a public\n"
+"    directory.  If httpd is not setup to write to public directories, this\n"
+"    could signal an intrusion attempt.\n"
 "    "
 msgstr ""
 
-#: ../src/allow_cvs_read_shadow.py:46
-#: ../src/allow_postfix_local_write_mail_spool.py:44
-#: ../src/use_nfs_home_dirs.py:47 ../src/use_samba_home_dirs.py:46
+#: ../src/allow_anon_write.py:38
 msgid ""
 "\n"
-"    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
-"    \"setsebool -P $BOOLEAN=1\"\n"
+"    If httpd scripts should be allowed to write to public directories you "
+"need to turn on the $BOOLEAN boolean and change the file context of the "
+"public directory to public_content_rw_t.  Read the httpd_selinux\n"
+"    man page for further information:\n"
+"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
+"    You must also change the default file context files on the system in "
+"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
+"public_content_rw_t <path>\"\n"
 "    "
 msgstr ""
 
-#: ../src/allow_cvs_read_shadow.py:61
-msgid "CVS"
+#: ../src/allow_anon_write.py:44
+msgid ""
+"you want to allow $SOURCE_PATH to be able to write to shared public content"
 msgstr ""
 
-#: ../src/allow_daemons_dump_core.py:29
+#: ../src/allow_anon_write.py:45
 msgid ""
-"\n"
-"    SELinux prevented $SOURCE from writing $TARGET_PATH.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_daemons_dump_core.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from writing $TARGET_PATH. \n"
-"    If $TARGET_PATH is a core file, you may want to allow this.  If "
-"$TARGET_PATH is not a core file, this could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_daemons_dump_core.py:38 ../src/allow_ftpd_use_cifs.py:46
-#: ../src/allow_java_execstack.py:42 ../src/allow_kerberos.py:40
-#: ../src/allow_mplayer_execstack.py:43 ../src/allow_ypbind.py:40
-#: ../src/fcron_crond.py:40 ../src/ftpd_is_daemon.py:42
-#: ../src/global_ssp.py:44 ../src/httpd_use_cifs.py:47
-#: ../src/httpd_use_nfs.py:47
-msgid ""
-"\n"
-"    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
-"    \"setsebool -P $BOOLEAN=1.\"\n"
-"    "
+"you need to change the label on $TARGET_PATH to public_content_rw_t, and "
+"potentially turn on the allow_httpd_sys_script_anon_write boolean."
 msgstr ""
 
 #: ../src/allow_execheap.py:27
@@ -127,11 +94,21 @@ msgid ""
 "    "
 msgstr ""
 
-#. MATCH
-#: ../src/allow_execheap.py:59 ../src/allow_execmod.py:79
-#: ../src/allow_execmod.py:83 ../src/allow_execstack.py:68
-#: ../src/firefox.py:54
-msgid "Memory"
+#: ../src/allow_execheap.py:50
+msgid ""
+"you do not think $SOURCE_PATH should need to map heap memory that is both "
+"writable and executable."
+msgstr ""
+
+#: ../src/allow_execheap.py:51 ../src/allow_execstack.py:62
+msgid "you need to report a bug. This is a potentially dangerous access."
+msgstr ""
+
+#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:63
+#: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
+#: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
+#: ../src/sys_module.py:30 ../src/sys_module.py:48
+msgid "Contact your security administrator and report this issue."
 msgstr ""
 
 #: ../src/allow_execmod.py:27
@@ -238,73 +215,10 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/allow_ftpd_anon_write.py:27
+#: ../src/allow_execstack.py:61
 msgid ""
-"\n"
-"    SELinux policy is preventing the ftp daemon from writing to a public\n"
-"    directory.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_ftpd_anon_write.py:32
-msgid ""
-"\n"
-"    SELinux policy is preventing the ftp daemon from writing to a public\n"
-"    directory.  If ftpd is not setup to allow anonymous writes, this\n"
-"    could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_ftpd_anon_write.py:38
-msgid ""
-"\n"
-"    If the ftp daemon should be allowed to write to this directory you need "
-"to turn\n"
-"    on the $BOOLEAN boolean and change the file context of\n"
-"    the public directory to public_content_rw_t.  Read the ftpd_selinux\n"
-"    man page for further information:\n"
-"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"public_content_rw_t <path>\"\n"
-"    "
-msgstr ""
-
-#: ../src/allow_ftpd_anon_write.py:58 ../src/allow_ftpd_full_access.py:56
-#: ../src/allow_ftpd_use_cifs.py:77 ../src/allow_ftpd_use_cifs.py:84
-#: ../src/allow_ftpd_use_nfs.py:77 ../src/allow_ftpd_use_nfs.py:84
-#: ../src/ftpd_is_daemon.py:71 ../src/ftpd_is_daemon.py:83
-#: ../src/ftp_home_dir.py:54
-msgid "FTP"
-msgstr ""
-
-#: ../src/allow_ftpd_full_access.py:29
-msgid ""
-"\n"
-"    SELinux is preventing the ftp daemon from writing files outside the home "
-"directory ($TARGET_PATH).\n"
-"    "
-msgstr ""
-
-#: ../src/allow_ftpd_full_access.py:33
-msgid ""
-"\n"
-"    SELinux has denied the ftp daemon write access to directories outside\n"
-"    the home directory ($TARGET_PATH). Someone has logged in via\n"
-"    your ftp daemon and is trying to create or write a file. If you only "
-"setup\n"
-"    ftp to allow anonymous ftp, this could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_ftpd_full_access.py:40
-msgid ""
-"\n"
-"    If you do not want SELinux preventing ftp from writing files anywhere "
-"on\n"
-"    the system you need to turn on the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
-"    "
+"you do not think $SOURCE_PATH should need to map stack memory that is both "
+"writable and executable."
 msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:29
@@ -334,6 +248,14 @@ msgid ""
 "    "
 msgstr ""
 
+#: ../src/allow_ftpd_use_cifs.py:46
+msgid ""
+"\n"
+"    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
+"    \"setsebool -P $BOOLEAN=1.\"\n"
+"    "
+msgstr ""
+
 #: ../src/allow_ftpd_use_cifs.py:53
 msgid ""
 " Changing the \"$BOOLEAN\" and\n"
@@ -343,6 +265,14 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on CIFS filesystems.  "
+msgstr ""
+
+#: ../src/allow_ftpd_use_cifs.py:62
+msgid "you want to allow ftpd to write to cifs file systems"
+msgstr ""
+
+#: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
+msgid "you must tell SELinux about this"
 msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:29
@@ -393,364 +323,8 @@ msgid ""
 "    files and directories on NFS filesystems.  "
 msgstr ""
 
-#: ../src/allow_httpd_anon_write.py:27
-msgid ""
-"\n"
-"    SELinux policy is preventing the http daemon from writing to a public\n"
-"    directory.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_httpd_anon_write.py:32
-msgid ""
-"\n"
-"    SELinux policy is preventing the http daemon from writing to a public\n"
-"    directory.  If httpd is not setup to write to public directories, this\n"
-"    could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_httpd_anon_write.py:38
-msgid ""
-"\n"
-"    If httpd should be allowed to write to this directory you need to turn\n"
-"    on the $BOOLEAN boolean and change the file context of\n"
-"    the public directory to public_content_rw_t.  Read the httpd_selinux\n"
-"    man page for further information:\n"
-"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"public_content_rw_t <path>\"\n"
-"    "
-msgstr ""
-
-#: ../src/allow_httpd_anon_write.py:58
-#: ../src/allow_httpd_sys_script_anon_write.py:56
-#: ../src/httpd_builtin_scripting.py:53
-#: ../src/httpd_can_network_connect_db.py:54
-#: ../src/httpd_can_network_relay.py:57 ../src/httpd_can_sendmail.py:57
-#: ../src/httpd_enable_cgi.py:55 ../src/httpd_enable_ftp_server.py:54
-#: ../src/httpd_enable_homedirs.py:54 ../src/httpd_ssi_exec.py:54
-#: ../src/httpd_tty_comm.py:56 ../src/httpd_write_content.py:57
-#: ../src/httpd_use_cifs.py:64 ../src/httpd_use_nfs.py:64
-msgid "Web Server"
-msgstr ""
-
-#: ../src/allow_httpd_sys_script_anon_write.py:27
-msgid ""
-"\n"
-"    SELinux policy is preventing an httpd script from writing to a public\n"
-"    directory.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_httpd_sys_script_anon_write.py:32
-msgid ""
-"\n"
-"    SELinux policy is preventing an httpd script from writing to a public\n"
-"    directory.  If httpd is not setup to write to public directories, this\n"
-"    could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_httpd_sys_script_anon_write.py:38
-msgid ""
-"\n"
-"    If httpd scripts should be allowed to write to public directories you "
-"need to turn on the $BOOLEAN boolean and change the file context of the "
-"public directory to public_content_rw_t.  Read the httpd_selinux\n"
-"    man page for further information:\n"
-"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"public_content_rw_t <path>\"\n"
-"    "
-msgstr ""
-
-#: ../src/allow_java_execstack.py:29
-msgid ""
-"\n"
-"    SELinux prevented a java plugin ($SOURCE_TYPE) from making the stack "
-"executable.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_java_execstack.py:33
-msgid ""
-"\n"
-"    SELinux prevented the java plugin ($SOURCE_TYPE) from making the stack\n"
-"    executable.  An executable stack should not be required by any\n"
-"    software (see <a href=\"http://people.redhat.com/drepper/selinux-mem.html"
-"\">SELinux Memory Protection Tests</a>\n"
-"    for more information). However, some versions of the Java plugin are "
-"known\n"
-"    to require this access to work properly. You should check for updates\n"
-"    to the software before allowing this access.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_java_execstack.py:57
-msgid "Java"
-msgstr ""
-
-#: ../src/allow_kerberos.py:29
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from using kerberos.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_kerberos.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from using kerberos for\n"
-"    authentication.  If you have configured the system to use kerberos\n"
-"    this access is expected but is not currently allowed by\n"
-"    SELinux. Otherwise this access may signal an intrusion.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_kerberos.py:54 ../src/allow_saslauthd_read_shadow.py:55
-#: ../src/allow_ypbind.py:54
-msgid "Authorization"
-msgstr ""
-
-#: ../src/allow_mplayer_execstack.py:30
-msgid ""
-"\n"
-"    SELinux prevented a mplayer plugin ($SOURCE_TYPE) from making the stack "
-"executable.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_mplayer_execstack.py:34
-msgid ""
-"\n"
-"    SELinux prevented the mplayer plugin ($SOURCE_TYPE) from making the "
-"stack\n"
-"    executable.  An executable stack should not be required by any\n"
-"    software (see <a href=\"http://people.redhat.com/drepper/selinux-mem.html"
-"\">SELinux Memory Protection Tests</a>\n"
-"    for more information). However, some versions of the mplayer plugin are "
-"known\n"
-"    to require this access to work properly. You should check for updates\n"
-"    to the software before allowing this access.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_mplayer_execstack.py:58
-msgid "Media"
-msgstr ""
-
-#: ../src/allow_nfsd_anon_write.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the nfs daemon from allowing clients to write to "
-"public directories.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_nfsd_anon_write.py:31
-msgid ""
-"\n"
-"    SELinux has preventing the nfs daemon (nfsd) from writing to\n"
-"    directories marked as public. Usually these directories are\n"
-"    shared between multiple network daemons, like nfs, apache, ftp\n"
-"    etc.  If you have not exported any public file systems for\n"
-"    writing, this could signal an intrusion.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_nfsd_anon_write.py:39
-msgid ""
-"\n"
-"    If you want to export a public file systems using nfs you need to\n"
-"    turn on the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\".\n"
-"    "
-msgstr ""
-
-#: ../src/allow_nfsd_anon_write.py:56 ../src/nfs_export_all_ro.py:53
-#: ../src/nfs_export_all_rw.py:50 ../src/samba_export_all_ro.py:54
-#: ../src/samba_export_all_rw.py:51 ../src/use_nfs_home_dirs.py:64
-#: ../src/use_nfs_home_dirs.py:70
-msgid "File System"
-msgstr ""
-
-#: ../src/allow_postfix_local_write_mail_spool.py:29
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from $ACCESS files stored mail spool "
-"directory.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_postfix_local_write_mail_spool.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from $ACCESS files stored in the mail spool "
-"directory.\n"
-"    \n"
-"    $SOURCE attempted to write one or more files or directories, postfix\n"
-"    ordinarily does not need this access.  However it can be setup to "
-"allow \n"
-"    this.    \n"
-"\n"
-"    If you have not configured $SOURCE to write to the mail spool\n"
-"    this access attempt could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_postfix_local_write_mail_spool.py:63
-msgid "Mail"
-msgstr ""
-
-#: ../src/allow_rsync_anon_write.py:27
-msgid ""
-"\n"
-"    SELinux policy is preventing the rsync daemon from writing to a public\n"
-"    directory.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_rsync_anon_write.py:32
-msgid ""
-"\n"
-"    SELinux policy is preventing the rsync daemon from writing to a public\n"
-"    directory.  If rsync is not setup to allow anonymous writes, this\n"
-"    could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_rsync_anon_write.py:38
-msgid ""
-"\n"
-"    If rsync should be allowed to write to this directory you need to turn\n"
-"    on the $BOOLEAN boolean and change the file context of\n"
-"    the public directory to public_content_rw_t.  Read the rsync_selinux\n"
-"    man page for further information:\n"
-"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"public_content_rw_t <path>\"\n"
-"    "
-msgstr ""
-
-#: ../src/allow_rsync_anon_write.py:58
-msgid "RSYNC"
-msgstr ""
-
-#: ../src/allow_saslauthd_read_shadow.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the sasl authentication server from reading the /"
-"etc/shadow file.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_saslauthd_read_shadow.py:31
-msgid ""
-"\n"
-"    SELinux has denied the sasl authentication daemon from reading the\n"
-"    /etc/shadow file. If the sasl authentication daemon (saslauthd) is\n"
-"    not setup to read the /etc/shadow, this could signal an\n"
-"    intrusion.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_saslauthd_read_shadow.py:38
-msgid ""
-"\n"
-"    If you want the sasl authentication daemon to be able to read\n"
-"    the /etc/shadow file change the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\".\n"
-"    "
-msgstr ""
-
-#: ../src/allow_smbd_anon_write.py:27
-msgid ""
-"\n"
-"    SELinux policy is preventing the samba daemon from writing to a public\n"
-"    directory.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_smbd_anon_write.py:32
-msgid ""
-"\n"
-"    SELinux policy is preventing the samba daemon from writing to a public\n"
-"    directory.  If samba is not setup to allow anonymous writes, this\n"
-"    could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_smbd_anon_write.py:38
-msgid ""
-"\n"
-"    If samba should be allowed to write to this directory you need to turn\n"
-"    on the $BOOLEAN boolean and change the file context of\n"
-"    the public directory to public_content_rw_t.  Read the samba_selinux\n"
-"    man page for further information:\n"
-"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"public_content_rw_t <path>\"\n"
-"    "
-msgstr ""
-
-#: ../src/allow_smbd_anon_write.py:58 ../src/samba_enable_home_dirs.py:55
-#: ../src/samba_share_nfs.py:53 ../src/spamd_enable_home_dirs.py:53
-#: ../src/use_samba_home_dirs.py:63 ../src/use_samba_home_dirs.py:69
-#: ../src/use_samba_home_dirs.py:75
-msgid "SAMBA"
-msgstr ""
-
-#: ../src/allow_ypbind.py:29
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from using NIS (yp).\n"
-"    "
-msgstr ""
-
-#: ../src/allow_ypbind.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from using NIS (yp) for\n"
-"    authentication.  If you have configured the system to use NIS\n"
-"    this access is expected but is not currently allowed by\n"
-"    SELinux. Otherwise this access may signal an intrusion.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_zebra_write_config.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the zebra daemon from writing its configuration "
-"files\n"
-"    "
-msgstr ""
-
-#: ../src/allow_zebra_write_config.py:31
-msgid ""
-"\n"
-"    SELinux has denied the zebra daemon from writing out its\n"
-"    configuration files. Ordinarily, zebra is not required to write\n"
-"    its configuration files.  If zebra was not setup to write the\n"
-"    config files, this could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/allow_zebra_write_config.py:38
-msgid ""
-"\n"
-"    If you want to allow zebra to overwrite its configuration you must\n"
-"    turn on the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/allow_zebra_write_config.py:54
-msgid "Zebra"
+#: ../src/allow_ftpd_use_nfs.py:64
+msgid "you want to allow ftpd to write to nfs file systems"
 msgstr ""
 
 #: ../src/automount_exec_config.py:27
@@ -779,23 +353,12 @@ msgid ""
 "    If you want to change the file context of $TARGET_PATH so that the "
 "automounter can execute it you can execute \"chcon -t bin_t $TARGET_PATH\".  "
 "If you want this to survive a relabel, you need to permanently change the "
-"file context: execute  \"semanage fcontext -a -t bin_t $FIX_TARGET_PATH\".\n"
+"file context: execute  \"semanage fcontext -a -t bin_t "
+"'$FIX_TARGET_PATH'\".\n"
 "    "
 msgstr ""
 
-#. MATCH
-#: ../src/automount_exec_config.py:53 ../src/cvs_data.py:55
-#: ../src/default.py:62 ../src/execute.py:56 ../src/file.py:53
-#: ../src/filesystem_associate.py:52 ../src/httpd_bad_labels.py:61
-#: ../src/prelink_mislabled.py:60 ../src/public_content.py:55
-#: ../src/qemu_blk_image.py:53 ../src/qemu_file_image.py:57
-#: ../src/restorecon.py:91 ../src/restore_source_context.py:67
-#: ../src/rsync_data.py:55 ../src/samba_share.py:57 ../src/sshd_root.py:59
-#: ../src/swapfile.py:54 ../src/xen_image.py:57
-msgid "File Label"
-msgstr ""
-
-#: ../src/bind_ports.py:27 ../src/inetd_bind_ports.py:27
+#: ../src/bind_ports.py:27
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from binding to port $PORT_NUMBER.\n"
@@ -811,7 +374,9 @@ msgid ""
 "    If $SOURCE should be allowed to listen on $PORT_NUMBER, use the "
 "<i>semanage</i> command to assign $PORT_NUMBER to a port type that "
 "$SOURCE_TYPE can bind to (%s). \n"
-"    <br><br>If $SOURCE is not supposed\n"
+"    \n"
+"\n"
+"If $SOURCE is not supposed\n"
 "    to bind to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
@@ -821,19 +386,24 @@ msgstr ""
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to bind to port $PORT_NUMBER, you can "
-"execute <br>\n"
-"    <b># semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b>\n"
-"    <br>where PORT_TYPE is one of the following: %s.\n"
+"execute \n"
 "\n"
-"    <br><br>If this system is running as an NIS Client, turning on the "
-"allow_ypbind boolean may fix the problem.  setsebool -P allow_ypbind=1.\n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"    \n"
+"where PORT_TYPE is one of the following: %s.\n"
+"\n"
+"    \n"
+"\n"
+"If this system is running as an NIS Client, turning on the allow_ypbind "
+"boolean may fix the problem.  setsebool -P allow_ypbind=1.\n"
 "    "
 msgstr ""
 
-#. MATCH
-#: ../src/bind_ports.py:59 ../src/connect_ports.py:58
-#: ../src/inetd_bind_ports.py:55 ../src/user_tcp_server.py:55
-msgid "Network Ports"
+#: ../src/bind_ports.py:51 ../src/connect_ports.py:50
+#, python-format
+msgid ""
+"# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"    where PORT_TYPE is one of the following: %s."
 msgstr ""
 
 #: ../src/catchall_boolean.py:31
@@ -866,33 +436,54 @@ msgid ""
 "    "
 msgstr ""
 
+#: ../src/catchall_boolean.py:59
+#, python-format
+msgid "you want to %s"
+msgstr ""
+
+#: ../src/catchall_boolean.py:62
+#, python-format
+msgid "setsebool -P %s %s"
+msgstr ""
+
 #: ../src/catchall_boolean.py:65
 #, python-format
-msgid "One of the following booleans is set incorrectly: <b>%s</b>"
+msgid "You must tell SELinux about this by enabling the '%s' boolean."
 msgstr ""
 
-#: ../src/catchall_boolean.py:67
-msgid "Choose one of the following to allow access:<br> "
-msgstr ""
-
-#: ../src/catchall_boolean.py:73
+#: ../src/catchall_labels.py:28
 #, python-format
-msgid "The boolean <b>%s</b> is set incorrectly. "
-msgstr ""
-
-#: ../src/catchall_boolean.py:74
-#, python-format
-msgid "<br><br>Boolean Description:<br>%s<br><br>"
-msgstr ""
-
-#: ../src/catchall.py:29
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access\n"
+"    SELinux has denied the $SOURCE access to potentially\n"
+"    mislabeled files $TARGET_PATH.  This means that SELinux will not\n"
+"    allow httpd to use these files. If httpd should be allowed this access "
+"to these files you should change the file context to one of the following "
+"types, %s.\n"
+"    Many third party apps install html files\n"
+"    in directories that SELinux policy cannot predict.  These directories\n"
+"    have to be labeled with a file context which httpd can access.\n"
 "    "
 msgstr ""
 
-#: ../src/catchall.py:33
+#: ../src/catchall_labels.py:37
+msgid "You need to change the label on $FIX_TARGET_PATH"
+msgstr ""
+
+#: ../src/catchall_labels.py:40
+#, python-format
+msgid ""
+"# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\n"
+"where FILE_TYPE is one of the following: %s. \n"
+"Then execute: \n"
+"restorecon -v '$FIX_TARGET_PATH'\n"
+msgstr ""
+
+#: ../src/catchall.py:29
+msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
+msgstr ""
+
+#: ../src/catchall.py:31
 msgid ""
 "\n"
 "\n"
@@ -905,7 +496,7 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/catchall.py:43
+#: ../src/catchall.py:41
 msgid ""
 "\n"
 "    You can generate a local policy module to allow this\n"
@@ -914,6 +505,25 @@ msgid ""
 "\n"
 "    Please file a bug report.\n"
 "    "
+msgstr ""
+
+#: ../src/catchall.py:48
+msgid ""
+"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS by default."
+msgstr ""
+
+#: ../src/catchall.py:49
+msgid ""
+"You should report this as a bug.\n"
+"You can generate a local policy module to allow this access."
+msgstr ""
+
+#: ../src/catchall.py:50
+msgid ""
+"Allow this access for now by executing:\n"
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# semodule -i mypol.pp"
 msgstr ""
 
 #: ../src/connect_ports.py:27
@@ -933,7 +543,9 @@ msgid ""
 "    If $SOURCE should be allowed to connect on $PORT_NUMBER, use the "
 "<i>semanage</i> command to assign $PORT_NUMBER to a port type that "
 "$SOURCE_TYPE can connect to (%s). \n"
-"    <br><br>If $SOURCE is not supposed\n"
+"    \n"
+"\n"
+"If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
 msgstr ""
@@ -942,10 +554,12 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute "
-"<br>\n"
-"    <b>semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b>\n"
-"    <br>where PORT_TYPE is one of the following: %s.\n"
+"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can "
+"execute \n"
+"\n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"\n"
+"    where PORT_TYPE is one of the following: %s.\n"
 "    "
 msgstr ""
 
@@ -980,47 +594,12 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/default.py:28 ../src/prelink_mislabled.py:27
-#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
-#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
-#: ../src/restore_source_context.py:31 ../src/rsync_data.py:27
-#: ../src/sshd_root.py:32
-msgid ""
-"\n"
-"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
-"    "
+#: ../src/cvs_data.py:44
+msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
 msgstr ""
 
-#: ../src/default.py:32
-msgid ""
-"\n"
-"    SELinux is preventing $SOURCE \"$ACCESS\" access to files with the "
-"default label, default_t.\n"
-"    The default_t label is the default label for new directories created "
-"under the / directory.  No confined applications are allowed to access files "
-"labeled default_t.  This probably indicates a labeling problem, especially "
-"if the files being referred\n"
-"    to  are not top level directories. Any files/directories under standard "
-"system directories, /usr,\n"
-"    /var. /dev, /tmp, ..., should not be labeled with the default_t. If you "
-"create a new directory in / it will get this label.\n"
-"    "
-msgstr ""
-
-#: ../src/default.py:39
-#, python-format
-msgid ""
-"\n"
-"    If you created a directory in / and want $SOURCE to use these files you "
-"must tell SELinux about it by changing the labels.  Execute the following "
-"commands: <br>\n"
-"    <b># semanage fcontext -t FILE_TYPE '$FIX_TARGET_PATH%s' </b>\n"
-"    <br>where FILE_TYPE is one of the following: %s.\n"
-"    <br><b># restorecon -v $TARGET_PATH</b>\n"
-"    <br><br>If the $TARGET_PATH is not in / you probably need to relabel the "
-"system. Execute: \n"
-"    <br><b>\"touch /.autorelabel; reboot\"</b>\n"
-"    "
+#: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
+msgid "You need to change the label on $TARGET_BASE_PATH'"
 msgstr ""
 
 #: ../src/device.py:29
@@ -1071,70 +650,22 @@ msgid ""
 "    "
 msgstr ""
 
+#: ../src/device.py:60
+msgid ""
+"You need to change the label on $TARGET_PATH to a type of a similar device."
+msgstr ""
+
+#: ../src/device.py:61
+msgid ""
+"# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
+msgstr ""
+
 #: ../src/disable_ipv6.py:30
 msgid ""
 "\n"
 "Ignore if IPV6 is disabled.\n"
 "    "
-msgstr ""
-
-#: ../src/execute.py:24
-msgid ""
-"\n"
-"    SELinux is preventing $SOURCE_PATH from executing $TARGET_PATH.\n"
-"    "
-msgstr ""
-
-#: ../src/execute.py:28
-msgid ""
-"\n"
-"    SELinux has denied the $SOURCE from executing $TARGET_PATH.\n"
-"    If $SOURCE is supposed to be able to execute $TARGET_PATH, this could be "
-"a labeling problem.  Most confined domains are allowed to execute files "
-"labeled bin_t.  So you could change the labeling on this file to bin_t and "
-"retry the application.  If this $SOURCE is not supposed to execute "
-"$TARGET_PATH, this could signal an intrusion attempt.   \n"
-"    "
-msgstr ""
-
-#: ../src/execute.py:33
-msgid ""
-"\n"
-"    If you want to allow $SOURCE to execute $TARGET_PATH:\n"
-"    \n"
-"    chcon -t bin_t '$TARGET_PATH'\n"
-"\n"
-"    If this fix works, please update the file context on disk, with the "
-"following command:\n"
-"\n"
-"    semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\n"
-"\n"
-"    Please specify the full path to the executable, Please file a bug "
-"report\n"
-"to make sure this becomes the default labeling.      \n"
-"    "
-msgstr ""
-
-#: ../src/fcron_crond.py:29
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from accessing the cron spool file.\n"
-"    "
-msgstr ""
-
-#: ../src/fcron_crond.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from accessing the cron spool file.\n"
-"    This access is normally needed when using fcron as a cron daemon\n"
-"    (<a href=\"http://fcron.free.fr/\">http://fcron.free.fr</a>). If you are "
-"using fcron you should allow this\n"
-"    access. Otherwise this access attempt may signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/fcron_crond.py:57
-msgid "CRON"
 msgstr ""
 
 #: ../src/file.py:27
@@ -1165,6 +696,22 @@ msgid ""
 "    You can execute the following command as root to relabel your\n"
 "    computer system: \"touch /.autorelabel; reboot\"\n"
 "    "
+msgstr ""
+
+#: ../src/file.py:49
+msgid "this is caused by a newly created file system."
+msgstr ""
+
+#: ../src/file.py:51
+msgid "you think this is caused by a badly mislabeled machine."
+msgstr ""
+
+#: ../src/file.py:55
+msgid "you need to add labels to it."
+msgstr ""
+
+#: ../src/file.py:57
+msgid "you need to fully relabel."
 msgstr ""
 
 #: ../src/filesystem_associate.py:27
@@ -1200,222 +747,22 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/firefox.py:27
+#: ../src/filesystem_associate.py:43
 msgid ""
-"\n"
-"    SELinux is preventing firefox from making its memory writable and "
-"executable.\n"
-"    "
+"you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
+"files"
 msgstr ""
 
-#: ../src/firefox.py:31
+#: ../src/filesystem_associate.py:44
 msgid ""
-"\n"
-"    The $SOURCE application attempted to change the access protection\n"
-"    of memory (e.g., allocated using malloc).  This is a potential\n"
-"    security problem.  Firefox is probably not the problem here ,but one of "
-"its plugins.  You could remove the plugin and the app would no longer "
-"require the access.  If you figure out which plugin is causing the access "
-"request, please open a bug report on the plugin.\n"
-"    "
+"you need to use a different command. You are not allowed to preserve the "
+"SELinux context on the target file system."
 msgstr ""
 
-#: ../src/firefox.py:37
+#: ../src/filesystem_associate.py:46
 msgid ""
-"\n"
-"There are two ways to fix this problem, you can install the nsspluginwrapper "
-"package, which will cause firefox to run its plugins under a separate "
-"process.  This process will allow the execmem access.  This is the safest "
-"choice.  You could also turn off the allow_unconfined_nsplugin_transition "
-"boolean.  \n"
-"<br>\n"
-"setsebool -P allow_unconfined_nsplugin_transition=0\n"
-"</br>\n"
-"    "
-msgstr ""
-
-#: ../src/ftpd_is_daemon.py:29
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from correctly running as a daemon.\n"
-"    "
-msgstr ""
-
-#: ../src/ftpd_is_daemon.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from correctly running as a daemon.\n"
-"    FTP servers can be configured to either run through xinetd or as a\n"
-"    stand-alone daemon. Each configuration requires slightly different\n"
-"    access. If you have configured your FTP server to run as a daemon\n"
-"    you should allow this access. Otherwise this may signal an intrusion\n"
-"    attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/ftp_home_dir.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the ftp daemon from reading users home directories "
-"($TARGET_PATH).\n"
-"    "
-msgstr ""
-
-#: ../src/ftp_home_dir.py:31
-msgid ""
-"\n"
-"    SELinux has denied the ftp daemon access to users home directories\n"
-"    ($TARGET_PATH). Someone is attempting to login via your ftp daemon\n"
-"    to a user account. If you only setup ftp to allow anonymous ftp,\n"
-"    this could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/ftp_home_dir.py:38
-msgid ""
-"\n"
-"    If you want ftp to allow users access to their home directories\n"
-"    you need to turn on the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/global_ssp.py:29
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from reading from the urandom device.\n"
-"    "
-msgstr ""
-
-#: ../src/global_ssp.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from reading from the urandom device.\n"
-"    This access should be allowed for individual applications, but there\n"
-"    are situations where all applications require the access (for example,\n"
-"    when ProPolice/SSP stack smashing protection is used).  Allowing this\n"
-"    access may allow malicious applications to drain the kernel entropy\n"
-"    pool. This can compromise the ability of some software that is\n"
-"    dependent on high quality random numbers (e.g., ssh-keygen) to operate\n"
-"    effectively. The risk of this type of attack is relatively low.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_bad_labels.py:27
-msgid ""
-"\n"
-"    SELinux is preventing $SOURCE_PATH from using potentially mislabeled "
-"files $TARGET_PATH.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_bad_labels.py:31
-#, python-format
-msgid ""
-"\n"
-"    SELinux has denied the $SOURCE access to potentially\n"
-"    mislabeled files $TARGET_PATH.  This means that SELinux will not\n"
-"    allow httpd to use these files. If httpd should be allowed this access "
-"to these files you should change the file context to one of the following "
-"types, %s.\n"
-"    Many third party apps install html files\n"
-"    in directories that SELinux policy cannot predict.  These directories\n"
-"    have to be labeled with a file context which httpd can access.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_bad_labels.py:40
-#, python-format
-msgid ""
-"\n"
-"    If you want to change the file context of $TARGET_PATH so that the "
-"httpd\n"
-"    daemon can access it, you need to execute it using\n"
-"    semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'.  \n"
-"    <br><br>where FILE_TYPE is one of the following: %s. \n"
-"\n"
-"You can look at the httpd_selinux man page for additional information.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_builtin_scripting.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the http daemon from using built-in scripting.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_builtin_scripting.py:31
-msgid ""
-"\n"
-"    SELinux has denied the http daemon from using built-in scripting.\n"
-"    This means that SELinux will not allow httpd to use loadable\n"
-"    modules to run scripts internally.  If you did not setup httpd to\n"
-"    use built-in scripting, this may signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_builtin_scripting.py:38
-msgid ""
-"\n"
-"    If you want the http daemon to use built in scripting you need to\n"
-"    enable the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_can_network_connect_db.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the http daemon from connecting to a database.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_can_network_connect_db.py:31
-msgid ""
-"\n"
-"    SELinux has denied the http daemon from connecting to a database. An\n"
-"    httpd script is trying to connect to a database port. If you did not\n"
-"    setup httpd to allow database connections, this could signal an "
-"intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_can_network_connect_db.py:37
-msgid ""
-"\n"
-"    If you want httpd to allow database connections you need to turn on the\n"
-"    $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_can_network_relay.py:29
-msgid ""
-"\n"
-"    SELinux is preventing the http daemon from connecting to itself or the "
-"relay ports\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_can_network_relay.py:33
-msgid ""
-"\n"
-"    SELinux has denied the http daemon from connecting to itself or\n"
-"    the relay ports. An httpd script is trying to make a network "
-"connection \n"
-"    to an http/ftp port. If you did not setup httpd to make network\n"
-"    connections, this could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_can_network_relay.py:40
-msgid ""
-"\n"
-"    If you want httpd to connect to httpd/ftp ports you need to turn\n"
-"    on the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
-"    "
+"use a command like \"cp -p\" to preserve all permissions except SELinux "
+"context."
 msgstr ""
 
 #: ../src/httpd_can_sendmail.py:28
@@ -1444,149 +791,67 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/httpd_enable_cgi.py:27
+#: ../src/httpd_can_sendmail.py:47
+msgid "you want to allow httpd to send mail"
+msgstr ""
+
+#: ../src/httpd_can_sendmail.py:48
+msgid "you must setup SELinux to allow this"
+msgstr ""
+
+#: ../src/httpd_unified.py:29
 msgid ""
 "\n"
-"    SELinux is preventing the http daemon from executing cgi scripts.\n"
+"    SELinux prevented httpd $ACCESS access to http files.\n"
 "    "
 msgstr ""
 
-#: ../src/httpd_enable_cgi.py:31
+#: ../src/httpd_unified.py:33
 msgid ""
 "\n"
-"    SELinux has denied the http daemon from executing a cgi\n"
-"    script. httpd can be setup in a locked down mode where cgi scripts\n"
-"    are not allowed to be executed.  If the httpd server has been setup\n"
-"    to not execute cgi scripts, this could signal an intrusion attempt.\n"
+"    SELinux prevented httpd $ACCESS access to http files.\n"
+"\n"
+"    Ordinarily httpd is allowed full access to all files labeled with http "
+"file\n"
+"    context.  This machine has a tightened security policy with the "
+"$BOOLEAN\n"
+"    turned off,  This requires explicit labeling of all files.  If a file "
+"is\n"
+"    a cgi script it needs to be labeled with httpd_TYPE_script_exec_t in "
+"order\n"
+"    to be executed.  If it is read only content, it needs to be labeled\n"
+"    httpd_TYPE_content_t, it is writable content. it needs to be labeled\n"
+"    httpd_TYPE_script_rw_t or httpd_TYPE_script_ra_t. You can use the\n"
+"    chcon command to change these context.  Please refer to the man page\n"
+"    \"man httpd_selinux\" or \n"
+"    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
+"    \"TYPE\" refers toi one of \"sys\", \"user\" or \"staff\" or potentially "
+"other\n"
+"    script types.\n"
 "    "
 msgstr ""
 
-#: ../src/httpd_enable_cgi.py:38
+#: ../src/httpd_unified.py:50
 msgid ""
 "\n"
-"    If you want httpd to be able to run cgi scripts, you need to\n"
-"    turn on the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
+"    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
+"    \"setsebool -P $BOOLEAN=1\"\n"
 "    "
 msgstr ""
 
-#: ../src/httpd_enable_ftp_server.py:27
+#: ../src/httpd_unified.py:57
 msgid ""
-"\n"
-"    SELinux is preventing the http daemon from acting as a ftp server.\n"
-"    "
+"you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
+"of all content files."
 msgstr ""
 
-#: ../src/httpd_enable_ftp_server.py:31
+#: ../src/httpd_unified.py:58
 msgid ""
-"\n"
-"    SELinux has denied the http daemon from listening for incoming\n"
-"    connections on the ftp port.  This means that SELinux will not\n"
-"    allow httpd to run as a ftp server.  If you did not setup httpd to\n"
-"    run as a ftp server, this may signal an intrusion attempt.\n"
-"    "
+"you must tell SELinux about this by enabling the 'httpd_unified' and "
+"'http_enable_cgi' booleans"
 msgstr ""
 
-#: ../src/httpd_enable_ftp_server.py:38
-msgid ""
-"    If you want the http daemon to listen on the ftp port, you need to\n"
-"    enable the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_enable_homedirs.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the http daemon from reading users' home "
-"directories.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_enable_homedirs.py:31
-msgid ""
-"\n"
-"    SELinux has denied the http daemon access to users' home\n"
-"    directories. Someone is attempting to access your home directories\n"
-"    via your http daemon. If you have not setup httpd to share home\n"
-"    directories, this probably signals an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_enable_homedirs.py:38
-msgid ""
-"\n"
-"    If you want the http daemon to share home directories you need to\n"
-"    turn on the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
-"    You may need to also label the content that you wish to share.  The man "
-"page httpd_selinux will have further information. \n"
-"    'man httpd_selinux'.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_ssi_exec.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the http daemon from executing a shell script"
-msgstr ""
-
-#: ../src/httpd_ssi_exec.py:30
-msgid ""
-"\n"
-"    SELinux has denied the http daemon from executing a shell\n"
-"    script. Ordinarily, httpd requires that all scripts (CGIs) be\n"
-"    labeled httpd_sys_script_exec_t.  If httpd should not be running\n"
-"    this shell script, this could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_ssi_exec.py:37
-msgid ""
-"\n"
-"    If you want httpd to be able to run a particular shell script,\n"
-"    you can label it with chcon -t httpd_sys_script_exec_t SCRIPTFILE.  If "
-"you\n"
-"    want httpd to be able execute any shell script you need to turn on\n"
-"    the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_tty_comm.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the http daemon from communicating with the "
-"terminal.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_tty_comm.py:31
-msgid ""
-"\n"
-"    SELinux is not allowing the http daemon to communicate with the\n"
-"    terminal.  Most daemons do not need to communicate\n"
-"    with the terminal.  httpd can be setup to require information\n"
-"    during the boot process which would require this access.  If you\n"
-"    did not setup httpd to require access to the terminal, this may\n"
-"    signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_tty_comm.py:40
-msgid ""
-"\n"
-"    If you want the http daemon to be able to access the terminal, you\n"
-"    must set the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_write_content.py:29
-msgid ""
-"\n"
-"    SELinux prevented httpd ($SOURCE_PATH) $ACCESS access to $TARGET_PATH.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_write_content.py:33
+#: ../src/httpd_write_content.py:30
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to $TARGET_PATH.\n"
@@ -1599,94 +864,9 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/httpd_write_content.py:41
-msgid ""
-"\n"
-"    You can alter the file context by executing chcon -R -t "
-"httpd_sys_rw_content_t '$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"httpd_sys_rw_content_t '$FIX_TARGET_PATH'\"\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_use_cifs.py:29
-msgid ""
-"\n"
-"    SELinux prevented the http daemon from $ACCESS files stored on a CIFS "
-"filesytem.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_use_cifs.py:33
-msgid ""
-"\n"
-"    SELinux prevented the http daemon from $ACCESS files stored on a CIFS "
-"filesystem.\n"
-"    CIFS (Common Internet File System) is a network filesystem commonly used "
-"on Windows / Linux\n"
-"    systems.\n"
-"    \n"
-"    The http daemon attempted to read one or more files or directories from\n"
-"    a mounted filesystem of this type.  As CIFS filesystems do not support\n"
-"    fine-grained SELinux labeling, all files and directories in the\n"
-"    filesystem will have the same security context.\n"
-"    \n"
-"    If you have not configured the http daemon to read files from a CIFS "
-"filesystem\n"
-"    this access attempt could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_use_nfs.py:29
-msgid ""
-"\n"
-"    SELinux prevented the http daemon from $ACCESS files stored on a NFS "
-"filesytem.\n"
-"    "
-msgstr ""
-
-#: ../src/httpd_use_nfs.py:33
-msgid ""
-"\n"
-"    SELinux prevented the http daemon from $ACCESS files stored on a NFS "
-"filesystem.\n"
-"    NFS (Network Filesystem) is a network filesystem commonly used on Unix / "
-"Linux\n"
-"    systems.\n"
-"    \n"
-"    The http daemon attempted to read one or more files or directories from\n"
-"    a mounted filesystem of this type.  As NFS filesystems do not support\n"
-"    fine-grained SELinux labeling, all files and directories in the\n"
-"    filesystem will have the same security context.\n"
-"    \n"
-"    If you have not configured the http daemon to read files from a NFS "
-"filesystem\n"
-"    this access attempt could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/inetd_bind_ports.py:31
-msgid ""
-"\n"
-"    SELinux has denied the $SOURCE from binding to a network port "
-"$PORT_NUMBER which does not have an SELinux type associated with it.\n"
-"    If $SOURCE is supposed to be allowed to listen on this port, you can use "
-"the semanage command to add this port to a inetd_child_port_t type.   If you "
-"think this is the default please file a bug report against the selinux-"
-"policy package.\n"
-"If $SOURCE is not supposed\n"
-"    to bind to this port, this could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/inetd_bind_ports.py:38
-msgid ""
-"\n"
-"    If you want to allow $SOURCE to bind to this port\n"
-"    semanage port -a -t inetd_child_port_t -p PROTOCOL $PORT_NUMBER\n"
-"    Where PROTOCOL is tcp or udp.\n"
-"    "
+#: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
+#: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
+msgid "You need to change the label on '$FIX_TARGET_PATH'"
 msgstr ""
 
 #: ../src/kernel_modules.py:29
@@ -1709,6 +889,18 @@ msgid ""
 "is a \n"
 "    serious issue. Your system may very well be compromised.\n"
 "    "
+msgstr ""
+
+#: ../src/kernel_modules.py:44 ../src/selinuxpolicy.py:44
+msgid ""
+"you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
+"$TARGET_BASE_PATH."
+msgstr ""
+
+#: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
+msgid ""
+"you may be under attack by a hacker, since confined applications should not "
+"need this access."
 msgstr ""
 
 #: ../src/leaks.py:27
@@ -1742,6 +934,25 @@ msgid ""
 "    "
 msgstr ""
 
+#: ../src/leaks.py:42
+msgid ""
+"you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the "
+"$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
+"access."
+msgstr ""
+
+#: ../src/leaks.py:43
+msgid ""
+"You should report this as a bug.  \n"
+"You can generate a local policy module to dontaudit this access."
+msgstr ""
+
+#: ../src/leaks.py:44
+msgid ""
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
+"# semodule -i mypol.pp"
+msgstr ""
+
 #: ../src/mmap_zero.py:29
 msgid ""
 "\n"
@@ -1768,6 +979,15 @@ msgid ""
 "be \n"
 "    compromised.\n"
 "    "
+msgstr ""
+
+#: ../src/mmap_zero.py:46
+msgid ""
+"you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
+msgstr ""
+
+#: ../src/mmap_zero.py:47
+msgid "you may be under attack by a hacker, this is a very dangerous access."
 msgstr ""
 
 #: ../src/mounton.py:29
@@ -1802,174 +1022,20 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/named_write_master_zones.py:28
+#: ../src/mounton.py:48
+msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
+msgstr ""
+
+#: ../src/mounton.py:49
+msgid "you must change the labeling on $TARGET_PATH."
+msgstr ""
+
+#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
+#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
+#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
-"    SELinux is preventing the named daemon from writing to the zone directory"
-msgstr ""
-
-#: ../src/named_write_master_zones.py:31
-msgid ""
-"\n"
-"    SELinux has denied the named daemon from writing zone\n"
-"    files. Ordinarily, named is not required to write to these files.\n"
-"    Only secondary servers should be required to write to these\n"
-"    directories.  If this machine is not a secondary server, this\n"
-"    could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/named_write_master_zones.py:39
-msgid ""
-"\n"
-"    If you want named to run as a secondary server and accept zone\n"
-"    transfers you need to turn on the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/named_write_master_zones.py:56
-msgid "Domain Name Service"
-msgstr ""
-
-#: ../src/nfs_export_all_ro.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the nfs daemon from serving r/o local files to "
-"remote clients.\n"
-"    "
-msgstr ""
-
-#: ../src/nfs_export_all_ro.py:31
-msgid ""
-"\n"
-"    SELinux has preventing the nfs daemon (nfsd) from read files on\n"
-"    the local system. If you have not exported these file systems, this\n"
-"    could signal an intrusion.\n"
-"    "
-msgstr ""
-
-#: ../src/nfs_export_all_ro.py:37
-msgid ""
-"\n"
-"    If you want to export file systems using nfs you need to turn on\n"
-"    the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\".\n"
-"    "
-msgstr ""
-
-#: ../src/nfs_export_all_rw.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the nfs daemon from allowing remote clients to "
-"write local files.\n"
-"    "
-msgstr ""
-
-#: ../src/nfs_export_all_rw.py:31
-msgid ""
-"\n"
-"    SELinux has preventing the nfs daemon (nfsd) from writing files on the "
-"local system. If you have not exported any file systems (rw), this could "
-"signal an intrusion. \n"
-"    "
-msgstr ""
-
-#: ../src/nfs_export_all_rw.py:35
-msgid ""
-"\n"
-"    If you want to export writable file systems using nfs you need to turn "
-"on the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\".\n"
-"    "
-msgstr ""
-
-#: ../src/pppd_can_insmod.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the ppp daemon from inserting kernel modules.\n"
-"    "
-msgstr ""
-
-#: ../src/pppd_can_insmod.py:31
-msgid ""
-"\n"
-"    SELinux has denied the Point-to-Point Protocol daemon from\n"
-"    inserting a kernel module. If pppd is not setup to insert kernel\n"
-"    modules, this probably signals a intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/pppd_can_insmod.py:37
-msgid ""
-"\n"
-"    If you want ppp to be able to insert kernel modules you need to\n"
-"    turn on the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/pppd_can_insmod.py:52 ../src/privoxy_connect_any.py:54
-#: ../src/squid_connect_any.py:52
-msgid "Networking"
-msgstr ""
-
-#: ../src/prelink_mislabled.py:31
-msgid ""
-"\n"
-"    SELinux denied prelink $ACCESS on $TARGET_PATH.\n"
-"    The prelink program is only allowed to manipulate files that are "
-"identified as\n"
-"    executables or shared libraries by SELinux.  Libraries that get placed "
-"in\n"
-"    lib directories get labeled by default as a shared library.  Similarly,\n"
-"    executables that get placed in a bin or sbin directory get labeled as "
-"executables by SELinux.  However, if these files get installed in other "
-"directories\n"
-"    they might not get the correct label.  If prelink is trying\n"
-"    to manipulate a file that is not a binary or share library this may "
-"indicate an\n"
-"    intrusion attack.  \n"
-"\n"
-"    "
-msgstr ""
-
-#: ../src/prelink_mislabled.py:43
-msgid ""
-"\n"
-"    You can alter the file context by executing \"chcon -t bin_t "
-"'$TARGET_PATH'\" or\n"
-"    \"chcon -t lib_t '$TARGET_PATH'\" if it is a shared library.  If you "
-"want to make these changes permanent you must execute the semanage command.\n"
-"    \"semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\" or\n"
-"    \"semanage fcontext -a -t lib_t '$FIX_TARGET_PATH'\".\n"
-"    If you feel this executable/shared library is in the wrong location "
-"please file a bug against the package that includes the file.  If you feel "
-"that SELinux should know about this file and label it correctly please file "
-"a bug against SELinux policy.\n"
-"\n"
-"    "
-msgstr ""
-
-#: ../src/privoxy_connect_any.py:29
-msgid ""
-"\n"
-"    SELinux is preventing the privoxy daemon from connecting to network port "
-"$PORT_NUMBER"
-msgstr ""
-
-#: ../src/privoxy_connect_any.py:32
-msgid ""
-"\n"
-"    SELinux has denied the privoxy daemon from connecting to network port\n"
-"    $PORT_NUMBER. By default privoxy policy is setup to deny privoxy\n"
-"    connections. If you did not setup privoxy to network connections,\n"
-"    this could signal a intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/privoxy_connect_any.py:39
-msgid ""
-"\n"
-"    If you want privoxy to connect to network ports you need to turn on\n"
-"    the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
+"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
 msgstr ""
 
@@ -1994,6 +1060,16 @@ msgid ""
 "order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
 "public_content_t '$FIX_TARGET_PATH'\"\n"
 "    "
+msgstr ""
+
+#: ../src/public_content.py:50
+msgid "you want to allow want to treat $TARGET_BASE_PATH as pubic content"
+msgstr ""
+
+#: ../src/public_content.py:51
+msgid ""
+"You need to change the label on $TARGET_BASE_PATH to public_content_t or "
+"public_content_rw_t."
 msgstr ""
 
 #: ../src/qemu_blk_image.py:31
@@ -2021,6 +1097,12 @@ msgid ""
 "    "
 msgstr ""
 
+#: ../src/qemu_blk_image.py:46
+msgid ""
+"# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
+msgstr ""
+
 #: ../src/qemu_file_image.py:31
 msgid ""
 "\n"
@@ -2041,13 +1123,16 @@ msgid ""
 "    "
 msgstr ""
 
+#: ../src/qemu_file_image.py:48
+msgid "$TARGET_BASE_PATH is a virtualization target"
+msgstr ""
+
 #: ../src/restorecon.py:36
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
 "    be a mislabeled.  $TARGET_PATH default SELinux type is\n"
-"    <B>$MATCHTYPE</B>, but its current type is <B>$TARGET_TYPE</B>. "
-"Changing\n"
+"    <B>$MATCTYPE</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
 "    this file back to the default type, may fix your problem.\n"
 "    <p>\n"
 "    File contexts can be assigned to a file in the following ways.\n"
@@ -2093,32 +1178,20 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/restorecon.py:93 ../src/restore_source_context.py:69
-#: ../src/sshd_root.py:61
-msgid "Restore Context"
+#: ../src/restorecon.py:70
+msgid ""
+"you want to fix the label, $TARGET_BASE_PATH does not have the default "
+"system label."
 msgstr ""
 
-#: ../src/restore_source_context.py:35
-msgid ""
-"\n"
-"    SELinux denied access requested by $SOURCE_PATH. $SOURCE_PATH is\n"
-"    mislabeled. $SOURCE_PATH default SELinux type is\n"
-"    <B>$DEFAULT_CONTYPE</B>, but its current type is <B>$CURRENT_CONTYPE</"
-"B>. Changing\n"
-"    this file back to the default type, may fix your problem.\n"
-"    <p>\n"
-"    If you believe this is a bug, please file a bug report against this "
-"package.\n"
-"    "
+#: ../src/restorecon.py:71
+msgid "you can run restorecon."
 msgstr ""
 
-#: ../src/restore_source_context.py:44
+#: ../src/restorecon.py:79
 msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon '$SOURCE_PATH'.\n"
-"    "
+"Restore\n"
+"Context"
 msgstr ""
 
 #: ../src/rsync_data.py:31
@@ -2143,107 +1216,12 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/samba_enable_home_dirs.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the samba daemon from reading users' home "
-"directories.\n"
-"    "
+#: ../src/rsync_data.py:45
+msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
 msgstr ""
 
-#: ../src/samba_enable_home_dirs.py:31
-msgid ""
-"\n"
-"    SELinux has denied the samba daemon access to users' home\n"
-"    directories. Someone is attempting to access your home directories\n"
-"    via your samba daemon. If you only setup samba to share non-home\n"
-"    directories, this probably signals an intrusion attempt.\n"
-"    For more information on SELinux integration with samba, look at the\n"
-"    samba_selinux man page. (man samba_selinux)\n"
-"    "
-msgstr ""
-
-#: ../src/samba_enable_home_dirs.py:40
-msgid ""
-"\n"
-"    If you want samba to share home directories you need to turn on\n"
-"    the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/samba_export_all_ro.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the samba daemon from serving r/o local files to "
-"remote clients.\n"
-"    "
-msgstr ""
-
-#: ../src/samba_export_all_ro.py:31
-msgid ""
-"\n"
-"    SELinux has preventing the samba daemon (smbd) from reading files on\n"
-"    the local system. If you have not exported these file systems, this\n"
-"    could signal an intrusion.\n"
-"    "
-msgstr ""
-
-#: ../src/samba_export_all_ro.py:37
-msgid ""
-"\n"
-"    If you want to export file systems using samba you need to turn on\n"
-"    the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\".\n"
-"    "
-msgstr ""
-
-#: ../src/samba_export_all_rw.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the samba daemon from allowing remote clients to "
-"write local files.\n"
-"    "
-msgstr ""
-
-#: ../src/samba_export_all_rw.py:31
-msgid ""
-"\n"
-"    SELinux has preventing the samba daemon (smbd) from writing files on the "
-"local system. If you have not exported any file systems (rw), this could "
-"signal an intrusion. \n"
-"    "
-msgstr ""
-
-#: ../src/samba_export_all_rw.py:35
-msgid ""
-"\n"
-"    If you want to export writable file systems using samba you need to turn "
-"on the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\".\n"
-"    "
-msgstr ""
-
-#: ../src/samba_share_nfs.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the samba daemon from reading nfs file systems.\n"
-"    "
-msgstr ""
-
-#: ../src/samba_share_nfs.py:31
-msgid ""
-"\n"
-"    SELinux has denied the samba daemon access to nfs file\n"
-"    systems. Someone is attempting to access an nfs file system via\n"
-"    your samba daemon. If you did not setup samba to share nfs file\n"
-"    systems, this probably signals an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/samba_share_nfs.py:38
-msgid ""
-"\n"
-"    If you want samba to share nfs file systems you need to turn on\n"
-"    the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
-"    "
+#: ../src/rsync_data.py:46
+msgid "You need to change the label on $TARGET_BASE_PATH"
 msgstr ""
 
 #: ../src/samba_share.py:27
@@ -2279,60 +1257,11 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/secure_mode_insmod.py:26
+#: ../src/samba_share.py:53
+#, python-format
 msgid ""
-"\n"
-"    SELinux is preventing the kernel modules from being loaded.\n"
-"    "
-msgstr ""
-
-#: ../src/secure_mode_insmod.py:30
-msgid ""
-"\n"
-"    SELinux has denied kernel module utilities from modifying\n"
-"    kernel modules. This machine is hardened to not allow the kernel to\n"
-"    be modified, except in single user mode.  If you did not try to\n"
-"    manage a kernel module, this probably signals an intrusion.\n"
-"    "
-msgstr ""
-
-#: ../src/secure_mode_insmod.py:37
-msgid ""
-"\n"
-"    If you allow the management of the kernel modules on your machine,\n"
-"    turn off the $BOOLEAN boolean: \"setsebool -P\n"
-"    $BOOLEAN=0\".\n"
-"    "
-msgstr ""
-
-#: ../src/secure_mode_insmod.py:53
-msgid "Kernel"
-msgstr ""
-
-#: ../src/secure_mode_policyload.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the modification of the running policy.\n"
-"    "
-msgstr ""
-
-#: ../src/secure_mode_policyload.py:31
-msgid ""
-"\n"
-"    SELinux has denied the management tools from modifying the way the\n"
-"    SELinux policy runs. This machine is hardened, so if you did not run\n"
-"    any SELinux tools, this probably signals an intrusion.\n"
-"    "
-msgstr ""
-
-#: ../src/secure_mode_policyload.py:37
-msgid ""
-"\n"
-"    If you want to modify the way SELinux is running on your machine\n"
-"    you need to bring the machine to single user mode with enforcing\n"
-"    turned off.  The turn off the secure_mode_policyload boolean:\n"
-"    \"setsebool -P secure_mode_policyload=0\".\n"
-"    "
+"# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
+"# restorecon %s -v '$FIX_TARGET_PATH'"
 msgstr ""
 
 #: ../src/selinuxpolicy.py:29
@@ -2357,7 +1286,15 @@ msgid ""
 "    "
 msgstr ""
 
+#: ../src/setenforce.py:27
+msgid "you did not directly cause this AVC through testing."
+msgstr ""
+
 #: ../src/setenforce.py:28
+msgid "if you think that you might have been hacked"
+msgstr ""
+
+#: ../src/setenforce.py:32
 msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH tried to modify "
@@ -2365,7 +1302,7 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/setenforce.py:32
+#: ../src/setenforce.py:36
 msgid ""
 "\n"
 "    SELinux has prevented $SOURCE from writing to a file under /selinux.\n"
@@ -2380,55 +1317,14 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/spamd_enable_home_dirs.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the spamd daemon from reading users' home "
-"directories.\n"
-"    "
+#: ../src/setenforce.py:48
+msgid "you believe $SOURCE_PATH tried to disable SELinux."
 msgstr ""
 
-#: ../src/spamd_enable_home_dirs.py:31
+#: ../src/setenforce.py:49
 msgid ""
-"\n"
-"    SELinux has denied the spamd daemon access to users' home\n"
-"    directories. Someone is attempting to access your home directories\n"
-"    via your spamd daemon. If you only setup spamd to share non-home\n"
-"    directories, this probably signals an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/spamd_enable_home_dirs.py:38
-msgid ""
-"\n"
-"    If you want spamd to share home directories you need to turn on\n"
-"    the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
-"    "
-msgstr ""
-
-#: ../src/squid_connect_any.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the squid daemon from connecting to network port "
-"$PORT_NUMBER"
-msgstr ""
-
-#: ../src/squid_connect_any.py:30
-msgid ""
-"\n"
-"    SELinux has denied the squid daemon from connecting to\n"
-"    $PORT_NUMBER. By default squid policy is setup to deny squid\n"
-"    connections. If you did not setup squid to network connections,\n"
-"    this could signal a intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/squid_connect_any.py:37
-msgid ""
-"\n"
-"    If you want squid to connect to network ports you need to turn on\n"
-"    the $BOOLEAN boolean: \"setsebool -P $BOOLEAN=1\"\n"
-"    "
+"you may be under attack by a hacker, since confined applications should "
+"never need this access."
 msgstr ""
 
 #: ../src/sshd_root.py:36
@@ -2448,6 +1344,14 @@ msgid ""
 "the\n"
 "    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
 "    "
+msgstr ""
+
+#: ../src/sshd_root.py:47
+msgid "you must fix the labels."
+msgstr ""
+
+#: ../src/sshd_root.py:54
+msgid "Restore Context"
 msgstr ""
 
 #: ../src/swapfile.py:27
@@ -2480,7 +1384,17 @@ msgid ""
 "    "
 msgstr ""
 
+#: ../src/sys_module.py:28
+msgid ""
+"you do not believe your $SOURCE_PATH should be modifying the kernel, by "
+"loading kernel modules"
+msgstr ""
+
 #: ../src/sys_module.py:29
+msgid "You might have been hacked."
+msgstr ""
+
+#: ../src/sys_module.py:33
 msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH tried to load a "
@@ -2488,7 +1402,7 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/sys_module.py:33
+#: ../src/sys_module.py:37
 msgid ""
 "\n"
 "    SELinux has prevented $SOURCE from loading a kernel module.\n"
@@ -2499,6 +1413,16 @@ msgid ""
 "serious \n"
 "    issue. Your system may very well be compromised.\n"
 "    "
+msgstr ""
+
+#: ../src/sys_module.py:46
+msgid ""
+"you do not believe that $SOURCE_PATH should be attempting to modify the "
+"kernel by loading a kernel module."
+msgstr ""
+
+#: ../src/sys_module.py:47
+msgid "A process might be attempting to hack into your system."
 msgstr ""
 
 #: ../src/sys_resource.py:28
@@ -2519,123 +1443,16 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/tftpd_write_content.py:27
+#: ../src/sys_resource.py:39
 msgid ""
-"\n"
-"    SELinux is preventing the tftp daemon from modify $TARGET_PATH.\n"
-"    "
+"you do not want to get this AVC any longer. These AVC's are caused by "
+"running out of resources, usually disk space on your / partition."
 msgstr ""
 
-#: ../src/tftpd_write_content.py:31
+#: ../src/sys_resource.py:40
 msgid ""
-"\n"
-"    SELinux prevented the tftp daemon from writing to $TARGET_PATH. "
-"Usually \n"
-"    tftpd is setup only to read content and is not allowed to modify it.  "
-"If\n"
-"    you setup tftpd to modify $TARGET_PATH need to change its label.  If "
-"you  \n"
-"    did not setup tftp to modify $TARGET_PATH, this could signal an "
-"intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/tftpd_write_content.py:38
-msgid ""
-"\n"
-"    If you want to change the file context of $TARGET_PATH so that the tftp\n"
-"    daemon can modify it, you need to execute it using<br>\n"
-"    <b># semanage fcontext -m tftpdir_rw_t '/tftpboot(/.*)?'</b>\n"
-"    <br><b># restorecon -R -v /tftpboot</b></br>\n"
-"    "
-msgstr ""
-
-#. MATCH
-#: ../src/tftpd_write_content.py:55
-msgid "TFTP"
-msgstr ""
-
-#: ../src/use_nfs_home_dirs.py:29
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from $ACCESS files stored on a NFS filesytem.\n"
-"    "
-msgstr ""
-
-#: ../src/use_nfs_home_dirs.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from $ACCESS files stored on a NFS "
-"filesystem.\n"
-"    NFS (Network Filesystem) is a network filesystem commonly used on Unix / "
-"Linux\n"
-"    systems.\n"
-"    \n"
-"    $SOURCE attempted to read one or more files or directories from\n"
-"    a mounted filesystem of this type.  As NFS filesystems do not support\n"
-"    fine-grained SELinux labeling, all files and directories in the\n"
-"    filesystem will have the same security context.\n"
-"    \n"
-"    If you have not configured $SOURCE to read files from a NFS filesystem\n"
-"    this access attempt could signal an intrusion attempt.\n"
-"    "
-msgstr ""
-
-#: ../src/user_tcp_server.py:27
-msgid ""
-"\n"
-"    SELinux is preventing the users from running TCP servers in the "
-"usedomain.\n"
-"        "
-msgstr ""
-
-#: ../src/user_tcp_server.py:31
-msgid ""
-"\n"
-"    SELinux has denied the $SOURCE program from binding to a network port "
-"$PORT_NUMBER which does not have an SELinux type associated with it.\n"
-"    $SOURCE does not have an SELinux policy defined for it when run by the "
-"user, so it runs in the users domain.  SELinux is currently setup to\n"
-"    deny TCP servers to run within the user domain. If you do not expect "
-"programs like $SOURCE to bind to a network port, then this could signal\n"
-"    an intrusion attempt. If this system is running as an NIS Client, "
-"turning on the allow_ypbind boolean may fix the problem.\n"
-"    setsebool -P allow_ypbind=1.\n"
-"    "
-msgstr ""
-
-#: ../src/user_tcp_server.py:39
-msgid ""
-"\n"
-"    If you want to allow user  programs to run as TCP Servers, you can turn "
-"on the user_tcp_server boolean, by executing:\n"
-"    setsebool -P $BOOLEAN=1\n"
-"    "
-msgstr ""
-
-#: ../src/use_samba_home_dirs.py:29
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from $ACCESS files stored on a Windows SMB/"
-"CIFS (Samba) filesytem.\n"
-"    "
-msgstr ""
-
-#: ../src/use_samba_home_dirs.py:33
-msgid ""
-"\n"
-"    SELinux prevented $SOURCE from $ACCESS files stored on a Windows SMB/"
-"CIFS (Samba) filesystem.\n"
-"    CIFS is a network filesystem commonly used on Windows systems.\n"
-"    \n"
-"    $SOURCE attempted to read one or more files or directories from\n"
-"    a mounted filesystem of this type.  As CIFS filesystems do not support\n"
-"    fine-grained SELinux labeling, all files and directories in the\n"
-"    filesystem will have the same security context.\n"
-"    \n"
-"    If you have not configured $SOURCE to read files from a CIFS filesystem\n"
-"    this access attempt could signal an intrusion attempt.\n"
-"    "
+"you must cleanup diskspace or make sure you are not running too many "
+"processes."
 msgstr ""
 
 #: ../src/vbetool.py:30
@@ -2671,7 +1488,19 @@ msgid ""
 "# setsebool -P mmap_low_allowed 1\n"
 msgstr ""
 
-#: ../src/vbetool.py:68 ../src/wine.py:79
+#: ../src/vbetool.py:55
+msgid ""
+"you want to ignore this AVC because it is dangerous and your machine seems "
+"to be working correctly."
+msgstr ""
+
+#: ../src/vbetool.py:56
+msgid ""
+"you must tell SELinux about this by enabling the vbetool_mmap_zero_ignore "
+"boolean."
+msgstr ""
+
+#: ../src/vbetool.py:62 ../src/wine.py:73
 msgid "Turn off memory protection"
 msgstr ""
 
@@ -2704,6 +1533,18 @@ msgid ""
 "of memory and solutions to those problems.\n"
 "\n"
 "    "
+msgstr ""
+
+#: ../src/wine.py:66
+msgid ""
+"you want to ignore this AVC because it is dangerous and your wine "
+"applications are working correctly."
+msgstr ""
+
+#: ../src/wine.py:67
+msgid ""
+"you must tell SELinux about this by enabling the wine_mmap_zero_ignore "
+"boolean."
 msgstr ""
 
 #: ../src/xen_image.py:27
@@ -2742,4 +1583,826 @@ msgid ""
 "order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
 "xen_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
+msgstr ""
+
+#: ../booleans_trans.py:1
+msgid ""
+"If you want to allow ftp to read and write files in the user home directories"
+msgstr ""
+
+#: ../booleans_trans.py:2
+msgid ""
+"If you want to allow privoxy to connect to all ports, not just HTTP, FTP, "
+"and Gopher ports."
+msgstr ""
+
+#: ../booleans_trans.py:3
+msgid "If you want to allow xdm logins as sysadm"
+msgstr ""
+
+#: ../booleans_trans.py:4
+msgid "If you want to allow xen to manage nfs files"
+msgstr ""
+
+#: ../booleans_trans.py:5
+msgid "If you want to control mozilla content access"
+msgstr ""
+
+#: ../booleans_trans.py:6
+msgid ""
+"If you want to allow xguest to configure Network Manager and connect to "
+"apache ports"
+msgstr ""
+
+#: ../booleans_trans.py:7
+msgid "If you want to allow database admins to execute DML statement"
+msgstr ""
+
+#: ../booleans_trans.py:8
+msgid ""
+"If you want to allow tftp to modify public files used for public file "
+"transfer services."
+msgstr ""
+
+#: ../booleans_trans.py:9
+msgid ""
+"If you want to allow direct login to the console device. Required for System "
+"390"
+msgstr ""
+
+#: ../booleans_trans.py:10
+msgid "If you want to allow user spamassassin clients to use the network."
+msgstr ""
+
+#: ../booleans_trans.py:11
+msgid "If you want to allow httpd to act as a relay"
+msgstr ""
+
+#: ../booleans_trans.py:12
+msgid "If you want to allow openvpn to read home directories"
+msgstr ""
+
+#: ../booleans_trans.py:13
+msgid ""
+"If you want to allow usage of the gpg-agent --write-env-file option. This "
+"also allows gpg-agent to manage user files."
+msgstr ""
+
+#: ../booleans_trans.py:14
+msgid ""
+"If you want to allow the Telepathy connection managers to connect to any "
+"generic TCP port."
+msgstr ""
+
+#: ../booleans_trans.py:15
+msgid ""
+"If you want to transition unconfined user to the mozilla plugin domain when "
+"running xulrunner plugin-container."
+msgstr ""
+
+#: ../booleans_trans.py:16
+msgid "If you want to allow virt to read fuse files"
+msgstr ""
+
+#: ../booleans_trans.py:17
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to databases over "
+"the network."
+msgstr ""
+
+#: ../booleans_trans.py:18
+msgid "If you want to allow users to connect to mysql"
+msgstr ""
+
+#: ../booleans_trans.py:19
+msgid "If you want to allow user processes to change their priority"
+msgstr ""
+
+#: ../booleans_trans.py:20
+msgid ""
+"If you want to allow ftp servers to login to local users and read/write all "
+"files on the system, governed by DAC."
+msgstr ""
+
+#: ../booleans_trans.py:21
+msgid "If you want to allow httpd to run gpg in gpg-web domain"
+msgstr ""
+
+#: ../booleans_trans.py:22
+msgid ""
+"If you want to allow samba to act as the domain controller, add users, "
+"groups and change passwords."
+msgstr ""
+
+#: ../booleans_trans.py:23
+msgid "If you want to allow httpd to execute cgi scripts"
+msgstr ""
+
+#: ../booleans_trans.py:24
+msgid "If you want to allow virt to manage nfs files"
+msgstr ""
+
+#: ../booleans_trans.py:25
+msgid "If you want to allow all daemons the ability to read/write terminals"
+msgstr ""
+
+#: ../booleans_trans.py:26
+msgid "If you want to allow virt to use serial/parallell communication ports"
+msgstr ""
+
+#: ../booleans_trans.py:27
+msgid ""
+"If you want to allow samba to modify public files used for public file "
+"transfer services.  Files/Directories must be labeled public_content_rw_t."
+msgstr ""
+
+#: ../booleans_trans.py:28
+msgid "If you want to allow rsync to run as a client"
+msgstr ""
+
+#: ../booleans_trans.py:29
+msgid ""
+"If you want to allow rgmanager domain to connect to the network using TCP."
+msgstr ""
+
+#: ../booleans_trans.py:30
+msgid "If you want to allow exim to read unprivileged user files."
+msgstr ""
+
+#: ../booleans_trans.py:31
+msgid "If you want to support NFS home directories"
+msgstr ""
+
+#: ../booleans_trans.py:32
+msgid "If you want to allow Puppet client to manage all file types."
+msgstr ""
+
+#: ../booleans_trans.py:33
+msgid ""
+"If you want to allow interlnal-sftp to read and write files in the user ssh "
+"home directories."
+msgstr ""
+
+#: ../booleans_trans.py:34
+msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
+msgstr ""
+
+#: ../booleans_trans.py:35
+msgid ""
+"If you want to transition unconfined user to the nsplugin domains when "
+"running nspluginviewer"
+msgstr ""
+
+#: ../booleans_trans.py:36
+msgid "If you want to allow Git daemon system to access cifs file systems."
+msgstr ""
+
+#: ../booleans_trans.py:37
+msgid ""
+"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
+msgstr ""
+
+#: ../booleans_trans.py:38
+msgid "If you want to allow host key based authentication"
+msgstr ""
+
+#: ../booleans_trans.py:39
+msgid "If you want to allow httpd to access cifs file systems"
+msgstr ""
+
+#: ../booleans_trans.py:40
+msgid ""
+"If you want to allow piranha-lvs domain to connect to the network using TCP."
+msgstr ""
+
+#: ../booleans_trans.py:41
+msgid ""
+"If you want to enabling secure mode disallows programs, such as newrole, "
+"from transitioning to administrative user domains."
+msgstr ""
+
+#: ../booleans_trans.py:42
+msgid "If you want to allow Apache to use mod_auth_pam"
+msgstr ""
+
+#: ../booleans_trans.py:43
+msgid "If you want to allow pppd to be run for a regular user"
+msgstr ""
+
+#: ../booleans_trans.py:44
+msgid "If you want to allow samba to share any file/directory read only."
+msgstr ""
+
+#: ../booleans_trans.py:45
+msgid "If you want to allow ftp servers to use connect to mysql database"
+msgstr ""
+
+#: ../booleans_trans.py:46
+msgid "If you want to allow Git daemon system to search home directories."
+msgstr ""
+
+#: ../booleans_trans.py:47
+msgid "If you want to support SAMBA home directories"
+msgstr ""
+
+#: ../booleans_trans.py:48
+msgid ""
+"If you want to allow unconfined executables to map a memory region as both "
+"executable and writable, this is dangerous and the executable should be "
+"reported in bugzilla"
+msgstr ""
+
+#: ../booleans_trans.py:49
+msgid ""
+"If you want to allow samba to create new home directories (e.g. via PAM)"
+msgstr ""
+
+#: ../booleans_trans.py:50
+msgid "If you want to control users use of ping and traceroute"
+msgstr ""
+
+#: ../booleans_trans.py:51
+msgid ""
+"If you want to allow ftp servers to use cifs used for public file transfer "
+"services."
+msgstr ""
+
+#: ../booleans_trans.py:52
+msgid ""
+"If you want to allow the Irssi IRC Client to connect to any port, and to "
+"bind to any unreserved port."
+msgstr ""
+
+#: ../booleans_trans.py:53
+msgid ""
+"If you want to allow ftp servers to use nfs used for public file transfer "
+"services."
+msgstr ""
+
+#: ../booleans_trans.py:54
+msgid "If you want to allow httpd to read home directories"
+msgstr ""
+
+#: ../booleans_trans.py:55
+msgid ""
+"If you want to allow gpg web domain to modify public files used for public "
+"file transfer services."
+msgstr ""
+
+#: ../booleans_trans.py:56
+msgid "If you want to allow rsync to export any files/directories read only."
+msgstr ""
+
+#: ../booleans_trans.py:57
+msgid ""
+"If you want to allow all unconfined executables to use libraries requiring "
+"text relocation that are not labeled textrel_shlib_t"
+msgstr ""
+
+#: ../booleans_trans.py:58
+msgid ""
+"If you want to allow apache scripts to write to public content.  Directories/"
+"Files must be labeled public_rw_content_t."
+msgstr ""
+
+#: ../booleans_trans.py:59
+msgid "If you want to allow qemu to use cifs/Samba file systems"
+msgstr ""
+
+#: ../booleans_trans.py:60
+msgid "If you want to allow qemu to user serial/parallel communication ports"
+msgstr ""
+
+#: ../booleans_trans.py:61
+msgid "If you want to allow Apache to communicate with avahi service via dbus"
+msgstr ""
+
+#: ../booleans_trans.py:62
+msgid ""
+"If you want to allow dhcpc client applications to execute iptables commands"
+msgstr ""
+
+#: ../booleans_trans.py:63
+msgid "If you want to allow samba to share users home directories."
+msgstr ""
+
+#: ../booleans_trans.py:64
+msgid "If you want to enable reading of urandom for all domains."
+msgstr ""
+
+#: ../booleans_trans.py:65
+msgid "If you want to allow racoon to read shadow"
+msgstr ""
+
+#: ../booleans_trans.py:66
+msgid "If you want to allow Cobbler to connect to the network using TCP."
+msgstr ""
+
+#: ../booleans_trans.py:67
+msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
+msgstr ""
+
+#: ../booleans_trans.py:68
+msgid ""
+"If you want to boolean to determine whether the system permits loading "
+"policy, setting enforcing mode, and changing boolean values.  Set this to "
+"true and you have to reboot to set it back"
+msgstr ""
+
+#: ../booleans_trans.py:69
+msgid ""
+"If you want to allow unconfined executables to make their heap memory "
+"executable.  Doing this is a really bad idea. Probably indicates a badly "
+"coded executable, but could indicate an attack. This executable should be "
+"reported in bugzilla"
+msgstr ""
+
+#: ../booleans_trans.py:70
+msgid "If you want to allow dbadm to manage files in users home directories"
+msgstr ""
+
+#: ../booleans_trans.py:71
+msgid "If you want to allow virtual machine to interact with the xserver"
+msgstr ""
+
+#: ../booleans_trans.py:72
+msgid "If you want to transition to confined qemu domains from unconfined user"
+msgstr ""
+
+#: ../booleans_trans.py:73
+msgid "If you want to allow Git daemon system to access nfs file systems."
+msgstr ""
+
+#: ../booleans_trans.py:74
+msgid "If you want to unify HTTPD handling of all content files."
+msgstr ""
+
+#: ../booleans_trans.py:75
+msgid "If you want to allow nsplugin code to connect to unreserved ports"
+msgstr ""
+
+#: ../booleans_trans.py:76
+msgid ""
+"If you want to allow rsync to modify public files used for public file "
+"transfer services.  Files/Directories must be labeled public_content_rw_t."
+msgstr ""
+
+#: ../booleans_trans.py:77
+msgid "If you want to allow qemu to use nfs file systems"
+msgstr ""
+
+#: ../booleans_trans.py:78
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to the network "
+"using any TCP port."
+msgstr ""
+
+#: ../booleans_trans.py:79
+msgid "If you want to allow qemu to use usb devices"
+msgstr ""
+
+#: ../booleans_trans.py:80
+msgid "If you want to allow exim to connect to databases (postgres, mysql)"
+msgstr ""
+
+#: ../booleans_trans.py:81
+msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
+msgstr ""
+
+#: ../booleans_trans.py:82
+msgid "If you want to allow mplayer executable stack"
+msgstr ""
+
+#: ../booleans_trans.py:83
+msgid "If you want to allow httpd scripts and modules execmem/execstack"
+msgstr ""
+
+#: ../booleans_trans.py:84
+msgid "If you want to allow all daemons to write corefiles to /"
+msgstr ""
+
+#: ../booleans_trans.py:85
+msgid ""
+"If you want to allow cdrecord to read various content. nfs, samba, removable "
+"devices, user temp and untrusted content files"
+msgstr ""
+
+#: ../booleans_trans.py:86
+msgid "If you want to allow virt to manage device configuration, (pci)"
+msgstr ""
+
+#: ../booleans_trans.py:87
+msgid "If you want to allow spamd to read/write user home directories."
+msgstr ""
+
+#: ../booleans_trans.py:88
+msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
+msgstr ""
+
+#: ../booleans_trans.py:89
+msgid "If you want to allows xdm to execute bootloader"
+msgstr ""
+
+#: ../booleans_trans.py:90
+msgid "If you want to allow system to run with NIS"
+msgstr ""
+
+#: ../booleans_trans.py:91
+msgid "If you want to allow qemu to connect fully to the network"
+msgstr ""
+
+#: ../booleans_trans.py:92
+msgid ""
+"If you want to allow unconfined executables to make their stack executable.  "
+"This should never, ever be necessary. Probably indicates a badly coded "
+"executable, but could indicate an attack. This executable should be reported "
+"in bugzilla"
+msgstr ""
+
+#: ../booleans_trans.py:93
+msgid ""
+"If you want to unify HTTPD to communicate with the terminal. Needed for "
+"entering the passphrase for certificates at the terminal."
+msgstr ""
+
+#: ../booleans_trans.py:94
+msgid ""
+"If you want to allow sftp-internal to read and write files in the user home "
+"directories"
+msgstr ""
+
+#: ../booleans_trans.py:95
+msgid "If you want to support fusefs home directories"
+msgstr ""
+
+#: ../booleans_trans.py:96
+msgid "If you want to allow confined applications to use nscd shared memory."
+msgstr ""
+
+#: ../booleans_trans.py:97
+msgid "If you want to allow w to display everyone"
+msgstr ""
+
+#: ../booleans_trans.py:98
+msgid ""
+"If you want to allow Apache to modify public files used for public file "
+"transfer services. Directories/Files must be labeled public_content_rw_t."
+msgstr ""
+
+#: ../booleans_trans.py:99
+msgid "If you want to allow dbadm to read files in users home directories"
+msgstr ""
+
+#: ../booleans_trans.py:100
+msgid "If you want to allow regular users direct dri device access"
+msgstr ""
+
+#: ../booleans_trans.py:101
+msgid "If you want to allow the mount command to mount any directory or file."
+msgstr ""
+
+#: ../booleans_trans.py:102
+msgid "If you want to allow a user to login as an unconfined domain"
+msgstr ""
+
+#: ../booleans_trans.py:103
+msgid "If you want to disable transitions to insmod."
+msgstr ""
+
+#: ../booleans_trans.py:104
+msgid "If you want to allow Cobbler to access nfs file systems."
+msgstr ""
+
+#: ../booleans_trans.py:105
+msgid "If you want to allow nsplugin code to execmem/execstack"
+msgstr ""
+
+#: ../booleans_trans.py:106
+msgid ""
+"If you want to allows clients to write to the X server shared memory "
+"segments."
+msgstr ""
+
+#: ../booleans_trans.py:107
+msgid "If you want to allow webadm to read files in users home directories"
+msgstr ""
+
+#: ../booleans_trans.py:108
+msgid "If you want to enable polyinstantiated directory support."
+msgstr ""
+
+#: ../booleans_trans.py:109
+msgid "If you want to support X userspace object manager"
+msgstr ""
+
+#: ../booleans_trans.py:110
+msgid "If you want to ignore vbetool mmap_zero errors."
+msgstr ""
+
+#: ../booleans_trans.py:111
+msgid "If you want to allow httpd to read user content"
+msgstr ""
+
+#: ../booleans_trans.py:112
+msgid "If you want to allow httpd to access nfs file systems"
+msgstr ""
+
+#: ../booleans_trans.py:113
+msgid ""
+"If you want to allow postfix_local domain full write access to mail_spool "
+"directories"
+msgstr ""
+
+#: ../booleans_trans.py:114
+msgid "If you want to allow xguest to use blue tooth devices"
+msgstr ""
+
+#: ../booleans_trans.py:115
+msgid "If you want to use lpd server instead of cups"
+msgstr ""
+
+#: ../booleans_trans.py:116
+msgid "If you want to allow Apache to execute tmp content."
+msgstr ""
+
+#: ../booleans_trans.py:117
+msgid ""
+"If you want to allow user to r/w files on filesystems that do not have "
+"extended attributes (FAT, CDROM, FLOPPY)"
+msgstr ""
+
+#: ../booleans_trans.py:118
+msgid ""
+"If you want to allow users to run TCP servers (bind to ports and accept "
+"connection from the same domain and outside users)  disabling this forces "
+"FTP passive mode and may change other protocols."
+msgstr ""
+
+#: ../booleans_trans.py:119
+msgid "If you want to allow mysqld to connect to all ports"
+msgstr ""
+
+#: ../booleans_trans.py:120
+msgid "If you want to allow regular users direct mouse access"
+msgstr ""
+
+#: ../booleans_trans.py:121
+msgid "If you want to allow all domains to have the kernel load modules"
+msgstr ""
+
+#: ../booleans_trans.py:122
+msgid "If you want to allow virt to use usb devices"
+msgstr ""
+
+#: ../booleans_trans.py:123
+msgid ""
+"If you want to enable additional permissions needed to support devices on "
+"3ware controllers."
+msgstr ""
+
+#: ../booleans_trans.py:124
+msgid ""
+"If you want to allow ABRT to modify public files used for public file "
+"transfer services."
+msgstr ""
+
+#: ../booleans_trans.py:125
+msgid "If you want to allow java executable stack"
+msgstr ""
+
+#: ../booleans_trans.py:126
+msgid "If you want to allow http daemon to send mail"
+msgstr ""
+
+#: ../booleans_trans.py:127
+msgid "If you want to allow samba to export ntfs/fusefs volumes."
+msgstr ""
+
+#: ../booleans_trans.py:128
+msgid "If you want to enable support for upstart as the init program."
+msgstr ""
+
+#: ../booleans_trans.py:129
+msgid "If you want to allow sshd to forward port connections"
+msgstr ""
+
+#: ../booleans_trans.py:130
+msgid "If you want to allow zebra daemon to write it configuration files"
+msgstr ""
+
+#: ../booleans_trans.py:131
+msgid "If you want to allow httpd to use built in scripting (usually php)"
+msgstr ""
+
+#: ../booleans_trans.py:132
+msgid ""
+"If you want to allow exim to create, read, write, and delete unprivileged "
+"user files."
+msgstr ""
+
+#: ../booleans_trans.py:133
+msgid ""
+"If you want to allow Cobbler to modify public files used for public file "
+"transfer services."
+msgstr ""
+
+#: ../booleans_trans.py:134
+msgid "If you want to allow samba to export NFS volumes."
+msgstr ""
+
+#: ../booleans_trans.py:135
+msgid ""
+"If you want to control the ability to mmap a low area of the address space, "
+"as configured by /proc/sys/kernel/mmap_min_addr."
+msgstr ""
+
+#: ../booleans_trans.py:136
+msgid "If you want to ignore wine mmap_zero errors."
+msgstr ""
+
+#: ../booleans_trans.py:137
+msgid "If you want to allow sysadm to debug or ptrace all processes."
+msgstr ""
+
+#: ../booleans_trans.py:138
+msgid "If you want to allow fenced domain to connect to the network using TCP."
+msgstr ""
+
+#: ../booleans_trans.py:139
+msgid "If you want to allow users to connect to PostgreSQL"
+msgstr ""
+
+#: ../booleans_trans.py:140
+msgid "If you want to allow cvs daemon to read shadow"
+msgstr ""
+
+#: ../booleans_trans.py:141
+msgid "If you want to allow http daemon to check spam"
+msgstr ""
+
+#: ../booleans_trans.py:142
+msgid ""
+"If you want to allow sftp-internal to login to local users and read/write "
+"all files on the system, governed by DAC."
+msgstr ""
+
+#: ../booleans_trans.py:143
+msgid "If you want to allow xguest users to mount removable media"
+msgstr ""
+
+#: ../booleans_trans.py:144
+msgid ""
+"If you want to allow icecast to connect to all ports, not just sound ports."
+msgstr ""
+
+#: ../booleans_trans.py:145
+msgid "If you want to allow pppd to load kernel modules for certain modems"
+msgstr ""
+
+#: ../booleans_trans.py:146
+msgid "If you want to allow samba to run unconfined scripts"
+msgstr ""
+
+#: ../booleans_trans.py:147
+msgid "If you want to allow confined applications to run with kerberos."
+msgstr ""
+
+#: ../booleans_trans.py:148
+msgid "If you want to allow httpd to connect to memcache server"
+msgstr ""
+
+#: ../booleans_trans.py:149
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to cobbler over "
+"the network."
+msgstr ""
+
+#: ../booleans_trans.py:150
+msgid "If you want to allow sasl to read shadow"
+msgstr ""
+
+#: ../booleans_trans.py:151
+msgid ""
+"If you want to allow ftp servers to upload files,  used for public file "
+"transfer services. Directories must be labeled public_content_rw_t."
+msgstr ""
+
+#: ../booleans_trans.py:152
+msgid "If you want to allow vidio playing tools to tun unconfined"
+msgstr ""
+
+#: ../booleans_trans.py:153
+msgid ""
+"If you want to allow gssd to read temp directory.  For access to kerberos "
+"tgt."
+msgstr ""
+
+#: ../booleans_trans.py:154
+msgid "If you want to allow webadm to manage files in users home directories"
+msgstr ""
+
+#: ../booleans_trans.py:155
+msgid "If you want to allow clamd to use JIT compiler"
+msgstr ""
+
+#: ../booleans_trans.py:156
+msgid "If you want to allows XServer to execute writable memory"
+msgstr ""
+
+#: ../booleans_trans.py:157
+msgid ""
+"If you want to allow Git daemon session to bind tcp sockets to all "
+"unreserved ports."
+msgstr ""
+
+#: ../booleans_trans.py:158
+msgid ""
+"If you want to allow HTTPD to run SSI executables in the same domain as "
+"system CGI scripts."
+msgstr ""
+
+#: ../booleans_trans.py:159
+msgid "If you want to allow samba to share any file/directory read/write."
+msgstr ""
+
+#: ../booleans_trans.py:160
+msgid ""
+"If you want to allow httpd to act as a FTP server by listening on the ftp "
+"port."
+msgstr ""
+
+#: ../booleans_trans.py:161
+msgid "If you want to enable extra rules in the cron domain to support fcron."
+msgstr ""
+
+#: ../booleans_trans.py:162
+msgid ""
+"If you want to allow nfs servers to modify public files used for public file "
+"transfer services.  Files/Directories must be labeled public_content_rw_t."
+msgstr ""
+
+#: ../booleans_trans.py:163
+msgid ""
+"If you want to allow any files/directories to be exported read/write via NFS."
+msgstr ""
+
+#: ../booleans_trans.py:164
+msgid "If you want to allow all domains to use other domains file descriptors"
+msgstr ""
+
+#: ../booleans_trans.py:165
+msgid "If you want to allow users to login using a radius server"
+msgstr ""
+
+#: ../booleans_trans.py:166
+msgid "If you want to allow Cobbler to access cifs file systems."
+msgstr ""
+
+#: ../booleans_trans.py:167
+msgid "If you want to allow httpd daemon to change system limits"
+msgstr ""
+
+#: ../booleans_trans.py:168
+msgid ""
+"If you want to allow squid to connect to all ports, not just HTTP, FTP, and "
+"Gopher ports."
+msgstr ""
+
+#: ../booleans_trans.py:169
+msgid "If you want to allow users to read system messages."
+msgstr ""
+
+#: ../booleans_trans.py:170
+msgid "If you want to allow virt to manage cifs files"
+msgstr ""
+
+#: ../booleans_trans.py:171
+msgid "If you want to enable support for systemd as the init program."
+msgstr ""
+
+#: ../booleans_trans.py:172
+msgid ""
+"If you want to allow BIND to write the master zone files. Generally this is "
+"used for dynamic DNS or zone transfers."
+msgstr ""
+
+#: ../booleans_trans.py:173
+msgid ""
+"If you want to allow any files/directories to be exported read/only via NFS."
+msgstr ""
+
+#: ../booleans_trans.py:174
+msgid ""
+"If you want to allow system cron jobs to relabel filesystem for restoring "
+"file contexts."
+msgstr ""
+
+#: ../booleans_trans.py:175
+msgid ""
+"If you want to allow anon internal-sftp to upload files, used for public "
+"file transfer services. Directories must be labeled public_content_rw_t."
+msgstr ""
+
+#: ../booleans_trans.py:176
+msgid "If you want to allow unprived users to execute DDL statement"
 msgstr ""
