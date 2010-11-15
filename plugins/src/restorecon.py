@@ -89,12 +89,16 @@ class plugin(Plugin):
         if avc.has_tclass_in(restorecon_files.keys()):               
             if avc.tpath is None: return None
             if avc.tpath == "/": return None
-            
-            mcon = selinux.matchpathcon(avc.tpath.strip('"'), restorecon_files[avc.tclass])[1]
-            mcon_type=mcon.split(":")[2]
-            if mcon_type != avc.tcontext.type:
-                # MATCH
-                avc.set_template_substitutions(MATCHTYPE=mcon_type)
-                return self.report()
+            if avc.tpath[0] != '/': return None
+            try:
+                mcon = selinux.matchpathcon(avc.tpath.strip('"'), restorecon_files[avc.tclass])[1]
+                mcon_type=mcon.split(":")[2]
+                if mcon_type != avc.tcontext.type:
+                    # MATCH
+                    avc.set_template_substitutions(MATCHTYPE=mcon_type)
+                    return self.report()
+            except OSError:
+                pass
+    
 
         return None
