@@ -271,7 +271,7 @@ class BrowserApplet:
     def make_treeview(self):
         tmsort = gtk.TreeModelSort(self.liststore)
        
-        cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occured"), _("Status")]
+        cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occurred"), _("Status")]
         self.treeview.set_model(tmsort)
         x = 0
         for c in cols:

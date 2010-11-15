@@ -381,7 +381,7 @@ class SEFaultSignatureInfo(XmlSerialize):
             permissive_msg = _("%s has a permissive type (%s). This access was not denied.") % (self.source, self.scontext.type)
 
         if self.environment.enforce == "Permissive":
-            permissive_msg = _("SEinux is in permissive mode. This access was not denied.")
+            permissive_msg = _("SELinux is in permissive mode. This access was not denied.")
 
     def update_derived_template_substitutions(self):
         self.template_substitutions = {} 
