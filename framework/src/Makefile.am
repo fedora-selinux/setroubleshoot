@@ -8,6 +8,7 @@ PYTHON_FILES =			\
 	avc_audit.py			\
 	browser.py			\
 	config.py			\
+	email_alert.py			\
 	errcode.py			\
 	html_util.py			\
 	log.py				\
