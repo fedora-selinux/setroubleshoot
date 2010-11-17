@@ -844,9 +844,9 @@ class BugReport:
         self.widget_tree = gtk.glade.XML(self.gladefile, domain=parent.domain)
         self.siginfo = siginfo
         self.hostname = self.siginfo.sig.host
-        self.siginfo.host = _("(removed)")
-        self.siginfo.environment.hostname = _("(removed)")
-        self.siginfo.sig.host = _("(removed)")
+        self.siginfo.host = "(removed)"
+        self.siginfo.environment.hostname = "(removed)"
+        self.siginfo.sig.host = "(removed)"
         
         hash = self.siginfo.get_hash()
         self.summary = self.siginfo.untranslated(self.siginfo.summary)
@@ -865,8 +865,9 @@ class BugReport:
         self.widget_tree.signal_autoconnect(dic)
         
         text_buf = gtk.TextBuffer()
-        text_buf.set_text(self.siginfo.untranslated(self.siginfo.format_text).replace(self.hostname, _("(removed)")))
-        text_buf.set_text(self.siginfo.untranslated(self.siginfo.details).replace(self.hostname, _("(removed)")))
+        text = self.siginfo.untranslated(self.siginfo.format_text)
+        text += self.siginfo.untranslated(self.siginfo.format_details)
+        text_buf.set_text(text.replace(self.hostname, "(removed)"))
         self.error_submit_text.set_buffer(text_buf)
 
     def destroy(self, widget):

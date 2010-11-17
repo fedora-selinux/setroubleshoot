@@ -52,7 +52,6 @@ if __name__ == "__main__":
     log_init('test', {'console':True,
 			   'level':'debug'})
 
-#import gettext
 from gettext import ngettext as P_
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
@@ -503,6 +502,10 @@ class SEFaultSignatureInfo(XmlSerialize):
         return text
 
     def untranslated(self, func, *args, **kwargs):
+        r'define.*untranslated\(.*\n'
+        # Call the parameter function with the translations turned off
+        # This function is not thread safe, since it manipulates globals
+
         global P_, _
         saved_translateP_ = P_
         saved_translate_ = _
@@ -514,7 +517,6 @@ class SEFaultSignatureInfo(XmlSerialize):
         finally:
             P_ = saved_translateP_ 
             _ = saved_translate_
-            pass
 
     def format_text(self, all = False):
         self.update_derived_template_substitutions()
@@ -537,7 +539,6 @@ class SEFaultSignatureInfo(XmlSerialize):
             txt = self.substitute(p.get_do_text(self.audit_event.records, args))
             text +=  _("\nDo\n") + txt[0].lower() + txt[1:]
 
-        text += _('Unknown')
         text += _('\n\n')
         return text
 

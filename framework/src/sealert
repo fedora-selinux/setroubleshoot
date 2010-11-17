@@ -50,6 +50,7 @@ from setroubleshoot.log import *
 from setroubleshoot.errcode import *
 from setroubleshoot.util import get_identity
 from setroubleshoot.rpc import *
+from setroubleshoot.gui_utils import display_traceback
 
 #------------------------------------------------------------------------------
 invocation_style = None
@@ -676,6 +677,7 @@ if __name__ == '__main__':
         elif invocation_style == 'service':
             try:
                 # This import must come before importing gtk to silence warnings
+                from setroubleshoot.gui_utils import display_traceback
                 import gtk
                 run_as_dbus_service(username)
             except RuntimeError, e:
@@ -684,6 +686,7 @@ if __name__ == '__main__':
             sys.exit()
         elif invocation_style == 'noservice':
             # This import must come before importing gtk to silence warnings
+            from setroubleshoot.gui_utils import display_traceback
             import gtk
             run_app(username)
             sys.exit()

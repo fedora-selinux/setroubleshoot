@@ -10,6 +10,7 @@ PYTHON_FILES =			\
 	config.py			\
 	email_alert.py			\
 	errcode.py			\
+	gui_utils.py			\
 	html_util.py			\
 	log.py				\
 	Plugin.py			\
