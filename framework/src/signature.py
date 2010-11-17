@@ -20,6 +20,7 @@
 #
 
 from subprocess import *
+import setroubleshoot.default_encoding_utf8
 
 __all__ = [
            'SignatureMatch',
@@ -51,6 +52,7 @@ if __name__ == "__main__":
     log_init('test', {'console':True,
 			   'level':'debug'})
 
+#import gettext
 from gettext import ngettext as P_
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
@@ -458,7 +460,7 @@ class SEFaultSignatureInfo(XmlSerialize):
     def format_details(self):
         env = self.environment
 
-        text = _("Additional Information") + ':\n'
+        text = _("Additional Information:\n")
         text += format_2_column_name_value(_("Source Context"),        self.scontext.format())
         text += format_2_column_name_value(_("Target Context"),        self.tcontext.format())
         text += format_2_column_name_value(_("Target Objects"),        self.format_target_object())
@@ -500,17 +502,20 @@ class SEFaultSignatureInfo(XmlSerialize):
 
         return text
 
-    def untranslated(self, func):
+    def untranslated(self, func, *args, **kwargs):
+        global P_, _
         saved_translateP_ = P_
         saved_translate_ = _
+
         try:
             P_ = lambda x,y,z: x if z > 1 else y
             _ = lambda x:x
-            return func()
+            return func(*args, **kwargs)
         finally:
             P_ = saved_translateP_ 
             _ = saved_translate_
-        _
+            pass
+
     def format_text(self, all = False):
         self.update_derived_template_substitutions()
 
@@ -522,8 +527,8 @@ class SEFaultSignatureInfo(XmlSerialize):
             title = _("\n\n*****  Plugin %s (%.4s confidence) suggests  ") % (p.analysis_id, ((float(p.priority) / float(total_priority)) * 100 + .5))
             text +=  title
             for i in range(len(title),80):
-                text +=  "*"
-            text +=  "\n"
+                text +=  _("*")
+            text +=  _("\n")
             txt = self.substitute(p.get_if_text(self.audit_event.records, args))
             text +=  _("\nIf ") + txt[0].lower() + txt[1:]
             txt = self.substitute(p.get_then_text(self.audit_event.records, args))
@@ -532,7 +537,8 @@ class SEFaultSignatureInfo(XmlSerialize):
             txt = self.substitute(p.get_do_text(self.audit_event.records, args))
             text +=  _("\nDo\n") + txt[0].lower() + txt[1:]
 
-        text += '\n\n' + self.format_details()
+        text += _('Unknown')
+        text += _('\n\n')
         return text
 
 class SEFaultUserInfo(XmlSerialize):

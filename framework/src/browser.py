@@ -866,6 +866,7 @@ class BugReport:
         
         text_buf = gtk.TextBuffer()
         text_buf.set_text(self.siginfo.untranslated(self.siginfo.format_text).replace(self.hostname, _("(removed)")))
+        text_buf.set_text(self.siginfo.untranslated(self.siginfo.details).replace(self.hostname, _("(removed)")))
         self.error_submit_text.set_buffer(text_buf)
 
     def destroy(self, widget):
