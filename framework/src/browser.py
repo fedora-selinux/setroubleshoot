@@ -849,7 +849,7 @@ class BugReport:
         self.siginfo.sig.host = _("(removed)")
         
         hash = self.siginfo.get_hash()
-        self.summary = self.siginfo.summary()
+        self.summary = self.siginfo.untranslated(self.siginfo.summary)
         # Get the widgets we need
         self.main_window = self.widget("bug_report_window")
         self.error_submit_text = self.widget("error_submit_text")
@@ -865,7 +865,7 @@ class BugReport:
         self.widget_tree.signal_autoconnect(dic)
         
         text_buf = gtk.TextBuffer()
-        text_buf.set_text(self.siginfo.format_text().replace(self.hostname, _("(removed)")))
+        text_buf.set_text(self.siginfo.untranslated(self.siginfo.format_text).replace(self.hostname, _("(removed)")))
         self.error_submit_text.set_buffer(text_buf)
 
     def destroy(self, widget):

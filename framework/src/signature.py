@@ -499,6 +499,18 @@ class SEFaultSignatureInfo(XmlSerialize):
         text += avcbuf + '\n'
 
         return text
+
+    def untranslated(self, func):
+        saved_translateP_ = P_
+        saved_translate_ = _
+        try:
+            P_ = lambda x,y,z: x if z > 1 else y
+            _ = lambda x:x
+            return func()
+        finally:
+            P_ = saved_translateP_ 
+            _ = saved_translate_
+        _
     def format_text(self, all = False):
         self.update_derived_template_substitutions()
 
