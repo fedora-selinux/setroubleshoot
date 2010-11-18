@@ -66,7 +66,7 @@ pkg_SCRIPTS =			\
 	updater.py			
 
 pkgconfig_DATA =			\
-	setroubleshoot.cfg		\
+	setroubleshoot.conf		\
 	$(NULL)
 
 setroubleshootdir = $(pyexecdir)/setroubleshoot
@@ -103,7 +103,7 @@ config.py: config.py.in Makefile
 	-e s!\@html_browser_open\@!$(html_browser_open)!	\
 	< $< > $@
 
-setroubleshoot.cfg: config.py
+setroubleshoot.conf: config.py
 	python config.py -d > $@
 
 DISTCLEANFILES = config.py
