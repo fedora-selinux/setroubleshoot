@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-15 14:31-0500\n"
-"PO-Revision-Date: 2010-08-20 18:15+0300\n"
+"PO-Revision-Date: 2010-11-20 14:18+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -27,7 +27,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Політика SELinux запобігає запису сценарієм httpd у спільну теку.\n"
+"    Правила SELinux запобігають спробам запису даних сценарієм httpd у "
+"спільну теку.\n"
 "    "
 
 #: ../src/allow_anon_write.py:32
@@ -39,9 +40,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Політика SELinux запобігає запису у спільну теку\n"
-"    сценарієм httpd. Якщо httpd не налаштований на запис у спільні теки, \n"
-"    це може слугувати індикатором спроби вторгнення.\n"
+"    Правила SELinux запобігають спробам запису даних у спільну теку\n"
+"    сценарієм httpd. Якщо httpd не налаштовано на запис у спільні теки, \n"
+"    подібні спроби можуть бути ознакою спроби вторгнення.\n"
 "    "
 
 #: ../src/allow_anon_write.py:38
@@ -72,12 +73,15 @@ msgstr ""
 msgid ""
 "you want to allow $SOURCE_PATH to be able to write to shared public content"
 msgstr ""
+"ви бажаєте дозволити $SOURCE_PATH запис до теки спільних відкритих даних"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
 msgstr ""
+"вам слід змінити мітку $TARGET_PATH на public_content_rw_t і потенційно "
+"надати значення true allow_httpd_sys_script_anon_write boolean."
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -115,13 +119,14 @@ msgstr ""
 "    некоректність коду, програмам потрібна така можливість. Документ\n"
 "    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">Тести "
 "захисту пам'яті SELinux</a>\n"
-"    пояснює як відмовитись от використання такої можливості. Якщо $SOURCE не "
+"    пояснює як відмовитись від використання такої можливості. Якщо $SOURCE "
+"не "
 "працює, а\n"
 "    вам необхідна ця програма, можна налаштувати SELinux тимчасово "
 "дозволити\n"
 "    зміну захисту пам'яті, доки програму не буде виправлено. Надішліть звіт</"
 "a>\n"
-"    про помилку щодо цього пакету.\n"
+"    про помилку щодо цього пакета.\n"
 "    "
 
 #: ../src/allow_execheap.py:44
@@ -143,10 +148,12 @@ msgid ""
 "you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
 msgstr ""
+"вам здається, що $SOURCE_PATH не повинна відображати резервну область "
+"пам’яті для запису і виконання коду."
 
 #: ../src/allow_execheap.py:51 ../src/allow_execstack.py:62
 msgid "you need to report a bug. This is a potentially dangerous access."
-msgstr ""
+msgstr "вам слід повідомити про ваду. Такий доступ є потенційно небезпечним."
 
 #: ../src/allow_execheap.py:52 ../src/allow_execstack.py:63
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
@@ -154,6 +161,8 @@ msgstr ""
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
 msgid "Contact your security administrator and report this issue."
 msgstr ""
+"Зв’яжіться з адміністратором, що відповідає за безпеку, і повідомте про цю "
+"ваду."
 
 #: ../src/allow_execmod.py:27
 msgid ""
@@ -163,8 +172,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux запобігає виконанню $SOURCE_PATH від завантаження $TARGET_PATH, "
-"яка вимагає переміщення тексту.\n"
+"    SELinux запобігає завантаженню $TARGET_PATH з $SOURCE_PATH з "
+"переміщенням тексту.\n"
 "    "
 
 #: ../src/allow_execmod.py:31
@@ -190,11 +199,11 @@ msgstr ""
 "    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">Тести "
 "захисту пам'яті SELinux</a>\n"
 "    пояснюється як відмовитись від використання цієї можливості.\n"
-"    налаштувати SELinux для тимчасового дозволу $TARGET_PATH робити "
+"    Налаштуйте SELinux для тимчасового дозволу $TARGET_PATH робити "
 "переміщення,\n"
 "    поки бібліотеку не буде виправлено. Будь ласка, надішліть звіт про "
 "помилку\n"
-"    щодо цього пакету.\n"
+"    щодо цього пакета.\n"
 "    "
 
 #: ../src/allow_execmod.py:43
@@ -225,12 +234,12 @@ msgstr ""
 "    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">Тести "
 "захисту пам'яті SELinux</a>\n"
 "    пояснюється як відмовитись від використання такої можливості.\n"
-"    Ця утиліта проаналізувала бібліотеку, та, швидше за все, її \n"
-"    зібрано правильно. Але setroubleshoot не може точно визначити, чи \n"
+"    Ця утиліта проаналізувала бібліотеку, але, швидше за все, її \n"
+"    зібрано правильно. setroubleshoot не може точно визначити, \n"
 "    чи була ця програма скомпрометована.\n"
 "    Це досить серйозна проблема.\n"
 "\n"
-"    Повідомте про цю проблему вашого адміністратора з бепеки.\n"
+"    Повідомте про цю проблему вашого адміністратора з безпеки.\n"
 "\n"
 " "
 
@@ -343,6 +352,8 @@ msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
 msgstr ""
+"вам здається, що $SOURCE_PATH не повинна відображати пам’ять стека для "
+"запису і виконання коду."
 
 #: ../src/allow_ftpd_use_cifs.py:29
 msgid ""
@@ -420,11 +431,11 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "ви маєте намір дозволити ftpd виконувати запис до файлових систем cifs"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
-msgstr ""
+msgstr "вам слід повідомити про це SELinux"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -503,7 +514,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "ви маєте намір дозволити ftpd виконувати запис до файлових систем nfs"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -540,7 +551,6 @@ msgstr ""
 "    "
 
 #: ../src/automount_exec_config.py:39
-#, fuzzy
 msgid ""
 "\n"
 "    If you want to change the file context of $TARGET_PATH so that the "
@@ -555,7 +565,7 @@ msgstr ""
 "виконання за допомогою automounter, використовуйте команду c«chcon -t bin_t "
 "$TARGET_PATH». Також треба змінити первинний контекст файлів, щоб зберегти "
 "його при повторній розмітці.\n"
-"    «semanage fcontext -a -t bin_t $FIX_TARGET_PATH»\n"
+"    «semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'»\n"
 "    "
 
 #: ../src/bind_ports.py:27
@@ -569,7 +579,7 @@ msgstr ""
 "    "
 
 #: ../src/bind_ports.py:31
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux has denied the $SOURCE from binding to a network port "
@@ -589,12 +599,14 @@ msgstr ""
 "    Якщо $SOURCE повинен мати можливість підключатися до цього порту, можете "
 "використовувати команду <i>semanage</i> для додавання цього порту до типу, "
 "до якого $SOURCE_TYPE може підключатися (%s). \n"
-"    <br><br>Якщо $SOURCE не має\n"
+"    \n"
+"\n"
+"Якщо $SOURCE не має\n"
 "    прив'язуватись до цього порту, можливо має місце спроба вторгнення.\n"
 "    "
 
 #: ../src/bind_ports.py:38
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to bind to port $PORT_NUMBER, you can "
@@ -612,28 +624,23 @@ msgid ""
 msgstr ""
 "\n"
 "Якщо треба дозволити $SOURCE прив'язуватись до порту $PORT_NUMBER, виконайте "
-"команду<br>\n"
-"    <b># semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b>\n"
-"    <br>де PORT_TYPE може приймати значення: %s.\n"
+"команду\n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"    де PORT_TYPE може приймати значення: %s.\n"
 "\n"
-"    <br><br>Якщо система виконує роль клієнта NIS, можна спробувати "
+"    Якщо система виконує роль клієнта NIS, можна спробувати "
 "встановити логічне значення allow_ypbind:\n"
 "     «setsebool -P allow_ypbind=1».\n"
 "  "
 
 #: ../src/bind_ports.py:51 ../src/connect_ports.py:50
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "    where PORT_TYPE is one of the following: %s."
 msgstr ""
-"\n"
-"    Щоб дозволити підключення $SOURCE до порту $PORT_NUMBER, виконайте "
-"команду<br>\n"
-"    <b>semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
-"</b>\n"
-"    <br>де PORT_TYPE може приймати значення: %s.\n"
-"  "
+"semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"    де PORT_TYPE може приймати значення: %s."
 
 #: ../src/catchall_boolean.py:31
 msgid ""
@@ -687,17 +694,19 @@ msgstr ""
 #: ../src/catchall_boolean.py:59
 #, python-format
 msgid "you want to %s"
-msgstr ""
+msgstr "ви бажаєте %s"
 
 #: ../src/catchall_boolean.py:62
 #, python-format
 msgid "setsebool -P %s %s"
-msgstr ""
+msgstr "setsebool -P %s %s"
 
 #: ../src/catchall_boolean.py:65
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean."
 msgstr ""
+"Вам слід повідомити про це SELinux наданням логічному параметру «%s» "
+"значення true."
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -719,13 +728,13 @@ msgstr ""
 "    використовувати ці файли. Щоб дозволити доступ httpd до цих файлів,\n"
 "    змініть контекст на один з типів: %s.\n"
 "    Багато програм третіх сторін встановлюють файли html у каталоги,\n"
-"    що не передбачені політикою SELinux.  Ці каталоги повинні бути\n"
-"    марковані контекстом, до якого у httpd є доступ.\n"
+"    що не передбачені правилами SELinux.  Ці каталоги має бути\n"
+"    позначено контекстом, до якого у httpd є доступ.\n"
 "    "
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
-msgstr ""
+msgstr "Вам слід змінити мітку на $FIX_TARGET_PATH"
 
 #: ../src/catchall_labels.py:40
 #, python-format
@@ -735,14 +744,14 @@ msgid ""
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
 msgstr ""
+"# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\n"
+"де FILE_TYPE може приймати одне з таких значень: %s. \n"
+"Потім віддайте команду: \n"
+"restorecon -v '$FIX_TARGET_PATH'\n"
 
 #: ../src/catchall.py:29
-#, fuzzy
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr ""
-"\n"
-"    SELinux запобігає $SOURCE_PATH доступ «$ACCESS».\n"
-"    "
+msgstr "SELinux запобігає спробі доступу $SOURCE_PATH \"$ACCESS\"."
 
 #: ../src/catchall.py:31
 msgid ""
@@ -778,9 +787,9 @@ msgid ""
 msgstr ""
 "\n"
 "    Щоб дозволити доступ, можна згенерувати\n"
-"    модуль локальної політики\n"
-"    (см. <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/"
-"#id2961385\">FAQ</a>).\n"
+"    модуль локальних правил\n"
+"    (див. <a href=\"http://docs.fedoraproject."
+"org/uk-UA/Fedora/13/html/SELinux_FAQ/index.html\">ЧаП</a>).\n"
 "\n"
 "    Будь ласка, створіть звіт про помилку.\n"
 "    "
@@ -790,12 +799,16 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
+"якщо ви бажаєте дозволити $SOURCE_BASE_PATH мати типовий доступ $ACCESS до "
+"$TARGET_BASE_PATH $TARGET_CLASS."
 
 #: ../src/catchall.py:49
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
+"Вам слід повідомити про цю помилку як про ваду.\n"
+"Ви можете створити модуль локальних правил для надання подібного доступу."
 
 #: ../src/catchall.py:50
 msgid ""
@@ -803,6 +816,9 @@ msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"Надайте доступ за допомогою команд:\n"
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
 msgid ""
@@ -816,7 +832,7 @@ msgstr ""
 "    "
 
 #: ../src/connect_ports.py:31
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux has denied $SOURCE from connecting to a network port "
@@ -836,12 +852,14 @@ msgstr ""
 "    Якщо $SOURCE повинен мати можливість підключатися до цього порту, ви "
 "можете використовувати команду semanage для додавання цього порту до типу, "
 "до якого $SOURCE_TYPE може підключатися.  (%s). \n"
-"    <br><br>Якщо $SOURCE не має\n"
+"    \n"
+"\n"
+"Якщо $SOURCE не має\n"
 "    підключатися до цього порту, це може означати спробу вторгнення.\n"
 "    "
 
 #: ../src/connect_ports.py:39
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can "
@@ -854,10 +872,10 @@ msgid ""
 msgstr ""
 "\n"
 "    Щоб дозволити підключення $SOURCE до порту $PORT_NUMBER, виконайте "
-"команду<br>\n"
-"    <b>semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
-"</b>\n"
-"    <br>де PORT_TYPE може приймати значення: %s.\n"
+"команду \n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"\n"
+"    де PORT_TYPE може приймати значення: %s.\n"
 "  "
 
 #: ../src/cvs_data.py:27
@@ -910,11 +928,11 @@ msgstr ""
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "$TARGET_BASE_PATH має бути оприлюднено за допомогою фонової служби cvs"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
-msgstr ""
+msgstr "Вам слід змінити мітку на $TARGET_BASE_PATH'"
 
 #: ../src/device.py:29
 msgid ""
@@ -971,7 +989,7 @@ msgstr ""
 "\n"
 "    restorecon -v $TARGET_PATH.\n"
 "\n"
-"    Якщо пристрій досі має мітку device_t, це помилка у політиці SELinux.\n"
+"    Якщо пристрій досі має мітку device_t, це помилка у правилах SELinux.\n"
 "\n"
 "    Будь ласка, надішліть звіт про помилку у пакеті selinux-policy.\n"
 "\n"
@@ -1004,12 +1022,15 @@ msgstr ""
 msgid ""
 "You need to change the label on $TARGET_PATH to a type of a similar device."
 msgstr ""
+"Вам слід змінити мітку на $TARGET_PATH на мітку типу подібного пристрою."
 
 #: ../src/device.py:61
 msgid ""
 "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/disable_ipv6.py:30
 msgid ""
@@ -1066,25 +1087,25 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Виконайте наступну команду у якості користувача root\n"
+"    Виконайте наступну команду від імені користувача root\n"
 "    для зміни маркування системи: «touch /.autorelabel; reboot»\n"
 "    "
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr ""
+msgstr "це спричинено раніше створеною файловою системою."
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
-msgstr ""
+msgstr "ви вважаєте, що причиною є помилкова мітка системи."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
-msgstr ""
+msgstr "вам слід додати мітки до каталогу."
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
-msgstr ""
+msgstr "вам слід виконати повне перепризначення міток."
 
 #: ../src/filesystem_associate.py:27
 msgid ""
@@ -1145,23 +1166,24 @@ msgid ""
 "you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
 "files"
 msgstr ""
+"ви вважаєте, що $SOURCE_BASE_PATH має бути надано доступ до створення файлів "
+"$TARGET_BASE_PATH"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
 "you need to use a different command. You are not allowed to preserve the "
 "SELinux context on the target file system."
 msgstr ""
+"вам слід скористатися іншою командою. Ви не маєте прав доступу для "
+"збереження контексту SELinux у файловій системі призначення."
 
 #: ../src/filesystem_associate.py:46
-#, fuzzy
 msgid ""
 "use a command like \"cp -p\" to preserve all permissions except SELinux "
 "context."
 msgstr ""
-"\n"
-"    Використовуйте команди, подібні до «cp -p», для збереження усіх прав "
-"доступу, окрім контексту SELinux.\n"
-"    "
+"Використовуйте команди, подібні до «cp -p», для збереження усіх прав "
+"доступу, окрім контексту SELinux."
 
 #: ../src/httpd_can_sendmail.py:28
 msgid ""
@@ -1186,7 +1208,7 @@ msgstr ""
 "    SELinux заборонила надсилання пошти службою http.\n"
 "    Сценарій http намагається приєднатися до поштового порту чи виконати\n"
 "    команду sendmail. Якщо httpd не налаштовано на використання sendmail,\n"
-"    це може слугувати індикатором спроби вторгнення.\n"
+"    це може слугувати ознакою спроби вторгнення.\n"
 "    "
 
 #: ../src/httpd_can_sendmail.py:39
@@ -1205,21 +1227,20 @@ msgstr ""
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
-msgstr ""
+msgstr "ви бажаєте дозволити httpd надсилати пошту"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
-msgstr ""
+msgstr "вам слід налаштувати SELinux так, щоб було дозволено"
 
 #: ../src/httpd_unified.py:29
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
 "    "
 msgstr ""
 "\n"
-"    SELinux забороняє httpd ($SOURCE_PATH) доступ $ACCESS до $TARGET_PATH. \n"
+"    SELinux забороняє httpd доступ $ACCESS до файлів httpd.\n"
 "    "
 
 #: ../src/httpd_unified.py:33
@@ -1246,6 +1267,31 @@ msgid ""
 "    script types.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux запобігла спробі отримання доступу $ACCESS httpd до файлів http."
+"\n"
+"\n"
+"    За звичайних умов httpd має повний доступ до всіх файлів позначених "
+"міткою контексту\n"
+"    http. У цій системі правила захисту розширено вимиканням параметра "
+"$BOOLEAN.\n"
+"    Всі доступні файли має бути позначено явним чином. Якщо файл є скриптом\n"
+"    cgi, його слід позначити міткою httpd_TYPE_script_exec_t, щоб його "
+"можна\n"
+"    було виконувати. Якщо дані файла призначено лише для читання, файл слід "
+"позначити міткою\n"
+"    httpd_TYPE_content_t. Якщо дані призначено для читання, слід встановити "
+"мітку\n"
+"    httpd_TYPE_script_rw_t або httpd_TYPE_script_ra_t. Для зміни контекстів "
+"ви\n"
+"    можете скористатися командою chcon. Будь ласка, зверніться до сторінки "
+"довідника (man)\n"
+"    \"man httpd_selinux\" або \n"
+"    <a href=\"http://docs.fedoraproject."
+"org/uk-UA/Fedora/13/html/SELinux_FAQ/index.html\">ЧаП</a>\n"
+"    «TYPE» може мати значення «sys», «user» або «staff», а також типи\n"
+"    скриптів.\n"
+"    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -1264,12 +1310,16 @@ msgid ""
 "you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
 "of all content files."
 msgstr ""
+"ви бажаєте дозволити httpd виконувати скрипти cgi і уніфікувати обробку "
+"HTTPD всіх файлів даних."
 
 #: ../src/httpd_unified.py:58
 msgid ""
 "you must tell SELinux about this by enabling the 'httpd_unified' and "
 "'http_enable_cgi' booleans"
 msgstr ""
+"вам слід повідомити про це SELinux встановленням значень true для параметрів "
+"«httpd_unified» і «http_enable_cgi»"
 
 #: ../src/httpd_write_content.py:30
 msgid ""
@@ -1297,7 +1347,7 @@ msgstr ""
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
 msgid "You need to change the label on '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "Вам слід змінити мітку на «$FIX_TARGET_PATH»"
 
 #: ../src/kernel_modules.py:29
 msgid ""
@@ -1327,30 +1377,29 @@ msgstr ""
 "\n"
 "    SELinux забороняє $SOURCE змінювати $TARGET. \n"
 "    $SOURCE намагається змінити поведінку ядра чи вставити код в ядро.\n"
-"    Для всіх програм, котрим потрібен такий доступ, має бути \n"
-"    їх власна політика.\n"
+"    Для всіх програм, котрим потрібен такий доступ, мають бути \n"
+"    власні правила.\n"
 "    Якщо скомпрометована програма намагається змінити ядро,\n"
 "    буде згенеровано AVC.\n"
-"    Це є серйозною проблемою та може бути індикатором того, \n"
+"    Це є серйозною проблемою та може бути ознакою того, \n"
 "    що систему було скомпрометовано.\n"
 "     "
 
 #: ../src/kernel_modules.py:44 ../src/selinuxpolicy.py:44
-#, fuzzy
 msgid ""
 "you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
 msgstr ""
-"\n"
-"    SELinux забороняє $SOURCE_PATH доступ «$ACCESS» до пристрою "
-"$TARGET_PATH. \n"
-"    "
+"ви вважаєте, що $SOURCE_BASE_PATH не повинен намагатися отримувати доступ "
+"$ACCESS до $TARGET_BASE_PATH."
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
 "you may be under attack by a hacker, since confined applications should not "
 "need this access."
 msgstr ""
+"ймовірно, вас атакують зловмисники, оскільки програми, доступ яких обмежено, "
+"такий доступ не потрібен."
 
 #: ../src/leaks.py:27
 msgid ""
@@ -1397,9 +1446,9 @@ msgid ""
 msgstr ""
 "\n"
 "    Щоб дозволити доступ, можна згенерувати \n"
-"    модуль локальної політики\n"
-"    (см. <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/"
-"#id2961385\">FAQ</a>).\n"
+"    модуль локальної локальних правил\n"
+"    (див. <a href=\"http://docs.fedoraproject."
+"org/uk-UA/Fedora/13/html/SELinux_FAQ/index.html\">ЧаП</a>).\n"
 "    "
 
 #: ../src/leaks.py:42
@@ -1408,18 +1457,26 @@ msgid ""
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
 "access."
 msgstr ""
+"ви бажаєте ігнорувати спроби $SOURCE_BASE_PATH отримання доступу $ACCESS до "
+"$TARGET_BASE_PATH $TARGET_CLASS, оскільки вважаєте, що такий доступ не "
+"потрібен."
 
 #: ../src/leaks.py:43
 msgid ""
 "You should report this as a bug.  \n"
 "You can generate a local policy module to dontaudit this access."
 msgstr ""
+"Вам слід повідомити про цю помилку як про ваду.\n"
+"Ви можете створити модуль локальних правил для вимикання стеження за таким "
+"доступом."
 
 #: ../src/leaks.py:44
 msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1459,11 +1516,11 @@ msgstr ""
 "    Така можливість налаштовується у /proc/sys/kernel/mmap_min_addr.\n"
 "    Заборона mmap запобігає несанкційованому використанню помилок null deref "
 "у ядрі.\n"
-"    Для всіх програм, яким потрібен такий доступ, має існувати своя "
-"політика.\n"
+"    Для всіх програм, яким потрібен такий доступ, мають існувати власні "
+"правила.\n"
 "    Якщо скомпрометована програма намагається змінити ядро,\n"
 "    буде згенеровано AVC.\n"
-"    Це є серйозною проблемою та може бути індикатором компрометації, \n"
+"    Це є серйозною проблемою та може бути ознакою компрометації, \n"
 "    вашої системи.\n"
 "    "
 
@@ -1471,10 +1528,13 @@ msgstr ""
 msgid ""
 "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
 msgstr ""
+"вам здається, що $SOURCE_PATH не повинна відображати нижні області пам’яті у "
+"ядрі."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
 msgstr ""
+"ймовірно, вас атакують зловмисники, оскільки такий доступ є дуже небезпечним."
 
 #: ../src/mounton.py:29
 msgid ""
@@ -1530,10 +1590,11 @@ msgstr ""
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
 msgstr ""
+"ви бажаєте надати доступ $SOURCE_BASE_PATH до монтування у $TARGET_BASE_PATH."
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
-msgstr ""
+msgstr "вам слід змінити мітки на $TARGET_PATH."
 
 #: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
 #: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
@@ -1588,12 +1649,15 @@ msgstr ""
 #: ../src/public_content.py:50
 msgid "you want to allow want to treat $TARGET_BASE_PATH as pubic content"
 msgstr ""
+"ви бажаєте дозволити обробку даних $TARGET_BASE_PATH як відкритих даних"
 
 #: ../src/public_content.py:51
 msgid ""
 "You need to change the label on $TARGET_BASE_PATH to public_content_t or "
 "public_content_rw_t."
 msgstr ""
+"Вам слід змінити мітку на $TARGET_BASE_PATH на public_content_t або "
+"public_content_rw_t."
 
 #: ../src/qemu_blk_image.py:31
 msgid ""
@@ -1643,6 +1707,8 @@ msgid ""
 "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/qemu_file_image.py:31
 msgid ""
@@ -1680,10 +1746,9 @@ msgstr ""
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "$TARGET_BASE_PATH — цільова система віртуалізації"
 
 #: ../src/restorecon.py:36
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1723,9 +1788,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Політика SELinux забороняє доступ за запитом $SOURCE.\n"
+"    Правила SELinux забороняють доступ за запитом $SOURCE.\n"
 "    Можливо, розмітка $TARGET_PATH некоректна.\n"
-"    Стандартний тип SELinux для $TARGET_PATH має значення <B>$MATCHTYPE</"
+"    Стандартний тип SELinux для $TARGET_PATH має значення <B>$MATCTYPE</"
 "B>,\n"
 "    але наразі тип — <B>$TARGET_TYPE</B>. \n"
 "    Зміна типу на стандартний може виправити проблему.\n"
@@ -1734,7 +1799,7 @@ msgstr ""
 "    <ul>\n"
 "        <li>Створювані у каталозі файли типово будуть успадковувати контекст "
 "каталогу.\n"
-"        <li>Політика SELinux може перевизначити стандартні позначки, "
+"        <li>Правила SELinux можуть перевизначити стандартні позначки, "
 "успадковані від\n"
 "           батьківського каталогу. Так, процес з контекстом X, який\n"
 "           створює файл у каталозі, позначеному як Y, насправді створює файл "
@@ -1752,11 +1817,11 @@ msgstr ""
 "обмежуваною програмою,\n"
 "    що виконується у неправильному домені.\n"
 "    <p> \n"
-"    Проте це також може бути індикатором помилки SELinux, оскільки файл не "
+"    Проте це також може бути ознакою помилки у SELinux, оскільки файл не "
 "повинен бути так позначений.\n"
 "    <p>\n"
 "    Якщо ви думаєте, що це помилка, створіть запит у Bugzilla\n"
-"    для цього пакету.\n"
+"    для цього пакета.\n"
 "    "
 
 #: ../src/restorecon.py:62
@@ -1782,17 +1847,19 @@ msgid ""
 "you want to fix the label, $TARGET_BASE_PATH does not have the default "
 "system label."
 msgstr ""
+"ви бажаєте виправити мітку, $TARGET_BASE_PATH не має типової мітки системи."
 
 #: ../src/restorecon.py:71
 msgid "you can run restorecon."
-msgstr ""
+msgstr "ви можете запустити restorecon."
 
 #: ../src/restorecon.py:79
-#, fuzzy
 msgid ""
 "Restore\n"
 "Context"
-msgstr "Відновити контекст"
+msgstr ""
+"Відновити\n"
+"контекст"
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1833,10 +1900,11 @@ msgstr ""
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
 msgstr ""
+"$TARGET_BASE_PATH має бути оприлюднено за допомогою фонової служби rsync"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
-msgstr ""
+msgstr "Вам слід змінити мітку на $TARGET_BASE_PATH"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1897,6 +1965,8 @@ msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
+"# restorecon %s -v '$FIX_TARGET_PATH'"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -1924,22 +1994,24 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux забороняє $SOURCE змінювати $TARGET. \n"
-"    $SOURCE намагається змінити конфігурацію політики selinux.\n"
-"    Для всіх програм, яким потрібен цей доступ, має існувати сласна "
-"політика.\n"
-"    Якщо скомпрометована програма намагається змінити політику,\n"
+"    $SOURCE намагається змінити конфігурацію правил selinux.\n"
+"    Для всіх програм, яким потрібен цей доступ, мають існувати власні "
+"правила.\n"
+"    Якщо скомпрометована програма намагається змінити правила,\n"
 "    буде згенеровано AVC.\n"
-"    Це є серйозною проблемою та може бути індикатором того, \n"
+"    Це є серйозною проблемою та може бути ознакою того, \n"
 "    що система могла бути скомпрометована.\n"
 "     "
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
 msgstr ""
+"причиною цього запису AVC не було ваше безпосереднє тестування можливостей."
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
 msgstr ""
+"якщо ви вважаєте, що у вашу систему було здійснено несанкціоноване втручання"
 
 #: ../src/setenforce.py:32
 msgid ""
@@ -1970,23 +2042,25 @@ msgstr ""
 "\n"
 "    SELinux забороняє $SOURCE записувати у файл, розташований у каталозі /"
 "selinux.\n"
-"    Файли у /selinux керують параметрами політики SELinux.\n"
-"    Всі програми, яким потрібен такий доступ, повинні мати власну політику.\n"
-"    якщо скомпрометована програма намагається вимкнути політику,\n"
+"    Файли у /selinux керують параметрами правилами SELinux.\n"
+"    Всі програми, яким потрібен такий доступ, повинні мати власні правила.\n"
+"    якщо скомпрометована програма намагається вимкнути правила,\n"
 "    буде згенеровано AVC.\n"
-"    Це є суттєвою проблемою та може бути індикатором того, \n"
+"    Це є суттєвою проблемою та може бути ознакою того, \n"
 "    що система була скомпрометована.\n"
 "     "
 
 #: ../src/setenforce.py:48
 msgid "you believe $SOURCE_PATH tried to disable SELinux."
-msgstr ""
+msgstr "ви вважаєте, що $SOURCE_PATH намагалася вимкнути SELinux."
 
 #: ../src/setenforce.py:49
 msgid ""
 "you may be under attack by a hacker, since confined applications should "
 "never need this access."
 msgstr ""
+"ймовірно, вас атакують зловмисники, оскільки програми, доступ яких обмежено, "
+"такий доступ не потрібен."
 
 #: ../src/sshd_root.py:36
 msgid ""
@@ -2020,7 +2094,7 @@ msgstr ""
 
 #: ../src/sshd_root.py:47
 msgid "you must fix the labels."
-msgstr ""
+msgstr "вам слід виправити мітки."
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"
@@ -2078,10 +2152,12 @@ msgid ""
 "you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
 msgstr ""
+"ви вважаєте, що ваш $SOURCE_PATH не має намагатися змінити ядро "
+"завантаженням модулів ядра"
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
-msgstr ""
+msgstr "Ймовірно, у вашу систему було здійснено несанкціоноване втручання."
 
 #: ../src/sys_module.py:33
 msgid ""
@@ -2110,10 +2186,10 @@ msgstr ""
 "\n"
 "    SELinux забороняє $SOURCE завантажувати модуль ядра.\n"
 "    Для всіх програм, яким потрібен такий рівень доступу,\n"
-"    має існувати окрема політика.\n"
+"    мають існувати окремі правила.\n"
 "    Якщо скомпрометована програма намагається змінити модуль,\n"
 "    буде згенеровано AVC.\n"
-"    Це суттєва проблема та може бути індикатором того, \n"
+"    Це суттєва проблема та може бути ознакою того, \n"
 "    що система була скомпрометована.\n"
 "     "
 
@@ -2122,10 +2198,12 @@ msgid ""
 "you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
 msgstr ""
+"ви вважаєте, що $SOURCE_PATH не має намагатися змінити ядро завантаженням "
+"модуля ядра."
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
-msgstr ""
+msgstr "Ймовірно, процес намагається здійснити злам вашої системи."
 
 #: ../src/sys_resource.py:28
 msgid ""
@@ -2162,12 +2240,16 @@ msgid ""
 "you do not want to get this AVC any longer. These AVC's are caused by "
 "running out of resources, usually disk space on your / partition."
 msgstr ""
+"ви не бажаєте більше отримувати це повідомлення AVC. Подібні повідомлення "
+"AVC спричинено нестачею ресурсів у системі, зазвичай місця на вашому "
+"кореневому розділі."
 
 #: ../src/sys_resource.py:40
 msgid ""
 "you must cleanup diskspace or make sure you are not running too many "
 "processes."
 msgstr ""
+"вам слід звільнити місце на диску або не запускати занадто багато процесів."
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -2441,7 +2523,7 @@ msgstr ""
 
 #: ../booleans_trans.py:16
 msgid "If you want to allow virt to read fuse files"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ virt на читання файлів fuse"
 
 #: ../booleans_trans.py:17
 msgid ""
@@ -2451,7 +2533,7 @@ msgstr ""
 
 #: ../booleans_trans.py:18
 msgid "If you want to allow users to connect to mysql"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ користувачам на з’єднання з mysql"
 
 #: ../booleans_trans.py:19
 msgid "If you want to allow user processes to change their priority"
@@ -2820,7 +2902,7 @@ msgstr ""
 
 #: ../booleans_trans.py:97
 msgid "If you want to allow w to display everyone"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ w на показ даних всім"
 
 #: ../booleans_trans.py:98
 msgid ""
@@ -2830,7 +2912,7 @@ msgstr ""
 
 #: ../booleans_trans.py:99
 msgid "If you want to allow dbadm to read files in users home directories"
-msgstr ""
+msgstr "Чи бажаєте ви надати dbadm доступ до домашніх каталогів користувачів"
 
 #: ../booleans_trans.py:100
 msgid "If you want to allow regular users direct dri device access"
@@ -2850,59 +2932,65 @@ msgstr ""
 
 #: ../booleans_trans.py:104
 msgid "If you want to allow Cobbler to access nfs file systems."
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ Cobbler до файлових систем nfs."
 
 #: ../booleans_trans.py:105
 msgid "If you want to allow nsplugin code to execmem/execstack"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ коду nsplugin до execmem/execstack"
 
 #: ../booleans_trans.py:106
 msgid ""
 "If you want to allows clients to write to the X server shared memory "
 "segments."
 msgstr ""
+"Чи бажаєте ви надати доступ клієнтським програмам на запис до сегментів "
+"пам’яті графічного сервера зі спільним використанням."
 
 #: ../booleans_trans.py:107
 msgid "If you want to allow webadm to read files in users home directories"
-msgstr ""
+msgstr "Чи бажаєте ви надати webadm доступ до домашніх каталогів користувачів"
 
 #: ../booleans_trans.py:108
 msgid "If you want to enable polyinstantiated directory support."
-msgstr ""
+msgstr "Чи бажаєте ви увімкнути підтримку багатоекземплярних каталогів."
 
 #: ../booleans_trans.py:109
 msgid "If you want to support X userspace object manager"
 msgstr ""
+"Чи бажаєте ви увімкнути підтримку керування об’єктами X у просторі "
+"користувача"
 
 #: ../booleans_trans.py:110
 msgid "If you want to ignore vbetool mmap_zero errors."
-msgstr ""
+msgstr "Чи бажаєте ви ігнорувати помилки vbetool mmap_zero."
 
 #: ../booleans_trans.py:111
 msgid "If you want to allow httpd to read user content"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ httpd до читання даних користувача"
 
 #: ../booleans_trans.py:112
 msgid "If you want to allow httpd to access nfs file systems"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ httpd до файлових систем nfs"
 
 #: ../booleans_trans.py:113
 msgid ""
 "If you want to allow postfix_local domain full write access to mail_spool "
 "directories"
 msgstr ""
+"Чи бажаєте ви надати домену postfix_local повний доступ до каталогів "
+"mail_spool"
 
 #: ../booleans_trans.py:114
 msgid "If you want to allow xguest to use blue tooth devices"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ xguest до використання пристроїв bluetooth"
 
 #: ../booleans_trans.py:115
 msgid "If you want to use lpd server instead of cups"
-msgstr ""
+msgstr "Чи бажаєте ви використовувати сервер lpd замість cups"
 
 #: ../booleans_trans.py:116
 msgid "If you want to allow Apache to execute tmp content."
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ Apache до виконання коду з tmp."
 
 #: ../booleans_trans.py:117
 msgid ""
@@ -2916,6 +3004,11 @@ msgid ""
 "connection from the same domain and outside users)  disabling this forces "
 "FTP passive mode and may change other protocols."
 msgstr ""
+"Чи бажаєте ви дозволити користувачам запускати сервери TCP (здійснювати "
+"прив'язку портів "
+"та приймати з'єднання з того ж домену та зовнішніх користувачів). Вимикання "
+"цієї можливості викличе перехід у пасивний режим "
+"FTP та може змінити інші протоколи."
 
 #: ../booleans_trans.py:119
 msgid "If you want to allow mysqld to connect to all ports"
@@ -2947,35 +3040,36 @@ msgstr ""
 
 #: ../booleans_trans.py:125
 msgid "If you want to allow java executable stack"
-msgstr ""
+msgstr "Чи бажаєте ви дозволити використання стосу виконання java"
 
 #: ../booleans_trans.py:126
 msgid "If you want to allow http daemon to send mail"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ фоновій службі http до надсилання пошти"
 
 #: ../booleans_trans.py:127
 msgid "If you want to allow samba to export ntfs/fusefs volumes."
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ samba до експортування томів ntfs/fusefs."
 
 #: ../booleans_trans.py:128
 msgid "If you want to enable support for upstart as the init program."
 msgstr ""
+"Чи бажаєте ви увімкнути підтримку upstart як програми ініціалізації системи."
 
 #: ../booleans_trans.py:129
 msgid "If you want to allow sshd to forward port connections"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ sshd до переспрямування з’єднань з портами"
 
 #: ../booleans_trans.py:130
-#, fuzzy
 msgid "If you want to allow zebra daemon to write it configuration files"
 msgstr ""
-"\n"
-"    SELinux запобігає запису службою zebra у свої файли конфігурації.\n"
-"    "
+"Чи бажаєте ви надати доступ фоновій службі zebra для запису її файлів "
+"налаштувань"
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow httpd to use built in scripting (usually php)"
 msgstr ""
+"Чи бажаєте ви дозволити httpd використовувати вбудовані інструменти обробки "
+"скриптів (зазвичай php)"
 
 #: ../booleans_trans.py:132
 msgid ""
@@ -3154,10 +3248,11 @@ msgstr ""
 #: ../booleans_trans.py:169
 msgid "If you want to allow users to read system messages."
 msgstr ""
+"Чи бажаєте ви надавати користувачам доступ до читання системних повідомлень."
 
 #: ../booleans_trans.py:170
 msgid "If you want to allow virt to manage cifs files"
-msgstr ""
+msgstr "Чи бажаєте ви надати доступ virt на керування файлами cifs"
 
 #: ../booleans_trans.py:171
 msgid "If you want to enable support for systemd as the init program."
@@ -3189,6 +3284,8 @@ msgstr ""
 #: ../booleans_trans.py:176
 msgid "If you want to allow unprived users to execute DDL statement"
 msgstr ""
+"Чи бажаєте ви дозволити непривілейованим користувачам виконувати інструкцію "
+"DDL"
 
 #~ msgid ""
 #~ "\n"
