@@ -1,20 +1,23 @@
 # Ukrainian translation to setroubleshoot.
 # Copyright (C) Free Software Foundation
 # This file is distributed under the same license as the setroubleshoot package.
-# Maxim Dziumanenko <dziumanenko@gmail.com>, 2003-2007.
 #
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2003-2007.
+# Yuri Chornoivan <yurchor@ukr.net>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-10-28 17:25-0400\n"
-"PO-Revision-Date: 2010-04-12 11:37+0200\n"
-"Last-Translator: Maxim Dziumanenko <dziumanenko@gmail.com>\n"
+"PO-Revision-Date: 2010-11-13 20:26+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -27,7 +30,7 @@ msgstr "Діагностика проблем відмові у доступі S
 #: ../src/audit_data.py:861
 #, python-format
 msgid "port %s"
-msgstr ""
+msgstr "порт %s"
 
 #: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
 #: ../src/rpc.py:544 ../src/util.py:223
@@ -40,6 +43,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
+"%s \n"
+"**** У поточних правилах дозволено некоректний AVC ***\n"
 
 #: ../src/audit_data.py:950
 #, python-format
@@ -48,10 +53,13 @@ msgid ""
 "**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
 "dontaudit rules. ***\n"
 msgstr ""
+"%s \n"
+"**** Некоректний AVC. Вимикання dontaudit у поточних правилах. 'semodule "
+"-B' увімкне правила dontaudit. ***\n"
 
 #: ../src/audit_data.py:952
 msgid "Must call policy_init first"
-msgstr ""
+msgstr "Спочатку слід викликати policy_init"
 
 #: ../src/audit_data.py:954
 #, python-format
@@ -59,6 +67,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr ""
+"%s \n"
+"**** Некоректний AVC. Помилковий контекст призначення. ***\n"
 
 #: ../src/audit_data.py:956
 #, python-format
@@ -66,6 +76,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr ""
+"%s \n"
+"**** Некоректний AVC. Помилковий контекст джерела. ***\n"
 
 #: ../src/audit_data.py:958
 #, python-format
@@ -73,6 +85,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr ""
+"%s \n"
+"**** Некоректний AVC. Клас помилкового типу. ***\n"
 
 #: ../src/audit_data.py:960
 #, python-format
@@ -80,74 +94,76 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr ""
+"%s \n"
+"**** Некоректний AVC. Помилкові права доступу. ***\n"
 
 #: ../src/audit_data.py:962
 msgid "Error during access vector computation"
-msgstr ""
+msgstr "Помилка під час обчислення вектора доступу"
 
 #: ../src/browser.py:225
-#, fuzzy
 msgid "Error while checking policy version."
-msgstr "<small><b>Помилка при перевірці версії політики</b></small>"
+msgstr "Помилка при перевірці версії правил."
 
 #: ../src/browser.py:230
 msgid ""
 "There is a newer version of policy available.  Updating your policy may fix "
 "the denial that you having problems with."
 msgstr ""
+"Доступна новіша версії правил. Оновлення ваших правил може виправити "
+"заборона, з якою у вас виникли проблеми."
 
 #: ../src/browser.py:231
 msgid "Newest Version"
-msgstr ""
+msgstr "Найновіша версія"
 
 #: ../src/browser.py:233
 msgid "Update Policy"
-msgstr ""
+msgstr "Оновлення правил"
 
 #: ../src/browser.py:250
 msgid "#"
 msgstr "#"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Source Process"
-msgstr "Первинні пакети RPM"
+msgstr "Первинний процес"
 
 #: ../src/browser.py:250
 msgid "Attempted Access"
-msgstr ""
+msgstr "Спроба доступу"
 
 #: ../src/browser.py:250
 msgid "On this"
-msgstr ""
+msgstr "У цей"
 
 #: ../src/browser.py:250
 msgid "Occured"
-msgstr ""
+msgstr "Сталося"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Edit Status"
-msgstr "Статус"
+msgstr "Змінити стан"
 
 #: ../src/browser.py:374
 msgid "If you were trying to..."
-msgstr ""
+msgstr "Якщо ви намагалися…"
 
 #: ../src/browser.py:380
 msgid "Then this is the solution."
-msgstr ""
+msgstr "Тоді це є вирішенням вашої проблеми."
 
 #: ../src/browser.py:387
 msgid "If "
-msgstr ""
+msgstr "Якщо "
 
 #: ../src/browser.py:485
-#, fuzzy
 msgid ""
 "Report\n"
 "Bug"
-msgstr "_Створити звіт про помилку..."
+msgstr ""
+"Повідомити\n"
+"про ваду"
 
 #: ../src/browser.py:513
 msgid "Unable to grant access."
@@ -156,12 +172,12 @@ msgstr "Не вдалось надати доступ."
 #: ../src/browser.py:538 ../src/browser.py:646
 #, python-format
 msgid "Alert %d of %d"
-msgstr ""
+msgstr "Сповіщення %d з %d"
 
 #: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
 #: ../src/browser.py:752
 msgid "(removed)"
-msgstr ""
+msgstr "(вилучено)"
 
 #: ../src/browser.py:799
 msgid "Sealert Error"
@@ -323,6 +339,8 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
+"якщо ви бажаєте дозволити $SOURCE_BASE_PATH мати доступ $ACCESS до "
+"$TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -423,48 +441,47 @@ msgstr "Ігнорувати після першого сповіщення"
 
 #: ../src/signature.py:196
 msgid "directory"
-msgstr ""
+msgstr "каталог"
 
 #: ../src/signature.py:197
 msgid "semaphore"
-msgstr ""
+msgstr "семафор"
 
 #: ../src/signature.py:198
 msgid "shared memory"
-msgstr ""
+msgstr "спільна пам’ять"
 
 #: ../src/signature.py:199
 msgid "message queue"
-msgstr ""
+msgstr "черга повідомлень"
 
 #: ../src/signature.py:200
 msgid "message"
-msgstr ""
+msgstr "повідомлення"
 
 #: ../src/signature.py:201
 msgid "file"
-msgstr ""
+msgstr "файл"
 
 #: ../src/signature.py:202
-#, fuzzy
 msgid "socket"
-msgstr "помилка сокету"
+msgstr "сокет"
 
 #: ../src/signature.py:203
 msgid "process"
-msgstr ""
+msgstr "процес"
 
 #: ../src/signature.py:204
 msgid "filesystem"
-msgstr ""
+msgstr "файлова система"
 
 #: ../src/signature.py:205
 msgid "node"
-msgstr ""
+msgstr "вузол"
 
 #: ../src/signature.py:206
 msgid "capability"
-msgstr ""
+msgstr "можливість"
 
 #: ../src/signature.py:382
 #, python-format
@@ -474,7 +491,6 @@ msgstr ""
 "заборонено."
 
 #: ../src/signature.py:385
-#, fuzzy
 msgid "SEinux is in permissive mode. This access was not denied."
 msgstr ""
 "SELinux працює у режимі дозволеному (permissive) режимі. Доступ не було "
@@ -487,24 +503,33 @@ msgid ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
+"\n"
+"\n"
+"*****  Додаток %s (рівень надійності %.4s) пропонує  "
 
 #: ../src/signature.py:474
 msgid ""
 "\n"
 "If "
 msgstr ""
+"\n"
+"Якщо "
 
 #: ../src/signature.py:476
 msgid ""
 "\n"
 "Then "
 msgstr ""
+"\n"
+"Тоді "
 
 #: ../src/signature.py:479
 msgid ""
 "\n"
 "Do\n"
 msgstr ""
+"\n"
+"Виконати\n"
 
 #: ../src/signature.py:480
 msgid "Additional Information"
@@ -564,7 +589,7 @@ msgstr "Примусовий режим"
 
 #: ../src/signature.py:495
 msgid "Host Name"
-msgstr "Назва хоста"
+msgstr "Назва вузла"
 
 #: ../src/signature.py:496
 msgid "Platform"
@@ -593,12 +618,12 @@ msgstr "Необроблені повідомлення аудиту"
 #: ../src/updater.py:18
 #, python-format
 msgid "current: %s "
-msgstr ""
+msgstr "поточна: %s"
 
 #: ../src/updater.py:27
 #, python-format
 msgid "newer: %s "
-msgstr ""
+msgstr "новіша: %s "
 
 #: ../src/seapplet.c:188
 msgid "New SELinux security alert"
@@ -623,7 +648,7 @@ msgstr "Відмова AVC SELinix. Натисніть для перегляду
 
 #: ../src/sealert:104
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr ""
+msgstr "SELinux не увімкнено, sealert не працюватиме у системі без SELinux"
 
 #: ../src/sealert:154
 msgid "Not fixable."
@@ -637,7 +662,7 @@ msgstr "Успішно запущено %s"
 #: ../src/sealert:166
 #, c-format
 msgid "Plugin %s not valid for %s id"
-msgstr ""
+msgstr "Додаток %s є нечинним для ідентифікатора %s"
 
 #: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
@@ -651,15 +676,13 @@ msgstr "помилка: %d (%s)"
 
 #: ../gui/browser.glade.h:1
 msgid "<b>SELinux has detected a problem.</b>"
-msgstr ""
+msgstr "<b>SELinux виявлено проблему.</b>"
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
 msgid "Access:"
-msgstr "Успішно"
+msgstr "Доступ:"
 
 #: ../gui/browser.glade.h:3
-#, fuzzy
 msgid ""
 "Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -667,99 +690,95 @@ msgid ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
-"(c) 2009 Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+"Copyright (c) 2010 \n"
+"© Thomas Liu <tliu@redhat.com>\n"
+"© Máirín Duffy <duffy@redhat.com>\n"
+"© Daniel Walsh <dwalsh@redhat.com>\n"
+"© John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Delete current alert from the database."
-msgstr ""
+msgstr "Вилучити поточне сповіщення з бази даних."
 
 #: ../gui/browser.glade.h:10
 msgid "Do not show alert message, when this alert is triggered."
-msgstr ""
+msgstr "Не показувати повідомлення сповіщення у разі вмикання сповіщення."
 
 #: ../gui/browser.glade.h:11
 msgid "Email alert to system administrator."
-msgstr ""
+msgstr "Надіслати сповіщення адміністраторові системи."
 
 #: ../gui/browser.glade.h:12
-#, fuzzy
 msgid "Ignore"
-msgstr "Ніколи не ігнорувати"
+msgstr "Ігнорувати"
 
 #: ../gui/browser.glade.h:13
-#, fuzzy
 msgid "List All Alerts"
-msgstr "Видалити _всі сповіщення"
+msgstr "Показати список всіх сповіщення"
 
 #: ../gui/browser.glade.h:14
 msgid "List all alerts in the database."
-msgstr ""
+msgstr "Показати список всіх сповіщень у базі даних."
 
 #: ../gui/browser.glade.h:15
 msgid "No"
-msgstr ""
+msgstr "Ні"
 
 #: ../gui/browser.glade.h:16
-#, fuzzy
 msgid "No Alerts"
-msgstr "Ігнорувати сповіщення"
+msgstr "Немає сповіщень"
 
 #: ../gui/browser.glade.h:17
 msgid ""
 "Read alert troubleshoot information.  May require administrative privledge "
 "to remedy."
 msgstr ""
+"Читання діагностичних даних сповіщення. Виправлення помилок може "
+"потребувати адміністративних прав доступу."
 
 #: ../gui/browser.glade.h:18
-#, fuzzy
 msgid "Report"
-msgstr "_Створити звіт про помилку..."
+msgstr "Звіт"
 
 #: ../gui/browser.glade.h:19
-#, fuzzy
 msgid "SELinux Alert Browser"
-msgstr "Сповіщення безпеки SELinux"
+msgstr "Переглядач сповіщень SELinux"
 
 #: ../gui/browser.glade.h:20
 msgid "SETroubleshoot Alert List"
 msgstr "Список сповіщень SETroubleshoot"
 
 #: ../gui/browser.glade.h:21
-#, fuzzy
 msgid "Show next alert."
-msgstr "Видалити сповіщення."
+msgstr "Показати наступне сповіщення."
 
 #: ../gui/browser.glade.h:22
 msgid "Show previous alert."
-msgstr ""
+msgstr "Показати попереднє сповіщення."
 
 #: ../gui/browser.glade.h:23
-#, fuzzy
 msgid "Troubleshoot"
-msgstr "Діагностика проблем SELinux"
+msgstr "Діагностика проблем"
 
 #: ../gui/browser.glade.h:24
 msgid "Turn off alert pop-ups."
-msgstr ""
+msgstr "Вимкнути контекстні сповіщення."
 
 #: ../gui/browser.glade.h:25
 msgid "Turn on alert pop-ups."
-msgstr ""
+msgstr "Увімкнути контекстні сповіщення."
 
 #: ../gui/browser.glade.h:26
 msgid "Would you like to receive alerts?"
-msgstr ""
+msgstr "Бажаєте отримувати сповіщення?"
 
 #: ../gui/browser.glade.h:27
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 #: ../gui/browser.glade.h:28
 msgid "label"
-msgstr ""
+msgstr "мітка"
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
