@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-10-28 17:25-0400\n"
-"PO-Revision-Date: 2010-07-04 17:11+0200\n"
+"PO-Revision-Date: 2010-11-21 16:45+0200\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Fedora\n"
 "Language: nl\n"
@@ -30,7 +30,7 @@ msgstr "Los SELinux toegang weigeringen op"
 #: ../src/audit_data.py:861
 #, python-format
 msgid "port %s"
-msgstr ""
+msgstr "poort %s"
 
 #: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
 #: ../src/rpc.py:544 ../src/util.py:223
@@ -43,6 +43,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
+"%s \n"
+"**** Ongeldige AVC toegestaan in huidige tactiek ***\n"
 
 #: ../src/audit_data.py:950
 #, python-format
@@ -51,10 +53,13 @@ msgid ""
 "**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
 "dontaudit rules. ***\n"
 msgstr ""
+"%s \n"
+"**** Ongeldige AVC dontaudited in huidige tactiek.  'semodule -B' zal "
+"dontaudit regels aanzetten. ***\n"
 
 #: ../src/audit_data.py:952
 msgid "Must call policy_init first"
-msgstr ""
+msgstr "policy_init moet eerst aangeroepen worden"
 
 #: ../src/audit_data.py:954
 #, python-format
@@ -62,6 +67,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr ""
+"%s \n"
+"**** Ongeldige AVC slechte doel context. ***\n"
 
 #: ../src/audit_data.py:956
 #, python-format
@@ -69,6 +76,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr ""
+"%s \n"
+"**** Ongeldig AVC slechte bron context. ***\n"
 
 #: ../src/audit_data.py:958
 #, python-format
@@ -76,6 +85,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr ""
+"%s \n"
+"**** Ongeldige AVC slecht type klasse ***\n"
 
 #: ../src/audit_data.py:960
 #, python-format
@@ -83,17 +94,16 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr ""
+"%s \n"
+"**** Ongeldige AVC slechte toestemming ***\n"
 
 #: ../src/audit_data.py:962
 msgid "Error during access vector computation"
-msgstr ""
+msgstr "Fout tijdens toegang vector berekening"
 
 #: ../src/browser.py:225
-#, fuzzy
 msgid "Error while checking policy version."
-msgstr ""
-"<small><b>Fout opgetreden bij het controleren van de tactiek versie.</b></"
-"small>"
+msgstr "Fout opgetreden bij het controleren van de tactiek versie."
 
 #: ../src/browser.py:230
 msgid ""
@@ -105,7 +115,7 @@ msgstr ""
 
 #: ../src/browser.py:231
 msgid "Newest Version"
-msgstr ""
+msgstr "Nieuwste versie"
 
 #: ../src/browser.py:233
 msgid "Update Policy"
@@ -116,45 +126,44 @@ msgid "#"
 msgstr "#"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Source Process"
-msgstr "Bron RPM pakketten"
+msgstr "Bron proces"
 
 #: ../src/browser.py:250
 msgid "Attempted Access"
-msgstr ""
+msgstr "Poging tot toegang"
 
 #: ../src/browser.py:250
 msgid "On this"
-msgstr ""
+msgstr "Op dit"
 
 #: ../src/browser.py:250
 msgid "Occured"
-msgstr ""
+msgstr "Opgetreden"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Edit Status"
-msgstr "Status"
+msgstr "Bewerk status"
 
 #: ../src/browser.py:374
 msgid "If you were trying to..."
-msgstr ""
+msgstr "Als je probeerde om..."
 
 #: ../src/browser.py:380
 msgid "Then this is the solution."
-msgstr ""
+msgstr "Dan is dit de oplossing."
 
 #: ../src/browser.py:387
 msgid "If "
-msgstr ""
+msgstr "Als "
 
 #: ../src/browser.py:485
-#, fuzzy
 msgid ""
 "Report\n"
 "Bug"
-msgstr "Rapporteer fout..."
+msgstr ""
+"Rapporteer\n"
+"fout"
 
 #: ../src/browser.py:513
 msgid "Unable to grant access."
@@ -163,7 +172,7 @@ msgstr "Niet in staat toegang te geven."
 #: ../src/browser.py:538 ../src/browser.py:646
 #, python-format
 msgid "Alert %d of %d"
-msgstr ""
+msgstr "Waarschuwing %d van %d"
 
 #: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
 #: ../src/browser.py:752
@@ -216,8 +225,7 @@ msgstr ""
 "zijn niet toegestaan.\n"
 "\n"
 "Om een of meer email adressen te verwijderen selecteer je de adressen\n"
-"in de lijst en klik je op de Verwijderen knop of gebruik je de Delete "
-"toets.\n"
+"in de lijst en klik je op de Verwijderen knop of gebruik je de Delete toets.\n"
 "Of je kunt het adres bewerken en leeg maken.\n"
 "\n"
 "Om een adres te bewerken klik op het adres en begin met bewerken.\n"
@@ -334,6 +342,8 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
+"je wilt $SOURCE_BASE_PATH toestaan om $ACCESS toegang te hebben tot de "
+"$TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -435,48 +445,47 @@ msgstr "Negeer na eerste waarschuwing"
 
 #: ../src/signature.py:196
 msgid "directory"
-msgstr ""
+msgstr "map"
 
 #: ../src/signature.py:197
 msgid "semaphore"
-msgstr ""
+msgstr "semafoor"
 
 #: ../src/signature.py:198
 msgid "shared memory"
-msgstr ""
+msgstr "gedeeld geheugen"
 
 #: ../src/signature.py:199
 msgid "message queue"
-msgstr ""
+msgstr "boodschappen wachtrij"
 
 #: ../src/signature.py:200
 msgid "message"
-msgstr ""
+msgstr "boodschap"
 
 #: ../src/signature.py:201
 msgid "file"
-msgstr ""
+msgstr "bestand"
 
 #: ../src/signature.py:202
-#, fuzzy
 msgid "socket"
-msgstr "socket fout"
+msgstr "socket"
 
 #: ../src/signature.py:203
 msgid "process"
-msgstr ""
+msgstr "proces"
 
 #: ../src/signature.py:204
 msgid "filesystem"
-msgstr ""
+msgstr "bestandssysteem"
 
 #: ../src/signature.py:205
 msgid "node"
-msgstr ""
+msgstr "node"
 
 #: ../src/signature.py:206
 msgid "capability"
-msgstr ""
+msgstr "mogelijkheid "
 
 #: ../src/signature.py:382
 #, python-format
@@ -484,7 +493,6 @@ msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s heeft een toelatend type (%s). Deze toegang was niet verboden."
 
 #: ../src/signature.py:385
-#, fuzzy
 msgid "SEinux is in permissive mode. This access was not denied."
 msgstr "SELinux is in de toelatende mode. Deze toegang werd niet geweigerd."
 
@@ -495,24 +503,33 @@ msgid ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
+"\n"
+"\n"
+"*****  Plugin %s (%.4s vertrouwen) suggereert  "
 
 #: ../src/signature.py:474
 msgid ""
 "\n"
 "If "
 msgstr ""
+"\n"
+"Als "
 
 #: ../src/signature.py:476
 msgid ""
 "\n"
 "Then "
 msgstr ""
+"\n"
+"Dan "
 
 #: ../src/signature.py:479
 msgid ""
 "\n"
 "Do\n"
 msgstr ""
+"\n"
+"Doe\n"
 
 #: ../src/signature.py:480
 msgid "Additional Information"
@@ -601,12 +618,12 @@ msgstr "Onbewerkte audit boodschappen"
 #: ../src/updater.py:18
 #, python-format
 msgid "current: %s "
-msgstr ""
+msgstr "huidige: %s "
 
 #: ../src/updater.py:27
 #, python-format
 msgid "newer: %s "
-msgstr ""
+msgstr "nieuwere: %s "
 
 #: ../src/seapplet.c:188
 msgid "New SELinux security alert"
@@ -631,7 +648,7 @@ msgstr "SELinux AVC weigering, klik om te bekijken"
 
 #: ../src/sealert:104
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr ""
+msgstr "SELinux niet aangezet, sealert draait niet op niet-SELinux systemen"
 
 #: ../src/sealert:154
 msgid "Not fixable."
@@ -645,7 +662,7 @@ msgstr "%s succesvol gedraaid"
 #: ../src/sealert:166
 #, c-format
 msgid "Plugin %s not valid for %s id"
-msgstr ""
+msgstr "Plug-in %s niet geldig voor %s id"
 
 #: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
@@ -658,15 +675,13 @@ msgstr "afsplitsen #1 faalde: %d (%s)"
 
 #: ../gui/browser.glade.h:1
 msgid "<b>SELinux has detected a problem.</b>"
-msgstr ""
+msgstr "<b>SELinux heeft een probleem gedetecteerd.</b>"
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
 msgid "Access:"
-msgstr "Succes"
+msgstr "Toegang:"
 
 #: ../gui/browser.glade.h:3
-#, fuzzy
 msgid ""
 "Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -676,99 +691,95 @@ msgid ""
 msgstr ""
 "Copyright (c) 2009 \n"
 "Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Delete current alert from the database."
-msgstr ""
+msgstr "Verwijder huidige waarschuwing uit de data base."
 
 #: ../gui/browser.glade.h:10
 msgid "Do not show alert message, when this alert is triggered."
 msgstr ""
+"Laat de waarschuwing boodschap niet zien als deze waarschuwing geactiveerd "
+"wordt."
 
 #: ../gui/browser.glade.h:11
 msgid "Email alert to system administrator."
-msgstr ""
+msgstr "Email waarschuwing naar de systeembeheerder."
 
 #: ../gui/browser.glade.h:12
-#, fuzzy
 msgid "Ignore"
-msgstr "Nooit negeren"
+msgstr "Negeren"
 
 #: ../gui/browser.glade.h:13
-#, fuzzy
 msgid "List All Alerts"
-msgstr "Verwijder _alle waarschuwingen"
+msgstr "Laat alle waarschuwingen zien"
 
 #: ../gui/browser.glade.h:14
 msgid "List all alerts in the database."
-msgstr ""
+msgstr "Laat alle waarschuwingen in de database zien."
 
 #: ../gui/browser.glade.h:15
-#, fuzzy
 msgid "No"
 msgstr "Geen"
 
 #: ../gui/browser.glade.h:16
-#, fuzzy
 msgid "No Alerts"
-msgstr "Copieer waarschuwing"
+msgstr "Geen waarschuwingen"
 
 #: ../gui/browser.glade.h:17
 msgid ""
 "Read alert troubleshoot information.  May require administrative privledge "
 "to remedy."
 msgstr ""
+"Lees waarschuwing probleem-oplos informatie.  Voor verhelpen zijn mogelijk "
+"beheer rechten nodig."
 
 #: ../gui/browser.glade.h:18
-#, fuzzy
 msgid "Report"
-msgstr "Rapporteer fout..."
+msgstr "Rapport"
 
 #: ../gui/browser.glade.h:19
-#, fuzzy
 msgid "SELinux Alert Browser"
-msgstr "SELinux beveiliging waarschuwingen"
+msgstr "SELinux waarschuwingen browser"
 
 #: ../gui/browser.glade.h:20
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot waarschuwingen lijst"
 
 #: ../gui/browser.glade.h:21
-#, fuzzy
 msgid "Show next alert."
-msgstr "Verwijder waarschuwingen."
+msgstr "Laat volgende waarschuwing zien."
 
 #: ../gui/browser.glade.h:22
 msgid "Show previous alert."
-msgstr ""
+msgstr "Laat vorige waarschuwing zien."
 
 #: ../gui/browser.glade.h:23
-#, fuzzy
 msgid "Troubleshoot"
-msgstr "SELinux probleem oplosser"
+msgstr "Probleem oplossen"
 
 #: ../gui/browser.glade.h:24
 msgid "Turn off alert pop-ups."
-msgstr ""
+msgstr "Zet alle waarschuwing pop-ups uit."
 
 #: ../gui/browser.glade.h:25
 msgid "Turn on alert pop-ups."
-msgstr ""
+msgstr "Zet alle waarschuwing pop-ups aan."
 
 #: ../gui/browser.glade.h:26
 msgid "Would you like to receive alerts?"
-msgstr ""
+msgstr "Wil je waarschuwingen ontvangen?"
 
 #: ../gui/browser.glade.h:27
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: ../gui/browser.glade.h:28
 msgid "label"
-msgstr ""
+msgstr "label"
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
@@ -798,8 +809,7 @@ msgstr ""
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr ""
-"Deze handeling is klaar.  The quick brown fox jumped over the lazy dog."
+msgstr "Deze bewerking is klaar.  The quick brown fox jumped over the lazy dog."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
