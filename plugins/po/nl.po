@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-15 14:31-0500\n"
-"PO-Revision-Date: 2010-07-29 11:47+0200\n"
+"PO-Revision-Date: 2010-11-21 17:37+0200\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Fedora\n"
 "Language: nl\n"
@@ -74,12 +74,15 @@ msgstr ""
 msgid ""
 "you want to allow $SOURCE_PATH to be able to write to shared public content"
 msgstr ""
+"je wilt $SOURCE_PATH toestaan om te schrijven naar gedeelde publieke inhoud"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
 msgstr ""
+"je moet de label van $TARGET_PATH veranderen naar public_content_rw_t, en "
+"potentieel de allow_httpd_sys_script_anon_write boolean aanzetten."
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -147,10 +150,13 @@ msgid ""
 "you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
 msgstr ""
+"je denkt niet dat het nodig is dat $SOURCE_PATH heap geheugen moet afbeelden "
+"dat zowel beschrijfbaar als uitvoerbaar is."
 
 #: ../src/allow_execheap.py:51 ../src/allow_execstack.py:62
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr ""
+"je moet een fout rapporteren. Dit is een potentieel gevaarlijke toegang."
 
 #: ../src/allow_execheap.py:52 ../src/allow_execstack.py:63
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
@@ -158,6 +164,7 @@ msgstr ""
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
 msgid "Contact your security administrator and report this issue."
 msgstr ""
+"Neem contact op met jouw beveiliging beheerder en rapporteer dit probleem."
 
 #: ../src/allow_execmod.py:27
 msgid ""
@@ -357,6 +364,8 @@ msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
 msgstr ""
+"je denkt niet dat het nodig is dat $SOURCE_PATH stack geheugen moet "
+"afbeelden dat zowel beschrijfbaar als uitvoerbaar is."
 
 #: ../src/allow_ftpd_use_cifs.py:29
 msgid ""
@@ -440,11 +449,11 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "je wilt ftpd toestaan om te schrijven naar cifs bestandssystemen"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
-msgstr ""
+msgstr "je moet SELinux dit vertellen"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -532,7 +541,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "je wilt ftpd toestaan om te schrijven naar nfs bestandssystemen"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -570,7 +579,6 @@ msgstr ""
 "    "
 
 #: ../src/automount_exec_config.py:39
-#, fuzzy
 msgid ""
 "\n"
 "    If you want to change the file context of $TARGET_PATH so that the "
@@ -585,7 +593,7 @@ msgstr ""
 "automounter het kan uitvoeren moet je \"chcon -t bin_t $TARGET_PATH\" "
 "uitvoeren.  Als je dit wilt handhaven na een her-bestempeling, moet je de "
 "bestand context permanent veranderen: voer uit  \"semanage fcontext -a -t "
-"bin_t $FIX_TARGET_PATH\".\n"
+"bin_t '$FIX_TARGET_PATH'\".\n"
 "    "
 
 #: ../src/bind_ports.py:27
@@ -599,7 +607,7 @@ msgstr ""
 "    "
 
 #: ../src/bind_ports.py:31
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux has denied the $SOURCE from binding to a network port "
@@ -618,14 +626,16 @@ msgstr ""
 "$PORT_NUMBER welke geen SELinux type met zich verbonden heeft.\n"
 "    Als $SOURCE verondersteld wordt om naar $PORT_NUMBER te luisteren, "
 "gebruik je het <i>semanage</i> commando om aan $PORT_NUMBER een poort type "
-"toe te kennen dat $SOURCE_TYPE kan verbinden met (%s).\n"
-"    <br><br>Als $SOURCE niet verondersteld\n"
+"toe te kennen dat $SOURCE_TYPE kan verbinden met (%s). \n"
+"    \n"
+"\n"
+"Als $SOURCE niet verondersteld\n"
 "    wordt met $PORT_NUMBER te verbinden, kan dit een teken zijn van een "
 "indringing poging.\n"
 "    "
 
 #: ../src/bind_ports.py:38
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to bind to port $PORT_NUMBER, you can "
@@ -642,28 +652,27 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Als je $SOURCE wilt toestaan om te verbinden met poort $PORT_NUMBER, kun "
-"je <br>\n"
-"    <b># semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b> uitvoeren\n"
-"    <br>waarin PORT_TYPE een van de volgende is: %s.\n"
+"    Als je $SOURCE wilt toestaan om te verbinden met poort $PORT_NUMBER, "
+"voer je uit \n"
 "\n"
-"    <br><br>Als dit systeem als een NIS cliënt draait, kan het aanzetten van "
-"de allow_ypbind boolean het probleem oplossen.  setsebool -P "
-"allow_ypbind=1.\n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"    \n"
+"waarin PORT_TYPE een van de volgende is: %s.\n"
+"\n"
+"    \n"
+"\n"
+"Als dit systeem als een NIS cliënt draait, kan het aanzetten van de "
+"allow_ypbind boolean het probleem oplossen.  setsebool -P allow_ypbind=1.\n"
 "    "
 
 #: ../src/bind_ports.py:51 ../src/connect_ports.py:50
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "    where PORT_TYPE is one of the following: %s."
 msgstr ""
-"\n"
-"    Als je $SOURCE wilt toestaan om naar $PORT_NUMBER te verbinden, kun je "
-"<br>\n"
-"    <b>semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b> uitvoeren,\n"
-"    <br>waarin PORT_TYPE een van de volgende is: %s.\n"
-"    "
+"# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"    waarin PORT_TYPE een van de volgende is: %s.    "
 
 #: ../src/catchall_boolean.py:31
 msgid ""
@@ -717,17 +726,17 @@ msgstr ""
 #: ../src/catchall_boolean.py:59
 #, python-format
 msgid "you want to %s"
-msgstr ""
+msgstr "je wilt %s"
 
 #: ../src/catchall_boolean.py:62
 #, python-format
 msgid "setsebool -P %s %s"
-msgstr ""
+msgstr "setsebool -P %s %s"
 
 #: ../src/catchall_boolean.py:65
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean."
-msgstr ""
+msgstr "Je moet SELinux dit vertellen door de '%s' boolean aan te zetten."
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -744,8 +753,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux heeft $SOURCE niet toegestaan om toegang te krijgen tot "
-"mogelijk\n"
+"    SELinux heeft $SOURCE niet toegestaan om toegang te krijgen tot mogelijk\n"
 "    verkeerd gelabelde bestanden $TARGET_PATH.  Dit betekent dat SELinux "
 "httpd niet\n"
 "    zal toestaan deze bestanden te gebruiken. Als httpd deze toegang "
@@ -760,7 +768,7 @@ msgstr ""
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
-msgstr ""
+msgstr "Je moet het label op $FIX_TARGET_PATH veranderen"
 
 #: ../src/catchall_labels.py:40
 #, python-format
@@ -770,14 +778,14 @@ msgid ""
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
 msgstr ""
+"# semanage fcontext - a -t FILE_TYPE '$ FIX_TARGET_PATH'\n"
+"waar FILE_TYPE een van de volgende is: % s. \n"
+"Vervolgens uitvoeren: \n"
+"restorecon - v '$ FIX_TARGET_PATH'\n"
 
 #: ../src/catchall.py:29
-#, fuzzy
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr ""
-"\n"
-"    SELinux belet $SOURCE_PATH \"$ACCESS\" toegang\n"
-"    "
+msgstr "SELinux belet $SOURCE_PATH \"$ACCESS\" toegang.    "
 
 #: ../src/catchall.py:31
 msgid ""
@@ -825,12 +833,16 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
+"je wilt $SOURCE_BASE_PATH toestaan om $ACCESS standaard toegang te hebben "
+"tot de $TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/catchall.py:49
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
+"Je moet dit melden als een fout.\n"
+"Je kunt een locale tactiek module genereren om deze toegang toe te staan."
 
 #: ../src/catchall.py:50
 msgid ""
@@ -838,6 +850,9 @@ msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"Sta deze toegang nu toe door het uitvoeren van:\n"
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
 msgid ""
@@ -851,7 +866,7 @@ msgstr ""
 "    "
 
 #: ../src/connect_ports.py:31
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux has denied $SOURCE from connecting to a network port "
@@ -871,13 +886,15 @@ msgstr ""
 "    Als $SOURCE verondersteld wordt toegang te hebben naar $PORT_NUMBER, "
 "gebruik je het <i>semanage</i> commando om aan $PORT_NUMBER een poort type "
 "toe te kennen dat $SOURCE_TYPE kan verbinden met (%s).\n"
-"    <br><br>Als $SOURCE niet verondersteld wordt\n"
+"    \n"
+"\n"
+"Als $SOURCE niet verondersteld wordt\n"
 "    om met $PORT_NUMBER te verbinden, kan dit een teken zijn van een "
 "indringing poging.\n"
 "    "
 
 #: ../src/connect_ports.py:39
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can "
@@ -890,9 +907,10 @@ msgid ""
 msgstr ""
 "\n"
 "    Als je $SOURCE wilt toestaan om naar $PORT_NUMBER te verbinden, kun je "
-"<br>\n"
-"    <b>semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b> uitvoeren,\n"
-"    <br>waarin PORT_TYPE een van de volgende is: %s.\n"
+"uitvoeren\n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"\n"
+"    waarin PORT_TYPE een van de volgende is: %s.\n"
 "    "
 
 #: ../src/cvs_data.py:27
@@ -946,11 +964,11 @@ msgstr ""
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "$TARGET_BASE_PATH moet gedeeld worden via de cvs daemon"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
-msgstr ""
+msgstr "Je moet het label op $FIX_TARGET_PATH' veranderen"
 
 #: ../src/device.py:29
 msgid ""
@@ -960,8 +978,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux belet $SOURCE_PATH \"$ACCESS\" toegang tot apparaat "
-"$TARGET_PATH.\n"
+"    SELinux belet $SOURCE_PATH \"$ACCESS\" toegang tot apparaat $TARGET_PATH.\n"
 "    "
 
 #: ../src/device.py:33
@@ -997,8 +1014,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"    SELinux belette de $SOURCE \"$ACCESS\" toegang tot apparaat "
-"$TARGET_PATH.\n"
+"    SELinux belette de $SOURCE \"$ACCESS\" toegang tot apparaat $TARGET_PATH.\n"
 "    $TARGET_PATH is verkeerd gelabeld, dit apparaat heeft het standaard "
 "label van de /dev map, wat niet mag\n"
 "    gebeuren.  Alle Karakter en/of Blok apparaten moeten een label hebben.\n"
@@ -1012,8 +1028,8 @@ msgstr ""
 "\n"
 "    Dien a.u.b. een bug rapport in.\n"
 "\n"
-"    Als je kijkt naar andere vergelijkbare apparaat labels, ls -lZ /dev/"
-"SIMILAR, en vindt een type dat kan werken voor $TARGET_PATH,\n"
+"    Als je kijkt naar andere vergelijkbare apparaat labels, ls -lZ "
+"/dev/SIMILAR, en vindt een type dat kan werken voor $TARGET_PATH,\n"
 "    kun je chcon -t SIMILAR_TYPE '$TARGET_PATH' gebruiken. Als dat het "
 "probleem oplost, kun je dit permanent maken door uit te voeren\n"
 "    semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
@@ -1041,12 +1057,16 @@ msgstr ""
 msgid ""
 "You need to change the label on $TARGET_PATH to a type of a similar device."
 msgstr ""
+"Je moet het label op $TARGET_PATH veranderen naar een type van een "
+"soortgelijk apparaat."
 
 #: ../src/device.py:61
 msgid ""
 "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/disable_ipv6.py:30
 msgid ""
@@ -1055,7 +1075,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Negeer als IPv6 aangezet is.\n"
+"Negeer als IPv6 uitgezet is.\n"
 "    "
 
 #: ../src/file.py:27
@@ -1111,19 +1131,19 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr ""
+msgstr "dit wordt veroorzaakt door een zojuist gemaakt bestandssysteem."
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
-msgstr ""
+msgstr "je denkt dat dit veroorzaakt wordt door een verkeerd gelabelde machine."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
-msgstr ""
+msgstr "je moet er labels aan toevoegen."
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
-msgstr ""
+msgstr "je moet het volledig opnieuw labelen "
 
 #: ../src/filesystem_associate.py:27
 msgid ""
@@ -1184,23 +1204,24 @@ msgid ""
 "you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
 "files"
 msgstr ""
+"je denkt dat $SOURCE_BASE_PATH $TARGET_BASE_PATH bestanden moet kunnen "
+"aanmaken"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
 "you need to use a different command. You are not allowed to preserve the "
 "SELinux context on the target file system."
 msgstr ""
+"je moet een ander commando gebruiken. Het is jou niet toegestaan om de "
+"SELinux context op het doel bestandssysteem in stand te houden."
 
 #: ../src/filesystem_associate.py:46
-#, fuzzy
 msgid ""
 "use a command like \"cp -p\" to preserve all permissions except SELinux "
 "context."
 msgstr ""
-"\n"
-"    Gebruik een commando zoals \"cp -p\" om alle rechten vast te houden "
-"behalve SELinux context.\n"
-"    "
+"gebruik een commando zoals \"cp -p\" om alle rechten vast te houden behalve "
+"SELinux context.    "
 
 #: ../src/httpd_can_sendmail.py:28
 msgid ""
@@ -1246,11 +1267,11 @@ msgstr ""
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
-msgstr ""
+msgstr "je wilt httpd toestaan om email te verzenden"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
-msgstr ""
+msgstr "je moet SELinux instellen om dit toe te staan"
 
 #: ../src/httpd_unified.py:29
 msgid ""
