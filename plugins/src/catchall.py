@@ -45,7 +45,13 @@ class plugin(Plugin):
     Please file a bug report.
     ''')
 
-    if_text = _('you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS by default.')
+    def get_if_text(self, avc, args):
+        if args[1] == "process":
+            return _('you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on processes labeled $TARGET_TYPE by default.')
+        if args[1] == "capability":
+            return _('you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by default.')
+        return _('you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS by default.')
+
     then_text = _('You should report this as a bug.\nYou can generate a local policy module to allow this access.')
     do_text = _("""Allow this access for now by executing:
 # grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol
@@ -62,4 +68,4 @@ class plugin(Plugin):
         else:
             summary = self.summary + "."
 
-        return self.report()
+        return self.report((0,avc.tclass))

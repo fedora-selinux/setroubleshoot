@@ -23,7 +23,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-15 14:31-0500\n"
+"POT-Creation-Date: 2010-11-22 10:53-0500\n"
 "PO-Revision-Date: 2009-04-15 11:19+0200\n"
 "Last-Translator: Josep Torné <josep.torne@gmail.com>\n"
 "Language-Team: Catalan <fedora@softcatala.net>\n"
@@ -818,19 +818,41 @@ msgstr ""
 "    contra aquest paquet.\n"
 "    "
 
-#: ../src/catchall.py:48
+#: ../src/catchall.py:50
+#, fuzzy
 msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
-"$TARGET_BASE_PATH $TARGET_CLASS by default."
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"processes labeled $TARGET_TYPE by default."
+msgstr ""
+"\n"
+"    El SELinux està evitant que ($SOURCE_TYPE) \"$ACCESS\"  accedeixi al "
+"dispositiu $TARGET_PATH. \n"
+"    "
+
+#: ../src/catchall.py:52
+msgid ""
+"you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
+"default."
 msgstr ""
 
-#: ../src/catchall.py:49
+#: ../src/catchall.py:53
+#, fuzzy
+msgid ""
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS by default."
+msgstr ""
+"\n"
+"    El SELinux està evitant que ($SOURCE_TYPE) \"$ACCESS\"  accedeixi al "
+"dispositiu $TARGET_PATH. \n"
+"    "
+
+#: ../src/catchall.py:55
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
 
-#: ../src/catchall.py:50
+#: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"

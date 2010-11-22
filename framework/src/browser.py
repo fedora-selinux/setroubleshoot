@@ -903,7 +903,10 @@ class BugReport:
                                                 self.summary, 
                                                 content)
  
-        rc = report.report(signature, report.io.GTKIO.GTKIO(self.parent.accounts))
+        try:
+            rc = report.report(signature, report.io.GTKIO.GTKIO(self.parent.accounts))
+        except ProtocolError, e:
+            FailDialog(e)
         self.destroy(self.main_window)
 
     def widget(self, name):

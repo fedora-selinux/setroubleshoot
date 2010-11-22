@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-15 14:31-0500\n"
+"POT-Creation-Date: 2010-11-22 10:53-0500\n"
 "PO-Revision-Date: 2010-11-20 16:30+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <trans-pl@lists.fedoraproject.org>\n"
@@ -613,9 +613,8 @@ msgstr ""
 "\n"
 "    \n"
 "\n"
-"    Jeśli system jest uruchomiony jako klient NIS, włączenie "
-"zmiennej logicznej allow_ypbind może naprawić problem.  setsebool -P "
-"allow_ypbind=1.\n"
+"    Jeśli system jest uruchomiony jako klient NIS, włączenie zmiennej "
+"logicznej allow_ypbind może naprawić problem.  setsebool -P allow_ypbind=1.\n"
 "    "
 
 #: ../src/bind_ports.py:51 ../src/connect_ports.py:50
@@ -773,15 +772,34 @@ msgstr ""
 "    Proszę zgłosić raport błędu.\n"
 "    "
 
-#: ../src/catchall.py:48
+#: ../src/catchall.py:50
+#, fuzzy
 msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"processes labeled $TARGET_TYPE by default."
+msgstr ""
+"jeśli $SOURCE_BASE_PATH powinno mieć możliwość tworzenia plików "
+"$TARGET_BASE_PATH"
+
+#: ../src/catchall.py:52
+#, fuzzy
+msgid ""
+"you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
+"default."
+msgstr ""
+"jeśli $SOURCE_BASE_PATH powinno mieć możliwość tworzenia plików "
+"$TARGET_BASE_PATH"
+
+#: ../src/catchall.py:53
+#, fuzzy
+msgid ""
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
 "aby zezwolić $SOURCE_BASE_PATH na domyślne posiadanie $ACCESS dostępu do "
 "$TARGET_BASE_PATH $TARGET_CLASS."
 
-#: ../src/catchall.py:49
+#: ../src/catchall.py:55
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
@@ -789,7 +807,7 @@ msgstr ""
 "Proszę to zgłosić jako błąd.\n"
 "Można utworzyć lokalny moduł polityki, aby umożliwić ten dostęp."
 
-#: ../src/catchall.py:50
+#: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
@@ -852,7 +870,6 @@ msgid ""
 msgstr ""
 "\n"
 "    Aby pozwolić $SOURCE na łączenie się z $PORT_NUMBER, można wykonać\n"
-
 "\n"
 "    # semanage port -a -t TYP_PORTU -p %s $PORT_NUMBER,\n"
 "\n"
@@ -1287,8 +1304,8 @@ msgid ""
 "you must tell SELinux about this by enabling the 'httpd_unified' and "
 "'http_enable_cgi' booleans"
 msgstr ""
-"należy powiadomić o tym SELinuksa włączając zmienne logiczne "
-"\"httpd_unified\" i \"http_enable_cgi\""
+"należy powiadomić o tym SELinuksa włączając zmienne logiczne \"httpd_unified"
+"\" i \"http_enable_cgi\""
 
 #: ../src/httpd_write_content.py:30
 msgid ""
@@ -2461,8 +2478,9 @@ msgstr "Aby zezwolić OpenVPN na odczytywanie katalogów domowych"
 msgid ""
 "If you want to allow usage of the gpg-agent --write-env-file option. This "
 "also allows gpg-agent to manage user files."
-msgstr "Aby zezwolić na użycie opcji gpg-agent --write-env-file. Umożliwia to "
-"także zarządzanie plikami użytkownika przez gpg-agent."
+msgstr ""
+"Aby zezwolić na użycie opcji gpg-agent --write-env-file. Umożliwia to także "
+"zarządzanie plikami użytkownika przez gpg-agent."
 
 #: ../booleans_trans.py:14
 msgid ""
@@ -2723,8 +2741,8 @@ msgid ""
 "If you want to allow apache scripts to write to public content.  Directories/"
 "Files must be labeled public_rw_content_t."
 msgstr ""
-"Aby zezwolić skryptom Apache na zapisywanie do treści publicznych. "
-"Katalogi/pliki muszą posiadać etykiety public_rw_content_t."
+"Aby zezwolić skryptom Apache na zapisywanie do treści publicznych. Katalogi/"
+"pliki muszą posiadać etykiety public_rw_content_t."
 
 #: ../booleans_trans.py:59
 msgid "If you want to allow qemu to use cifs/Samba file systems"
@@ -3357,8 +3375,8 @@ msgid ""
 "If you want to allow anon internal-sftp to upload files, used for public "
 "file transfer services. Directories must be labeled public_content_rw_t."
 msgstr ""
-"Aby zezwolić anonimowym internal-sftp na wysyłanie plików, użytych do "
-"usług przesyłania danych publicznych. Katalogi muszą posiadać etykietę "
+"Aby zezwolić anonimowym internal-sftp na wysyłanie plików, użytych do usług "
+"przesyłania danych publicznych. Katalogi muszą posiadać etykietę "
 "public_content_rw_t."
 
 #: ../booleans_trans.py:176

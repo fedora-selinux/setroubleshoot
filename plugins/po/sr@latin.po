@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-15 14:31-0500\n"
+"POT-Creation-Date: 2010-11-22 10:53-0500\n"
 "PO-Revision-Date: 2010-03-18 00:01+0100\n"
 "Last-Translator: Miloš Komarčević <kmilos@gmail.com>\n"
 "Language-Team: Serbian <trans-sr@lists.fedoraproject.org>\n"
@@ -794,19 +794,39 @@ msgstr ""
 "    Molim podnesite izveštaj o grešci.\n"
 "    "
 
-#: ../src/catchall.py:48
+#: ../src/catchall.py:50
+#, fuzzy
 msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
-"$TARGET_BASE_PATH $TARGET_CLASS by default."
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"processes labeled $TARGET_TYPE by default."
+msgstr ""
+"\n"
+"    SELinux sprečava $SOURCE_PATH „$ACCESS“ pristup uređaju $TARGET_PATH.\n"
+"    "
+
+#: ../src/catchall.py:52
+msgid ""
+"you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
+"default."
 msgstr ""
 
-#: ../src/catchall.py:49
+#: ../src/catchall.py:53
+#, fuzzy
+msgid ""
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS by default."
+msgstr ""
+"\n"
+"    SELinux sprečava $SOURCE_PATH „$ACCESS“ pristup uređaju $TARGET_PATH.\n"
+"    "
+
+#: ../src/catchall.py:55
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
 
-#: ../src/catchall.py:50
+#: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"

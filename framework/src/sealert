@@ -50,7 +50,6 @@ from setroubleshoot.log import *
 from setroubleshoot.errcode import *
 from setroubleshoot.util import get_identity
 from setroubleshoot.rpc import *
-from setroubleshoot.gui_utils import display_traceback
 
 #------------------------------------------------------------------------------
 invocation_style = None
@@ -436,6 +435,7 @@ def do_restart():
 
 class SECommandLine(object):
     def __init__(self, func):
+        from setroubleshoot.serverconnection import ServerConnectionHandler
         self.username = get_identity()
         self.func = func
 
@@ -452,7 +452,6 @@ class SECommandLine(object):
         def logon_callback(pkg_version, rpc_version):
             if debug:
                 log_program.debug("logon_callback(): pkg_version=%s rpc_version=%s", pkg_version, rpc_version)
-            self.alert_client.evaluate_server_version(pkg_version, rpc_version)
             self.alert_client.connection_state.update(ConnectionState.AUTHENTICATED)
 
         if debug:
@@ -538,6 +537,14 @@ def do_analyze_logfile(logfile_path):
     audit2why.finish()
         
 #-----------------------------------------------------------------------------
+
+try:
+    from setroubleshoot.gui_utils import display_traceback
+except:
+    def display_traceback(who):
+        import traceback
+        stacktrace = traceback.format_exc()
+        print _("Opps, %s hit an error!" % who) + '\n\n' +stacktrace
 
 # -- Main --
 if __name__ == '__main__':
@@ -677,7 +684,6 @@ if __name__ == '__main__':
         elif invocation_style == 'service':
             try:
                 # This import must come before importing gtk to silence warnings
-                from setroubleshoot.gui_utils import display_traceback
                 import gtk
                 run_as_dbus_service(username)
             except RuntimeError, e:
@@ -686,7 +692,6 @@ if __name__ == '__main__':
             sys.exit()
         elif invocation_style == 'noservice':
             # This import must come before importing gtk to silence warnings
-            from setroubleshoot.gui_utils import display_traceback
             import gtk
             run_app(username)
             sys.exit()

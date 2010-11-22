@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: mr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-15 14:31-0500\n"
+"POT-Creation-Date: 2010-11-22 10:53-0500\n"
 "PO-Revision-Date: 2010-08-03 12:18+0530\n"
 "Last-Translator: Sandeep Shedmake <sshedmak@redhat.com>\n"
 "Language-Team: Marathi <fedora-trans-mr@redhat.com>\n"
@@ -772,19 +772,41 @@ msgstr ""
 "    कृपया बग अहवाल सादर करा.\n"
 "    "
 
-#: ../src/catchall.py:48
+#: ../src/catchall.py:50
+#, fuzzy
 msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
-"$TARGET_BASE_PATH $TARGET_CLASS by default."
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"processes labeled $TARGET_TYPE by default."
+msgstr ""
+"\n"
+"    SELinux $SOURCE_PATH \"$ACCESS\" ला उपकरन $TARGET_PATH करीता प्रवेश "
+"करण्यापासून रोखत आहे. \n"
+"    "
+
+#: ../src/catchall.py:52
+msgid ""
+"you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
+"default."
 msgstr ""
 
-#: ../src/catchall.py:49
+#: ../src/catchall.py:53
+#, fuzzy
+msgid ""
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS by default."
+msgstr ""
+"\n"
+"    SELinux $SOURCE_PATH \"$ACCESS\" ला उपकरन $TARGET_PATH करीता प्रवेश "
+"करण्यापासून रोखत आहे. \n"
+"    "
+
+#: ../src/catchall.py:55
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
 
-#: ../src/catchall.py:50
+#: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
