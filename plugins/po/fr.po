@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins.fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 10:53-0500\n"
+"POT-Creation-Date: 2010-11-23 11:54-0500\n"
 "PO-Revision-Date: 2010-08-04 11:58+1000\n"
 "Last-Translator: Sam Friedmann <sam.friedmann@redhat.com>\n"
 "Language-Team: French <French fedora-trans-fr@fedoraproject.org>\n"
@@ -2497,7 +2497,9 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:3
-msgid "If you want to allow xdm logins as sysadm"
+msgid ""
+"If you want to allow the graphical login program to login directly as "
+"sysadm_r:sysadm_t"
 msgstr ""
 
 #: ../booleans_trans.py:4
@@ -2505,13 +2507,14 @@ msgid "If you want to allow xen to manage nfs files"
 msgstr ""
 
 #: ../booleans_trans.py:5
-msgid "If you want to control mozilla content access"
+msgid ""
+"If you want to allow confined web browsers to read home directory content"
 msgstr ""
 
 #: ../booleans_trans.py:6
 msgid ""
-"If you want to allow xguest to configure Network Manager and connect to "
-"apache ports"
+"If you want to allow xguest users to configure Network Manager and connect "
+"to apache ports"
 msgstr ""
 
 #: ../booleans_trans.py:7
@@ -2556,13 +2559,17 @@ msgstr ""
 
 #: ../booleans_trans.py:15
 msgid ""
-"If you want to transition unconfined user to the mozilla plugin domain when "
-"running xulrunner plugin-container."
+"If you want to allow unconfined users to transition to the Mozilla plugin "
+"domain when running xulrunner plugin-container."
 msgstr ""
 
 #: ../booleans_trans.py:16
-msgid "If you want to allow virt to read fuse files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to read fuse files"
 msgstr ""
+"\n"
+"    SELinux empêche le démon zebra d'écrire ses fichiers de configuration\n"
+"    "
 
 #: ../booleans_trans.py:17
 msgid ""
@@ -2571,7 +2578,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:18
-msgid "If you want to allow users to connect to mysql"
+msgid "If you want to allow users to connect to the local mysql server"
 msgstr ""
 
 #: ../booleans_trans.py:19
@@ -2599,15 +2606,21 @@ msgid "If you want to allow httpd to execute cgi scripts"
 msgstr ""
 
 #: ../booleans_trans.py:24
-msgid "If you want to allow virt to manage nfs files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to manage nfs files"
 msgstr ""
+"\n"
+"    SELinux empêche le démon zebra d'écrire ses fichiers de configuration\n"
+"    "
 
 #: ../booleans_trans.py:25
 msgid "If you want to allow all daemons the ability to read/write terminals"
 msgstr ""
 
 #: ../booleans_trans.py:26
-msgid "If you want to allow virt to use serial/parallell communication ports"
+msgid ""
+"If you want to allow confined virtual guests to use serial/parallel "
+"communication ports"
 msgstr ""
 
 #: ../booleans_trans.py:27
@@ -2639,7 +2652,7 @@ msgstr ""
 
 #: ../booleans_trans.py:33
 msgid ""
-"If you want to allow interlnal-sftp to read and write files in the user ssh "
+"If you want to allow internal-sftp to read and write files in the user ssh "
 "home directories."
 msgstr ""
 
@@ -2649,8 +2662,8 @@ msgstr ""
 
 #: ../booleans_trans.py:35
 msgid ""
-"If you want to transition unconfined user to the nsplugin domains when "
-"running nspluginviewer"
+"If you want to allow unconfined users to transition to the nsplugin domains "
+"when running nspluginviewer"
 msgstr ""
 
 #: ../booleans_trans.py:36
@@ -2677,8 +2690,8 @@ msgstr ""
 
 #: ../booleans_trans.py:41
 msgid ""
-"If you want to enabling secure mode disallows programs, such as newrole, "
-"from transitioning to administrative user domains."
+"If you want to disallow programs, such as newrole, from transitioning to "
+"administrative user domains."
 msgstr ""
 
 #: ../booleans_trans.py:42
@@ -2770,8 +2783,12 @@ msgid "If you want to allow qemu to use cifs/Samba file systems"
 msgstr ""
 
 #: ../booleans_trans.py:60
-msgid "If you want to allow qemu to user serial/parallel communication ports"
+#, fuzzy
+msgid "If you want to allow qemu to use serial/parallel communication ports"
 msgstr ""
+"\n"
+"    SELinux empêche le démon zebra d'écrire ses fichiers de configuration\n"
+"    "
 
 #: ../booleans_trans.py:61
 msgid "If you want to allow Apache to communicate with avahi service via dbus"
@@ -2804,9 +2821,9 @@ msgstr ""
 
 #: ../booleans_trans.py:68
 msgid ""
-"If you want to boolean to determine whether the system permits loading "
-"policy, setting enforcing mode, and changing boolean values.  Set this to "
-"true and you have to reboot to set it back"
+"If you want to prevent all confined domains from loading policy, setting "
+"enforcing mode, and changing boolean values.  Set this to true and you have "
+"to reboot to set it back"
 msgstr ""
 
 #: ../booleans_trans.py:69
@@ -2822,7 +2839,8 @@ msgid "If you want to allow dbadm to manage files in users home directories"
 msgstr ""
 
 #: ../booleans_trans.py:71
-msgid "If you want to allow virtual machine to interact with the xserver"
+msgid ""
+"If you want to allow confined virtual guests to interact with the xserver"
 msgstr ""
 
 #: ../booleans_trans.py:72
@@ -2888,8 +2906,14 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:86
-msgid "If you want to allow virt to manage device configuration, (pci)"
+#, fuzzy
+msgid ""
+"If you want to allow confined virtual guests to manage device configuration, "
+"(pci)"
 msgstr ""
+"\n"
+"    SELinux empêche le démon zebra d'écrire ses fichiers de configuration\n"
+"    "
 
 #: ../booleans_trans.py:87
 msgid "If you want to allow spamd to read/write user home directories."
@@ -2900,7 +2924,7 @@ msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
 msgstr ""
 
 #: ../booleans_trans.py:89
-msgid "If you want to allows xdm to execute bootloader"
+msgid "If you want to allow the graphical login program to execute bootloader"
 msgstr ""
 
 #: ../booleans_trans.py:90
@@ -2966,7 +2990,9 @@ msgid "If you want to allow a user to login as an unconfined domain"
 msgstr ""
 
 #: ../booleans_trans.py:103
-msgid "If you want to disable transitions to insmod."
+msgid ""
+"If you want to disallow programs and users from transitioning to insmod "
+"domain."
 msgstr ""
 
 #: ../booleans_trans.py:104
@@ -3014,7 +3040,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:114
-msgid "If you want to allow xguest to use blue tooth devices"
+msgid "If you want to allow xguest users to use blue tooth devices"
 msgstr ""
 
 #: ../booleans_trans.py:115
@@ -3051,7 +3077,7 @@ msgid "If you want to allow all domains to have the kernel load modules"
 msgstr ""
 
 #: ../booleans_trans.py:122
-msgid "If you want to allow virt to use usb devices"
+msgid "If you want to allow confined virtual guests to use usb devices"
 msgstr ""
 
 #: ../booleans_trans.py:123
@@ -3277,8 +3303,12 @@ msgid "If you want to allow users to read system messages."
 msgstr ""
 
 #: ../booleans_trans.py:170
-msgid "If you want to allow virt to manage cifs files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to manage cifs files"
 msgstr ""
+"\n"
+"    SELinux empêche le démon zebra d'écrire ses fichiers de configuration\n"
+"    "
 
 #: ../booleans_trans.py:171
 msgid "If you want to enable support for systemd as the init program."

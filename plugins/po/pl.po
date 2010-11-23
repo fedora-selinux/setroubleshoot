@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-22 10:53-0500\n"
+"POT-Creation-Date: 2010-11-23 11:54-0500\n"
 "PO-Revision-Date: 2010-11-23 08:48+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <trans-pl@lists.fedoraproject.org>\n"
@@ -777,15 +777,14 @@ msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
-"jeśli $SOURCE_BASE_PATH powinno mieć domyślnie $ACCESS dostęp do procesów "
-"z etykietami $TARGET_TYPE."
+"jeśli $SOURCE_BASE_PATH powinno mieć domyślnie $ACCESS dostęp do procesów z "
+"etykietami $TARGET_TYPE."
 
 #: ../src/catchall.py:52
 msgid ""
 "you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
-msgstr ""
-"jeśli $SOURCE_BASE_PATH powinno mieć domyślnie możliwość $ACCESS."
+msgstr "jeśli $SOURCE_BASE_PATH powinno mieć domyślnie możliwość $ACCESS."
 
 #: ../src/catchall.py:53
 msgid ""
@@ -2419,21 +2418,27 @@ msgstr ""
 "portami HTTP, FTP i Gophera"
 
 #: ../booleans_trans.py:3
-msgid "If you want to allow xdm logins as sysadm"
-msgstr "Aby zezwolić logowanie xdm jako administrator systemu"
+#, fuzzy
+msgid ""
+"If you want to allow the graphical login program to login directly as "
+"sysadm_r:sysadm_t"
+msgstr "Aby zezwolić logowanie SSH jako sysadm_r:sysadm_t"
 
 #: ../booleans_trans.py:4
 msgid "If you want to allow xen to manage nfs files"
 msgstr "Aby zezwolić Xen na zarządzanie plikami NFS"
 
 #: ../booleans_trans.py:5
-msgid "If you want to control mozilla content access"
-msgstr "Aby kontrolować dostęp do treści Mozilli"
+#, fuzzy
+msgid ""
+"If you want to allow confined web browsers to read home directory content"
+msgstr "Aby zezwolić OpenVPN na odczytywanie katalogów domowych"
 
 #: ../booleans_trans.py:6
+#, fuzzy
 msgid ""
-"If you want to allow xguest to configure Network Manager and connect to "
-"apache ports"
+"If you want to allow xguest users to configure Network Manager and connect "
+"to apache ports"
 msgstr ""
 "Aby zezwolić xguest na konfigurowanie Menedżera sieci i łączenie z portami "
 "Apache"
@@ -2487,15 +2492,17 @@ msgstr ""
 "portem TCP."
 
 #: ../booleans_trans.py:15
+#, fuzzy
 msgid ""
-"If you want to transition unconfined user to the mozilla plugin domain when "
-"running xulrunner plugin-container."
+"If you want to allow unconfined users to transition to the Mozilla plugin "
+"domain when running xulrunner plugin-container."
 msgstr ""
 "Aby zezwolić przekształcić nieograniczanego użytkownika w domenę wtyczek "
 "Mozilli podczas uruchamiania xulrunner plugin-container."
 
 #: ../booleans_trans.py:16
-msgid "If you want to allow virt to read fuse files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to read fuse files"
 msgstr "Aby zezwolić wirtualizacji na odczytywanie plików FUSE"
 
 #: ../booleans_trans.py:17
@@ -2506,7 +2513,8 @@ msgstr ""
 "Aby zezwolić skryptom i modułom httpd na łączenie z bazami danych przez sieć."
 
 #: ../booleans_trans.py:18
-msgid "If you want to allow users to connect to mysql"
+#, fuzzy
+msgid "If you want to allow users to connect to the local mysql server"
 msgstr "Aby zezwolić użytkownikom na łączenie się z MySQL"
 
 #: ../booleans_trans.py:19
@@ -2538,7 +2546,8 @@ msgid "If you want to allow httpd to execute cgi scripts"
 msgstr "Aby zezwolić httpd na wykonywanie skryptów CGI"
 
 #: ../booleans_trans.py:24
-msgid "If you want to allow virt to manage nfs files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to manage nfs files"
 msgstr "Aby zezwolić wirtualizacji na zarządzanie plikami NFS"
 
 #: ../booleans_trans.py:25
@@ -2546,7 +2555,10 @@ msgid "If you want to allow all daemons the ability to read/write terminals"
 msgstr "Aby zezwolić wszystkim demonom na odczytywanie/zapisywanie terminali"
 
 #: ../booleans_trans.py:26
-msgid "If you want to allow virt to use serial/parallell communication ports"
+#, fuzzy
+msgid ""
+"If you want to allow confined virtual guests to use serial/parallel "
+"communication ports"
 msgstr ""
 "Aby zezwolić wirtualizacji na użycie szeregowych/równoległych portów "
 "komunikacyjnych"
@@ -2582,8 +2594,9 @@ msgid "If you want to allow Puppet client to manage all file types."
 msgstr "Aby zezwolić klientowi Puppet na zarządzanie wszystkimi typami plików."
 
 #: ../booleans_trans.py:33
+#, fuzzy
 msgid ""
-"If you want to allow interlnal-sftp to read and write files in the user ssh "
+"If you want to allow internal-sftp to read and write files in the user ssh "
 "home directories."
 msgstr ""
 "Aby zezwolić interlnal-sftp na odczytywanie i zapisywanie plików w "
@@ -2594,9 +2607,10 @@ msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
 msgstr "Aby zezwolić logowanie SSH jako sysadm_r:sysadm_t"
 
 #: ../booleans_trans.py:35
+#, fuzzy
 msgid ""
-"If you want to transition unconfined user to the nsplugin domains when "
-"running nspluginviewer"
+"If you want to allow unconfined users to transition to the nsplugin domains "
+"when running nspluginviewer"
 msgstr ""
 "Aby przekształcić nieograniczanego użytkownika na domeny nsplugin podczas "
 "uruchamiania nspluginviewer"
@@ -2627,9 +2641,10 @@ msgstr ""
 "Aby zezwolić domenie piranha-lvs na łączenie się z siecią używając TCP."
 
 #: ../booleans_trans.py:41
+#, fuzzy
 msgid ""
-"If you want to enabling secure mode disallows programs, such as newrole, "
-"from transitioning to administrative user domains."
+"If you want to disallow programs, such as newrole, from transitioning to "
+"administrative user domains."
 msgstr ""
 "Aby włączyć programy uniemożliwiające tryb bezpieczeństwa, takie jak "
 "newrole, od przekształcania na domeny użytkownika administracyjnego."
@@ -2745,7 +2760,8 @@ msgid "If you want to allow qemu to use cifs/Samba file systems"
 msgstr "Aby zezwolić QEMU na użycie systemów plików CIFS/Samba"
 
 #: ../booleans_trans.py:60
-msgid "If you want to allow qemu to user serial/parallel communication ports"
+#, fuzzy
+msgid "If you want to allow qemu to use serial/parallel communication ports"
 msgstr ""
 "Aby zezwolić QEMU na użycie szeregowych/równoległych portów komunikacyjnych"
 
@@ -2780,10 +2796,11 @@ msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
 msgstr "Aby zezwolić Squid na działanie jako przezroczysty pośrednik (TPROXY)"
 
 #: ../booleans_trans.py:68
+#, fuzzy
 msgid ""
-"If you want to boolean to determine whether the system permits loading "
-"policy, setting enforcing mode, and changing boolean values.  Set this to "
-"true and you have to reboot to set it back"
+"If you want to prevent all confined domains from loading policy, setting "
+"enforcing mode, and changing boolean values.  Set this to true and you have "
+"to reboot to set it back"
 msgstr ""
 "Aby włączyć zmienną logiczną do ustalenia, czy system zezwala na politykę "
 "wczytywania, ustawianie trybu wymuszania i zmienianie wartości zmiennych. "
@@ -2807,7 +2824,9 @@ msgstr ""
 "Aby zezwolić dbadm na zarządzanie plików w katalogach domowych użytkowników"
 
 #: ../booleans_trans.py:71
-msgid "If you want to allow virtual machine to interact with the xserver"
+#, fuzzy
+msgid ""
+"If you want to allow confined virtual guests to interact with the xserver"
 msgstr "Aby zezwolić maszynie wirtualnej na współdziałanie z serwerem X"
 
 #: ../booleans_trans.py:72
@@ -2884,7 +2903,10 @@ msgstr ""
 "wymienne, pliki tymczasowe użytkownika i niezaufane pliki treści"
 
 #: ../booleans_trans.py:86
-msgid "If you want to allow virt to manage device configuration, (pci)"
+#, fuzzy
+msgid ""
+"If you want to allow confined virtual guests to manage device configuration, "
+"(pci)"
 msgstr ""
 "Aby zezwolić wirtualizacji na zarządzanie konfiguracją urządzenia, (pci)"
 
@@ -2899,7 +2921,8 @@ msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
 msgstr "Aby zezwolić Apache na użycie mod_auth_ntlm_winbind"
 
 #: ../booleans_trans.py:89
-msgid "If you want to allows xdm to execute bootloader"
+#, fuzzy
+msgid "If you want to allow the graphical login program to execute bootloader"
 msgstr "Aby zezwolić xdm na wykonywanie programu startowego"
 
 #: ../booleans_trans.py:90
@@ -2980,8 +3003,13 @@ msgid "If you want to allow a user to login as an unconfined domain"
 msgstr "Aby zezwolić użytkownikowi na logowanie jako nieograniczana domena"
 
 #: ../booleans_trans.py:103
-msgid "If you want to disable transitions to insmod."
-msgstr "Aby wyłączyć przekształcenia na insmod."
+#, fuzzy
+msgid ""
+"If you want to disallow programs and users from transitioning to insmod "
+"domain."
+msgstr ""
+"Aby włączyć programy uniemożliwiające tryb bezpieczeństwa, takie jak "
+"newrole, od przekształcania na domeny użytkownika administracyjnego."
 
 #: ../booleans_trans.py:104
 msgid "If you want to allow Cobbler to access nfs file systems."
@@ -3033,7 +3061,8 @@ msgstr ""
 "mail_spool"
 
 #: ../booleans_trans.py:114
-msgid "If you want to allow xguest to use blue tooth devices"
+#, fuzzy
+msgid "If you want to allow xguest users to use blue tooth devices"
 msgstr "Aby zezwolić xguest na użycie urządzeń Bluetooth"
 
 #: ../booleans_trans.py:115
@@ -3075,7 +3104,8 @@ msgid "If you want to allow all domains to have the kernel load modules"
 msgstr "Aby zezwolić wszystkim domenom na posiadanie modułów wczytywania jądra"
 
 #: ../booleans_trans.py:122
-msgid "If you want to allow virt to use usb devices"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to use usb devices"
 msgstr "Aby zezwolić wirtualizacji na użycie urządzeń USB"
 
 #: ../booleans_trans.py:123
@@ -3336,7 +3366,8 @@ msgid "If you want to allow users to read system messages."
 msgstr "Aby zezwolić użytkownikom na odczytywanie komunikatów systemowych."
 
 #: ../booleans_trans.py:170
-msgid "If you want to allow virt to manage cifs files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to manage cifs files"
 msgstr "Aby zezwolić wirtualizacji na zarządzanie plikami CIFS"
 
 #: ../booleans_trans.py:171
@@ -3378,3 +3409,12 @@ msgstr ""
 #: ../booleans_trans.py:176
 msgid "If you want to allow unprived users to execute DDL statement"
 msgstr "Aby zezwolić nieuprawnionym użytkownikom na wykonywanie instrukcji DDL"
+
+#~ msgid "If you want to allow xdm logins as sysadm"
+#~ msgstr "Aby zezwolić logowanie xdm jako administrator systemu"
+
+#~ msgid "If you want to control mozilla content access"
+#~ msgstr "Aby kontrolować dostęp do treści Mozilli"
+
+#~ msgid "If you want to disable transitions to insmod."
+#~ msgstr "Aby wyłączyć przekształcenia na insmod."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-15 14:31-0500\n"
+"POT-Creation-Date: 2010-11-23 11:54-0500\n"
 "PO-Revision-Date: 2010-11-22 19:36+0200\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Fedora\n"
@@ -194,7 +194,8 @@ msgid ""
 msgstr ""
 "\n"
 "    De $SOURCE toepassing probeerde $TARGET_PATH te laden wat\n"
-"    tekst verplaatsing vereist.  Dit is een potentieel beveiliging probleem.\n"
+"    tekst verplaatsing vereist.  Dit is een potentieel beveiliging "
+"probleem.\n"
 "    De meeste bibliotheken hebben deze toestemming niet nodig. Bibliotheken "
 "zijn\n"
 "    soms niet correct geschreven en vereisen deze rechten.  De\n"
@@ -304,7 +305,8 @@ msgstr ""
 "    De $SOURCE toepassing probeerde zijn stack uitvoerbaar te\n"
 "    maken.  Dit is een potentieel beveiliging probleem.  Dit moet nooit en "
 "te\n"
-"    nimmer nodig zijn. Stack geheugen is tegenwoordig niet uitvoerbaar in de\n"
+"    nimmer nodig zijn. Stack geheugen is tegenwoordig niet uitvoerbaar in "
+"de\n"
 "    meeste OS'en en dat zal niet veranderen. Uitvoerbaar stack geheugen is "
 "een\n"
 "    van de grootste veiligheid problemen. Een execstack fout kan in feite de "
@@ -398,8 +400,8 @@ msgstr ""
 "bestandssysteem.\n"
 "    CIFS (Comment Internet File System) is een netwerk bestandssysteem "
 "vergelijkbaar met\n"
-"    SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www.mi"
-"crosoft.com/mind/1196/cifs.asp</a>)\n"
+"    SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www."
+"microsoft.com/mind/1196/cifs.asp</a>)\n"
 "    De ftp daemon probeerde een of meer bestanden of mappen te lezen van\n"
 "    een aangekoppeld bestandssysteem van dit type.  Daar CIFS "
 "bestandssystemen geen ondersteuning bieden voor fijnkorrelige SELinux "
@@ -749,15 +751,16 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux heeft $SOURCE niet toegestaan om toegang te krijgen tot mogelijk\n"
+"    SELinux heeft $SOURCE niet toegestaan om toegang te krijgen tot "
+"mogelijk\n"
 "    verkeerd gelabelde bestanden $TARGET_PATH.  Dit betekent dat SELinux "
 "httpd niet\n"
 "    zal toestaan deze bestanden te gebruiken. Als httpd deze toegang "
 "toegestaan moet, zijn moet je de bestand context veranderen naar een van de "
 "volgende types, %s.\n"
 "    Vele toepassingen van derden installeren html bestanden\n"
-"    in mappen op een manier niet die niet voorzien is in de SELinux tactiek. "
-" Deze mappen\n"
+"    in mappen op een manier niet die niet voorzien is in de SELinux "
+"tactiek.  Deze mappen\n"
 "    moeten gelabeld worden met een bestand context waarnaar httpd toegang "
 "heeft.\n"
 "    "
@@ -824,15 +827,34 @@ msgstr ""
 "    Dien een fout rapport in.\n"
 "    "
 
-#: ../src/catchall.py:48
+#: ../src/catchall.py:50
+#, fuzzy
 msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"processes labeled $TARGET_TYPE by default."
+msgstr ""
+"je denkt dat $SOURCE_BASE_PATH $TARGET_BASE_PATH bestanden moet kunnen "
+"aanmaken"
+
+#: ../src/catchall.py:52
+#, fuzzy
+msgid ""
+"you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
+"default."
+msgstr ""
+"je denkt dat $SOURCE_BASE_PATH $TARGET_BASE_PATH bestanden moet kunnen "
+"aanmaken"
+
+#: ../src/catchall.py:53
+#, fuzzy
+msgid ""
+"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
 "je wilt $SOURCE_BASE_PATH toestaan om $ACCESS standaard toegang te hebben "
 "tot de $TARGET_BASE_PATH $TARGET_CLASS"
 
-#: ../src/catchall.py:49
+#: ../src/catchall.py:55
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
@@ -840,7 +862,7 @@ msgstr ""
 "Je moet dit melden als een fout.\n"
 "Je kunt een locale tactiek module genereren om deze toegang toe te staan."
 
-#: ../src/catchall.py:50
+#: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
@@ -974,7 +996,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux belet $SOURCE_PATH \"$ACCESS\" toegang tot apparaat $TARGET_PATH.\n"
+"    SELinux belet $SOURCE_PATH \"$ACCESS\" toegang tot apparaat "
+"$TARGET_PATH.\n"
 "    "
 
 #: ../src/device.py:33
@@ -1010,7 +1033,8 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"    SELinux belette de $SOURCE \"$ACCESS\" toegang tot apparaat $TARGET_PATH.\n"
+"    SELinux belette de $SOURCE \"$ACCESS\" toegang tot apparaat "
+"$TARGET_PATH.\n"
 "    $TARGET_PATH is verkeerd gelabeld, dit apparaat heeft het standaard "
 "label van de /dev map, wat niet mag\n"
 "    gebeuren.  Alle Karakter en/of Blok apparaten moeten een label hebben.\n"
@@ -1024,8 +1048,8 @@ msgstr ""
 "\n"
 "    Dien een fout rapport in.\n"
 "\n"
-"    Als je kijkt naar andere vergelijkbare apparaat labels, ls -lZ "
-"/dev/SIMILAR, en vindt een type dat kan werken voor $TARGET_PATH,\n"
+"    Als je kijkt naar andere vergelijkbare apparaat labels, ls -lZ /dev/"
+"SIMILAR, en vindt een type dat kan werken voor $TARGET_PATH,\n"
 "    kun je chcon -t SIMILAR_TYPE '$TARGET_PATH' gebruiken. Als dat het "
 "probleem oplost, kun je dit permanent maken door uit te voeren\n"
 "    semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
@@ -1131,7 +1155,8 @@ msgstr "dit wordt veroorzaakt door een zojuist gemaakt bestandssysteem."
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
-msgstr "je denkt dat dit veroorzaakt wordt door een verkeerd gelabelde machine."
+msgstr ""
+"je denkt dat dit veroorzaakt wordt door een verkeerd gelabelde machine."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
@@ -1324,7 +1349,8 @@ msgstr ""
 "manual\n"
 "    pagina met \"man httpd_selinux\" of \n"
 "    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
-"    \"TYPE\" refereert naar een uit \"sys\", \"user\" of \"staff\" of potentieel\n"
+"    \"TYPE\" refereert naar een uit \"sys\", \"user\" of \"staff\" of "
+"potentieel\n"
 "    andere script types.\n"
 "    "
 
@@ -1781,8 +1807,8 @@ msgstr ""
 "virt_image_t\n"
 "    bestand context label. Het systeem is ingesteld om image bestanden in de "
 "map /var/lib/libvirt/images correct te labelen.\n"
-"    We bevelen je aan om een kopie van jouw image bestand te maken in "
-"var/lib/libvirt/images.\n"
+"    We bevelen je aan om een kopie van jouw image bestand te maken in var/"
+"lib/libvirt/images.\n"
 "    Als je echt je qemu image bestanden in de huidige map wilt hebben, kun "
 "je $TARGET_PATH her-labelen naar virt_image_t door chcon te gebruiken.  Je "
 "moet ook semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH uitvoeren om "
@@ -1964,7 +1990,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux belet Samba ($SOURCE_PATH) \"$ACCESS\" toegang tot $TARGET_PATH.\n"
+"    SELinux belet Samba ($SOURCE_PATH) \"$ACCESS\" toegang tot "
+"$TARGET_PATH.\n"
 "    "
 
 #: ../src/samba_share.py:31
@@ -2046,9 +2073,9 @@ msgstr ""
 "    SELinux heeft $SOURCE belet om $TARGET te veranderen.  Deze weigering\n"
 "    geeft aan dat $SOURCE probeerde om de selinux tactiek instelling te "
 "veranderen. \n"
-"    Alle toepassingen die deze toegang nodig hebben moeten al een geschreven "
-"    tactiek hiervoor hebben.  Als een in gevaar gebrachte toepassing de "
-"selinux tactiek \n"
+"    Alle toepassingen die deze toegang nodig hebben moeten al een "
+"geschreven     tactiek hiervoor hebben.  Als een in gevaar gebrachte "
+"toepassing de selinux tactiek \n"
 "    probeert te veranderen zal deze AVC aangemaakt worden. Dit is een "
 "ernstig probleem. \n"
 "    Jouw systeem kan zeker in gevaar gebracht zijn."
@@ -2123,8 +2150,8 @@ msgstr ""
 "\n"
 "    SELinux belette toegang verzocht door $SOURCE. $TARGET_PATH kan "
 "veroorzaakt zijn\n"
-"    door een verkeerd label. Het is sshd toegestaan om inhoud in de "
-"/root/.ssh map te lezen \n"
+"    door een verkeerd label. Het is sshd toegestaan om inhoud in de /root/."
+"ssh map te lezen \n"
 "    als deze een juist label heeft.\n"
 "    "
 
@@ -2139,8 +2166,8 @@ msgstr ""
 "\n"
 "    Je kunt de standaard systeem context voor dit bestand herstellen door "
 "het restorecon\n"
-"    commando uit te voeren.  Herstel met gebruik van restorecon -R "
-"/root/.ssh.\n"
+"    commando uit te voeren.  Herstel met gebruik van restorecon -R /root/."
+"ssh.\n"
 "    "
 
 #: ../src/sshd_root.py:47
@@ -2331,8 +2358,8 @@ msgstr ""
 "gebruikt om de\n"
 "video hardware toestand te veranderen.  Het is bekend dat dit programma een "
 "onveilige\n"
-"operatie op systeem geheugen gebruikt, maar dat doen ook een aantal "
-"malware/uitbuitings\n"
+"operatie op systeem geheugen gebruikt, maar dat doen ook een aantal malware/"
+"uitbuitings\n"
 "programma's die zich vermommen als vbetool. Dit gereedschap wordt gebruikt "
 "om de \n"
 "video toestand te resetten als een machine verdergaat vanuit de suspend "
@@ -2490,10 +2517,10 @@ msgstr ""
 "\n"
 "    SELinux belette xen toegang tot $TARGET_PATH.\n"
 "    Als dit een XEN image is, moet het een xen_image_t bestandscontext\n"
-"    hebben. Het systeem is ingesteld om image bestanden in de "
-"/var/lib/xen/images correct\n"
-"    te labelen.  We bevelen aan om je image bestanden te kopiëren naar "
-"var/lib/xen/images.\n"
+"    hebben. Het systeem is ingesteld om image bestanden in de /var/lib/xen/"
+"images correct\n"
+"    te labelen.  We bevelen aan om je image bestanden te kopiëren naar var/"
+"lib/xen/images.\n"
 "    Als je echt wilt dat er xen image bestanden in de huidige map zijn, moet "
 "je $TARGET_PATH her-labelen naar xen_image_t met chcon.  Je moet ook "
 "semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH' uitvoeren om dit "
@@ -2537,21 +2564,27 @@ msgstr ""
 "met HTTP, FTP en Gopher poorten."
 
 #: ../booleans_trans.py:3
-msgid "If you want to allow xdm logins as sysadm"
-msgstr "Als je xdm inloggen wilt toestaan als sysadmin"
+#, fuzzy
+msgid ""
+"If you want to allow the graphical login program to login directly as "
+"sysadm_r:sysadm_t"
+msgstr "Als je ssh inloggen wilt toestaan als sysadm_r:sysadm_t"
 
 #: ../booleans_trans.py:4
 msgid "If you want to allow xen to manage nfs files"
 msgstr "Als je xen wilt toestaan om nfs bestanden te beheren"
 
 #: ../booleans_trans.py:5
-msgid "If you want to control mozilla content access"
-msgstr "Als mozilla inhoud toegang wilt controleren"
+#, fuzzy
+msgid ""
+"If you want to allow confined web browsers to read home directory content"
+msgstr "Als je openvpn wilt toestaan om persoonlijke mappen te lezen"
 
 #: ../booleans_trans.py:6
+#, fuzzy
 msgid ""
-"If you want to allow xguest to configure Network Manager and connect to "
-"apache ports"
+"If you want to allow xguest users to configure Network Manager and connect "
+"to apache ports"
 msgstr ""
 "Als je xguest wilt toestaan om NetworkManager te configureren en te "
 "verbinden met apache poorten"
@@ -2607,15 +2640,17 @@ msgstr ""
 "algemene TCP poort."
 
 #: ../booleans_trans.py:15
+#, fuzzy
 msgid ""
-"If you want to transition unconfined user to the mozilla plugin domain when "
-"running xulrunner plugin-container."
+"If you want to allow unconfined users to transition to the Mozilla plugin "
+"domain when running xulrunner plugin-container."
 msgstr ""
 "Als je een onbeperkte gebruiker over wilt laten gaan naar het mozilla plug-"
 "in domein als xulrunner plugin-container draait."
 
 #: ../booleans_trans.py:16
-msgid "If you want to allow virt to read fuse files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to read fuse files"
 msgstr "Je wilt virt toestaan om fuse bestanden te lezen"
 
 #: ../booleans_trans.py:17
@@ -2627,7 +2662,8 @@ msgstr ""
 "het netwerk."
 
 #: ../booleans_trans.py:18
-msgid "If you want to allow users to connect to mysql"
+#, fuzzy
+msgid "If you want to allow users to connect to the local mysql server"
 msgstr "Als je gebruikers wilt toestaan te verbinden met mysql"
 
 #: ../booleans_trans.py:19
@@ -2659,7 +2695,8 @@ msgid "If you want to allow httpd to execute cgi scripts"
 msgstr "Als je httpd wilt toestaan om cgi scripts uit te voeren"
 
 #: ../booleans_trans.py:24
-msgid "If you want to allow virt to manage nfs files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to manage nfs files"
 msgstr "Als je virt wilt toestaan om nfs bestanden te beheren"
 
 #: ../booleans_trans.py:25
@@ -2668,7 +2705,10 @@ msgstr ""
 "Als je alle daemons wilt toestaan om terminals te kunnen lezen/schrijven"
 
 #: ../booleans_trans.py:26
-msgid "If you want to allow virt to use serial/parallell communication ports"
+#, fuzzy
+msgid ""
+"If you want to allow confined virtual guests to use serial/parallel "
+"communication ports"
 msgstr ""
 "Als je virt wilt toestaan om seriële/parallelle communicatie poorten te "
 "gebruiken"
@@ -2707,8 +2747,9 @@ msgid "If you want to allow Puppet client to manage all file types."
 msgstr "Als je Puppet wilt toestaan om alle bestand types te beheren."
 
 #: ../booleans_trans.py:33
+#, fuzzy
 msgid ""
-"If you want to allow interlnal-sftp to read and write files in the user ssh "
+"If you want to allow internal-sftp to read and write files in the user ssh "
 "home directories."
 msgstr ""
 "Als je internal-sftp wilt toestaan om bestanden te lezen en schrijven in de "
@@ -2719,9 +2760,10 @@ msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
 msgstr "Als je ssh inloggen wilt toestaan als sysadm_r:sysadm_t"
 
 #: ../booleans_trans.py:35
+#, fuzzy
 msgid ""
-"If you want to transition unconfined user to the nsplugin domains when "
-"running nspluginviewer"
+"If you want to allow unconfined users to transition to the nsplugin domains "
+"when running nspluginviewer"
 msgstr ""
 "Als je een onbeperkte gebruiker over wilt laten gaan naar nsplugin domeinen "
 "als nspluginviewer draait"
@@ -2755,9 +2797,10 @@ msgstr ""
 "met gebruik van TCP."
 
 #: ../booleans_trans.py:41
+#, fuzzy
 msgid ""
-"If you want to enabling secure mode disallows programs, such as newrole, "
-"from transitioning to administrative user domains."
+"If you want to disallow programs, such as newrole, from transitioning to "
+"administrative user domains."
 msgstr ""
 "Als je wilt aanzetten dat het aan programma's, zoals newrole, in de veilige "
 "mode niet toegestaan wordt om over te gaan naar beheersgebruiker domeinen."
@@ -2874,7 +2917,8 @@ msgid "If you want to allow qemu to use cifs/Samba file systems"
 msgstr "Als je qemu wilt toestaan om cifs/Samba bestandssystemen te gebruiken"
 
 #: ../booleans_trans.py:60
-msgid "If you want to allow qemu to user serial/parallel communication ports"
+#, fuzzy
+msgid "If you want to allow qemu to use serial/parallel communication ports"
 msgstr ""
 "Als je qemu wilt toestaan om seriële/parallelle communicatie poorten te "
 "gebruiken"
@@ -2916,10 +2960,11 @@ msgstr ""
 "Als je squid wilt toestaan om te draaien als een transparante proxy (TPROXY)"
 
 #: ../booleans_trans.py:68
+#, fuzzy
 msgid ""
-"If you want to boolean to determine whether the system permits loading "
-"policy, setting enforcing mode, and changing boolean values.  Set this to "
-"true and you have to reboot to set it back"
+"If you want to prevent all confined domains from loading policy, setting "
+"enforcing mode, and changing boolean values.  Set this to true and you have "
+"to reboot to set it back"
 msgstr ""
 "Als je de boolean wilt om te bepalen of het systeem tactiek laden, instellen "
 "van afdwingende mode en veranderen van booleaanse waarden toestaat.  Stel "
@@ -2944,7 +2989,9 @@ msgstr ""
 "gebruikers te beheren"
 
 #: ../booleans_trans.py:71
-msgid "If you want to allow virtual machine to interact with the xserver"
+#, fuzzy
+msgid ""
+"If you want to allow confined virtual guests to interact with the xserver"
 msgstr ""
 "Als je de virtuele machine wilt toestaan om interactie met de xserver te "
 "hebben"
@@ -2952,8 +2999,7 @@ msgstr ""
 #: ../booleans_trans.py:72
 msgid "If you want to transition to confined qemu domains from unconfined user"
 msgstr ""
-"Als je over wilt gaan naar beperkte qemu domeinen vanuit onbeperkte "
-"gebruiker"
+"Als je over wilt gaan naar beperkte qemu domeinen vanuit onbeperkte gebruiker"
 
 #: ../booleans_trans.py:73
 msgid "If you want to allow Git daemon system to access nfs file systems."
@@ -3017,7 +3063,8 @@ msgstr "Als je httpd scripts en modules execmem/execstack wilt toestaan"
 
 #: ../booleans_trans.py:84
 msgid "If you want to allow all daemons to write corefiles to /"
-msgstr "Als je alle daemons wilt toestaan om core bestanden naar / te schrijven"
+msgstr ""
+"Als je alle daemons wilt toestaan om core bestanden naar / te schrijven"
 
 #: ../booleans_trans.py:85
 msgid ""
@@ -3029,21 +3076,25 @@ msgstr ""
 "bestanden"
 
 #: ../booleans_trans.py:86
-msgid "If you want to allow virt to manage device configuration, (pci)"
+#, fuzzy
+msgid ""
+"If you want to allow confined virtual guests to manage device configuration, "
+"(pci)"
 msgstr "Als je virt wilt toestaan om apparaat configuratie te beheren (pci)"
 
 #: ../booleans_trans.py:87
 msgid "If you want to allow spamd to read/write user home directories."
 msgstr ""
-"Als je spamd wilt toestaan om persoonlijke mappen van gebruikers te "
-"lezen/schrijven."
+"Als je spamd wilt toestaan om persoonlijke mappen van gebruikers te lezen/"
+"schrijven."
 
 #: ../booleans_trans.py:88
 msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
 msgstr "Als je Apache wilt toestaan om mod_auth_ntlm_winbind te gebruiken"
 
 #: ../booleans_trans.py:89
-msgid "If you want to allows xdm to execute bootloader"
+#, fuzzy
+msgid "If you want to allow the graphical login program to execute bootloader"
 msgstr "Als je wilt toestaan dat xdm de boot-lader uitvoert"
 
 #: ../booleans_trans.py:90
@@ -3127,8 +3178,13 @@ msgstr ""
 "Als je een gebruiker wilt toestaan om in te loggen als een onbeperkt domein"
 
 #: ../booleans_trans.py:103
-msgid "If you want to disable transitions to insmod."
-msgstr "Als je overgangen naar insmod wilt uitzetten."
+#, fuzzy
+msgid ""
+"If you want to disallow programs and users from transitioning to insmod "
+"domain."
+msgstr ""
+"Als je wilt aanzetten dat het aan programma's, zoals newrole, in de veilige "
+"mode niet toegestaan wordt om over te gaan naar beheersgebruiker domeinen."
 
 #: ../booleans_trans.py:104
 msgid "If you want to allow Cobbler to access nfs file systems."
@@ -3181,7 +3237,8 @@ msgstr ""
 "wilt geven"
 
 #: ../booleans_trans.py:114
-msgid "If you want to allow xguest to use blue tooth devices"
+#, fuzzy
+msgid "If you want to allow xguest users to use blue tooth devices"
 msgstr "Als je xguest wilt toestaan om blue tooth apparaten te gebruiken"
 
 #: ../booleans_trans.py:115
@@ -3224,7 +3281,8 @@ msgid "If you want to allow all domains to have the kernel load modules"
 msgstr "Als je alle domeinen wilt toestaan om kernel laad modules te hebben"
 
 #: ../booleans_trans.py:122
-msgid "If you want to allow virt to use usb devices"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to use usb devices"
 msgstr "Als je virt wilt toestaan om usb apparaten te gebruiken"
 
 #: ../booleans_trans.py:123
@@ -3267,8 +3325,7 @@ msgstr "Als je sshd wilt toestaan om poort verbindingen door te geven"
 #: ../booleans_trans.py:130
 msgid "If you want to allow zebra daemon to write it configuration files"
 msgstr ""
-"Als je zebra deamon wilt toestaan om zijn configuratie bestanden te "
-"schrijven"
+"Als je zebra deamon wilt toestaan om zijn configuratie bestanden te schrijven"
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow httpd to use built in scripting (usually php)"
@@ -3343,8 +3400,7 @@ msgstr ""
 #: ../booleans_trans.py:143
 msgid "If you want to allow xguest users to mount removable media"
 msgstr ""
-"Als je xguest gebruikers wilt toestaan om verwijderbare media aan te "
-"koppelen"
+"Als je xguest gebruikers wilt toestaan om verwijderbare media aan te koppelen"
 
 #: ../booleans_trans.py:144
 msgid ""
@@ -3496,10 +3552,12 @@ msgstr ""
 
 #: ../booleans_trans.py:169
 msgid "If you want to allow users to read system messages."
-msgstr "Als je gebruikers wilt laten toestaan om systeem boodschappen te lezen."
+msgstr ""
+"Als je gebruikers wilt laten toestaan om systeem boodschappen te lezen."
 
 #: ../booleans_trans.py:170
-msgid "If you want to allow virt to manage cifs files"
+#, fuzzy
+msgid "If you want to allow confined virtual guests to manage cifs files"
 msgstr "Als je virt wilt toestaan om cifs bestanden te beheren"
 
 #: ../booleans_trans.py:171
@@ -3544,6 +3602,15 @@ msgid "If you want to allow unprived users to execute DDL statement"
 msgstr ""
 "Als je niet-geprivilegieerde gebruikers wilt toestaan DDL statements uit te "
 "voeren"
+
+#~ msgid "If you want to allow xdm logins as sysadm"
+#~ msgstr "Als je xdm inloggen wilt toestaan als sysadmin"
+
+#~ msgid "If you want to control mozilla content access"
+#~ msgstr "Als mozilla inhoud toegang wilt controleren"
+
+#~ msgid "If you want to disable transitions to insmod."
+#~ msgstr "Als je overgangen naar insmod wilt uitzetten."
 
 #~ msgid ""
 #~ "\n"
