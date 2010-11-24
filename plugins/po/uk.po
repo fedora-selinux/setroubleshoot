@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-23 11:54-0500\n"
-"PO-Revision-Date: 2010-11-20 16:51+0200\n"
+"PO-Revision-Date: 2010-11-24 22:13+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "Language: uk\n"
@@ -794,30 +794,27 @@ msgstr ""
 "    "
 
 #: ../src/catchall.py:50
-#, fuzzy
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
-"ви вважаєте, що $SOURCE_BASE_PATH має бути надано доступ до створення файлів "
-"$TARGET_BASE_PATH"
+"ви вважаєте, що $SOURCE_BASE_PATH має бути надано типовий доступ $ACCESS  до "
+"процесу з міткою $TARGET_BASE_PATH"
 
 #: ../src/catchall.py:52
-#, fuzzy
 msgid ""
 "you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
 msgstr ""
-"ви вважаєте, що $SOURCE_BASE_PATH має бути надано доступ до створення файлів "
-"$TARGET_BASE_PATH"
+"ви вважаєте, що $SOURCE_BASE_PATH має бути надано типову можливість $ACCESS."
 
 #: ../src/catchall.py:53
-#, fuzzy
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
-"якщо ви бажаєте дозволити $SOURCE_BASE_PATH мати типовий доступ $ACCESS до "
+"якщо ви вважаєте, що $SOURCE_BASE_PATH має бути надано типовий доступ "
+"$ACCESS до "
 "$TARGET_BASE_PATH $TARGET_CLASS."
 
 #: ../src/catchall.py:55
@@ -2487,31 +2484,31 @@ msgstr ""
 "а не лише портах HTTP, FTP і Gopher."
 
 #: ../booleans_trans.py:3
-#, fuzzy
 msgid ""
 "If you want to allow the graphical login program to login directly as "
 "sysadm_r:sysadm_t"
 msgstr ""
-"Чи бажаєте ви дозволити SSH-вхід до системи від імені sysadm_r:sysadm_t"
+"Чи бажаєте ви дозволити графічній програмі входу до системи впускати "
+"користувача sysadm_r:sysadm_t"
 
 #: ../booleans_trans.py:4
 msgid "If you want to allow xen to manage nfs files"
 msgstr "Чи бажаєте ви надати доступ xen на керування файлами nfs"
 
 #: ../booleans_trans.py:5
-#, fuzzy
 msgid ""
 "If you want to allow confined web browsers to read home directory content"
 msgstr ""
-"Чи бажаєте ви надати доступ openvpn до читання даних з домашніх каталогів"
+"Чи бажаєте ви надати доступ обмеженим програмам для перегляду інтернету до "
+"читання даних з домашнього каталогу"
 
 #: ../booleans_trans.py:6
-#, fuzzy
 msgid ""
 "If you want to allow xguest users to configure Network Manager and connect "
 "to apache ports"
 msgstr ""
-"Чи бажаєте ви надати доступ xguest до налаштування Network Manager і "
+"Чи бажаєте ви надати доступ користувачам xguest до налаштування Network "
+"Manager і "
 "встановлення з’єднання з портами apache"
 
 #: ../booleans_trans.py:7
@@ -2569,18 +2566,19 @@ msgstr ""
 "встановлення з’єднань на довільних портах TCP."
 
 #: ../booleans_trans.py:15
-#, fuzzy
 msgid ""
 "If you want to allow unconfined users to transition to the Mozilla plugin "
 "domain when running xulrunner plugin-container."
 msgstr ""
-"Чи бажаєте ви переводити користувача без обмежень домену додатків mozilla "
+"Чи бажаєте ви дозволити користувачам без обмежень доступ до домену додатків "
+"mozilla "
 "під час запуску контейнера додатків xulrunner."
 
 #: ../booleans_trans.py:16
-#, fuzzy
 msgid "If you want to allow confined virtual guests to read fuse files"
-msgstr "Чи бажаєте ви надати доступ virt на читання файлів fuse"
+msgstr ""
+"Чи бажаєте ви надати доступ обмеженим гостьовим віртуальним системам (virt) "
+"на читання файлів fuse"
 
 #: ../booleans_trans.py:17
 msgid ""
@@ -2591,9 +2589,10 @@ msgstr ""
 "з’єднання з базами даних мережею."
 
 #: ../booleans_trans.py:18
-#, fuzzy
 msgid "If you want to allow users to connect to the local mysql server"
-msgstr "Чи бажаєте ви надати доступ користувачам на з’єднання з mysql"
+msgstr ""
+"Чи бажаєте ви надати доступ користувачам на з’єднання з локальним сервером "
+"mysql"
 
 #: ../booleans_trans.py:19
 msgid "If you want to allow user processes to change their priority"
@@ -2627,9 +2626,10 @@ msgid "If you want to allow httpd to execute cgi scripts"
 msgstr "Чи бажаєте ви дозволити httpd виконувати скрипти cgi"
 
 #: ../booleans_trans.py:24
-#, fuzzy
 msgid "If you want to allow confined virtual guests to manage nfs files"
-msgstr "Чи бажаєте ви дозволити virt керувати файлами nfs"
+msgstr ""
+"Чи бажаєте ви надати доступ обмеженим гостьовим віртуальним системам на "
+"керування файлами nfs"
 
 #: ../booleans_trans.py:25
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2638,12 +2638,12 @@ msgstr ""
 "даних до терміналів"
 
 #: ../booleans_trans.py:26
-#, fuzzy
 msgid ""
 "If you want to allow confined virtual guests to use serial/parallel "
 "communication ports"
 msgstr ""
-"Чи бажаєте ви дозволити virt використовувати послідовні або паралельні порти "
+"Чи бажаєте ви дозволити обмеженим віртуальним гостьовим системам "
+"використовувати послідовні або паралельні порти "
 "обміну даними"
 
 #: ../booleans_trans.py:27
@@ -2683,7 +2683,6 @@ msgstr ""
 "яких типів"
 
 #: ../booleans_trans.py:33
-#, fuzzy
 msgid ""
 "If you want to allow internal-sftp to read and write files in the user ssh "
 "home directories."
@@ -2697,7 +2696,6 @@ msgstr ""
 "Чи бажаєте ви дозволити SSH-вхід до системи від імені sysadm_r:sysadm_t"
 
 #: ../booleans_trans.py:35
-#, fuzzy
 msgid ""
 "If you want to allow unconfined users to transition to the nsplugin domains "
 "when running nspluginviewer"
@@ -2734,14 +2732,12 @@ msgstr ""
 "за допомогою TCP."
 
 #: ../booleans_trans.py:41
-#, fuzzy
 msgid ""
 "If you want to disallow programs, such as newrole, from transitioning to "
 "administrative user domains."
 msgstr ""
-"Чи бажаєте ви скористатися можливістю заборони програмам у безпечному "
-"режимі, зокрема newrole, здійснювати переведення до доменів адміністративних "
-"користувачів."
+"Чи бажаєте ви заборонити програмам у безпечному режимі, зокрема newrole, "
+"здійснювати переведення до доменів адміністративних користувачів."
 
 #: ../booleans_trans.py:42
 msgid "If you want to allow Apache to use mod_auth_pam"
@@ -2864,7 +2860,6 @@ msgstr ""
 "Чи бажаєте ви дозволити qemu використовувати файлові системи cifs/Samba"
 
 #: ../booleans_trans.py:60
-#, fuzzy
 msgid "If you want to allow qemu to use serial/parallel communication ports"
 msgstr ""
 "Чи бажаєте ви дозволити qemu використовувати послідовні або паралельні порти "
@@ -2910,15 +2905,14 @@ msgstr ""
 "(TPROXY)"
 
 #: ../booleans_trans.py:68
-#, fuzzy
 msgid ""
 "If you want to prevent all confined domains from loading policy, setting "
 "enforcing mode, and changing boolean values.  Set this to true and you have "
 "to reboot to set it back"
 msgstr ""
-"За допомогою цього логічного значення визначається, чи дозволятиме система "
-"завантаження правил, встановлення примусового режиму та зміну логічних "
-"значень. Встановіть значення true. Для повернення попереднього значення "
+"Чи бажаєте ви заборонити всім обмеженим доменам завантаження правил, "
+"встановлення примусового режиму та зміну логічних значень. Встановіть "
+"значення true. Для повернення попереднього значення "
 "систему доведеться перезавантажити"
 
 #: ../booleans_trans.py:69
@@ -2941,11 +2935,11 @@ msgstr ""
 "користувачів"
 
 #: ../booleans_trans.py:71
-#, fuzzy
 msgid ""
 "If you want to allow confined virtual guests to interact with the xserver"
 msgstr ""
-"Чи бажаєте ви уможливити взаємодію віртуальної машини з графічним сервером"
+"Чи бажаєте ви дозволити обмеженим віртуальним гостьовим системам взаємодіяти "
+"з графічним сервером"
 
 #: ../booleans_trans.py:72
 msgid "If you want to transition to confined qemu domains from unconfined user"
@@ -3027,11 +3021,12 @@ msgstr ""
 "тимчасових каталогів користувачів, ненадійних файлів та змінних пристроїв"
 
 #: ../booleans_trans.py:86
-#, fuzzy
 msgid ""
 "If you want to allow confined virtual guests to manage device configuration, "
 "(pci)"
-msgstr "Чи бажаєте ви дозволити virt керувати налаштуванням пристроїв (pci)"
+msgstr ""
+"Чи бажаєте ви дозволити обмеженим віртуальним гостьовим системам керувати "
+"налаштуванням пристроїв (pci)"
 
 #: ../booleans_trans.py:87
 msgid "If you want to allow spamd to read/write user home directories."
@@ -3044,9 +3039,10 @@ msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
 msgstr "Чи бажаєте ви дозволити Apache використовувати mod_auth_ntlm_winbind"
 
 #: ../booleans_trans.py:89
-#, fuzzy
 msgid "If you want to allow the graphical login program to execute bootloader"
-msgstr "Чи бажаєте ви дозволити xdm виконувати програму завантаження"
+msgstr ""
+"Чи бажаєте ви дозволити програмі графічного входу до системи виконувати "
+"програму завантаження"
 
 #: ../booleans_trans.py:90
 msgid "If you want to allow system to run with NIS"
@@ -3132,14 +3128,11 @@ msgstr ""
 "обмежень"
 
 #: ../booleans_trans.py:103
-#, fuzzy
 msgid ""
 "If you want to disallow programs and users from transitioning to insmod "
 "domain."
 msgstr ""
-"Чи бажаєте ви скористатися можливістю заборони програмам у безпечному "
-"режимі, зокрема newrole, здійснювати переведення до доменів адміністративних "
-"користувачів."
+"Чи бажаєте ви заборонити програмам і користувачам переходити у домен insmod."
 
 #: ../booleans_trans.py:104
 msgid "If you want to allow Cobbler to access nfs file systems."
@@ -3192,9 +3185,10 @@ msgstr ""
 "mail_spool"
 
 #: ../booleans_trans.py:114
-#, fuzzy
 msgid "If you want to allow xguest users to use blue tooth devices"
-msgstr "Чи бажаєте ви надати доступ xguest до використання пристроїв bluetooth"
+msgstr ""
+"Чи бажаєте ви надати доступ користувачам xguest до використання пристроїв "
+"bluetooth"
 
 #: ../booleans_trans.py:115
 msgid "If you want to use lpd server instead of cups"
@@ -3237,9 +3231,10 @@ msgid "If you want to allow all domains to have the kernel load modules"
 msgstr "Чи бажаєте ви дозволити всім доменам завантажувати модулі ядра"
 
 #: ../booleans_trans.py:122
-#, fuzzy
 msgid "If you want to allow confined virtual guests to use usb devices"
-msgstr "Чи бажаєте ви дозволити virt використовувати пристрої usb"
+msgstr ""
+"Чи бажаєте ви надати доступ обмеженим гостьовим віртуальним системам "
+"використовувати пристрої USB"
 
 #: ../booleans_trans.py:123
 msgid ""
@@ -3525,9 +3520,10 @@ msgstr ""
 "Чи бажаєте ви надавати користувачам доступ до читання системних повідомлень."
 
 #: ../booleans_trans.py:170
-#, fuzzy
 msgid "If you want to allow confined virtual guests to manage cifs files"
-msgstr "Чи бажаєте ви надати доступ virt на керування файлами cifs"
+msgstr ""
+"Чи бажаєте ви надати доступ обмеженим гостьовим віртуальним системам на "
+"керування файлами cifs"
 
 #: ../booleans_trans.py:171
 msgid "If you want to enable support for systemd as the init program."
