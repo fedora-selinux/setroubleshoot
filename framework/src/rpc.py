@@ -97,7 +97,7 @@ def get_default_port():
     return default_port
 
 def get_socket_list_from_config(cfg_section):
-    addr_string = addr_string = get_config(cfg_section, 'address_list')
+    addr_string = get_config(cfg_section, 'address_list')
     socket_addresses = parse_socket_address_list(addr_string)
     return socket_addresses
 
@@ -655,6 +655,10 @@ class ListeningServer(ConnectionIO):
             # Unix domain socket, delete the socket if left from before
             if os.path.exists(self.socket_address.address):
                 os.remove(self.socket_address.address)
+            else:
+                path = os.path.dirname(socket_address.address)
+                if not os.path.exists(path):
+                    os.makedirs(path)
 
         if debug:
             log_communication.debug("new_listening_socket: %s", self.socket_address)
