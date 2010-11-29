@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins.as\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-23 11:54-0500\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
 "PO-Revision-Date: 2009-09-10 14:39+0530\n"
 "Last-Translator: Amitakhya Phukan <aphukan@fedoraproject.org>\n"
 "Language-Team: Assamese\n"
@@ -1609,9 +1609,9 @@ msgstr ""
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr ""
 
-#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
-#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
-#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/openvpn.py:32 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
 #, fuzzy
 msgid ""
 "\n"
@@ -1622,6 +1622,51 @@ msgstr ""
 "    SELinux ৰ দ্বাৰা $SOURCE ($SOURCE_TYPE) ক যন্ত্ৰ $TARGET_PATH \"$ACCESS\" "
 "ব্যৱহাৰৰ বাধা সৃষ্টি কৰা হৈছে । \n"
 "    "
+
+#: ../src/openvpn.py:36
+msgid ""
+"\n"
+"    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
+"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"it \n"
+"    is labeled correctly.\n"
+"    "
+msgstr ""
+
+#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+#, fuzzy
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    "
+msgstr ""
+"\n"
+"    restorecon আদেশ প্ৰয়োগ কৰি অবিকল্পিত ব্যৱস্থাপ্ৰণালী সন্দৰ্ভ পুনৰুদ্ধাৰ\n"
+"     কৰা যাব:  restorecon '$TARGET_PATH' । পঞ্জিকাৰ ক্ষেত্ৰত\n"
+"    restorecon -R '$TARGET_PATH' প্ৰয়োগ কৰি ৰিকাৰ্ছিভ ৰূপে পুনৰুদ্ধাৰ কৰা যাব ।\n"
+"    "
+
+#: ../src/openvpn.py:49
+msgid ""
+"you want to mv $TARGET_BASE_PATH to standard location so that "
+"$SOURCE_BASE_PATH can have $ACCESS access"
+msgstr ""
+
+#: ../src/openvpn.py:51
+msgid ""
+"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
+"can have $ACCESS access on it"
+msgstr ""
+
+#: ../src/openvpn.py:55
+msgid "you must move the cert file to the ~/.cert directory"
+msgstr ""
+
+#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+msgid "you must fix the labels."
+msgstr ""
 
 #: ../src/public_content.py:31
 msgid ""
@@ -2074,25 +2119,6 @@ msgid ""
 "if it \n"
 "    is labeled correctly.\n"
 "    "
-msgstr ""
-
-#: ../src/sshd_root.py:42
-#, fuzzy
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
-"    "
-msgstr ""
-"\n"
-"    restorecon আদেশ প্ৰয়োগ কৰি অবিকল্পিত ব্যৱস্থাপ্ৰণালী সন্দৰ্ভ পুনৰুদ্ধাৰ\n"
-"     কৰা যাব:  restorecon '$TARGET_PATH' । পঞ্জিকাৰ ক্ষেত্ৰত\n"
-"    restorecon -R '$TARGET_PATH' প্ৰয়োগ কৰি ৰিকাৰ্ছিভ ৰূপে পুনৰুদ্ধাৰ কৰা যাব ।\n"
-"    "
-
-#: ../src/sshd_root.py:47
-msgid "you must fix the labels."
 msgstr ""
 
 #: ../src/sshd_root.py:54

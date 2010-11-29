@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-23 11:54-0500\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
 "PO-Revision-Date: 2010-08-14 17:47+0200\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
@@ -1544,9 +1544,9 @@ msgstr ""
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr ""
 
-#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
-#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
-#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/openvpn.py:32 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
@@ -1555,6 +1555,57 @@ msgstr ""
 "\n"
 "    SELinux nekar $SOURCE_PATH \"$ACCESS\"-åtkomst till $TARGET_PATH. \n"
 "    "
+
+#: ../src/openvpn.py:36
+#, fuzzy
+msgid ""
+"\n"
+"    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
+"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"it \n"
+"    is labeled correctly.\n"
+"    "
+msgstr ""
+"\n"
+"    SELinux nekade åtkomst begärd av $SOURCE. $TARGET_PATH kan ha fel\n"
+"    etikett.  sshd tillåts läsa innehåll i /root/.ssh directory om det har\n"
+"    rätt etikett.\n"
+"    "
+
+#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    "
+msgstr ""
+"\n"
+"    Du kan återställa systemets standardkontext för denna fil genom att "
+"köra\n"
+"    kommandot restorecon.  restorecon återställer genom restorecon -R /root/."
+"ssh.\n"
+"    "
+
+#: ../src/openvpn.py:49
+msgid ""
+"you want to mv $TARGET_BASE_PATH to standard location so that "
+"$SOURCE_BASE_PATH can have $ACCESS access"
+msgstr ""
+
+#: ../src/openvpn.py:51
+msgid ""
+"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
+"can have $ACCESS access on it"
+msgstr ""
+
+#: ../src/openvpn.py:55
+msgid "you must move the cert file to the ~/.cert directory"
+msgstr ""
+
+#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+msgid "you must fix the labels."
+msgstr ""
 
 #: ../src/public_content.py:31
 msgid ""
@@ -2010,25 +2061,6 @@ msgstr ""
 "    etikett.  sshd tillåts läsa innehåll i /root/.ssh directory om det har\n"
 "    rätt etikett.\n"
 "    "
-
-#: ../src/sshd_root.py:42
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
-"    "
-msgstr ""
-"\n"
-"    Du kan återställa systemets standardkontext för denna fil genom att "
-"köra\n"
-"    kommandot restorecon.  restorecon återställer genom restorecon -R /root/."
-"ssh.\n"
-"    "
-
-#: ../src/sshd_root.py:47
-msgid "you must fix the labels."
-msgstr ""
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"

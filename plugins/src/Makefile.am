@@ -30,6 +30,7 @@ PLUGIN_FILES =				\
 	leaks.py			\
 	mmap_zero.py			\
 	mounton.py			\
+	openvpn.py			\
 	public_content.py		\
 	qemu_blk_image.py		\
 	qemu_file_image.py		\

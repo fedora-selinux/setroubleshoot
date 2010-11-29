@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-23 11:54-0500\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
 "PO-Revision-Date: 2010-08-03 16:53+1000\n"
 "Last-Translator: Terry Chuang <tchuang@redhat.com>\n"
 "Language-Team: Traditional Chinese <zh_TW@li.org>\n"
@@ -1512,9 +1512,9 @@ msgstr ""
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr ""
 
-#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
-#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
-#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/openvpn.py:32 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
@@ -1523,6 +1523,56 @@ msgstr ""
 "\n"
 "    SELinux 防止了 $SOURCE_PATH「$ACCESS」存取 $TARGET_PATH。\n"
 "    "
+
+#: ../src/openvpn.py:36
+#, fuzzy
+msgid ""
+"\n"
+"    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
+"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"it \n"
+"    is labeled correctly.\n"
+"    "
+msgstr ""
+"\n"
+"    SELinux 拒絕了來自於 $SOURCE 的存取請求。$TARGET_PATH 可能\n"
+"    標記錯誤了。若是 sshd 有被正確標記的話，它便可\n"
+"    讀取 /root/.ssh 目錄中的內容。\n"
+"    "
+
+#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    "
+msgstr ""
+"\n"
+"    您可透過執行 restorecon 指令來將此檔案的預設\n"
+"    系統 context 復原。restorecon 會透過使用 restorecon -R /root/.ssh 來進行"
+"復原。\n"
+"    "
+
+#: ../src/openvpn.py:49
+msgid ""
+"you want to mv $TARGET_BASE_PATH to standard location so that "
+"$SOURCE_BASE_PATH can have $ACCESS access"
+msgstr ""
+
+#: ../src/openvpn.py:51
+msgid ""
+"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
+"can have $ACCESS access on it"
+msgstr ""
+
+#: ../src/openvpn.py:55
+msgid "you must move the cert file to the ~/.cert directory"
+msgstr ""
+
+#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+msgid "you must fix the labels."
+msgstr ""
 
 #: ../src/public_content.py:31
 msgid ""
@@ -1953,24 +2003,6 @@ msgstr ""
 "    標記錯誤了。若是 sshd 有被正確標記的話，它便可\n"
 "    讀取 /root/.ssh 目錄中的內容。\n"
 "    "
-
-#: ../src/sshd_root.py:42
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
-"    "
-msgstr ""
-"\n"
-"    您可透過執行 restorecon 指令來將此檔案的預設\n"
-"    系統 context 復原。restorecon 會透過使用 restorecon -R /root/.ssh 來進行"
-"復原。\n"
-"    "
-
-#: ../src/sshd_root.py:47
-msgid "you must fix the labels."
-msgstr ""
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-23 11:54-0500\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
 "PO-Revision-Date: 2010-11-23 22:45+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <trans-pl@lists.fedoraproject.org>\n"
@@ -1570,9 +1570,9 @@ msgstr "aby zezwolić $SOURCE_BASE_PATH na montowanie w $TARGET_BASE_PATH."
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr "należy zmienić etykietowanie $TARGET_PATH."
 
-#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
-#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
-#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/openvpn.py:32 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
@@ -1581,6 +1581,56 @@ msgstr ""
 "\n"
 "    SELinux powstrzymuje $SOURCE_PATH \"$ACCESS\" dostęp do $TARGET_PATH.\n"
 "    "
+
+#: ../src/openvpn.py:36
+#, fuzzy
+msgid ""
+"\n"
+"    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
+"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"it \n"
+"    is labeled correctly.\n"
+"    "
+msgstr ""
+"\n"
+"    SELinux odmówił dostępu żądanego przez $SOURCE. $TARGET_PATH może mieć\n"
+"    błędną etykietę. sshd może odczytywać zawartość katalogu /root/.ssh,\n"
+"    jeśli ma poprawną etykietę.\n"
+"    "
+
+#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    "
+msgstr ""
+"\n"
+"    Można przywrócić domyślny kontekst systemu tego pliku wykonując\n"
+"    polecenie restorecon. restorecon przywraca używając restorecon -R /root/."
+"ssh.\n"
+"    "
+
+#: ../src/openvpn.py:49
+msgid ""
+"you want to mv $TARGET_BASE_PATH to standard location so that "
+"$SOURCE_BASE_PATH can have $ACCESS access"
+msgstr ""
+
+#: ../src/openvpn.py:51
+msgid ""
+"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
+"can have $ACCESS access on it"
+msgstr ""
+
+#: ../src/openvpn.py:55
+msgid "you must move the cert file to the ~/.cert directory"
+msgstr ""
+
+#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+msgid "you must fix the labels."
+msgstr "należy naprawić etykiety."
 
 #: ../src/public_content.py:31
 msgid ""
@@ -2029,24 +2079,6 @@ msgstr ""
 "    błędną etykietę. sshd może odczytywać zawartość katalogu /root/.ssh,\n"
 "    jeśli ma poprawną etykietę.\n"
 "    "
-
-#: ../src/sshd_root.py:42
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
-"    "
-msgstr ""
-"\n"
-"    Można przywrócić domyślny kontekst systemu tego pliku wykonując\n"
-"    polecenie restorecon. restorecon przywraca używając restorecon -R /root/."
-"ssh.\n"
-"    "
-
-#: ../src/sshd_root.py:47
-msgid "you must fix the labels."
-msgstr "należy naprawić etykiety."
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"
@@ -2558,8 +2590,8 @@ msgid ""
 "If you want to allow confined virtual guests to use serial/parallel "
 "communication ports"
 msgstr ""
-"Aby zezwolić ograniczanym gościom wirtualnym na użycie "
-"szeregowych/równoległych portów komunikacyjnych"
+"Aby zezwolić ograniczanym gościom wirtualnym na użycie szeregowych/"
+"równoległych portów komunikacyjnych"
 
 #: ../booleans_trans.py:27
 msgid ""
@@ -2596,8 +2628,8 @@ msgid ""
 "If you want to allow internal-sftp to read and write files in the user ssh "
 "home directories."
 msgstr ""
-"Aby zezwolić internal-sftp na odczytywanie i zapisywanie plików w "
-"katalogach domowych użytkowników SSH."
+"Aby zezwolić internal-sftp na odczytywanie i zapisywanie plików w katalogach "
+"domowych użytkowników SSH."
 
 #: ../booleans_trans.py:34
 msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"

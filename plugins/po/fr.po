@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins.fr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-23 11:54-0500\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
 "PO-Revision-Date: 2010-08-04 11:58+1000\n"
 "Last-Translator: Sam Friedmann <sam.friedmann@redhat.com>\n"
 "Language-Team: French <French fedora-trans-fr@fedoraproject.org>\n"
@@ -1626,9 +1626,9 @@ msgstr ""
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr ""
 
-#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
-#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
-#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/openvpn.py:32 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
@@ -1638,6 +1638,58 @@ msgstr ""
 "    SELinux empêche $SOURCE_PATH d'« $ACCESS » au périphérique "
 "$TARGET_PATH. \n"
 "    "
+
+#: ../src/openvpn.py:36
+#, fuzzy
+msgid ""
+"\n"
+"    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
+"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"it \n"
+"    is labeled correctly.\n"
+"    "
+msgstr ""
+"\n"
+"    L'accès refusé par SELinux et demandé par $SOURCE. $TARGET_PATH peut\n"
+"    être mal étiqueté. sshd est autorisé à lire le contenu du répertoire /"
+"root/.ssh s'il\n"
+"    est correctement étiqueté.\n"
+"    "
+
+#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    "
+msgstr ""
+"\n"
+"    Vous pouvez restaurer le contexte par défaut du système sur ce fichier "
+"en exécutant la\n"
+"    commande restorecon. restorecon restaure en utilisant restorecon -R /"
+"root/.ssh.\n"
+"    "
+
+#: ../src/openvpn.py:49
+msgid ""
+"you want to mv $TARGET_BASE_PATH to standard location so that "
+"$SOURCE_BASE_PATH can have $ACCESS access"
+msgstr ""
+
+#: ../src/openvpn.py:51
+msgid ""
+"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
+"can have $ACCESS access on it"
+msgstr ""
+
+#: ../src/openvpn.py:55
+msgid "you must move the cert file to the ~/.cert directory"
+msgstr ""
+
+#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+msgid "you must fix the labels."
+msgstr ""
 
 #: ../src/public_content.py:31
 msgid ""
@@ -2107,25 +2159,6 @@ msgstr ""
 "root/.ssh s'il\n"
 "    est correctement étiqueté.\n"
 "    "
-
-#: ../src/sshd_root.py:42
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
-"    "
-msgstr ""
-"\n"
-"    Vous pouvez restaurer le contexte par défaut du système sur ce fichier "
-"en exécutant la\n"
-"    commande restorecon. restorecon restaure en utilisant restorecon -R /"
-"root/.ssh.\n"
-"    "
-
-#: ../src/sshd_root.py:47
-msgid "you must fix the labels."
-msgstr ""
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"

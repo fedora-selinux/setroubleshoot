@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-23 11:54-0500\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
 "PO-Revision-Date: 2010-11-24 22:13+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -814,8 +814,7 @@ msgid ""
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
 "якщо ви вважаєте, що $SOURCE_BASE_PATH має бути надано типовий доступ "
-"$ACCESS до "
-"$TARGET_BASE_PATH $TARGET_CLASS."
+"$ACCESS до $TARGET_BASE_PATH $TARGET_CLASS."
 
 #: ../src/catchall.py:55
 msgid ""
@@ -1611,9 +1610,9 @@ msgstr ""
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr "вам слід змінити мітки на $TARGET_PATH."
 
-#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
-#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
-#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/openvpn.py:32 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
@@ -1622,6 +1621,57 @@ msgstr ""
 "\n"
 "    SELinux забороняє $SOURCE_PATH доступ \"$ACCESS\" до $TARGET_PATH. \n"
 "    "
+
+#: ../src/openvpn.py:36
+#, fuzzy
+msgid ""
+"\n"
+"    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
+"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"it \n"
+"    is labeled correctly.\n"
+"    "
+msgstr ""
+"\n"
+"    SELinux запобігає доступу за запитом $SOURCE. \n"
+"    Можливо, розмітка $TARGET_PATH некоректна.\n"
+"    Якщо каталог /root/.ssh позначено правильно, \n"
+"    SSHD дозволяється читати його зміст.\n"
+"    "
+
+#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    "
+msgstr ""
+"\n"
+"   Первинний контекст можна відновити за допомогою команди restorecon\n"
+"\n"
+"   Виконайте команду «restorecon -R /root/.ssh».\n"
+"    "
+
+#: ../src/openvpn.py:49
+msgid ""
+"you want to mv $TARGET_BASE_PATH to standard location so that "
+"$SOURCE_BASE_PATH can have $ACCESS access"
+msgstr ""
+
+#: ../src/openvpn.py:51
+msgid ""
+"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
+"can have $ACCESS access on it"
+msgstr ""
+
+#: ../src/openvpn.py:55
+msgid "you must move the cert file to the ~/.cert directory"
+msgstr ""
+
+#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+msgid "you must fix the labels."
+msgstr "вам слід виправити мітки."
 
 #: ../src/public_content.py:31
 msgid ""
@@ -2092,24 +2142,6 @@ msgstr ""
 "    SSHD дозволяється читати його зміст.\n"
 "    "
 
-#: ../src/sshd_root.py:42
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
-"    "
-msgstr ""
-"\n"
-"   Первинний контекст можна відновити за допомогою команди restorecon\n"
-"\n"
-"   Виконайте команду «restorecon -R /root/.ssh».\n"
-"    "
-
-#: ../src/sshd_root.py:47
-msgid "you must fix the labels."
-msgstr "вам слід виправити мітки."
-
 #: ../src/sshd_root.py:54
 msgid "Restore Context"
 msgstr "Відновити контекст"
@@ -2508,8 +2540,7 @@ msgid ""
 "to apache ports"
 msgstr ""
 "Чи бажаєте ви надати доступ користувачам xguest до налаштування Network "
-"Manager і "
-"встановлення з’єднання з портами apache"
+"Manager і встановлення з’єднання з портами apache"
 
 #: ../booleans_trans.py:7
 msgid "If you want to allow database admins to execute DML statement"
@@ -2571,8 +2602,7 @@ msgid ""
 "domain when running xulrunner plugin-container."
 msgstr ""
 "Чи бажаєте ви дозволити користувачам без обмежень доступ до домену додатків "
-"mozilla "
-"під час запуску контейнера додатків xulrunner."
+"mozilla під час запуску контейнера додатків xulrunner."
 
 #: ../booleans_trans.py:16
 msgid "If you want to allow confined virtual guests to read fuse files"
@@ -2643,8 +2673,7 @@ msgid ""
 "communication ports"
 msgstr ""
 "Чи бажаєте ви дозволити обмеженим віртуальним гостьовим системам "
-"використовувати послідовні або паралельні порти "
-"обміну даними"
+"використовувати послідовні або паралельні порти обміну даними"
 
 #: ../booleans_trans.py:27
 msgid ""
@@ -2912,8 +2941,8 @@ msgid ""
 msgstr ""
 "Чи бажаєте ви заборонити всім обмеженим доменам завантаження правил, "
 "встановлення примусового режиму та зміну логічних значень. Встановіть "
-"значення true. Для повернення попереднього значення "
-"систему доведеться перезавантажити"
+"значення true. Для повернення попереднього значення систему доведеться "
+"перезавантажити"
 
 #: ../booleans_trans.py:69
 msgid ""

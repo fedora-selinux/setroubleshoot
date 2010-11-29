@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins.kn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-23 11:54-0500\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
 "PO-Revision-Date: 2010-08-03 12:08+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: kn_IN <kde-i18n-doc@kde.org>\n"
@@ -1615,9 +1615,9 @@ msgstr ""
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr ""
 
-#: ../src/public_content.py:27 ../src/qemu_blk_image.py:27
-#: ../src/qemu_file_image.py:27 ../src/restorecon.py:32
-#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/openvpn.py:32 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
@@ -1627,6 +1627,58 @@ msgstr ""
 "    ಸಾಧನ $TARGET_PATH ಕ್ಕೆ $SOURCE_PATH \"$ACCESS\" ನ ನಿಲುಕಣೆಯನ್ನು SELinux "
 "ತಡೆದಿದೆ. \n"
 "    "
+
+#: ../src/openvpn.py:36
+#, fuzzy
+msgid ""
+"\n"
+"    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
+"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"it \n"
+"    is labeled correctly.\n"
+"    "
+msgstr ""
+"\n"
+"    $SOURCE ಇಂದ ಮನವಿ ಸಲ್ಲಿಸಲಾದ ನಿಲುಕಣಾ ಮನವಿಯನ್ನು SELinux ನಿರಾಕರಿಸಿದೆ. "
+"$TARGET_PATH\n"
+"    ಅನ್ನು ತಪ್ಪಾಗಿ ಲೇಬಲ್ ಮಾಡಿರಬಹುದು. sshd ಅನ್ನು ಸರಿಯಾಗಿ ಲೇಬಲ್ ಮಾಡಲಾಗಿದ್ದಲ್ಲಿ, /root/."
+"ssh ಕೋಶದಿಂದ \n"
+"    ಓದಲು ಅನುಮತಿ ಇರುತ್ತದೆ.\n"
+"    "
+
+#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    "
+msgstr ""
+"\n"
+"    ಈ ಕಡತಕ್ಕೆ ಗಣಕದ ಪೂರ್ವನಿಯೋಜಿತ ಸನ್ನಿವೇಶವನ್ನು ಮರುಸ್ಥಾಪಿಸಲು restorecon ಆಜ್ಞೆಯನ್ನು "
+"ನೀವುಬಳಸಬಹುದಾಗಿದೆ.\n"
+"    restorecon -R /root/.ssh ಅನ್ನು ಬಳಸಿಕೊಂಡು ಮರುಸ್ಥಾಪಿಸಬಹುದಾಗಿದೆ.\n"
+"    "
+
+#: ../src/openvpn.py:49
+msgid ""
+"you want to mv $TARGET_BASE_PATH to standard location so that "
+"$SOURCE_BASE_PATH can have $ACCESS access"
+msgstr ""
+
+#: ../src/openvpn.py:51
+msgid ""
+"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
+"can have $ACCESS access on it"
+msgstr ""
+
+#: ../src/openvpn.py:55
+msgid "you must move the cert file to the ~/.cert directory"
+msgstr ""
+
+#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+msgid "you must fix the labels."
+msgstr ""
 
 #: ../src/public_content.py:31
 msgid ""
@@ -2088,24 +2140,6 @@ msgstr ""
 "ssh ಕೋಶದಿಂದ \n"
 "    ಓದಲು ಅನುಮತಿ ಇರುತ್ತದೆ.\n"
 "    "
-
-#: ../src/sshd_root.py:42
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
-"    "
-msgstr ""
-"\n"
-"    ಈ ಕಡತಕ್ಕೆ ಗಣಕದ ಪೂರ್ವನಿಯೋಜಿತ ಸನ್ನಿವೇಶವನ್ನು ಮರುಸ್ಥಾಪಿಸಲು restorecon ಆಜ್ಞೆಯನ್ನು "
-"ನೀವುಬಳಸಬಹುದಾಗಿದೆ.\n"
-"    restorecon -R /root/.ssh ಅನ್ನು ಬಳಸಿಕೊಂಡು ಮರುಸ್ಥಾಪಿಸಬಹುದಾಗಿದೆ.\n"
-"    "
-
-#: ../src/sshd_root.py:47
-msgid "you must fix the labels."
-msgstr ""
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"
