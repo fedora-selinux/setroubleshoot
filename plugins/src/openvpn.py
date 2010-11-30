@@ -76,7 +76,8 @@ class plugin(Plugin):
                 avc.matches_target_types(['user_home_t'])            and \
                 avc.all_accesses_are_in(avc.read_file_perms)  and \
                 avc.has_tclass_in(['file']):
-            reports=[self.report(("move",None)), self.report(("fixlabel",None))]
+            return [self.report(("move",None)), self.report(("fixlabel",None))]
 
-        return reports
+        return None
+
         
