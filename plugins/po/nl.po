@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-29 10:58-0500\n"
-"PO-Revision-Date: 2010-11-24 11:50+0200\n"
+"PO-Revision-Date: 2010-11-30 10:15+0200\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Fedora\n"
 "Language: nl\n"
@@ -1677,7 +1677,6 @@ msgstr ""
 "    "
 
 #: ../src/openvpn.py:36
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1687,10 +1686,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux belette toegang verzocht door $SOURCE. $TARGET_PATH kan "
-"veroorzaakt zijn\n"
-"    door een verkeerd label. Het is sshd toegestaan om inhoud in de /root/."
-"ssh map te lezen \n"
+"    SELinux belette toegang verzocht door $SOURCE. $TARGET_PATH kan verkeerd\n"
+"    gelabeld zijn. Het is openvpn toegestaan om inhoud in de persoonlijke te "
+"lezen \n"
 "    als deze een juist label heeft.\n"
 "    "
 
@@ -1705,8 +1703,8 @@ msgstr ""
 "\n"
 "    Je kunt de standaard systeem context voor dit bestand herstellen door "
 "het restorecon\n"
-"    commando uit te voeren.  Herstel met gebruik van restorecon -R /root/."
-"ssh.\n"
+"    commando uit te voeren.  Herstel met gebruik van restorecon -R "
+"/root/.ssh.\n"
 "    "
 
 #: ../src/openvpn.py:49
@@ -1714,16 +1712,20 @@ msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"je wilt $TARGET_BASE_PATH verplaatsen met mv naar standaard locatie zodat "
+"$SOURCE_BASE_PATH $ACCESS toegang kan krijgen"
 
 #: ../src/openvpn.py:51
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
 msgstr ""
+"je wilt het label van $TARGET_BASE_PATH veranderen zodat $SOURCE_BASE_PATH "
+"$ACCESS toegang kan krijgen"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
-msgstr ""
+msgstr "je moet het cert bestand verplaatsen naar de ~/.cert map"
 
 #: ../src/openvpn.py:57 ../src/sshd_root.py:47
 msgid "you must fix the labels."
