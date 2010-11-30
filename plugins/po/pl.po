@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-29 10:58-0500\n"
-"PO-Revision-Date: 2010-11-23 22:45+0100\n"
+"PO-Revision-Date: 2010-11-30 10:50+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <trans-pl@lists.fedoraproject.org>\n"
 "Language: pl\n"
@@ -1583,7 +1583,6 @@ msgstr ""
 "    "
 
 #: ../src/openvpn.py:36
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1594,7 +1593,7 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux odmówił dostępu żądanego przez $SOURCE. $TARGET_PATH może mieć\n"
-"    błędną etykietę. sshd może odczytywać zawartość katalogu /root/.ssh,\n"
+"    błędną etykietę. openvpn może odczytywać zawartość katalogu domowego,\n"
 "    jeśli ma poprawną etykietę.\n"
 "    "
 
@@ -1617,16 +1616,20 @@ msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"aby zezwolić na przeniesienie $TARGET_BASE_PATH do standardowego położenia, "
+"aby $SOURCE_BASE_PATH mogło mieć $ACCESS dostęp"
 
 #: ../src/openvpn.py:51
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
 msgstr ""
+"aby zmodyfikować etykietę $TARGET_BASE_PATH, aby $SOURCE_BASE_PATH mogło "
+"mieć $ACCESS dostęp do niego"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
-msgstr ""
+msgstr "należy przenieść plik certyfikatu do katalogu ~/.cert"
 
 #: ../src/openvpn.py:57 ../src/sshd_root.py:47
 msgid "you must fix the labels."
