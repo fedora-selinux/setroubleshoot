@@ -393,6 +393,9 @@ class SEFaultSignatureInfo(XmlSerialize):
         self.template_substitutions["SOURCE_BASE_PATH"] = os.path.basename(self.spath)
         if self.spath:
             self.template_substitutions["FIX_SOURCE_PATH"] = re.sub(" ",".",self.spath)
+        else:
+            self.spath = _("N/A")
+
         self.template_substitutions["TARGET_PATH"] = self.tpath
         self.template_substitutions["TARGET_BASE_PATH"] = os.path.basename(self.tpath)
         if self.tpath:

@@ -861,7 +861,7 @@ class AVC:
                 self.tpath = _("port %s") % self.port
             else:
                 self.tpath = _("Unknown")
-            
+         
     def derive_avc_info_from_audit_event(self):
         self.tpath = None
         self.spath = None
@@ -922,6 +922,9 @@ class AVC:
 
         if not self.spath:
             self.spath = self.source
+
+        if not self.spath:
+            self.spath = self.scontext.type
 
         cwd_record = self.audit_event.get_record_of_type('CWD')
         if cwd_record:

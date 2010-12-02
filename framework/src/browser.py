@@ -40,7 +40,7 @@ from setroubleshoot.log import *
 from setroubleshoot.errcode import *
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
-#from setroubleshoot.html_util import *
+from setroubleshoot.html_util import html_to_text
 #from setroubleshoot.rpc import *
 #from setroubleshoot.rpc_interfaces import *
 #from setroubleshoot.run_cmd import *
@@ -459,7 +459,7 @@ class BrowserApplet:
         then_label.set_text(then_text)
         then_label.set_selectable(True)
 #        then_textview.set_editable(True)
-        then_label.set_alignment(0.5, 0.0)
+        then_label.set_alignment(0.0, 0.0)
         then_label.set_justify(gtk.JUSTIFY_LEFT)
         then_label.show()
         then_scroll = gtk.ScrolledWindow()
@@ -480,7 +480,7 @@ class BrowserApplet:
         self.table.attach(sev_frame, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
 
         col += 1
-        self.table.attach(if_radiobutton, col, col+1, rows, rows + 1, xoptions=gtk.FILL, yoptions=gtk.FILL)
+        self.table.attach(if_radiobutton, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.FILL)
 
         col += 1
         self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
@@ -527,8 +527,10 @@ class BrowserApplet:
            avc = sig.audit_event.records
            message = sig.substitute(sig.summary()) + "\n\n"
            message += _("Plugin: %s ") % plugin.analysis_id + "\n"
-           for i in plugin.problem_description.split("\n"):
-               message += sig.substitute(i.strip()) + "\n"
+           msg = ""
+           for i in plugin.get_problem_description(avc, args).split("\n"):
+               msg += sig.substitute(i.strip()) + "\n"
+           message += html_to_text(msg)
            message += sig.substitute(_("If ") + plugin.get_if_text(avc, args)) + "\n"
            message += sig.substitute(plugin.get_then_text(avc, args)) + "\n"
            message += sig.substitute(plugin.get_do_text(avc, args)) + "\n"
@@ -692,10 +694,13 @@ class BrowserApplet:
         if size < self.current_alert:
             self.current_alert = size
         sig = self.alert_list[self.current_alert]
-        if sig.spath and len(sig.spath) > 30:
+        if not sig.spath:
+            sig.spath = sig.scontext.type
+        if len(sig.spath) > 30:
             self.source_label.set_label(os.path.basename(sig.spath))
         else:
             self.source_label.set_label(sig.spath)
+
         self.source_label.set_tooltip_text(sig.spath)
 #        self.source_image.set_from_gicon(get_icon(sig.spath, "file"), gtk.ICON_SIZE_DIALOG)
         if sig.tpath == _("Unknown"):
@@ -758,14 +763,24 @@ class BrowserApplet:
         self.liststore.clear()
         ctr = 1
         for alert in self.alert_list:
-            tpath = alert.tpath.rstrip("/")
-            if alert.tpath == _("Unknown"):
+            if not alert.spath:
+                spath = _("N/A")
+            else:
+                spath = os.path.basename(alert.spath)
+
+            if not alert.tpath:
+                   tpath = _("N/A")
+            elif alert.tpath == _("Unknown"):
                    tpath = alert.tclass
+            else:
+                tpath = alert.tpath.rstrip("/")
+                tpath = os.path.basename(tpath)
 	    if alert.evaluate_filter_for_user(self.username) == "ignore":
 		   status = _("Ignore")
             else:
 		   status = _("Notify")
-	    self.liststore.append([ctr, os.path.basename(alert.spath), ",".join(alert.sig.access),os.path.basename(tpath), alert.report_count, status])
+
+	    self.liststore.append([ctr, spath, ",".join(alert.sig.access), tpath, alert.report_count, status])
             ctr = ctr + 1
 
     def on_list_all_button_clicked(self, widget):

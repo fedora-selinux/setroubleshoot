@@ -33,10 +33,19 @@ class plugin(Plugin):
     SELinux is preventing $SOURCE_PATH "$ACCESS" access to $TARGET_PATH.
     ''')
 
-    problem_description = _('''
+    fix_cmd = "/sbin/restorecon $TARGET_PATH"
+
+    fix_description = _('''
+    You can restore the default system context to this file by executing the
+    restorecon command.  restorecon '$TARGET_PATH', if this file is a directory,
+    you can recursively restore using restorecon -R '$TARGET_PATH'.
+    ''')
+
+    def get_problem_description(self, avc, args):
+        return _('''
     SELinux denied access requested by $SOURCE. $TARGET_PATH may
     be a mislabeled.  $TARGET_PATH default SELinux type is
-    <B>$MATCTYPE</B>, but its current type is <B>$TARGET_TYPE</B>. Changing
+    <B>%s</B>, but its current type is <B>$TARGET_TYPE</B>. Changing
     this file back to the default type, may fix your problem.
     <p>
     File contexts can be assigned to a file in the following ways.
@@ -57,24 +66,20 @@ class plugin(Plugin):
     with this type.
     <p>
     If you believe this is a bug, please file a bug report against this package.
-    ''')
+    ''') % args[1]
 
-    fix_description = _('''
-    You can restore the default system context to this file by executing the
-    restorecon command.  restorecon '$TARGET_PATH', if this file is a directory,
-    you can recursively restore using restorecon -R '$TARGET_PATH'.
-    ''')
+    if_text = _('you want to fix the label. \n$TARGET_PATH default label should be %s.') 
 
-    fix_cmd = "/sbin/restorecon $TARGET_PATH"
+    def get_if_text(self, avc, args):
+        return self.if_text % args[1]
 
-    if_text = _('you want to fix the label, $TARGET_BASE_PATH does not have the default system label.')
     then_text = _('you can run restorecon.')
     do_text = '# /sbin/restorecon -v $TARGET_PATH'
     
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(100)
-        self.level = "yellow"
+        self.level = "green"
         self.fixable = True
         self.button_text=_("Restore\nContext")
 
@@ -94,11 +99,8 @@ class plugin(Plugin):
                 mcon = selinux.matchpathcon(avc.tpath.strip('"'), restorecon_files[avc.tclass])[1]
                 mcon_type=mcon.split(":")[2]
                 if mcon_type != avc.tcontext.type:
-                    # MATCH
-                    avc.set_template_substitutions(MATCHTYPE=mcon_type)
-                    return self.report()
+                    return self.report((0, mcon_type))
             except OSError:
                 pass
-    
 
         return None
