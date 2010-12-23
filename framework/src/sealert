@@ -538,16 +538,20 @@ def do_analyze_logfile(logfile_path):
         
 #-----------------------------------------------------------------------------
 
+def display_terminal_traceback(who):
+    import traceback
+    stacktrace = traceback.format_exc()
+    print _("Opps, %s hit an error!" % who) + '\n\n' +stacktrace
+
 try:
     from setroubleshoot.gui_utils import display_traceback
 except:
     def display_traceback(who):
-        import traceback
-        stacktrace = traceback.format_exc()
-        print _("Opps, %s hit an error!" % who) + '\n\n' +stacktrace
+        display_terminal_traceback(who)
 
 # -- Main --
 if __name__ == '__main__':
+    use_terminal = False
     setup_sighandlers()
     if debug:
         log_program.debug("main() args=%s", sys.argv)
@@ -696,6 +700,8 @@ if __name__ == '__main__':
             run_app(username)
             sys.exit()
         elif invocation_style == 'lookupid':
+            use_terminal = True
+
             from setroubleshoot.signature import *
             try:
                 # make sure setroubleshoot is running
@@ -711,6 +717,8 @@ if __name__ == '__main__':
 
             sys.exit()
         elif invocation_style == 'analyze':
+            use_terminal = True
+
             try:
                 do_analyze_logfile(logfile)
             except OSError, e:
@@ -726,6 +734,8 @@ if __name__ == '__main__':
                 sys.exit(3)
             sys.exit()
         elif invocation_style == 'fix':
+            use_terminal = True
+
             from setroubleshoot.signature import *
             try:
                 if plugin_name == None:
@@ -750,5 +760,9 @@ if __name__ == '__main__':
 
     except Exception, e:
         log_program.exception("exception %s: %s",e.__class__.__name__, str(e))
-        display_traceback('sealert')
+        if use_terminal:
+            display_terminal_traceback('sealert')
+        else:
+            display_traceback('sealert')
+
         sys.exit(3)
