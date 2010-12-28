@@ -707,11 +707,15 @@ class BrowserApplet:
             self.target_label.set_label("")
             self.target_label.set_tooltip_text("")
         else:
-            if sig.tpath and len(sig.tpath) > 30:
-                self.target_label.set_label(os.path.basename(sig.tpath))
+            if sig.tpath:
+                if len(sig.tpath) > 30:
+                    self.target_label.set_label(os.path.basename(sig.tpath))
+                else:
+                    self.target_label.set_label(sig.tpath)
+                self.target_label.set_tooltip_text(sig.tpath)
             else:
-                self.target_label.set_label(sig.tpath)
-            self.target_label.set_tooltip_text(sig.tpath)
+                self.target_label.set_label("")
+                self.target_label.set_tooltip_text("")
 #        self.target_image.set_from_gicon(get_icon(sig.tpath, sig.tclass), gtk.ICON_SIZE_DIALOG)
         if sig.tclass == "dir":
             tclass = "directory"
