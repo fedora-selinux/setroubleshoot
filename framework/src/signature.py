@@ -58,7 +58,6 @@ from setroubleshoot.errcode import *
 from setroubleshoot.util import *
 from setroubleshoot.xml_serialize import *
 from setroubleshoot.log import *
-from setroubleshoot.util import *
 from setroubleshoot.html_util import *
 import setroubleshoot.uuid as uuid
 from setroubleshoot.audit_data import *
