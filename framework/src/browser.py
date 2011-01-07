@@ -339,7 +339,7 @@ class BrowserApplet:
     def on_report_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
             sig = self.alert_list[self.current_alert]
-            Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text()], stdout=PIPE)
+            Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text() + sig.format_details()], stdout=PIPE)
 
     def set_ignore_sig(self, sig, state):
         if state == True:
