@@ -3,20 +3,20 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
 # Runa Bhattacharjee <runab@redhat.com>, 2006, 2007, 2009, 2010.
-# Runa Bhattacharjee <runab@fedoraproject.org>, 2008, 2009.
+# Runa Bhattacharjee <runab@fedoraproject.org>, 2008, 2009, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-29 10:58-0500\n"
-"PO-Revision-Date: 2010-08-03 12:26+0530\n"
-"Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
-"Language-Team: Bengali INDIA <anubad@lists.ankur.org.in>\n"
+"PO-Revision-Date: 2011-01-07 18:27+0530\n"
+"Last-Translator: \n"
+"Language-Team: American English <kde-i18n-doc@kde.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "\n"
 "\n"
@@ -78,15 +78,16 @@ msgstr ""
 "    "
 
 #: ../src/allow_anon_write.py:44
-msgid ""
-"you want to allow $SOURCE_PATH to be able to write to shared public content"
-msgstr ""
+msgid "you want to allow $SOURCE_PATH to be able to write to shared public content"
+msgstr "$SOURCE_PATH-কে যৌথ ব্যবহারের তথ্য লেখার অনুমতি প্রদান করতে ইচ্ছুক"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
 msgstr ""
+"$TARGET_PATH-র লেবেল public_content_rw_t-এ পরিবর্তন করে allow_httpd_sys_script_anon_write "
+"বুলিয়ানের মান সম্ভবত চালু করা প্রয়োজন।"
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -152,18 +153,18 @@ msgstr ""
 msgid ""
 "you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "$SOURCE_PATH দ্বারা কোনো লেখা ও সঞ্চালনযোগ্য heap মেমরি ম্যাপ করার প্রয়োজন নেই।"
 
 #: ../src/allow_execheap.py:51 ../src/allow_execstack.py:62
 msgid "you need to report a bug. This is a potentially dangerous access."
-msgstr ""
+msgstr "বাগ সম্পর্কে সূচিত করা আবশ্যক। এই ধরনের ব্যবহারের অধিকারের ফলে বিপদ দেখা দিতে পারে।"
 
 #: ../src/allow_execheap.py:52 ../src/allow_execstack.py:63
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
 #: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
 msgid "Contact your security administrator and report this issue."
-msgstr ""
+msgstr "নিরাপত্তা সংক্রান্ত অ্যাডমিনিস্ট্রেটরের সাথে যোগাযোগ করে এই সমস্যা সম্পর্কে জানান।"
 
 #: ../src/allow_execmod.py:27
 msgid ""
@@ -351,7 +352,7 @@ msgstr ""
 msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "$SOURCE_PATH দ্বারা কোনো লেখা ও সঞ্চালনযোগ্য stack মেমরি ম্যাপ করার প্রয়োজন নেই।"
 
 #: ../src/allow_ftpd_use_cifs.py:29
 msgid ""
@@ -433,11 +434,11 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "ftpd-কে cifs ফাইল-সিস্টেমে লেখার অনুমতি প্রদান করতে ইচ্ছুক"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
-msgstr ""
+msgstr "SELinux-কে এই সম্পর্কে সূচিত করা আবশ্যক"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -522,7 +523,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "ftpd-কে nfs ফাইল-সিস্টেমে লেখার অনুমতি প্রদান করতে ইচ্ছুক"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -558,7 +559,6 @@ msgstr ""
 "    "
 
 #: ../src/automount_exec_config.py:39
-#, fuzzy
 msgid ""
 "\n"
 "    If you want to change the file context of $TARGET_PATH so that the "
@@ -587,7 +587,7 @@ msgstr ""
 "    "
 
 #: ../src/bind_ports.py:31
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux has denied the $SOURCE from binding to a network port "
@@ -602,18 +602,18 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux দ্বারা $SOURCE-কে পোর্ট $PORT_NUMBER'র সাথে বাইন্ড করতে বাধা দেওয়া "
+"    SELinux দ্বারা $SOURCE-কে নেটওয়ার্ক পোর্ট $PORT_NUMBER'র সাথে বাইন্ড করতে বাধা দেওয়া "
 "হচ্ছে, এই পোর্টের সাথে কোনো SELinux ধরন যুক্ত নয়।\n"
 "    $SOURCE-কে যদি এই $PORT_NUMBER-এ অপেক্ষা করার অনুমতি প্রদান করা হয় তাহলে "
 "<i>semanage</i> কমান্ড প্রয়োগ করে এই $PORT_NUMBER-কে $SOURCE_TYPE দ্বারা বাইন্ড "
 "করার যোগ্য একটি পোর্টের ধরনে নির্ধারণ করুন (%s) \n"
-"    <br><br>$SOURCE দ্বারা এই $PORT_NUMBER-এ বাইন্ড করার জন্য নির্ধারণ না করা "
-"হলে\n"
+"$SOURCE দ্বারা এই $PORT_NUMBER-এ বাইন্ড করার জন্য নির্ধারণ না করা হলে\n"
 "    এটি অনুপ্রবেশের সংকেত হতে পারে।\n"
 "    "
 
 #: ../src/bind_ports.py:38
-#, fuzzy, python-format
+#, python-format
+#, fuzzy
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to bind to port $PORT_NUMBER, you can "
@@ -631,26 +631,24 @@ msgid ""
 msgstr ""
 "\n"
 "    $SOURCE-কে $PORT_NUMBER পোর্টের সাথে বাইন্ড করার অনুমতি প্রদান করার জন্য "
-"নিম্নলিখিত কমান্ডগুলি প্রয়োগ করুন <br>\n"
-"    <b># semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b>\n"
-"    <br>এই ক্ষেত্রে PORT_TYPE-র জন্য নিম্নলিখিত একটি মান প্রয়োগ করা যাবে: %s.\n"
+"নিম্নলিখিত কমান্ডগুলি প্রয়োগ করুন  \n"
 "\n"
-"    <br><br>এই সিস্টেমটি যদি NIS ক্লায়েন্ট রূপে ব্যবহৃত হয় তাহলে allow_ypbind "
-"বুলিয়ান সক্রিয় করা হলে এই সমস্যা সমাধান করা যাবে।  setsebool -P "
-"allow_ypbind=1।\n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"\n"
+"    \n"
+"\n"
+"এই সিস্টেমটি যদি NIS ক্লায়েন্ট রূপে ব্যবহৃত হয় তাহলে allow_ypbind "
+"বুলিয়ান সক্রিয় করা হলে এই সমস্যা সমাধান করা যাবে।  setsebool -P allow_ypbind=1।\n"
 "    "
 
 #: ../src/bind_ports.py:51 ../src/connect_ports.py:50
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "    where PORT_TYPE is one of the following: %s."
 msgstr ""
-"\n"
-"    $SOURCE-কে এই $PORT_NUMBER-র সাথে সংযোগের অনুমতি প্রদান করতে প্রয়োগ "
-"করুন<br>\n"
-"    <b>semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b>\n"
-"    <br>PORT_TYPE-র ক্ষেত্রে নিম্নলিখিত যে কোনো একটি মান প্রয়োগ করা হবে: %s.\n"
+"#semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"    <br>PORT_TYPE-র ক্ষেত্রে নিম্নলিখিত যে কোনো একটি মান প্রয়োগ করা হবে: %s."
 "    "
 
 #: ../src/catchall_boolean.py:31
@@ -704,17 +702,17 @@ msgstr ""
 #: ../src/catchall_boolean.py:59
 #, python-format
 msgid "you want to %s"
-msgstr ""
+msgstr "%s করতে ইচ্ছুক"
 
 #: ../src/catchall_boolean.py:62
 #, python-format
 msgid "setsebool -P %s %s"
-msgstr ""
+msgstr "setsebool -P %s %s"
 
 #: ../src/catchall_boolean.py:65
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean."
-msgstr ""
+msgstr "'%s' বুলিয়ানটি সক্রিয় করে SELinux-কে এই সম্পর্কে সূচিত করা আবশ্যক।"
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -743,7 +741,7 @@ msgstr ""
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
-msgstr ""
+msgstr "$FIX_TARGET_PATH-র লেবেল পরিবর্তন করা আবশ্যক"
 
 #: ../src/catchall_labels.py:40
 #, python-format
@@ -753,13 +751,14 @@ msgid ""
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
 msgstr ""
+"# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\n"
+"এই ক্ষেত্রে FILE_TYPE-র জন্য নিম্নলিখিত একটি মান প্রযোজ্য: %s. \n"
+"এর পরে ব্যবহার করুন: \n"
+"restorecon -v '$FIX_TARGET_PATH'\n"
 
 #: ../src/catchall.py:29
-#, fuzzy
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr ""
-"\n"
-"SELinux দ্বারা $SOURCE_PATH-কে \"$ACCESS\" করতে প্রতিরোধ করা হয়েছে।        "
+msgstr "SELinux দ্বারা $SOURCE_PATH-কে \"$ACCESS\" করতে প্রতিরোধ করা হয়েছে।"
 
 #: ../src/catchall.py:31
 msgid ""
@@ -801,38 +800,36 @@ msgstr ""
 "    "
 
 #: ../src/catchall.py:50
-#, fuzzy
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
-"\n"
-"    SELinux দ্বারা $SOURCE_PATH-কে ডিভাইস $TARGET_PATH \"$ACCESS\" ব্যবহারের "
-"বাধা সৃষ্টি করা হচ্ছে। \n"
-"    "
+"আপনার মতে $SOURCE_BASE_PATH-কে $TARGET_TYPE রূপে লেবেল করা প্রসেসের জন্য $ACCESS "
+"ব্যবহারের অধিকা প্রদান করা আবশ্যক।"
 
 #: ../src/catchall.py:52
 msgid ""
 "you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
 msgstr ""
+"you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
+"default."
 
 #: ../src/catchall.py:53
-#, fuzzy
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
-"\n"
-"    SELinux দ্বারা $SOURCE_PATH-কে ডিভাইস $TARGET_PATH \"$ACCESS\" ব্যবহারের "
-"বাধা সৃষ্টি করা হচ্ছে। \n"
-"    "
+"আপনার মতে $SOURCE_BASE_PATH-কে ডিফল্ট অবস্থায় $TARGET_BASE_PATH $TARGET_CLASS -র জন্য "
+"$ACCESS ব্যবহারের অধিকার প্রদান করা হবে।"
 
 #: ../src/catchall.py:55
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
+"এটি বাগ হিসাবে দায়ের করা উচিত।\n"
+"এই অধিকার প্রদান করার জন্য স্থানীয় নিয়মনীতির মডিউল প্রস্তুত করা যাবে।"
 
 #: ../src/catchall.py:56
 msgid ""
@@ -840,6 +837,9 @@ msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"এই অধিকার প্রদান করার জন্য নিম্নলিখিত কমান্ড প্রয়োগ করুন:\n"
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
 msgid ""
@@ -854,7 +854,7 @@ msgstr ""
 "    "
 
 #: ../src/connect_ports.py:31
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux has denied $SOURCE from connecting to a network port "
@@ -871,16 +871,18 @@ msgstr ""
 "\n"
 "    SELinux দ্বারা $SOURCE-কে নেটওয়ার্ক পোর্ট $PORT_NUMBER'র সাথে সংযোগ করতে "
 "বাধা দেওয়া হচ্ছে, এই পোর্টের সাথে কোনো SELinux ধরন যুক্ত নয়।\n"
-"    $SOURCE-কে যদি এই $PORT_NUMBER-এ অপেক্ষা করার অনুমতি প্রদান করা হয় তাহলে "
+"    $SOURCE-কে যদি এই $PORT_NUMBER-র সাথে সংযোগ করার অনুমতি প্রদান করা হয় তাহলে "
 "<i>semanage</i> কমান্ড প্রয়োগ করে এই $PORT_NUMBER-কে $SOURCE_TYPE দ্বারা সংযোগ "
 "করার যোগ্য একটি পোর্টের ধরনে নির্ধারণ করুন (%s) \n"
-"    <br><br>$SOURCE দ্বারা এই $PORT_NUMBER-এ সংযোগ করার জন্য নির্ধারণ না করা "
+"    \n"
+"\n"
+"$SOURCE দ্বারা এই $PORT_NUMBER-এ সংযোগ করার জন্য নির্ধারণ না করা "
 "হলে\n"
 "    এটি অনুপ্রবেশের সংকেত হতে পারে।\n"
 "    "
 
 #: ../src/connect_ports.py:39
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can "
@@ -893,9 +895,11 @@ msgid ""
 msgstr ""
 "\n"
 "    $SOURCE-কে এই $PORT_NUMBER-র সাথে সংযোগের অনুমতি প্রদান করতে প্রয়োগ "
-"করুন<br>\n"
-"    <b>semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b>\n"
-"    <br>PORT_TYPE-র ক্ষেত্রে নিম্নলিখিত যে কোনো একটি মান প্রয়োগ করা হবে: %s.\n"
+"করুন\n"
+"\n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"\n"
+"    PORT_TYPE-র ক্ষেত্রে নিম্নলিখিত যে কোনো একটি মান প্রয়োগ করা হবে: %s.\n"
 "    "
 
 #: ../src/cvs_data.py:27
@@ -949,11 +953,11 @@ msgstr ""
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "$TARGET_BASE_PATH-টি cvs ডেমনের মাধ্যমে যৌথরূপে ব্যবহার করা আবশ্যক"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
-msgstr ""
+msgstr "$TARGET_BASE_PATH'-র লেবেল পরিবর্তন করা আবশ্যক"
 
 #: ../src/device.py:29
 msgid ""
@@ -1043,15 +1047,16 @@ msgstr ""
 "    "
 
 #: ../src/device.py:60
-msgid ""
-"You need to change the label on $TARGET_PATH to a type of a similar device."
-msgstr ""
+msgid "You need to change the label on $TARGET_PATH to a type of a similar device."
+msgstr "$TARGET_PATH-র লেবেলটি সমতূল্য প্রকৃতির ডিভাইসে পরিবর্তন করা আবশ্যক।"
 
 #: ../src/device.py:61
 msgid ""
 "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/disable_ipv6.py:30
 msgid ""
@@ -1113,19 +1118,19 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr ""
+msgstr "নবনির্মিত ফাইল-সিস্টেম দ্বারা এটি হয়।"
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
-msgstr ""
+msgstr "আপনার মতে, ত্রুটিপূর্ণরূপে লেবেল করা মেশিনের জন্য এটি হয়েছে।"
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
-msgstr ""
+msgstr "এটির জন্য লেবেল প্রয়োগ করা আবশ্যক।"
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
-msgstr ""
+msgstr "পুনরায় সম্পূর্ণরূপে লেবেল করা আবশ্যক।"
 
 #: ../src/filesystem_associate.py:27
 msgid ""
@@ -1186,23 +1191,23 @@ msgid ""
 "you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
 "files"
 msgstr ""
+"আপনার মতে $SOURCE_BASE_PATH-কে $TARGET_BASE_PATH ফাইল নির্মাণের অনুমতি প্রদান করা উচিত"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
 "you need to use a different command. You are not allowed to preserve the "
 "SELinux context on the target file system."
 msgstr ""
+"ভিন্ন কমান্ড ব্যবহার করা আবশ্যক। উদ্দিষ্ট ফাইল-সিস্টেমের মধ্যে SELinux কনটেক্সট সংরক্ষণ "
+"করার অনুমতি নেই।"
 
 #: ../src/filesystem_associate.py:46
-#, fuzzy
 msgid ""
 "use a command like \"cp -p\" to preserve all permissions except SELinux "
 "context."
 msgstr ""
-"\n"
-"    SELinux কনটেক্সট ব্যতীত অন্যান্য সকল অনুমতি অপরিবর্তিত রাখতে \"cp -P\" ধরনের "
-"কোনো কমান্ড প্রয়োগ করুন।\n"
-"    "
+"SELinux কনটেক্সট ব্যতীত অন্যান্য সকল অনুমতি অপরিবর্তিত রাখতে \"cp -P\" ধরনের "
+"কোনো কমান্ড প্রয়োগ করুন।"
 
 #: ../src/httpd_can_sendmail.py:28
 msgid ""
@@ -1247,22 +1252,20 @@ msgstr ""
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
-msgstr ""
+msgstr "httpd-কে আপনি মেইল পাঠানোর অনুমতি প্রদান করতে ইচ্ছুক"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
-msgstr ""
+msgstr "এই অনুমতি প্রদান করার জন্য SELinux প্রস্তুত করা আবশ্যক"
 
 #: ../src/httpd_unified.py:29
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
 "    "
 msgstr ""
 "\n"
-"    SELinux দ্বারা httpd-কে ($SOURCE_PATH) $TARGET_PATH $ACCESS ব্যবহারে বাধা "
-"সৃষ্টি করা হচ্ছে। \n"
+"SELinux দ্বারা httpd-কে http ফাইল $ACCESS ব্যবহারে বাধা সৃষ্টি করা হচ্ছে। \n"
 "    "
 
 #: ../src/httpd_unified.py:33
@@ -1308,12 +1311,16 @@ msgid ""
 "you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
 "of all content files."
 msgstr ""
+"আপনি httpd দ্বারা cgi স্ক্রিপ্ট সঞ্চালন ও সর্বধরনের তথ্য বিশিষ্ট ফাইল পরিচালনার জন্য "
+"HTTPD দ্বারা একত্রিত ব্যবহারপ্রণালীর অনুমতি প্রদান করতে ইচ্ছুক"
 
 #: ../src/httpd_unified.py:58
 msgid ""
 "you must tell SELinux about this by enabling the 'httpd_unified' and "
 "'http_enable_cgi' booleans"
 msgstr ""
+"'httpd_unified' ও 'http_enable_cgi' বুলিয়ানগুলি সক্রিয় করে SELinux-কে এই সম্পর্কে সূচিত "
+"করুন"
 
 #: ../src/httpd_write_content.py:30
 msgid ""
@@ -1342,7 +1349,7 @@ msgstr ""
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
 msgid "You need to change the label on '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "'$FIX_TARGET_PATH'-র লেবেল পরিবর্তন করা আবশ্যক"
 
 #: ../src/kernel_modules.py:29
 msgid ""
@@ -1381,21 +1388,20 @@ msgstr ""
 "    "
 
 #: ../src/kernel_modules.py:44 ../src/selinuxpolicy.py:44
-#, fuzzy
 msgid ""
 "you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
 msgstr ""
-"\n"
-"    SELinux দ্বারা $SOURCE_PATH-কে ডিভাইস $TARGET_PATH \"$ACCESS\" ব্যবহারের "
-"বাধা সৃষ্টি করা হচ্ছে। \n"
-"    "
+"আপনার মতে $SOURCE_BASE_PATH দ্বারা $TARGET_BASE_PATH-র মধ্যে $ACCESS ব্যবহার করার "
+"প্রচেষ্টা করা উচিত নয়।"
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
 "you may be under attack by a hacker, since confined applications should not "
 "need this access."
 msgstr ""
+"কনফাইন করা অ্যাপ্লিকেশন দ্বারা এই অধিকার প্রয়োজন হবে না। সম্ভবত আপনি হ্যাকিং আক্রমণের "
+"শিকার হয়েছেন।"
 
 #: ../src/leaks.py:27
 msgid ""
@@ -1459,12 +1465,16 @@ msgid ""
 "You should report this as a bug.  \n"
 "You can generate a local policy module to dontaudit this access."
 msgstr ""
+"বাগ রূপে এটি দায়ের করুন।  \n"
+"এই অধিকার dontaudit রূপে চিহ্নিত করার জন্য একটি স্থানীয় পলিসি মডিউল প্রস্তুত করা যাবে।"
 
 #: ../src/leaks.py:44
 msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1512,13 +1522,12 @@ msgstr ""
 "    "
 
 #: ../src/mmap_zero.py:46
-msgid ""
-"you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
-msgstr ""
+msgid "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
+msgstr "আপনার মতে $SOURCE_PATH দ্বারা কার্নেলের মধ্যে কম মেমরি mmap করার প্রয়োজন নেই।"
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
-msgstr ""
+msgstr "এই অধিকার অত্যন্ত বিপজ্জনক এবং সম্ভব আপনি কোনো হ্যাকিং আক্রমণের শিকার হয়েছেন।"
 
 #: ../src/mounton.py:29
 msgid ""
@@ -1578,10 +1587,11 @@ msgstr ""
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
 msgstr ""
+"আপনি $SOURCE_BASE_PATH-কে $TARGET_BASE_PATH-এ মাউন্ট করার অনুমতি প্রদান করতে দিতে ইচ্ছুক।"
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
-msgstr ""
+msgstr "$TARGET_PATH-র লেবেল পরিবর্তন করা আবশ্যক।"
 
 #: ../src/openvpn.py:32 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -1597,7 +1607,6 @@ msgstr ""
 "    "
 
 #: ../src/openvpn.py:36
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1609,9 +1618,9 @@ msgstr ""
 "\n"
 "    $SOURCE দ্বারা অনুরোধ করা ব্যবহারাধিকার SELinux দ্বারা প্রত্যাখ্যান করা হয়েছে। "
 "$TARGET_PATH সম্ভবত\n"
-"    সঠিকভাবে লেবেল করা হয়নি। সঠিকরূপে লেবেল করা হলে, /root/.ssh ডিরেক্টরির "
+"    সঠিকভাবে লেবেল করা হয়নি। সঠিকরূপে লেবেল করা হলে, ব্যক্তিগত ডিরেক্টরির "
 "মধ্যে অন্তর্ভুক্ত তথ্য\n"
-"    sshd দ্বারা পড়া সম্ভব হবে।\n"
+"    openvpn দ্বারা পড়া সম্ভব হবে।\n"
 "    "
 
 #: ../src/openvpn.py:42 ../src/sshd_root.py:42
@@ -1633,20 +1642,24 @@ msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"$SOURCE_BASE_PATH দ্বারা $ACCESS ব্যবহারের অধিকার প্রদান করার জন্য আপনি "
+"$TARGET_BASE_PATH-কে প্রমিত অবস্থানে স্থানান্তর অর্থাৎ mv করতে ইচ্ছুক"
 
 #: ../src/openvpn.py:51
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
 msgstr ""
+"$SOURCE_BASE_PATH দ্বারা $ACCESS ব্যবহারের অধিকার প্রদান করার জন্য আপনি "
+"$TARGET_BASE_PATH-র লেবেল পরিবর্তন করতে ইচ্ছুক"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
-msgstr ""
+msgstr "cert ফাইলটি ~/.cert ডিরেক্টরির মধ্যে স্থানান্তর করা আবশ্যক"
 
 #: ../src/openvpn.py:57 ../src/sshd_root.py:47
 msgid "you must fix the labels."
-msgstr ""
+msgstr "লেবেলগুলি সংশোধন করা আবশ্যক।"
 
 #: ../src/public_content.py:31
 msgid ""
@@ -1697,6 +1710,8 @@ msgid ""
 "You need to change the label on $TARGET_BASE_PATH to public_content_t or "
 "public_content_rw_t."
 msgstr ""
+"$TARGET_BASE_PATH-র লেবেল public_content_t অথবা public_content_rw_t রূপে পরিবর্তন করা "
+"আবশ্যক।"
 
 #: ../src/qemu_blk_image.py:31
 msgid ""
@@ -1746,6 +1761,8 @@ msgid ""
 "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/qemu_file_image.py:31
 msgid ""
@@ -1783,7 +1800,7 @@ msgstr ""
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "$TARGET_BASE_PATH একটি ভার্চুয়ালাইজেশন টার্গেট"
 
 #: ../src/restorecon.py:36
 #, fuzzy
@@ -1880,17 +1897,20 @@ msgid ""
 "you want to fix the label, $TARGET_BASE_PATH does not have the default "
 "system label."
 msgstr ""
+"আপনি লেবেলটি সংশোধন করতে ইচ্ছুক, $TARGET_BASE_PATH-র ক্ষেত্রে ডিফল্ট সিস্টেম লেবেল "
+"উপস্থিত নেই।"
 
 #: ../src/restorecon.py:71
 msgid "you can run restorecon."
-msgstr ""
+msgstr "restorecon সঞ্চালন করা যাবে।"
 
 #: ../src/restorecon.py:79
-#, fuzzy
 msgid ""
 "Restore\n"
 "Context"
-msgstr "কনটেক্সট পুনরুদ্ধার করুন"
+msgstr ""
+"কনটেক্সট\n"
+"পুনরুদ্ধার করুন"
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1929,11 +1949,11 @@ msgstr ""
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr ""
+msgstr "rsync ডেমনের মাধ্যমে $TARGET_BASE_PATH যৌথরূপে ব্যবহার করা যাবে"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
-msgstr ""
+msgstr "$TARGET_BASE_PATH-র লেবেল পরিবর্তন করা আবশ্যক"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1993,6 +2013,8 @@ msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
+"# restorecon %s -v '$FIX_TARGET_PATH'"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -2030,11 +2052,11 @@ msgstr ""
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
-msgstr ""
+msgstr "পরীক্ষার ফলে সরাসরি এই AVC সৃষ্টি হয়নি।"
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
-msgstr ""
+msgstr "যদি হ্যাকিংয়ের সম্ভাবনা দেখা দেয়"
 
 #: ../src/setenforce.py:32
 msgid ""
@@ -2075,13 +2097,15 @@ msgstr ""
 
 #: ../src/setenforce.py:48
 msgid "you believe $SOURCE_PATH tried to disable SELinux."
-msgstr ""
+msgstr "আপনার মতে $SOURCE_PATH দ্বারা SELinux নিষ্ক্রিয় করার প্রচেষ্টা করা হয়েছিল।"
 
 #: ../src/setenforce.py:49
 msgid ""
 "you may be under attack by a hacker, since confined applications should "
 "never need this access."
 msgstr ""
+"কনফাইন করা অ্যাপ্লিকেশন দ্বারা এই অধিকার প্রয়োজন হবে না। সম্ভবত আপনি হ্যাকিং আক্রমণের "
+"শিকার হয়েছেন।"
 
 #: ../src/sshd_root.py:36
 msgid ""
@@ -2451,8 +2475,7 @@ msgstr ""
 "    "
 
 #: ../booleans_trans.py:1
-msgid ""
-"If you want to allow ftp to read and write files in the user home directories"
+msgid "If you want to allow ftp to read and write files in the user home directories"
 msgstr ""
 
 #: ../booleans_trans.py:2
@@ -2472,8 +2495,7 @@ msgid "If you want to allow xen to manage nfs files"
 msgstr ""
 
 #: ../booleans_trans.py:5
-msgid ""
-"If you want to allow confined web browsers to read home directory content"
+msgid "If you want to allow confined web browsers to read home directory content"
 msgstr ""
 
 #: ../booleans_trans.py:6
@@ -2601,8 +2623,7 @@ msgid "If you want to allow rsync to run as a client"
 msgstr ""
 
 #: ../booleans_trans.py:29
-msgid ""
-"If you want to allow rgmanager domain to connect to the network using TCP."
+msgid "If you want to allow rgmanager domain to connect to the network using TCP."
 msgstr ""
 
 #: ../booleans_trans.py:30
@@ -2638,8 +2659,7 @@ msgid "If you want to allow Git daemon system to access cifs file systems."
 msgstr ""
 
 #: ../booleans_trans.py:37
-msgid ""
-"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
+msgid "If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
 msgstr ""
 
 #: ../booleans_trans.py:38
@@ -2651,8 +2671,7 @@ msgid "If you want to allow httpd to access cifs file systems"
 msgstr ""
 
 #: ../booleans_trans.py:40
-msgid ""
-"If you want to allow piranha-lvs domain to connect to the network using TCP."
+msgid "If you want to allow piranha-lvs domain to connect to the network using TCP."
 msgstr ""
 
 #: ../booleans_trans.py:41
@@ -2693,8 +2712,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:49
-msgid ""
-"If you want to allow samba to create new home directories (e.g. via PAM)"
+msgid "If you want to allow samba to create new home directories (e.g. via PAM)"
 msgstr ""
 
 #: ../booleans_trans.py:50
@@ -2763,8 +2781,7 @@ msgid "If you want to allow Apache to communicate with avahi service via dbus"
 msgstr ""
 
 #: ../booleans_trans.py:62
-msgid ""
-"If you want to allow dhcpc client applications to execute iptables commands"
+msgid "If you want to allow dhcpc client applications to execute iptables commands"
 msgstr ""
 
 #: ../booleans_trans.py:63
@@ -2807,8 +2824,7 @@ msgid "If you want to allow dbadm to manage files in users home directories"
 msgstr ""
 
 #: ../booleans_trans.py:71
-msgid ""
-"If you want to allow confined virtual guests to interact with the xserver"
+msgid "If you want to allow confined virtual guests to interact with the xserver"
 msgstr ""
 
 #: ../booleans_trans.py:72
@@ -3151,8 +3167,7 @@ msgid "If you want to allow xguest users to mount removable media"
 msgstr ""
 
 #: ../booleans_trans.py:144
-msgid ""
-"If you want to allow icecast to connect to all ports, not just sound ports."
+msgid "If you want to allow icecast to connect to all ports, not just sound ports."
 msgstr ""
 
 #: ../booleans_trans.py:145
@@ -3242,8 +3257,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:163
-msgid ""
-"If you want to allow any files/directories to be exported read/write via NFS."
+msgid "If you want to allow any files/directories to be exported read/write via NFS."
 msgstr ""
 
 #: ../booleans_trans.py:164
@@ -3292,8 +3306,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:173
-msgid ""
-"If you want to allow any files/directories to be exported read/only via NFS."
+msgid "If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
 
 #: ../booleans_trans.py:174
