@@ -496,10 +496,14 @@ class SEFaultSignatureInfo(XmlSerialize):
                 avcbuf += "\ntype=%s msg=%s: " % (audit_record.record_type, audit_record.event_id)
                 avcbuf += ' '.join(["%s=%s" % (k, audit_record.fields[k]) for k in audit_record.fields_ord]) +"\n"
 
-            avcbuf += self.get_hash_str() 
+        avcbuf += "\nHash: " + self.get_hash_str() 
 
         try:
+            avcbuf += "\n\naudit2allow"
             p =  Popen(["audit2allow"], shell=True,stdin=PIPE, stdout=PIPE)
+            avcbuf += p.communicate(avcbuf)[0]
+            p =  Popen(["audit2allow ", "-R"], shell=True,stdin=PIPE, stdout=PIPE)
+            avcbuf += "\naudit2allow -R"
             avcbuf += p.communicate(avcbuf)[0]
         except:
             pass

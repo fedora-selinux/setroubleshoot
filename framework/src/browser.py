@@ -643,6 +643,13 @@ class BrowserApplet:
            self.show_current_alert()
            self.on_troubleshoot_button_clicked(self.troubleshoot_button)
 
+    def on_details_button_clicked(self, widget):
+        if self.current_alert < len(self.alert_list):
+            message = self.alert_list[self.current_alert].format_text()
+            message += self.alert_list[self.current_alert].format_details()
+            self.details_textview.get_buffer().set_text(message)
+            self.details_window.show_all()
+        
     def on_delete_button_clicked(self, widget):
         if self.current_alert < len(self.alert_list):
             self.database.delete_signature(self.alert_list[self.current_alert].sig)
@@ -701,22 +708,18 @@ class BrowserApplet:
         else:
             self.source_label.set_label(sig.spath)
 
-        self.source_label.set_tooltip_text(sig.spath)
-#        self.source_image.set_from_gicon(get_icon(sig.spath, "file"), gtk.ICON_SIZE_DIALOG)
-        if sig.tpath == _("Unknown"):
+        self.source_label.set_tooltip_text(sig.spath + "\n" + str(sig.scontext))
+
+        if not sig.tpath or sig.tpath == _("Unknown"):
             self.target_label.set_label("")
-            self.target_label.set_tooltip_text("")
+            self.target_label.set_tooltip_text(sig.tcontext)
         else:
-            if sig.tpath:
-                if len(sig.tpath) > 30:
-                    self.target_label.set_label(os.path.basename(sig.tpath))
-                else:
-                    self.target_label.set_label(sig.tpath)
-                self.target_label.set_tooltip_text(sig.tpath)
+            if len(sig.tpath) > 30:
+                self.target_label.set_label(os.path.basename(sig.tpath))
             else:
-                self.target_label.set_label("")
-                self.target_label.set_tooltip_text("")
-#        self.target_image.set_from_gicon(get_icon(sig.tpath, sig.tclass), gtk.ICON_SIZE_DIALOG)
+                self.target_label.set_label(sig.tpath)
+            self.target_label.set_tooltip_text(sig.tpath + "\n" + str(sig.tcontext))
+
         if sig.tclass == "dir":
             tclass = "directory"
         else:
