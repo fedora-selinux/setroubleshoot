@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: setroubleshoot.master-plugins.gu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-29 10:58-0500\n"
-"PO-Revision-Date: 2011-01-07 12:40+0530\n"
+"PO-Revision-Date: 2011-01-07 15:18+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
 "Language: \n"
@@ -90,7 +90,7 @@ msgstr "તમે વહેંચાયેલ સાર્વજનિક સમ
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
-msgstr ""
+msgstr "તમારે public_content_rw_t માટે $TARGET_PATH પર લેબલને બદલવાની જરૂર પડશે, અને allow_httpd_sys_script_anon_write બુલિયનને ચાલુ કરો."
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -822,6 +822,9 @@ msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"ચલાવીને અત્યારે આ પ્રવેશને પરવાનગી આપો:\n"
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
 msgid ""
@@ -1261,6 +1264,24 @@ msgid ""
 "    script types.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux એ http ફાઇલો માટે httpd $ACCESS પ્રવેશ અટકાવેલ છે.\n"
+"\n"
+"    સામાન્ય રીતે httpd એ is http ફાઇલ સંદર્ભ સાથે લેબલ થયેલ બધી ફાઇલોને સંપૂર્ણ પ્રવેશ માટે પરવાનગી આપેલ છે.\n"
+"      આ મશીન પાસે બંધ થયેલ $BOOLEAN સાથે સજ્જડ સુરક્ષા પોલિસી છે\n"
+"    સુરક્ષા પોલિસી છે,  આને બધી ફાઇલોને ચોક્કસ લેબલ કરવાની જરૂર છે.  જો ફાઇલ "
+"એ\n"
+"    cgi સ્ક્રિપ્ટ છે ચલાવવા માટે ક્રમમાં httpd_TYPE_script_exec_t સાથે તેને લેબલ કરવાની જરૂર છે.\n"
+"      જો તમે ફક્ત વાંચી શકાય તેવુ સમાવિષ્ટ હોય તો, તેને લેબલ httpd_TYPE_content_t \n"
+"    કરવાની જરૂર છે, તે લખી શકાય તેવો સમાવિષ્ટ હોય તો. તેને લેબલ httpd_TYPE_script_rw_t અથવા httpd_TYPE_script_ra_tit \n"
+"    કરવાની જરૂર છે. તમે આ સંદર્ભને બદલવા માટે chcon આદેશને વાપરી શકો છો.\n"
+"      મહેરબાની કરીને મુખ્ય પાનું\n"
+"    \"man httpd_selinux\" અથવા \n"
+"    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a> નો સંદર્ભ લો\n"
+"    \"TYPE\" refers toi one of \"sys\", \"user\" અથવા \"staff\" નાં એક toi નો સંદર્ભ લે છે અથવા "
+"બીજા\n"
+"    સ્ક્રિપ્ટ પ્રકારો.\n"
+"    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -1278,7 +1299,7 @@ msgstr ""
 msgid ""
 "you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
 "of all content files."
-msgstr ""
+msgstr "તમે બધી સમાવિષ્ટ ફાઇલોને HTTPD સંભાળવાનું એકરૂપ કરવા અને cgi સ્ક્રિપ્ટોને ચલાવવા માટે httpd ને પરવાનગી આપવા માંગો છો."
 
 #: ../src/httpd_unified.py:58
 msgid ""
@@ -1416,13 +1437,15 @@ msgid ""
 "you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the "
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
 "access."
-msgstr ""
+msgstr "તમે $TARGET_BASE_PATH $TARGET_CLASS નાં $ACCESS પ્રવેશ કરવા $SOURCE_BASE_PATH પ્રયત્ન કરી રહ્યુ છે તે અવગણવા માંગો છો, કારણ કે તમે માનો છો કે તેને આ પ્રવેશની જરૂર હોવી જોઇએ નહિં."
 
 #: ../src/leaks.py:43
 msgid ""
 "You should report this as a bug.  \n"
 "You can generate a local policy module to dontaudit this access."
 msgstr ""
+"તમે ભૂલ તરીકે આનો અહેવાલ કરવો જોઇએ.  \n"
+"dontaudit આ પ્રવેશ માટે તમે સ્થાનિય પોલિસીને ઉત્પન્ન કરી શકો છો."
 
 #: ../src/leaks.py:44
 msgid ""
@@ -1646,7 +1669,7 @@ msgstr ""
 
 #: ../src/public_content.py:50
 msgid "you want to allow want to treat $TARGET_BASE_PATH as pubic content"
-msgstr ""
+msgstr "સાર્વજનિક સમાવિષ્ટ તરીકે $TARGET_BASE_PATH વર્તવા માટે તમે પરવાનગી આપવા માંગો છો"
 
 #: ../src/public_content.py:51
 msgid ""
@@ -1988,7 +2011,7 @@ msgstr ""
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
-msgstr ""
+msgstr "ચકાસણી મારફતે આ AVC માટે તમે સીધા નિમિત્ત ન હતા."
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
@@ -2109,7 +2132,7 @@ msgstr ""
 msgid ""
 "you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
-msgstr ""
+msgstr "તમે માનતા નથી કે તમારુ $SOURCE_PATH એ કર્નલને બદલવુ જોઇએ, કર્નલ મોડ્યુલોને લોડ કરવા દ્દારા"
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
@@ -2152,7 +2175,7 @@ msgstr ""
 msgid ""
 "you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
-msgstr ""
+msgstr "તમે માનતા નથી કે $SOURCE_PATH એ કર્નલ મોડ્યુલને લોડ કરવા દ્દારા કર્નલને બદલવાનો પ્રયત્ન કરવો જોઇએ.ં"
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
@@ -2189,7 +2212,7 @@ msgstr ""
 msgid ""
 "you do not want to get this AVC any longer. These AVC's are caused by "
 "running out of resources, usually disk space on your / partition."
-msgstr ""
+msgstr "તમે આ AVC ને લાંબા સમય સુધી ઇચ્છતા નથી. આ AVC સ્ત્રોતોનું ચાલ્યા જવાનું કારણ થયેલ છે, સામાન્ય રીતે તમારા / પાર્ટીશન પર ડિસ્ક જગ્યા."
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -2461,13 +2484,13 @@ msgstr "જો તમે gpg-agent --write-env-file વિકલ્પનાં 
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
 "generic TCP port."
-msgstr ""
+msgstr "જો તમે કોઇપણ TCP પોર્ટ સાથે જોડવા માટે ટૅલિપથી જોડાણ સંચાલકોને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:15
 msgid ""
 "If you want to allow unconfined users to transition to the Mozilla plugin "
 "domain when running xulrunner plugin-container."
-msgstr ""
+msgstr "જો તમે Mozilla પ્લગઇન ડોમેઇનમાં પરિવહન કરવા માટે બંધનમુક્ત વપરાશકર્તાઓને પરવાનગી આપવા માંગો છો જ્યારે xulrunner plugin-container ચલાવી રહ્યા હોય."
 
 #: ../booleans_trans.py:16
 msgid "If you want to allow confined virtual guests to read fuse files"
@@ -2561,7 +2584,7 @@ msgstr "જો તમે sysadm_r:sysadm_t તરીકે ssh લૉગિન�
 msgid ""
 "If you want to allow unconfined users to transition to the nsplugin domains "
 "when running nspluginviewer"
-msgstr ""
+msgstr "જો તમે nsplugin ડોમેઇનમાં પરિવહન કરવા માટે બંધનમુક્ત વપરાશકર્તાઓને પરવાનગી આપવા માંગો છો જ્યારે nspluginviewer ચલાવી રહ્યા હોય"
 
 #: ../booleans_trans.py:36
 msgid "If you want to allow Git daemon system to access cifs file systems."
@@ -2587,7 +2610,7 @@ msgstr "જો તમે TCP ની મદદથી નેટવર્ક સા
 msgid ""
 "If you want to disallow programs, such as newrole, from transitioning to "
 "administrative user domains."
-msgstr ""
+msgstr "જો તમે વહીવટી વપરાશકર્તા ડોમેઇનો માટે પરિવર્તનમાંથી newrole જેવા કાર્યક્રમોને પરવાનગી આપવા માંગતા નથી."
 
 #: ../booleans_trans.py:42
 msgid "If you want to allow Apache to use mod_auth_pam"
@@ -2618,7 +2641,7 @@ msgid ""
 "If you want to allow unconfined executables to map a memory region as both "
 "executable and writable, this is dangerous and the executable should be "
 "reported in bugzilla"
-msgstr ""
+msgstr "જો તમે બંને એક્સક્યૂટેબલ અને લખી શકાય તેવા મેમરી વિસ્તારને મેપ કરવા માટે બંધનમુક્ત એક્સક્યૂટેબલને પરવાનગી આપવા માંગો છો, આ ખતરનાક છે અને એક્સક્યૂટેબલે બગઝીલામાં અહેવાલ કરવો જોઇએ"
 
 #: ../booleans_trans.py:49
 msgid "If you want to allow samba to create new home directories (e.g. via PAM)"
@@ -2664,7 +2687,7 @@ msgstr "જો તમે કોઇપણ વાંચી શકાય તેવ�
 msgid ""
 "If you want to allow all unconfined executables to use libraries requiring "
 "text relocation that are not labeled textrel_shlib_t"
-msgstr ""
+msgstr "જો તમે લખાણ સ્થળાંતર કરવા જરૂરી લાઇબ્રેરીઓને વાપરવા માટે બધા બંધનમુક્ત એક્સક્યૂટેબલને પરવાનગી આપવા માંગો છો કે જે લેબલ textrel_shlib_t થયેલ નથી"
 
 #: ../booleans_trans.py:58
 msgid ""
@@ -2713,7 +2736,7 @@ msgid ""
 "If you want to prevent all confined domains from loading policy, setting "
 "enforcing mode, and changing boolean values.  Set this to true and you have "
 "to reboot to set it back"
-msgstr ""
+msgstr "જો તમે લોડિંગ પોલિસીમાંથી બધા મર્યાદિત ડોમેઇનને અટકાવવા માંગો છો, enforcing સ્થિતિને સુયોજિત કરી રહ્યા છો, અને બુલિયન કિંમતોને બદલી રહ્યા છે.  true તરીકે આને સુયોજિત કરો અને તેને પાછુ સુયોજિત કરવા માટે તમારે રિબુટ કરવુ જ પડશે"
 
 #: ../booleans_trans.py:69
 msgid ""
@@ -2721,7 +2744,7 @@ msgid ""
 "executable.  Doing this is a really bad idea. Probably indicates a badly "
 "coded executable, but could indicate an attack. This executable should be "
 "reported in bugzilla"
-msgstr ""
+msgstr "જો તમે તેની હીપ મેમરી એક્સક્યૂટેબલ બનાવવા માટે બંધનમુક્ત એક્સક્યૂટેબલને પરવાનગી આપવા માંગો તો.  આવુ કરવાનું ખરેખર ખોટો વિચાર છે. કદાચ તે ખોટી રીતે કોડ થયેલ એક્સક્યૂટેબલ છે તે નક્કી થાય છે, પરંતુ હુમલો થઇ શકવાનું નક્કી થાય છે. આ એક્સક્યૂટેબલ એ બગઝીલામાં અહેવાલ કરવો જોઇએ."
 
 #: ../booleans_trans.py:70
 msgid "If you want to allow dbadm to manage files in users home directories"
@@ -2825,13 +2848,13 @@ msgid ""
 "This should never, ever be necessary. Probably indicates a badly coded "
 "executable, but could indicate an attack. This executable should be reported "
 "in bugzilla"
-msgstr ""
+msgstr "જો તમે તેનું સ્ટેક એક્સક્યૂટેબલ બનાવવા માટે બંધનમુક્ત એક્સક્યૂટેબલને પરવાનગી આપવા માંગો તો.  આવુ કદી થવુ જોઇએ નહિં. કદાચ તે ખોટી રીતે કોડ થયેલ એક્સક્યૂટેબલ છે તે નક્કી થાય છે, પરંતુ હુમલો થઇ શકવાનું નક્કી થાય છે. આ એક્સક્યૂટેબલ એ બગઝીલામાં અહેવાલ કરવો જોઇએ."
 
 #: ../booleans_trans.py:93
 msgid ""
 "If you want to unify HTTPD to communicate with the terminal. Needed for "
 "entering the passphrase for certificates at the terminal."
-msgstr ""
+msgstr "જો તમે ટર્મિનલ સાથે વાર્તાલાપ કરવા માટે HTTPD ને એકરૂપ કરવા માંગો તો. ટર્મિનલ પર પ્રમાણપત્રો માટે પાસફ્રેજને દાખલ કરવા માટેની જરૂર છે."
 
 #: ../booleans_trans.py:94
 msgid ""
@@ -3032,7 +3055,7 @@ msgstr "જો તમે વાઇન mmap_zero ભૂલોને અવગણ�
 
 #: ../booleans_trans.py:137
 msgid "If you want to allow sysadm to debug or ptrace all processes."
-msgstr ""
+msgstr "જો તમે બધી પ્રક્રિયાઓને ડિબગ અથવા ptrace કરવા માટે sysadm ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:138
 msgid "If you want to allow fenced domain to connect to the network using TCP."
