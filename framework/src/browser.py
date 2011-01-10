@@ -709,16 +709,27 @@ class BrowserApplet:
             self.source_label.set_label(sig.spath)
 
         self.source_label.set_tooltip_text(sig.spath + "\n" + str(sig.scontext))
+        self.target_label.set_label("")
+        self.target_label.set_tooltip_text("")
 
-        if not sig.tpath or sig.tpath == _("Unknown"):
-            self.target_label.set_label("")
-            self.target_label.set_tooltip_text(sig.tcontext)
-        else:
+        path = ""
+        tooltip = ""
+
+        if sig.tpath and not sig.tpath == _("Unknown"):
             if len(sig.tpath) > 30:
-                self.target_label.set_label(os.path.basename(sig.tpath))
+                path = os.path.basename(sig.tpath)
             else:
-                self.target_label.set_label(sig.tpath)
-            self.target_label.set_tooltip_text(sig.tpath + "\n" + str(sig.tcontext))
+                path = sig.tpath
+            tooltip = sig.tpath
+
+            if sig.tcontext:
+                tooltip += "\n" + str(sig.tcontext)
+        else:
+            if sig.tcontext:
+                tooltip = str(sig.tcontext)
+
+        self.target_label.set_label(path)
+        self.target_label.set_tooltip_text(tooltip)
 
         if sig.tclass == "dir":
             tclass = "directory"
