@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-11-29 10:58-0500\n"
+"POT-Creation-Date: 2011-01-12 10:56-0500\n"
 "PO-Revision-Date: 2010-12-01 16:51+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -825,9 +825,10 @@ msgstr ""
 "Ви можете створити модуль локальних правил для надання подібного доступу."
 
 #: ../src/catchall.py:56
+#, fuzzy
 msgid ""
 "Allow this access for now by executing:\n"
-"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
 "Надайте доступ за допомогою команд:\n"
@@ -947,6 +948,51 @@ msgstr "$TARGET_BASE_PATH має бути оприлюднено за допом
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
 msgstr "Вам слід змінити мітку на $TARGET_BASE_PATH'"
+
+#: ../src/dac_override.py:28
+#, fuzzy
+msgid ""
+"\n"
+"    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
+"    "
+msgstr ""
+"\n"
+"   SELinux забороняє $SOURCE_PATH використовувати можливість "
+"«sys_resource».\n"
+"    "
+
+#: ../src/dac_override.py:32
+msgid ""
+"\n"
+"\tdac_override and dac_read_search capabilities usually indicates that the "
+"root process does not have access to a file based on the permission flags.  "
+"This usually mean you have some file with the wrong ownership/permissions on "
+"it.\n"
+"    "
+msgstr ""
+
+#: ../src/dac_override.py:38
+msgid ""
+"you want to help identify if domain needs this access or you have a file "
+"with the wrong permissions on your system"
+msgstr ""
+
+#: ../src/dac_override.py:39
+msgid ""
+"turn on full auditing to get path information about the offending file and "
+"generate the error again."
+msgstr ""
+
+#: ../src/dac_override.py:40
+msgid ""
+"\n"
+"Turn on full auditing\n"
+"# auditctl -w /etc/shadow -p w\n"
+"Try to recreate AVC. Then execute\n"
+"# ausearch -m avc -ts recent\n"
+"If you see PATH record check ownership/permissions on file, and fix it, \n"
+"otherweise report as a bugzilla."
+msgstr ""
 
 #: ../src/device.py:29
 msgid ""
@@ -1816,12 +1862,31 @@ msgstr ""
 msgid "$TARGET_BASE_PATH is a virtualization target"
 msgstr "$TARGET_BASE_PATH — цільова система віртуалізації"
 
-#: ../src/restorecon.py:36
+#: ../src/restorecon.py:38
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon '$TARGET_PATH', if this file is a "
+"directory,\n"
+"    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
+"    "
+msgstr ""
+"\n"
+"   Первинний контекст файлу можна відновити:\n"
+"\n"
+"    «restorecon '$TARGET_PATH'»\n"
+"\n"
+"   Для каталогу використовуйте команду «restorecon -R '$TARGET_PATH'».\n"
+"    "
+
+#: ../src/restorecon.py:45
+#, fuzzy, python-format
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
 "    be a mislabeled.  $TARGET_PATH default SELinux type is\n"
-"    <B>$MATCTYPE</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
+"    <B>%s</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
 "    this file back to the default type, may fix your problem.\n"
 "    <p>\n"
 "    File contexts can be assigned to a file in the following ways.\n"
@@ -1891,36 +1956,19 @@ msgstr ""
 "    для цього пакета.\n"
 "    "
 
-#: ../src/restorecon.py:62
+#: ../src/restorecon.py:71
+#, fuzzy, python-format
 msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon '$TARGET_PATH', if this file is a "
-"directory,\n"
-"    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
-"    "
-msgstr ""
-"\n"
-"   Первинний контекст файлу можна відновити:\n"
-"\n"
-"    «restorecon '$TARGET_PATH'»\n"
-"\n"
-"   Для каталогу використовуйте команду «restorecon -R '$TARGET_PATH'».\n"
-"    "
-
-#: ../src/restorecon.py:70
-msgid ""
-"you want to fix the label, $TARGET_BASE_PATH does not have the default "
-"system label."
+"you want to fix the label. \n"
+"$TARGET_PATH default label should be %s."
 msgstr ""
 "ви бажаєте виправити мітку, $TARGET_BASE_PATH не має типової мітки системи."
 
-#: ../src/restorecon.py:71
+#: ../src/restorecon.py:76
 msgid "you can run restorecon."
 msgstr "ви можете запустити restorecon."
 
-#: ../src/restorecon.py:79
+#: ../src/restorecon.py:84
 msgid ""
 "Restore\n"
 "Context"

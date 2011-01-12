@@ -19,6 +19,7 @@ PLUGIN_FILES =				\
 	catchall.py			\
 	connect_ports.py		\
 	cvs_data.py			\
+	dac_override.py			\
 	device.py			\
 	disable_ipv6.py			\
 	file.py				\
