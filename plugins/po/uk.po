@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the setroubleshoot package.
 #
 # Maxim Dziumanenko <dziumanenko@gmail.com>, 2003-2007.
-# Yuri Chornoivan <yurchor@ukr.net>, 2010.
+# Yuri Chornoivan <yurchor@ukr.net>, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-12 10:56-0500\n"
-"PO-Revision-Date: 2010-12-01 16:51+0200\n"
+"PO-Revision-Date: 2011-01-12 20:28+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.1\n"
+"X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../src/allow_anon_write.py:27
@@ -825,14 +825,13 @@ msgstr ""
 "Ви можете створити модуль локальних правил для надання подібного доступу."
 
 #: ../src/catchall.py:56
-#, fuzzy
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
 "Надайте доступ за допомогою команд:\n"
-"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
@@ -950,7 +949,6 @@ msgid "You need to change the label on $TARGET_BASE_PATH'"
 msgstr "Вам слід змінити мітку на $TARGET_BASE_PATH'"
 
 #: ../src/dac_override.py:28
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
@@ -958,7 +956,7 @@ msgid ""
 msgstr ""
 "\n"
 "   SELinux забороняє $SOURCE_PATH використовувати можливість "
-"«sys_resource».\n"
+"«$ACCESS».\n"
 "    "
 
 #: ../src/dac_override.py:32
@@ -970,18 +968,28 @@ msgid ""
 "it.\n"
 "    "
 msgstr ""
+"\n"
+"\tповідомлення щодо можливостей dac_override і dac_read_search зазвичай "
+"означають, що процес користувача "
+"root не має доступу до файла через параметри прав доступу. Отже, ймовірно, у "
+"вас є якийсь файл з помилковими параметрами належності або прав доступу.\n"
+"    "
 
 #: ../src/dac_override.py:38
 msgid ""
 "you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
 msgstr ""
+"ви хочете допомогти у визначенні того, чи потрібні домену ці права доступу, "
+"або у вашій системі є файл з помилковими правами доступу"
 
 #: ../src/dac_override.py:39
 msgid ""
 "turn on full auditing to get path information about the offending file and "
 "generate the error again."
 msgstr ""
+"увімкніть повну перевірку, щоб отримати дані щодо розташування файла з "
+"помилкою і повторно створіть повідомлення про помилку."
 
 #: ../src/dac_override.py:40
 msgid ""
@@ -993,6 +1001,15 @@ msgid ""
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
 "otherweise report as a bugzilla."
 msgstr ""
+"\n"
+"Увімкніть повну перевірку\n"
+"# auditctl -w /etc/shadow -p w\n"
+"Спробуйте повторно створити AVC, потім віддайте команду\n"
+"# ausearch -m avc -ts recent\n"
+"Якщо вам буде показано запис PATH, перевірте параметри належності і прав "
+"доступу до файла і виправте їх значення.\n"
+"Якщо помилок у цих параметрах не буде виявлено, повідомте до системи "
+"сповіщення про вади."
 
 #: ../src/device.py:29
 msgid ""
@@ -1881,7 +1898,7 @@ msgstr ""
 "    "
 
 #: ../src/restorecon.py:45
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1923,7 +1940,7 @@ msgstr ""
 "\n"
 "    Правила SELinux забороняють доступ за запитом $SOURCE.\n"
 "    Можливо, розмітка $TARGET_PATH некоректна.\n"
-"    Стандартний тип SELinux для $TARGET_PATH має значення <B>$MATCTYPE</B>,\n"
+"    Стандартний тип SELinux для $TARGET_PATH має значення <B>%s</B>,\n"
 "    але наразі тип — <B>$TARGET_TYPE</B>. \n"
 "    Зміна типу на стандартний може виправити проблему.\n"
 "    <p>\n"
@@ -1957,12 +1974,13 @@ msgstr ""
 "    "
 
 #: ../src/restorecon.py:71
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
 msgstr ""
-"ви бажаєте виправити мітку, $TARGET_BASE_PATH не має типової мітки системи."
+"ви бажаєте виправити мітку,\n"
+"типовою міткою $TARGET_PATH має бути %s."
 
 #: ../src/restorecon.py:76
 msgid "you can run restorecon."
