@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-12 10:56-0500\n"
-"PO-Revision-Date: 2010-11-30 10:50+0100\n"
+"PO-Revision-Date: 2011-01-12 18:13+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <trans-pl@lists.fedoraproject.org>\n"
 "Language: pl\n"
@@ -803,14 +803,13 @@ msgstr ""
 "Można utworzyć lokalny moduł polityki, aby umożliwić ten dostęp."
 
 #: ../src/catchall.py:56
-#, fuzzy
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
-"Można zezwolić na ten dostęp wykonując polecenia:\n"
-"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M moja_polityka\n"
+"Można tymczasowo zezwolić na ten dostęp wykonując polecenia:\n"
+"# grep $SOURCE /var/log/audit/audit.log | audit2allow -M moja_polityka\n"
 "# semodule -i moja_polityka.pp"
 
 #: ../src/connect_ports.py:27
@@ -929,14 +928,13 @@ msgid "You need to change the label on $TARGET_BASE_PATH'"
 msgstr "Należy zmienić etykietę $TARGET_BASE_PATH'"
 
 #: ../src/dac_override.py:28
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
 "    "
 msgstr ""
 "\n"
-"    SELinux powstrzymuje możliwości \"sys_resource\" $SOURCE_PATH. \n"
+"    SELinux powstrzymuje możliwości $SOURCE_PATH \"$ACCESS\". \n"
 "    "
 
 #: ../src/dac_override.py:32
@@ -948,18 +946,27 @@ msgid ""
 "it.\n"
 "    "
 msgstr ""
+"\n"
+"\tMożliwości dac_override i dac_read_search zwykle wskazują, że proces roota "
+"nie posiada dostępu do pliku w oparciu o flagi uprawnień. Zwykle oznacza to, "
+"że istnieje plik z błędnym właścicielem/uprawnieniami.\n"
+"    "
 
 #: ../src/dac_override.py:38
 msgid ""
 "you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
 msgstr ""
+"aby pomóc ustalić, czy domena wymaga tego dostępu lub w systemie istnieje "
+"plik z błędnymi uprawnieniami"
 
 #: ../src/dac_override.py:39
 msgid ""
 "turn on full auditing to get path information about the offending file and "
 "generate the error again."
 msgstr ""
+"należy włączyć audyt, aby uzyskać informacje o ścieżce problemowego pliku i "
+"ponownie utworzyć błąd."
 
 #: ../src/dac_override.py:40
 msgid ""
@@ -971,6 +978,14 @@ msgid ""
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
 "otherweise report as a bugzilla."
 msgstr ""
+"\n"
+"Włączenie pełnego audytu\n"
+"# auditctl -w /etc/shadow -p w\n"
+"Próba ponownego utworzenia AVC. Następnie wykonanie polecenia\n"
+"# ausearch -m avc -ts recent\n"
+"Jeśli widoczny jest wpis ŚCIEŻKI, należy sprawdzić właściciela/uprawnienia "
+"pliku, a następnie je naprawić. W przeciwnym wypadku należy zgłosić błąd w "
+"Bugzilli."
 
 #: ../src/device.py:29
 msgid ""
@@ -1831,7 +1846,7 @@ msgstr ""
 "    "
 
 #: ../src/restorecon.py:45
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1873,7 +1888,7 @@ msgstr ""
 "\n"
 "    SELinux odmówił dostępu żądanego przez $SOURCE. $TARGET_PATH może\n"
 "    posiadać błędną etykietę. Domyślny typ SELinuksa $TARGET_PATH to\n"
-"    <B>$MATCTYPE</B>, podczas gdy obecny typ to <B>$TARGET_TYPE</B>.\n"
+"    <B>%s</B>, podczas gdy obecny typ to <B>$TARGET_TYPE</B>.\n"
 "    Zmienienie tego pliku z powrotem do domyślnego typu może naprawić ten\n"
 "    problem.\n"
 "    <p>\n"
@@ -1903,13 +1918,13 @@ msgstr ""
 "    "
 
 #: ../src/restorecon.py:71
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
 msgstr ""
-"aby naprawić etykietę, $TARGET_BASE_PATH nie posiada domyślnej etykiety "
-"systemowej."
+"aby naprawić etykietę. \n"
+"domyślna etykieta $TARGET_PATH powinna wynosić %s."
 
 #: ../src/restorecon.py:76
 msgid "you can run restorecon."
