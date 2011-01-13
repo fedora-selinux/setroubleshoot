@@ -13,13 +13,14 @@
 # Charles-Antoine Couret <cacouret@wanadoo.fr>, 2009.
 # ratal <aymeric.rateau@gmail.com>, 2009.
 # Sam Friedmann <sam.friedmann@redhat.com>, 2009.
+# Kevin Raymond <shaiton@fedoraproject.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-framework.fr\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-10-28 17:25-0400\n"
-"PO-Revision-Date: 2010-03-21 20:51+0100\n"
-"Last-Translator: Thomas Canniot <mrtom@fedoraproject.org>\n"
+"PO-Revision-Date: 2011-01-09 16:10+0100\n"
+"Last-Translator: Kevin Raymond <shaiton@fedoraproject.org>\n"
 "Language-Team: French <trans-fr@lists.fedoraproject.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -39,10 +40,13 @@ msgstr "Visualise les refus d'accès de SELinux"
 #: ../src/audit_data.py:861
 #, python-format
 msgid "port %s"
-msgstr ""
+msgstr "port %s"
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
-#: ../src/rpc.py:544 ../src/util.py:223
+#: ../src/audit_data.py:863
+#: ../src/browser.py:620
+#: ../src/browser.py:673
+#: ../src/rpc.py:544
+#: ../src/util.py:223
 msgid "Unknown"
 msgstr "Inconnu"
 
@@ -52,18 +56,21 @@ msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
+"%s \n"
+"**** AVC incorrect autorisé dans la stratégie actuelle ***\n"
 
 #: ../src/audit_data.py:950
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
 msgstr ""
+"%s \n"
+"**** AVC incorrect marqué à ignorer (dontaudit) dans la stratégie actuelle.  'semodule -B' activera les règles marquées comme « dontaudit ». ***\n"
 
 #: ../src/audit_data.py:952
 msgid "Must call policy_init first"
-msgstr ""
+msgstr "Il faut appeller policy_init en premier"
 
 #: ../src/audit_data.py:954
 #, python-format
@@ -71,6 +78,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr ""
+"%s \n"
+"**** AVC incorrect. Mauvais contexte cible. ***\n"
 
 #: ../src/audit_data.py:956
 #, python-format
@@ -78,6 +87,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr ""
+"%s \n"
+"**** AVC incorrect. Mauvais contexte source. ***\n"
 
 #: ../src/audit_data.py:958
 #, python-format
@@ -85,6 +96,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr ""
+"%s \n"
+"**** AVC incorrect. Mauvais type de classe. ***\n"
 
 #: ../src/audit_data.py:960
 #, python-format
@@ -92,104 +105,101 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr ""
+"%s \n"
+"**** AVC incorrect. Mauvaises permissions. ***\n"
 
 #: ../src/audit_data.py:962
 msgid "Error during access vector computation"
-msgstr ""
+msgstr "Erreur lors du calcul du vecteur d'accès"
 
 #: ../src/browser.py:225
-#, fuzzy
 msgid "Error while checking policy version."
-msgstr ""
-"<small><b>Erreur en essayant de vérifier la version de la politique de "
-"sécurité.</b></small>"
+msgstr "Erreur en essayant de vérifier la version de la statégie de sécurité."
 
 #: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-"Il existe une nouvelle version de la politique. La mettre à jour peu "
-"corriger le problème que vous rencontrez."
+msgid "There is a newer version of policy available.  Updating your policy may fix the denial that you having problems with."
+msgstr "Il existe une nouvelle version de la stratégie. La mettre à jour peut corriger le problème que vous rencontrez."
 
 #: ../src/browser.py:231
 msgid "Newest Version"
-msgstr ""
+msgstr "Dernière version"
 
 #: ../src/browser.py:233
 msgid "Update Policy"
-msgstr "Mise à jour de la politique"
+msgstr "Mise à jour de la statégie"
 
 #: ../src/browser.py:250
 msgid "#"
 msgstr "#"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Source Process"
-msgstr "Paquetages RPM source"
+msgstr "Processus source "
 
 #: ../src/browser.py:250
 msgid "Attempted Access"
-msgstr ""
+msgstr "Tentatives d'accès"
 
 #: ../src/browser.py:250
 msgid "On this"
-msgstr ""
+msgstr "Sur"
 
 #: ../src/browser.py:250
 msgid "Occured"
-msgstr ""
+msgstr "ont eu lieu"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Edit Status"
-msgstr "État"
+msgstr "Éditer le statu"
 
 #: ../src/browser.py:374
 msgid "If you were trying to..."
-msgstr ""
+msgstr "Si vous étiez en train de..."
 
 #: ../src/browser.py:380
 msgid "Then this is the solution."
-msgstr ""
+msgstr "Alors c'est la solution."
 
 #: ../src/browser.py:387
 msgid "If "
-msgstr ""
+msgstr "Si "
 
 #: ../src/browser.py:485
-#, fuzzy
 msgid ""
 "Report\n"
 "Bug"
-msgstr "Rapporter ce bug..."
+msgstr ""
+"Rapporter\n"
+"cette anomalie"
 
 #: ../src/browser.py:513
 msgid "Unable to grant access."
 msgstr "Impossible d'accorder l'accès."
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:538
+#: ../src/browser.py:646
 #, python-format
 msgid "Alert %d of %d"
-msgstr ""
+msgstr "Alerte %d sur %d"
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
+#: ../src/browser.py:731
+#: ../src/browser.py:732
+#: ../src/browser.py:733
 #: ../src/browser.py:752
 msgid "(removed)"
 msgstr "(supprimé)"
 
 #: ../src/browser.py:799
 msgid "Sealert Error"
-msgstr "Erreur Sealert"
+msgstr "Erreur sealert"
 
 #: ../src/browser.py:810
 msgid "Sealert Message"
-msgstr "Message Sealert"
+msgstr "Message sealert"
 
 #: ../src/email_dialog.py:47
 msgid "Setroubleshoot Email Preferences"
-msgstr "Préférences des alertes email"
+msgstr "Préférences des alertes e-mail"
 
 #: ../src/email_dialog.py:74
 msgid "Add"
@@ -233,8 +243,7 @@ msgstr ""
 "Pour trier les alertes, cliquez sur l'entête des colonnes.\n"
 "\n"
 "Pour changer l'option de filtrage, cliquez sur le type de filtre et\n"
-"choisissez dans la liste. Le filtre s'applique à cette adresse pour toutes "
-"les alertes.\n"
+"choisissez dans la liste. Le filtre s'applique à cette adresse pour toutes les alertes.\n"
 "\n"
 
 #: ../src/email_dialog.py:247
@@ -243,7 +252,7 @@ msgstr "Type de filtre"
 
 #: ../src/email_dialog.py:259
 msgid "Email Address"
-msgstr "Adresses email"
+msgstr "Adresse e-mail"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -280,7 +289,7 @@ msgstr "impossible de créer l'interface graphique"
 
 #: ../src/errcode.py:78
 msgid "value unknown"
-msgstr "Valeur inconnue"
+msgstr "valeur inconnue"
 
 #: ../src/errcode.py:79
 msgid "cannot open file"
@@ -288,7 +297,7 @@ msgstr "impossible d'ouvrir le fichier"
 
 #: ../src/errcode.py:80
 msgid "invalid email address"
-msgstr "adresse email invalide"
+msgstr "adresse e-mail invalide"
 
 #. gobject IO Errors
 #: ../src/errcode.py:83
@@ -305,7 +314,7 @@ msgstr "Requête invalide. Descripteur de fichier non ouvert."
 
 #: ../src/errcode.py:87
 msgid "insufficient permission to modify user"
-msgstr "Droits insuffisant pour modifier l'utilisateur"
+msgstr "droits insuffisant pour modifier l'utilisateur"
 
 #: ../src/errcode.py:88
 msgid "authentication failed"
@@ -331,17 +340,16 @@ msgstr "Aide"
 #: ../src/gui_utils.py:139
 #, python-format
 msgid "Opps, %s hit an error!"
-msgstr "Oups, %s a rencontré une erreur!"
+msgstr "Oups, %s a rencontré une erreur !"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:141
+#: ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "Erreur"
 
 #: ../src/Plugin.py:79
-msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
-"$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr ""
+msgid "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS"
+msgstr "vous souhaitez autoriser $SOURCE_BASE_PATH à accéder à $ACCESS sur $TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -357,7 +365,7 @@ msgstr "Mot de passe :"
 
 #: ../src/run_cmd.py:378
 msgid "SELinux Fix"
-msgstr "SELinux fix"
+msgstr "Correctif SELinux"
 
 #: ../src/run_cmd.py:389
 msgid "Command"
@@ -377,8 +385,7 @@ msgstr "État"
 
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
-msgstr ""
-"Attention : il vous appartient de vérifier que cette commande soit correcte"
+msgstr "Attention : il vous appartient de vérifier que cette commande soit correcte"
 
 #: ../src/run_cmd.py:466
 msgid "Not Run Yet"
@@ -416,7 +423,8 @@ msgstr "Pour des messages SELinux exhaustifs, lancez sealert -l %s"
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "L'utilisateur (%s) ne peut modifier les données de (%s)"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:461
+#: ../src/sealert:295
 msgid "Started"
 msgstr "Démarré"
 
@@ -426,7 +434,7 @@ msgstr "AVC"
 
 #: ../src/server.py:575
 msgid "Audit Listener"
-msgstr "Ecouteur d'Audit"
+msgstr "Écouteur d'audit"
 
 #: ../src/signature.py:75
 msgid "Never Ignore"
@@ -434,56 +442,55 @@ msgstr "Ne jamais ignorer"
 
 #: ../src/signature.py:76
 msgid "Ignore Always"
-msgstr "Toujours Ignorer"
+msgstr "Toujours ignorer"
 
 #: ../src/signature.py:77
 msgid "Ignore After First Alert"
-msgstr "Ignorer Après la première Alerte"
+msgstr "Ignorer après la première alerte"
 
 #: ../src/signature.py:196
 msgid "directory"
-msgstr ""
+msgstr "dossier"
 
 #: ../src/signature.py:197
 msgid "semaphore"
-msgstr ""
+msgstr "sémaphore"
 
 #: ../src/signature.py:198
 msgid "shared memory"
-msgstr ""
+msgstr "mémoire partagée"
 
 #: ../src/signature.py:199
 msgid "message queue"
-msgstr ""
+msgstr "file de messages"
 
 #: ../src/signature.py:200
 msgid "message"
-msgstr ""
+msgstr "message"
 
 #: ../src/signature.py:201
 msgid "file"
-msgstr ""
+msgstr "fichier"
 
 #: ../src/signature.py:202
-#, fuzzy
 msgid "socket"
-msgstr "erreur de socket"
+msgstr "socket"
 
 #: ../src/signature.py:203
 msgid "process"
-msgstr ""
+msgstr "processus"
 
 #: ../src/signature.py:204
 msgid "filesystem"
-msgstr ""
+msgstr "système de fichiers"
 
 #: ../src/signature.py:205
 msgid "node"
-msgstr ""
+msgstr "nœud"
 
 #: ../src/signature.py:206
 msgid "capability"
-msgstr ""
+msgstr "possibilité"
 
 #: ../src/signature.py:382
 #, python-format
@@ -491,7 +498,6 @@ msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s a un type permissif (%s). Cet accès n'a pas été refusé."
 
 #: ../src/signature.py:385
-#, fuzzy
 msgid "SEinux is in permissive mode. This access was not denied."
 msgstr "SELinux est en mode permissif. Cet accès n'a pas été refusé."
 
@@ -502,24 +508,33 @@ msgid ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
+"\n"
+"\n"
+"*****  Plugin %s (%.4s confiance) suggéré"
 
 #: ../src/signature.py:474
 msgid ""
 "\n"
 "If "
 msgstr ""
+"\n"
+"Si"
 
 #: ../src/signature.py:476
 msgid ""
 "\n"
 "Then "
 msgstr ""
+"\n"
+"Alors"
 
 #: ../src/signature.py:479
 msgid ""
 "\n"
 "Do\n"
 msgstr ""
+"\n"
+"Faire\n"
 
 #: ../src/signature.py:480
 msgid "Additional Information"
@@ -527,93 +542,93 @@ msgstr "Informations complémentaires"
 
 #: ../src/signature.py:482
 msgid "Source Context"
-msgstr "Contexte source"
+msgstr "Contexte source "
 
 #: ../src/signature.py:483
 msgid "Target Context"
-msgstr "Contexte cible"
+msgstr "Contexte cible "
 
 #: ../src/signature.py:484
 msgid "Target Objects"
-msgstr "Objets du contexte"
+msgstr "Objets du contexte "
 
 #: ../src/signature.py:485
 msgid "Source"
-msgstr "source"
+msgstr "Source "
 
 #: ../src/signature.py:486
 msgid "Source Path"
-msgstr "Chemin de la source"
+msgstr "Chemin de la source "
 
 #: ../src/signature.py:487
 msgid "Port"
-msgstr "Port"
+msgstr "Port "
 
 #: ../src/signature.py:488
 msgid "Host"
-msgstr "Hôte"
+msgstr "Hôte "
 
 #: ../src/signature.py:489
 msgid "Source RPM Packages"
-msgstr "Paquetages RPM source"
+msgstr "Paquetages RPM source "
 
 #: ../src/signature.py:490
 msgid "Target RPM Packages"
-msgstr "Paquetages RPM cible"
+msgstr "Paquetages RPM cible "
 
 #: ../src/signature.py:491
 msgid "Policy RPM"
-msgstr "Politique RPM"
+msgstr "RPM de la statégie "
 
 #: ../src/signature.py:492
 msgid "Selinux Enabled"
-msgstr "Selinux activé"
+msgstr "Selinux activé "
 
 #: ../src/signature.py:493
 msgid "Policy Type"
-msgstr "Type de politique"
+msgstr "Type de stratégie "
 
 #: ../src/signature.py:494
 msgid "Enforcing Mode"
-msgstr "Mode strict"
+msgstr "Mode strict "
 
 #: ../src/signature.py:495
 msgid "Host Name"
-msgstr "Nom de l'hôte"
+msgstr "Nom de l'hôte "
 
 #: ../src/signature.py:496
 msgid "Platform"
-msgstr "Plateforme"
+msgstr "Plateforme "
 
 #: ../src/signature.py:497
 msgid "Alert Count"
-msgstr "Compteur d'alertes"
+msgstr "Compteur d'alertes "
 
 #: ../src/signature.py:498
 msgid "First Seen"
-msgstr "Première alerte"
+msgstr "Première alerte "
 
 #: ../src/signature.py:499
 msgid "Last Seen"
-msgstr "Dernière alerte"
+msgstr "Dernière alerte "
 
 #: ../src/signature.py:500
 msgid "Local ID"
-msgstr "ID local"
+msgstr "ID local "
 
 #: ../src/signature.py:502
 msgid "Raw Audit Messages"
-msgstr "Messages d'audit bruts"
+msgstr "Messages d'audit bruts "
 
 #: ../src/updater.py:18
 #, python-format
 msgid "current: %s "
-msgstr ""
+msgstr "actuel : %s "
 
 #: ../src/updater.py:27
 #, python-format
 msgid "newer: %s "
-msgstr ""
+msgstr "plus récent : %s "
 
 #: ../src/seapplet.c:188
 msgid "New SELinux security alert"
@@ -621,25 +636,27 @@ msgstr "Nouvelle alerte de sécurité SELinux"
 
 #: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
-msgstr ""
-"Refus d'accès AVC. Cliquez sur l'icône pour obtenir plus d'informations"
+msgstr "Refus d'accès AVC. Cliquez sur l'icône pour obtenir plus d'informations"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:197
+#: ../src/seapplet.c:249
 msgid "Dismiss"
-msgstr "Ignoré"
+msgstr "Ignorer"
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:207
+#: ../src/seapplet.c:259
 msgid "Show"
 msgstr "Afficher"
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:432
+#: ../src/sealert:67
 msgid "SELinux AVC denial, click to view"
 msgstr "Refus d'accès AVC par SELinux. Cliquez pour voir"
 
 #: ../src/sealert:104
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr ""
+msgstr "SELinux n'est pas activé, sealert ne fonctionnera pas sur un système sans SELinux"
 
 #: ../src/sealert:154
 msgid "Not fixable."
@@ -653,7 +670,7 @@ msgstr "A exécuté %s avec succès"
 #: ../src/sealert:166
 #, c-format
 msgid "Plugin %s not valid for %s id"
-msgstr ""
+msgstr "Plugin %s incorrect pour l'id %s"
 
 #: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
@@ -666,15 +683,13 @@ msgstr "fork #1 a échoué : %d (%s)"
 
 #: ../gui/browser.glade.h:1
 msgid "<b>SELinux has detected a problem.</b>"
-msgstr ""
+msgstr "<b>SELinux a détecté un problème.</b>"
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
 msgid "Access:"
-msgstr "Succès"
+msgstr "Accès :"
 
 #: ../gui/browser.glade.h:3
-#, fuzzy
 msgid ""
 "Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -682,106 +697,95 @@ msgid ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
-"Copyright (c) 2009 \n"
+"Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Delete current alert from the database."
-msgstr ""
+msgstr "Supprime l'alerte courante de la base de donner."
 
 #: ../gui/browser.glade.h:10
 msgid "Do not show alert message, when this alert is triggered."
-msgstr ""
+msgstr "Ne pas afficher le message d'alerte lorsque cette alerte est levée."
 
 #: ../gui/browser.glade.h:11
 msgid "Email alert to system administrator."
-msgstr ""
+msgstr "Envoyer l'alert par e-mail à l'administrateur."
 
 #: ../gui/browser.glade.h:12
-#, fuzzy
 msgid "Ignore"
-msgstr "Ne jamais ignorer"
+msgstr "Ignorer"
 
 #: ../gui/browser.glade.h:13
-#, fuzzy
 msgid "List All Alerts"
-msgstr "Effacer toutes les _alertes"
+msgstr "Afficher toutes les alertes"
 
 #: ../gui/browser.glade.h:14
 msgid "List all alerts in the database."
-msgstr ""
+msgstr "Afficher toutes les alertes de la base de données."
 
 #: ../gui/browser.glade.h:15
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 #: ../gui/browser.glade.h:16
-#, fuzzy
 msgid "No Alerts"
-msgstr "Ignorer l'alerte"
+msgstr "Pas d'alerte"
 
 #: ../gui/browser.glade.h:17
-msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
-"to remedy."
-msgstr ""
+msgid "Read alert troubleshoot information.  May require administrative privledge to remedy."
+msgstr "Lire les information d'alerte de troubleshoot. Vous pourriez avoir besoin des privilèges administrateurs."
 
 #: ../gui/browser.glade.h:18
-#, fuzzy
 msgid "Report"
-msgstr "Rapporter ce bug..."
+msgstr "Rapporter"
 
 #: ../gui/browser.glade.h:19
-#, fuzzy
 msgid "SELinux Alert Browser"
-msgstr "Alertes de sécurité SELinux"
+msgstr "Explorateur d'alertes SELinux"
 
 #: ../gui/browser.glade.h:20
 msgid "SETroubleshoot Alert List"
 msgstr "Liste d'alerte SETroubleshoot"
 
 #: ../gui/browser.glade.h:21
-#, fuzzy
 msgid "Show next alert."
-msgstr "Effacer l'alerte"
+msgstr "Afficher l'alerte suivante."
 
 #: ../gui/browser.glade.h:22
 msgid "Show previous alert."
-msgstr ""
+msgstr "Afficher les alertes précédentes."
 
 #: ../gui/browser.glade.h:23
-#, fuzzy
 msgid "Troubleshoot"
-msgstr "Journal des alertes SELinux "
+msgstr "Troubleshoot"
 
 #: ../gui/browser.glade.h:24
 msgid "Turn off alert pop-ups."
-msgstr ""
+msgstr "Désactiver les infobulles d'alerte."
 
 #: ../gui/browser.glade.h:25
 msgid "Turn on alert pop-ups."
-msgstr ""
+msgstr "Activer les infobulles d'alerte."
 
 #: ../gui/browser.glade.h:26
 msgid "Would you like to receive alerts?"
-msgstr ""
+msgstr "Souhaitez-vous recevoir les alertes ?"
 
 #: ../gui/browser.glade.h:27
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 #: ../gui/browser.glade.h:28
 msgid "label"
-msgstr ""
+msgstr "Étiquette"
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr ""
-"<span size='large' weight='bold'>Vérifier et soumettre le rapport de Bug</"
-"span>"
+msgstr "<span size='large' weight='bold'>Vérifier et soumettre le rapport de Bug</span>"
 
 #: ../gui/bug_report.glade.h:2
 msgid "Included error output:"
@@ -796,18 +800,13 @@ msgid "Submit Report"
 msgstr "Soumettre le rapport"
 
 #: ../gui/bug_report.glade.h:5
-msgid ""
-"You may wish to review the error output that will be included in this bug "
-"report and modify it to exclude any sensitive data below."
-msgstr ""
-"Vous souhaitez peut être examiner le résultat de l'erreur qui sera inclus "
-"dans ce rapport de bug et de le modifier pour retirer toute donnée sensible."
+msgid "You may wish to review the error output that will be included in this bug report and modify it to exclude any sensitive data below."
+msgstr "Vous souhaitez peut être examiner le résultat de l'erreur qui sera inclus dans ce rapport de bug et de le modifier pour retirer toute donnée sensible."
 
-#: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
-msgid ""
-"This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr ""
-"Cette opération a été achevée. Portez ce vieux whisky au juge blond qui fume."
+#: ../gui/fail_dialog.glade.h:2
+#: ../gui/success_dialog.glade.h:2
+msgid "This operation was completed.  The quick brown fox jumped over the lazy dog."
+msgstr "Cette opération a été achevée. Portez ce vieux whisky au juge blond qui fume."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
@@ -1054,11 +1053,13 @@ msgstr "bouton"
 #~ msgstr "nom d'utilisateur et mot de passe ci-dessous."
 
 #~ msgid "%d day ago"
+
 #~ msgid_plural "%d days ago"
 #~ msgstr[0] "Il y a un jour"
 #~ msgstr[1] "Il y a %d jours"
 
 #~ msgid "This alert has occurred <b>%d time</b> since %s"
+
 #~ msgid_plural "This alert has occurred <b>%d times</b> since %s"
 #~ msgstr[0] "Cette alerte a eu lieu <b>%d fois</b> depuis %s"
 #~ msgstr[1] "Cette alerte a eu lieu <b>%d fois</b> depuis %s"
@@ -1067,6 +1068,7 @@ msgstr "bouton"
 #~ msgstr "MLS activé"
 
 #~ msgid "Since your last login, there is %d new security alert to view."
+
 #~ msgid_plural ""
 #~ "Since your last login, there are %d new security alerts to view."
 #~ msgstr[0] ""
@@ -1077,12 +1079,14 @@ msgstr "bouton"
 #~ "afficher."
 
 #~ msgid "%d of the alerts may be very serious security violations."
+
 #~ msgid_plural "%d of the alerts may be very serious security violations."
 #~ msgstr[0] "Une des alertes peut être une très grave violation de sécurité."
 #~ msgstr[1] ""
 #~ "%d des alertes peuvent être de très graves violations de sécurité."
 
 #~ msgid "%d New Security Alert"
+
 #~ msgid_plural "%d New Security Alerts"
 #~ msgstr[0] "Une nouvelle alerte de sécurité"
 #~ msgstr[1] "%d nouvelles alertes de sécurité"
