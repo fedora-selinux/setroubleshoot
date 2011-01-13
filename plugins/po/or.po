@@ -5,20 +5,20 @@
 # Subhransu Behera <sbehera@redhat.com>, 2006.
 # Subhransu Behera <arya_subhransu@yahoo.co.in>, 2007.
 # Manoj Kumar Giri <giri.manojkr@gmail.com>, 2008.
-# Manoj Kumar Giri <mgiri@redhat.com>, 2008, 2009, 2010.
+# Manoj Kumar Giri <mgiri@redhat.com>, 2008, 2009, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins.or\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-12 10:56-0500\n"
-"PO-Revision-Date: 2010-08-03 12:24+0530\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
+"PO-Revision-Date: 2011-01-12 22:45+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <Translation-team-or@lists.sourceforge.net>\n"
 "Language: or\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "\n"
 "\n"
@@ -106,8 +106,7 @@ msgstr ""
 "    "
 
 #: ../src/allow_anon_write.py:44
-msgid ""
-"you want to allow $SOURCE_PATH to be able to write to shared public content"
+msgid "you want to allow $SOURCE_PATH to be able to write to shared public content"
 msgstr ""
 
 #: ../src/allow_anon_write.py:45
@@ -726,7 +725,7 @@ msgstr ""
 #: ../src/catchall_boolean.py:62
 #, python-format
 msgid "setsebool -P %s %s"
-msgstr ""
+msgstr "setsebool -P %s %s"
 
 #: ../src/catchall_boolean.py:65
 #, python-format
@@ -772,11 +771,8 @@ msgid ""
 msgstr ""
 
 #: ../src/catchall.py:29
-#, fuzzy
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr ""
-"\n"
-"    SELinux $SOURCE_PATH \"$ACCESS\" କୁ ପ୍ରତିରୋଧକରୁଅଛି।     "
+msgstr "SELinux $SOURCE_PATH \"$ACCESS\" କୁ ପ୍ରତିରୋଧକରୁଅଛି।     "
 
 #: ../src/catchall.py:31
 msgid ""
@@ -854,7 +850,7 @@ msgstr ""
 #: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
-"# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
 
@@ -969,51 +965,7 @@ msgstr ""
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
-msgstr ""
-
-#: ../src/dac_override.py:28
-#, fuzzy
-msgid ""
-"\n"
-"    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
-"    "
-msgstr ""
-"\n"
-"     SELinux $SOURCE_PATH \"sys_resource\" କ୍ଷମତାକୁ ଅଟକାଉଛି।\n"
-"    "
-
-#: ../src/dac_override.py:32
-msgid ""
-"\n"
-"\tdac_override and dac_read_search capabilities usually indicates that the "
-"root process does not have access to a file based on the permission flags.  "
-"This usually mean you have some file with the wrong ownership/permissions on "
-"it.\n"
-"    "
-msgstr ""
-
-#: ../src/dac_override.py:38
-msgid ""
-"you want to help identify if domain needs this access or you have a file "
-"with the wrong permissions on your system"
-msgstr ""
-
-#: ../src/dac_override.py:39
-msgid ""
-"turn on full auditing to get path information about the offending file and "
-"generate the error again."
-msgstr ""
-
-#: ../src/dac_override.py:40
-msgid ""
-"\n"
-"Turn on full auditing\n"
-"# auditctl -w /etc/shadow -p w\n"
-"Try to recreate AVC. Then execute\n"
-"# ausearch -m avc -ts recent\n"
-"If you see PATH record check ownership/permissions on file, and fix it, \n"
-"otherweise report as a bugzilla."
-msgstr ""
+msgstr "ଆପଣଙ୍କୁ $TARGET_BASE_PATH' ଉପରେ ନାମପଟିକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ହେବ"
 
 #: ../src/device.py:29
 msgid ""
@@ -1099,15 +1051,16 @@ msgstr ""
 "    "
 
 #: ../src/device.py:60
-msgid ""
-"You need to change the label on $TARGET_PATH to a type of a similar device."
-msgstr ""
+msgid "You need to change the label on $TARGET_PATH to a type of a similar device."
+msgstr "ଏକା ପ୍ରକାର ଉପକରଣ ପାଇଁ ଆପଣଙ୍କୁ $TARGET_PATH ଉପରେ ନାମପଟିକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ହେବ।"
 
 #: ../src/device.py:61
 msgid ""
 "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/disable_ipv6.py:30
 msgid ""
@@ -1170,19 +1123,19 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr ""
+msgstr "ଏହା ନୂତନ ଭାବରେ ନିର୍ମିତ ଫାଇଲତନ୍ତ୍ର ଦ୍ୱାରା ଘଟିଥାଏ।"
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
-msgstr ""
+msgstr "ଆପଣ ଭାବୁଛନ୍ତିକି ଏହା ଭୁଲ ଭାବରେ ନାମକରଣ ହୋଇଥିବା ତନ୍ତ୍ର ଦ୍ୱାରା ଘଟିଛି।"
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
-msgstr ""
+msgstr "ଆପଣଙ୍କୁ ଏଥିରେ ନାମପଟି ଲଗାଇବାକୁ ହେବ।"
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
-msgstr ""
+msgstr "ଆପଣଙ୍କୁ ପୁଣିଥରେ ନାମପଟି ଲଗାଇବାକୁ ହେବ।"
 
 #: ../src/filesystem_associate.py:27
 msgid ""
@@ -1251,14 +1204,12 @@ msgid ""
 msgstr ""
 
 #: ../src/filesystem_associate.py:46
-#, fuzzy
 msgid ""
 "use a command like \"cp -p\" to preserve all permissions except SELinux "
 "context."
 msgstr ""
-"\n"
-"    SELinux ପ୍ରସଙ୍ଗ ପରିବର୍ତ୍ତେ ସମସ୍ତ ପ୍ରସଙ୍ଗକୁ ସଂରକ୍ଷଣ କରିବା ପାଇଁ \"cp -p\" ପରି ଏକ "
-"ନିର୍ଦ୍ଦେଶକୁ ବ୍ୟବହାର କରନ୍ତୁ।\n"
+"SELinux ପ୍ରସଙ୍ଗ ପରିବର୍ତ୍ତେ ସମସ୍ତ ପ୍ରସଙ୍ଗକୁ ସଂରକ୍ଷଣ କରିବା ପାଇଁ \"cp -p\" ପରି ଏକ "
+"ନିର୍ଦ୍ଦେଶକୁ ବ୍ୟବହାର କରନ୍ତୁ।"
 "    "
 
 #: ../src/httpd_can_sendmail.py:28
@@ -1303,11 +1254,11 @@ msgstr ""
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
-msgstr ""
+msgstr "ଆପଣ ମେଲ ପଠାଇବା ପାଇଁ httpd କୁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି କି"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
-msgstr ""
+msgstr "ଆପଣ ଏହାକୁ ଅନୁମତି ଦେବା ପାଇଁ SELinux କୁ ସେଟ କରିବା ଉଚିତ"
 
 #: ../src/httpd_unified.py:29
 #, fuzzy
@@ -1517,6 +1468,8 @@ msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1564,8 +1517,7 @@ msgstr ""
 "    "
 
 #: ../src/mmap_zero.py:46
-msgid ""
-"you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
+msgid "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
 msgstr ""
 
 #: ../src/mmap_zero.py:47
@@ -1631,7 +1583,7 @@ msgstr ""
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
-msgstr ""
+msgstr "ଆପଣଙ୍କୁ ନିଶ୍ଚିତ ଭାବରେ $TARGET_PATH ଉପରେ ନାମପଟିକୁ ପରିବର୍ତ୍ତନ କରିବା ଉଚିତ।"
 
 #: ../src/openvpn.py:32 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -1692,11 +1644,11 @@ msgstr ""
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
-msgstr ""
+msgstr "ଆପଣଙ୍କୁ ନିଶ୍ଚିତ ଭାବରେ ପ୍ରମାଣପତ୍ର ଫାଇଲକୁ ~/.cert ଡିରେକ୍ଟୋରୀ ମଧ୍ଯକୁ ପଠାଇବା ଉଚିତ"
 
 #: ../src/openvpn.py:57 ../src/sshd_root.py:47
 msgid "you must fix the labels."
-msgstr ""
+msgstr "ଆପଣଙ୍କୁ ନିଶ୍ଚିତ ଭାବରେ ନାମପଟିକୁ ସମାଧାନ କରିବାକୁ ହେବ।"
 
 #: ../src/public_content.py:31
 msgid ""
@@ -1741,12 +1693,15 @@ msgstr ""
 #: ../src/public_content.py:50
 msgid "you want to allow want to treat $TARGET_BASE_PATH as pubic content"
 msgstr ""
+"$TARGET_BASE_PATH କୁ ସର୍ବସାଧାରଣ ବିଷୟବସ୍ତୁ ଭାବରେ ବ୍ୟବହାର କରିବା ପାଇଁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି କି"
 
 #: ../src/public_content.py:51
 msgid ""
 "You need to change the label on $TARGET_BASE_PATH to public_content_t or "
 "public_content_rw_t."
 msgstr ""
+"ଆପଣଙ୍କୁ $TARGET_BASE_PATH' ଉପରେ ନାମପଟିକୁ public_content_t କିମ୍ବା "
+"public_content_rw_t ନାମରେ ପରିବର୍ତ୍ତନ କରିବାକୁ ହେବ।"
 
 #: ../src/qemu_blk_image.py:31
 msgid ""
@@ -1796,6 +1751,8 @@ msgid ""
 "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/qemu_file_image.py:31
 msgid ""
@@ -1834,33 +1791,14 @@ msgstr ""
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "$TARGET_BASE_PATH ଟି ଗୋଟିଏ ଆଭାସୀକରଣ ଲକ୍ଷ୍ଯ ଅଟେ"
 
-#: ../src/restorecon.py:38
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon '$TARGET_PATH', if this file is a "
-"directory,\n"
-"    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
-"    "
-msgstr ""
-"\n"
-"    ଆପଣ ପୂର୍ବନିର୍ଦ୍ଧାରିତ ତନ୍ତ୍ର ପ୍ରସଙ୍ଗକୁ ଏହି ଫାଇଲରେ restorecon ନିର୍ଦ୍ଦେଶକୁ ନିଷ୍ପାଦନ କରି "
-"ପୁନଃସ୍ଥାପନ\n"
-"     କରିପାରିବେ।  restorecon '$TARGET_PATH', ଯଦି ଏହି ଫାଇଲଟି ଗୋଟିଏ ଡିରେକ୍ଟୋରୀ ହୋଇଥାଏ,\n"
-"    ତେବେ ଆପଣ ପୁନଃପୌନିକ ଭାବରେ restorecon -R '$TARGET_PATH' କୁ ବ୍ୟବହାର କରିପୁନଃସ୍ଥାପନ "
-"କରିପାରିବେ।\n"
-"    "
-
-#: ../src/restorecon.py:45
-#, fuzzy, python-format
+#: ../src/restorecon.py:36
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
 "    be a mislabeled.  $TARGET_PATH default SELinux type is\n"
-"    <B>%s</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
+"    <B>$MATCTYPE</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
 "    this file back to the default type, may fix your problem.\n"
 "    <p>\n"
 "    File contexts can be assigned to a file in the following ways.\n"
@@ -1895,13 +1833,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux $SOURCE ଦ୍ୱାରା ଅନୁରୋଧ କରାଯାଇଥିବା ଅଭିଗମ୍ୟତାକୁ ବାରଣ କରିଛି। $TARGET_PATH "
-"ହୁଏତଃ\n"
+"    SELinux $SOURCE ଦ୍ୱାରା ଅନୁରୋଧ କରାଯାଇଥିବା ଅଭିଗମ୍ୟତାକୁ ବାରଣ କରିଛି। $TARGET_PATH ହୁଏତଃ\n"
 "    ଭୁଲ ଭାବରେ ନାମକରଣ ହୋଇଛି।  $TARGET_PATH ପୂର୍ବନିର୍ଦ୍ଧାରିତ SELinux ପ୍ରକାରଟି ହେଉଛି\n"
-"    <B>$MATCHTYPE</B>, କିନ୍ତୁ ଏହାର ପ୍ରଚଳିତ ପ୍ରକାରଟି ହେଉଛି <B>$TARGET_TYPE</B>। ଏହି "
-"ଫାଇଲକୁ\n"
-"    ପୂର୍ବନିର୍ଦ୍ଧାରିତ ପ୍ରକାରରେ ପରିବର୍ତ୍ତନ କରିବା ପାଇଁ, ଏହା ହୁଏତଃ ଆପଣଙ୍କର ସମସ୍ୟାର ସମାଧାନ "
-"କରିପାରିବ।\n"
+"    <B>$MATCHTYPE</B>, କିନ୍ତୁ ଏହାର ପ୍ରଚଳିତ ପ୍ରକାରଟି ହେଉଛି <B>$TARGET_TYPE</B>। ଏହି ଫାଇଲକୁ\n"
+"    ପୂର୍ବନିର୍ଦ୍ଧାରିତ ପ୍ରକାରରେ ପରିବର୍ତ୍ତନ କରିବା ପାଇଁ, ଏହା ହୁଏତଃ ଆପଣଙ୍କର ସମସ୍ୟାର ସମାଧାନ କରିପାରିବ।\n"
 "    <p>\n"
 "    ଫାଇଲ ପ୍ରସଙ୍ଗଗୁଡ଼ିକ ଗୋଟିଏ ଫାଇଲରେ ନିମ୍ନଲିଖିତ ଉପାୟରେ ନ୍ୟସ୍ତ ହୋଇପାରିବ।\n"
 "    <ul>\n"
@@ -1912,7 +1847,7 @@ msgstr ""
 "            ପ୍ରସଙ୍ଗ A ରେ ଚାଲୁଥିବା ପ୍ରକ୍ରିୟାକୁ ଉଲ୍ଲେଖ କରିବା ଦ୍ୱାରା ହୋଇଥାଏ ଯିଏକି B ନାମରେ "
 "ନାମିତ ଡିରେକ୍ଟୋରୀରେ ଗୋଟିଏ ଫାଇଲ ନିର୍ମାଣ କରିଥାଏ\n"
 "            ଯିଏକି ଏହା ପରିବର୍ତ୍ତେ C ନାମକ ଗୋଟିଏ ଫାଇଲ ନିର୍ମାଣ କରିବ। ଏହାର ଗୋଟିଏ ଉଦାହରଣ "
-"ହେଉଛିdhcp କ୍ଲାଏଣ୍ଟ\n"
+"ହେଉଛି dhclient_t\n"
 "            ଯାହାକି dhclient_t ପ୍ରକାର ସହିତ ଚାଲିଥାଏ ଏବଂ ଡିରେକ୍ଟୋରୀରେ ଗୋଟିଏ ଫାଇଲ ନିର୍ମାଣ "
 "କରିଥାଏ /ଇତ୍ୟାଦି। ଏହି ଫାଇଲ ସାଧାରଣତଃ\n"
 "            etc_t ପ୍ରକାରକୁ ପୈତୃକ ଉତ୍ତରାଧିକାର ଭାବରେ ଗ୍ରହଣ କରିଥାଏ କିନ୍ତୁ ସେହି ଫାଇଟି ଏହା "
@@ -1934,23 +1869,43 @@ msgstr ""
 "ଖବର କରନ୍ତୁ।\n"
 "    "
 
-#: ../src/restorecon.py:71
-#, python-format
+#: ../src/restorecon.py:62
 msgid ""
-"you want to fix the label. \n"
-"$TARGET_PATH default label should be %s."
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon '$TARGET_PATH', if this file is a "
+"directory,\n"
+"    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
+"    "
 msgstr ""
+"\n"
+"    ଆପଣ ପୂର୍ବନିର୍ଦ୍ଧାରିତ ତନ୍ତ୍ର ପ୍ରସଙ୍ଗକୁ ଏହି ଫାଇଲରେ restorecon ନିର୍ଦ୍ଦେଶକୁ ନିଷ୍ପାଦନ କରି "
+"ପୁନଃସ୍ଥାପନ\n"
+"     କରିପାରିବେ।  restorecon '$TARGET_PATH', ଯଦି ଏହି ଫାଇଲଟି ଗୋଟିଏ ଡିରେକ୍ଟୋରୀ ହୋଇଥାଏ,\n"
+"    ତେବେ ଆପଣ ପୁନଃପୌନିକ ଭାବରେ restorecon -R '$TARGET_PATH' କୁ ବ୍ୟବହାର କରିପୁନଃସ୍ଥାପନ "
+"କରିପାରିବେ।\n"
+"    "
 
-#: ../src/restorecon.py:76
+#: ../src/restorecon.py:70
+msgid ""
+"you want to fix the label, $TARGET_BASE_PATH does not have the default "
+"system label."
+msgstr ""
+"ଆପଣ ସେହି ନାମପଟିକୁ ଠିକ କରିବାକୁ ଚାହୁଁଛନ୍ତି, $TARGET_BASE_PATH ପାଖରେ ପୂର୍ବନିର୍ଦ୍ଧାରିତ ତନ୍ତ୍ର ନାମପଟି "
+"ନାହିଁ।"
+
+#: ../src/restorecon.py:71
 msgid "you can run restorecon."
-msgstr ""
+msgstr "ଆପଣ restorecon କୁ ଚଲାଇପାରିବେ।"
 
-#: ../src/restorecon.py:84
-#, fuzzy
+#: ../src/restorecon.py:79
 msgid ""
 "Restore\n"
 "Context"
-msgstr "ପ୍ରସଙ୍ଗକୁ ପୁନସ୍ଥାପନ କରନ୍ତୁ"
+msgstr ""
+"ପୁନସ୍ଥାପନ କରନ୍ତୁ\n"
+"ପ୍ରସଙ୍ଗ"
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1990,11 +1945,11 @@ msgstr ""
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr ""
+msgstr "$TARGET_BASE_PATH କୁ rsync ଡେମନ ମାଧ୍ଯମରେ ସହଭାଗ କରିବା ଉଚିତ"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
-msgstr ""
+msgstr "ଆପଣଙ୍କୁ $TARGET_BASE_PATH ଉପରେ ନାମପଟିକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ହେବ"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -2056,6 +2011,8 @@ msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
+"# restorecon %s -v '$FIX_TARGET_PATH'"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -2092,11 +2049,11 @@ msgstr ""
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
-msgstr ""
+msgstr "ଆପଣ ପରୀକ୍ଷା ସମୟରେ ସିଧାସଳଖ ଭାବରେ ଏହି AVC କୁ ଘଟାଇ ନାହାନ୍ତି।"
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
-msgstr ""
+msgstr "ଯଦି ଆପଣ ଭାବନ୍ତିଯେ ଆପଣଙ୍କୁ ହୁଏତଃ ହ୍ୟାକ କରାଯାଇଛି"
 
 #: ../src/setenforce.py:32
 msgid ""
@@ -2137,7 +2094,7 @@ msgstr ""
 
 #: ../src/setenforce.py:48
 msgid "you believe $SOURCE_PATH tried to disable SELinux."
-msgstr ""
+msgstr "ଆପଣ ବିଶ୍ୱାସ କରନ୍ତି ଯେ $SOURCE_PATH SELinux କୁ ନିଷ୍କ୍ରିୟ କରିବା ପାଇଁ ଚେଷ୍ଟାକରିଛି।"
 
 #: ../src/setenforce.py:49
 msgid ""
@@ -2222,7 +2179,7 @@ msgstr ""
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
-msgstr ""
+msgstr "ଆପଣଙ୍କୁ ହୁଏତଃ ହ୍ୟାକ କରାଯାଇଛି।"
 
 #: ../src/sys_module.py:33
 msgid ""
@@ -2510,8 +2467,7 @@ msgstr ""
 "    "
 
 #: ../booleans_trans.py:1
-msgid ""
-"If you want to allow ftp to read and write files in the user home directories"
+msgid "If you want to allow ftp to read and write files in the user home directories"
 msgstr ""
 
 #: ../booleans_trans.py:2
@@ -2531,8 +2487,7 @@ msgid "If you want to allow xen to manage nfs files"
 msgstr ""
 
 #: ../booleans_trans.py:5
-msgid ""
-"If you want to allow confined web browsers to read home directory content"
+msgid "If you want to allow confined web browsers to read home directory content"
 msgstr ""
 
 #: ../booleans_trans.py:6
@@ -2658,8 +2613,7 @@ msgid "If you want to allow rsync to run as a client"
 msgstr ""
 
 #: ../booleans_trans.py:29
-msgid ""
-"If you want to allow rgmanager domain to connect to the network using TCP."
+msgid "If you want to allow rgmanager domain to connect to the network using TCP."
 msgstr ""
 
 #: ../booleans_trans.py:30
@@ -2695,8 +2649,7 @@ msgid "If you want to allow Git daemon system to access cifs file systems."
 msgstr ""
 
 #: ../booleans_trans.py:37
-msgid ""
-"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
+msgid "If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
 msgstr ""
 
 #: ../booleans_trans.py:38
@@ -2708,8 +2661,7 @@ msgid "If you want to allow httpd to access cifs file systems"
 msgstr ""
 
 #: ../booleans_trans.py:40
-msgid ""
-"If you want to allow piranha-lvs domain to connect to the network using TCP."
+msgid "If you want to allow piranha-lvs domain to connect to the network using TCP."
 msgstr ""
 
 #: ../booleans_trans.py:41
@@ -2750,8 +2702,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:49
-msgid ""
-"If you want to allow samba to create new home directories (e.g. via PAM)"
+msgid "If you want to allow samba to create new home directories (e.g. via PAM)"
 msgstr ""
 
 #: ../booleans_trans.py:50
@@ -2819,8 +2770,7 @@ msgid "If you want to allow Apache to communicate with avahi service via dbus"
 msgstr ""
 
 #: ../booleans_trans.py:62
-msgid ""
-"If you want to allow dhcpc client applications to execute iptables commands"
+msgid "If you want to allow dhcpc client applications to execute iptables commands"
 msgstr ""
 
 #: ../booleans_trans.py:63
@@ -2863,8 +2813,7 @@ msgid "If you want to allow dbadm to manage files in users home directories"
 msgstr ""
 
 #: ../booleans_trans.py:71
-msgid ""
-"If you want to allow confined virtual guests to interact with the xserver"
+msgid "If you want to allow confined virtual guests to interact with the xserver"
 msgstr ""
 
 #: ../booleans_trans.py:72
@@ -3205,8 +3154,7 @@ msgid "If you want to allow xguest users to mount removable media"
 msgstr ""
 
 #: ../booleans_trans.py:144
-msgid ""
-"If you want to allow icecast to connect to all ports, not just sound ports."
+msgid "If you want to allow icecast to connect to all ports, not just sound ports."
 msgstr ""
 
 #: ../booleans_trans.py:145
@@ -3296,8 +3244,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:163
-msgid ""
-"If you want to allow any files/directories to be exported read/write via NFS."
+msgid "If you want to allow any files/directories to be exported read/write via NFS."
 msgstr ""
 
 #: ../booleans_trans.py:164
@@ -3345,8 +3292,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:173
-msgid ""
-"If you want to allow any files/directories to be exported read/only via NFS."
+msgid "If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
 
 #: ../booleans_trans.py:174
