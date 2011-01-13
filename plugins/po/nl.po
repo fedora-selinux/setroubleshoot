@@ -1,15 +1,15 @@
 # translation of setroubleshoot to Dutch
 # Copyright (C) 2007 THE setroubleshoot COPYRIGHT HOLDER
 # This file is distributed under the same license as the setroubleshoot package.
-# Geert Warrink <geert.warrink@onsnet.nu>, 2009, 2010.
+# Geert Warrink <geert.warrink@onsnet.nu>, 2009, 2010, 2011.
 # Peter van Egdom <p.van.egdom@gmail.com>, 2007, 2009.
-# Geert Warrink <geert.warrink@onsnet.nu>, 2009, 2010.
+# Geert Warrink <geert.warrink@onsnet.nu>, 2009, 2010, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-01-12 10:56-0500\n"
-"PO-Revision-Date: 2010-11-30 10:15+0200\n"
+"PO-Revision-Date: 2011-01-13 17:59+0200\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Fedora\n"
 "Language: nl\n"
@@ -859,14 +859,13 @@ msgstr ""
 "Je kunt een locale tactiek module genereren om deze toegang toe te staan."
 
 #: ../src/catchall.py:56
-#, fuzzy
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
 "Sta deze toegang nu toe door het uitvoeren van:\n"
-"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
@@ -986,14 +985,13 @@ msgid "You need to change the label on $TARGET_BASE_PATH'"
 msgstr "Je moet het label op $FIX_TARGET_PATH' veranderen"
 
 #: ../src/dac_override.py:28
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
 "    "
 msgstr ""
 "\n"
-"    SELinux belet $SOURCE_PATH de \"sys_resource\" mogelijkheid.\n"
+"    SELinux belet $SOURCE_PATH de \"$ACCESS\" mogelijkheid.\n"
 "    "
 
 #: ../src/dac_override.py:32
@@ -1005,18 +1003,28 @@ msgid ""
 "it.\n"
 "    "
 msgstr ""
+"\n"
+"\tdac_override en dac_read_search mogelijkheden geven gewoonlijk aan dat het "
+"root proces geen toegang heeft tot een bestand gebaseerd op rechten vlaggen. "
+" Dit betekent gewoonlijk dat je een bestand hebt met de verkeerde "
+"eigenaar/rechten.\n"
+"    "
 
 #: ../src/dac_override.py:38
 msgid ""
 "you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
 msgstr ""
+"je wilt helpen bij het identificeren als domein deze toegang nodig heeft of "
+"je hebt een bestand met de verkeerde rechten op jouw systeem."
 
 #: ../src/dac_override.py:39
 msgid ""
 "turn on full auditing to get path information about the offending file and "
 "generate the error again."
 msgstr ""
+"zet volledig audit aan om pad informatie te verkrijgen over het gewraakte "
+"bestand en genereer deze fout opnieuw."
 
 #: ../src/dac_override.py:40
 msgid ""
@@ -1028,6 +1036,14 @@ msgid ""
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
 "otherweise report as a bugzilla."
 msgstr ""
+"\n"
+"Zet volledige audit aan\n"
+"# auditctl -w /etc/shadow -p w\n"
+"Probeer AVC opnieuw te creëren. Voer dan uit\n"
+"# ausearch -m avc -ts recent\n"
+"Als je PATH record ziet controleer eigenaar/rechten van bestand, en herstel "
+"dit, \n"
+"rapporteer dit anders als een bugzilla."
 
 #: ../src/device.py:29
 msgid ""
@@ -1938,7 +1954,7 @@ msgstr ""
 "    "
 
 #: ../src/restorecon.py:45
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1980,8 +1996,7 @@ msgstr ""
 "\n"
 "    SELinux belette toegang verzocht door $SOURCE. $TARGET_PATH kan\n"
 "    verkeerd gelabeld zijn. Het standaard SELinux type van $TARGET_PATH is\n"
-"    <B>$MATCHTYPE</B>, maar zijn huidige type is <B>$TARGET_TYPE</B>. Het "
-"veranderen\n"
+"    <B>%s</B>, maar zijn huidige type is <B>$TARGET_TYPE</B>. Het veranderen\n"
 "    van dit bestand naar het standaard type kan jouw probleem oplossen.\n"
 "    <p>\n"
 "    Bestand contexten kunnen op de volgende manieren toegekend worden aan "
@@ -2017,13 +2032,13 @@ msgstr ""
 "    "
 
 #: ../src/restorecon.py:71
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
 msgstr ""
-"je wilt het label repareren, $TARGET_BASE_PATH heeft niet het standaard "
-"systeem label."
+"je wilt het label repareren. \n"
+"$TARGET_PATH standaard label moet %s zijn."
 
 #: ../src/restorecon.py:76
 msgid "you can run restorecon."
