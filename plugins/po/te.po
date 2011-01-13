@@ -3,19 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Krishna Babu K <kkrothap@redhat.com>, 2008, 2009, 2010.
+# Krishnababu Krothapalli <kkrothap@redhat.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins.te\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-12 10:56-0500\n"
-"PO-Revision-Date: 2010-08-03 12:30+0530\n"
-"Last-Translator: Krishna Babu K <kkrothap@redhat.com>\n"
+"POT-Creation-Date: 2010-11-29 10:58-0500\n"
+"PO-Revision-Date: 2011-01-13 16:10+0530\n"
+"Last-Translator: Krishnababu Krothapalli <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <en@li.org>\n"
 "Language: te\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "\n"
 "\n"
@@ -87,15 +88,16 @@ msgstr ""
 "    "
 
 #: ../src/allow_anon_write.py:44
-msgid ""
-"you want to allow $SOURCE_PATH to be able to write to shared public content"
-msgstr ""
+msgid "you want to allow $SOURCE_PATH to be able to write to shared public content"
+msgstr "భాగస్వామ్య పబ్లిక్ సారములోనికి వ్రాయబడుటకు మీరు $SOURCE_PATH ను అనుమతించాలని కోరుకొనుచున్నారా"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
 msgstr ""
+"మీరు $TARGET_PATH పైని లేబుల్‌ను public_content_rw_t కు మార్చవలసి వుంటుంది, మరియు selinux "
+"allow_httpd_sys_script_anon_write బూలియన్‌ను ఆన్ చేయవలసి వుంటుంది."
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -157,18 +159,18 @@ msgstr ""
 msgid ""
 "you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "వ్రాయదగిన మరియు నిర్వర్తించదగిన హీప్ మెమొరీకు $SOURCE_PATH మాప్ చేయవలెనని మీరు అనుకోవడంలా."
 
 #: ../src/allow_execheap.py:51 ../src/allow_execstack.py:62
 msgid "you need to report a bug. This is a potentially dangerous access."
-msgstr ""
+msgstr "మీరు బగ్‌ను నివేదించాలి. ఇది హానికారణ యాక్సెస్."
 
 #: ../src/allow_execheap.py:52 ../src/allow_execstack.py:63
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
 #: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
 msgid "Contact your security administrator and report this issue."
-msgstr ""
+msgstr "మీరు భద్రతా నిర్వాహకుని సంప్రదించి యీ సమస్యగురించి ఫిర్యాదుచేయండి."
 
 #: ../src/allow_execmod.py:27
 msgid ""
@@ -350,7 +352,7 @@ msgstr ""
 msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "వ్రాయదగిన మరియు నిర్వర్తించదగిన స్టాక్ మెమొరీకు $SOURCE_PATH ను మాప్ చేయాలని మీరు అనుకోవడంలా."
 
 #: ../src/allow_ftpd_use_cifs.py:29
 msgid ""
@@ -430,11 +432,11 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "మీరు ftpd ను cifs ఫైల్ సిస్టమ్సుకు వ్రాయుటకు అనుమతించాలని అనుకొనుచున్నారా"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
-msgstr ""
+msgstr "మీరు SELinuxకు దీని గురించి తప్పక తెలుపవలెను"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -518,7 +520,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "మీరు ftpd ను nfs ఫైల్ సిస్టమ్సుకు వ్రాయుటకు అనుమతించాలి అనుకొనుచున్నారా"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -693,17 +695,17 @@ msgstr ""
 #: ../src/catchall_boolean.py:59
 #, python-format
 msgid "you want to %s"
-msgstr ""
+msgstr "%s కోరుకొనుచున్నారా"
 
 #: ../src/catchall_boolean.py:62
 #, python-format
 msgid "setsebool -P %s %s"
-msgstr ""
+msgstr "setsebool -P %s %s"
 
 #: ../src/catchall_boolean.py:65
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean."
-msgstr ""
+msgstr "మీరు '%s' బూలియన్‌ను చేతనము చేయుట ద్వారా SELinuxకు దీని గురించి తెలుపాలి."
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -730,7 +732,7 @@ msgstr ""
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
-msgstr ""
+msgstr "మీరు $FIX_TARGET_PATH పైని లేబుల్‌ను మార్చాలి"
 
 #: ../src/catchall_labels.py:40
 #, python-format
@@ -740,6 +742,10 @@ msgid ""
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
 msgstr ""
+"# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\n"
+"ఇచట FILE_TYPE కింది వాటిలో వొకటి: %s. \n"
+"అప్పుడు యిది నిర్వర్తించు: \n"
+"restorecon -v '$FIX_TARGET_PATH'\n"
 
 #: ../src/catchall.py:29
 #, fuzzy
@@ -803,7 +809,7 @@ msgstr ""
 msgid ""
 "you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
-msgstr ""
+msgstr "మీరు $SOURCE_BASE_PATH అనునది $ACCESS సామర్థ్యమును అప్రమేయంగా కలిగివుండాలని నమ్ముచున్నారా."
 
 #: ../src/catchall.py:53
 #, fuzzy
@@ -820,13 +826,18 @@ msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
+"మీరు దీనిని బగ్ వలె ఫిర్యాదు చేయాలి.\n"
+"ఈ యాక్సెస్‌ను అనుమతించుట ద్వారా మీరు స్థానిక పాలసీ మాడ్యూల్‌ను వుద్భవింప చేయగలరు."
 
 #: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
-"# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"దీనిని నిర్వర్తించుట ద్వారా యీ యాక్సెస్‌ను యిప్పుటికి అనుమతించుము:\n"
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
 msgid ""
@@ -933,55 +944,11 @@ msgstr ""
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "$TARGET_BASE_PATH అనునది cvs డెమోన్ ద్వారా భాగస్వామ్యపరచబడాలి"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
-msgstr ""
-
-#: ../src/dac_override.py:28
-#, fuzzy
-msgid ""
-"\n"
-"    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
-"    "
-msgstr ""
-"\n"
-"    SELinux అనునది $SOURCE_PATH  \"sys_resource\" సామర్ద్యమును నిరోధించుచున్నది. \n"
-"    "
-
-#: ../src/dac_override.py:32
-msgid ""
-"\n"
-"\tdac_override and dac_read_search capabilities usually indicates that the "
-"root process does not have access to a file based on the permission flags.  "
-"This usually mean you have some file with the wrong ownership/permissions on "
-"it.\n"
-"    "
-msgstr ""
-
-#: ../src/dac_override.py:38
-msgid ""
-"you want to help identify if domain needs this access or you have a file "
-"with the wrong permissions on your system"
-msgstr ""
-
-#: ../src/dac_override.py:39
-msgid ""
-"turn on full auditing to get path information about the offending file and "
-"generate the error again."
-msgstr ""
-
-#: ../src/dac_override.py:40
-msgid ""
-"\n"
-"Turn on full auditing\n"
-"# auditctl -w /etc/shadow -p w\n"
-"Try to recreate AVC. Then execute\n"
-"# ausearch -m avc -ts recent\n"
-"If you see PATH record check ownership/permissions on file, and fix it, \n"
-"otherweise report as a bugzilla."
-msgstr ""
+msgstr "$TARGET_BASE_PATH' పైని లేబుల్‌ను మార్చాలి"
 
 #: ../src/device.py:29
 msgid ""
@@ -1068,15 +1035,16 @@ msgstr ""
 "    "
 
 #: ../src/device.py:60
-msgid ""
-"You need to change the label on $TARGET_PATH to a type of a similar device."
-msgstr ""
+msgid "You need to change the label on $TARGET_PATH to a type of a similar device."
+msgstr "$TARGET_PATH పైని లేబుల్‌ను అదేరకమైన పరికర రకమునకు మార్చాలి."
 
 #: ../src/device.py:61
 msgid ""
 "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/disable_ipv6.py:30
 msgid ""
@@ -1138,19 +1106,19 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr ""
+msgstr "ఇది కొత్తగా సృష్టించబడిన ఫైల్ సిస్టమ్ కారణంగా."
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
-msgstr ""
+msgstr "ఇది చెడ్డగా లేబుల్ చేయబడిన మిషన్ కారణంగానని మీరు అనుకొనుచున్నారా."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
-msgstr ""
+msgstr "మీరు లేబుల్సును దీనికి జతచేయాలి."
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
-msgstr ""
+msgstr "మీరు పూర్తి నమ్మకంగా వుండాలి."
 
 #: ../src/filesystem_associate.py:27
 msgid ""
@@ -1209,13 +1177,15 @@ msgstr ""
 msgid ""
 "you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
 "files"
-msgstr ""
+msgstr "మీరు $SOURCE_BASE_PATH అనునది $TARGET_BASE_PATH ఫైళ్ళను సృష్టించుటకు అనుమతించబడాలని నమ్ముతారా"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
 "you need to use a different command. You are not allowed to preserve the "
 "SELinux context on the target file system."
 msgstr ""
+"మీరు వేరే ఆదేశమును వుపయోగించాలి. లక్ష్యపు ఫైల్ సిస్టమ్ పైని SELinux  సందర్భమును నిలిపివుంచుటకు మీరు "
+"అనుమతించబడరు."
 
 #: ../src/filesystem_associate.py:46
 #, fuzzy
@@ -1270,11 +1240,11 @@ msgstr ""
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
-msgstr ""
+msgstr "మీరు httpd ను మెయిల్ పంపుటకు అనుమతించాలని అనుకొనుచున్నారా"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
-msgstr ""
+msgstr "దీనిని అనుమతించుటకు మీరు SELinuxను అమర్చాలి"
 
 #: ../src/httpd_unified.py:29
 #, fuzzy
@@ -1312,6 +1282,27 @@ msgid ""
 "    script types.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux అనునది $ACCESS యాక్సెస్‌ను http ఫైళ్ళకు నిరోధించినది.\n"
+"\n"
+"    సాధారణంగా httpd అనునది http పైల్ సందర్భముతో లేబుల్ చేయబడిన అన్ని ఫైళ్ళకు "
+"పూర్తి\n"
+"    అనుమతిని యిచ్చును. ఈ మిషన్ గట్టి భద్రతా విధానమును కలిగివుంది "
+"$BOOLEAN\n"
+"    ఆఫ్ చేయబడుటతో,  దీనికి అన్ని ఫైళ్ళను బాహ్యంగా లేబులింగ్ చేయవలసివుంటుంది. ఒకవేళ "
+"ఫైలు\n"
+"     cgi స్క్రిప్టు అయితే అది httpd_TYPE_script_exec_t తో లేబుల్ చేయవలసి వుంటుంది "
+"నిర్వర్తించ\n"
+"    బడుటకు. ఒకవేళ అది చదువుటకు మాత్రమే అయినటువంటి సారమైతే, అది httpd_TYPE_content_t\n"
+"    గా లేబుల్ చేయబడాలి, అది వ్రాయదగు సారమైతే అది httpd_TYPE_script_rw_t లేదా\n"
+"    httpd_TYPE_script_ra_t గా లేబుల్ చేయబడాలి. ఈ సందర్భమును మార్చుటకు మీరు\n"
+"    chcon ఆదేశమును వుపయోగించవచ్చును. దయచేసి మాన్ పేజీను చూడండి\n"
+"    \"man httpd_selinux\" లేదా \n"
+"    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
+"    \"TYPE\" toi వీటిలో వొక దానిని సూచించును \"sys\", \"user\" లేదా \"staff\" లేదా "
+"యితర\n"
+"    స్క్రిప్టు రకములను.\n"
+"    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -1330,12 +1321,17 @@ msgid ""
 "you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
 "of all content files."
 msgstr ""
+"మీరు httpd ను cgi స్క్రిప్టులను నిర్వర్తించుటకు మరియు అన్ని సారపు ఫైళ్ళ యొక్క HTTPD సంభాలనను సమీకృతం "
+"చేయుటకు "
+"అనుమతించాలని అనుకొనుచున్నారా."
 
 #: ../src/httpd_unified.py:58
 msgid ""
 "you must tell SELinux about this by enabling the 'httpd_unified' and "
 "'http_enable_cgi' booleans"
 msgstr ""
+"'httpd_unified' మరియు 'http_enable_cgi' బూలియన్సును చేతనపరచుట ద్వారా దీని గురించి మీరు SELinuxకు "
+"తెలుపవలెను"
 
 #: ../src/httpd_write_content.py:30
 msgid ""
@@ -1362,7 +1358,7 @@ msgstr ""
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
 msgid "You need to change the label on '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "మీరు '$FIX_TARGET_PATH' పైని లేబుల్‌ను మార్చాలి"
 
 #: ../src/kernel_modules.py:29
 msgid ""
@@ -1412,7 +1408,7 @@ msgstr ""
 msgid ""
 "you may be under attack by a hacker, since confined applications should not "
 "need this access."
-msgstr ""
+msgstr "మీరు హాకర్‌చే దాడికి గురై వుండవచ్చు, లొంగదీసుకొన్న అనువర్తనములు యీ యాక్సెస్ అవసరములేదు."
 
 #: ../src/leaks.py:27
 msgid ""
@@ -1460,6 +1456,7 @@ msgstr ""
 "\n"
 "    ఈ యాక్సెస్‌ను అనుమతించుటకు మీరు స్థానిక విధాన మాడ్యూల్‌ను వుద్బవింపజేయవచ్చు\n"
 "     - <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/"
+"     - <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/"
 "#id2961385\">FAQ</a> చూడండి\n"
 "    "
 
@@ -1469,18 +1466,25 @@ msgid ""
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
 "access."
 msgstr ""
+"$TARGET_BASE_PATH $TARGET_CLASS ను $ACCESS యాక్సెస్ చేయుటకు ప్రయత్నించుటను "
+"$SOURCE_BASE_PATH విస్మరించవలెనని మీరు కోరుకొనుచున్నారా, యెంచేతంటే మీరు యిది యీ యాక్సిస్‌ను "
+"కలిగివుండవలసిన అవసరములేదని నమ్ముచున్న కారణంగా."
 
 #: ../src/leaks.py:43
 msgid ""
 "You should report this as a bug.  \n"
 "You can generate a local policy module to dontaudit this access."
 msgstr ""
+"మీరు దీనిని బగ్‌గా నివేదించవలెను. \n"
+"ఈ యాక్సెస్‌ను ఆడిట్ చేయకుండా వుండుటకు మీరు స్థానిక విధాన మాడ్యూల్‌ను వుద్భవింపచేయగలరు."
 
 #: ../src/leaks.py:44
 msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1526,13 +1530,12 @@ msgstr ""
 "    "
 
 #: ../src/mmap_zero.py:46
-msgid ""
-"you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
-msgstr ""
+msgid "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
+msgstr "$SOURCE_PATH అనునది కెర్నల్ నందు తక్కువ మెమొరీను mmap చేయవలసివుంటుందని మీరు అనుకోవడంలేదు."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
-msgstr ""
+msgstr "మీరు హాకర్ చేత దాడి చేయబడివుండవచ్చును, ఇది చాలా ప్రమాదకర యాక్సెస్."
 
 #: ../src/mounton.py:29
 msgid ""
@@ -1587,11 +1590,11 @@ msgstr ""
 
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
-msgstr ""
+msgstr "మీరు $SOURCE_BASE_PATH ను $TARGET_BASE_PATH పై మౌంట్ చేయుటకు అనుమతించాలని అనుకొనుచున్నారా."
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
-msgstr ""
+msgstr "$TARGET_PATH పైన మీరు లేబిలింగ్‌ను తప్పక మార్చాలి."
 
 #: ../src/openvpn.py:32 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -1640,20 +1643,24 @@ msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"మీరు mv $TARGET_BASE_PATH అనునది ప్రామాణిక స్థానమునకు చేయాలని అనుకొంటున్నారా అలా "
+"$SOURCE_BASE_PATH అనునది $ACCESS యాక్సెస్‌ను కలిగివుండగలదు"
 
 #: ../src/openvpn.py:51
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
 msgstr ""
+"మీరు $TARGET_BASE_PATH పైని లేబుల్‌ను సవరించాలని అనుకొనుచున్నారా అలా $SOURCE_BASE_PATH "
+"దానిపై $ACCESS యాక్సెస్‌ను కలిగివుండగలదు"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
-msgstr ""
+msgstr "మీరు సర్ట్ ఫైలును ~/.cert డైరెక్టరీకు తప్పక కదల్చవలెను"
 
 #: ../src/openvpn.py:57 ../src/sshd_root.py:47
 msgid "you must fix the labels."
-msgstr ""
+msgstr "మీరు తప్పక లేబుల్సును అమర్చాలి."
 
 #: ../src/public_content.py:31
 msgid ""
@@ -1696,12 +1703,16 @@ msgstr ""
 #: ../src/public_content.py:50
 msgid "you want to allow want to treat $TARGET_BASE_PATH as pubic content"
 msgstr ""
+"$TARGET_BASE_PATH ను పబ్లిక్ సారంగా పరిగణించాలని అనుకొనుచున్నాను అనేదాన్ని అనుమతించాలని "
+"అనుకొనుచున్నారా"
 
 #: ../src/public_content.py:51
 msgid ""
 "You need to change the label on $TARGET_BASE_PATH to public_content_t or "
 "public_content_rw_t."
 msgstr ""
+"$TARGET_BASE_PATH పైని లేబుల్‌ను మీరు public_content_t లేదా "
+"public_content_rw_t కు మార్చవలసివుంటుంది."
 
 #: ../src/qemu_blk_image.py:31
 msgid ""
@@ -1749,6 +1760,8 @@ msgid ""
 "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/qemu_file_image.py:31
 msgid ""
@@ -1786,31 +1799,15 @@ msgstr ""
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "$TARGET_BASE_PATH అనునది వర్చ్యులైజేషన్ లక్ష్యము"
 
-#: ../src/restorecon.py:38
-msgid ""
-"\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon '$TARGET_PATH', if this file is a "
-"directory,\n"
-"    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
-"    "
-msgstr ""
-"\n"
-"    మీరు అప్రమేయ సిస్టమ్ సందర్భంను ఈ దస్త్రముకు restorecon ఆదేశమును ఉపయోగించి\n"
-"తిరిగివుంచగలరు.  restorecon '$TARGET_PATH', ఈ దస్త్రము సంచయం అయితే, మీరు పునరావృతంగా\n"
-"    తిరిగివుంచవచ్చు restorecon -R '$TARGET_PATH' ఉపయోగించి.\n"
-"    "
-
-#: ../src/restorecon.py:45
-#, fuzzy, python-format
+#: ../src/restorecon.py:36
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
 "    be a mislabeled.  $TARGET_PATH default SELinux type is\n"
-"    <B>%s</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
+"    <B>$MATCTYPE</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
 "    this file back to the default type, may fix your problem.\n"
 "    <p>\n"
 "    File contexts can be assigned to a file in the following ways.\n"
@@ -1877,18 +1874,33 @@ msgstr ""
 "    మీరు దీనిని బగ్‌అని మీరు అనుకుంటే, దయచేసి ఈ ప్యాకేజీపై బగ్ నివేదికను నమోదుచేయండి.\n"
 "    "
 
-#: ../src/restorecon.py:71
-#, python-format
+#: ../src/restorecon.py:62
 msgid ""
-"you want to fix the label. \n"
-"$TARGET_PATH default label should be %s."
+"\n"
+"    You can restore the default system context to this file by executing "
+"the\n"
+"    restorecon command.  restorecon '$TARGET_PATH', if this file is a "
+"directory,\n"
+"    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
+"    "
 msgstr ""
+"\n"
+"    మీరు అప్రమేయ సిస్టమ్ సందర్భంను ఈ దస్త్రముకు restorecon ఆదేశమును ఉపయోగించి\n"
+"తిరిగివుంచగలరు.  restorecon '$TARGET_PATH', ఈ దస్త్రము సంచయం అయితే, మీరు పునరావృతంగా\n"
+"    తిరిగివుంచవచ్చు restorecon -R '$TARGET_PATH' ఉపయోగించి.\n"
+"    "
 
-#: ../src/restorecon.py:76
+#: ../src/restorecon.py:70
+msgid ""
+"you want to fix the label, $TARGET_BASE_PATH does not have the default "
+"system label."
+msgstr "మీరు లేబుల్‌ను అమర్చాలని అనుకొనుచున్నారా, $TARGET_BASE_PATH అప్రమేయ సిస్టమ్ లేబుల్ కలిగిలేదు."
+
+#: ../src/restorecon.py:71
 msgid "you can run restorecon."
-msgstr ""
+msgstr "మీరు restorecon ను నడుపగలరు."
 
-#: ../src/restorecon.py:84
+#: ../src/restorecon.py:79
 #, fuzzy
 msgid ""
 "Restore\n"
@@ -1931,11 +1943,11 @@ msgstr ""
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr ""
+msgstr "$TARGET_BASE_PATH అనునది తప్పక rsync డెమోన్ ద్వారా భాగస్వామ్యపరచబడాలి"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
-msgstr ""
+msgstr "మీరు $TARGET_BASE_PATH పైని లేబుల్‌ను మార్చాలి"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1993,6 +2005,8 @@ msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
+"# restorecon %s -v '$FIX_TARGET_PATH'"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -2029,11 +2043,11 @@ msgstr ""
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
-msgstr ""
+msgstr "మీరు పరీక్ష ద్వారా యీ AVCకు నేరుగా కారణం కాజాలరు."
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
-msgstr ""
+msgstr "మీరు హాక్ కాబడినారని మీరు అనుకొనుచున్నారా"
 
 #: ../src/setenforce.py:32
 msgid ""
@@ -2073,13 +2087,15 @@ msgstr ""
 
 #: ../src/setenforce.py:48
 msgid "you believe $SOURCE_PATH tried to disable SELinux."
-msgstr ""
+msgstr "మీరు $SOURCE_PATH అనునది SELinuxను అచేతనపరచుటకు ప్రయత్నించినదని మీరు అనుకొనుచున్నారా."
 
 #: ../src/setenforce.py:49
 msgid ""
 "you may be under attack by a hacker, since confined applications should "
 "never need this access."
 msgstr ""
+"మీరు హాకర్ చేత దాడికి గురై వుండవచ్చును, యెంచేతంటే లోబడిన అనువర్తనములకు యెప్పుడూ యీ యాక్సెస్ "
+"అవసరములేదు."
 
 #: ../src/sshd_root.py:36
 msgid ""
@@ -2152,10 +2168,11 @@ msgid ""
 "you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
 msgstr ""
+"మీ $SOURCE_PATH అనునది కెర్నల్‌ను సవరించాలి అనునది మీరు నమ్మరు, కెర్నల్ మాడ్యూళ్ళను లోడ్ చేయుట ద్వారా"
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
-msgstr ""
+msgstr "మీరు హాక్ చేయబడివుండవచ్చును."
 
 #: ../src/sys_module.py:33
 msgid ""
@@ -2193,10 +2210,12 @@ msgid ""
 "you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
 msgstr ""
+"$SOURCE_PATH అనునది కెర్నల్ మాడ్యూల్‌ను లోడ్ చేయుట ద్వారా కెర్నల్‌ను సవరించుటకు యత్నించాలని మీరు "
+"నమ్మజాలరు."
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
-msgstr ""
+msgstr "మీ సిస్టమ్‌ను హాక్ చేయుటకు వొక క్రమణం ప్రయత్నించి వుండవచ్చును."
 
 #: ../src/sys_resource.py:28
 msgid ""
@@ -2230,12 +2249,15 @@ msgid ""
 "you do not want to get this AVC any longer. These AVC's are caused by "
 "running out of resources, usually disk space on your / partition."
 msgstr ""
+"మీరు యికపై యీ AVC ను పొందగోరరు. వనరులు లేక పోవుటవలన యీ AVCలు వస్తాయి, సాధారణంగా "
+"మీ / విభజననందలి డిస్కు జాగా మూలంగా."
 
 #: ../src/sys_resource.py:40
 msgid ""
 "you must cleanup diskspace or make sure you are not running too many "
 "processes."
 msgstr ""
+"మీరు తప్పక డిస్కుజాగాను ఖాళీ చేయాలి లేదా మీరు మరిన్ని క్రమణాలను నడుపకుండా వుండునట్లు చూచుకోవాలి."
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -2293,12 +2315,14 @@ msgid ""
 "you want to ignore this AVC because it is dangerous and your machine seems "
 "to be working correctly."
 msgstr ""
+"ఇది ప్రమాదకరమైంది మరియు మీ మిషన్ సరిగా పనిచేస్తున్నట్లే వుంది కావున మీరు యీ AVC విస్మరించాలని "
+"అనుకొనుచున్నారు."
 
 #: ../src/vbetool.py:56
 msgid ""
 "you must tell SELinux about this by enabling the vbetool_mmap_zero_ignore "
 "boolean."
-msgstr ""
+msgstr "మీరు vbetool_mmap_zero_ignore బూలియన్‌ను చేతనము చేయుటచే SELinuxకు దీని గురించి తెలుపాలి."
 
 #: ../src/vbetool.py:62 ../src/wine.py:73
 msgid "Turn off memory protection"
@@ -2362,12 +2386,14 @@ msgid ""
 "you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
 msgstr ""
+"ఈ AVC ప్రమాదకరమైంది మరియు మీ వైన్ అనువర్తనములు సరిగానే పనిచేయుచున్నట్లే వున్న కారణంగా మీరు దీనిని "
+"విస్మరించాలని అనుకొనుచున్నారు."
 
 #: ../src/wine.py:67
 msgid ""
 "you must tell SELinux about this by enabling the wine_mmap_zero_ignore "
 "boolean."
-msgstr ""
+msgstr "wine_mmap_zero_ignore బూలియన్‌ను చేతనము చేయుట ద్వారా మీరు SELinuxకు దీని గురించి తెలుపాలి."
 
 #: ../src/xen_image.py:27
 msgid ""
@@ -2432,82 +2458,90 @@ msgstr ""
 "    "
 
 #: ../booleans_trans.py:1
-msgid ""
-"If you want to allow ftp to read and write files in the user home directories"
-msgstr ""
+msgid "If you want to allow ftp to read and write files in the user home directories"
+msgstr "వాడుకరి నివాస డైరెక్టరీలనందు మీరు ఫైళ్ళను చదువుటకు మరియు వ్రాయుటకు ftp ను అనుమతించాలంటే"
 
 #: ../booleans_trans.py:2
 msgid ""
 "If you want to allow privoxy to connect to all ports, not just HTTP, FTP, "
 "and Gopher ports."
 msgstr ""
+"HTTP, FTP, మరియు Gopher పోర్ట్సే కాకుండా, అన్ని పోర్టులకు అనుసంధానించుటకు మీరు ప్రోక్సీను "
+"అనుమతించాలంటే."
 
 #: ../booleans_trans.py:3
 msgid ""
 "If you want to allow the graphical login program to login directly as "
 "sysadm_r:sysadm_t"
-msgstr ""
+msgstr "మీరు గ్రాఫికల్ లాగిన్ ప్రోగ్రామ్‌ను నేరుగా sysadm_r:sysadm_t గా లాగిన్ అగుటకు అనుమతించాలంటే"
 
 #: ../booleans_trans.py:4
 msgid "If you want to allow xen to manage nfs files"
-msgstr ""
+msgstr "మీరు xenను nfs ఫైళ్ళను నిర్వహించుటకు అనుమతించాలంటే"
 
 #: ../booleans_trans.py:5
-msgid ""
-"If you want to allow confined web browsers to read home directory content"
-msgstr ""
+msgid "If you want to allow confined web browsers to read home directory content"
+msgstr "లోబడిన వెబ్ బ్రౌజర్లు నివాస సంచయ సారమును చదువుటకు అనుమతించాలని మీరు కోరుకుంటే"
 
 #: ../booleans_trans.py:6
 msgid ""
 "If you want to allow xguest users to configure Network Manager and connect "
 "to apache ports"
 msgstr ""
+"నెట్వర్క్ నిర్వాహికని ఆకృతీకరించుటకు మరియు అపాచి పోర్ట్సుకు అనుసంధానించుటకు మీరు xguest వాడుకరులను "
+"అనుమతించాలంటే"
 
 #: ../booleans_trans.py:7
 msgid "If you want to allow database admins to execute DML statement"
-msgstr ""
+msgstr "డాటాబేస్ నిర్వహకులను DML స్టేట్‌మెంట్‌ను నిర్వర్తించుటకు మీరు అనుమతించగోరితే"
 
 #: ../booleans_trans.py:8
 msgid ""
 "If you want to allow tftp to modify public files used for public file "
 "transfer services."
 msgstr ""
+"పబ్లిక్ ఫైల్ ట్రాన్సుఫర్ సేవలకు వుపయోగించు పబ్లిక్ ఫైళ్ళను సవరించుటకు మీరు tftpను అనుమతించగోరితే"
 
 #: ../booleans_trans.py:9
 msgid ""
 "If you want to allow direct login to the console device. Required for System "
 "390"
-msgstr ""
+msgstr "మీరు కన్సోల్ లాగిన్‌కు నేరుగా లాగిన్ అనుమతించగోరితే. ఇది సిస్టమ్ 390కు అవసరము"
 
 #: ../booleans_trans.py:10
 msgid "If you want to allow user spamassassin clients to use the network."
-msgstr ""
+msgstr "వాడుకరి spamassassin క్లైంట్స్ నెట్వర్కు వుపయోగించుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:11
 msgid "If you want to allow httpd to act as a relay"
-msgstr ""
+msgstr "మీరు httpdను రిలే వలె వ్యవరించుటకు యిష్టపడుతున్నారా"
 
 #: ../booleans_trans.py:12
 msgid "If you want to allow openvpn to read home directories"
-msgstr ""
+msgstr "మీరు openvpn నివాస సంచయాలను చదువుటకు అనుమతించగోరితే"
 
 #: ../booleans_trans.py:13
 msgid ""
 "If you want to allow usage of the gpg-agent --write-env-file option. This "
 "also allows gpg-agent to manage user files."
 msgstr ""
+"మీరు gpg-agent --write-env-file ఐచ్చిక వుపయోగాన్ని యిష్టపడితే. ఇది gpg-agent ను వాడుకరి "
+"ఫైళ్ళను నిర్వహించుటకు అనుమతించును."
 
 #: ../booleans_trans.py:14
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
 "generic TCP port."
-msgstr ""
+msgstr "మీరు టెలీపతి అనుసంధాన నిర్వహికలను యేదేని సాధారణ TCP పోర్టునకు అనుసంధానమగుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:15
 msgid ""
 "If you want to allow unconfined users to transition to the Mozilla plugin "
 "domain when running xulrunner plugin-container."
 msgstr ""
+"మీరు లోబడని వాడుకరులను xulrunner plugin-container నడుపుచున్నప్పుడు మొజిల్లా ప్లగిన్ డొమైన్‌కు "
+"బదిలీఅగుటను "
+"అనుమతించగోరితే."
 
 #: ../booleans_trans.py:16
 #, fuzzy
@@ -2522,34 +2556,40 @@ msgid ""
 "If you want to allow HTTPD scripts and modules to connect to databases over "
 "the network."
 msgstr ""
+"మీరు HTTPD స్క్రిప్ట్సు మరియు మాడ్యూళ్ళను నెట్వర్కునందు డాటాబేసెస్‌కు అనుసంధానమగుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:18
 msgid "If you want to allow users to connect to the local mysql server"
-msgstr ""
+msgstr "మీరు వాడుకరులు స్థానిక mysql సేవికకు అనుసంధానమగుటను అనుమతించగోరితే"
 
 #: ../booleans_trans.py:19
 msgid "If you want to allow user processes to change their priority"
-msgstr ""
+msgstr "వాడుకరి క్రమణములు వాటి ప్రాముఖ్యతను మార్చుటను మీరు అనుమతించగోరితే"
 
 #: ../booleans_trans.py:20
 msgid ""
 "If you want to allow ftp servers to login to local users and read/write all "
 "files on the system, governed by DAC."
 msgstr ""
+"మీరు ftp సేవికలు స్థానిక వాడుకరులకు లాగిన్ అయ్యి మరియు DAC ఆధ్వర్యంలోని అన్ని సిస్టమ్ ఫైళ్ళను "
+"చదివి/వ్రాయుటకు "
+"అనుమతించగోరితే."
 
 #: ../booleans_trans.py:21
 msgid "If you want to allow httpd to run gpg in gpg-web domain"
-msgstr ""
+msgstr "మీరు httpdను gpg-web డెమోన్ నందు gpg నడుపగోరితే"
 
 #: ../booleans_trans.py:22
 msgid ""
 "If you want to allow samba to act as the domain controller, add users, "
 "groups and change passwords."
 msgstr ""
+"మీరు samba ను డొమైన్ నియంత్రికలా, వాడుకరులను మరియు సమూహాలను జతపరచుదానిలా మరియు సంకేతపదములను "
+"మార్చుదానిలా వ్యవహరించుటకు అనుమతించాలంటే."
 
 #: ../booleans_trans.py:23
 msgid "If you want to allow httpd to execute cgi scripts"
-msgstr ""
+msgstr "మీరు httpd అనునది cgi స్క్రిప్టులను నిర్వర్తించుటకు అనుమతించాలని కొరుకుంటే."
 
 #: ../booleans_trans.py:24
 #, fuzzy
@@ -2561,108 +2601,114 @@ msgstr ""
 
 #: ../booleans_trans.py:25
 msgid "If you want to allow all daemons the ability to read/write terminals"
-msgstr ""
+msgstr "అన్ని డెమోన్సును టెర్మినల్సు చదువుట/వ్రాయుటకు మీరు అనుమతించాలని కోరుకుంటే"
 
 #: ../booleans_trans.py:26
 msgid ""
 "If you want to allow confined virtual guests to use serial/parallel "
 "communication ports"
 msgstr ""
+"లోబడిన వర్చ్యువల్ గెస్టులు వరుస/సమాంతర సంప్రదింపు పోర్టులను వుపయోగించుటకు మీరు అనుమతించాలనుకుంటే."
 
 #: ../booleans_trans.py:27
 msgid ""
 "If you want to allow samba to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr ""
+"పబ్లిక్ ఫైల్ బదిలీకరణ సేవల కొరకు వుపయోగించు పబ్లిక్ ఫైళ్ళను సవరించుటకు sambaను అనుమతించాలని మీరు "
+"అనుకుంటే. ఫైళ్ళు/డైరెక్టరీలు తప్పక public_content_rw_t గా లేబుల్ చేయబడాలి."
 
 #: ../booleans_trans.py:28
 msgid "If you want to allow rsync to run as a client"
-msgstr ""
+msgstr "మీరు rsyncను క్లైంట్ వలె నడుచుటకు అనుమతించాలంటే"
 
 #: ../booleans_trans.py:29
-msgid ""
-"If you want to allow rgmanager domain to connect to the network using TCP."
-msgstr ""
+msgid "If you want to allow rgmanager domain to connect to the network using TCP."
+msgstr "rgmanager డొమైన్‌ అనునది నెట్వర్కును TCP వుపయోగించి అనుసంధానమగుటకు మీరు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:30
 msgid "If you want to allow exim to read unprivileged user files."
-msgstr ""
+msgstr "మీరు eximను అనుమతిలేని వాడుకరి ఫైళ్ళను చదువుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:31
 msgid "If you want to support NFS home directories"
-msgstr ""
+msgstr "మీరు NFS నివాస డైరెక్టరీలకు తోడ్పాటు నివ్వవలెనంటే"
 
 #: ../booleans_trans.py:32
 msgid "If you want to allow Puppet client to manage all file types."
-msgstr ""
+msgstr "పప్పెట్ క్లైంట్‌ను అన్ని ఫైల్ రకాలను నిర్వహించుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:33
 msgid ""
 "If you want to allow internal-sftp to read and write files in the user ssh "
 "home directories."
 msgstr ""
+"వాడుకరి ssh నివాస డైరెక్టరీలనందలి ఫైళ్ళను చదువుటకు మరియు వ్రాయుటకు మీరు అంతర్గత-sftpను "
+"అనుమతించగోరితే."
 
 #: ../booleans_trans.py:34
 msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
-msgstr ""
+msgstr "మీరు ssh లాగిన్సును sysadm_r:sysadm_t లా అనుమతించగోరితే"
 
 #: ../booleans_trans.py:35
 msgid ""
 "If you want to allow unconfined users to transition to the nsplugin domains "
 "when running nspluginviewer"
 msgstr ""
+"nspluginviewer నడుపుచున్నప్పుడు లోబడని వాడుకరులను nsplugin డొమైన్సుకు బదిలీకరణను మీరు "
+"అనుమతించగోరితే"
 
 #: ../booleans_trans.py:36
 msgid "If you want to allow Git daemon system to access cifs file systems."
-msgstr ""
+msgstr "Git డెమోన్ సిస్టమ్‌ను cifs ఫైల్ సిస్టమ్స్ యాక్సెస్ చేయుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:37
-msgid ""
-"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
-msgstr ""
+msgid "If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
+msgstr "tcp సాకెట్లను అన్ని రిజర్వుకాని పోర్ట్సుకు బైండ్ చేయుటకు టార్ డెమోన్‌ను అనుమతించగోరితే."
 
 #: ../booleans_trans.py:38
 msgid "If you want to allow host key based authentication"
-msgstr ""
+msgstr "మీరు హోస్ట్ కీ ఆధారిత ధృవీకరణను అనుమతించగోరితే"
 
 #: ../booleans_trans.py:39
 msgid "If you want to allow httpd to access cifs file systems"
-msgstr ""
+msgstr "మీరు httpdను cifs ఫైల్ సిస్టమ్సును యాక్సెస్ చేయుటకు అనుమతించగోరితే"
 
 #: ../booleans_trans.py:40
-msgid ""
-"If you want to allow piranha-lvs domain to connect to the network using TCP."
-msgstr ""
+msgid "If you want to allow piranha-lvs domain to connect to the network using TCP."
+msgstr "మీరు piranha-lvs డొమైన్‌ను నెట్వర్కునకు TCP వుపయోగించి అనుసంధానమగుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:41
 msgid ""
 "If you want to disallow programs, such as newrole, from transitioning to "
 "administrative user domains."
 msgstr ""
+"కొత్తరోల్ వంటి ప్రోగ్రామ్సును, నిర్వహణా వాడుకరి డొమైన్సునుండి బదిలీకరింపబడుటనుండి మీరు "
+"తిరస్కరించగోరితే."
 
 #: ../booleans_trans.py:42
 msgid "If you want to allow Apache to use mod_auth_pam"
-msgstr ""
+msgstr "మీరు అపాచీను mod_auth_pam వుపయోగించుటను అనుమతించగోరితే"
 
 #: ../booleans_trans.py:43
 msgid "If you want to allow pppd to be run for a regular user"
-msgstr ""
+msgstr "మీరు pppd అనునది రోజువారి వాడుకరి కొరకు నడుచుటను అనుమతించగోరితే"
 
 #: ../booleans_trans.py:44
 msgid "If you want to allow samba to share any file/directory read only."
-msgstr ""
+msgstr "ఏ ఫైల్/డైరెక్టరీనైనా చదువుటకు మాత్రమే వలె samba బాగస్వామ్యపరచుకొనుటకు మీరు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:45
 msgid "If you want to allow ftp servers to use connect to mysql database"
-msgstr ""
+msgstr "ftp సర్వర్లను mysql డాటాబేస్‌కు అనుసంధానించబడుటకు మీరు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:46
 msgid "If you want to allow Git daemon system to search home directories."
-msgstr ""
+msgstr "మీరు Git డెమోన్ సిస్టమ్‌ను నివాస డైరెక్టరీలను శోదించుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:47
 msgid "If you want to support SAMBA home directories"
-msgstr ""
+msgstr "మీరు SAMBA నివాస డైరెక్టరీలకు తోడ్పాటు నివ్వవలెననుకుంటే"
 
 #: ../booleans_trans.py:48
 msgid ""
@@ -2670,63 +2716,74 @@ msgid ""
 "executable and writable, this is dangerous and the executable should be "
 "reported in bugzilla"
 msgstr ""
+"లోబడని యెగ్జిక్యూటబుల్సును మెమొరీ ప్రాంతమునకు నిర్వర్తించదగునదిగా మరియు వ్రాయదగునవిగా మాప్ చేయుటకు "
+"అనుమతించగోరితే, "
+"ఇది ప్రమాదకరం మరియు యెగ్జిక్యూటబుల్ బగ్‌జిల్లానందు నివేదించబడాలి"
 
 #: ../booleans_trans.py:49
-msgid ""
-"If you want to allow samba to create new home directories (e.g. via PAM)"
-msgstr ""
+msgid "If you want to allow samba to create new home directories (e.g. via PAM)"
+msgstr "మీరు sambaను కొత్త నివాస డైరెక్టరీలను సృష్టించుటకు అనుమతించగోరితే (ఉ.దా. PAM ద్వారా)"
 
 #: ../booleans_trans.py:50
 msgid "If you want to control users use of ping and traceroute"
-msgstr ""
+msgstr "వాడుకరులు ping మరియు traceroute వుపయోగించుటనుండి నియంత్రించగోరితే"
 
 #: ../booleans_trans.py:51
 msgid ""
 "If you want to allow ftp servers to use cifs used for public file transfer "
 "services."
-msgstr ""
+msgstr "పబ్లిక్ ఫైల్ బదిలీకరణ సేవల కొరకు వుపయోగించుటకు ftp సర్వర్లు cifs వుపయోగించుటకు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:52
 msgid ""
 "If you want to allow the Irssi IRC Client to connect to any port, and to "
 "bind to any unreserved port."
 msgstr ""
+"Irssi IRC క్లైంట్ యే పోర్టుకైనా అనుసంధానమగుటకు మీరు అనుమతించగోరితే, మరియు యే "
+"నిలిపివుంచని పోర్టుకైనా బందనం చేయగోరితే."
 
 #: ../booleans_trans.py:53
 msgid ""
 "If you want to allow ftp servers to use nfs used for public file transfer "
 "services."
-msgstr ""
+msgstr "పబ్లిక్ ఫైల్ బదిలీకరణ సేవల కొరకు ftp సర్వర్లు nfs వుపయోగించుట మీరు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:54
 msgid "If you want to allow httpd to read home directories"
-msgstr ""
+msgstr "మీరు httpd నివాస సంచయాలను చదువుటకు అనుమతించగోరితే"
 
 #: ../booleans_trans.py:55
 msgid ""
 "If you want to allow gpg web domain to modify public files used for public "
 "file transfer services."
 msgstr ""
+"పబ్లిక్ ఫైల్ బదిలీకరణ సేవల కొరకు వుపయోగించు పబ్లిక్ ఫైళ్ళను సవరించుటకు gpg వెబ్ డొమైన్‌ను "
+"అనుమతించగోరితే."
 
 #: ../booleans_trans.py:56
 msgid "If you want to allow rsync to export any files/directories read only."
-msgstr ""
+msgstr "ఏదేని ఫైళ్ళు/డైరెక్టరీలు చదువుటకు మాత్రమే అనురీతిలో యెగుమతి చేయుటకు rsyncను అనుమతించగోరితే."
 
 #: ../booleans_trans.py:57
 msgid ""
 "If you want to allow all unconfined executables to use libraries requiring "
 "text relocation that are not labeled textrel_shlib_t"
 msgstr ""
+"textrel_shlib_t తో లేబుల్ చేయని పాఠ పునఃస్థానీకరణకు అవసరమైన లైబ్రరీలను వుపయోగించుటకు లోబడని "
+"యెగ్జిక్యూటబుల్స్ అన్నింటిని మీరు అనుమతించగోరితే"
 
 #: ../booleans_trans.py:58
 msgid ""
 "If you want to allow apache scripts to write to public content.  Directories/"
 "Files must be labeled public_rw_content_t."
 msgstr ""
+"పబ్లిక్ సారమునకు వ్రాయుటకు మీరు అపాచీ స్క్రిప్టులను అనుమతించగోరితే. డైరెక్టరీలు/ఫైళ్ళు తప్పక "
+"public_rw_content_t తో "
+"లేబుల్ చేయవలెను."
 
 #: ../booleans_trans.py:59
 msgid "If you want to allow qemu to use cifs/Samba file systems"
-msgstr ""
+msgstr "cifs/Samba ఫైల్ సిస్టమ్సును వుపయోగించుటకు మీరు qemu ను అనుమతించగోరితే"
 
 #: ../booleans_trans.py:60
 #, fuzzy
@@ -2738,32 +2795,31 @@ msgstr ""
 
 #: ../booleans_trans.py:61
 msgid "If you want to allow Apache to communicate with avahi service via dbus"
-msgstr ""
+msgstr "dbus ద్వారా avahi సేవతో సంప్రదించుటకు మీరు అపాచీను అనుమతించగోరితే"
 
 #: ../booleans_trans.py:62
-msgid ""
-"If you want to allow dhcpc client applications to execute iptables commands"
-msgstr ""
+msgid "If you want to allow dhcpc client applications to execute iptables commands"
+msgstr "iptables ఆదేశములను నిర్వర్తించుటకు dhcpc క్లైంట్ అనువర్తనములను మీరు అనుమతించగోరితే"
 
 #: ../booleans_trans.py:63
 msgid "If you want to allow samba to share users home directories."
-msgstr ""
+msgstr "వాడుకరుల నివాస సంచయాలను samba భాగస్వామ్యపరచుకొనుటకు మీరు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:64
 msgid "If you want to enable reading of urandom for all domains."
-msgstr ""
+msgstr "అన్ని డొమైన్ల కొరకు urandom చదువుటను చేతనపరచవలెనని కోరితే."
 
 #: ../booleans_trans.py:65
 msgid "If you want to allow racoon to read shadow"
-msgstr ""
+msgstr "షాడోను చదువుటకు మీరు racoon అనుమతించగోరితే"
 
 #: ../booleans_trans.py:66
 msgid "If you want to allow Cobbler to connect to the network using TCP."
-msgstr ""
+msgstr "TCP వుపయోగించి నెట్వర్కుకు అనుసంధానమగుటకు కోబ్లర్‌ను మీరు అనుమతించగోరితే."
 
 #: ../booleans_trans.py:67
 msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
-msgstr ""
+msgstr "పారదర్శక ప్రోక్సీ (TPROXY) వలె squid నడుచుటకు మీరు అనుమతించగోరితే"
 
 #: ../booleans_trans.py:68
 msgid ""
@@ -2771,6 +2827,9 @@ msgid ""
 "enforcing mode, and changing boolean values.  Set this to true and you have "
 "to reboot to set it back"
 msgstr ""
+"లోడింగ్ పాలసీనుండి, బలవంతపురీతికి అమర్చుటనుండి, మరియు బూలియన్ విలువలను మార్చుటనుండి మీరు "
+"అన్ని లోబడిన డొమైన్లను నిరోధించగోరితే. దీనిని trueకు అమర్చుము మరియు మీరు దానిని వెనుకకు అమర్చుటకు "
+"పునఃప్రారంభించవలసి వుంటుంది"
 
 #: ../booleans_trans.py:69
 msgid ""
@@ -2785,8 +2844,7 @@ msgid "If you want to allow dbadm to manage files in users home directories"
 msgstr ""
 
 #: ../booleans_trans.py:71
-msgid ""
-"If you want to allow confined virtual guests to interact with the xserver"
+msgid "If you want to allow confined virtual guests to interact with the xserver"
 msgstr ""
 
 #: ../booleans_trans.py:72
@@ -3127,8 +3185,7 @@ msgid "If you want to allow xguest users to mount removable media"
 msgstr ""
 
 #: ../booleans_trans.py:144
-msgid ""
-"If you want to allow icecast to connect to all ports, not just sound ports."
+msgid "If you want to allow icecast to connect to all ports, not just sound ports."
 msgstr ""
 
 #: ../booleans_trans.py:145
@@ -3218,8 +3275,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:163
-msgid ""
-"If you want to allow any files/directories to be exported read/write via NFS."
+msgid "If you want to allow any files/directories to be exported read/write via NFS."
 msgstr ""
 
 #: ../booleans_trans.py:164
@@ -3267,8 +3323,7 @@ msgid ""
 msgstr ""
 
 #: ../booleans_trans.py:173
-msgid ""
-"If you want to allow any files/directories to be exported read/only via NFS."
+msgid "If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
 
 #: ../booleans_trans.py:174
