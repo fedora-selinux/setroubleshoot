@@ -618,6 +618,7 @@ class AVC:
         self.src_rpms=[]
         self.tgt_rpms=[]
         self.host = None
+        self.pid = None
         self.kmod = None
         self.syscall = None
         self.why = None
@@ -891,6 +892,8 @@ class AVC:
         self._set_tpath()
 
         self.kmod = self.avc_record.get_field('kmod')
+
+        self.pid = self.avc_record.get_field('pid')
 
         # exe, cwd, name, path, key, dir, comm, ocomm, key_desc
 
