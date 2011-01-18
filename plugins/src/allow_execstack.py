@@ -35,7 +35,7 @@ def is_execstack(path):
 
 def find_execstack(exe, pid):
     execstacklist = []
-    for path in commands.getoutput("ldd %s" %   sys.argv[1]).split():
+    for path in commands.getoutput("ldd %s" %   exe).split():
         if is_execstack(path) and path not in execstacklist:
                 execstacklist.append(path)
     try:
@@ -85,21 +85,24 @@ file a bug report.
     fix_cmd = "chcon -t execmem_exec_t '$SOURCE_PATH'"
 
     if_text = _("you do not think $SOURCE_PATH should need to map stack memory that is both writable and executable.")
-    then_text = _("you need to report a bug. This is a potentially dangerous access.")
+    then_text = _("you need to report a bug. \nThis is a potentially dangerous access.")
     do_text = _("Contact your security administrator and report this issue.")
 
-    def get_if_text(self, path, args):
+    def get_if_text(self, avc, args):
+        path = args[0]
         if not path:
             return self.if_text
 
-        return _("you believe %s should not require execstack") % path
+        return _("you believe that \n%s\nshould not require execstack") % path
         
-    def get_then_text(self, path, args):
+    def get_then_text(self, avc, args):
+        path = args[0]
         if not path:
             return self.then_text
-        return _("you should clear the execstack flag and see if $SOURCE_PATH works correctly. Report this as a bug on %s") % path
+        return _("you should clear the execstack flag and see if $SOURCE_PATH works correctly.\nReport this as a bug on %s.\nYou can clear the exestack flag by executing:") % path
 
-    def get_do_text(self, path, args):
+    def get_do_text(self, avc, args):
+        path = args[0]
         if not path:
             return self.do_text
 
@@ -109,7 +112,7 @@ file a bug report.
         Plugin.__init__(self,__name__)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['unconfined_t']) and \
+        if avc.matches_source_types(['unconfined_t', 'staff_t', 'user_t', 'guest_t', 'xguest_t']) and \
            avc.has_any_access_in(['execstack']):
             reports = []
             for i in find_execstack(avc.spath, avc.pid):
