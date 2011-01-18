@@ -56,7 +56,8 @@ def email_alert(siginfo, to_addrs):
         log_email.debug("alert smtp=%s:%d  -> %s",
                         smtp_host, smtp_port, ','.join(to_addrs))
 
-    summary = siginfo.substitute(sig.summary())
+    siginfo.update_derived_template_substitutions()
+    summary = siginfo.substitute(siginfo.summary())
     subject = '[%s] %s' % (get_config('email','subject'), summary)
     text = siginfo.format_text() + siginfo.format_details() 
 
