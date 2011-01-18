@@ -27,7 +27,6 @@ from email.Utils import formatdate
 
 from setroubleshoot.config import get_config
 from setroubleshoot.util import *
-from setroubleshoot.html_util import *
 from setroubleshoot.log import *
 
 email_addr_re = re.compile('^\s*([^@ \t]+)(@([^@ \t]+))?\s*$')
@@ -57,11 +56,9 @@ def email_alert(siginfo, to_addrs):
         log_email.debug("alert smtp=%s:%d  -> %s",
                         smtp_host, smtp_port, ','.join(to_addrs))
 
-    summary = html_to_text(siginfo.solution.summary, 1024)
-
+    summary = siginfo.substitute(sig.summary())
     subject = '[%s] %s' % (get_config('email','subject'), summary)
-    text = siginfo.format_text()
-    html = siginfo.format_html()
+    text = siginfo.format_text() + siginfo.format_details() 
 
     email_msg            = MIMEMultipart('alternative')
     email_msg['Subject'] = subject
@@ -70,7 +67,6 @@ def email_alert(siginfo, to_addrs):
     email_msg['Date']    = formatdate()
 
     email_msg.attach(MIMEText(text))
-    email_msg.attach(MIMEText(html, 'html', 'utf-8'))
 
     import smtplib
     try:

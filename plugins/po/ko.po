@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins.ko\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-12 10:56-0500\n"
+"POT-Creation-Date: 2011-01-18 10:25-0500\n"
 "PO-Revision-Date: 2010-08-03 16:52+1000\n"
 "Last-Translator: Hyunsok Oh <hoh@redhat.com>\n"
 "Language-Team: Korean <ko@li.org>\n"
@@ -151,11 +151,11 @@ msgid ""
 "writable and executable."
 msgstr ""
 
-#: ../src/allow_execheap.py:51 ../src/allow_execstack.py:62
+#: ../src/allow_execheap.py:51 ../src/allow_execstack.py:88
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr ""
 
-#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:63
+#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:89
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
 #: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
@@ -265,7 +265,7 @@ msgstr ""
 "    \n"
 "      "
 
-#: ../src/allow_execstack.py:27
+#: ../src/allow_execstack.py:53
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from making the program stack "
@@ -276,7 +276,7 @@ msgstr ""
 "    SELinux는 $SOURCE_PATH가 프로그램 스택을 실행 불가능하게 합니다.\n"
 "      "
 
-#: ../src/allow_execstack.py:31
+#: ../src/allow_execstack.py:57
 msgid ""
 "\n"
 "    The $SOURCE application attempted to make its stack\n"
@@ -314,7 +314,7 @@ msgstr ""
 "    리포트를 제출해 주시기 바랍니다.\n"
 "              "
 
-#: ../src/allow_execstack.py:46
+#: ../src/allow_execstack.py:72
 msgid ""
 "\n"
 "    Sometimes a library is accidentally marked with the execstack flag,\n"
@@ -350,10 +350,27 @@ msgstr ""
 "    \n"
 "    "
 
-#: ../src/allow_execstack.py:61
+#: ../src/allow_execstack.py:87
 msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
+msgstr ""
+
+#: ../src/allow_execstack.py:95
+#, python-format
+msgid "you believe %s should not require execstack"
+msgstr ""
+
+#: ../src/allow_execstack.py:100
+#, python-format
+msgid ""
+"you should clear the execstack flag and see if $SOURCE_PATH works correctly. "
+"Report this as a bug on %s"
+msgstr ""
+
+#: ../src/allow_execstack.py:106
+#, python-format
+msgid "execstack -c %s"
 msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:29
@@ -2712,10 +2729,7 @@ msgid "If you want to support SAMBA home directories"
 msgstr ""
 
 #: ../booleans_trans.py:48
-msgid ""
-"If you want to allow unconfined executables to map a memory region as both "
-"executable and writable, this is dangerous and the executable should be "
-"reported in bugzilla"
+msgid "If you want to allow users to login using a sssd server"
 msgstr ""
 
 #: ../booleans_trans.py:49
@@ -2877,28 +2891,35 @@ msgid "If you want to allow exim to connect to databases (postgres, mysql)"
 msgstr ""
 
 #: ../booleans_trans.py:81
-msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
+msgid ""
+"If you want to allow unconfined executables to map a memory region as both "
+"executable and writable, this is dangerous and the executable should be "
+"reported in bugzilla"
 msgstr ""
 
 #: ../booleans_trans.py:82
-msgid "If you want to allow mplayer executable stack"
+msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
 msgstr ""
 
 #: ../booleans_trans.py:83
-msgid "If you want to allow httpd scripts and modules execmem/execstack"
+msgid "If you want to allow mplayer executable stack"
 msgstr ""
 
 #: ../booleans_trans.py:84
-msgid "If you want to allow all daemons to write corefiles to /"
+msgid "If you want to allow httpd scripts and modules execmem/execstack"
 msgstr ""
 
 #: ../booleans_trans.py:85
+msgid "If you want to allow all daemons to write corefiles to /"
+msgstr ""
+
+#: ../booleans_trans.py:86
 msgid ""
 "If you want to allow cdrecord to read various content. nfs, samba, removable "
 "devices, user temp and untrusted content files"
 msgstr ""
 
-#: ../booleans_trans.py:86
+#: ../booleans_trans.py:87
 #, fuzzy
 msgid ""
 "If you want to allow confined virtual guests to manage device configuration, "
@@ -2908,27 +2929,27 @@ msgstr ""
 "    SELinux는 zebra 데몬이 설정 파일을 작성하지 못하게 합니다\n"
 "      "
 
-#: ../booleans_trans.py:87
+#: ../booleans_trans.py:88
 msgid "If you want to allow spamd to read/write user home directories."
 msgstr ""
 
-#: ../booleans_trans.py:88
+#: ../booleans_trans.py:89
 msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
 msgstr ""
 
-#: ../booleans_trans.py:89
+#: ../booleans_trans.py:90
 msgid "If you want to allow the graphical login program to execute bootloader"
 msgstr ""
 
-#: ../booleans_trans.py:90
+#: ../booleans_trans.py:91
 msgid "If you want to allow system to run with NIS"
 msgstr ""
 
-#: ../booleans_trans.py:91
+#: ../booleans_trans.py:92
 msgid "If you want to allow qemu to connect fully to the network"
 msgstr ""
 
-#: ../booleans_trans.py:92
+#: ../booleans_trans.py:93
 msgid ""
 "If you want to allow unconfined executables to make their stack executable.  "
 "This should never, ever be necessary. Probably indicates a badly coded "
@@ -2936,176 +2957,176 @@ msgid ""
 "in bugzilla"
 msgstr ""
 
-#: ../booleans_trans.py:93
+#: ../booleans_trans.py:94
 msgid ""
 "If you want to unify HTTPD to communicate with the terminal. Needed for "
 "entering the passphrase for certificates at the terminal."
 msgstr ""
 
-#: ../booleans_trans.py:94
+#: ../booleans_trans.py:95
 msgid ""
 "If you want to allow sftp-internal to read and write files in the user home "
 "directories"
 msgstr ""
 
-#: ../booleans_trans.py:95
+#: ../booleans_trans.py:96
 msgid "If you want to support fusefs home directories"
 msgstr ""
 
-#: ../booleans_trans.py:96
+#: ../booleans_trans.py:97
 msgid "If you want to allow confined applications to use nscd shared memory."
 msgstr ""
 
-#: ../booleans_trans.py:97
+#: ../booleans_trans.py:98
 msgid "If you want to allow w to display everyone"
 msgstr ""
 
-#: ../booleans_trans.py:98
+#: ../booleans_trans.py:99
 msgid ""
 "If you want to allow Apache to modify public files used for public file "
 "transfer services. Directories/Files must be labeled public_content_rw_t."
 msgstr ""
 
-#: ../booleans_trans.py:99
+#: ../booleans_trans.py:100
 msgid "If you want to allow dbadm to read files in users home directories"
 msgstr ""
 
-#: ../booleans_trans.py:100
+#: ../booleans_trans.py:101
 msgid "If you want to allow regular users direct dri device access"
 msgstr ""
 
-#: ../booleans_trans.py:101
+#: ../booleans_trans.py:102
 msgid "If you want to allow the mount command to mount any directory or file."
 msgstr ""
 
-#: ../booleans_trans.py:102
+#: ../booleans_trans.py:103
 msgid "If you want to allow a user to login as an unconfined domain"
 msgstr ""
 
-#: ../booleans_trans.py:103
+#: ../booleans_trans.py:104
 msgid ""
 "If you want to disallow programs and users from transitioning to insmod "
 "domain."
 msgstr ""
 
-#: ../booleans_trans.py:104
+#: ../booleans_trans.py:105
 msgid "If you want to allow Cobbler to access nfs file systems."
 msgstr ""
 
-#: ../booleans_trans.py:105
+#: ../booleans_trans.py:106
 msgid "If you want to allow nsplugin code to execmem/execstack"
 msgstr ""
 
-#: ../booleans_trans.py:106
+#: ../booleans_trans.py:107
 msgid ""
 "If you want to allows clients to write to the X server shared memory "
 "segments."
 msgstr ""
 
-#: ../booleans_trans.py:107
+#: ../booleans_trans.py:108
 msgid "If you want to allow webadm to read files in users home directories"
 msgstr ""
 
-#: ../booleans_trans.py:108
+#: ../booleans_trans.py:109
 msgid "If you want to enable polyinstantiated directory support."
 msgstr ""
 
-#: ../booleans_trans.py:109
+#: ../booleans_trans.py:110
 msgid "If you want to support X userspace object manager"
 msgstr ""
 
-#: ../booleans_trans.py:110
+#: ../booleans_trans.py:111
 msgid "If you want to ignore vbetool mmap_zero errors."
 msgstr ""
 
-#: ../booleans_trans.py:111
+#: ../booleans_trans.py:112
 msgid "If you want to allow httpd to read user content"
 msgstr ""
 
-#: ../booleans_trans.py:112
+#: ../booleans_trans.py:113
 msgid "If you want to allow httpd to access nfs file systems"
 msgstr ""
 
-#: ../booleans_trans.py:113
+#: ../booleans_trans.py:114
 msgid ""
 "If you want to allow postfix_local domain full write access to mail_spool "
 "directories"
 msgstr ""
 
-#: ../booleans_trans.py:114
+#: ../booleans_trans.py:115
 msgid "If you want to allow xguest users to use blue tooth devices"
 msgstr ""
 
-#: ../booleans_trans.py:115
+#: ../booleans_trans.py:116
 msgid "If you want to use lpd server instead of cups"
 msgstr ""
 
-#: ../booleans_trans.py:116
+#: ../booleans_trans.py:117
 msgid "If you want to allow Apache to execute tmp content."
 msgstr ""
 
-#: ../booleans_trans.py:117
+#: ../booleans_trans.py:118
 msgid ""
 "If you want to allow user to r/w files on filesystems that do not have "
 "extended attributes (FAT, CDROM, FLOPPY)"
 msgstr ""
 
-#: ../booleans_trans.py:118
+#: ../booleans_trans.py:119
 msgid ""
 "If you want to allow users to run TCP servers (bind to ports and accept "
 "connection from the same domain and outside users)  disabling this forces "
 "FTP passive mode and may change other protocols."
 msgstr ""
 
-#: ../booleans_trans.py:119
+#: ../booleans_trans.py:120
 msgid "If you want to allow mysqld to connect to all ports"
 msgstr ""
 
-#: ../booleans_trans.py:120
+#: ../booleans_trans.py:121
 msgid "If you want to allow regular users direct mouse access"
 msgstr ""
 
-#: ../booleans_trans.py:121
+#: ../booleans_trans.py:122
 msgid "If you want to allow all domains to have the kernel load modules"
 msgstr ""
 
-#: ../booleans_trans.py:122
+#: ../booleans_trans.py:123
 msgid "If you want to allow confined virtual guests to use usb devices"
 msgstr ""
 
-#: ../booleans_trans.py:123
+#: ../booleans_trans.py:124
 msgid ""
 "If you want to enable additional permissions needed to support devices on "
 "3ware controllers."
 msgstr ""
 
-#: ../booleans_trans.py:124
+#: ../booleans_trans.py:125
 msgid ""
 "If you want to allow ABRT to modify public files used for public file "
 "transfer services."
 msgstr ""
 
-#: ../booleans_trans.py:125
+#: ../booleans_trans.py:126
 msgid "If you want to allow java executable stack"
 msgstr ""
 
-#: ../booleans_trans.py:126
+#: ../booleans_trans.py:127
 msgid "If you want to allow http daemon to send mail"
 msgstr ""
 
-#: ../booleans_trans.py:127
+#: ../booleans_trans.py:128
 msgid "If you want to allow samba to export ntfs/fusefs volumes."
 msgstr ""
 
-#: ../booleans_trans.py:128
+#: ../booleans_trans.py:129
 msgid "If you want to enable support for upstart as the init program."
 msgstr ""
 
-#: ../booleans_trans.py:129
+#: ../booleans_trans.py:130
 msgid "If you want to allow sshd to forward port connections"
 msgstr ""
 
-#: ../booleans_trans.py:130
+#: ../booleans_trans.py:131
 #, fuzzy
 msgid "If you want to allow zebra daemon to write it configuration files"
 msgstr ""
@@ -3113,189 +3134,199 @@ msgstr ""
 "    SELinux는 zebra 데몬이 설정 파일을 작성하지 못하게 합니다\n"
 "      "
 
-#: ../booleans_trans.py:131
+#: ../booleans_trans.py:132
 msgid "If you want to allow httpd to use built in scripting (usually php)"
 msgstr ""
 
-#: ../booleans_trans.py:132
+#: ../booleans_trans.py:133
 msgid ""
 "If you want to allow exim to create, read, write, and delete unprivileged "
 "user files."
 msgstr ""
 
-#: ../booleans_trans.py:133
+#: ../booleans_trans.py:134
 msgid ""
 "If you want to allow Cobbler to modify public files used for public file "
 "transfer services."
 msgstr ""
 
-#: ../booleans_trans.py:134
+#: ../booleans_trans.py:135
 msgid "If you want to allow samba to export NFS volumes."
 msgstr ""
 
-#: ../booleans_trans.py:135
+#: ../booleans_trans.py:136
 msgid ""
 "If you want to control the ability to mmap a low area of the address space, "
 "as configured by /proc/sys/kernel/mmap_min_addr."
 msgstr ""
 
-#: ../booleans_trans.py:136
+#: ../booleans_trans.py:137
 msgid "If you want to ignore wine mmap_zero errors."
 msgstr ""
 
-#: ../booleans_trans.py:137
+#: ../booleans_trans.py:138
 msgid "If you want to allow sysadm to debug or ptrace all processes."
 msgstr ""
 
-#: ../booleans_trans.py:138
-msgid "If you want to allow fenced domain to connect to the network using TCP."
-msgstr ""
-
 #: ../booleans_trans.py:139
-msgid "If you want to allow users to connect to PostgreSQL"
+msgid "If you want to allow logging in and using the system from /dev/console."
 msgstr ""
 
 #: ../booleans_trans.py:140
-msgid "If you want to allow cvs daemon to read shadow"
+msgid "If you want to allow fenced domain to connect to the network using TCP."
 msgstr ""
 
 #: ../booleans_trans.py:141
-msgid "If you want to allow http daemon to check spam"
+msgid "If you want to allow users to connect to PostgreSQL"
 msgstr ""
 
 #: ../booleans_trans.py:142
+msgid "If you want to allow cvs daemon to read shadow"
+msgstr ""
+
+#: ../booleans_trans.py:143
+msgid "If you want to allow http daemon to check spam"
+msgstr ""
+
+#: ../booleans_trans.py:144
 msgid ""
 "If you want to allow sftp-internal to login to local users and read/write "
 "all files on the system, governed by DAC."
 msgstr ""
 
-#: ../booleans_trans.py:143
+#: ../booleans_trans.py:145
 msgid "If you want to allow xguest users to mount removable media"
 msgstr ""
 
-#: ../booleans_trans.py:144
+#: ../booleans_trans.py:146
 msgid ""
 "If you want to allow icecast to connect to all ports, not just sound ports."
 msgstr ""
 
-#: ../booleans_trans.py:145
+#: ../booleans_trans.py:147
 msgid "If you want to allow pppd to load kernel modules for certain modems"
 msgstr ""
 
-#: ../booleans_trans.py:146
+#: ../booleans_trans.py:148
 msgid "If you want to allow samba to run unconfined scripts"
 msgstr ""
 
-#: ../booleans_trans.py:147
+#: ../booleans_trans.py:149
 msgid "If you want to allow confined applications to run with kerberos."
 msgstr ""
 
-#: ../booleans_trans.py:148
+#: ../booleans_trans.py:150
 msgid "If you want to allow httpd to connect to memcache server"
 msgstr ""
 
-#: ../booleans_trans.py:149
+#: ../booleans_trans.py:151
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to cobbler over "
 "the network."
 msgstr ""
 
-#: ../booleans_trans.py:150
+#: ../booleans_trans.py:152
 msgid "If you want to allow sasl to read shadow"
 msgstr ""
 
-#: ../booleans_trans.py:151
+#: ../booleans_trans.py:153
 msgid ""
 "If you want to allow ftp servers to upload files,  used for public file "
 "transfer services. Directories must be labeled public_content_rw_t."
 msgstr ""
 
-#: ../booleans_trans.py:152
+#: ../booleans_trans.py:154
 msgid "If you want to allow vidio playing tools to tun unconfined"
 msgstr ""
 
-#: ../booleans_trans.py:153
+#: ../booleans_trans.py:155
 msgid ""
 "If you want to allow gssd to read temp directory.  For access to kerberos "
 "tgt."
 msgstr ""
 
-#: ../booleans_trans.py:154
+#: ../booleans_trans.py:156
 msgid "If you want to allow webadm to manage files in users home directories"
 msgstr ""
 
-#: ../booleans_trans.py:155
+#: ../booleans_trans.py:157
 msgid "If you want to allow clamd to use JIT compiler"
 msgstr ""
 
-#: ../booleans_trans.py:156
+#: ../booleans_trans.py:158
 msgid "If you want to allows XServer to execute writable memory"
 msgstr ""
 
-#: ../booleans_trans.py:157
+#: ../booleans_trans.py:159
 msgid ""
 "If you want to allow Git daemon session to bind tcp sockets to all "
 "unreserved ports."
 msgstr ""
 
-#: ../booleans_trans.py:158
+#: ../booleans_trans.py:160
 msgid ""
 "If you want to allow HTTPD to run SSI executables in the same domain as "
 "system CGI scripts."
 msgstr ""
 
-#: ../booleans_trans.py:159
+#: ../booleans_trans.py:161
 msgid "If you want to allow samba to share any file/directory read/write."
 msgstr ""
 
-#: ../booleans_trans.py:160
+#: ../booleans_trans.py:162
+msgid ""
+"If you want to alow Pupper master to use connect to mysql and postgresql "
+"database"
+msgstr ""
+
+#: ../booleans_trans.py:163
 msgid ""
 "If you want to allow httpd to act as a FTP server by listening on the ftp "
 "port."
 msgstr ""
 
-#: ../booleans_trans.py:161
+#: ../booleans_trans.py:164
 msgid "If you want to enable extra rules in the cron domain to support fcron."
 msgstr ""
 
-#: ../booleans_trans.py:162
+#: ../booleans_trans.py:165
 msgid ""
 "If you want to allow nfs servers to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr ""
 
-#: ../booleans_trans.py:163
+#: ../booleans_trans.py:166
 msgid ""
 "If you want to allow any files/directories to be exported read/write via NFS."
 msgstr ""
 
-#: ../booleans_trans.py:164
+#: ../booleans_trans.py:167
 msgid "If you want to allow all domains to use other domains file descriptors"
 msgstr ""
 
-#: ../booleans_trans.py:165
+#: ../booleans_trans.py:168
 msgid "If you want to allow users to login using a radius server"
 msgstr ""
 
-#: ../booleans_trans.py:166
+#: ../booleans_trans.py:169
 msgid "If you want to allow Cobbler to access cifs file systems."
 msgstr ""
 
-#: ../booleans_trans.py:167
+#: ../booleans_trans.py:170
 msgid "If you want to allow httpd daemon to change system limits"
 msgstr ""
 
-#: ../booleans_trans.py:168
+#: ../booleans_trans.py:171
 msgid ""
 "If you want to allow squid to connect to all ports, not just HTTP, FTP, and "
 "Gopher ports."
 msgstr ""
 
-#: ../booleans_trans.py:169
+#: ../booleans_trans.py:172
 msgid "If you want to allow users to read system messages."
 msgstr ""
 
-#: ../booleans_trans.py:170
+#: ../booleans_trans.py:173
 #, fuzzy
 msgid "If you want to allow confined virtual guests to manage cifs files"
 msgstr ""
@@ -3303,34 +3334,34 @@ msgstr ""
 "    SELinux는 zebra 데몬이 설정 파일을 작성하지 못하게 합니다\n"
 "      "
 
-#: ../booleans_trans.py:171
+#: ../booleans_trans.py:174
 msgid "If you want to enable support for systemd as the init program."
 msgstr ""
 
-#: ../booleans_trans.py:172
+#: ../booleans_trans.py:175
 msgid ""
 "If you want to allow BIND to write the master zone files. Generally this is "
 "used for dynamic DNS or zone transfers."
 msgstr ""
 
-#: ../booleans_trans.py:173
+#: ../booleans_trans.py:176
 msgid ""
 "If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
 
-#: ../booleans_trans.py:174
+#: ../booleans_trans.py:177
 msgid ""
 "If you want to allow system cron jobs to relabel filesystem for restoring "
 "file contexts."
 msgstr ""
 
-#: ../booleans_trans.py:175
+#: ../booleans_trans.py:178
 msgid ""
 "If you want to allow anon internal-sftp to upload files, used for public "
 "file transfer services. Directories must be labeled public_content_rw_t."
 msgstr ""
 
-#: ../booleans_trans.py:176
+#: ../booleans_trans.py:179
 msgid "If you want to allow unprived users to execute DDL statement"
 msgstr ""
 

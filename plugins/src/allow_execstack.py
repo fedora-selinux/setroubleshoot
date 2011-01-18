@@ -23,6 +23,32 @@ _=translation.ugettext
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
 
+import commands
+import sys
+
+def is_execstack(path):
+    if path[0] != "/":
+        return False
+
+    x = commands.getoutput("execstack -q %s" %   path).split()
+    return ( x[0]  == "X" )
+
+def find_execstack(exe, pid):
+    execstacklist = []
+    for path in commands.getoutput("ldd %s" %   sys.argv[1]).split():
+        if is_execstack(path) and path not in execstacklist:
+                execstacklist.append(path)
+    try:
+        fd = open("/proc/%s/maps" % pid , "r")
+        for rec in fd.readlines():
+            for path in rec.split():
+                if is_execstack(path) and path not in execstacklist:
+                    execstacklist.append(path)
+    except IOError:
+        pass
+
+    return execstacklist
+
 class plugin(Plugin):
     summary =_('''
     SELinux is preventing $SOURCE_PATH from making the program stack executable.
@@ -62,14 +88,36 @@ file a bug report.
     then_text = _("you need to report a bug. This is a potentially dangerous access.")
     do_text = _("Contact your security administrator and report this issue.")
 
+    def get_if_text(self, path, args):
+        if not path:
+            return self.if_text
+
+        return _("you believe %s should not require execstack") % path
+        
+    def get_then_text(self, path, args):
+        if not path:
+            return self.then_text
+        return _("you should clear the execstack flag and see if $SOURCE_PATH works correctly. Report this as a bug on %s") % path
+
+    def get_do_text(self, path, args):
+        if not path:
+            return self.do_text
+
+        return _("execstack -c %s") % path
+
     def __init__(self):
         Plugin.__init__(self,__name__)
 
     def analyze(self, avc):
         if avc.matches_source_types(['unconfined_t']) and \
            avc.has_any_access_in(['execstack']):
-            # MATCH
-            return self.report()
+            reports = []
+            for i in find_execstack(avc.spath, avc.pid):
+                reports.append(self.report((i,avc)))
+
+            if len(reports) > 0:
+                return reports
+
+            return self.report((None,None))
         else:
             return None
-
