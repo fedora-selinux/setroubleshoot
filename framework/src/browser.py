@@ -1,4 +1,3 @@
-
 #!/usr/bin/python -Es
 # Author: Thomas Liu <tliu@redhat.com>
 # Author: Dan Walsh <dwalsh@redhat.com>
@@ -22,16 +21,10 @@
 import gettext
 from math import pi
 from subprocess import *
-import random
 from gettext import ngettext as P_
 import sys, os
 from xml.dom import minidom
-import datetime
-import time
-import xmlrpclib
-import pygtk
-import gobject
-import gnomekeyring
+from xmlrpclib  import ProtocolError
 import gtk
 import gtk.glade
 from setroubleshoot.log import *
@@ -48,7 +41,6 @@ import re
 import dbus
 import slip.dbus.service
 from slip.dbus import polkit
-import tempfile
 import report
 import report.io
 import report.io.GTKIO
@@ -230,8 +222,6 @@ class BrowserApplet:
         self.load_data()
         self.liststore = gtk.ListStore(int, str, str, str, str, str) 
         self.make_treeview()
-#        self.updaterpipe = Popen(["/usr/bin/python", "/usr/share/setroubleshoot/updater.py"], stdout=PIPE)
-#        gobject.timeout_add(1000, self.read_pipe().next)
         self.troubleshoot_visible=False
         self.current_alert = -1
         self.accounts = report.accountmanager.AccountManager()
@@ -240,27 +230,6 @@ class BrowserApplet:
            self.troubleshoot_list_button.set_sensitive(widget.count_selected_rows() == 1)
            self.delete_list_button.set_sensitive(widget.count_selected_rows() > 0)
            
-    def read_pipe(self):
-        while True:
-            if not self.updaterpipe.poll() is None:
-                break
-            yield True
-        if self.updaterpipe.returncode:
-            self.current_policy_label.set_text(_("Error while checking policy version."))
-        else:
-            while True:
-                line = self.updaterpipe.stdout.readline()            
-                if "newer" in line:
-                    self.report_button.set_tooltip_text(_("There is a newer version of policy available.  Updating your policy may fix the denial that you having problems with."))
-                    self.newer_policy_label.set_text("%s: %s" % (_("Newest Version"), line.split(" ")[1])) 
-                    if os.access(UPDATE_PROGRAM, os.X_OK):
-                        self.report_button.set_label(_("Update Policy"))
-                elif "current" in line:
-                    self.current_policy_label.set_text("%s" % (line.split(" ")[1]))
-                elif "error" in line or "done" in line:
-                    break
-        yield False
- 
     def install_button_clicked(self, widget):
         if not os.access(UPDATE_PROGRAM, os.X_OK):
             return
