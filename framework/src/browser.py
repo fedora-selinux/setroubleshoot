@@ -195,6 +195,7 @@ class BrowserApplet:
         self.ignore_button = builder.get_object("ignore_button")
         self.troubleshoot_button = builder.get_object("troubleshoot_button")
         self.delete_button = builder.get_object("delete_button")
+        self.details_button = builder.get_object("details_button")
         self.delete_list_button = builder.get_object("delete_list_button")
         self.troubleshoot_list_button = builder.get_object("troubleshoot_list_button")
         self.grant_button = builder.get_object("grant_button")
@@ -783,6 +784,7 @@ class BrowserApplet:
 
         if size == 0:
             self.delete_button.set_sensitive(False)
+            self.details_button.set_sensitive(False)
             self.ignore_button.set_sensitive(False)
             self.report_button.set_sensitive(False)
             self.list_all_button.set_sensitive(False)
@@ -801,6 +803,7 @@ class BrowserApplet:
             return
 
         self.delete_button.set_sensitive(True)
+        self.details_button.set_sensitive(True)
         self.ignore_button.set_sensitive(True)
         self.report_button.set_sensitive(True)
         self.list_all_button.set_sensitive(True)
