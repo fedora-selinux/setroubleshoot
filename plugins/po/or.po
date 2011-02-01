@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins.or\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-11-29 10:58-0500\n"
-"PO-Revision-Date: 2011-01-27 17:35+0530\n"
+"PO-Revision-Date: 2011-02-01 18:49+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <Translation-team-or@lists.sourceforge.net>\n"
 "Language: or\n"
@@ -1631,6 +1631,7 @@ msgstr ""
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
 msgstr ""
+"$TARGET_BASE_PATH ଉପରେ ସ୍ଥାପନ କରିବା ପାଇଁ ଆପଣ $SOURCE_BASE_PATH କୁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି କି।"
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
@@ -1649,7 +1650,6 @@ msgstr ""
 "    "
 
 #: ../src/openvpn.py:36
-#, fuzzy
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1661,7 +1661,7 @@ msgstr ""
 "\n"
 "    SELinux $SOURCE ଦ୍ୱାରା ଅନୁରୋଧ କରାଯାଇଥିବା ଅଭିଗମ୍ୟତାକୁ ବାରଣ କରିଅଛି। $TARGET_PATH "
 "ହୁଏତଃ\n"
-"    ଭୁଲ ନାମକରଣ ହୋଇଥାଇପାରେ। sshd କୁ /root/.ssh ଡିରେକ୍ଟୋରୀରେ ଥିବା ବିଷୟବସ୍ତୁଗୁଡ଼ିକୁ ପଢ଼ିବା "
+"    ଭୁଲ ନାମକରଣ ହୋଇଥାଇପାରେ। openvpn କୁ home ଡିରେକ୍ଟୋରୀରେ ଥିବା ବିଷୟବସ୍ତୁଗୁଡ଼ିକୁ ପଢ଼ିବା "
 "ପାଇଁ ଅନୁମତି ଦିଆଯାଇଥାଏ ଯଦି \n"
 "    ଏହା ସଠିକ ଭାବରେ ନାମକରଣ ହୋଇଥାଏ।\n"
 "    "
@@ -1686,12 +1686,16 @@ msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"$TARGET_BASE_PATH mv କରିବା ପାଇଁ ଚାହୁଁଛନ୍ତି ଯାହା ଫଳରେ $SOURCE_BASE_PATH କୁ "
+"$ACCESS ଅଭିଗମ୍ୟ ଅନୁମତି ମିଳିପାରିବ"
 
 #: ../src/openvpn.py:51
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
 msgstr ""
+"ଆପଣ $TARGET_BASE_PATH ଉପରେ ନାମପଟିକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ଚାହୁଁଛନ୍ତି ଯାହାଫଳରେ "
+"$SOURCE_BASE_PATH ରେ $ACCESS ଅଭିଗମ୍ୟତା ରହିପାରିବ"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
@@ -2152,6 +2156,8 @@ msgid ""
 "you may be under attack by a hacker, since confined applications should "
 "never need this access."
 msgstr ""
+"ଆପଣ ହୁଏତଃ କୌଣସି ଅନାଧିକୃତ ଆକ୍ରମଣକାରୀଙ୍କ ଶିକାର ହୋଇଛନ୍ତି, ଯେହେତୁ ପ୍ରୟୋଗଗୁଡ଼ିକ ଏହି ଅଭିଗମ୍ୟତା "
+"କଦାପି ଆଶାକରିବା ଉଚିତ ନୁହଁ।"
 
 #: ../src/sshd_root.py:36
 msgid ""
@@ -2227,6 +2233,9 @@ msgid ""
 "you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
 msgstr ""
+"ଆପଣ ନିଜର $SOURCE_PATH କର୍ଣ୍ଣଲକୁ ପରିବର୍ତ୍ତନ କରୁଥିବ ବୋଲି ଆପଣ ବିଶ୍ୱାସ କରନ୍ତି ନାହିଁ, କର୍ଣ୍ଣଲ "
+"ଏକକାଂଶଗୁଡ଼ିକୁ "
+"ଧାରଣ କରିବା ଦ୍ୱାରା"
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
@@ -2270,10 +2279,13 @@ msgid ""
 "you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
 msgstr ""
+"ଆପଣ ନିଜର $SOURCE_PATH କର୍ଣ୍ଣଲକୁ ପରିବର୍ତ୍ତନ କରୁଥିବ ବୋଲି ଆପଣ ବିଶ୍ୱାସ କରନ୍ତି ନାହିଁ, କର୍ଣ୍ଣଲ "
+"ଏକକାଂଶଗୁଡ଼ିକୁ "
+"ଧାରଣ କରିବା ଦ୍ୱାରା।"
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
-msgstr ""
+msgstr "ଗୋଟିଏ ପ୍ରକ୍ରିୟା ହୁଏତଃ ଆପଣଙ୍କ ତନ୍ତ୍ରରେ ବିନାଅନୁମତିରେ ପ୍ରବେଶ କରିବା ପାଇଁ ଚେଷ୍ଟାକରୁଅଛି।"
 
 #: ../src/sys_resource.py:28
 msgid ""
@@ -2307,12 +2319,16 @@ msgid ""
 "you do not want to get this AVC any longer. These AVC's are caused by "
 "running out of resources, usually disk space on your / partition."
 msgstr ""
+"ଆପଣ ଏପର୍ଯ୍ୟନ୍ତ ଏହି AVC କୁ ପାଇବାକୁ ଚାହୁଁନାହାନ୍ତି। ଏହି AVC ଗୁଡ଼ିକ ଉତ୍ସର ଅଭାବ ହେତୁ ଘଟିଥାଏ, "
+"ସାଧାରଣତଃ ଆପଣଙ୍କ / ବିଭାଜନରେ ଥିବା ଡିସ୍କ ସ୍ଥାନ।"
 
 #: ../src/sys_resource.py:40
 msgid ""
 "you must cleanup diskspace or make sure you are not running too many "
 "processes."
 msgstr ""
+"ଆପଣ ନିଶ୍ଚିତ ଭାବରେ ଡିସ୍କ ସ୍ଥାନକୁ ସଫାକରିବା ଉଚିତ କିମ୍ବା ନିଶ୍ଚିତ କରନ୍ତୁ ଯେ ଆପଣ ଅତ୍ୟଧିକ "
+"ପ୍ରକ୍ରିୟା ଚଲାଉନାହାନ୍ତି।"
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -2373,12 +2389,16 @@ msgid ""
 "you want to ignore this AVC because it is dangerous and your machine seems "
 "to be working correctly."
 msgstr ""
+"ଆପଣ ଏହି AVC କୁ ଅଗ୍ରାହ୍ୟ କରିବା ପାଇଁ ଚାହୁଁଛନ୍ତି କାରଣ ଏହା ବିପଦ ଜନକ ଅଟେ ଏବଂ ଆପଣଙ୍କର ଯନ୍ତ୍ର "
+"ସଠିକ ଭାବରେ କାର୍ଯ୍ୟ କରୁଅଛି ପରି ଲାଗୁଛି।"
 
 #: ../src/vbetool.py:56
 msgid ""
 "you must tell SELinux about this by enabling the vbetool_mmap_zero_ignore "
 "boolean."
 msgstr ""
+"vbetool_mmap_zero_ignore ବୁଲିଆନକୁ ସକ୍ରିୟ କରି ଆପଣ SELinux କୁ ଏହା ବିଷୟରେ "
+"କହିବା ଉଚିତ।"
 
 #: ../src/vbetool.py:62 ../src/wine.py:73
 msgid "Turn off memory protection"
@@ -2446,12 +2466,16 @@ msgid ""
 "you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
 msgstr ""
+"ଆପଣ ଏହି AVC କୁ ଅଗ୍ରାହ୍ୟ କରିବା ପାଇଁ ଚାହୁଁଛନ୍ତି କାରଣ ଏହା ବିପଦ ଜନକ ଅଟେ ଏବଂ ଆପଣଙ୍କର wine "
+"ପ୍ରୟୋଗଗୁଡ଼ିକ ସଠିକ ଭାବରେ କାର୍ଯ୍ୟ କରୁଅଛି ପରି ଲାଗୁଛି।"
 
 #: ../src/wine.py:67
 msgid ""
 "you must tell SELinux about this by enabling the wine_mmap_zero_ignore "
 "boolean."
 msgstr ""
+"wine_mmap_zero_ignore ବୁଲିଆନକୁ ସକ୍ରିୟ କରି ଆପଣ SELinux କୁ ଏହା ବିଷୟରେ "
+"କହିବା ଉଚିତ।"
 
 #: ../src/xen_image.py:27
 msgid ""
@@ -2520,60 +2544,70 @@ msgstr ""
 #: ../booleans_trans.py:1
 msgid "If you want to allow ftp to read and write files in the user home directories"
 msgstr ""
+"ଯଦି ଆପଣ ଚାଳକ ମୂଖ୍ୟ ଡିରେକ୍ଟୋରୀଗୁଡ଼ିକରେ ଫାଇଲଗୁଡ଼ିକୁ ପଢ଼ିବା ଏବଂ ଲେଖିବା ପାଇଁ ftp କୁ "
+"ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି"
 
 #: ../booleans_trans.py:2
 msgid ""
 "If you want to allow privoxy to connect to all ports, not just HTTP, FTP, "
 "and Gopher ports."
 msgstr ""
+"ଯଦି ଆପଣ privoxy କୁ HTTP, FTP, ଏବଂ Gopher ପୋର୍ଟଗୁଡ଼ିକ ସହିତ ବାକି ସମସ୍ତ ପୋର୍ଟଗୁଡ଼ିକ ସହିତ ସଂଯୋଗ "
+"କରିବା ପାଇଁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି।"
 
 #: ../booleans_trans.py:3
 msgid ""
 "If you want to allow the graphical login program to login directly as "
 "sysadm_r:sysadm_t"
 msgstr ""
+"ଯଦି ଆପଣ ଆଲେଖିକ ଲଗଇନ ପ୍ରଗ୍ରାମକୁ ସିଧାସଳଖ sysadm_r:sysadm_t ଭାବରେ ଲଗଇନ କରିବା "
+"ପାଇଁ ଅନୁମତି ଦେବାକୁ ଇଚ୍ଛା କରୁଛନ୍ତି"
 
 #: ../booleans_trans.py:4
 msgid "If you want to allow xen to manage nfs files"
-msgstr ""
+msgstr "ଯଦି ଆପଣ xen କୁ nfs ଫାଇଲଗୁଡ଼ିକୁ ପରିଚାଳନା କରିବା ପାଇଁ"
 
 #: ../booleans_trans.py:5
 msgid "If you want to allow confined web browsers to read home directory content"
-msgstr ""
+msgstr "ଯଦି ଆପଣ ସିମୀତ ୱେବ ବ୍ରାଉଜରମାନଙ୍କୁ ମୂଳ ସ୍ଥାନ ବିଷୟବସ୍ତୁକୁ ପଢ଼ିବା ପାଇଁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି"
 
 #: ../booleans_trans.py:6
 msgid ""
 "If you want to allow xguest users to configure Network Manager and connect "
 "to apache ports"
 msgstr ""
+"ଯଦି ଆପଣ xguest ଚାଳକମାନଙ୍କୁ ନେଟୱର୍କ ପରିଚାଳକଙ୍କୁ ବିନ୍ୟାସ କରିବାକୁ ଚାହୁଁଛନ୍ତି ଏବଂ apache "
+"ପୋର୍ଟଗୁଡ଼ିକ ସହିତ ସଂଯୋଗ କରିବାକୁ ଚାହୁଁଛନ୍ତି"
 
 #: ../booleans_trans.py:7
 msgid "If you want to allow database admins to execute DML statement"
-msgstr ""
+msgstr "ଯଦି ଆପଣ ତଥ୍ୟାଧାର ପ୍ରଶାସକଙ୍କୁ DML ଅଭିବ୍ୟକ୍ତିକୁ ନିଷ୍ପାଦନ କରିବା ପାଇଁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି"
 
 #: ../booleans_trans.py:8
 msgid ""
 "If you want to allow tftp to modify public files used for public file "
 "transfer services."
-msgstr ""
+msgstr "ଯଦି ଆପଣ tftp କୁ ସର୍ବସାଧାରଣ ଫାଇଲ ପରିବହନ ସର୍ଭରଗୁଡ଼ିକୁ ପରିବର୍ତ୍ତନ କରିବା ପାଇଁ ଚାହୁଁଛନ୍ତି।"
 
 #: ../booleans_trans.py:9
 msgid ""
 "If you want to allow direct login to the console device. Required for System "
 "390"
 msgstr ""
+"ଯଦି ଆପଣ କୋନସୋଲ ଉପକରଣ ସହିତ ସିଧାସଳଖ ଲଗଇନକୁ ଅନୁମତି ଦେବାକୁ ଚାହାନ୍ତି। ତନ୍ତ୍ର "
+"390 ପାଇଁ ଆବଶ୍ୟକ"
 
 #: ../booleans_trans.py:10
 msgid "If you want to allow user spamassassin clients to use the network."
-msgstr ""
+msgstr "ଯଦି ଆପଣ ଚାଳକ spamassassin କ୍ଲାଏଣ୍ଟକୁ ନେଟୱର୍କରେ ବ୍ୟବହାର ପାଇଁ ଅନୁମତି ଦିଅନ୍ତି।"
 
 #: ../booleans_trans.py:11
 msgid "If you want to allow httpd to act as a relay"
-msgstr ""
+msgstr "ଯଦି ଆପଣ ପ୍ରସାରଣ ଭାବରେ କାର୍ଯ୍ୟ କରିବା ପାଇଁ httpd କୁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି"
 
 #: ../booleans_trans.py:12
 msgid "If you want to allow openvpn to read home directories"
-msgstr ""
+msgstr "ଯଦି ଆପଣ ମୂଖ୍ୟ ଡିରେକ୍ଟୋରୀଗୁଡ଼ିକୁ ପଢ଼ିବା ପାଇଁ openvpn କୁ ଅନୁମତି ଦିଅନ୍ତି"
 
 #: ../booleans_trans.py:13
 msgid ""
