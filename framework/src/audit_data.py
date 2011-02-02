@@ -344,7 +344,10 @@ class AuditRecord(XmlSerialize):
                         pass
 
                 if key == "syscall":
-                    value = audit.audit_syscall_to_name(int(value),audit.audit_detect_machine())
+                    syscall_name = audit.audit_syscall_to_name(int(value),audit.audit_detect_machine())
+                    if syscall_name:
+                        value = syscall_name
+
             except ValueError:
                 pass
             self.fields[key] = value

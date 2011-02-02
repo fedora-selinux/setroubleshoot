@@ -89,24 +89,33 @@ file a bug report.
     do_text = _("Contact your security administrator and report this issue.")
 
     def get_if_text(self, avc, args):
-        path = args[0]
-        if not path:
-            return self.if_text
+        try:
+            path = args[0]
+            if not path:
+                return self.if_text
 
-        return _("you believe that \n%s\nshould not require execstack") % path
+            return _("you believe that \n%s\nshould not require execstack") % path
+        except:
+            return self.if_text
         
     def get_then_text(self, avc, args):
-        path = args[0]
-        if not path:
+        try:
+            path = args[0]
+            if not path:
+                return self.then_text
+            return _("you should clear the execstack flag and see if $SOURCE_PATH works correctly.\nReport this as a bug on %s.\nYou can clear the exestack flag by executing:") % path
+        except:
             return self.then_text
-        return _("you should clear the execstack flag and see if $SOURCE_PATH works correctly.\nReport this as a bug on %s.\nYou can clear the exestack flag by executing:") % path
-
+        
     def get_do_text(self, avc, args):
-        path = args[0]
-        if not path:
+        try:
+            path = args[0]
+            if not path:
+                return self.do_text
+            
+            return _("execstack -c %s") % path
+        except:
             return self.do_text
-
-        return _("execstack -c %s") % path
 
     def __init__(self):
         Plugin.__init__(self,__name__)
