@@ -27,7 +27,7 @@ from setroubleshoot.Plugin import Plugin
 
 class plugin(Plugin):
     summary = _('''
-    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesytem.
+    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.
     ''')
     
     problem_description = _('''

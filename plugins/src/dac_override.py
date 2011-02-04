@@ -43,7 +43,7 @@ Turn on full auditing
 Try to recreate AVC. Then execute
 # ausearch -m avc -ts recent
 If you see PATH record check ownership/permissions on file, and fix it, 
-otherweise report as a bugzilla.""")
+otherwise report as a bugzilla.""")
 
     def __init__(self):
         Plugin.__init__(self, __name__)

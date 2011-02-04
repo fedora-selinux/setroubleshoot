@@ -43,7 +43,7 @@ class plugin(Plugin):
     chcon command to change these context.  Please refer to the man page
     "man httpd_selinux" or 
     <a href="http://fedora.redhat.com/docs/selinux-apache-fc3">FAQ</a>
-    "TYPE" refers toi one of "sys", "user" or "staff" or potentially other
+    "TYPE" refers to one of "sys", "user" or "staff" or potentially other
     script types.
     ''')
     
