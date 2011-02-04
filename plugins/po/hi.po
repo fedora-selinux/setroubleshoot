@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-18 10:25-0500\n"
+"POT-Creation-Date: 2011-02-04 13:31-0500\n"
 "PO-Revision-Date: 2010-07-30 14:27+0530\n"
 "Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -164,7 +164,7 @@ msgid ""
 "writable and executable."
 msgstr ""
 
-#: ../src/allow_execheap.py:51 ../src/allow_execstack.py:88
+#: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr ""
 
@@ -359,28 +359,40 @@ msgid ""
 "writable and executable."
 msgstr ""
 
-#: ../src/allow_execstack.py:95
-#, python-format
-msgid "you believe %s should not require execstack"
+#: ../src/allow_execstack.py:88
+msgid ""
+"you need to report a bug. \n"
+"This is a potentially dangerous access."
 msgstr ""
 
-#: ../src/allow_execstack.py:100
+#: ../src/allow_execstack.py:97
 #, python-format
 msgid ""
-"you should clear the execstack flag and see if $SOURCE_PATH works correctly. "
-"Report this as a bug on %s"
+"you believe that \n"
+"%s\n"
+"should not require execstack"
 msgstr ""
 
 #: ../src/allow_execstack.py:106
+#, python-format
+msgid ""
+"you should clear the execstack flag and see if $SOURCE_PATH works "
+"correctly.\n"
+"Report this as a bug on %s.\n"
+"You can clear the exestack flag by executing:"
+msgstr ""
+
+#: ../src/allow_execstack.py:116
 #, python-format
 msgid "execstack -c %s"
 msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -460,10 +472,11 @@ msgid "you must tell SELinux about this"
 msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -1007,7 +1020,7 @@ msgid ""
 "Try to recreate AVC. Then execute\n"
 "# ausearch -m avc -ts recent\n"
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
-"otherweise report as a bugzilla."
+"otherwise report as a bugzilla."
 msgstr ""
 
 #: ../src/device.py:29
@@ -1335,7 +1348,7 @@ msgid ""
 "    chcon command to change these context.  Please refer to the man page\n"
 "    \"man httpd_selinux\" or \n"
 "    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
-"    \"TYPE\" refers toi one of \"sys\", \"user\" or \"staff\" or potentially "
+"    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially "
 "other\n"
 "    script types.\n"
 "    "
@@ -3281,7 +3294,7 @@ msgstr ""
 
 #: ../booleans_trans.py:162
 msgid ""
-"If you want to alow Pupper master to use connect to mysql and postgresql "
+"If you want to allow Puppet master to use connect to mysql and postgresql "
 "database"
 msgstr ""
 

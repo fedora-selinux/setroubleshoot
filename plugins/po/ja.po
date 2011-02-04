@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ja\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-18 10:25-0500\n"
+"POT-Creation-Date: 2011-02-04 13:31-0500\n"
 "PO-Revision-Date: 2011-01-24 14:25+0900\n"
 "Last-Translator: Kiyoto Hashida <khashida@redhat.com>\n"
 "Language-Team: Japanese <jp@li.org>\n"
@@ -19,7 +19,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.11.4\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"\n"
 "\n"
 
 #: ../src/allow_anon_write.py:27
@@ -75,8 +76,10 @@ msgstr ""
 "    "
 
 #: ../src/allow_anon_write.py:44
-msgid "you want to allow $SOURCE_PATH to be able to write to shared public content"
-msgstr "$SOURCE_PATH が、共有パブリックコンテンツに書込み可能になることを、許可したい"
+msgid ""
+"you want to allow $SOURCE_PATH to be able to write to shared public content"
+msgstr ""
+"$SOURCE_PATH が、共有パブリックコンテンツに書込み可能になることを、許可したい"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
@@ -154,7 +157,7 @@ msgstr ""
 "$SOURCE_PATH が、 heap メモリを map する必要はありません。 heap メモリは書込"
 "み可能且つ実行可能です。"
 
-#: ../src/allow_execheap.py:51 ../src/allow_execstack.py:88
+#: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr "バグをレポートする必要があります。これは危険なアクセスです。"
 
@@ -363,30 +366,43 @@ msgstr ""
 "$SOURCE_PATH が stack メモリを map する必要はありません。 stack メモリは書込"
 "み可能で、実行可能です"
 
-#: ../src/allow_execstack.py:95
-#, python-format
-msgid "you believe %s should not require execstack"
+#: ../src/allow_execstack.py:88
+#, fuzzy
+msgid ""
+"you need to report a bug. \n"
+"This is a potentially dangerous access."
+msgstr "バグをレポートする必要があります。これは危険なアクセスです。"
+
+#: ../src/allow_execstack.py:97
+#, fuzzy, python-format
+msgid ""
+"you believe that \n"
+"%s\n"
+"should not require execstack"
 msgstr "%s は execstack を必要としないと信じています"
 
-#: ../src/allow_execstack.py:100
-#, python-format
+#: ../src/allow_execstack.py:106
+#, fuzzy, python-format
 msgid ""
-"you should clear the execstack flag and see if $SOURCE_PATH works correctly. "
-"Report this as a bug on %s"
+"you should clear the execstack flag and see if $SOURCE_PATH works "
+"correctly.\n"
+"Report this as a bug on %s.\n"
+"You can clear the exestack flag by executing:"
 msgstr ""
 "execstack フラグをクリアして SOURCE_PATH が正常に機能していることを確認する "
 "必要があります。これは %s のバグとして報告します"
 
-#: ../src/allow_execstack.py:106
+#: ../src/allow_execstack.py:116
 #, python-format
 msgid "execstack -c %s"
 msgstr "execstack -c %s"
 
 #: ../src/allow_ftpd_use_cifs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -472,10 +488,11 @@ msgid "you must tell SELinux about this"
 msgstr "これについては、SELinux に設定をしなければいけません"
 
 #: ../src/allow_ftpd_use_nfs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -800,7 +817,8 @@ msgstr ""
 
 #: ../src/catchall.py:29
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr "SELinux は $SOURCE_PATH による \"$ACCESS\" アクセスを阻止しています。    "
+msgstr ""
+"SELinux は $SOURCE_PATH による \"$ACCESS\" アクセスを阻止しています。    "
 
 #: ../src/catchall.py:31
 msgid ""
@@ -854,7 +872,8 @@ msgstr ""
 msgid ""
 "you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
-msgstr "$SOURCE_BASE_PATH は、 $ACCESS capability をデフォルトで持っているべきです。"
+msgstr ""
+"$SOURCE_BASE_PATH は、 $ACCESS capability をデフォルトで持っているべきです。"
 
 #: ../src/catchall.py:53
 msgid ""
@@ -1045,6 +1064,7 @@ msgstr ""
 "ラーを生成します。"
 
 #: ../src/dac_override.py:40
+#, fuzzy
 msgid ""
 "\n"
 "Turn on full auditing\n"
@@ -1052,7 +1072,7 @@ msgid ""
 "Try to recreate AVC. Then execute\n"
 "# ausearch -m avc -ts recent\n"
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
-"otherweise report as a bugzilla."
+"otherwise report as a bugzilla."
 msgstr ""
 "\n"
 "全面的な監査を開始します\n"
@@ -1150,8 +1170,10 @@ msgstr ""
 "    "
 
 #: ../src/device.py:60
-msgid "You need to change the label on $TARGET_PATH to a type of a similar device."
-msgstr "$TARGET_PATH のラベルを同種のデバイスのタイプに変更する必要があります。"
+msgid ""
+"You need to change the label on $TARGET_PATH to a type of a similar device."
+msgstr ""
+"$TARGET_PATH のラベルを同種のデバイスのタイプに変更する必要があります。"
 
 #: ../src/device.py:61
 msgid ""
@@ -1378,6 +1400,7 @@ msgstr ""
 "    "
 
 #: ../src/httpd_unified.py:33
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
@@ -1396,7 +1419,7 @@ msgid ""
 "    chcon command to change these context.  Please refer to the man page\n"
 "    \"man httpd_selinux\" or \n"
 "    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
-"    \"TYPE\" refers toi one of \"sys\", \"user\" or \"staff\" or potentially "
+"    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially "
 "other\n"
 "    script types.\n"
 "    "
@@ -1659,12 +1682,14 @@ msgstr ""
 "    "
 
 #: ../src/mmap_zero.py:46
-msgid "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
+msgid ""
+"you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
 msgstr "$SOURCE_PATH は kernel で low メモリにmmapする必要はありません。"
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
-msgstr "ハッカーから攻撃されている可能性があります。これは非常に危険なアクセスです。"
+msgstr ""
+"ハッカーから攻撃されている可能性があります。これは非常に危険なアクセスです。"
 
 #: ../src/mounton.py:29
 msgid ""
@@ -1723,7 +1748,8 @@ msgstr ""
 
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
-msgstr "$SOURCE_BASE_PATH が、 $TARGET_BASE_PATH 上でマウントすることを、許可したい。"
+msgstr ""
+"$SOURCE_BASE_PATH が、 $TARGET_BASE_PATH 上でマウントすることを、許可したい。"
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
@@ -2336,7 +2362,8 @@ msgstr ""
 msgid ""
 "you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
-msgstr "$SOURCE_PATH は kernel module をロードし、kernel を編集すべきではありません。"
+msgstr ""
+"$SOURCE_PATH は kernel module をロードし、kernel を編集すべきではありません。"
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
@@ -2386,7 +2413,8 @@ msgstr ""
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
-msgstr "あるプロセスがあなたのシステムへハッキングしようとしているかもしれません。"
+msgstr ""
+"あるプロセスがあなたのシステムへハッキングしようとしているかもしれません。"
 
 #: ../src/sys_resource.py:28
 msgid ""
@@ -2491,7 +2519,8 @@ msgstr ""
 msgid ""
 "you want to ignore this AVC because it is dangerous and your machine seems "
 "to be working correctly."
-msgstr "このAVCを無効にしたい。このAVCは警告だが、マシンは正常に動作しているため。"
+msgstr ""
+"このAVCを無効にしたい。このAVCは警告だが、マシンは正常に動作しているため。"
 
 #: ../src/vbetool.py:56
 msgid ""
@@ -2646,7 +2675,8 @@ msgstr ""
 "    "
 
 #: ../booleans_trans.py:1
-msgid "If you want to allow ftp to read and write files in the user home directories"
+msgid ""
+"If you want to allow ftp to read and write files in the user home directories"
 msgstr ""
 "ftp が、 ユーザのホームディレクトリのファイルを読み書きすることを、もし許可し"
 "たい場合"
@@ -2672,7 +2702,8 @@ msgid "If you want to allow xen to manage nfs files"
 msgstr "xen が、 nfs ファイルを管理することを、もし許可したい場合"
 
 #: ../booleans_trans.py:5
-msgid "If you want to allow confined web browsers to read home directory content"
+msgid ""
+"If you want to allow confined web browsers to read home directory content"
 msgstr ""
 "特定のwebブラウザが、 ホームディレクトリのコンテンツを読むことを、もし許可し"
 "たい場合"
@@ -2687,7 +2718,8 @@ msgstr ""
 
 #: ../booleans_trans.py:7
 msgid "If you want to allow database admins to execute DML statement"
-msgstr "database admins が、 DML statement を実行することを、もし許可したい場合"
+msgstr ""
+"database admins が、 DML statement を実行することを、もし許可したい場合"
 
 #: ../booleans_trans.py:8
 msgid ""
@@ -2745,7 +2777,8 @@ msgstr ""
 
 #: ../booleans_trans.py:16
 msgid "If you want to allow confined virtual guests to read fuse files"
-msgstr "特定の仮想ゲストが、 fuse ファイルを読むことを、もし許可したい場合。    "
+msgstr ""
+"特定の仮想ゲストが、 fuse ファイルを読むことを、もし許可したい場合。    "
 
 #: ../booleans_trans.py:17
 msgid ""
@@ -2761,7 +2794,8 @@ msgstr "ユーザが、ローカルの mysql サーバに接続することを�
 
 #: ../booleans_trans.py:19
 msgid "If you want to allow user processes to change their priority"
-msgstr "ユーザプロセスが、彼らのプライオリティを変更することを、もし許可したい場合"
+msgstr ""
+"ユーザプロセスが、彼らのプライオリティを変更することを、もし許可したい場合"
 
 #: ../booleans_trans.py:20
 msgid ""
@@ -2773,7 +2807,8 @@ msgstr ""
 
 #: ../booleans_trans.py:21
 msgid "If you want to allow httpd to run gpg in gpg-web domain"
-msgstr "httpd が、 gpg-web ドメインで、 gpg を実行することを、もし許可したい場合。"
+msgstr ""
+"httpd が、 gpg-web ドメインで、 gpg を実行することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:22
 msgid ""
@@ -2821,14 +2856,16 @@ msgid "If you want to allow rsync to run as a client"
 msgstr "rsync が、クライアントとして実行されることを、もし許可したい場合"
 
 #: ../booleans_trans.py:29
-msgid "If you want to allow rgmanager domain to connect to the network using TCP."
+msgid ""
+"If you want to allow rgmanager domain to connect to the network using TCP."
 msgstr ""
 "rgmanager ドメインが、 TCP を使用してネットワークに接続することを、もし許可し"
 "たい場合。"
 
 #: ../booleans_trans.py:30
 msgid "If you want to allow exim to read unprivileged user files."
-msgstr "exim が、 特権ファイルでないユーザファイルを読むことを、もし許可したい場合。"
+msgstr ""
+"exim が、 特権ファイルでないユーザファイルを読むことを、もし許可したい場合。"
 
 #: ../booleans_trans.py:31
 msgid "If you want to support NFS home directories"
@@ -2867,7 +2904,8 @@ msgstr ""
 "したい場合"
 
 #: ../booleans_trans.py:37
-msgid "If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
+msgid ""
+"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
 msgstr ""
 "tor デーモンが、 tcp ソケットを全ての予約されていない port に結び付けること"
 "を、もし許可したい場合。"
@@ -2878,10 +2916,12 @@ msgstr "host key ベースの認証を、もし許可したい場合。"
 
 #: ../booleans_trans.py:39
 msgid "If you want to allow httpd to access cifs file systems"
-msgstr "httpd が、 cifs ファイルシステムにアクセスすることを、もし許可したい場合"
+msgstr ""
+"httpd が、 cifs ファイルシステムにアクセスすることを、もし許可したい場合"
 
 #: ../booleans_trans.py:40
-msgid "If you want to allow piranha-lvs domain to connect to the network using TCP."
+msgid ""
+"If you want to allow piranha-lvs domain to connect to the network using TCP."
 msgstr ""
 "piranha-lvs デーモンが、 TCP を使用してネットワークに接続することを、もし許可"
 "したい場合。"
@@ -2904,7 +2944,8 @@ msgstr "pppd が、 通常ユーザのために動作することを、もし許
 
 #: ../booleans_trans.py:44
 msgid "If you want to allow samba to share any file/directory read only."
-msgstr "samba が、 全てのファイルを読み取り専用で共有することを、もし許可したい場合。"
+msgstr ""
+"samba が、 全てのファイルを読み取り専用で共有することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:45
 msgid "If you want to allow ftp servers to use connect to mysql database"
@@ -2912,7 +2953,8 @@ msgstr "ftp サーバが、 mysql データベースに接続することを、�
 
 #: ../booleans_trans.py:46
 msgid "If you want to allow Git daemon system to search home directories."
-msgstr "Git デーモンが、 ホームディレクトリを検索することを、もし許可したい場合。"
+msgstr ""
+"Git デーモンが、 ホームディレクトリを検索することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:47
 msgid "If you want to support SAMBA home directories"
@@ -2923,7 +2965,8 @@ msgid "If you want to allow users to login using a sssd server"
 msgstr "sssd サーバを使用してユーザーがログインすることを許可したい場合"
 
 #: ../booleans_trans.py:49
-msgid "If you want to allow samba to create new home directories (e.g. via PAM)"
+msgid ""
+"If you want to allow samba to create new home directories (e.g. via PAM)"
 msgstr ""
 "samba が、 新しいホームディレクトリ作成することを、もし許可したい場合。(例 "
 "PAM経由)"
@@ -2993,23 +3036,29 @@ msgstr ""
 
 #: ../booleans_trans.py:59
 msgid "If you want to allow qemu to use cifs/Samba file systems"
-msgstr "qemu が、 cifs/Samba ファイルシステムを使用することを、もし許可したい場合"
+msgstr ""
+"qemu が、 cifs/Samba ファイルシステムを使用することを、もし許可したい場合"
 
 #: ../booleans_trans.py:60
 msgid "If you want to allow qemu to use serial/parallel communication ports"
-msgstr "qemu が、 シリアル/パラレル通信 port を使用することを、もし許可したい場合"
+msgstr ""
+"qemu が、 シリアル/パラレル通信 port を使用することを、もし許可したい場合"
 
 #: ../booleans_trans.py:61
 msgid "If you want to allow Apache to communicate with avahi service via dbus"
-msgstr "Apache が、 avahi サービスと dbus 経由で通信することを、もし許可したい場合"
+msgstr ""
+"Apache が、 avahi サービスと dbus 経由で通信することを、もし許可したい場合"
 
 #: ../booleans_trans.py:62
-msgid "If you want to allow dhcpc client applications to execute iptables commands"
-msgstr "dhcpc クライアントが、 iptables コマンドを実行することを、もし許可したい場合"
+msgid ""
+"If you want to allow dhcpc client applications to execute iptables commands"
+msgstr ""
+"dhcpc クライアントが、 iptables コマンドを実行することを、もし許可したい場合"
 
 #: ../booleans_trans.py:63
 msgid "If you want to allow samba to share users home directories."
-msgstr "samba が、ユーザのホームディレクトリを共有することを、もし許可したい場合。"
+msgstr ""
+"samba が、ユーザのホームディレクトリを共有することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:64
 msgid "If you want to enable reading of urandom for all domains."
@@ -3021,7 +3070,8 @@ msgstr "racoon が、 shadow を読むことを、もし許可したい場合"
 
 #: ../booleans_trans.py:66
 msgid "If you want to allow Cobbler to connect to the network using TCP."
-msgstr "Cobbler が、 TCPを使ってネットワークに接続することを、もし許可したい場合。"
+msgstr ""
+"Cobbler が、 TCPを使ってネットワークに接続することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:67
 msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
@@ -3053,10 +3103,12 @@ msgstr ""
 
 #: ../booleans_trans.py:70
 msgid "If you want to allow dbadm to manage files in users home directories"
-msgstr "dbadm が、ユーザのホームディレクトリを管理することを、もし許可したい場合"
+msgstr ""
+"dbadm が、ユーザのホームディレクトリを管理することを、もし許可したい場合"
 
 #: ../booleans_trans.py:71
-msgid "If you want to allow confined virtual guests to interact with the xserver"
+msgid ""
+"If you want to allow confined virtual guests to interact with the xserver"
 msgstr "特定の仮想ゲストが、 xserver と交信することを、もし許可したい場合"
 
 #: ../booleans_trans.py:72
@@ -3106,7 +3158,8 @@ msgstr "qemu が、 usb デバイスを使用することを、もし許可し�
 
 #: ../booleans_trans.py:80
 msgid "If you want to allow exim to connect to databases (postgres, mysql)"
-msgstr "exim が、 データベース (postgres, mysql) に接続することを、もし許可したい場合"
+msgstr ""
+"exim が、 データベース (postgres, mysql) に接続することを、もし許可したい場合"
 
 #: ../booleans_trans.py:81
 msgid ""
@@ -3130,7 +3183,8 @@ msgstr "mplayer に、 実行可能なスタックを、もし許可したい場
 
 #: ../booleans_trans.py:84
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
-msgstr "httpd スクリプトとモジュールに、 execmem/execstack を、もし許可したい場合"
+msgstr ""
+"httpd スクリプトとモジュールに、 execmem/execstack を、もし許可したい場合"
 
 #: ../booleans_trans.py:85
 msgid "If you want to allow all daemons to write corefiles to /"
@@ -3148,7 +3202,8 @@ msgstr ""
 msgid ""
 "If you want to allow confined virtual guests to manage device configuration, "
 "(pci)"
-msgstr "特定の仮想ゲストが、 pci などデバイス設定を管理することを、もし許可したい場合"
+msgstr ""
+"特定の仮想ゲストが、 pci などデバイス設定を管理することを、もし許可したい場合"
 
 #: ../booleans_trans.py:88
 msgid "If you want to allow spamd to read/write user home directories."
@@ -3231,7 +3286,8 @@ msgstr "dbadm が、ユーザのホームディレクトリを読むことを、
 
 #: ../booleans_trans.py:101
 msgid "If you want to allow regular users direct dri device access"
-msgstr "通常ユーザが、 dri デバイスに直接アクセスすることを、もし許可したい場合"
+msgstr ""
+"通常ユーザが、 dri デバイスに直接アクセスすることを、もし許可したい場合"
 
 #: ../booleans_trans.py:102
 msgid "If you want to allow the mount command to mount any directory or file."
@@ -3241,7 +3297,8 @@ msgstr ""
 
 #: ../booleans_trans.py:103
 msgid "If you want to allow a user to login as an unconfined domain"
-msgstr "ユーザが、不特定のドメインとしてログインすることを、もし許可したい場合。"
+msgstr ""
+"ユーザが、不特定のドメインとしてログインすることを、もし許可したい場合。"
 
 #: ../booleans_trans.py:104
 msgid ""
@@ -3253,7 +3310,8 @@ msgstr ""
 
 #: ../booleans_trans.py:105
 msgid "If you want to allow Cobbler to access nfs file systems."
-msgstr "Cobber が、 nfs ファイルシステムにアクセスすることを、もし許可したい場合。"
+msgstr ""
+"Cobber が、 nfs ファイルシステムにアクセスすることを、もし許可したい場合。"
 
 #: ../booleans_trans.py:106
 msgid "If you want to allow nsplugin code to execmem/execstack"
@@ -3291,7 +3349,8 @@ msgstr "httpd が、ユーザコンテンツを読むことを、もし許可し
 
 #: ../booleans_trans.py:113
 msgid "If you want to allow httpd to access nfs file systems"
-msgstr "httpd が、 nfs ファイルシステムにアクセスすることを、もし許可したい場合。"
+msgstr ""
+"httpd が、 nfs ファイルシステムにアクセスすることを、もし許可したい場合。"
 
 #: ../booleans_trans.py:114
 msgid ""
@@ -3303,7 +3362,8 @@ msgstr ""
 
 #: ../booleans_trans.py:115
 msgid "If you want to allow xguest users to use blue tooth devices"
-msgstr "xguest ユーザが、 blue tooth デバイスを使用することを、もし許可したい場合。"
+msgstr ""
+"xguest ユーザが、 blue tooth デバイスを使用することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:116
 msgid "If you want to use lpd server instead of cups"
@@ -3341,7 +3401,8 @@ msgstr "通常ユーザに、 direct マウスアクセスを、もし許可し�
 
 #: ../booleans_trans.py:122
 msgid "If you want to allow all domains to have the kernel load modules"
-msgstr "全てのドメインが、 kernel load モジュールを持つことを、もし許可したい場合"
+msgstr ""
+"全てのドメインが、 kernel load モジュールを持つことを、もし許可したい場合"
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow confined virtual guests to use usb devices"
@@ -3373,7 +3434,8 @@ msgstr "http デーモンが、メールを送信することを、もし許可�
 
 #: ../booleans_trans.py:128
 msgid "If you want to allow samba to export ntfs/fusefs volumes."
-msgstr "samba が、 ntfs/fusefs ボリュームを転送することを、もし許可したい場合。"
+msgstr ""
+"samba が、 ntfs/fusefs ボリュームを転送することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:129
 msgid "If you want to enable support for upstart as the init program."
@@ -3468,7 +3530,8 @@ msgstr ""
 "合。"
 
 #: ../booleans_trans.py:146
-msgid "If you want to allow icecast to connect to all ports, not just sound ports."
+msgid ""
+"If you want to allow icecast to connect to all ports, not just sound ports."
 msgstr ""
 "icecast が、 sound port だけでなく、全ての port に接続することを、もし許可し"
 "たい場合。"
@@ -3485,7 +3548,8 @@ msgstr "samba が、 不特定のスクリプトを実行することを、も�
 
 #: ../booleans_trans.py:149
 msgid "If you want to allow confined applications to run with kerberos."
-msgstr "特定のアプリケーションが、 kerberos を実行することを、もし許可したい場合。"
+msgstr ""
+"特定のアプリケーションが、 kerberos を実行することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:150
 msgid "If you want to allow httpd to connect to memcache server"
@@ -3561,12 +3625,13 @@ msgstr ""
 "可したい場合"
 
 #: ../booleans_trans.py:162
+#, fuzzy
 msgid ""
-"If you want to alow Pupper master to use connect to mysql and postgresql "
+"If you want to allow Puppet master to use connect to mysql and postgresql "
 "database"
 msgstr ""
-"Pupper マスターが、 mysql と postgresql データベースに接続することを許可 "
-"したい場合"
+"Pupper マスターが、 mysql と postgresql データベースに接続することを許可 した"
+"い場合"
 
 #: ../booleans_trans.py:163
 msgid ""
@@ -3578,7 +3643,8 @@ msgstr ""
 
 #: ../booleans_trans.py:164
 msgid "If you want to enable extra rules in the cron domain to support fcron."
-msgstr "cron ドメインのほかのルールを有効にし、もし fcron をサポートしたい場合。"
+msgstr ""
+"cron ドメインのほかのルールを有効にし、もし fcron をサポートしたい場合。"
 
 #: ../booleans_trans.py:165
 msgid ""
@@ -3590,7 +3656,8 @@ msgstr ""
 "ルされていなければいけません。"
 
 #: ../booleans_trans.py:166
-msgid "If you want to allow any files/directories to be exported read/write via NFS."
+msgid ""
+"If you want to allow any files/directories to be exported read/write via NFS."
 msgstr ""
 "全てのファイルやディレクトリが、 NFS 経由で読み書き可能にされることを、もし許"
 "可したい場合。"
@@ -3603,11 +3670,13 @@ msgstr ""
 
 #: ../booleans_trans.py:168
 msgid "If you want to allow users to login using a radius server"
-msgstr "ユーザが、 radius サーバを使用してログインすることを、もし許可したい場合"
+msgstr ""
+"ユーザが、 radius サーバを使用してログインすることを、もし許可したい場合"
 
 #: ../booleans_trans.py:169
 msgid "If you want to allow Cobbler to access cifs file systems."
-msgstr "Cobbler が、 cifs ファイルシステムにアクセスすることを、もし許可したい場合"
+msgstr ""
+"Cobbler が、 cifs ファイルシステムにアクセスすることを、もし許可したい場合"
 
 #: ../booleans_trans.py:170
 msgid "If you want to allow httpd daemon to change system limits"
@@ -3642,7 +3711,8 @@ msgstr ""
 "これは動的 DNS や zone 転送に使用されます。"
 
 #: ../booleans_trans.py:176
-msgid "If you want to allow any files/directories to be exported read/only via NFS."
+msgid ""
+"If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
 "全てのファイルやディレクトリが、 NFS 経由で読み取り変更にされることを、もし許"
 "可したい場合"
@@ -3666,5 +3736,5 @@ msgstr ""
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow unprived users to execute DDL statement"
-msgstr "権限のないユーザが、 DDL ステートメントを実行することを、もし許可したい場合"
-
+msgstr ""
+"権限のないユーザが、 DDL ステートメントを実行することを、もし許可したい場合"

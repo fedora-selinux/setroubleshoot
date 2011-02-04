@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-plugins\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-18 10:25-0500\n"
+"POT-Creation-Date: 2011-02-04 13:31-0500\n"
 "PO-Revision-Date: 2011-01-13 17:26+0530\n"
 "Last-Translator: \n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -157,7 +157,7 @@ msgid ""
 msgstr ""
 "$SOURCE_PATH দ্বারা কোনো লেখা ও সঞ্চালনযোগ্য heap মেমরি ম্যাপ করার প্রয়োজন নেই।"
 
-#: ../src/allow_execheap.py:51 ../src/allow_execstack.py:88
+#: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr ""
 "বাগ সম্পর্কে সূচিত করা আবশ্যক। এই ধরনের ব্যবহারের অধিকারের ফলে বিপদ দেখা দিতে "
@@ -360,28 +360,43 @@ msgid ""
 msgstr ""
 "$SOURCE_PATH দ্বারা কোনো লেখা ও সঞ্চালনযোগ্য stack মেমরি ম্যাপ করার প্রয়োজন নেই।"
 
-#: ../src/allow_execstack.py:95
-#, python-format
-msgid "you believe %s should not require execstack"
+#: ../src/allow_execstack.py:88
+#, fuzzy
+msgid ""
+"you need to report a bug. \n"
+"This is a potentially dangerous access."
 msgstr ""
+"বাগ সম্পর্কে সূচিত করা আবশ্যক। এই ধরনের ব্যবহারের অধিকারের ফলে বিপদ দেখা দিতে "
+"পারে।"
 
-#: ../src/allow_execstack.py:100
+#: ../src/allow_execstack.py:97
 #, python-format
 msgid ""
-"you should clear the execstack flag and see if $SOURCE_PATH works correctly. "
-"Report this as a bug on %s"
+"you believe that \n"
+"%s\n"
+"should not require execstack"
 msgstr ""
 
 #: ../src/allow_execstack.py:106
+#, python-format
+msgid ""
+"you should clear the execstack flag and see if $SOURCE_PATH works "
+"correctly.\n"
+"Report this as a bug on %s.\n"
+"You can clear the exestack flag by executing:"
+msgstr ""
+
+#: ../src/allow_execstack.py:116
 #, python-format
 msgid "execstack -c %s"
 msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -464,10 +479,11 @@ msgid "you must tell SELinux about this"
 msgstr "SELinux-কে এই সম্পর্কে সূচিত করা আবশ্যক"
 
 #: ../src/allow_ftpd_use_nfs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -1023,7 +1039,7 @@ msgid ""
 "Try to recreate AVC. Then execute\n"
 "# ausearch -m avc -ts recent\n"
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
-"otherweise report as a bugzilla."
+"otherwise report as a bugzilla."
 msgstr ""
 
 #: ../src/device.py:29
@@ -1338,6 +1354,7 @@ msgstr ""
 "    "
 
 #: ../src/httpd_unified.py:33
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
@@ -1356,7 +1373,7 @@ msgid ""
 "    chcon command to change these context.  Please refer to the man page\n"
 "    \"man httpd_selinux\" or \n"
 "    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
-"    \"TYPE\" refers toi one of \"sys\", \"user\" or \"staff\" or potentially "
+"    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially "
 "other\n"
 "    script types.\n"
 "    "
@@ -3534,7 +3551,7 @@ msgstr ""
 #: ../booleans_trans.py:162
 #, fuzzy
 msgid ""
-"If you want to alow Pupper master to use connect to mysql and postgresql "
+"If you want to allow Puppet master to use connect to mysql and postgresql "
 "database"
 msgstr ""
 "ব্যবহারকারীদেরকে PostgreSQL সার্ভারের সাথে সংযোগ স্থাপন করার অনুমতি প্রদান করে "

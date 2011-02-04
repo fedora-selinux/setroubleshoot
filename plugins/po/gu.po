@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.master-plugins.gu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-18 10:25-0500\n"
+"POT-Creation-Date: 2011-02-04 13:31-0500\n"
 "PO-Revision-Date: 2011-02-01 14:54+0530\n"
 "Last-Translator: Sweta Kothari <swkothar@redhat.com>\n"
 "Language-Team: Gujarati\n"
@@ -83,7 +83,8 @@ msgstr ""
 "    "
 
 #: ../src/allow_anon_write.py:44
-msgid "you want to allow $SOURCE_PATH to be able to write to shared public content"
+msgid ""
+"you want to allow $SOURCE_PATH to be able to write to shared public content"
 msgstr "તમે વહેંચાયેલ સાર્વજનિક સમાવિષ્ટને લખવા $SOURCE_PATH ને પરવાનગી આપવા માંગો છો"
 
 #: ../src/allow_anon_write.py:45
@@ -158,7 +159,7 @@ msgstr ""
 "તમારે એવુ વિચારવુ જોઇએ નહિં કે $SOURCE_PATH ને મૅપ હીપ મેમરીની જરૂર હોવી જોઇએ કે જે બંને "
 "લખી શકાય અને ચલાવી શકાય છે."
 
-#: ../src/allow_execheap.py:51 ../src/allow_execstack.py:88
+#: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr "તમારે ભૂલનો અહેવાલ કરવો જોઇએ. આ ખતરનાક પ્રવેશ છે."
 
@@ -357,28 +358,43 @@ msgstr ""
 "તમે એવુ ન વિચારો કે $SOURCE_PATH મૅપ સ્ટેક મેમરીની જરૂર હોવી જોઇએ કે જે બંને લખી શકાય અને "
 "ચલાવી શકાય તેવી છે."
 
-#: ../src/allow_execstack.py:95
-#, python-format
-msgid "you believe %s should not require execstack"
+#: ../src/allow_execstack.py:88
+#, fuzzy
+msgid ""
+"you need to report a bug. \n"
+"This is a potentially dangerous access."
+msgstr "તમારે ભૂલનો અહેવાલ કરવો જોઇએ. આ ખતરનાક પ્રવેશ છે."
+
+#: ../src/allow_execstack.py:97
+#, fuzzy, python-format
+msgid ""
+"you believe that \n"
+"%s\n"
+"should not require execstack"
 msgstr "તમે %s ને મોનો છો તો execstack ની જરૂર હોવી જોઇએ નહિં"
 
-#: ../src/allow_execstack.py:100
-#, python-format
-msgid ""
-"you should clear the execstack flag and see if $SOURCE_PATH works correctly. "
-"Report this as a bug on %s"
-msgstr "તમારે execstack ફ્લેગ ને સાફ કરવુ જોઇએ અને જુઓ જો $SOURCE_PATH યોગ્ય રીતે કામ કરે છે. %s પર ભૂલ તરીકે આનો અહેવાલ કરો"
-
 #: ../src/allow_execstack.py:106
+#, fuzzy, python-format
+msgid ""
+"you should clear the execstack flag and see if $SOURCE_PATH works "
+"correctly.\n"
+"Report this as a bug on %s.\n"
+"You can clear the exestack flag by executing:"
+msgstr ""
+"તમારે execstack ફ્લેગ ને સાફ કરવુ જોઇએ અને જુઓ જો $SOURCE_PATH યોગ્ય રીતે કામ કરે છે. "
+"%s પર ભૂલ તરીકે આનો અહેવાલ કરો"
+
+#: ../src/allow_execstack.py:116
 #, python-format
 msgid "execstack -c %s"
 msgstr "execstack -c %s"
 
 #: ../src/allow_ftpd_use_cifs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -457,10 +473,11 @@ msgid "you must tell SELinux about this"
 msgstr "તમારે આના વિશે SELinux ને કહેવુ જ જોઇએ"
 
 #: ../src/allow_ftpd_use_nfs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -1011,6 +1028,7 @@ msgstr ""
 "ઉત્પન્ન કરો."
 
 #: ../src/dac_override.py:40
+#, fuzzy
 msgid ""
 "\n"
 "Turn on full auditing\n"
@@ -1018,7 +1036,7 @@ msgid ""
 "Try to recreate AVC. Then execute\n"
 "# ausearch -m avc -ts recent\n"
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
-"otherweise report as a bugzilla."
+"otherwise report as a bugzilla."
 msgstr ""
 "\n"
 "સંપૂર્ણ ઑડિટીંગને ચાલુ કરો\n"
@@ -1110,7 +1128,8 @@ msgstr ""
 "    "
 
 #: ../src/device.py:60
-msgid "You need to change the label on $TARGET_PATH to a type of a similar device."
+msgid ""
+"You need to change the label on $TARGET_PATH to a type of a similar device."
 msgstr "તમારે સરખા ઉપકરણનાં પ્રકાર માટે $TARGET_PATH પર લેબલને બદલવુ જોઇએ."
 
 #: ../src/device.py:61
@@ -1331,6 +1350,7 @@ msgstr ""
 "    "
 
 #: ../src/httpd_unified.py:33
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
@@ -1349,7 +1369,7 @@ msgid ""
 "    chcon command to change these context.  Please refer to the man page\n"
 "    \"man httpd_selinux\" or \n"
 "    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
-"    \"TYPE\" refers toi one of \"sys\", \"user\" or \"staff\" or potentially "
+"    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially "
 "other\n"
 "    script types.\n"
 "    "
@@ -1605,8 +1625,10 @@ msgstr ""
 "    "
 
 #: ../src/mmap_zero.py:46
-msgid "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
-msgstr "તમે એવુ ન વિચારો કે $SOURCE_PATH એ કર્નલમાં mmap નીચા સ્તરની મેમરીની જરૂર હોવી જોઇએ."
+msgid ""
+"you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
+msgstr ""
+"તમે એવુ ન વિચારો કે $SOURCE_PATH એ કર્નલમાં mmap નીચા સ્તરની મેમરીની જરૂર હોવી જોઇએ."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
@@ -1779,7 +1801,8 @@ msgstr ""
 
 #: ../src/public_content.py:50
 msgid "you want to allow want to treat $TARGET_BASE_PATH as pubic content"
-msgstr "સાર્વજનિક સમાવિષ્ટ તરીકે $TARGET_BASE_PATH વર્તવા માટે તમે પરવાનગી આપવા માંગો છો"
+msgstr ""
+"સાર્વજનિક સમાવિષ્ટ તરીકે $TARGET_BASE_PATH વર્તવા માટે તમે પરવાનગી આપવા માંગો છો"
 
 #: ../src/public_content.py:51
 msgid ""
@@ -2410,7 +2433,8 @@ msgstr ""
 msgid ""
 "you must tell SELinux about this by enabling the vbetool_mmap_zero_ignore "
 "boolean."
-msgstr "vbetool_mmap_zero_ignore બુલિયનને સક્રિય કરીને આ વિશે તમારે SELinux ને કહેવુ જ જોઇએ."
+msgstr ""
+"vbetool_mmap_zero_ignore બુલિયનને સક્રિય કરીને આ વિશે તમારે SELinux ને કહેવુ જ જોઇએ."
 
 #: ../src/vbetool.py:62 ../src/wine.py:73
 msgid "Turn off memory protection"
@@ -2546,7 +2570,8 @@ msgstr ""
 "    "
 
 #: ../booleans_trans.py:1
-msgid "If you want to allow ftp to read and write files in the user home directories"
+msgid ""
+"If you want to allow ftp to read and write files in the user home directories"
 msgstr ""
 "જો તમે વપરાશકર્તા ઘર ડિરેક્ટરીઓમાં ફાઇલોને વાંચવા અને લખવા માટે ftp ને પરવાનગી આપવા "
 "માંગો છો"
@@ -2572,8 +2597,10 @@ msgid "If you want to allow xen to manage nfs files"
 msgstr "જો તમે nfs ફાઇલોને સંચાલિત કરવા માટે xen ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:5
-msgid "If you want to allow confined web browsers to read home directory content"
-msgstr "જો તમે ઘર ડિરેક્ટરી સમાવિષ્ટને વાંચવા માટે મર્યાદિત વેબ બ્રાઉઝરોને પરવાનગી આપવા માંગો છો"
+msgid ""
+"If you want to allow confined web browsers to read home directory content"
+msgstr ""
+"જો તમે ઘર ડિરેક્ટરી સમાવિષ્ટને વાંચવા માટે મર્યાદિત વેબ બ્રાઉઝરોને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:6
 msgid ""
@@ -2599,11 +2626,13 @@ msgstr ""
 msgid ""
 "If you want to allow direct login to the console device. Required for System "
 "390"
-msgstr "જો તમે કન્સોલ સેવાને સીધુ જ પ્રવેશવાની પરવાનગી આપવા માંગો છો. સિસ્ટમ 390 માટે જરૂરી છે"
+msgstr ""
+"જો તમે કન્સોલ સેવાને સીધુ જ પ્રવેશવાની પરવાનગી આપવા માંગો છો. સિસ્ટમ 390 માટે જરૂરી છે"
 
 #: ../booleans_trans.py:10
 msgid "If you want to allow user spamassassin clients to use the network."
-msgstr "જો તમે નેટવર્કને વાપરવા માટે વપરાશકર્તા spamassassin ક્લાયન્ટોને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે નેટવર્કને વાપરવા માટે વપરાશકર્તા spamassassin ક્લાયન્ટોને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:11
 msgid "If you want to allow httpd to act as a relay"
@@ -2625,7 +2654,8 @@ msgstr ""
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
 "generic TCP port."
-msgstr "જો તમે કોઇપણ TCP પોર્ટ સાથે જોડવા માટે ટૅલિપથી જોડાણ સંચાલકોને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે કોઇપણ TCP પોર્ટ સાથે જોડવા માટે ટૅલિપથી જોડાણ સંચાલકોને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:15
 msgid ""
@@ -2637,7 +2667,8 @@ msgstr ""
 
 #: ../booleans_trans.py:16
 msgid "If you want to allow confined virtual guests to read fuse files"
-msgstr "જો તમે fuse ફાઇલોને વાંચવા માટે મર્યાદિત વર્ચ્યુઅલ મહેમાનોને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે fuse ફાઇલોને વાંચવા માટે મર્યાદિત વર્ચ્યુઅલ મહેમાનોને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:17
 msgid ""
@@ -2649,7 +2680,8 @@ msgstr ""
 
 #: ../booleans_trans.py:18
 msgid "If you want to allow users to connect to the local mysql server"
-msgstr "જો તમે સ્થાનિય mysql સર્વર સાથે જોડાવા માટે વપરાશકર્તાઓને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે સ્થાનિય mysql સર્વર સાથે જોડાવા માટે વપરાશકર્તાઓને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:19
 msgid "If you want to allow user processes to change their priority"
@@ -2681,7 +2713,8 @@ msgstr "જો તમે cgi સ્ક્રિપ્ટોને ચલાવ�
 
 #: ../booleans_trans.py:24
 msgid "If you want to allow confined virtual guests to manage nfs files"
-msgstr "જો તમે nfs ફાઇલોને સંચાલિત કરવા માટે મર્યાદિત વર્ચ્યુઅલ મહેમાનોને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે nfs ફાઇલોને સંચાલિત કરવા માટે મર્યાદિત વર્ચ્યુઅલ મહેમાનોને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:25
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2709,14 +2742,16 @@ msgid "If you want to allow rsync to run as a client"
 msgstr "જો તમે ક્લાયન્ટ તરીકે ચલાવવા માટે rsync ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:29
-msgid "If you want to allow rgmanager domain to connect to the network using TCP."
+msgid ""
+"If you want to allow rgmanager domain to connect to the network using TCP."
 msgstr ""
 "જો તમે TCP ની મદદથી નેટવર્ક સાથે જોડાવા માટે rgmanager ડોમેઇનને પરવાનગી આપવા માંગો "
 "છો."
 
 #: ../booleans_trans.py:30
 msgid "If you want to allow exim to read unprivileged user files."
-msgstr "જો તમે બિનઅધિકારી વપરાશકર્તા ફાઇલોને વાંચવા માટે exim ને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે બિનઅધિકારી વપરાશકર્તા ફાઇલોને વાંચવા માટે exim ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:31
 msgid "If you want to support NFS home directories"
@@ -2724,7 +2759,8 @@ msgstr "જો તમે NFS ઘર ડિરેક્ટરીઓને આધ�
 
 #: ../booleans_trans.py:32
 msgid "If you want to allow Puppet client to manage all file types."
-msgstr "જો તમે બધા ફાઇલ પ્રકારોને સંચાલિત કરવા માટે Puppet ક્લાયન્ટને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે બધા ફાઇલ પ્રકારોને સંચાલિત કરવા માટે Puppet ક્લાયન્ટને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:33
 msgid ""
@@ -2751,7 +2787,8 @@ msgid "If you want to allow Git daemon system to access cifs file systems."
 msgstr "જો તમે cifs ફાઇલ સિસ્ટમોનો વપરાશ માટે Git ડિમનને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:37
-msgid "If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
+msgid ""
+"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
 msgstr ""
 "જો તમે બધા અનારક્ષિત પોર્ટો માટે tcp સોકેટોને બાંધવા માટે tor ડિમનને પરવાનગી આપવા "
 "માંગો છો."
@@ -2765,7 +2802,8 @@ msgid "If you want to allow httpd to access cifs file systems"
 msgstr "જો તમે cifs ફાઇલ સિસ્ટમોને વાપરવા માટે httpd ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:40
-msgid "If you want to allow piranha-lvs domain to connect to the network using TCP."
+msgid ""
+"If you want to allow piranha-lvs domain to connect to the network using TCP."
 msgstr ""
 "જો તમે TCP ની મદદથી નેટવર્ક સાથે જોડાવા માટે piranha-lvs ડોમેઇનને પરવાનગી આપવા માંગો "
 "છો."
@@ -2809,7 +2847,8 @@ msgid "If you want to allow users to login using a sssd server"
 msgstr "જો તમે sssd સર્વરની મદદથી પ્રવેશવા માટે વપરાશકર્તાઓને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:49
-msgid "If you want to allow samba to create new home directories (e.g. via PAM)"
+msgid ""
+"If you want to allow samba to create new home directories (e.g. via PAM)"
 msgstr ""
 "જો તમે નવી ઘર ડિરેક્ટરીઓને બનાવવા માટે samba ને પરવાનગી આપવા માંગો છો (દા.ત. PAM "
 "મારફતે)"
@@ -2882,15 +2921,19 @@ msgstr "જો તમે cifs/Samba ફાઇલ સિસ્ટમોને વ
 
 #: ../booleans_trans.py:60
 msgid "If you want to allow qemu to use serial/parallel communication ports"
-msgstr "જો તમે ક્રમશ:/સમાંતર વાર્તાલાપ પોર્ટોને વાપરવા માટે qemu ને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે ક્રમશ:/સમાંતર વાર્તાલાપ પોર્ટોને વાપરવા માટે qemu ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:61
 msgid "If you want to allow Apache to communicate with avahi service via dbus"
-msgstr "જો તમે dbus મારફતે avahi સેવા સાથે વાતચીત કરવા માટે Apache ને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે dbus મારફતે avahi સેવા સાથે વાતચીત કરવા માટે Apache ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:62
-msgid "If you want to allow dhcpc client applications to execute iptables commands"
-msgstr "જો તમે iptables આદેશોને ચલાવવા માટે dhcpc ક્લાયન્ટ કાર્યક્રમોને પરવાનગી આપવા માંગો છો"
+msgid ""
+"If you want to allow dhcpc client applications to execute iptables commands"
+msgstr ""
+"જો તમે iptables આદેશોને ચલાવવા માટે dhcpc ક્લાયન્ટ કાર્યક્રમોને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:63
 msgid "If you want to allow samba to share users home directories."
@@ -2906,11 +2949,13 @@ msgstr "જો તમે શૅડોને વાંચવા માટે raco
 
 #: ../booleans_trans.py:66
 msgid "If you want to allow Cobbler to connect to the network using TCP."
-msgstr "જો તમે TCP ની મદદથી નેટવર્ક સાથે જોડાવા માટે Cobbler ને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે TCP ની મદદથી નેટવર્ક સાથે જોડાવા માટે Cobbler ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:67
 msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
-msgstr "જો તમે પારદર્શક પ્રોક્સી (TPROXY) તરીકે ચલાવવા માટે squid ને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે પારદર્શક પ્રોક્સી (TPROXY) તરીકે ચલાવવા માટે squid ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:68
 msgid ""
@@ -2940,8 +2985,10 @@ msgstr ""
 "માંગો છો"
 
 #: ../booleans_trans.py:71
-msgid "If you want to allow confined virtual guests to interact with the xserver"
-msgstr "જો તમે xserver સાથે સંપર્ક કરવા માટે મર્યાદિત વર્ચ્યુઅલ મહેમાનોને પરવાનગી આપવા માંગો છો"
+msgid ""
+"If you want to allow confined virtual guests to interact with the xserver"
+msgstr ""
+"જો તમે xserver સાથે સંપર્ક કરવા માટે મર્યાદિત વર્ચ્યુઅલ મહેમાનોને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:72
 msgid "If you want to transition to confined qemu domains from unconfined user"
@@ -2949,7 +2996,8 @@ msgstr "જો તમે બંધનમુક્ત વપરાશકર્ત
 
 #: ../booleans_trans.py:73
 msgid "If you want to allow Git daemon system to access nfs file systems."
-msgstr "જો તમે nfs ફાઇલ સિસ્ટમોને પ્રવેશવા માટે Git ડિમન સિસ્ટમને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે nfs ફાઇલ સિસ્ટમોને પ્રવેશવા માટે Git ડિમન સિસ્ટમને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:74
 msgid "If you want to unify HTTPD handling of all content files."
@@ -2986,7 +3034,8 @@ msgstr "જો તમે usb ઉપકરણોને વાપરવા મા�
 
 #: ../booleans_trans.py:80
 msgid "If you want to allow exim to connect to databases (postgres, mysql)"
-msgstr "જો તમે ડેટાબેઝો (postgres, mysql) સાથે જોડાવા માટે exim ને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે ડેટાબેઝો (postgres, mysql) સાથે જોડાવા માટે exim ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:81
 msgid ""
@@ -2999,7 +3048,8 @@ msgstr ""
 
 #: ../booleans_trans.py:82
 msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
-msgstr "જો તમે બધા પોર્ટો સાથે જોડાવા માટે varnishd ને પરવાનગી આપવા માંગો છો, HTTP ફક્ત નહિં."
+msgstr ""
+"જો તમે બધા પોર્ટો સાથે જોડાવા માટે varnishd ને પરવાનગી આપવા માંગો છો, HTTP ફક્ત નહિં."
 
 #: ../booleans_trans.py:83
 msgid "If you want to allow mplayer executable stack"
@@ -3007,7 +3057,8 @@ msgstr "જો તમે mplayer એક્સિક્યૂટેબલ સ્�
 
 #: ../booleans_trans.py:84
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
-msgstr "જો તમે httpd સ્ક્રિપ્ટો અને મોડ્યુલો execmem/execstack ને પરવાનગી આપવા માંગતા હોય તો"
+msgstr ""
+"જો તમે httpd સ્ક્રિપ્ટો અને મોડ્યુલો execmem/execstack ને પરવાનગી આપવા માંગતા હોય તો"
 
 #: ../booleans_trans.py:85
 msgid "If you want to allow all daemons to write corefiles to /"
@@ -3031,7 +3082,8 @@ msgstr ""
 
 #: ../booleans_trans.py:88
 msgid "If you want to allow spamd to read/write user home directories."
-msgstr "જો તમે વપરાશકર્તા ઘર ડિરેક્ટરીઓને વાંચવા/લખવા માટે spamd ને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે વપરાશકર્તા ઘર ડિરેક્ટરીઓને વાંચવા/લખવા માટે spamd ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:89
 msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
@@ -3082,7 +3134,8 @@ msgstr "જો તમે fusefs ઘર ડિરેક્ટરીઓને આ�
 
 #: ../booleans_trans.py:97
 msgid "If you want to allow confined applications to use nscd shared memory."
-msgstr "જો તમે nscd વહેંચાયેલ મેમરીને વાપરવા માટે મર્યાદિત કાર્યક્રમોને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે nscd વહેંચાયેલ મેમરીને વાપરવા માટે મર્યાદિત કાર્યક્રમોને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:98
 msgid "If you want to allow w to display everyone"
@@ -3098,11 +3151,13 @@ msgstr ""
 
 #: ../booleans_trans.py:100
 msgid "If you want to allow dbadm to read files in users home directories"
-msgstr "જો તમે વપરાશકર્તા ઘર ડિરેક્ટરીમાં ફાઇલોને વાંચવા માટે dbadm ને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે વપરાશકર્તા ઘર ડિરેક્ટરીમાં ફાઇલોને વાંચવા માટે dbadm ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:101
 msgid "If you want to allow regular users direct dri device access"
-msgstr "જો તમે સીધો જ dri ઉપકરણ પ્રવેશ માટે નિયમિત વપરાશકર્તાઓને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે સીધો જ dri ઉપકરણ પ્રવેશ માટે નિયમિત વપરાશકર્તાઓને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:102
 msgid "If you want to allow the mount command to mount any directory or file."
@@ -3134,11 +3189,13 @@ msgstr "જો તમે execmem/execstack માટે nsplugin કોડને
 msgid ""
 "If you want to allows clients to write to the X server shared memory "
 "segments."
-msgstr "જો તમે X સર્વર વહેંચાયેલ મેમરી સેગમેંટમાં લખવા માટે ક્લાયન્ટોને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે X સર્વર વહેંચાયેલ મેમરી સેગમેંટમાં લખવા માટે ક્લાયન્ટોને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:108
 msgid "If you want to allow webadm to read files in users home directories"
-msgstr "જો તમે વપરાશકર્તા ઘર ડિરેક્ટરીઓમાં ફાઇલોને વાંચવા માટે webadm ને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે વપરાશકર્તા ઘર ડિરેક્ટરીઓમાં ફાઇલોને વાંચવા માટે webadm ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:109
 msgid "If you want to enable polyinstantiated directory support."
@@ -3294,15 +3351,19 @@ msgstr "જો તમે વાઇન mmap_zero ભૂલોને અવગણ�
 
 #: ../booleans_trans.py:138
 msgid "If you want to allow sysadm to debug or ptrace all processes."
-msgstr "જો તમે બધી પ્રક્રિયાઓને ડિબગ અથવા ptrace કરવા માટે sysadm ને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે બધી પ્રક્રિયાઓને ડિબગ અથવા ptrace કરવા માટે sysadm ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:139
 msgid "If you want to allow logging in and using the system from /dev/console."
-msgstr "જો તમે પ્રવેશવાની પરવાનગી આપવા માંગો છો અને /dev/console માંથી સિસ્ટમને વાપરી રહ્યા છો."
+msgstr ""
+"જો તમે પ્રવેશવાની પરવાનગી આપવા માંગો છો અને /dev/console માંથી સિસ્ટમને વાપરી રહ્યા "
+"છો."
 
 #: ../booleans_trans.py:140
 msgid "If you want to allow fenced domain to connect to the network using TCP."
-msgstr "જો તમે TCP ની મદદથી નેટવર્ક સાથે જોડાવા માટે fenced ડોમેઇનને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે TCP ની મદદથી નેટવર્ક સાથે જોડાવા માટે fenced ડોમેઇનને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:141
 msgid "If you want to allow users to connect to PostgreSQL"
@@ -3331,12 +3392,14 @@ msgstr ""
 "માંગો છો"
 
 #: ../booleans_trans.py:146
-msgid "If you want to allow icecast to connect to all ports, not just sound ports."
+msgid ""
+"If you want to allow icecast to connect to all ports, not just sound ports."
 msgstr "જો તમે બધા પોર્ટો સાથે જોડાવા માટે icecast ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow pppd to load kernel modules for certain modems"
-msgstr "જો તમે અમુક મોડેમ માટે કર્નલ મોડ્યુલોને લોડ કરવા માટે pppd ને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે અમુક મોડેમ માટે કર્નલ મોડ્યુલોને લોડ કરવા માટે pppd ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:148
 msgid "If you want to allow samba to run unconfined scripts"
@@ -3414,23 +3477,29 @@ msgstr ""
 
 #: ../booleans_trans.py:161
 msgid "If you want to allow samba to share any file/directory read/write."
-msgstr "જો તમે કોઇપણ ફાઇલ/ડિરેક્ટી વાંચવા/લખવા ને વહેંચવા માટે samba ને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જો તમે કોઇપણ ફાઇલ/ડિરેક્ટી વાંચવા/લખવા ને વહેંચવા માટે samba ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:162
+#, fuzzy
 msgid ""
-"If you want to alow Pupper master to use connect to mysql and postgresql "
+"If you want to allow Puppet master to use connect to mysql and postgresql "
 "database"
-msgstr "જો તમે mysql અને postgresql ડેટાબેઝ સાથે જોડાવા માટે Pupper માસ્ટર પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે mysql અને postgresql ડેટાબેઝ સાથે જોડાવા માટે Pupper માસ્ટર પરવાનગી આપવા "
+"માંગો છો"
 
 #: ../booleans_trans.py:163
 msgid ""
 "If you want to allow httpd to act as a FTP server by listening on the ftp "
 "port."
-msgstr "જ તમે ftp પોર્ટ પર સાંભળીને FTP સર્વર તરીકે વર્તવા માટે httpd ને પરવાનગી આપવા માંગો છો."
+msgstr ""
+"જ તમે ftp પોર્ટ પર સાંભળીને FTP સર્વર તરીકે વર્તવા માટે httpd ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:164
 msgid "If you want to enable extra rules in the cron domain to support fcron."
-msgstr "જો તમે fcron ને આધાર આપવા માટે ક્રોન ડોમેઇનમાં વધારાનાં નિયમોને સક્રિય કરવા માંગો છો."
+msgstr ""
+"જો તમે fcron ને આધાર આપવા માટે ક્રોન ડોમેઇનમાં વધારાનાં નિયમોને સક્રિય કરવા માંગો છો."
 
 #: ../booleans_trans.py:165
 msgid ""
@@ -3442,14 +3511,16 @@ msgstr ""
 "જ જોઇએ."
 
 #: ../booleans_trans.py:166
-msgid "If you want to allow any files/directories to be exported read/write via NFS."
+msgid ""
+"If you want to allow any files/directories to be exported read/write via NFS."
 msgstr ""
 "જો તમે NFS મારફતે વાંચવા/લખવા નું નિકાસ કરવા માટે કોઇપણ ફાઇલો/ડિરેક્ટરીઓને પરવાનગી "
 "આપવા માંગો છો."
 
 #: ../booleans_trans.py:167
 msgid "If you want to allow all domains to use other domains file descriptors"
-msgstr "જો તમે બીજા ડોમેઇન ફાઇલ વર્ણનકર્તાને વાપરવા માટે બધા ડોમેઇનને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે બીજા ડોમેઇન ફાઇલ વર્ણનકર્તાને વાપરવા માટે બધા ડોમેઇનને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:168
 msgid "If you want to allow users to login using a radius server"
@@ -3477,7 +3548,8 @@ msgstr "જો તમે સિસ્ટમ સંદેશાઓને વા�
 
 #: ../booleans_trans.py:173
 msgid "If you want to allow confined virtual guests to manage cifs files"
-msgstr "જો તમે cifs ફાઇલોને સંચાલિત કરવા માટે મર્યાદિત વર્ચ્યુઅલ મહેમાનોને પરવાનગી આપવા માંગો છો"
+msgstr ""
+"જો તમે cifs ફાઇલોને સંચાલિત કરવા માટે મર્યાદિત વર્ચ્યુઅલ મહેમાનોને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:174
 msgid "If you want to enable support for systemd as the init program."
@@ -3492,7 +3564,8 @@ msgstr ""
 "ગતિશીલ DNS અથવા ઝોન પરિવહન માટે વાપરેલ છે."
 
 #: ../booleans_trans.py:176
-msgid "If you want to allow any files/directories to be exported read/only via NFS."
+msgid ""
+"If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
 "જો તમે NFS મારફતે ફક્ત વાંચી શકાય તે રીતે નિકાસ કરવા માટે કોઇપણ ફાઇલો/ડિરેક્ટરીઓને "
 "પરવાનગી આપવા માંગો છો."
@@ -3517,4 +3590,3 @@ msgstr ""
 #: ../booleans_trans.py:179
 msgid "If you want to allow unprived users to execute DDL statement"
 msgstr "જો તમે DDL વાક્યને ચલાવવા માટે બિનઅધિકારી વપરાશકર્તાઓને પરવાનગી આપવા માંગો છો"
-

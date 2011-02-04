@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-18 10:25-0500\n"
+"POT-Creation-Date: 2011-02-04 13:31-0500\n"
 "PO-Revision-Date: 2011-01-19 16:53+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <trans-pl@lists.fedoraproject.org>\n"
@@ -142,7 +142,7 @@ msgstr ""
 "jeśli $SOURCE_PATH nie powinno wymagać mapowania pamięci sterty zapisywalnej "
 "i wykonywalnej."
 
-#: ../src/allow_execheap.py:51 ../src/allow_execstack.py:88
+#: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr "należy zgłosić błąd. To potencjalnie niebezpieczny dostęp."
 
@@ -335,30 +335,43 @@ msgstr ""
 "jeśli $SOURCE_PATH nie powinno wymagać mapowania pamięci stosu, który jest "
 "zapisywalny i wykonywalny."
 
-#: ../src/allow_execstack.py:95
-#, python-format
-msgid "you believe %s should not require execstack"
+#: ../src/allow_execstack.py:88
+#, fuzzy
+msgid ""
+"you need to report a bug. \n"
+"This is a potentially dangerous access."
+msgstr "należy zgłosić błąd. To potencjalnie niebezpieczny dostęp."
+
+#: ../src/allow_execstack.py:97
+#, fuzzy, python-format
+msgid ""
+"you believe that \n"
+"%s\n"
+"should not require execstack"
 msgstr "jeśli %s nie powinno wymagać stosu wykonywalnego"
 
-#: ../src/allow_execstack.py:100
-#, python-format
+#: ../src/allow_execstack.py:106
+#, fuzzy, python-format
 msgid ""
-"you should clear the execstack flag and see if $SOURCE_PATH works correctly. "
-"Report this as a bug on %s"
+"you should clear the execstack flag and see if $SOURCE_PATH works "
+"correctly.\n"
+"Report this as a bug on %s.\n"
+"You can clear the exestack flag by executing:"
 msgstr ""
 "należy usunąć flagę execstack i zobaczyć, czy $SOURCE_PATH działa poprawnie. "
 "Proszę zgłosić to jako błąd w %s"
 
-#: ../src/allow_execstack.py:106
+#: ../src/allow_execstack.py:116
 #, python-format
 msgid "execstack -c %s"
 msgstr "execstack -c %s"
 
 #: ../src/allow_ftpd_use_cifs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -439,10 +452,11 @@ msgid "you must tell SELinux about this"
 msgstr "należy powiadomić o tym SELinuksa"
 
 #: ../src/allow_ftpd_use_nfs.py:29
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS "
-"filesytem.\n"
+"filesystem.\n"
 "    "
 msgstr ""
 "\n"
@@ -988,6 +1002,7 @@ msgstr ""
 "ponownie utworzyć błąd."
 
 #: ../src/dac_override.py:40
+#, fuzzy
 msgid ""
 "\n"
 "Turn on full auditing\n"
@@ -995,7 +1010,7 @@ msgid ""
 "Try to recreate AVC. Then execute\n"
 "# ausearch -m avc -ts recent\n"
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
-"otherweise report as a bugzilla."
+"otherwise report as a bugzilla."
 msgstr ""
 "\n"
 "Włączenie pełnego audytu\n"
@@ -1311,6 +1326,7 @@ msgstr ""
 "    "
 
 #: ../src/httpd_unified.py:33
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
@@ -1329,7 +1345,7 @@ msgid ""
 "    chcon command to change these context.  Please refer to the man page\n"
 "    \"man httpd_selinux\" or \n"
 "    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
-"    \"TYPE\" refers toi one of \"sys\", \"user\" or \"staff\" or potentially "
+"    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially "
 "other\n"
 "    script types.\n"
 "    "
@@ -3425,8 +3441,9 @@ msgstr ""
 "odczytu i zapisu."
 
 #: ../booleans_trans.py:162
+#, fuzzy
 msgid ""
-"If you want to alow Pupper master to use connect to mysql and postgresql "
+"If you want to allow Puppet master to use connect to mysql and postgresql "
 "database"
 msgstr ""
 "Aby zezwolić serwerom Puppet na użycie połączenia z bazą danych MySQL i "
