@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2006,2009 Red Hat, Inc.
+# Copyright (C) 2006-2011 Red Hat, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -16,6 +16,8 @@
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
 
+import selinux
+from stat import *
 import gettext
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
 _=translation.ugettext
@@ -65,9 +67,24 @@ bug report.
     
     ''')
 
+    unsafe_then_text = """
+setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, but can not determine if this application has been compromized.  This alert could be a serious issue and your system could be compromised.
+"""
+    unsafe_do_text = "Contact your security administrator and report this issue." 
+
     then_text = "You need to change the label on '$FIX_TARGET_PATH'"
     do_text = """# semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""
+
+    def get_then_text(self, avc, args):
+        if len(args) > 0:
+            return self.unsafe_then_text
+        return self.then_text
+
+    def get_do_text(self, avc, args):
+        if len(args) > 0:
+            return self.unsafe_do_text
+        return self.do_text
 
     def __init__(self):
         Plugin.__init__(self,__name__)
@@ -80,5 +97,7 @@ bug report.
             if (commands.getstatusoutput("eu-readelf -d %s | fgrep -q TEXTREL" % avc.tpath)[0] == 1):
                 return self.report(("unsafe"))
 
-            return self.report()
+            mcon = selinux.matchpathcon(avc.tpath.strip('"'), S_IFREG)[1]
+            if mcon.split(":")[2] == "lib_t":
+                return self.report()
         return None
