@@ -316,7 +316,7 @@ class BrowserApplet:
     def on_report_button_clicked(self, widget):
         alert = self.get_current_alert()
         if alert:
-            Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text() + alert.format_details()], stdout=PIPE)
+            Popen(["/usr/bin/xdg-email", "--subject", alert.summary(), "--body", alert.format_text() + alert.format_details()], stdout=PIPE)
 
     def set_ignore_sig(self, sig, state):
         if state == True:
@@ -589,7 +589,7 @@ class BrowserApplet:
            if len(selected) == 0:
                return 
 
-           alert = selfget_current_alert()
+           alert = self.get_current_alert()
            selected.sort(reverse=True)
            for i in selected:
                key = self.alert_list[i - 1]
@@ -630,16 +630,17 @@ class BrowserApplet:
             self.show_current_alert()
                         
     def delete_current_alert(self):
-        alert = self.get_current_alert()
-        if alert:
-            del self.alert_list[alert]
+        try:
+            del self.alert_list[self.current_alert]
             if len(self.alert_list) == 0:
                 self.empty_load()
             else:
                 if self.current_alert > len(self.alert_list)-1:
                     self.current_alert = len(self.alert_list)-1
                     self.show_current_alert()
-  
+        except ValueError:
+            pass
+
     def add_alert(self, new_alert):
         try:
             for alert in self.alert_list:
