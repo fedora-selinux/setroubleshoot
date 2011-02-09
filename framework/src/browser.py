@@ -227,6 +227,13 @@ class BrowserApplet:
         self.current_alert = -1
         self.accounts = report.accountmanager.AccountManager()
 
+    def get_current_alert(self):
+        try:
+            alert = self.alert_list[self.current_alert]
+            return alert
+        except:
+            return None
+        
     def itemSelected(self, widget):
            self.troubleshoot_list_button.set_sensitive(widget.count_selected_rows() == 1)
            self.delete_list_button.set_sensitive(widget.count_selected_rows() > 0)
@@ -307,9 +314,9 @@ class BrowserApplet:
            return False
 
     def on_report_button_clicked(self, widget):
-        if self.current_alert < len(self.alert_list):
-            sig = self.alert_list[self.current_alert]
-            Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text() + sig.format_details()], stdout=PIPE)
+        alert = self.get_current_alert()
+        if alert:
+            Popen(["/usr/bin/xdg-email", "--subject", sig.summary(), "--body", sig.format_text() + alert.format_details()], stdout=PIPE)
 
     def set_ignore_sig(self, sig, state):
         if state == True:
@@ -322,8 +329,8 @@ class BrowserApplet:
             self.server.set_filter(sig, self.username, FILTER_NEVER, '')
 
     def on_ignore_button_clicked(self, widget):
-        if self.current_alert < len(self.alert_list):
-            alert = self.alert_list[self.current_alert]
+        alert = self.get_current_alert()
+        if alert:
             self.set_ignore_sig(alert.sig, alert.evaluate_filter_for_user(self.username) != "ignore")
 
     def load_data(self):
@@ -333,9 +340,9 @@ class BrowserApplet:
             async_rpc.add_callback(self.first_load)
             async_rpc.add_errback(self.database_error)
 
-    def first_load(self, sigs):
-        for sig in sigs.siginfos():
-            self.alert_list.append(sig)
+    def first_load(self, alerts):
+        for alert in alerts.siginfos():
+            self.alert_list.append(alert)
 
         if self.current_alert < 0:
             self.current_alert = len(self.alert_list) -1
@@ -367,11 +374,11 @@ class BrowserApplet:
         col += 1
         self.table.attach(label, col, col + 1, 0, 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
 
-    def add_row(self, plugin, sig, args):
-        avc = sig.audit_event.records
-        if_text = _("If ") + sig.substitute(plugin.get_if_text(avc, args))
-        then_text = sig.substitute(plugin.get_then_text(avc, args))
-        then_text += "\n" + sig.substitute(plugin.get_do_text(avc, args))
+    def add_row(self, plugin, alert, args):
+        avc = alert.audit_event.records
+        if_text = _("If ") + alert.substitute(plugin.get_if_text(avc, args))
+        then_text = alert.substitute(plugin.get_then_text(avc, args))
+        then_text += "\n" + alert.substitute(plugin.get_do_text(avc, args))
 
         if not if_text:
             return
@@ -463,21 +470,21 @@ class BrowserApplet:
         report_button = gtk.Button()
         report_button.set_label(_("Details"))
         report_button.show()
-        report_button.connect("clicked", self.details, sig, plugin, args)
+        report_button.connect("clicked", self.details, alert, plugin, args)
         vbox.add(report_button)
 
         if plugin.fixable:
             report_button = gtk.Button()
             report_button.set_label(plugin.button_text)
             report_button.show()
-            report_button.connect("clicked", self.fix_bug, sig.local_id, plugin.analysis_id)
+            report_button.connect("clicked", self.fix_bug, alert.local_id, plugin.analysis_id)
             vbox.add(report_button)
 
         elif plugin.report_bug:
                report_button = gtk.Button()
                report_button.set_label(_("Report\nBug"))
                report_button.show()
-               report_button.connect("clicked", self.report_bug, sig)
+               report_button.connect("clicked", self.report_bug, alert)
                vbox.add(report_button)
 
         vbox.set_sensitive(False)
@@ -493,18 +500,18 @@ class BrowserApplet:
             if (r == row and c > 1):
                 child.set_sensitive(widget.get_active())
     
-    def details(self, widget, sig, plugin, args):
-           avc = sig.audit_event.records
-           message = sig.substitute(sig.summary()) + "\n\n"
+    def details(self, widget, alert, plugin, args):
+           avc = alert.audit_event.records
+           message = alert.substitute(alert.summary()) + "\n\n"
            message += _("Plugin: %s ") % plugin.analysis_id + "\n"
            msg = ""
            for i in plugin.get_problem_description(avc, args).split("\n"):
-               msg += sig.substitute(i.strip()) + "\n"
+               msg += alert.substitute(i.strip()) + "\n"
            message += html_to_text(msg)
-           message += sig.substitute(_("If ") + plugin.get_if_text(avc, args)) + "\n"
-           message += sig.substitute(plugin.get_then_text(avc, args)) + "\n"
-           message += sig.substitute(plugin.get_do_text(avc, args)) + "\n"
-#           message += sig.substitute(sig.format_details()) + "\n"
+           message += alert.substitute(_("If ") + plugin.get_if_text(avc, args)) + "\n"
+           message += alert.substitute(plugin.get_then_text(avc, args)) + "\n"
+           message += alert.substitute(plugin.get_do_text(avc, args)) + "\n"
+#           message += alert.substitute(alert.format_details()) + "\n"
 
            self.details_textview.get_buffer().set_text(message)
            self.details_window.show_all()
@@ -541,10 +548,10 @@ class BrowserApplet:
             print e
             FailDialog(_("Unable to grant access."))
 
-    def report_bug(self, widget, sig):
+    def report_bug(self, widget, alert):
         # If we don't have a bug_report_window yet, make a new one
         if self.bug_report_window is None:
-            br = BugReport(self, sig)
+            br = BugReport(self, alert)
             self.bug_report_window = br
         self.bug_report_window.main_window.show()
 
@@ -554,8 +561,8 @@ class BrowserApplet:
             if self.current_alert == -1:
                 self.current_alert = 0
 
-            for siginfo in sigs.signature_list:
-                self.add_siginfo(siginfo)
+            for alert in sigs.signature_list:
+                self.add_alert(alert)
                 self.update_num_label()
 
             self.update_button_visibility()
@@ -573,12 +580,6 @@ class BrowserApplet:
             return
         self.alert_count_label.set_text(_("Alert %d of %d") % (self.current_alert+1, len(self.alert_list)))
 
-    def get_siginfo_from_localid(self, local_id):
-        for siginfo in self.alert_list:
-            if siginfo.local_id == local_id:
-                return siginfo
-        return None
-
     def foreach(self, model, path, iter, selected):
            selected.append(model.get_value(iter, 0))
 
@@ -586,20 +587,20 @@ class BrowserApplet:
            selected = []
            self.treeview.get_selection().selected_foreach(self.foreach, selected)
            if len(selected) == 0:
-                  return 
+               return 
 
-           alert = self.alert_list[self.current_alert]
+           alert = selfget_current_alert()
            selected.sort(reverse=True)
            for i in selected:
-                  key = self.alert_list[i - 1]
-                  self.database.delete_signature(key.sig)
-                  del self.alert_list[i - 1]
+               key = self.alert_list[i - 1]
+               self.database.delete_signature(key.sig)
+               del self.alert_list[i - 1]
            try:
-                  self.current_alert = self.alert_list.index(alert)
+               self.current_alert = self.alert_list.index(alert)
            except ValueError:
-                  self.current_alert = 0
+               self.current_alert = 0
            if self.alert_list_window.get_visible():
-                  self.update_list_all()
+               self.update_list_all()
            self.show_current_alert()
 
     def on_troubleshoot_list_button_clicked(self, widget):
@@ -614,50 +615,43 @@ class BrowserApplet:
            self.on_troubleshoot_button_clicked(self.troubleshoot_button)
 
     def on_details_button_clicked(self, widget):
-        if self.current_alert < len(self.alert_list):
-            message = self.alert_list[self.current_alert].format_text()
-            message += self.alert_list[self.current_alert].format_details()
+        alert = self.get_current_alert()
+        if alert:
+            message = alert.format_text()
+            message += alert.format_details()
             self.details_textview.get_buffer().set_text(message)
             self.details_window.show_all()
         
     def on_delete_button_clicked(self, widget):
-        if self.current_alert < len(self.alert_list):
-            self.database.delete_signature(self.alert_list[self.current_alert].sig)
+        alert = self.get_current_alert()
+        if alert:
+            self.database.delete_signature(alert.sig)
             self.delete_current_alert()
             self.show_current_alert()
                         
     def delete_current_alert(self):
-        key = self.alert_list[self.current_alert]
-        del self.alert_list[key]
-        if len(self.alert_list) == 0:
-            self.empty_load()
-        else:
-            if self.current_alert > len(self.alert_list)-1:
-                self.current_alert = len(self.alert_list)-1
-                self.show_current_alert()
-        
+        alert = self.get_current_alert()
+        if alert:
+            del self.alert_list[alert]
+            if len(self.alert_list) == 0:
+                self.empty_load()
+            else:
+                if self.current_alert > len(self.alert_list)-1:
+                    self.current_alert = len(self.alert_list)-1
+                    self.show_current_alert()
   
-    def add_siginfo(self, new_sig):
-        curr_siginfo = self.get_siginfo_from_localid(new_sig.local_id)
-        if curr_siginfo is None:
-            self.alert_list.append(new_sig)
-        else:
-            self.alert_list.remove(curr_siginfo)
-            self.alert_list.append(new_sig)
-            self.alert_list.sort(compare_alert)
+    def add_alert(self, new_alert):
+        try:
+            for alert in self.alert_list:
+                if alert.local_id == new_alert.local_id:
+                    index = self.alert_list.index(alert)
+                    self.alert_list[index] = new_alert
+                    return
+        except:
+            pass
+
+        self.alert_list.append(new_alert)
                
-
-    def delete_current_alert(self):
-        del self.alert_list[self.current_alert]
-        self.update_button_visibility()
-
-        if len(self.alert_list) == 0:
-            self.empty_load()
-        else:
-            if self.current_alert > len(self.alert_list)-1:
-                self.current_alert = len(self.alert_list)-1
-        self.show_current_alert()
-
     def show_current_alert(self):
         self.clear_rows()
         size = len(self.alert_list)
@@ -670,59 +664,62 @@ class BrowserApplet:
 
         if size < self.current_alert:
             self.current_alert = size
-        sig = self.alert_list[self.current_alert]
-        if not sig.spath:
-            sig.spath = sig.scontext.type
-        if len(sig.spath) > 30:
-            self.source_label.set_label(os.path.basename(sig.spath))
-        else:
-            self.source_label.set_label(sig.spath)
 
-        self.source_label.set_tooltip_text(sig.spath + "\n" + str(sig.scontext))
         self.target_label.set_label("")
         self.target_label.set_tooltip_text("")
 
+        alert = self.get_current_alert()
+        if not alert:
+            return
+        if not alert.spath:
+            alert.spath = alert.scontext.type
+        if len(alert.spath) > 30:
+            self.source_label.set_label(os.path.basename(alert.spath))
+        else:
+            self.source_label.set_label(alert.spath)
+
+        self.source_label.set_tooltip_text(alert.spath + "\n" + str(alert.scontext))
         path = ""
         tooltip = ""
 
-        if sig.tpath and not sig.tpath == _("Unknown"):
-            if len(sig.tpath) > 30:
-                path = os.path.basename(sig.tpath)
+        if alert.tpath and not alert.tpath == _("Unknown"):
+            if len(alert.tpath) > 30:
+                path = os.path.basename(alert.tpath)
             else:
-                path = sig.tpath
-            tooltip = sig.tpath
+                path = alert.tpath
+            tooltip = alert.tpath
 
-            if sig.tcontext:
-                tooltip += "\n" + str(sig.tcontext)
+            if alert.tcontext:
+                tooltip += "\n" + str(alert.tcontext)
         else:
-            if sig.tcontext:
-                tooltip = str(sig.tcontext)
+            if alert.tcontext:
+                tooltip = str(alert.tcontext)
 
         self.target_label.set_label(path)
         self.target_label.set_tooltip_text(tooltip)
 
-        if sig.tclass == "dir":
+        if alert.tclass == "dir":
             tclass = "directory"
         else:
-            tclass = sig.tclass
+            tclass = alert.tclass
         self.class_label.set_label(_("On this %s:") % tclass)
-        self.access_label.set_label(",".join(sig.sig.access))
+        self.access_label.set_label(",".join(alert.sig.access))
 
-        total_priority, plugins = sig.get_plugins()
+        total_priority, plugins = alert.get_plugins()
 
-        sig.update_derived_template_substitutions()
+        alert.update_derived_template_substitutions()
 
         for p, args in plugins:
-               rb = self.add_row(p, sig, args)
+               rb = self.add_row(p, alert, args)
 
         if len(plugins) == 1:
                rb.set_active(True)
                self.on_if_radiobutton_activated(rb, 1)
                
-        self.show_date(sig)
+        self.show_date(alert)
 
         self.alert_count_label.set_label(_("Alert %d of %d" % (self.current_alert + 1, len(self.alert_list))))
-        if sig.evaluate_filter_for_user(self.username) == "ignore":
+        if alert.evaluate_filter_for_user(self.username) == "ignore":
 		self.ignore_button.set_label("Notify")
 	else:
 		self.ignore_button.set_label("Ignore")
@@ -842,19 +839,19 @@ class DBusProxy (object):
 
 # BugReport is the window that pops up when you press the Report Bug button
 class BugReport:
-    def __init__(self, parent, siginfo):
+    def __init__(self, parent, alert):
         
         self.parent = parent
         self.gladefile = GLADE_DIRECTORY + "bug_report.glade"
         self.widget_tree = gtk.glade.XML(self.gladefile, domain=parent.domain)
-        self.siginfo = siginfo
-        self.hostname = self.siginfo.sig.host
-        self.siginfo.host = "(removed)"
-        self.siginfo.environment.hostname = "(removed)"
-        self.siginfo.sig.host = "(removed)"
+        self.alert = alert
+        self.hostname = self.alert.sig.host
+        self.alert.host = "(removed)"
+        self.alert.environment.hostname = "(removed)"
+        self.alert.sig.host = "(removed)"
         
-        hash = self.siginfo.get_hash()
-        self.summary = self.siginfo.untranslated(self.siginfo.summary)
+        hash = self.alert.get_hash()
+        self.summary = self.alert.untranslated(self.alert.summary)
         # Get the widgets we need
         self.main_window = self.widget("bug_report_window")
         self.error_submit_text = self.widget("error_submit_text")
@@ -870,8 +867,8 @@ class BugReport:
         self.widget_tree.signal_autoconnect(dic)
         
         text_buf = gtk.TextBuffer()
-        text = self.siginfo.untranslated(self.siginfo.format_text)
-        text += self.siginfo.untranslated(self.siginfo.format_details)
+        text = self.alert.untranslated(self.alert.format_text)
+        text += self.alert.untranslated(self.alert.format_details)
         text_buf.set_text(text.replace(self.hostname, "(removed)"))
         self.error_submit_text.set_buffer(text_buf)
 
@@ -904,7 +901,7 @@ class BugReport:
         content = text_buf.get_text(text_buf.get_start_iter(), text_buf.get_end_iter())
         signature = report.createAlertSignature("selinux-policy", 
                                                 "setroubleshoot", 
-                                                self.siginfo.get_hash(), 
+                                                self.alert.get_hash(), 
                                                 self.summary, 
                                                 content)
  
