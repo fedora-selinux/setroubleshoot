@@ -468,7 +468,7 @@ class BrowserApplet:
 
         vbox = gtk.VBox(spacing=5)
         report_button = gtk.Button()
-        report_button.set_label(_("Details"))
+        report_button.set_label(_("Plugin\nDetails"))
         report_button.show()
         report_button.connect("clicked", self.details, alert, plugin, args)
         vbox.add(report_button)
