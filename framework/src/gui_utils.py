@@ -27,7 +27,6 @@ import gtk
 #import gtkhtml2
 #import pynotify
 import gobject 
-#import gnome
 #import os
 #import datetime
 import re
