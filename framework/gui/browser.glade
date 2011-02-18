@@ -2,205 +2,8 @@
 <interface>
   <requires lib="gtk+" version="2.16"/>
   <!-- interface-naming-policy toplevel-contextual -->
-  <object class="GtkWindow" id="details_window">
-    <property name="title" translatable="yes">SETroubleshoot Details Window</property>
-    <property name="modal">True</property>
-    <property name="window_position">center</property>
-    <property name="icon">setroubleshoot_icon.png</property>
-    <child>
-      <object class="GtkVBox" id="vbox301">
-        <property name="width_request">600</property>
-        <property name="height_request">500</property>
-        <property name="visible">True</property>
-        <property name="spacing">5</property>
-        <child>
-          <object class="GtkScrolledWindow" id="scrolledwindow1">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="hscrollbar_policy">automatic</property>
-            <property name="vscrollbar_policy">automatic</property>
-            <child>
-              <object class="GtkTextView" id="details_textview">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="editable">False</property>
-                <property name="wrap_mode">word</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="position">0</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkHBox" id="hbox301">
-            <property name="visible">True</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <object class="GtkButton" id="close_details_button">
-                <property name="label">gtk-close</property>
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-                <property name="use_stock">True</property>
-                <signal name="clicked" handler="on_close_details_button_clicked" swapped="no"/>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="padding">5</property>
-                <property name="pack_type">end</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="padding">5</property>
-            <property name="position">1</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkAboutDialog" id="aboutdialog1">
-    <property name="border_width">5</property>
-    <property name="window_position">center</property>
-    <property name="icon">setroubleshoot_icon.png</property>
-    <property name="type_hint">normal</property>
-    <property name="program_name">SETroubleshoot</property>
-    <property name="copyright" translatable="yes">Copyright (c) 2010 
-Thomas Liu &lt;tliu@redhat.com&gt;
-Máirín Duffy &lt;duffy@redhat.com&gt;
-Daniel Walsh &lt;dwalsh@redhat.com&gt;
-John Dennis &lt;jdennis@redhat.com&gt;
-</property>
-    <property name="authors">Thomas Liu &lt;tliu@redhat.com&gt;
-Máirín Duffy &lt;duffy@redhat.com&gt;
-Daniel Walsh &lt;dwalsh@redhat.com&gt;
-John Dennis &lt;jdennis@redhat.com&gt;</property>
-    <child internal-child="vbox">
-      <object class="GtkVBox" id="dialog-vbox3">
-        <property name="visible">True</property>
-        <property name="spacing">2</property>
-        <child>
-          <placeholder/>
-        </child>
-        <child internal-child="action_area">
-          <object class="GtkHButtonBox" id="dialog-action_area1">
-            <property name="visible">True</property>
-            <property name="layout_style">end</property>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="pack_type">end</property>
-            <property name="position">0</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </object>
-  <object class="GtkWindow" id="alert_list_window">
-    <property name="title" translatable="yes">SETroubleshoot Alert List</property>
-    <property name="modal">True</property>
-    <property name="window_position">center</property>
-    <property name="default_width">825</property>
-    <property name="default_height">400</property>
-    <property name="icon">setroubleshoot_icon.png</property>
-    <child>
-      <object class="GtkVBox" id="vbox3">
-        <property name="visible">True</property>
-        <property name="border_width">10</property>
-        <property name="spacing">5</property>
-        <child>
-          <placeholder/>
-        </child>
-        <child>
-          <object class="GtkScrolledWindow" id="treeview_window">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="hscrollbar_policy">automatic</property>
-            <property name="vscrollbar_policy">automatic</property>
-            <child>
-              <object class="GtkTreeView" id="treeview">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkHBox" id="hbox101">
-            <property name="visible">True</property>
-            <child>
-              <placeholder/>
-            </child>
-            <child>
-              <object class="GtkHBox" id="hbox102">
-                <property name="visible">True</property>
-                <property name="spacing">5</property>
-                <child>
-                  <object class="GtkButton" id="troubleshoot_list_button">
-                    <property name="label" translatable="yes">Troubleshoot</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="tooltip_text" translatable="yes">Troubleshoot selected alert</property>
-                    <property name="use_action_appearance">False</property>
-                    <accelerator key="t" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
-                    <signal name="clicked" handler="on_troubleshoot_list_button_clicked" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">0</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkButton" id="delete_list_button">
-                    <property name="label">gtk-delete</property>
-                    <property name="visible">True</property>
-                    <property name="can_focus">True</property>
-                    <property name="receives_default">True</property>
-                    <property name="tooltip_text" translatable="yes">Delete Selected Alerts</property>
-                    <property name="use_action_appearance">False</property>
-                    <property name="use_stock">True</property>
-                    <accelerator key="Delete" signal="clicked"/>
-                    <signal name="clicked" handler="on_delete_list_button_clicked" swapped="no"/>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">False</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="expand">False</property>
-                <property name="fill">False</property>
-                <property name="pack_type">end</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
-          </object>
-          <packing>
-            <property name="expand">False</property>
-            <property name="fill">False</property>
-            <property name="position">2</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </object>
   <object class="GtkWindow" id="window">
-    <property name="width_request">800</property>
+    <property name="width_request">750</property>
     <property name="title" translatable="yes">SELinux Alert Browser</property>
     <property name="icon">setroubleshoot_icon.png</property>
     <child>
@@ -382,19 +185,22 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                             </child>
                           </object>
                           <packing>
+                            <property name="expand">False</property>
                             <property name="position">0</property>
                           </packing>
                         </child>
                         <child>
                           <object class="GtkLabel" id="date_label">
                             <property name="visible">True</property>
-                            <property name="xalign">0.05000000074505806</property>
+                            <property name="xalign">0</property>
                             <property name="yalign">0</property>
+                            <property name="justify">right</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
                             <property name="fill">False</property>
                             <property name="padding">10</property>
+                            <property name="pack_type">end</property>
                             <property name="position">1</property>
                           </packing>
                         </child>
@@ -435,8 +241,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                 <property name="receives_default">True</property>
                                 <property name="tooltip_text" translatable="yes">Email alert to system administrator.</property>
                                 <property name="use_action_appearance">False</property>
-                                <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                                 <accelerator key="r" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                                <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                                 <signal name="clicked" handler="on_report_button_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -453,8 +259,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="use_action_appearance">False</property>
-                                <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                                 <accelerator key="r" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                                <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                                 <signal name="clicked" handler="on_details_button_clicked" swapped="no"/>
                               </object>
                               <packing>
@@ -563,6 +369,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <property name="visible">True</property>
                     <property name="n_columns">4</property>
                     <property name="column_spacing">3</property>
+                    <property name="row_spacing">5</property>
                     <child>
                       <placeholder/>
                     </child>
@@ -581,7 +388,6 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
             </child>
           </object>
           <packing>
-            <property name="padding">5</property>
             <property name="position">3</property>
           </packing>
         </child>
@@ -605,8 +411,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <property name="tooltip_text" translatable="yes">Show previous alert.</property>
                     <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
-                    <accelerator key="Left" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                     <accelerator key="p" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                    <accelerator key="Left" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                     <signal name="clicked" handler="on_previous_button_clicked" swapped="no"/>
                   </object>
                   <packing>
@@ -637,8 +443,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <property name="tooltip_text" translatable="yes">Show next alert.</property>
                     <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
-                    <accelerator key="Right" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                     <accelerator key="n" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                    <accelerator key="Right" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                     <signal name="clicked" handler="on_next_button_clicked" swapped="no"/>
                   </object>
                   <packing>
@@ -679,6 +485,203 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
             <property name="fill">False</property>
             <property name="padding">5</property>
             <property name="position">3</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="alert_list_window">
+    <property name="title" translatable="yes">SETroubleshoot Alert List</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="default_width">825</property>
+    <property name="default_height">400</property>
+    <property name="icon">setroubleshoot_icon.png</property>
+    <child>
+      <object class="GtkVBox" id="vbox3">
+        <property name="visible">True</property>
+        <property name="border_width">10</property>
+        <property name="spacing">5</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child>
+          <object class="GtkScrolledWindow" id="treeview_window">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <child>
+              <object class="GtkTreeView" id="treeview">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">1</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="hbox101">
+            <property name="visible">True</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkHBox" id="hbox102">
+                <property name="visible">True</property>
+                <property name="spacing">5</property>
+                <child>
+                  <object class="GtkButton" id="troubleshoot_list_button">
+                    <property name="label" translatable="yes">Troubleshoot</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Troubleshoot selected alert</property>
+                    <property name="use_action_appearance">False</property>
+                    <accelerator key="t" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                    <signal name="clicked" handler="on_troubleshoot_list_button_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">0</property>
+                  </packing>
+                </child>
+                <child>
+                  <object class="GtkButton" id="delete_list_button">
+                    <property name="label">gtk-delete</property>
+                    <property name="visible">True</property>
+                    <property name="can_focus">True</property>
+                    <property name="receives_default">True</property>
+                    <property name="tooltip_text" translatable="yes">Delete Selected Alerts</property>
+                    <property name="use_action_appearance">False</property>
+                    <property name="use_stock">True</property>
+                    <accelerator key="Delete" signal="clicked"/>
+                    <signal name="clicked" handler="on_delete_list_button_clicked" swapped="no"/>
+                  </object>
+                  <packing>
+                    <property name="expand">False</property>
+                    <property name="fill">False</property>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">2</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkAboutDialog" id="aboutdialog1">
+    <property name="border_width">5</property>
+    <property name="window_position">center</property>
+    <property name="icon">setroubleshoot_icon.png</property>
+    <property name="type_hint">normal</property>
+    <property name="program_name">SETroubleshoot</property>
+    <property name="copyright" translatable="yes">Copyright (c) 2010 
+Thomas Liu &lt;tliu@redhat.com&gt;
+Máirín Duffy &lt;duffy@redhat.com&gt;
+Daniel Walsh &lt;dwalsh@redhat.com&gt;
+John Dennis &lt;jdennis@redhat.com&gt;
+</property>
+    <property name="authors">Thomas Liu &lt;tliu@redhat.com&gt;
+Máirín Duffy &lt;duffy@redhat.com&gt;
+Daniel Walsh &lt;dwalsh@redhat.com&gt;
+John Dennis &lt;jdennis@redhat.com&gt;</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox3">
+        <property name="visible">True</property>
+        <property name="spacing">2</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+  <object class="GtkWindow" id="details_window">
+    <property name="title" translatable="yes">SETroubleshoot Details Window</property>
+    <property name="modal">True</property>
+    <property name="window_position">center</property>
+    <property name="icon">setroubleshoot_icon.png</property>
+    <child>
+      <object class="GtkVBox" id="vbox301">
+        <property name="width_request">600</property>
+        <property name="height_request">500</property>
+        <property name="visible">True</property>
+        <property name="spacing">5</property>
+        <child>
+          <object class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">automatic</property>
+            <property name="vscrollbar_policy">automatic</property>
+            <child>
+              <object class="GtkTextView" id="details_textview">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="editable">False</property>
+                <property name="wrap_mode">word</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="position">0</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkHBox" id="hbox301">
+            <property name="visible">True</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <object class="GtkButton" id="close_details_button">
+                <property name="label">gtk-close</property>
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="use_action_appearance">False</property>
+                <property name="use_stock">True</property>
+                <signal name="clicked" handler="on_close_details_button_clicked" swapped="no"/>
+              </object>
+              <packing>
+                <property name="expand">False</property>
+                <property name="fill">False</property>
+                <property name="padding">5</property>
+                <property name="pack_type">end</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="padding">5</property>
+            <property name="position">1</property>
           </packing>
         </child>
       </object>

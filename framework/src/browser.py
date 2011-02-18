@@ -144,8 +144,7 @@ class BrowserApplet:
         widget.set_sensitive(False)
         self.solutions_pane.show()
         self.troubleshoot_visible = True
-        self.x,self.y = self.window.get_size()
-        self.window.set_size_request(1000,630)
+        self.window.set_size_request(self.width,self.height)
 
     def empty_load(self):
         self.clear_rows()
@@ -153,7 +152,11 @@ class BrowserApplet:
         self.date_label.set_label("")
 
     def __init__(self, username=None, server=None, list=False, domain=None):
-        self.RECT_SIZE = 30
+        self.RECT_SIZE = 20
+        size = gtk.gdk.Screen().get_monitor_geometry(0)
+        self.width = min(900, int(size.width * .90))
+        self.height = min(500, int(size.height * .90))
+
         builder = gtk.Builder()
         builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade") 
         self.plugins = load_plugins()
@@ -361,18 +364,32 @@ class BrowserApplet:
         self.table.resize(1, cols)
         col = 0
         label = gtk.Label()
-        label.set_markup(_("If you were trying to..."))
-        label.set_alignment(0.0, 0.0)
+        label.set_markup(_("<b>If you were trying to...</b>"))
+        label.set_justify(gtk.JUSTIFY_LEFT)
+        label.set_alignment(-1.0, 0.0)
         label.show()
         col += 1
-        self.table.attach(label, col, col + 1, 0, 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
+        self.table.attach(label, col, col + 1, 0, 1, xoptions=0, yoptions=0)
 
         label = gtk.Label()
+        label.set_justify(gtk.JUSTIFY_LEFT)
         label.set_alignment(0.0, 0.0)
-        label.set_markup(_("Then this is the solution."))
+        label.set_markup(_("<b>Then this is the solution.</b>"))
         label.show()
         col += 1
-        self.table.attach(label, col, col + 1, 0, 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=0)
+        self.table.attach(label, col, col + 1, 0, 1, xoptions=0, yoptions=0)
+
+    def wrap(self,if_text):
+        lines = ""
+        line = ""
+        for i in if_text.split():
+            if len(line) + len(i) >  40:
+                lines += line.strip() + "\n"
+                line = ""
+            line += i.strip() + " "
+
+        lines += line
+        return lines
 
     def add_row(self, plugin, alert, args):
         avc = alert.audit_event.records
@@ -386,78 +403,63 @@ class BrowserApplet:
         rows = int(self.table.get_property("n-rows"))
         cols = int(self.table.get_property("n-columns"))
 
-        sev_image = gtk.Image()
-        pixmap = gtk.gdk.Pixmap(None, self.RECT_SIZE, self.RECT_SIZE, 24)
-        cr = pixmap.cairo_create()
-
-        bg_color = sev_image.get_style().bg[gtk.STATE_PRELIGHT]
-        cr.set_source_color(bg_color)
-
-        cr.paint()
-        cr.arc(self.RECT_SIZE/2 , self.RECT_SIZE/2, self.RECT_SIZE / 2.0, 0, 2 * pi)
+        black = gtk.gdk.Color(0,0,0)
         if plugin.level == "red":
-            cr.set_source_rgb(1, 0 ,0)
+            color = gtk.gdk.Color(65535,0,0)
         elif plugin.level == "yellow":
-            cr.set_source_rgb(1, 1 ,0)
+            color = gtk.gdk.Color(65535,65525,0)
         elif plugin.level == "green":
-            cr.set_source_rgb(0, 1 ,0)
-        cr.arc(self.RECT_SIZE/2 , self.RECT_SIZE/2, self.RECT_SIZE / 2.0, 0, 2 * pi)
-        cr.fill()
+            color = gtk.gdk.Color(0,65535,0)
 
-        sev_image.set_from_pixmap(pixmap, None)
-        sev_frame = gtk.Frame()
-        sev_frame.set_shadow_type(gtk.SHADOW_NONE)
-        sev_frame.show()
-        sev_frame.add(sev_image)
-#        sev_frame.set_label_align(1.0, 0.0)
-        sev_image.show()
+        sev_toggle = gtk.ToggleButton()
+        sev_toggle.set_size_request(20,15)
+        sev_toggle.modify_bg(gtk.STATE_PRELIGHT, color)
+        sev_toggle.modify_bg(gtk.STATE_SELECTED, black)
+        sev_toggle.modify_bg(gtk.STATE_ACTIVE, color)
+        sev_toggle.modify_bg(gtk.STATE_NORMAL, color)
+
+        sev_toggle.modify_fg(gtk.STATE_PRELIGHT, color)
+        sev_toggle.modify_fg(gtk.STATE_SELECTED, black)
+        sev_toggle.modify_fg(gtk.STATE_ACTIVE, black)
+        sev_toggle.modify_fg(gtk.STATE_NORMAL, color)
+
+        sev_toggle.modify_base(gtk.STATE_SELECTED, black)
+
+        sev_toggle.set_alignment(0.5, 0.0)
+
+        self.toggles.append(sev_toggle)
+        sev_toggle.show()
         
-#        if_frame = gtk.Frame()
         if_label = gtk.Label()
+        if_label.set_text(self.wrap(if_text))
         if_label.set_justify(gtk.JUSTIFY_LEFT)
-        if_radiobutton = gtk.RadioButton(self.radio)
-        if_radiobutton.set_alignment(0.0, 0.0)
-        if_radiobutton.show()
-        if_radiobutton.add(if_label)
+        if_label.set_alignment(0.5, 0.0)
         if_label.set_line_wrap(True)
-        if_label.set_text(if_text)
         if_label.show()
-        if_radiobutton.show()
-        if_radiobutton.set_border_width(0)
-#        if_frame.add(if_radiobutton)
-#        if_frame
-#        if_frame.show()
-#        if_frame.set_shadow_type(gtk.SHADOW_IN)
-#        if_frame.set_border_width(1)
-#        if_frame.set_padding(1)
-#        then_textview = gtk.TextView()
-#        then_label = then_textview.get_buffer()
+
         then_label = gtk.Label()
         then_label.set_text(then_text)
         then_label.set_selectable(True)
-#        then_textview.set_editable(True)
         then_label.set_alignment(0.0, 0.0)
         then_label.set_justify(gtk.JUSTIFY_LEFT)
         then_label.show()
+
         then_scroll = gtk.ScrolledWindow()
         then_scroll.set_shadow_type(gtk.SHADOW_NONE)
         then_scroll.set_border_width(0)
         then_scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
         then_scroll.add_with_viewport(then_label)
-#        then_textview.set_sensitive(False)
-#        then_textview.show()
-#        then_scroll.add(then_textview)
         then_scroll.show()
         then_scroll.set_sensitive(False)
-        then_scroll.set_size_request(500, 90)
+        then_scroll.set_size_request(450, 90)
 
         self.table.resize(rows, cols)
-        if_radiobutton.connect("toggled", self.on_if_radiobutton_activated, rows)
+        sev_toggle.connect("toggled", self.on_sev_togglebutton_activated, rows)
         col = 0
-        self.table.attach(sev_frame, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
+        self.table.attach(sev_toggle, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
 
         col += 1
-        self.table.attach(if_radiobutton, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.FILL)
+        self.table.attach(if_label, col, col+1, rows, rows + 1, xoptions=0, yoptions=0) #xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.FILL)
 
         col += 1
         self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
@@ -491,15 +493,20 @@ class BrowserApplet:
         vbox.show()
         self.table.attach(vbox, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
 
-#        if rows == 1:
-#            self.on_if_radiobutton_activated(if_radiobutton, rows)
-        return if_radiobutton
-    def on_if_radiobutton_activated(self, widget, row):
-        for child in self.table.get_children():
-            r, c = self.table.child_get(child, "top_attach", "left_attach")
-            if (r == row and c > 1):
-                child.set_sensitive(widget.get_active())
-    
+        return sev_toggle
+    def on_sev_togglebutton_activated(self, widget, row):
+        if widget.get_active():
+            for child in self.table.get_children():
+                r, c = self.table.child_get(child, "top_attach", "left_attach")
+                if r == 0:
+                    continue
+
+                if (c > 1):
+                    child.set_sensitive(r == row)
+
+                if (c == 0) and child != widget:
+                        child.set_active(False)
+
     def details(self, widget, alert, plugin, args):
            avc = alert.audit_event.records
            message = alert.substitute(alert.summary()) + "\n\n"
@@ -710,12 +717,13 @@ class BrowserApplet:
 
         alert.update_derived_template_substitutions()
 
+        self.toggles=[]
         for p, args in plugins:
                rb = self.add_row(p, alert, args)
 
         if len(plugins) == 1:
                rb.set_active(True)
-               self.on_if_radiobutton_activated(rb, 1)
+               self.on_sev_togglebutton_activated(rb, 1)
                
         self.show_date(alert)
 
