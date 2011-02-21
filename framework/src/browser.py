@@ -762,13 +762,14 @@ class BrowserApplet:
             else:
                 spath = os.path.basename(alert.spath)
 
-            if not alert.tpath:
+            tpath = alert.tpath
+            if not tpath:
                    tpath = _("N/A")
-            elif alert.tpath == _("Unknown"):
+            elif tpath == _("Unknown"):
                    tpath = alert.tclass
-            else:
-                tpath = alert.tpath.rstrip("/")
-                tpath = os.path.basename(tpath)
+            elif len(tpath) > 1:
+                   tpath = os.path.basename(tpath.rstrip("/"))
+
 	    if alert.evaluate_filter_for_user(self.username) == "ignore":
 		   status = _("Ignore")
             else:
