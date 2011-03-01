@@ -157,6 +157,7 @@ class BrowserApplet:
         self.width = min(900, int(size.width * .90))
         self.height = min(500, int(size.height * .90))
 
+        self.read_config()
         builder = gtk.Builder()
         builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade") 
         self.plugins = load_plugins()
@@ -527,6 +528,20 @@ class BrowserApplet:
            self.details_window.hide()
            return True
 
+    def read_config(self):
+        filename = PREF_PATH 
+        self.checkonlogin=0
+        try:
+            fd = open(filename, "r")
+            for i in fd.readlines():
+                rec=i.split("=")
+                if rec[0] == "checkonlogin":
+                    self.checkonlogin=int(rec[1])
+                    fd.close()
+        except IOError:
+            pass
+        return
+
     def quit(self, widget):
         filename = PREF_PATH 
         try:
@@ -541,6 +556,7 @@ class BrowserApplet:
             fd.write("last=")    
 
         fd.write("\n");
+        fd.write("checkonlogin=%d\n" % self.checkonlogin)
         fd.close()
         gtk.main_quit() 
 
