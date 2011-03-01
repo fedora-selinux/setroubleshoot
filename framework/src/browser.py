@@ -224,7 +224,7 @@ class BrowserApplet:
         self.alert_list_window.hide()
         self.empty_load()
         self.load_data()
-        self.liststore = gtk.ListStore(int, str, str, str, str, str) 
+        self.liststore = gtk.ListStore(int, str, str, str, int, str) 
         self.make_treeview()
         self.troubleshoot_visible=False
         self.current_alert = -1
