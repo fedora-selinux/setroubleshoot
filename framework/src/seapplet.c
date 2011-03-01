@@ -343,29 +343,45 @@ static int sedbus_send_check_new(DBusConnection* conn, gpointer ptr, char *local
 	return 0;
 }
 
-static int read_config(char *pos[]) 
+static int check_for_avcs(char *pos[]) 
 {
 	const char *PTAG = "last=";
+	const char *CTAG = "checkonboot=";
 	size_t plen = strlen(PTAG);
+	size_t clen = strlen(CTAG);
 	char *buf=NULL;
-	
-	int ret = -1;
+	int check_on_boot = 0;
 	FILE *cfg = fopen(configpath, "r");
+	char *last = NULL;
 	if (cfg) {
 		size_t size = 0;
 		ssize_t len;
 		while ((len = getline(&buf, &size, cfg)) > 0) {
 			buf[len-1] = 0;
 			if (strncmp(buf, PTAG, plen) == 0) {
-				*pos=strdup(buf + plen);
-				ret = 0;
-				break;
+				if (last) free(last);
+				last=strdup(buf + plen);
+			}
+			if (strncmp(buf, CTAG, clen) == 0) {
+				check_on_boot=atoi(buf + clen);
+				printf("found %d %s\n", check_on_boot);
 			}
 		}
 		fclose(cfg);
 		free(buf);
 	}
-	return ret;
+
+	if (check_on_boot) {
+		if (last)
+			*pos = last;
+		else
+			*pos = calloc(sizeof(char*),1);			
+	} else {
+		*pos = NULL;
+		free(last);
+	}
+
+	return check_on_boot;  
 }
 
 int main(int argc, char *argv[])
@@ -390,10 +406,6 @@ int main(int argc, char *argv[])
 	home = getenv("HOME");	
 	if (asprintf(&configpath, "%s/.setroubleshoot", home) < 0)
 		return FALSE;
-
-	if (read_config(&local_id) < 0) {
-		local_id=calloc(sizeof(char*),1);
-	}
 
 	int ctr = 0;
 
@@ -429,7 +441,9 @@ int main(int argc, char *argv[])
 	gtk_status_icon_set_visible(alert.trayIcon, FALSE); //set icon initially invisible
 	alert.need_bubble = FALSE;
 	
-	sedbus_send_check_new(conn, (void *) &alert, local_id);
+	if (check_for_avcs(&local_id)  == TRUE) {
+		sedbus_send_check_new(conn, (void *) &alert, local_id);
+	}
 	DBusConnection *conn2 = sedbus_receive(show_star, (void *) &alert);
 	dbus_connection_setup_with_g_main(conn2, NULL);
 	gtk_main ();
