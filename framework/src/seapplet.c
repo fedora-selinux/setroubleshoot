@@ -346,11 +346,11 @@ static int sedbus_send_check_new(DBusConnection* conn, gpointer ptr, char *local
 static int check_for_avcs(char *pos[]) 
 {
 	const char *PTAG = "last=";
-	const char *CTAG = "checkonboot=";
+	const char *CTAG = "checkonlogin=";
 	size_t plen = strlen(PTAG);
 	size_t clen = strlen(CTAG);
 	char *buf=NULL;
-	int check_on_boot = 0;
+	int check_on_login = 0;
 	FILE *cfg = fopen(configpath, "r");
 	char *last = NULL;
 	if (cfg) {
@@ -363,15 +363,15 @@ static int check_for_avcs(char *pos[])
 				last=strdup(buf + plen);
 			}
 			if (strncmp(buf, CTAG, clen) == 0) {
-				check_on_boot=atoi(buf + clen);
-				printf("found %d %s\n", check_on_boot);
+				check_on_login=atoi(buf + clen);
+				printf("found %d %s\n", check_on_login);
 			}
 		}
 		fclose(cfg);
 		free(buf);
 	}
 
-	if (check_on_boot) {
+	if (check_on_login) {
 		if (last)
 			*pos = last;
 		else
@@ -381,7 +381,7 @@ static int check_for_avcs(char *pos[])
 		free(last);
 	}
 
-	return check_on_boot;  
+	return check_on_login;  
 }
 
 int main(int argc, char *argv[])
