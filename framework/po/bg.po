@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot-bg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2008-03-13 16:14+0100\n"
 "Last-Translator: Alexander Todorov <atodorov@redhat.com>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
@@ -25,24 +25,24 @@ msgstr "SELinux коректор"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Отстраняване на проблеми със SELinux достъпа"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr ""
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "Непознат"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
@@ -50,187 +50,141 @@ msgid ""
 "dontaudit rules. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr ""
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr ""
 
-#: ../src/browser.py:225
-msgid "Error while checking policy version."
-msgstr ""
-
-#: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr ""
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr ""
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr ""
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 #, fuzzy
 msgid "Source Process"
 msgstr "Изходни RPM пакети"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr ""
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr ""
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+msgid "Occurred"
 msgstr ""
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255 ../src/run_cmd.py:417
 #, fuzzy
-msgid "Edit Status"
+msgid "Status"
 msgstr "Стартирано"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
 msgstr ""
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+#, fuzzy
+msgid "Ignore"
+msgstr "Никога да не се игнорира"
+
+#: ../src/browser.py:368
+msgid "<b>If you were trying to...</b>"
 msgstr ""
 
-#: ../src/browser.py:387
+#: ../src/browser.py:378
+msgid "<b>Then this is the solution.</b>"
+msgstr ""
+
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr ""
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+msgid ""
+"Plugin\n"
+"Details"
+msgstr ""
+
+#: ../src/browser.py:488
 msgid ""
 "Report\n"
 "Bug"
 msgstr ""
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "Име на доп.модул"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr ""
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr ""
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
+#: ../src/browser.py:729
+#, python-format
+msgid "On this %s:"
 msgstr ""
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr ""
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+#, fuzzy
+msgid "No Alerts"
+msgstr "Копиране на тревогата"
+
+#: ../src/browser.py:843
+msgid "SELinux has detected a problem."
+msgstr ""
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr ""
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 #, fuzzy
 msgid "Sealert Message"
 msgstr "Сурови одит съобщения"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "Настройки на Setroubleshoot за ел.поща"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "Добавяне"
-
-#: ../src/email_dialog.py:114
-#, fuzzy
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"Това е списък от адреси за електронна поща, на които\n"
-"ще се изпращат тревогите.\n"
-"\n"
-"За добавяне на адрес, напишете адреса в полето за вход\n"
-"и изберете бутона Добавяне. Не са разрешени повтарящи\n"
-"се адреси.\n"
-"\n"
-"За изтриване на един или повече адреси, изберете ги в\n"
-"списъка и натиснете бутона Изтриване или ползвайте клавиш\n"
-"Delete (Изтриване). Друг вариант е, да редактирате адреса и\n"
-"изтриете стойността му.\n"
-"\n"
-"За да редактирате адреси, първо ги щракнете.\n"
-"\n"
-"За да сортирате списъка по друг начин, щракнете\n"
-"заглавието на колоната.\n"
-"\n"
-"За промяна опциите за филтриране щракнете на типа\n"
-"филтър и изберете от списъка. Филтъра важи за всички\n"
-"електронни адреси.\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "Тип филтър"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "Електронна поща"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -311,16 +265,16 @@ msgid "user lookup failed"
 msgstr ""
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "Помощ"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Опаа, %s попадна на грешка!"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "Грешка"
 
@@ -359,11 +313,6 @@ msgstr ""
 msgid "Stop Command"
 msgstr ""
 
-#: ../src/run_cmd.py:417
-#, fuzzy
-msgid "Status"
-msgstr "Стартирано"
-
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr ""
@@ -396,25 +345,25 @@ msgstr ""
 msgid "Done: "
 msgstr "Няма"
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " За цялостни SELinux съобщения. стартирайте sealert -l %s"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Потребител (%s) не може да променя данни за (%s)"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "Стартирано"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr ""
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "Одит слушател"
 
@@ -475,16 +424,103 @@ msgstr ""
 msgid "capability"
 msgstr ""
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr ""
 
-#: ../src/signature.py:385
-msgid "SEinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:384
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr ""
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "Допълнителна информация"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "Начален контекст"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "Целеви контекст"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "Целеви обекти"
+
+#: ../src/signature.py:473
+#, fuzzy
+msgid "Source"
+msgstr "Начален контекст"
+
+#: ../src/signature.py:474
+#, fuzzy
+msgid "Source Path"
+msgstr "Начален контекст"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "Порт"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "Хост"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "Изходни RPM пакети"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "Целеви RPM пакети"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "RPM с политика"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "Selinux е разрешен"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "Тип политика"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "Активен режим"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "Име на машина"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "Платформа"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "Брой тревоги"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "Видяно за първи път"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "Видяно за последно"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "Локално ID"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "Сурови одит съобщения"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -492,109 +528,37 @@ msgid ""
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
 msgstr ""
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
 msgstr ""
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
 msgstr ""
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "Допълнителна информация"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "Начален контекст"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "Целеви контекст"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "Целеви обекти"
-
-#: ../src/signature.py:485
-#, fuzzy
-msgid "Source"
-msgstr "Начален контекст"
-
-#: ../src/signature.py:486
-#, fuzzy
-msgid "Source Path"
-msgstr "Начален контекст"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "Порт"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "Хост"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "Изходни RPM пакети"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "Целеви RPM пакети"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "RPM с политика"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "Selinux е разрешен"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "Тип политика"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "Активен режим"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "Име на машина"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "Платформа"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "Брой тревоги"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "Видяно за първи път"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "Видяно за последно"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "Локално ID"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "Сурови одит съобщения"
+#: ../src/signature.py:553
+msgid ""
+"\n"
+"\n"
+msgstr ""
 
 #: ../src/updater.py:18
 #, python-format
@@ -606,29 +570,29 @@ msgstr ""
 msgid "newer: %s "
 msgstr ""
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 #, fuzzy
 msgid "New SELinux security alert"
 msgstr "Преглед на одит тревогите"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC забрана, щракнете иконата за преглед"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr ""
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr ""
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC забрана, щракнете за преглед"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
 
@@ -660,9 +624,8 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr ""
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
-msgid "Access:"
-msgstr "Начален контекст"
+msgid "Attempted this access:"
+msgstr ""
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -674,92 +637,111 @@ msgid ""
 msgstr ""
 
 #: ../gui/browser.glade.h:9
+#, fuzzy
+msgid "Delete Selected Alerts"
+msgstr "Печат на избраните тревоги"
+
+#: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
 msgstr ""
 
-#: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
-msgstr ""
-
 #: ../gui/browser.glade.h:11
-msgid "Email alert to system administrator."
+msgid "Details"
 msgstr ""
 
 #: ../gui/browser.glade.h:12
-#, fuzzy
-msgid "Ignore"
-msgstr "Никога да не се игнорира"
+msgid "Email alert to system administrator."
+msgstr ""
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "Преглед на одит тревогите"
+
+#: ../gui/browser.glade.h:15
 #, fuzzy
 msgid "List All Alerts"
 msgstr "Избор на всички тревоги"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr ""
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 #, fuzzy
 msgid "No"
 msgstr "Няма"
 
-#: ../gui/browser.glade.h:16
-#, fuzzy
-msgid "No Alerts"
-msgstr "Копиране на тревогата"
+#: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
 
-#: ../gui/browser.glade.h:17
+#: ../gui/browser.glade.h:20
+msgid "On this file:"
+msgstr ""
+
+#: ../gui/browser.glade.h:21
 msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
+"Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
 
-#: ../gui/browser.glade.h:18
-msgid "Report"
-msgstr ""
-
-#: ../gui/browser.glade.h:19
+#: ../gui/browser.glade.h:22
 #, fuzzy
 msgid "SELinux Alert Browser"
 msgstr "Преглед на одит тревогите"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 #, fuzzy
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot браузър"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot браузър"
+
+#: ../gui/browser.glade.h:25
 #, fuzzy
 msgid "Show next alert."
 msgstr "Избор на всички тревоги"
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr ""
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "Изходни RPM пакети"
+
+#: ../gui/browser.glade.h:28
 #, fuzzy
 msgid "Troubleshoot"
 msgstr "SELinux коректор"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "Печат на избраните тревоги"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr ""
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr ""
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr ""
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr ""
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr ""
 
@@ -800,6 +782,70 @@ msgid "button"
 msgstr ""
 
 #, fuzzy
+#~ msgid "Edit Status"
+#~ msgstr "Стартирано"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "Настройки на Setroubleshoot за ел.поща"
+
+#~ msgid "Add"
+#~ msgstr "Добавяне"
+
+#, fuzzy
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Това е списък от адреси за електронна поща, на които\n"
+#~ "ще се изпращат тревогите.\n"
+#~ "\n"
+#~ "За добавяне на адрес, напишете адреса в полето за вход\n"
+#~ "и изберете бутона Добавяне. Не са разрешени повтарящи\n"
+#~ "се адреси.\n"
+#~ "\n"
+#~ "За изтриване на един или повече адреси, изберете ги в\n"
+#~ "списъка и натиснете бутона Изтриване или ползвайте клавиш\n"
+#~ "Delete (Изтриване). Друг вариант е, да редактирате адреса и\n"
+#~ "изтриете стойността му.\n"
+#~ "\n"
+#~ "За да редактирате адреси, първо ги щракнете.\n"
+#~ "\n"
+#~ "За да сортирате списъка по друг начин, щракнете\n"
+#~ "заглавието на колоната.\n"
+#~ "\n"
+#~ "За промяна опциите за филтриране щракнете на типа\n"
+#~ "филтър и изберете от списъка. Филтъра важи за всички\n"
+#~ "електронни адреси.\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "Тип филтър"
+
+#~ msgid "Email Address"
+#~ msgstr "Електронна поща"
+
+#, fuzzy
+#~ msgid "Access:"
+#~ msgstr "Начален контекст"
+
+#, fuzzy
 #~ msgid "Copy to Clipboard"
 #~ msgstr "Копиране на избраната тревога в буфера за обмен (clipboard)"
 
@@ -818,9 +864,6 @@ msgstr ""
 #~ msgid "Allowing Access"
 #~ msgstr "Разрешаване на достъп"
 
-#~ msgid "Plugin Name"
-#~ msgstr "Име на доп.модул"
-
 #~ msgid "Line Numbers"
 #~ msgstr "Номера на редове"
 
@@ -834,10 +877,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "Ignore Alert"
 #~ msgstr "Игнориране винаги"
-
-#, fuzzy
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "Преглед на одит тревогите"
 
 #, fuzzy
 #~ msgid "Show all..."
@@ -893,9 +932,6 @@ msgstr ""
 
 #~ msgid "Print..."
 #~ msgstr "Печат..."
-
-#~ msgid "Print selected alerts"
-#~ msgstr "Печат на избраните тревоги"
 
 #~ msgid "Edit Email Alert List..."
 #~ msgstr "Списъка пощи за тревогите..."

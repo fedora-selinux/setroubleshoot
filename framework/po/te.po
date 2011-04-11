@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: te\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2011-01-07 17:15+0530\n"
 "Last-Translator: Krishnababu Krothapalli <kkrothap@redhat.com>\n"
 "Language-Team: Telugu <en@li.org>\n"
@@ -36,17 +36,17 @@ msgstr "SELinux పరిష్కారిణి"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux వాడుక డినైల్స్‍‌ను పరిష్కరించుము"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr "పోర్ట్ %s"
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "తెలియని"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
@@ -55,7 +55,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC ప్రస్తుత పాలసీనందు అనుమతించబడెను ***\n"
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
@@ -66,11 +66,11 @@ msgstr ""
 "**** ప్రస్తుత పాలసీనందు చెల్లని AVC dontaudit.  'semodule -B' అనునదిdontaudit నియమాలను "
 "ఆన్ చేయును. ***\n"
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr "ముందుగా policy_init తప్పక కాల్ చేయాలి"
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
@@ -79,7 +79,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC చెడ్డ లక్ష్యపు సందర్భము. ***\n"
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
@@ -88,7 +88,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC చెడ్డ మూలపు సందర్భము. ***\n"
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
@@ -97,7 +97,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC చెడ్డ రకము క్లాస్ ***\n"
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
@@ -106,67 +106,64 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC చెడ్డ అనుమతి ***\n"
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr "వెక్టార్ లెక్కింపును యాక్సెస్ చేయునప్పుడు దోషము"
 
-#: ../src/browser.py:225
-msgid "Error while checking policy version."
-msgstr "పాలసీ వర్షన్ పరిశీలించుటలో దోషము."
-
-#: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-"అక్కడ కొత్త వర్షన్ పాలసీ అందుబాటులో వున్నది.  మీరు తిరస్కరణతో యెదుర్కొనుచున్న సమస్యలను ఈ పాలసీ "
-"నవీకరణ పరిష్కరించవచ్చును."
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr "సరికొత్త వర్షన్"
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr "పాలసీను నవీకరించుము"
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Source Process"
 msgstr "మూలం క్రమణం"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr "ప్రయత్నించిన యాక్సెస్"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr "దీనిపై"
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+#, fuzzy
+msgid "Occurred"
 msgstr "యెదురైన"
 
-#: ../src/browser.py:250
-msgid "Edit Status"
-msgstr "సరిచేయు స్థితి"
+#: ../src/browser.py:255 ../src/run_cmd.py:417
+msgid "Status"
+msgstr "స్థితి"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
+msgstr ""
+
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+msgid "Ignore"
+msgstr "విస్మరించు"
+
+#: ../src/browser.py:368
+#, fuzzy
+msgid "<b>If you were trying to...</b>"
 msgstr "మీరు దీనికి ప్యత్నిస్తుంటే..."
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:378
+#, fuzzy
+msgid "<b>Then this is the solution.</b>"
 msgstr "అప్పుడు యిది పరిష్కారము."
 
-#: ../src/browser.py:387
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr "ఒకవేళ "
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+msgid ""
+"Plugin\n"
+"Details"
+msgstr ""
+
+#: ../src/browser.py:488
 msgid ""
 "Report\n"
 "Bug"
@@ -174,85 +171,45 @@ msgstr ""
 "ఫిర్యాదు\n"
 "బగ్"
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "ప్లగ్ఇన్ నామము"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr "యాక్సెస్‌ను యివ్వలేక పోయింది."
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr "అప్రమత్తత %d మొత్త %d లో"
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
-msgstr "(తీసివేయబడెను)"
+#: ../src/browser.py:729
+#, fuzzy, python-format
+msgid "On this %s:"
+msgstr "దీనిపై"
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr ""
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+msgid "No Alerts"
+msgstr "ఏ అప్రమత్తతలు లేవు"
+
+#: ../src/browser.py:843
+#, fuzzy
+msgid "SELinux has detected a problem."
+msgstr "<b>SELinux వొక సమస్యను గుర్తించినది.</b>"
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr "Sealert దోషము"
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 msgid "Sealert Message"
 msgstr "Sealert సందేశము"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "Setroubleshoot ఈమెయిల్ అభీష్టాలు"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "జతచేయి"
-
-#: ../src/email_dialog.py:114
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"ఎవరికైతే అప్రమత్తాలు పంపబడతాయో వారియొక్క ఈమెయిల్ చిరునామాల\n"
-"జాబితా.\n"
-"\n"
-"ఈమెయిల్ చిరునామాను జతచేయుటకు చిరునామాను ఇన్‌పుట్ బాక్స్‍‌నందు\n"
-"ప్రవేశపెట్టుము మరియు జతచేయి బటన్ నొక్కుము. నకలీ చిరునామాలు\n"
-"అనుమతించబడవు.\n"
-"\n"
-"ఒకటి లేదా అంతకన్నా ఎక్కువ ఈమెయిల్ చిరునామాలను తొలగించుటకు\n"
-"జాబితానందలి చిరునామాలను ఎంపికచేసి తొలగించు బటన్ నొక్కుము లేదా\n"
-"తొలగించు కీను ఉపయోగించుము. లేదా మీరు చిరునామాను సరికూర్చి దాని విలవ చెరపవచ్చు.\n"
-"\n"
-"చిరునామాను సరికూర్చుటకు చిరునామాపై నొక్కి సరికూర్చుట ప్రారంభించండి.\n"
-"\n"
-"వేరొకవిధంగా జాబితాను క్రమపరుచుటకు నిలువువరుస హెడ్డింగ్ పై నొక్కుము.\n"
-"\n"
-"వడపోత ఐచ్చికాన్ని మార్చుటకు వడపోత రకముపై నొక్కుము మరియు జాబితానుండి\n"
-"తీసుకొనుము. ఆ వడపోత ఈ ఈమెయిల్ చిరునామాకొరకు అన్ని అప్రమత్తతలకు\n"
-"ఆపాదించబడుతుంది.\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "వడపోత రకము"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "ఈమెయిల్ చిరునామా"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -333,16 +290,16 @@ msgid "user lookup failed"
 msgstr "వినియోగదారి లుక్అప్ విఫలమైంది"
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "సహాయం"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "అయ్యో, %s దోషాన్ని తాకినది!"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "దోషము"
 
@@ -382,10 +339,6 @@ msgstr "ఆదేశాన్ని నడుపుము"
 msgid "Stop Command"
 msgstr "ఆదేశాన్ని ఆపుము"
 
-#: ../src/run_cmd.py:417
-msgid "Status"
-msgstr "స్థితి"
-
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr "హెచ్చరిక: ఈ ఆదేశం ఖచ్చితమైంది అనుటకు మీరే మొత్తముకు భాద్యులు"
@@ -416,25 +369,25 @@ msgstr "విఫలమైంది, నిష్క్రమణ స్థిత
 msgid "Done: "
 msgstr "అయినది: "
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr "పూర్తి SELinux సందేశాల కొరకు. sealert -l %s ను నడుపుము"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "వినియోగదారి (%s) డాటాను (%s) కొరకు సవరించలేడు"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "ప్రారంభమైంది"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "ఆలకించుదానిని ఆడిట్‌చేయుము"
 
@@ -494,16 +447,102 @@ msgstr "నోడ్"
 msgid "capability"
 msgstr "సామర్థ్యం"
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s అనుమతి రకము (%s) కలిగివుంది. ఈ యాక్సెస్ తిరస్కరించబడలేదు."
 
-#: ../src/signature.py:385
-msgid "SEinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:384
+#, fuzzy
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux అనునది అనుమతి రీతినందు వుంది. యాక్సెస్ తిరస్కరించబడలేదు."
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "అదనపు సమాచారం"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "మూలం సందర్భం"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "లక్ష్యం సందర్బం"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "లక్ష్యం ఆబ్జక్ట్స్‍"
+
+#: ../src/signature.py:473
+msgid "Source"
+msgstr "మూలం"
+
+#: ../src/signature.py:474
+msgid "Source Path"
+msgstr "మూలం పాత్"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "పోర్ట్‍"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "అతిధేయ"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "మూలం RPM సంకలనాలు"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "లక్ష్యం RPM సంకలనాలు"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "విధానం RPM"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "Selinux చేతనమైంది"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "విధానం రకము"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "బలవంతపు రీతి"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "అతిధేయ నామము"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "ప్లాట్‌ఫాం"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "అప్రమత్తత లెక్క"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "మొదటి ఘటన"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "చివరి ఘటన"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "స్థానిక ID"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "రా ఆడిట్ సందేశాలు"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -514,7 +553,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
@@ -522,7 +569,7 @@ msgstr ""
 "\n"
 "If "
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
@@ -530,7 +577,7 @@ msgstr ""
 "\n"
 "Then "
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
@@ -538,89 +585,14 @@ msgstr ""
 "\n"
 "Do\n"
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "అదనపు సమాచారం"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "మూలం సందర్భం"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "లక్ష్యం సందర్బం"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "లక్ష్యం ఆబ్జక్ట్స్‍"
-
-#: ../src/signature.py:485
-msgid "Source"
-msgstr "మూలం"
-
-#: ../src/signature.py:486
-msgid "Source Path"
-msgstr "మూలం పాత్"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "పోర్ట్‍"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "అతిధేయ"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "మూలం RPM సంకలనాలు"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "లక్ష్యం RPM సంకలనాలు"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "విధానం RPM"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "Selinux చేతనమైంది"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "విధానం రకము"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "బలవంతపు రీతి"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "అతిధేయ నామము"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "ప్లాట్‌ఫాం"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "అప్రమత్తత లెక్క"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "మొదటి ఘటన"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "చివరి ఘటన"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "స్థానిక ID"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "రా ఆడిట్ సందేశాలు"
+#: ../src/signature.py:553
+#, fuzzy
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"Do\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -632,28 +604,28 @@ msgstr "ప్రస్తుత: %s"
 msgid "newer: %s "
 msgstr "కొత్త: %s "
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 msgid "New SELinux security alert"
 msgstr "కొత్త SELinux రక్షణ అప్రమత్తత"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC డినైల్, దర్శించుటకు ప్రతిమను నొక్కుము"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr "తీసివేయి"
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr "చూపుము"
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC డానియల్, దర్శించుటకు నొక్కుము"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux చేతనం చేయబడిలేదు, sealert అనునది SELinux సిస్టమ్సు కానివాటిపై నడువదు"
 
@@ -685,8 +657,9 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux వొక సమస్యను గుర్తించినది.</b>"
 
 #: ../gui/browser.glade.h:2
-msgid "Access:"
-msgstr "యాక్సెస్:"
+#, fuzzy
+msgid "Attempted this access:"
+msgstr "ప్రయత్నించిన యాక్సెస్"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -703,85 +676,108 @@ msgstr ""
 "జాన్ డెన్నిష్ <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
+msgid "Delete Selected Alerts"
+msgstr ""
+
+#: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
 msgstr "ప్రస్తుత అప్రమత్తతను దత్తాంశస్థానంనుండి తొలగించుము."
 
-#: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
-msgstr "అప్రమత్తత సందేశమును చూపవద్దు, యీ అప్రమత్తత నొక్కినప్పుడు."
-
 #: ../gui/browser.glade.h:11
+msgid "Details"
+msgstr ""
+
+#: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
 msgstr "అప్రమత్తతను సిస్టమ్ నిర్వహణాధికారి యీమెయిల్ చేయుము."
 
-#: ../gui/browser.glade.h:12
-msgid "Ignore"
-msgstr "విస్మరించు"
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "భవిష్యత్తులో ఈ SELinux రక్షణ హెచ్చరికను వదిలివేయుము."
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:15
 msgid "List All Alerts"
 msgstr "అన్ని అప్రమత్తతలను జాబితాచేయుము"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr "డాటాబేస్ నందలి అన్ని అప్రమత్తతసును జాబితాచేయుము."
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "ఏదీకాదు"
 
-#: ../gui/browser.glade.h:16
-msgid "No Alerts"
-msgstr "ఏ అప్రమత్తతలు లేవు"
+#: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
 
-#: ../gui/browser.glade.h:17
+#: ../gui/browser.glade.h:20
+#, fuzzy
+msgid "On this file:"
+msgstr "దీనిపై"
+
+#: ../gui/browser.glade.h:21
+#, fuzzy
 msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
+"Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
-"అప్రమత్తతను చదువుటలో సమస్యాపరిష్కారమునకు సమాచారం. పరిష్కారమునకు నిర్వహణా అనుమతులు కావలసి రావచ్చును."
+"అప్రమత్తతను చదువుటలో సమస్యాపరిష్కారమునకు సమాచారం. పరిష్కారమునకు నిర్వహణా అనుమతులు కావలసి "
+"రావచ్చును."
 
-#: ../gui/browser.glade.h:18
-msgid "Report"
-msgstr "ఫిర్యాదు"
-
-#: ../gui/browser.glade.h:19
+#: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
 msgstr "SELinux అప్రమత్తతా విహరిణి"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot అప్రమత్త జాబితా"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot అప్రమత్త జాబితా"
+
+#: ../gui/browser.glade.h:25
 msgid "Show next alert."
 msgstr "తరువాత అప్రమత్తతను చూపుము."
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr "క్రితం అప్రమత్తతను చూపుము."
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "మూలం క్రమణం"
+
+#: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "సమస్యాపరిష్కారం"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "SETroubleshoot అప్రమత్త జాబితా"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr "అప్రమత్తత పాప్-అప్సును ఆఫ్ చేయుము."
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr "అప్రమత్తత పాప్-ఆప్సును ఆన్ చేయుము."
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr "మీరు అప్రమత్తతసును స్వీకరించుటకు యిష్టపడతారా?"
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr "అవును"
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr "లేబుల్"
 
@@ -812,7 +808,8 @@ msgstr ""
 "విడిచిపెట్టుటకు దానిని సవరించుము."
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
-msgid "This operation was completed.  The quick brown fox jumped over the lazy dog."
+msgid ""
+"This operation was completed.  The quick brown fox jumped over the lazy dog."
 msgstr "ఆపరేషన్ పూర్తైనది.  The quick brown fox jumped over the lazy dog."
 
 #: ../gui/success_dialog.glade.h:1
@@ -822,6 +819,90 @@ msgstr "సఫలం!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "బటన్"
+
+#~ msgid "Error while checking policy version."
+#~ msgstr "పాలసీ వర్షన్ పరిశీలించుటలో దోషము."
+
+#~ msgid ""
+#~ "There is a newer version of policy available.  Updating your policy may "
+#~ "fix the denial that you having problems with."
+#~ msgstr ""
+#~ "అక్కడ కొత్త వర్షన్ పాలసీ అందుబాటులో వున్నది.  మీరు తిరస్కరణతో యెదుర్కొనుచున్న సమస్యలను ఈ పాలసీ "
+#~ "నవీకరణ పరిష్కరించవచ్చును."
+
+#~ msgid "Newest Version"
+#~ msgstr "సరికొత్త వర్షన్"
+
+#~ msgid "Update Policy"
+#~ msgstr "పాలసీను నవీకరించుము"
+
+#~ msgid "Edit Status"
+#~ msgstr "సరిచేయు స్థితి"
+
+#~ msgid "(removed)"
+#~ msgstr "(తీసివేయబడెను)"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "Setroubleshoot ఈమెయిల్ అభీష్టాలు"
+
+#~ msgid "Add"
+#~ msgstr "జతచేయి"
+
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "ఎవరికైతే అప్రమత్తాలు పంపబడతాయో వారియొక్క ఈమెయిల్ చిరునామాల\n"
+#~ "జాబితా.\n"
+#~ "\n"
+#~ "ఈమెయిల్ చిరునామాను జతచేయుటకు చిరునామాను ఇన్‌పుట్ బాక్స్‍‌నందు\n"
+#~ "ప్రవేశపెట్టుము మరియు జతచేయి బటన్ నొక్కుము. నకలీ చిరునామాలు\n"
+#~ "అనుమతించబడవు.\n"
+#~ "\n"
+#~ "ఒకటి లేదా అంతకన్నా ఎక్కువ ఈమెయిల్ చిరునామాలను తొలగించుటకు\n"
+#~ "జాబితానందలి చిరునామాలను ఎంపికచేసి తొలగించు బటన్ నొక్కుము లేదా\n"
+#~ "తొలగించు కీను ఉపయోగించుము. లేదా మీరు చిరునామాను సరికూర్చి దాని విలవ చెరపవచ్చు.\n"
+#~ "\n"
+#~ "చిరునామాను సరికూర్చుటకు చిరునామాపై నొక్కి సరికూర్చుట ప్రారంభించండి.\n"
+#~ "\n"
+#~ "వేరొకవిధంగా జాబితాను క్రమపరుచుటకు నిలువువరుస హెడ్డింగ్ పై నొక్కుము.\n"
+#~ "\n"
+#~ "వడపోత ఐచ్చికాన్ని మార్చుటకు వడపోత రకముపై నొక్కుము మరియు జాబితానుండి\n"
+#~ "తీసుకొనుము. ఆ వడపోత ఈ ఈమెయిల్ చిరునామాకొరకు అన్ని అప్రమత్తతలకు\n"
+#~ "ఆపాదించబడుతుంది.\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "వడపోత రకము"
+
+#~ msgid "Email Address"
+#~ msgstr "ఈమెయిల్ చిరునామా"
+
+#~ msgid "Access:"
+#~ msgstr "యాక్సెస్:"
+
+#~ msgid "Do not show alert message, when this alert is triggered."
+#~ msgstr "అప్రమత్తత సందేశమును చూపవద్దు, యీ అప్రమత్తత నొక్కినప్పుడు."
+
+#~ msgid "Report"
+#~ msgstr "ఫిర్యాదు"
 
 #~ msgid "Copy to Clipboard"
 #~ msgstr "క్లిప్‌బోర్డునకు నకలుతీయుము"
@@ -890,9 +971,6 @@ msgstr "బటన్"
 #~ msgid "Fix Command"
 #~ msgstr "ఆదేశాన్ని ఫిక్స్‍‌చేయి"
 
-#~ msgid "Plugin Name"
-#~ msgstr "ప్లగ్ఇన్ నామము"
-
 #~ msgid "Line Numbers"
 #~ msgstr "వరుస సంఖ్యలు"
 
@@ -932,9 +1010,6 @@ msgstr "బటన్"
 
 #~ msgid "Copy full error output to clipboard."
 #~ msgstr "దోషము పూర్తి అవుట్పుట్‌ను క్లిప్‌బోర్డునకు నకలుతీయుము."
-
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "భవిష్యత్తులో ఈ SELinux రక్షణ హెచ్చరికను వదిలివేయుము."
 
 #~ msgid "Next"
 #~ msgstr "తరువాతి"

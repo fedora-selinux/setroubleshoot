@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2010-02-28 19:15+0100\n"
 "Last-Translator: Bruce Cowan <bcowan@fastmail.co.uk>\n"
 "Language-Team: British English <en@li.org>\n"
@@ -25,24 +25,24 @@ msgstr "SELinux Troubleshooter"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Troubleshoot SELinux access denials"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr ""
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "Unknown"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
@@ -50,185 +50,140 @@ msgid ""
 "dontaudit rules. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr ""
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr ""
 
-#: ../src/browser.py:225
-#, fuzzy
-msgid "Error while checking policy version."
-msgstr "<small><b>Error while trying to check policy version.</b></small>"
-
-#: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr ""
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr ""
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 #, fuzzy
 msgid "Source Process"
 msgstr "Source RPM Packages"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr ""
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr ""
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+msgid "Occurred"
 msgstr ""
 
-#: ../src/browser.py:250
-#, fuzzy
-msgid "Edit Status"
+#: ../src/browser.py:255 ../src/run_cmd.py:417
+msgid "Status"
 msgstr "Status"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
 msgstr ""
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+#, fuzzy
+msgid "Ignore"
+msgstr "Never Ignore"
+
+#: ../src/browser.py:368
+msgid "<b>If you were trying to...</b>"
 msgstr ""
 
-#: ../src/browser.py:387
+#: ../src/browser.py:378
+msgid "<b>Then this is the solution.</b>"
+msgstr ""
+
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr ""
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+msgid ""
+"Plugin\n"
+"Details"
+msgstr ""
+
+#: ../src/browser.py:488
 #, fuzzy
 msgid ""
 "Report\n"
 "Bug"
 msgstr "_Report this Bug..."
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "Plugin Name"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr "Unable to grant access."
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr ""
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
+#: ../src/browser.py:729
+#, python-format
+msgid "On this %s:"
 msgstr ""
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr ""
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+#, fuzzy
+msgid "No Alerts"
+msgstr "Ignore Alert"
+
+#: ../src/browser.py:843
+msgid "SELinux has detected a problem."
+msgstr ""
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr "Sealert Error"
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 msgid "Sealert Message"
 msgstr "Sealert Message"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "Setroubleshoot E-mail Preferences"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "Add"
-
-#: ../src/email_dialog.py:114
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an e-mail address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more e-mail addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"e-mail address.\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "Filter Type"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "E-mail Address"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -309,16 +264,16 @@ msgid "user lookup failed"
 msgstr "user lookup failed"
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "Help"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Oops, %s hit an error!"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "Error"
 
@@ -356,10 +311,6 @@ msgstr "Run Command"
 msgid "Stop Command"
 msgstr "Stop Command"
 
-#: ../src/run_cmd.py:417
-msgid "Status"
-msgstr "Status"
-
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr "Warning: You are responsible for verifying this command is correct"
@@ -390,25 +341,25 @@ msgstr "Failed, exit status = %d"
 msgid "Done: "
 msgstr "Done: "
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " For complete SELinux messages. run sealert -l %s"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "The user (%s) cannot modify data for (%s)"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "Started"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "Audit Listener"
 
@@ -469,17 +420,102 @@ msgstr ""
 msgid "capability"
 msgstr ""
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s has a permissive type (%s). This access was not denied."
 
-#: ../src/signature.py:385
+#: ../src/signature.py:384
 #, fuzzy
-msgid "SEinux is in permissive mode. This access was not denied."
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux is in permissive mode. This access was not denied."
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "Additional Information"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "Source Context"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "Target Context"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "Target Objects"
+
+#: ../src/signature.py:473
+msgid "Source"
+msgstr "Source"
+
+#: ../src/signature.py:474
+msgid "Source Path"
+msgstr "Source Path"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "Port"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "Host"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "Source RPM Packages"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "Target RPM Packages"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "Policy RPM"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "Selinux Enabled"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "Policy Type"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "Enforcing Mode"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "Host Name"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "Platform"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "Alert Count"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "First Seen"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "Last Seen"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "Local ID"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "Raw Audit Messages"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -487,107 +523,37 @@ msgid ""
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
 msgstr ""
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
 msgstr ""
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
 msgstr ""
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "Additional Information"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "Source Context"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "Target Context"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "Target Objects"
-
-#: ../src/signature.py:485
-msgid "Source"
-msgstr "Source"
-
-#: ../src/signature.py:486
-msgid "Source Path"
-msgstr "Source Path"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "Port"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "Host"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "Source RPM Packages"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "Target RPM Packages"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "Policy RPM"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "Selinux Enabled"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "Policy Type"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "Enforcing Mode"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "Host Name"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "Platform"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "Alert Count"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "First Seen"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "Last Seen"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "Local ID"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "Raw Audit Messages"
+#: ../src/signature.py:553
+msgid ""
+"\n"
+"\n"
+msgstr ""
 
 #: ../src/updater.py:18
 #, python-format
@@ -599,28 +565,28 @@ msgstr ""
 msgid "newer: %s "
 msgstr ""
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 msgid "New SELinux security alert"
 msgstr "New SELinux security alert"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC denial, click icon to view"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr "Dismiss"
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr "Show"
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC denial, click to view"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
 
@@ -652,9 +618,8 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr ""
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
-msgid "Access:"
-msgstr "Success"
+msgid "Attempted this access:"
+msgstr ""
 
 #: ../gui/browser.glade.h:3
 #, fuzzy
@@ -672,91 +637,108 @@ msgstr ""
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
-msgid "Delete current alert from the database."
+msgid "Delete Selected Alerts"
 msgstr ""
 
 #: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
+msgid "Delete current alert from the database."
 msgstr ""
 
 #: ../gui/browser.glade.h:11
-msgid "Email alert to system administrator."
+msgid "Details"
 msgstr ""
 
 #: ../gui/browser.glade.h:12
-#, fuzzy
-msgid "Ignore"
-msgstr "Never Ignore"
+msgid "Email alert to system administrator."
+msgstr ""
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "Ignore this SELinux Security Alert in the future."
+
+#: ../gui/browser.glade.h:15
 #, fuzzy
 msgid "List All Alerts"
 msgstr "Delete _All Alerts"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr ""
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 msgid "No"
 msgstr ""
 
-#: ../gui/browser.glade.h:16
-#, fuzzy
-msgid "No Alerts"
-msgstr "Ignore Alert"
+#: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
 
-#: ../gui/browser.glade.h:17
+#: ../gui/browser.glade.h:20
+msgid "On this file:"
+msgstr ""
+
+#: ../gui/browser.glade.h:21
 msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
+"Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
 
-#: ../gui/browser.glade.h:18
-#, fuzzy
-msgid "Report"
-msgstr "_Report this Bug..."
-
-#: ../gui/browser.glade.h:19
+#: ../gui/browser.glade.h:22
 #, fuzzy
 msgid "SELinux Alert Browser"
 msgstr "SELinux Security Alerts"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot Alert List"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot Alert List"
+
+#: ../gui/browser.glade.h:25
 #, fuzzy
 msgid "Show next alert."
 msgstr "Delete alert."
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr ""
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "Source RPM Packages"
+
+#: ../gui/browser.glade.h:28
 #, fuzzy
 msgid "Troubleshoot"
 msgstr "SELinux Troubleshooter"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "SETroubleshoot Alert List"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr ""
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr ""
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr ""
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr ""
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr ""
 
@@ -797,6 +779,75 @@ msgstr "Success!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "button"
+
+#, fuzzy
+#~ msgid "Error while checking policy version."
+#~ msgstr "<small><b>Error while trying to check policy version.</b></small>"
+
+#, fuzzy
+#~ msgid "Edit Status"
+#~ msgstr "Status"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "Setroubleshoot E-mail Preferences"
+
+#~ msgid "Add"
+#~ msgstr "Add"
+
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an e-mail address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more e-mail addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "e-mail address.\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "Filter Type"
+
+#~ msgid "Email Address"
+#~ msgstr "E-mail Address"
+
+#, fuzzy
+#~ msgid "Access:"
+#~ msgstr "Success"
+
+#, fuzzy
+#~ msgid "Report"
+#~ msgstr "_Report this Bug..."
 
 #, fuzzy
 #~ msgid "Copy to Clipboard"
@@ -863,9 +914,6 @@ msgstr "button"
 #~ msgid "Fix Command"
 #~ msgstr "Fix Command"
 
-#~ msgid "Plugin Name"
-#~ msgstr "Plugin Name"
-
 #~ msgid "Line Numbers"
 #~ msgstr "Line Numbers"
 
@@ -905,9 +953,6 @@ msgstr "button"
 
 #~ msgid "Copy full error output to clipboard."
 #~ msgstr "Copy full error output to clipboard."
-
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "Ignore this SELinux Security Alert in the future."
 
 #~ msgid "Next"
 #~ msgstr "Next"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: abrt.master.kn\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2011-01-10 17:56+0530\n"
 "Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
 "Language-Team: kn_IN <kde-i18n-doc@kde.org>\n"
@@ -26,17 +26,17 @@ msgstr "SELinux ತೊಂದರೆನಿವಾರಕ"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux ತೊಂದರೆನಿವಾರಕದ ನಿಲುಕಣಾ ನಿರಾಕರಣೆಗಳು"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr "ಸಂಪರ್ಕಸ್ಥಾನ %s"
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "ಅಜ್ಞಾತ"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
@@ -45,7 +45,7 @@ msgstr ""
 "%s \n"
 "**** ಪ್ರಸಕ್ತ ಪಾಲಿಸಿಯಲ್ಲಿ ಅಮಾನ್ಯವಾದ AVC ಗೆ ಅನುಮತಿ ಇದೆ ***\n"
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
@@ -54,14 +54,13 @@ msgid ""
 msgstr ""
 "%s \n"
 "**** ಪ್ರಸಕ್ತ ಪಾಲಿಸಿಯಲ್ಲಿ ಅಮಾನ್ಯವಾದ AVC ಗೆ donotaudited ಇದೆ.  'semodule -B' "
-"ಎನ್ನುವುದು "
-"dontaudit ನಿಯಮಗಳಲ್ಲಿ ಆನ್ ಆಗುತ್ತದೆ. ***\n"
+"ಎನ್ನುವುದು dontaudit ನಿಯಮಗಳಲ್ಲಿ ಆನ್ ಆಗುತ್ತದೆ. ***\n"
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr "policy_init ಅನ್ನು ಮೊದಲು ಕರೆಯಬೇಕು"
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
@@ -70,7 +69,7 @@ msgstr ""
 "%s \n"
 "**** ಅಮಾನ್ಯವಾದ AVC ಸರಿಯಲ್ಲದ ನಿರ್ದೇಶಿತ ಸನ್ನಿವೇಶ. ***\n"
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
@@ -79,7 +78,7 @@ msgstr ""
 "%s \n"
 "**** ಅಮಾನ್ಯವಾದ AVC ಸರಿಯಲ್ಲದ ಆಕರ ಸನ್ನಿವೇಶ. ***\n"
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
@@ -88,7 +87,7 @@ msgstr ""
 "%s \n"
 "**** ಅಮಾನ್ಯವಾದ AVC ಸರಿಯಲ್ಲದ ಪ್ರಕಾರದ ವರ್ಗ ***\n"
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
@@ -97,67 +96,65 @@ msgstr ""
 "%s \n"
 "**** ಅಮಾನ್ಯವಾದ AVC ಸರಿಯಲ್ಲದ ಅನುಮತಿ ***\n"
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr "ವೆಕ್ಟರ್ ಕಂಪ್ಯೂಟೇಶನ್ ಅನ್ನು ನಿಲುಕಿಸಿಕೊಳ್ಳುವಾಗ ದೋಷ ಉಂಟಾಗಿದೆ"
 
-#: ../src/browser.py:225
-msgid "Error while checking policy version."
-msgstr "ಪಾಲಿಸಿ ಆವೃತ್ತಿಯನ್ನು ಪರಿಶೀಲಿಸಲು ಪ್ರಯತ್ನಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ."
-
-#: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-"ಪಾಲಿಸಿಯ ಹೊಸ ಆವೃತ್ತಿಯು ಲಭ್ಯವಿದೆ. ನಿಮ್ಮ ಪಾಲಿಸಿಯನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡುವುದರಿಂದ, "
-"ನಿರಾಕರಣೆಯಿಂದ ನಿಮಗೆ ಉಂಟಾಗುತ್ತಿರುವ ತೊಂದರೆಯು ಸರಿಹೊಂದುವ ಸಾಧ್ಯತೆ ಇದೆ."
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr "ಇತ್ತೀಚಿನ ಆವೃತ್ತಿ"
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr "ಅಪ್‌ಡೇಟ್ ನಿಯಮ"
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Source Process"
 msgstr "ಆಕರ  ಪ್ರಕ್ರಿಯೆ"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr "ಪ್ರಯತ್ನಿಸಿದಾಗ ಯಶಸ್ವಿ"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr "ಇಲ್ಲಿ"
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+#, fuzzy
+msgid "Occurred"
 msgstr "ಸಂಭವಿಸಿದ್ದು"
 
-#: ../src/browser.py:250
-msgid "Edit Status"
-msgstr "ಸ್ಥಿತಿಯನ್ನು ಸಂಪಾದಿಸಿ"
+#: ../src/browser.py:255 ../src/run_cmd.py:417
+msgid "Status"
+msgstr "ಸ್ಥಿತಿ"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
+msgstr ""
+
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+msgid "Ignore"
+msgstr "ಆಲಕ್ಷಿಸು"
+
+#: ../src/browser.py:368
+#, fuzzy
+msgid "<b>If you were trying to...</b>"
 msgstr "ನೀವು ಇದನ್ನು ಪ್ರಯತ್ನಿಸುತ್ತಿದ್ದಲ್ಲಿ..."
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:378
+#, fuzzy
+msgid "<b>Then this is the solution.</b>"
 msgstr "ಹಾಗಿದ್ದರೆ ಪರಿಹಾರ ಇದಾಗಿರುತ್ತದೆ."
 
-#: ../src/browser.py:387
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr "ಎಲ್ಲಿಯಾದರೂ "
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+#, fuzzy
+msgid ""
+"Plugin\n"
+"Details"
+msgstr "<b>ಪ್ಲಗ್‌ಇನ್ ವಿವರಗಳು</b>"
+
+#: ../src/browser.py:488
 msgid ""
 "Report\n"
 "Bug"
@@ -165,85 +162,45 @@ msgstr ""
 "ದೋಷವನ್ನು\n"
 "ವರದಿ ಮಾಡು"
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "ಪ್ಲಗ್ಇನ್ ಹೆಸರು"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr "ಅನುಮತಿಯನ್ನು ನೀಡಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ."
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr "%d ನ ಎಚ್ಚರಿಕೆ, %d ನಲ್ಲಿ"
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
-msgstr "(ತೆಗೆದು ಹಾಕಲಾಗಿದೆ)"
+#: ../src/browser.py:729
+#, fuzzy, python-format
+msgid "On this %s:"
+msgstr "ಇಲ್ಲಿ"
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr "ಅನ್ವಯಿಸದ"
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+msgid "No Alerts"
+msgstr "ಯಾವುದೆ ಎಚ್ಚರಿಕೆಗಳಿಲ್ಲ"
+
+#: ../src/browser.py:843
+#, fuzzy
+msgid "SELinux has detected a problem."
+msgstr "<b>SELinux ಗೆ ಒಂದು ತೊಂದರೆ ಕಂಡು ಬಂದಿದೆ.</b>"
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr "Sealert ದೋಷ"
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 msgid "Sealert Message"
 msgstr "Sealert ಸಂದೇಶಗಳು"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "setroubleshoot ಇಮೈಲ್ ಆದ್ಯತೆಗಳು"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "ಸೇರಿಸು"
-
-#: ../src/email_dialog.py:114
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"ಎಚ್ಚರಿಕೆಗಳು ಕಳುಹಿಸಲ್ಪಡುವ ಇಮೈಲ್ ವಿಳಾಸಗಳ ಒಂದು ಪಟ್ಟಿ.\n"
-"\n"
-"ಒಂದು ಇಮೈಲ್ ವಿಳಾಸವನ್ನು ಸೇರಿಸಲು ವಿಳಾಸವನ್ನು ಆದಾನ ಪೆಟ್ಟಿಗೆಯಲ್ಲಿ ನಮೂದಿಸಿ\n"
-"ಹಾಗು ಸೇರಿಸು ಗುಂಡಿಯನ್ನು ಕ್ಲಿಕ್ಕಿಸಿ. ಒಂದೇ ಬಗೆಯ ಎರಡು ಅಥವ ಹೆಚ್ಚಿನ \n"
-"ವಿಳಾಸಗಳಿಗೆ ಅನುಮತಿ ಇಲ್ಲ.\n"
-"\n"
-"ಒಂದು ಅಥವ ಹೆಚ್ಚಿನ ಇಮೈಲ್ ವಿಳಾಸವನ್ನು ಅಳಿಸಲು ಪಟ್ಟಿಯಿಂದ ವಿಳಾಸಗಳನ್ನು ಆಯ್ಕೆ \n"
-"ಮಾಡಿ ಹಾಗು ಅಳಿಸು ಗುಂಡಿಯನ್ನು ಒತ್ತಿ ಅಥವ ಡಿಲೀಟ್ ಕೀಲಿಯನ್ನು ಬಳಸಿ\n"
-"\n"
-"ಅಥವ ನೀವು ವಿಳಾಸವನ್ನು ಸಂಪಾದಿಸಿ ಅದರ ಮೌಲ್ಯವನ್ನು ತೆರವುಗೊಳಿಸಬಹುದು.\n"
-"\n"
-"ಒಂದು ವಿಳಾಸವನ್ನು ಸಂಪಾದಿಸಲು ಆ ವಿಳಾಸವನ್ನು ಕ್ಲಿಕ್ಕಿಸಿ.\n"
-"\n"
-"ಪಟ್ಟಿಯನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ವಿಂಗಡಿಸಲು ಕಾಲಂನ ಶೀರ್ಷಿಕೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ಕಿಸ್.\n"
-"\n"
-"ಶೋಧನೆಯ ಆಯ್ಕೆಯನ್ನು ಬದಲಾಯಿಸಲು ಶೋಧಕದ ಬಗೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ಕಿಸಿ ಹಾಗು\n"
-"ಅದನ್ನು ಪಟ್ಟಿಯಿಂದ ಆರಿಸಿ. ಈ ಇಮೈಲ್ ವಿಳಾಸಕ್ಕಾಗಿನ ಎಲ್ಲಾ ಎಚ್ಚರಿಕೆಗಳಿಗೆ ಈ ಶೋಧಕವು "
-"ಅನ್ವಯಿಸಲ್ಪಡುತ್ತದೆ.\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "ಶೋಧಕದ ಬಗೆ"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "ಇ-ಮೈಲ್ ವಿಳಾಸ"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -324,16 +281,16 @@ msgid "user lookup failed"
 msgstr "ಬಳಕೆದಾರ ನೋಡುವಿಕೆಯು ವಿಫಲಗೊಂಡಿದೆ"
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "ನೆರವು"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "ಅಯ್ಯೋ, %s ಕ್ಕೆ ಒಂದು ದೋಷ ಎದುರಾಗಿದೆ!"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "ದೋಷ"
 
@@ -373,10 +330,6 @@ msgstr "ಆಜ್ಞೆಯನ್ನು ಚಲಾಯಿಸು"
 msgid "Stop Command"
 msgstr "ಆಜ್ಞೆಯನ್ನು ನಿಲ್ಲಿಸು"
 
-#: ../src/run_cmd.py:417
-msgid "Status"
-msgstr "ಸ್ಥಿತಿ"
-
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr "ಎಚ್ಚರಿಕೆ: ಈ ಆಜ್ಞೆಯು ಸರಿ ಇದೆಯೆ ಎಂದು ಪರಿಶೀಲಿಸುವ ಜವಾಬ್ದಾರಿಯು ನಿಮ್ಮ ಮೇಲಿದೆ"
@@ -407,25 +360,25 @@ msgstr "ವಿಫಲಗೊಂಡಿದೆ, ನಿರ್ಗಮನ ಸ್ಥಿತ
 msgid "Done: "
 msgstr "ಆಯಿತು: "
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " ಸಂಪೂರ್ಣ SELinux ಸಂದೇಶಗಳಿಗಾಗಿ. sealert -l %s ಅನ್ನು ಚಲಾಯಿಸಿ"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "ಬಳಕೆದಾರ (%s) ನು (%s) ಗಾಗಿ ದತ್ತಾಂಶವನ್ನು ಮಾರ್ಪಡಿಸಲಾಗುವುದಿಲ್ಲ"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "ಆರಂಭಗೊಂಡಿದೆ"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "ಆಡಿಟ್ ಆಲಿಸುವವ"
 
@@ -485,17 +438,103 @@ msgstr "ನೋಡ್"
 msgid "capability"
 msgstr "ಸಾಮರ್ಥ್ಯ"
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr ""
 "%s ಅನುಮತಿ ಪೂರ್ವಕವಾದ ಬಗೆಯನ್ನು ಹೊಂದಿದೆ (%s). ಈ ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಲಾಗಿರಲಿಲ್ಲ."
 
-#: ../src/signature.py:385
-msgid "SEinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:384
+#, fuzzy
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux ಅನುಮತಿಪೂರ್ವಕ ಕ್ರಮದಲ್ಲಿದೆ. ಈ ಅನುಮತಿಯನ್ನು ನಿರಾಕರಿಸಲಾಗಿರಲಿಲ್ಲ."
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "ಆಕರ ಸನ್ನಿವೇಶ"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "ಉದ್ದೇಶಿತ ಸನ್ನಿವೇಶ"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "ಉದ್ದೇಶಿತ ವಸ್ತುಗಳು"
+
+#: ../src/signature.py:473
+msgid "Source"
+msgstr "ಆಕರ"
+
+#: ../src/signature.py:474
+msgid "Source Path"
+msgstr "ಆಕರ ಪಥ"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "ಸಂಪರ್ಕಸ್ಥಾನ"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "ಅತಿಥೇಯ"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "ಆಕರ RPM ಪ್ಯಾಕೇಜ್‍ಗಳು"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "ಉದ್ದೇಶಿತ RPM ಪ್ಯಾಕೇಜ್‍ಗಳು"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "ಪಾಲಿಸಿ RPM"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "Selinux ಶಕ್ತಗೊಂಡ"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "ಪಾಲಿಸಿಯ ಬಗೆ"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "ಒತ್ತಾಯಪೂರ್ವಕ ಕ್ರಮ"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "ಅತಿಥೇಯದ ಹೆಸರು"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "ಪ್ಲಾಟ್‍ಫಾರ್ಮ್"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "ಎಚ್ಚರಿಕೆಗಳ ಲೆಕ್ಕ"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "ಮೊದಲು ನೋಡಿದ"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "ಕಡೆಯ ಬಾರಿಗೆ ನೋಡಿದ"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "ಸ್ಥಳೀಯ ಐಡಿ"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "ಕಚ್ಛಾ ಆಡಿಟ್ ಸಂದೇಶಗಳು"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -506,7 +545,15 @@ msgstr ""
 "\n"
 "*****  %s (%.4s confidence) ಎಂಬ ಪ್ಲಗ್‌ಇನ್ ಇದನ್ನು ಸಲಹೆ ಮಾಡುತ್ತದೆ "
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
@@ -514,7 +561,7 @@ msgstr ""
 "\n"
 "ಎಲ್ಲಿಯಾದರೂ "
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
@@ -522,7 +569,7 @@ msgstr ""
 "\n"
 "ಆದರೆ "
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
@@ -530,89 +577,14 @@ msgstr ""
 "\n"
 "ಹೀಗೆ ಮಾಡು\n"
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "ಹೆಚ್ಚುವರಿ ಮಾಹಿತಿ"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "ಆಕರ ಸನ್ನಿವೇಶ"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "ಉದ್ದೇಶಿತ ಸನ್ನಿವೇಶ"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "ಉದ್ದೇಶಿತ ವಸ್ತುಗಳು"
-
-#: ../src/signature.py:485
-msgid "Source"
-msgstr "ಆಕರ"
-
-#: ../src/signature.py:486
-msgid "Source Path"
-msgstr "ಆಕರ ಪಥ"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "ಸಂಪರ್ಕಸ್ಥಾನ"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "ಅತಿಥೇಯ"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "ಆಕರ RPM ಪ್ಯಾಕೇಜ್‍ಗಳು"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "ಉದ್ದೇಶಿತ RPM ಪ್ಯಾಕೇಜ್‍ಗಳು"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "ಪಾಲಿಸಿ RPM"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "Selinux ಶಕ್ತಗೊಂಡ"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "ಪಾಲಿಸಿಯ ಬಗೆ"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "ಒತ್ತಾಯಪೂರ್ವಕ ಕ್ರಮ"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "ಅತಿಥೇಯದ ಹೆಸರು"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "ಪ್ಲಾಟ್‍ಫಾರ್ಮ್"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "ಎಚ್ಚರಿಕೆಗಳ ಲೆಕ್ಕ"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "ಮೊದಲು ನೋಡಿದ"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "ಕಡೆಯ ಬಾರಿಗೆ ನೋಡಿದ"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "ಸ್ಥಳೀಯ ಐಡಿ"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "ಕಚ್ಛಾ ಆಡಿಟ್ ಸಂದೇಶಗಳು"
+#: ../src/signature.py:553
+#, fuzzy
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"ಹೀಗೆ ಮಾಡು\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -624,32 +596,31 @@ msgstr "ಪ್ರಸಕ್ತ: %s "
 msgid "newer: %s "
 msgstr "ಹೊಸತು: %s "
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 msgid "New SELinux security alert"
 msgstr "ಹೊಸ SELinux ಸುರಕ್ಷತಾ ಎಚ್ಚರಿಕೆ"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC ನಿರಾಕರಣೆ, ನೋಡಲು ಚಿಹ್ನೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ಕಿಸಿ"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr "ವಜಾಗೊಳಿಸು"
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr "ತೋರಿಸು"
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC ನಿರಾಕರಣೆ, ನೋಡಲು ಕ್ಲಿಕ್ಕಿಸಿ"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
-"SELinux ಅನ್ನು ಶಕ್ತಗೊಂಡಿಲ್ಲ, SELinux ಅಲ್ಲದ ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿ sealert "
-"ಚಲಾಯಿತಗೊಳ್ಳುವುದಿಲ್ಲ"
+"SELinux ಅನ್ನು ಶಕ್ತಗೊಂಡಿಲ್ಲ, SELinux ಅಲ್ಲದ ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿ sealert ಚಲಾಯಿತಗೊಳ್ಳುವುದಿಲ್ಲ"
 
 #: ../src/sealert:154
 msgid "Not fixable."
@@ -679,8 +650,9 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux ಗೆ ಒಂದು ತೊಂದರೆ ಕಂಡು ಬಂದಿದೆ.</b>"
 
 #: ../gui/browser.glade.h:2
-msgid "Access:"
-msgstr "ನಿಲುಕಣೆ:"
+#, fuzzy
+msgid "Attempted this access:"
+msgstr "ಪ್ರಯತ್ನಿಸಿದಾಗ ಯಶಸ್ವಿ"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -697,86 +669,108 @@ msgstr ""
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
+msgid "Delete Selected Alerts"
+msgstr ""
+
+#: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
 msgstr "ಪ್ರಸಕ್ತ ಎಚ್ಚರಿಕೆಯನ್ನು ದತ್ತಸಂಚಯದಿಂದ ಅಳಿಸಿಹಾಕು."
 
-#: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
-msgstr "ಈ ಎಚ್ಚರಿಕೆಯು ಟ್ರಿಗರ್ ಆದಾಗ ಎಚ್ಚರಿಕೆ ಸಂದೇಶವನ್ನು ತೋರಿಸಬೇಡ."
-
 #: ../gui/browser.glade.h:11
+msgid "Details"
+msgstr "ವಿವರಗಳು"
+
+#: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
 msgstr "ಎಚ್ಚರಿಕೆಯನ್ನು ವ್ಯವಸ್ಥೆಯ ನಿರ್ವಾಹಕರಿಗೆ ಕಳುಹಿಸು."
 
-#: ../gui/browser.glade.h:12
-msgid "Ignore"
-msgstr "ಆಲಕ್ಷಿಸು"
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "ಭವಿಷ್ಯದಲ್ಲಿ ಈ SELinux ಸುರಕ್ಷತಾ ಎಚ್ಚರಿಕೆಯನ್ನು ಕಡೆಗಣಿಸು."
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:15
 msgid "List All Alerts"
 msgstr "ಎಲ್ಲಾ ಎಚ್ಚರಿಕೆಗಳ ಪಟ್ಟಿ"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr "ಎಲ್ಲಾ ಎಚ್ಚರಿಕೆಗಳನ್ನು ದತ್ತಸಂಚಯದಲ್ಲಿ ಪಟ್ಟಿ ಮಾಡು."
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "ಇಲ್ಲ"
 
-#: ../gui/browser.glade.h:16
-msgid "No Alerts"
-msgstr "ಯಾವುದೆ ಎಚ್ಚರಿಕೆಗಳಿಲ್ಲ"
+#: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
 
-#: ../gui/browser.glade.h:17
+#: ../gui/browser.glade.h:20
+#, fuzzy
+msgid "On this file:"
+msgstr "ಇಲ್ಲಿ"
+
+#: ../gui/browser.glade.h:21
+#, fuzzy
 msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
+"Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
 "ಎಚ್ಚರಿಕೆ ತೊಂದರೆ ನಿವಾರಣೆ ಮಾಹಿತಿಯನ್ನು ತೋರಿಸು.  ಇದಕ್ಕೆ ನಿರ್ವಾಹಕ ಅಧಿಕಾರಗಳ ಅಗತ್ಯ "
 "ಬೀಳಬಹುದು."
 
-#: ../gui/browser.glade.h:18
-msgid "Report"
-msgstr "ವರದಿ ಮಾಡು"
-
-#: ../gui/browser.glade.h:19
+#: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
 msgstr "SELinux ಎಚ್ಚರಿಕೆಯ ವೀಕ್ಷಕ"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "SEtroubleshoot ಎಚ್ಚರಿಕೆ ಪಟ್ಟಿ"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SEtroubleshoot ಎಚ್ಚರಿಕೆ ಪಟ್ಟಿ"
+
+#: ../gui/browser.glade.h:25
 msgid "Show next alert."
 msgstr "ಮುಂದಿನ ಎಚ್ಚರಿಕೆಯನ್ನು ತೋರಿಸು."
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr "ಹಿಂದಿನ ಎಚ್ಚರಿಕೆಯನ್ನು ತೋರಿಸು."
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "ಆಕರ  ಪ್ರಕ್ರಿಯೆ"
+
+#: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "ತೊಂದರೆನಿವಾರಣೆ"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "SEtroubleshoot ಎಚ್ಚರಿಕೆ ಪಟ್ಟಿ"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr "ಎಚ್ಚರಿಕೆ ಪುಟಿಕೆಗಳನ್ನು ಆಫ್‌ ಮಾಡು."
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr "ಎಚ್ಚರಿಕೆ ಪುಟಿಕೆಗಳನ್ನು ಆನ್ ಮಾಡು."
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr "ನೀವು ಎಚ್ಚರಿಕೆಗಳನ್ನು ಪಡೆಯಲು ಬಯಸುತ್ತೀರೆ?"
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr "ಹೌದು"
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr "ಲೇಬಲ್"
 
@@ -818,6 +812,90 @@ msgstr "ಯಶಸ್ವಿಯಾಗಿದೆ!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "ಗುಂಡಿ"
+
+#~ msgid "Error while checking policy version."
+#~ msgstr "ಪಾಲಿಸಿ ಆವೃತ್ತಿಯನ್ನು ಪರಿಶೀಲಿಸಲು ಪ್ರಯತ್ನಿಸುವಾಗ ದೋಷ ಕಂಡುಬಂದಿದೆ."
+
+#~ msgid ""
+#~ "There is a newer version of policy available.  Updating your policy may "
+#~ "fix the denial that you having problems with."
+#~ msgstr ""
+#~ "ಪಾಲಿಸಿಯ ಹೊಸ ಆವೃತ್ತಿಯು ಲಭ್ಯವಿದೆ. ನಿಮ್ಮ ಪಾಲಿಸಿಯನ್ನು ಅಪ್‌ಡೇಟ್ ಮಾಡುವುದರಿಂದ, "
+#~ "ನಿರಾಕರಣೆಯಿಂದ ನಿಮಗೆ ಉಂಟಾಗುತ್ತಿರುವ ತೊಂದರೆಯು ಸರಿಹೊಂದುವ ಸಾಧ್ಯತೆ ಇದೆ."
+
+#~ msgid "Newest Version"
+#~ msgstr "ಇತ್ತೀಚಿನ ಆವೃತ್ತಿ"
+
+#~ msgid "Update Policy"
+#~ msgstr "ಅಪ್‌ಡೇಟ್ ನಿಯಮ"
+
+#~ msgid "Edit Status"
+#~ msgstr "ಸ್ಥಿತಿಯನ್ನು ಸಂಪಾದಿಸಿ"
+
+#~ msgid "(removed)"
+#~ msgstr "(ತೆಗೆದು ಹಾಕಲಾಗಿದೆ)"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "setroubleshoot ಇಮೈಲ್ ಆದ್ಯತೆಗಳು"
+
+#~ msgid "Add"
+#~ msgstr "ಸೇರಿಸು"
+
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "ಎಚ್ಚರಿಕೆಗಳು ಕಳುಹಿಸಲ್ಪಡುವ ಇಮೈಲ್ ವಿಳಾಸಗಳ ಒಂದು ಪಟ್ಟಿ.\n"
+#~ "\n"
+#~ "ಒಂದು ಇಮೈಲ್ ವಿಳಾಸವನ್ನು ಸೇರಿಸಲು ವಿಳಾಸವನ್ನು ಆದಾನ ಪೆಟ್ಟಿಗೆಯಲ್ಲಿ ನಮೂದಿಸಿ\n"
+#~ "ಹಾಗು ಸೇರಿಸು ಗುಂಡಿಯನ್ನು ಕ್ಲಿಕ್ಕಿಸಿ. ಒಂದೇ ಬಗೆಯ ಎರಡು ಅಥವ ಹೆಚ್ಚಿನ \n"
+#~ "ವಿಳಾಸಗಳಿಗೆ ಅನುಮತಿ ಇಲ್ಲ.\n"
+#~ "\n"
+#~ "ಒಂದು ಅಥವ ಹೆಚ್ಚಿನ ಇಮೈಲ್ ವಿಳಾಸವನ್ನು ಅಳಿಸಲು ಪಟ್ಟಿಯಿಂದ ವಿಳಾಸಗಳನ್ನು ಆಯ್ಕೆ \n"
+#~ "ಮಾಡಿ ಹಾಗು ಅಳಿಸು ಗುಂಡಿಯನ್ನು ಒತ್ತಿ ಅಥವ ಡಿಲೀಟ್ ಕೀಲಿಯನ್ನು ಬಳಸಿ\n"
+#~ "\n"
+#~ "ಅಥವ ನೀವು ವಿಳಾಸವನ್ನು ಸಂಪಾದಿಸಿ ಅದರ ಮೌಲ್ಯವನ್ನು ತೆರವುಗೊಳಿಸಬಹುದು.\n"
+#~ "\n"
+#~ "ಒಂದು ವಿಳಾಸವನ್ನು ಸಂಪಾದಿಸಲು ಆ ವಿಳಾಸವನ್ನು ಕ್ಲಿಕ್ಕಿಸಿ.\n"
+#~ "\n"
+#~ "ಪಟ್ಟಿಯನ್ನು ಪ್ರತ್ಯೇಕವಾಗಿ ವಿಂಗಡಿಸಲು ಕಾಲಂನ ಶೀರ್ಷಿಕೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ಕಿಸ್.\n"
+#~ "\n"
+#~ "ಶೋಧನೆಯ ಆಯ್ಕೆಯನ್ನು ಬದಲಾಯಿಸಲು ಶೋಧಕದ ಬಗೆಯ ಮೇಲೆ ಕ್ಲಿಕ್ಕಿಸಿ ಹಾಗು\n"
+#~ "ಅದನ್ನು ಪಟ್ಟಿಯಿಂದ ಆರಿಸಿ. ಈ ಇಮೈಲ್ ವಿಳಾಸಕ್ಕಾಗಿನ ಎಲ್ಲಾ ಎಚ್ಚರಿಕೆಗಳಿಗೆ ಈ ಶೋಧಕವು "
+#~ "ಅನ್ವಯಿಸಲ್ಪಡುತ್ತದೆ.\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "ಶೋಧಕದ ಬಗೆ"
+
+#~ msgid "Email Address"
+#~ msgstr "ಇ-ಮೈಲ್ ವಿಳಾಸ"
+
+#~ msgid "Access:"
+#~ msgstr "ನಿಲುಕಣೆ:"
+
+#~ msgid "Do not show alert message, when this alert is triggered."
+#~ msgstr "ಈ ಎಚ್ಚರಿಕೆಯು ಟ್ರಿಗರ್ ಆದಾಗ ಎಚ್ಚರಿಕೆ ಸಂದೇಶವನ್ನು ತೋರಿಸಬೇಡ."
+
+#~ msgid "Report"
+#~ msgstr "ವರದಿ ಮಾಡು"
 
 #~ msgid "Copy to Clipboard"
 #~ msgstr "ಕ್ಲಿಪ್‌ಬೋರ್ಡಿಗೆ ಅಂಟಿಸು"
@@ -886,9 +964,6 @@ msgstr "ಗುಂಡಿ"
 #~ msgid "Fix Command"
 #~ msgstr "ಪರಿಹಾರ ಆಜ್ಞೆ"
 
-#~ msgid "Plugin Name"
-#~ msgstr "ಪ್ಲಗ್ಇನ್ ಹೆಸರು"
-
 #~ msgid "Line Numbers"
 #~ msgstr "ಸಾಲಿನ ಸಂಖ್ಯೆಗಳು"
 
@@ -931,9 +1006,6 @@ msgstr "ಗುಂಡಿ"
 
 #~ msgid "Copy full error output to clipboard."
 #~ msgstr "ಸಂಪೂರ್ಣ ದೋಷ ಔಟ್‌ಪುಟ್ ಅನ್ನು ನಕಲುಫಲಕಕ್ಕೆ ಅಂಟಿಸು."
-
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "ಭವಿಷ್ಯದಲ್ಲಿ ಈ SELinux ಸುರಕ್ಷತಾ ಎಚ್ಚರಿಕೆಯನ್ನು ಕಡೆಗಣಿಸು."
 
 #~ msgid "Next"
 #~ msgstr "ಮುಂದಿನ"
@@ -1242,9 +1314,6 @@ msgstr "ಗುಂಡಿ"
 #~ msgid "<span fgcolor=\"blue\">Release:</span>"
 #~ msgstr "<span fgcolor=\"blue\">ಬಿಡುಗಡೆ:</span>"
 
-#~ msgid "Details"
-#~ msgstr "ವಿವರಗಳು"
-
 #~ msgid "Forces ABRT to regenerate the backtrace"
 #~ msgstr "ಬ್ಯಾಕ್‌ಟ್ರೇಸ್ ಅನ್ನು  ಮರಳಿ ಉತ್ಪಾದಿಸುವಂತೆ ABRT ಒತ್ತಾಯಿಸುತ್ತದೆ"
 
@@ -1252,9 +1321,6 @@ msgstr "ಗುಂಡಿ"
 #~ msgstr ""
 #~ "ನಾನು ಬ್ಯಾಕ್‌ಟ್ರೇಸ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿದ್ದೀನಿ ಹಾಗು ಸಂವೇದಿ ಮಾಹಿತಿಯನ್ನು (ಗುಪ್ತಪದಗಳು, "
 #~ "ಇತ್ಯಾದಿ) ತೆಗೆದು ಹಾಕಿದ್ದೇನೆ"
-
-#~ msgid "N/A"
-#~ msgstr "ಅನ್ವಯಿಸದ"
 
 #~ msgid "Please wait.."
 #~ msgstr "ದಯವಿಟ್ಟು ಕಾಯಿರಿ.."
@@ -1282,9 +1348,6 @@ msgstr "ಗುಂಡಿ"
 
 #~ msgid "<b>Associated action</b>"
 #~ msgstr "<b>ಸಂಬಂಧಿತ ಕಾರ್ಯ</b>"
-
-#~ msgid "<b>Plugin details</b>"
-#~ msgstr "<b>ಪ್ಲಗ್‌ಇನ್ ವಿವರಗಳು</b>"
 
 #~ msgid "<b>Plugin</b>"
 #~ msgstr "<b>ಪ್ಲಗ್‌ಇನ್</b>"

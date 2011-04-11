@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-framework.pa\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2011-01-13 15:36+0530\n"
 "Last-Translator: Jaswinder Singh <j.phulewala@gmail.com>\n"
 "Language-Team: PLTG\n"
@@ -27,17 +27,17 @@ msgstr "SELinux ਸਮੱਸਿਆ-ਨਿਪਟਾਰਾ"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux ਪਹੁੰਚ ਪਾਬੰਦੀ ਦਾ ਸਮੱਸਿਆ-ਨਿਪਟਾਰਾ"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr "ਪੋਰਟ %s"
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "ਆਣਜਾਣੀ"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
@@ -46,7 +46,7 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
@@ -57,11 +57,11 @@ msgstr ""
 "**** Invalid AVC dontaudited in current policy।  'semodule -B' will turn on "
 "dontaudit rules। ***\n"
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr "policy_init ਨੂੰ ਪਹਿਲਾ ਕਾਲ ਕਰਨਾ ਜਰੂਰੀ ਹੈ"
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
@@ -70,7 +70,7 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC bad target context। ***\n"
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
@@ -79,7 +79,7 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC bad source context। ***\n"
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
@@ -88,7 +88,7 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
@@ -97,67 +97,64 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr "ਐਕਸੈੱਸ ਵੈਕਟਰ ਕੰਪਿਊਟੇਸ਼ਨ ਦੌਰਾਨ ਗਲਤੀ ਆਈ ਹੈ"
 
-#: ../src/browser.py:225
-msgid "Error while checking policy version."
-msgstr "ਪਾਲਿਸੀ ਵਰਜਨ ਜਾਂਚ ਵੇਲੇ ਗਲਤੀ ਆਈ ਹੈ।"
-
-#: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-"ਪਾਲਿਸੀ ਦਾ ਨਵਾਂ ਵਰਜਨ ਉਪਲੱਬਧ ਹੈ।  ਤੁਹਾਡੀ ਪਾਲਿਸੀ ਅੱਪਡੇਟ ਕਰਨ ਨਾਲ ਡੇਨੀਅਲ ਫਿਕਸ ਹੋ ਸਕਦਾ ਹੈ "
-"ਜਿਸ ਨਾਲ ਤੁਹਾਨੂੰ ਸਮੱਸਿਆ ਹੈ।"
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr "ਨਵਾਂ ਵਰਜਨ"
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr "ਅੱਪਡੇਟ ਨੀਤੀ"
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Source Process"
 msgstr "ਸਰੋਤ ਕਾਰਜ"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr "ਕੀਤੀ ਗਈ ਪਹੁੰਚ"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr "ਇਸ ਉੱਪਰ"
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+#, fuzzy
+msgid "Occurred"
 msgstr "ਵਾਪਰਿਆ"
 
-#: ../src/browser.py:250
-msgid "Edit Status"
-msgstr "ਸਥਿਤੀ ਸੋਧ"
+#: ../src/browser.py:255 ../src/run_cmd.py:417
+msgid "Status"
+msgstr "ਸਥਿਤੀ"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
+msgstr ""
+
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+msgid "Ignore"
+msgstr "ਅਣਡਿੱਠਾ"
+
+#: ../src/browser.py:368
+#, fuzzy
+msgid "<b>If you were trying to...</b>"
 msgstr "ਜੇ ਤੁਸੀਂ ਇਹ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਹੇ ਹੋ..."
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:378
+#, fuzzy
+msgid "<b>Then this is the solution.</b>"
 msgstr "ਤਾਂ ਫਿਰ ਇਹ ਹੱਲ ਹੈ।"
 
-#: ../src/browser.py:387
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr "ਜੇ"
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+msgid ""
+"Plugin\n"
+"Details"
+msgstr ""
+
+#: ../src/browser.py:488
 msgid ""
 "Report\n"
 "Bug"
@@ -165,85 +162,45 @@ msgstr ""
 "ਬੱਗ\n"
 "ਰਿਪੋਰਟ"
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "ਪਲੱਗਇਨ ਨਾਂ"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr "ਪਹੁੰਚ ਮਨਜੂਰ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।"
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr "ਚੇਤਾਵਨੀ %d %d ਦੀ"
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
-msgstr "(ਹਟਾਇਆ ਗਿਆ)"
+#: ../src/browser.py:729
+#, fuzzy, python-format
+msgid "On this %s:"
+msgstr "ਇਸ ਉੱਪਰ"
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr ""
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+msgid "No Alerts"
+msgstr "ਕੋਈ ਚੇਤਾਵਨੀ ਨਹੀਂ"
+
+#: ../src/browser.py:843
+#, fuzzy
+msgid "SELinux has detected a problem."
+msgstr "<b>SELinux ਨੂੰ ਇੱਕ ਸਮੱਸਿਆ ਮਿਲੀ ਹੈ।</b>"
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr "Sealert ਗਲਤੀ"
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 msgid "Sealert Message"
 msgstr "Sealert ਸੁਨੇਹੇ"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "setroubleshoot ਈ-ਮੇਲ ਪਸੰਦਾਂ"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "ਜੋੜੋ"
-
-#: ../src/email_dialog.py:114
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"ਇਹ ਈ-ਮੇਲ ਸਿਰਨਾਵਿਆਂ ਦੀ ਸੂਚੀ ਹੈ ਜਿਨਾਂ ਨੂੰ ਚੇਤਾਵਨੀਆਂ ਭੇਜੀਆਂ\n"
-"ਜਾਣਗੀਆਂ।\n"
-"\n"
-"ਈ-ਮੇਲ ਸਿਰਨਾਵਾਂ ਸ਼ਾਮਿਲ ਕਰਨ ਲਈ ਇੰਪੁੱਟ ਬਾਕਸ ਵਿੱਚ\n"
-"ਸਿਰਨਾਵਾਂ ਦਿਓ ਅਤੇ ਜੋੜੋ ਬਟਨ ਦਬਾਓ। ਨਕਲੀ ਸਿਰਨਾਵਿਆਂ ਦੀ ਮਨਜੂਰੀ\n"
-"ਨਹੀਂ ਹੈ।\n"
-"\n"
-"ਇੱਕ ਜਾਂ ਜਿਆਦਾ ਈ-ਮੇਲ ਸਿਰਨਾਵੇਂ ਹਟਾਉਣ ਲਈ ਸੂਚੀ ਵਿੱਚੋਂ ਸਿਰਨਾਵੇਂ ਚੁਣੋ\n"
-"ਅਤੇ ਹਟਾਓ ਬਟਨ ਦਬਾਓ ਜਾਂ Delete ਸਵਿੱਚ ਵਰਤੋ।\n"
-"ਜਾਂ ਤੁਸੀਂ ਸਿਰਨਾਵਾਂ ਸੋਧ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਇਸ ਦਾ ਮੁੱਲ ਸਾਫ ਕਰ ਸਕਦੇ ਹੋ।\n"
-"\n"
-"ਇੱਕ ਸਿਰਨਾਵਾਂ ਸੋਧ ਕਰਨ ਲਈ ਸਿਰਨਾਵੇਂ ਤੇ ਕਲਿੱਕ ਕਰੋ।\n"
-"\n"
-"ਸੂਚੀ ਨੂੰ ਕ੍ਰਮਬੱਧ ਕਰਨ ਲਈ ਕਾਲਮ ਸਿਰਲੇਖ ਦਬਾਓ।\n"
-"\n"
-"ਫਿਲਟਰ ਚੋਣ ਤਬਦੀਲ ਕਰਨਲ ਲਈ ਫਿਲਟਰ ਕਿਸਮ ਦਬਾਓ\n"
-" ਅਤੇ ਸੂਚੀ ਵਿੱਚੋਂ ਫਿਲਟਰ ਚੁਣੋ। ਇਸ ਸਿਰਨਾਵੇਂ ਲਈ ਸਭ ਚੇਤਾਵਨੀਆਂ ਤੇ ਫਿਲਟਰ ਲਾਗੂ\n"
-"ਹੋ ਜਾਂਦਾ ਹੈ।\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "ਫਿਲਟਰ ਕਿਸਮ"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "ਈ-ਮੇਲ ਸਿਰਨਾਵਾਂ"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -324,16 +281,16 @@ msgid "user lookup failed"
 msgstr "ਉਪਭੋਗੀ ਜਾਂਚ ਫੇਲ ਹੋਈ"
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "ਸਹਾਇਤਾ"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Opps, %s ਤੋਂ ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ!"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "ਗਲਤੀ"
 
@@ -342,8 +299,8 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"ਤੁਸੀਂ $SOURCE_BASE_PATH ਨੂੰ $ACCESS ਪਹੁੰਚ $TARGET_BASE_PATH $TARGET_CLASS "
-"ਉੱਪਰ ਮਨਜੂਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
+"ਤੁਸੀਂ $SOURCE_BASE_PATH ਨੂੰ $ACCESS ਪਹੁੰਚ $TARGET_BASE_PATH $TARGET_CLASS ਉੱਪਰ ਮਨਜੂਰ "
+"ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -372,10 +329,6 @@ msgstr "ਕਮਾਂਡ ਚਲਾਓ"
 #: ../src/run_cmd.py:402
 msgid "Stop Command"
 msgstr "ਕਮਾਂਡ ਰੋਕੋ"
-
-#: ../src/run_cmd.py:417
-msgid "Status"
-msgstr "ਸਥਿਤੀ"
 
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
@@ -407,25 +360,25 @@ msgstr "ਫੇਲ ਹੋਇਆ, exit status = %d"
 msgid "Done: "
 msgstr "ਮੁਕੰਮਲ: "
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " ਮੁਕੰਮਲ SELinux ਸੁਨੇਹਿਆਂ ਲਈ। sealert -l %s ਚਲਾਓ"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "ਉਪਭੋਗੀ (%s) ਹੁਣ (%s) ਲਈ ਡਾਟਾ ਤਬਦੀਲ ਨਹੀਂ ਕਰ ਸਕਦਾ"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "ਸ਼ੁਰੂ ਕੀਤਾ ਗਿਆ"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "ਆਡਿਟ ਸਰੋਤਾ"
 
@@ -485,16 +438,102 @@ msgstr "ਨੋਡ"
 msgid "capability"
 msgstr "ਸਮਰੱਥਾ"
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s ਦੀ ਇੱਕ ਚੇਤਾਵਨੀ ਕਿਸਮ (%s) ਹੈ। ਇਹ ਪਹੁੰਚ ਰੱਦ ਨਹੀਂ ਕੀਤੀ ਗਈ ਸੀ।"
 
-#: ../src/signature.py:385
-msgid "SEinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:384
+#, fuzzy
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux ਚੇਤਾਵਨੀ ਮੋਡ ਵਿੱਚ ਹੈ। ਇਹ ਪਹੁੰਚ ਰੱਦ ਨਹੀਂ ਕੀਤੀ ਗਈ ਸੀ।"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "ਵਾਧੂ ਜਾਣਕਾਰੀ"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "ਸਰੋਤ ਪ੍ਰਸੰਗ"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "ਟਾਰਗਿਟ ਪ੍ਰਸੰਗ"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "ਟਾਰਗਿਟ ਆਬਜੈਕਟ"
+
+#: ../src/signature.py:473
+msgid "Source"
+msgstr "ਸਰੋਤ"
+
+#: ../src/signature.py:474
+msgid "Source Path"
+msgstr "ਸਰੋਤ ਮਾਰਗ"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "ਪੋਰਟ"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "ਮੇਜ਼ਬਾਨ"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "ਸਰੋਤ RPM ਪੈਕੇਜ"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "ਟਾਰਗਿਟ RPM ਪੈਕੇਜ"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "ਪਾਲਿਸੀ RPM"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "Selinux ਯੋਗ ਕੀਤਾ"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "ਪਾਲਿਸੀ ਕਿਸਮ"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "ਮਜਬੂਰ ਢੰਗ"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "ਮੇਜ਼ਬਾਨ ਨਾਂ"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "ਪਲੇਟਫਾਰਮ"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "ਚੇਤਾਵਨੀ ਗਿਣਤੀ"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "ਪਹਿਲੀ ਝਲਕ"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "ਆਖਰੀ ਝਲਕ"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "ਲੋਕਲ ID"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "ਕੱਚੇ ਆਡਿਟ ਸੁਨੇਹੇ"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -505,7 +544,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
@@ -513,7 +560,7 @@ msgstr ""
 "\n"
 "ਜੇ "
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
@@ -521,7 +568,7 @@ msgstr ""
 "\n"
 "ਫਿਰ "
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
@@ -529,89 +576,14 @@ msgstr ""
 "\n"
 "ਕਰੋ\n"
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "ਵਾਧੂ ਜਾਣਕਾਰੀ"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "ਸਰੋਤ ਪ੍ਰਸੰਗ"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "ਟਾਰਗਿਟ ਪ੍ਰਸੰਗ"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "ਟਾਰਗਿਟ ਆਬਜੈਕਟ"
-
-#: ../src/signature.py:485
-msgid "Source"
-msgstr "ਸਰੋਤ"
-
-#: ../src/signature.py:486
-msgid "Source Path"
-msgstr "ਸਰੋਤ ਮਾਰਗ"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "ਪੋਰਟ"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "ਮੇਜ਼ਬਾਨ"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "ਸਰੋਤ RPM ਪੈਕੇਜ"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "ਟਾਰਗਿਟ RPM ਪੈਕੇਜ"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "ਪਾਲਿਸੀ RPM"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "Selinux ਯੋਗ ਕੀਤਾ"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "ਪਾਲਿਸੀ ਕਿਸਮ"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "ਮਜਬੂਰ ਢੰਗ"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "ਮੇਜ਼ਬਾਨ ਨਾਂ"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "ਪਲੇਟਫਾਰਮ"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "ਚੇਤਾਵਨੀ ਗਿਣਤੀ"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "ਪਹਿਲੀ ਝਲਕ"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "ਆਖਰੀ ਝਲਕ"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "ਲੋਕਲ ID"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "ਕੱਚੇ ਆਡਿਟ ਸੁਨੇਹੇ"
+#: ../src/signature.py:553
+#, fuzzy
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"ਕਰੋ\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -623,28 +595,28 @@ msgstr "ਮੌਜੂਦਾ: %s "
 msgid "newer: %s "
 msgstr "ਨਵਾਂ: %s "
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 msgid "New SELinux security alert"
 msgstr "ਨਵੀਂ SELinux ਸੁਰੱਖਿਆ ਚੇਤਾਵਨੀ"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC ਪਾਬੰਦੀ, ਵੇਖਣ ਲਈ ਦਬਾਓ"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr "ਰੱਦ"
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr "ਵੇਖਾਓ"
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC ਪਾਬੰਦੀ, ਵੇਖਣ ਲਈ ਦਬਾਓ"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux ਯੋਗ ਨਹੀਂ ਹੈ, sealert ਨੂੰ ਗੈਰ SELinux ਸਿਸਟਮਾਂ ਉੱਪਰ ਨਹੀਂ ਚੱਲੇਗਾ"
 
@@ -676,8 +648,9 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux ਨੂੰ ਇੱਕ ਸਮੱਸਿਆ ਮਿਲੀ ਹੈ।</b>"
 
 #: ../gui/browser.glade.h:2
-msgid "Access:"
-msgstr "ਐਕਸੈੱਸ:"
+#, fuzzy
+msgid "Attempted this access:"
+msgstr "ਕੀਤੀ ਗਈ ਪਹੁੰਚ"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -694,86 +667,106 @@ msgstr ""
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
+msgid "Delete Selected Alerts"
+msgstr ""
+
+#: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
 msgstr "ਡਾਟਾਬੇਸ ਵਿੱਚੋਂ ਮੌਜੂਦਾ ਚੇਤਾਵਨੀ ਹਟਾਓ।"
 
-#: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
-msgstr "ਚੇਤਾਵਨੀ ਸੁਨੇਹੇ ਨਾ ਵੇਖਾਓ, ਜਦੋਂ ਇਹ ਚੇਤਾਵਨੀ ਟਰਿੱਗਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।"
-
 #: ../gui/browser.glade.h:11
+msgid "Details"
+msgstr ""
+
+#: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
 msgstr "ਸਿਸਟਮ ਪਰਬੰਧਕ ਨੂੰ ਈਮੇਲ ਚੇਤਾਵਨੀ।"
 
-#: ../gui/browser.glade.h:12
-msgid "Ignore"
-msgstr "ਅਣਡਿੱਠਾ"
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "ਭਵਿੱਖ ਵਿੱਚ ਇਸ SELinux ਸੁਰੱਖਿਆ ਚੇਤਾਵਨੀ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ।"
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:15
 msgid "List All Alerts"
 msgstr "ਸਭ ਚੇਤਾਵਨੀਆਂ ਵੇਖਾਓ"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr "ਸਭ ਚੇਤਾਵਨੀਆਂ ਨੂੰ ਡਾਟਾਬੇਸ ਵਿੱਚ ਵੇਖਾਓ।"
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "ਨਹੀਂ"
 
-#: ../gui/browser.glade.h:16
-msgid "No Alerts"
-msgstr "ਕੋਈ ਚੇਤਾਵਨੀ ਨਹੀਂ"
-
-#: ../gui/browser.glade.h:17
-msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
-"to remedy."
-msgstr ""
-"ਚੇਤਾਵਨੀ ਸਮੱਸਿਆ-ਨਿਪਟਾਰਾ ਜਾਣਕਾਰੀ ਪੜ੍ਹੋ। ਹੋ ਸਕਦਾ ਹੱਲ ਲਈ ਪਰਬੰਧਕੀ ਅਧਿਕਾਰਾਂ ਦੀ ਲੋੜ "
-"ਹੈ।"
-
-#: ../gui/browser.glade.h:18
-msgid "Report"
-msgstr "Report"
-
 #: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
+
+#: ../gui/browser.glade.h:20
+#, fuzzy
+msgid "On this file:"
+msgstr "ਇਸ ਉੱਪਰ"
+
+#: ../gui/browser.glade.h:21
+#, fuzzy
+msgid ""
+"Read alert troubleshoot information.  May require administrative privileges "
+"to remedy."
+msgstr "ਚੇਤਾਵਨੀ ਸਮੱਸਿਆ-ਨਿਪਟਾਰਾ ਜਾਣਕਾਰੀ ਪੜ੍ਹੋ। ਹੋ ਸਕਦਾ ਹੱਲ ਲਈ ਪਰਬੰਧਕੀ ਅਧਿਕਾਰਾਂ ਦੀ ਲੋੜ ਹੈ।"
+
+#: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
 msgstr "SELinux ਚੇਤਾਵਨੀ ਝਲਕਾਰਾ"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot ਚੇਤਾਵਨੀ ਸੂਚੀ"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot ਚੇਤਾਵਨੀ ਸੂਚੀ"
+
+#: ../gui/browser.glade.h:25
 msgid "Show next alert."
 msgstr "ਅਗਲੀ ਚੇਤਾਵਨੀ ਵੇਖਾਓ।"
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr "ਪਿਛਲੀ ਚੇਤਾਵਨੀ ਵੇਖਾਓ।"
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "ਸਰੋਤ ਕਾਰਜ"
+
+#: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "ਸਮੱਸਿਆ-ਨਿਪਟਾਰਾ"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "SETroubleshoot ਚੇਤਾਵਨੀ ਸੂਚੀ"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr "ਚੇਤਾਵਨੀ ਪੌਪ-ਅੱਪ ਬੰਦ ਕਰੋ।"
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr "ਚੇਤਾਵਨੀ ਪੌਪ-ਅੱਪ ਚਾਲੂ ਕਰੋ।"
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr "ਕੀ ਤੁਸੀਂ ਚੇਤਾਵਨੀਆਂ ਲੈਣੀਆਂ ਪਸੰਦ ਕਰਦੇ ਹੋ?"
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr "ਹਾਂ"
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr "ਲੇਬਲ"
 
@@ -814,6 +807,90 @@ msgstr "ਸਫਲਤਾ!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "ਬਟਨ"
+
+#~ msgid "Error while checking policy version."
+#~ msgstr "ਪਾਲਿਸੀ ਵਰਜਨ ਜਾਂਚ ਵੇਲੇ ਗਲਤੀ ਆਈ ਹੈ।"
+
+#~ msgid ""
+#~ "There is a newer version of policy available.  Updating your policy may "
+#~ "fix the denial that you having problems with."
+#~ msgstr ""
+#~ "ਪਾਲਿਸੀ ਦਾ ਨਵਾਂ ਵਰਜਨ ਉਪਲੱਬਧ ਹੈ।  ਤੁਹਾਡੀ ਪਾਲਿਸੀ ਅੱਪਡੇਟ ਕਰਨ ਨਾਲ ਡੇਨੀਅਲ ਫਿਕਸ ਹੋ ਸਕਦਾ "
+#~ "ਹੈ ਜਿਸ ਨਾਲ ਤੁਹਾਨੂੰ ਸਮੱਸਿਆ ਹੈ।"
+
+#~ msgid "Newest Version"
+#~ msgstr "ਨਵਾਂ ਵਰਜਨ"
+
+#~ msgid "Update Policy"
+#~ msgstr "ਅੱਪਡੇਟ ਨੀਤੀ"
+
+#~ msgid "Edit Status"
+#~ msgstr "ਸਥਿਤੀ ਸੋਧ"
+
+#~ msgid "(removed)"
+#~ msgstr "(ਹਟਾਇਆ ਗਿਆ)"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "setroubleshoot ਈ-ਮੇਲ ਪਸੰਦਾਂ"
+
+#~ msgid "Add"
+#~ msgstr "ਜੋੜੋ"
+
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "ਇਹ ਈ-ਮੇਲ ਸਿਰਨਾਵਿਆਂ ਦੀ ਸੂਚੀ ਹੈ ਜਿਨਾਂ ਨੂੰ ਚੇਤਾਵਨੀਆਂ ਭੇਜੀਆਂ\n"
+#~ "ਜਾਣਗੀਆਂ।\n"
+#~ "\n"
+#~ "ਈ-ਮੇਲ ਸਿਰਨਾਵਾਂ ਸ਼ਾਮਿਲ ਕਰਨ ਲਈ ਇੰਪੁੱਟ ਬਾਕਸ ਵਿੱਚ\n"
+#~ "ਸਿਰਨਾਵਾਂ ਦਿਓ ਅਤੇ ਜੋੜੋ ਬਟਨ ਦਬਾਓ। ਨਕਲੀ ਸਿਰਨਾਵਿਆਂ ਦੀ ਮਨਜੂਰੀ\n"
+#~ "ਨਹੀਂ ਹੈ।\n"
+#~ "\n"
+#~ "ਇੱਕ ਜਾਂ ਜਿਆਦਾ ਈ-ਮੇਲ ਸਿਰਨਾਵੇਂ ਹਟਾਉਣ ਲਈ ਸੂਚੀ ਵਿੱਚੋਂ ਸਿਰਨਾਵੇਂ ਚੁਣੋ\n"
+#~ "ਅਤੇ ਹਟਾਓ ਬਟਨ ਦਬਾਓ ਜਾਂ Delete ਸਵਿੱਚ ਵਰਤੋ।\n"
+#~ "ਜਾਂ ਤੁਸੀਂ ਸਿਰਨਾਵਾਂ ਸੋਧ ਕਰ ਸਕਦੇ ਹੋ ਅਤੇ ਇਸ ਦਾ ਮੁੱਲ ਸਾਫ ਕਰ ਸਕਦੇ ਹੋ।\n"
+#~ "\n"
+#~ "ਇੱਕ ਸਿਰਨਾਵਾਂ ਸੋਧ ਕਰਨ ਲਈ ਸਿਰਨਾਵੇਂ ਤੇ ਕਲਿੱਕ ਕਰੋ।\n"
+#~ "\n"
+#~ "ਸੂਚੀ ਨੂੰ ਕ੍ਰਮਬੱਧ ਕਰਨ ਲਈ ਕਾਲਮ ਸਿਰਲੇਖ ਦਬਾਓ।\n"
+#~ "\n"
+#~ "ਫਿਲਟਰ ਚੋਣ ਤਬਦੀਲ ਕਰਨਲ ਲਈ ਫਿਲਟਰ ਕਿਸਮ ਦਬਾਓ\n"
+#~ " ਅਤੇ ਸੂਚੀ ਵਿੱਚੋਂ ਫਿਲਟਰ ਚੁਣੋ। ਇਸ ਸਿਰਨਾਵੇਂ ਲਈ ਸਭ ਚੇਤਾਵਨੀਆਂ ਤੇ ਫਿਲਟਰ ਲਾਗੂ\n"
+#~ "ਹੋ ਜਾਂਦਾ ਹੈ।\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "ਫਿਲਟਰ ਕਿਸਮ"
+
+#~ msgid "Email Address"
+#~ msgstr "ਈ-ਮੇਲ ਸਿਰਨਾਵਾਂ"
+
+#~ msgid "Access:"
+#~ msgstr "ਐਕਸੈੱਸ:"
+
+#~ msgid "Do not show alert message, when this alert is triggered."
+#~ msgstr "ਚੇਤਾਵਨੀ ਸੁਨੇਹੇ ਨਾ ਵੇਖਾਓ, ਜਦੋਂ ਇਹ ਚੇਤਾਵਨੀ ਟਰਿੱਗਰ ਕੀਤਾ ਜਾਂਦਾ ਹੈ।"
+
+#~ msgid "Report"
+#~ msgstr "Report"
 
 #~ msgid "Copy to Clipboard"
 #~ msgstr "ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਨਕਲ ਕਰੋ"
@@ -882,9 +959,6 @@ msgstr "ਬਟਨ"
 #~ msgid "Fix Command"
 #~ msgstr "Fix ਕਮਾਂਡ"
 
-#~ msgid "Plugin Name"
-#~ msgstr "ਪਲੱਗਇਨ ਨਾਂ"
-
 #~ msgid "Line Numbers"
 #~ msgstr "ਲਾਈਨ ਨੰਬਰ"
 
@@ -924,9 +998,6 @@ msgstr "ਬਟਨ"
 
 #~ msgid "Copy full error output to clipboard."
 #~ msgstr "ਪੂਰੀ ਗਲਤੀ ਆਊਟਪੁੱਟ ਨੂੰ ਕਲਿੱਪਬੋਰਡ ਵਿੱਚ ਨਕਲ ਕਰੋ।"
-
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "ਭਵਿੱਖ ਵਿੱਚ ਇਸ SELinux ਸੁਰੱਖਿਆ ਚੇਤਾਵਨੀ ਨੂੰ ਅਣਡਿੱਠਾ ਕਰੋ।"
 
 #~ msgid "Next"
 #~ msgstr "ਅੱਗੇ"

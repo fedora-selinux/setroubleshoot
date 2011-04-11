@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-framework.ta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2011-02-14 11:19+0530\n"
 "Last-Translator: i felix\n"
 "Language-Team: Tamil <fedora-trans-ta@redhat.com>\n"
@@ -32,20 +32,17 @@ msgstr "SELinux Troubleshooter"
 msgid "Troubleshoot SELinux access denials"
 msgstr "பிழைத்திருத்தம் SELinux அணுக முடியவில்லை"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr "துறை %s"
 
-#: ../src/audit_data.py:863
-#: ../src/browser.py:620
-#: ../src/browser.py:673
-#: ../src/rpc.py:544
-#: ../src/util.py:223
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
+#: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "தெரியாதது"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
@@ -54,20 +51,22 @@ msgstr ""
 "%s \n"
 "**** தவறான AVC நடப்பு பாலிசியில் அனுமதிக்கப்பட்டுள்ளது ***\n"
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
 msgstr ""
 "%s \n"
-"**** நடப்பு பாலிசியில் தவறான AVC .  'semodule -B' ஆனது டோன்ட்டிட் விதிகளுக்கு துங்கும். ***\n"
+"**** நடப்பு பாலிசியில் தவறான AVC .  'semodule -B' ஆனது டோன்ட்டிட் விதிகளுக்கு "
+"துங்கும். ***\n"
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr "_init முதலில் பாலிசி அழைக்க வேண்டும்"
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
@@ -76,7 +75,7 @@ msgstr ""
 "%s \n"
 "**** தவறான AVC சிக்கலான அலக்கு உரை ***\n"
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
@@ -85,7 +84,7 @@ msgstr ""
 "%s \n"
 "**** தவறான AVC சிக்கலான மூல உரை ***\n"
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
@@ -94,7 +93,7 @@ msgstr ""
 "%s \n"
 "**** தவறான AVC சிக்கலான வகை பிரிவு ***\n"
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
@@ -103,63 +102,64 @@ msgstr ""
 "%s \n"
 "**** தவறான AVC சிக்கலான அனுமதி ***\n"
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr "அணுகல் பதிப்பு கணக்கீட்டின் போது பிழை"
 
-#: ../src/browser.py:225
-msgid "Error while checking policy version."
-msgstr "பாலிசிப் பதிப்பை சரிபார்க்கும் போது பிழை."
-
-#: ../src/browser.py:230
-msgid "There is a newer version of policy available.  Updating your policy may fix the denial that you having problems with."
-msgstr "ஒரு புதிய பதிப்பு பாலிசி கிடைக்கும். உங்கள் பாலிசியை பொருத்ததுவதால் அதனுடன் ஏதாவது உங்களுக்கு சிக்கல் இருந்தால் மறுக்கும்."
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr "புதிய பதிப்பு"
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr "பாலிசியை புதுபிக்கவும்"
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Source Process"
 msgstr "மூல செயல்பாடு"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr "முயன்ற அணுகல்"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr "இதில்"
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+#, fuzzy
+msgid "Occurred"
 msgstr "ஏற்பட்டது"
 
-#: ../src/browser.py:250
-msgid "Edit Status"
-msgstr "நிலையைத் திருத்து"
+#: ../src/browser.py:255 ../src/run_cmd.py:417
+msgid "Status"
+msgstr "நிலை"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
+msgstr ""
+
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+msgid "Ignore"
+msgstr "புறக்கணி"
+
+#: ../src/browser.py:368
+#, fuzzy
+msgid "<b>If you were trying to...</b>"
 msgstr "இதை நீங்கள் முயற்சித்தால்..."
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:378
+#, fuzzy
+msgid "<b>Then this is the solution.</b>"
 msgstr "பின் இது தான் தீர்வு."
 
-#: ../src/browser.py:387
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr "ஆல்"
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+msgid ""
+"Plugin\n"
+"Details"
+msgstr ""
+
+#: ../src/browser.py:488
 msgid ""
 "Report\n"
 "Bug"
@@ -167,87 +167,45 @@ msgstr ""
 "முடிவு\n"
 "பிழை"
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "கூடுதல் இணைப்பு பெயர்"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr "அணுகலை வழங்க முடியவில்லை."
 
-#: ../src/browser.py:538
-#: ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr "%d ஆல் %dக்கு எச்சரிக்கை"
 
-#: ../src/browser.py:731
-#: ../src/browser.py:732
-#: ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
-msgstr "(நீக்கப்பட்டது)"
+#: ../src/browser.py:729
+#, fuzzy, python-format
+msgid "On this %s:"
+msgstr "இதில்"
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr ""
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+msgid "No Alerts"
+msgstr "விழிப்பூட்டல்கள் இல்லை"
+
+#: ../src/browser.py:843
+#, fuzzy
+msgid "SELinux has detected a problem."
+msgstr "<b>SELinux ஒரு சிக்கலை கண்டுபிடித்தது.</b>"
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr "Sealert பிழை"
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 msgid "Sealert Message"
 msgstr "Sealert செய்திகள்"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "Setroubleshoot மின்னஞ்சல் விருப்பங்கள்"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "சேர்த்தல்"
-
-#: ../src/email_dialog.py:114
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"இந்தப் பட்டியலில் யாருக்கு எச்சரிக்கை அனுப்ப வேண்டுமென்ற\n"
-"மின்னஞ்சல் முகவரிப் பட்டிலியல் உள்ளது.\n"
-"\n"
-"ஒரு மின்னஞ்சல் முகவரி வகையை உள்ளீடு பெட்டியிலிருந்து\n"
-"Add பொத்தானைகிளிக் செய்து சேர்க்க வேண்டும். போலியான முகவரிகள்\n"
-"அனுமதிக்கப்படுவதில்லை.\n"
-"\n"
-"பட்டியலிருந்து ஒன்று அல்லது பல மின்னஞ்சல் முகவரிகளை அழிப்பதற்கு முகவரிகளைத் தேர்ந்தெடுத்து\n"
-"மற்றும் அழித்தல் பொத்தான் அல்லது அழித்தல் விசையை கிளிக் செய்து அழிக்கவும்.\n"
-"அல்லது முகவரிகளை நீங்கள் திருத்தி மற்றும் அதன் மதிப்புகளைக் கொண்டு திருத்தவும்.\n"
-"\n"
-"திருத்தத் துவங்குவதற்கு முன்னரே முகவரியைக் கிளிக் செய்து ஒரு முகவரியை திருத்த வேண்டும்.\n"
-"\n"
-"நிரல் தலைப்பிலிருந்து பல்வேறாக பட்டியலை வரிசைப்படுத்த வேண்டும்.\n"
-"\n"
-"வடிப்பி விருப்பத்திலிருந்து வடிப்பு வகையை மாற்ற வேண்டும் மற்றும் \n"
-"பட்டியலிருந்து எடுக்கவும். இந்த மின்னஞ்சல் முகவரிக்கு வடிப்பி அனைத்துnஎச்சரிக்கைகளையும் செயல்படுத்துகிறது.\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "வடிப்பு வகை"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "மின்னஞ்சல் முகவரி"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -328,23 +286,26 @@ msgid "user lookup failed"
 msgstr "பயனரை தேட முடியவில்லை"
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "உதவி"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "%s ஒரு பிழையை கொண்டுள்ளது"
 
-#: ../src/gui_utils.py:141
-#: ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "பிழை"
 
 #: ../src/Plugin.py:79
-msgid "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS"
-msgstr "$SOURCE_BASE_PATH ஐ $ACCESS அணுகலை $TARGET_BASE_PATH $TARGET_CLASS இல் அனுமதிக்க விருப்பவும்"
+msgid ""
+"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"$TARGET_BASE_PATH $TARGET_CLASS"
+msgstr ""
+"$SOURCE_BASE_PATH ஐ $ACCESS அணுகலை $TARGET_BASE_PATH $TARGET_CLASS இல் "
+"அனுமதிக்க விருப்பவும்"
 
 #: ../src/run_cmd.py:179
 msgid "Input: "
@@ -373,10 +334,6 @@ msgstr "கட்டளையை இயக்குதல்"
 #: ../src/run_cmd.py:402
 msgid "Stop Command"
 msgstr "கட்டளையை நிறுத்துதல்"
-
-#: ../src/run_cmd.py:417
-msgid "Status"
-msgstr "நிலை"
 
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
@@ -408,26 +365,25 @@ msgstr "செயலிழக்கப்பட்டது, வெளியே�
 msgid "Done: "
 msgstr "முடிந்தது:"
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr "முழு SELinux செய்திகளுக்கு. sealert -l %sஐ இயக்கவும்"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "பயனர் (%s) (%s)க்கு தரவை மாற்ற முடியாது"
 
-#: ../src/server.py:461
-#: ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "துவக்கப்பட்டது"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "தணிக்கை கேட்போர்"
 
@@ -487,16 +443,102 @@ msgstr "முனை"
 msgid "capability"
 msgstr "திறன்"
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s ஒரு அனுமதி வகை (%s). அந்த அணுகல் மறுக்கப்படவில்லை."
 
-#: ../src/signature.py:385
-msgid "SEinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:384
+#, fuzzy
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux அணுகல் முறைமையில் உள்ளது. இந்த அணுகல் மறுக்கப்படவில்லை. "
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "கூடுதல் தகவல்கள்"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "மூல சூழல்"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "இலக்கு சூழல்"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "இலக்கு பொருட்கள்"
+
+#: ../src/signature.py:473
+msgid "Source"
+msgstr "மூலம்"
+
+#: ../src/signature.py:474
+msgid "Source Path"
+msgstr "மூல பாதை"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "துறை"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "புரவலன்"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "மூல RPM தொகுப்புகள்"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "இலக்கு RPM தொகுப்புகள்"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "பாலிசி RPM"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "Selinux செயல்படுத்தப்பட்டது"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "பாலிசி வகை"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "வலியுறுத்தும் முறை"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "புரவலன் பெயர்"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "தளம்"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "எச்சரிக்கை எண்ணிக்கை"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "முதல் பார்வை"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "கடைசி பார்வை"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "உள்ளமை குறியீடு"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "Raw Audit செய்திகள்"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -507,7 +549,15 @@ msgstr ""
 "\n"
 "*****  கூடுதல்இணைப்பு %s (%.4s உறுதியானவை) ஆலோசனைகள்"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
@@ -515,7 +565,7 @@ msgstr ""
 "\n"
 "ஆல்"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
@@ -523,7 +573,7 @@ msgstr ""
 "\n"
 "பின் "
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
@@ -531,89 +581,14 @@ msgstr ""
 "\n"
 "செய்\n"
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "கூடுதல் தகவல்கள்"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "மூல சூழல்"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "இலக்கு சூழல்"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "இலக்கு பொருட்கள்"
-
-#: ../src/signature.py:485
-msgid "Source"
-msgstr "மூலம்"
-
-#: ../src/signature.py:486
-msgid "Source Path"
-msgstr "மூல பாதை"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "துறை"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "புரவலன்"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "மூல RPM தொகுப்புகள்"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "இலக்கு RPM தொகுப்புகள்"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "பாலிசி RPM"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "Selinux செயல்படுத்தப்பட்டது"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "பாலிசி வகை"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "வலியுறுத்தும் முறை"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "புரவலன் பெயர்"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "தளம்"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "எச்சரிக்கை எண்ணிக்கை"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "முதல் பார்வை"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "கடைசி பார்வை"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "உள்ளமை குறியீடு"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "Raw Audit செய்திகள்"
+#: ../src/signature.py:553
+#, fuzzy
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"செய்\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -625,33 +600,31 @@ msgstr "நடப்பு: %s "
 msgid "newer: %s "
 msgstr "புதிய: %s "
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 msgid "New SELinux security alert"
 msgstr "புதிய SELinux பாதுகாப்பு எச்சரிக்கை"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC மறுப்பு, சின்னத்தை சொடுக்கி பார்க்கவும்"
 
-#: ../src/seapplet.c:197
-#: ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr "நீக்கு"
 
-#: ../src/seapplet.c:207
-#: ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr "காட்டு"
 
 #. set tooltip
-#: ../src/seapplet.c:432
-#: ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC மறுப்பு, சொடுக்கி பார்க்கவும்"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SELinux செயல்படுத்தப்படுவில்லை, SELinux கணினிகள் இல்லாதவற்றில் எச்சரிக்கை இயங்காது"
+msgstr ""
+"SELinux செயல்படுத்தப்படுவில்லை, SELinux கணினிகள் இல்லாதவற்றில் எச்சரிக்கை இயங்காது"
 
 #: ../src/sealert:154
 msgid "Not fixable."
@@ -681,8 +654,9 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux ஒரு சிக்கலை கண்டுபிடித்தது.</b>"
 
 #: ../gui/browser.glade.h:2
-msgid "Access:"
-msgstr "அணுகல்:"
+#, fuzzy
+msgid "Attempted this access:"
+msgstr "முயன்ற அணுகல்"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -699,88 +673,114 @@ msgstr ""
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
+msgid "Delete Selected Alerts"
+msgstr ""
+
+#: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
 msgstr "தறவுத்தளத்திலிருந்து நடப்பு விழிப்பூட்டலை அழிக்கவும்."
 
-#: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
-msgstr "விழிப்பூட்டல் செய்தியை காட்ட வேண்டாம், எப்போது இந்த விழிப்பூட்டல் விசையழுத்தும் போது."
-
 #: ../gui/browser.glade.h:11
+msgid "Details"
+msgstr ""
+
+#: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
 msgstr "கணினி நிர்வாகிக்கு மின்னஞ்சல் விழிப்பூட்டல்"
 
-#: ../gui/browser.glade.h:12
-msgid "Ignore"
-msgstr "புறக்கணி"
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "SELinux பாதுகாப்பு விழிப்பூட்டல்கள் எதிர்காலத்தில் தவிர்."
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:15
 msgid "List All Alerts"
 msgstr "அனைத்து விழிப்பூட்டல்களின் பட்டியல்"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr "தரவுத்தளத்திலுள்ள அனைத்து விழிப்பூட்டல்களின் பட்டியல்"
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "இல்லை"
 
-#: ../gui/browser.glade.h:16
-msgid "No Alerts"
-msgstr "விழிப்பூட்டல்கள் இல்லை"
-
-#: ../gui/browser.glade.h:17
-msgid "Read alert troubleshoot information.  May require administrative privledge to remedy."
-msgstr "விழிப்பூட்டல் சிக்கல்நீக்குத் தகவலை வாசிக்கவும்.  தீர்வுக்கு நிர்வாக முன்னுரிமை தேவைப்படவாம்."
-
-#: ../gui/browser.glade.h:18
-msgid "Report"
-msgstr "அறிவி"
-
 #: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
+
+#: ../gui/browser.glade.h:20
+#, fuzzy
+msgid "On this file:"
+msgstr "இதில்"
+
+#: ../gui/browser.glade.h:21
+#, fuzzy
+msgid ""
+"Read alert troubleshoot information.  May require administrative privileges "
+"to remedy."
+msgstr ""
+"விழிப்பூட்டல் சிக்கல்நீக்குத் தகவலை வாசிக்கவும்.  தீர்வுக்கு நிர்வாக முன்னுரிமை தேவைப்படவாம்."
+
+#: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
 msgstr "SELinux விழிப்பூட்டல் உலாவி"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot  விழிப்பூட்டு பட்டியல்"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot  விழிப்பூட்டு பட்டியல்"
+
+#: ../gui/browser.glade.h:25
 msgid "Show next alert."
 msgstr "அடுத்த விழிப்பூட்டலை காட்டு"
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr "முந்தைய விழிப்பூட்டலை காட்டு."
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "மூல செயல்பாடு"
+
+#: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "சிக்கல்நீக்கு"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "SETroubleshoot  விழிப்பூட்டு பட்டியல்"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr "விழிப்பூட்டல் பாப்-அப்புகளை நிறுத்தவும்."
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr "விழிப்பூட்டல் பாப்-அப்புகளை துவக்கவும்."
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr "இந்த விழிப்பூட்டல்களை நீங்கள் பெற விரும்புகிறீர்களா?"
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr "ஆம்"
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr "அட்டவணை"
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr "<span size='large' weight='bold'>மறுபார்வை மற்றும் பிழைக் குறிப்பை சமர்பி</span>"
+msgstr ""
+"<span size='large' weight='bold'>மறுபார்வை மற்றும் பிழைக் குறிப்பை சமர்பி</span>"
 
 #: ../gui/bug_report.glade.h:2
 msgid "Included error output:"
@@ -795,13 +795,19 @@ msgid "Submit Report"
 msgstr "விவரத்தை சமர்பிக்கவும்"
 
 #: ../gui/bug_report.glade.h:5
-msgid "You may wish to review the error output that will be included in this bug report and modify it to exclude any sensitive data below."
-msgstr "அந்த பிழை வெளிப்பாட்டை நீங்கள் மறுபார்வையிட வேண்டும் அது இந்த பிழைக் குறிப்பு மற்றும் ஏதாவது நுண்ணிய தரவு மாற்றியமைக்கப்பட்டதையும் சேர்ந்திருக்க வேண்டும்."
+msgid ""
+"You may wish to review the error output that will be included in this bug "
+"report and modify it to exclude any sensitive data below."
+msgstr ""
+"அந்த பிழை வெளிப்பாட்டை நீங்கள் மறுபார்வையிட வேண்டும் அது இந்த பிழைக் குறிப்பு மற்றும் "
+"ஏதாவது நுண்ணிய தரவு மாற்றியமைக்கப்பட்டதையும் சேர்ந்திருக்க வேண்டும்."
 
-#: ../gui/fail_dialog.glade.h:2
-#: ../gui/success_dialog.glade.h:2
-msgid "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr "செயல்பாடு முடிவடைந்தது. விரைவான ப்ரவுன் நரியானது சோம்பேரி நாயிற்கு மேல் தாவிச் சென்றது."
+#: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
+msgid ""
+"This operation was completed.  The quick brown fox jumped over the lazy dog."
+msgstr ""
+"செயல்பாடு முடிவடைந்தது. விரைவான ப்ரவுன் நரியானது சோம்பேரி நாயிற்கு மேல் தாவிச் "
+"சென்றது."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
@@ -810,6 +816,93 @@ msgstr "வெற்றி!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "பொத்தான்"
+
+#~ msgid "Error while checking policy version."
+#~ msgstr "பாலிசிப் பதிப்பை சரிபார்க்கும் போது பிழை."
+
+#~ msgid ""
+#~ "There is a newer version of policy available.  Updating your policy may "
+#~ "fix the denial that you having problems with."
+#~ msgstr ""
+#~ "ஒரு புதிய பதிப்பு பாலிசி கிடைக்கும். உங்கள் பாலிசியை பொருத்ததுவதால் அதனுடன் "
+#~ "ஏதாவது உங்களுக்கு சிக்கல் இருந்தால் மறுக்கும்."
+
+#~ msgid "Newest Version"
+#~ msgstr "புதிய பதிப்பு"
+
+#~ msgid "Update Policy"
+#~ msgstr "பாலிசியை புதுபிக்கவும்"
+
+#~ msgid "Edit Status"
+#~ msgstr "நிலையைத் திருத்து"
+
+#~ msgid "(removed)"
+#~ msgstr "(நீக்கப்பட்டது)"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "Setroubleshoot மின்னஞ்சல் விருப்பங்கள்"
+
+#~ msgid "Add"
+#~ msgstr "சேர்த்தல்"
+
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "இந்தப் பட்டியலில் யாருக்கு எச்சரிக்கை அனுப்ப வேண்டுமென்ற\n"
+#~ "மின்னஞ்சல் முகவரிப் பட்டிலியல் உள்ளது.\n"
+#~ "\n"
+#~ "ஒரு மின்னஞ்சல் முகவரி வகையை உள்ளீடு பெட்டியிலிருந்து\n"
+#~ "Add பொத்தானைகிளிக் செய்து சேர்க்க வேண்டும். போலியான முகவரிகள்\n"
+#~ "அனுமதிக்கப்படுவதில்லை.\n"
+#~ "\n"
+#~ "பட்டியலிருந்து ஒன்று அல்லது பல மின்னஞ்சல் முகவரிகளை அழிப்பதற்கு முகவரிகளைத் "
+#~ "தேர்ந்தெடுத்து\n"
+#~ "மற்றும் அழித்தல் பொத்தான் அல்லது அழித்தல் விசையை கிளிக் செய்து அழிக்கவும்.\n"
+#~ "அல்லது முகவரிகளை நீங்கள் திருத்தி மற்றும் அதன் மதிப்புகளைக் கொண்டு திருத்தவும்.\n"
+#~ "\n"
+#~ "திருத்தத் துவங்குவதற்கு முன்னரே முகவரியைக் கிளிக் செய்து ஒரு முகவரியை திருத்த "
+#~ "வேண்டும்.\n"
+#~ "\n"
+#~ "நிரல் தலைப்பிலிருந்து பல்வேறாக பட்டியலை வரிசைப்படுத்த வேண்டும்.\n"
+#~ "\n"
+#~ "வடிப்பி விருப்பத்திலிருந்து வடிப்பு வகையை மாற்ற வேண்டும் மற்றும் \n"
+#~ "பட்டியலிருந்து எடுக்கவும். இந்த மின்னஞ்சல் முகவரிக்கு வடிப்பி அனைத்துnஎச்சரிக்கைகளையும் "
+#~ "செயல்படுத்துகிறது.\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "வடிப்பு வகை"
+
+#~ msgid "Email Address"
+#~ msgstr "மின்னஞ்சல் முகவரி"
+
+#~ msgid "Access:"
+#~ msgstr "அணுகல்:"
+
+#~ msgid "Do not show alert message, when this alert is triggered."
+#~ msgstr ""
+#~ "விழிப்பூட்டல் செய்தியை காட்ட வேண்டாம், எப்போது இந்த விழிப்பூட்டல் விசையழுத்தும் போது."
+
+#~ msgid "Report"
+#~ msgstr "அறிவி"
 
 #, fuzzy
 #~ msgid "Copy to Clipboard"
@@ -822,10 +915,13 @@ msgstr "பொத்தான்"
 #~ msgstr ""
 #~ "<span face=\"Helvetica\" size='xx-large' weight='bold'>SELinux ட்ரபுல்சூட் "
 #~ "உலாவிr</span>"
+
 #~ msgid "Summary"
 #~ msgstr "சுருக்கம்"
+
 #~ msgid "Count"
 #~ msgstr "எண்ணிக்கை"
+
 #~ msgid "Date"
 #~ msgstr "தேதி"
 
@@ -844,38 +940,49 @@ msgstr "பொத்தான்"
 #~ msgstr ""
 #~ "<span face=\"Helvetica\" size='xx-large' weight='bold'>SELinux உங்களது "
 #~ "கணினியின் சந்தேகப்படும் நடத்தைக் கண்டறிகிறது </span>"
+
 #~ msgid "Today"
 #~ msgstr "இன்று"
+
 #~ msgid "Yesterday"
 #~ msgstr "நேற்று"
+
 #~ msgid "<span foreground='#555555'>%s on %s</span>"
 #~ msgstr "<span foreground='#555555'>%s on %s</span>"
+
 #~ msgid ""
 #~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
 #~ "weight='bold' size='large' face='verdana'>%d</span>"
 #~ msgstr ""
 #~ "எச்சரிக்கை<span weight='bold' size='large' face='verdana'> %d</span> of "
 #~ "<span weight='bold' size='large' face='verdana'>%d</span>"
+
 #~ msgid "Fix it"
 #~ msgstr "இதை பொருத்து"
+
 #~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
 #~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
+
 #~ msgid "Detailed Description"
 #~ msgstr "விரிவான விளக்கம்"
+
 #~ msgid "Allowing Access"
 #~ msgstr "அணுகலை அனுமதிக்கவும்"
+
 #~ msgid "Fix Command"
 #~ msgstr "திருத்த கட்டளை"
-#~ msgid "Plugin Name"
-#~ msgstr "கூடுதல் இணைப்பு பெயர்"
+
 #~ msgid "Line Numbers"
 #~ msgstr "வரி எண்கள்"
+
 #~ msgid "SELinux"
 #~ msgstr "SELinux"
+
 #~ msgid "<small>Click here to install updates using PackageKit</small>"
 #~ msgstr ""
 #~ "<small>தொகுப்பு கிட்டைப் பயன்படுத்தி நிறுவலை மேம்படுத்த இங்கே கிளிக் செய்யவும்</"
 #~ "small>"
+
 #~ msgid "<small>There is a newer version of policy available.</small>"
 #~ msgstr "<small>ஒரு புதிய பாலிசி பதிப்பு கிடைக்கப் பெறும்.</small>"
 
@@ -885,47 +992,59 @@ msgstr "பொத்தான்"
 #~ msgstr ""
 #~ "<span face=\"Helvetica\" size='xx-large' weight='bold'>SELinux ட்ரபுல்சூட் "
 #~ "உலாவிr</span>"
+
 #~ msgid "<span foreground='grey'>date</span>"
 #~ msgstr "<span foreground='grey'>date</span>"
+
 #~ msgid ""
 #~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
 #~ "span>"
 #~ msgstr ""
 #~ "<span size='large' weight='bold' \tface='verdana'>பார்க்க விழிப்பூட்டல்கள் இல்லை."
 #~ "</span>"
+
 #~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
 #~ msgstr ""
 #~ "<span weight='bold' size='large' face='verdana'>எச்சரிக்கை - of -</span>"
+
 #~ msgid ""
 #~ "Certain signatures allow administrators to correct your system with "
 #~ "setroubleshoot."
 #~ msgstr ""
 #~ "இது போன்ற கையெழுத்துகள் உங்களது கணினியை ட்ரபுல்சூட்டிலிருந்து நிர்வாகிகளை சரிபடுத்த "
 #~ "அனுமதிக்கிறது"
+
 #~ msgid "Copy full error output to clipboard."
 #~ msgstr "முழு பிழை வெளியேற்றைக் காட்டு"
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "SELinux பாதுகாப்பு விழிப்பூட்டல்கள் எதிர்காலத்தில் தவிர்."
+
 #~ msgid "Next"
 #~ msgstr "அடுத்து"
+
 #~ msgid "Previous"
 #~ msgstr "முந்தைய"
+
 #~ msgid "Reports a bug to bugzilla.redhat.com."
 #~ msgstr "bugzilla.redhat.com.மின் ஒரு பிழையை விவரிக்கவும்"
+
 #~ msgid "Show all..."
 #~ msgstr "அனைத்தையும் காட்டு..."
+
 #~ msgid "Show full error output"
 #~ msgstr "முழு பிழை வெளியேற்றைக் காட்டு"
+
 #~ msgid "_File"
 #~ msgstr "கோப்பு (_F)"
+
 #~ msgid "_Help"
 #~ msgstr "உதவி (_H)"
 
 #, fuzzy
 #~ msgid "_Report this Bug..."
 #~ msgstr "இந்த பிழையை விவரிக்கவும்..."
+
 #~ msgid "gtk-cancel"
 #~ msgstr "gtk-ரத்துசெய்"
+
 #~ msgid ""
 #~ "Your bug could not be filed due to the following error when communicating "
 #~ "with bugzilla:\n"
@@ -936,22 +1055,27 @@ msgstr "பொத்தான்"
 #~ "பிழை:\n"
 #~ "\n"
 #~ "%s"
+
 #~ msgid ""
 #~ "Bug filing not supported. Your distribution does not provide a supported "
 #~ "bug filing system."
 #~ msgstr ""
 #~ "பிழை நிரப்புதலை துணைபுரியவில்லை, உங்களது விநியோகம் ஒரு துணைபுரியும் பிழை "
 #~ "நிரப்பி கணினியைத் தரவில்லை."
+
 #~ msgid "Please provide a valid username and password."
 #~ msgstr "ஓரு சரியான பயனர்பெயர் மற்றும் கடவுச்சொல்லைக் கொடுக்கவும்."
+
 #~ msgid ""
 #~ "Unable to login.  There was an error logging in with the provided "
 #~ "username and password."
 #~ msgstr ""
 #~ "உட்புக முடியவில்லை. தரப்பட்ட பயனர்பெயர் மற்றும் கடவுச்சொல் உட்புகுவதில் ஒரு பிழை "
 #~ "ஏற்பட்டது."
+
 #~ msgid "Bug Created"
 #~ msgstr "பிழை உருவாக்கப்பட்டது"
+
 #~ msgid ""
 #~ "A new bug has been created with your audit messages.  Please add "
 #~ "additional information such as what you were doing when you encountered "
@@ -965,8 +1089,10 @@ msgstr "பொத்தான்"
 #~ "மற்றும் பின்வரும் பிழைக்கு எதுவெல்லாம் பொருத்தமாகிறது:\n"
 #~ "\n"
 #~ "%s%s"
+
 #~ msgid "Bug Updated"
 #~ msgstr "பிழை மேம்படுத்தப்பட்டது"
+
 #~ msgid ""
 #~ "Bug Status: <b>%s %s</b>\n"
 #~ "\n"
@@ -981,34 +1107,45 @@ msgstr "பொத்தான்"
 #~ "சேர்க்கப்பட்டுவிட்டது.   கூடுதல் தகவல்களான நீங்கள் என்ன செய்கிறீர்கள் மற்றும் எப்போது "
 #~ "பிழையை தகர்த்தல், ஸ்கீரின்சூட்டடுகள் போன்றவற்றை சேர்க்கவும், மற்றும் பின்வரும் பிழைக்கு "
 #~ "எதுவெல்லாம் பொருத்தமாகிறது:"
+
 #~ msgid ""
 #~ "Alert<span weight='bold' size='large' face='verdana'> -</span> of <span "
 #~ "weight='bold' size='large' face='verdana'>-</span>"
 #~ msgstr ""
 #~ "எச்சரிக்கை<span weight='bold' size='large' face='verdana'> -</span> of "
 #~ "<span weight='bold' size='large' face='verdana'>-</span>"
+
 #~ msgid "Bugzilla Username:"
 #~ msgstr "Bugzilla பயனர் பெயர்:"
+
 #~ msgid "Password:"
 #~ msgstr "கடவுச்சொல்:"
+
 #~ msgid "Please enter your"
 #~ msgstr "தயவுசெய்து உங்களது உள்ளீடு"
+
 #~ msgid "Save password in keyring."
 #~ msgstr "விசைவட்டத்தில் கடவுச்சொல்லை சேமிக்கவும்"
+
 #~ msgid "bugzilla.redhat.com"
 #~ msgstr "bugzilla.redhat.com"
+
 #~ msgid "username and password below."
 #~ msgstr "பயனர் பெயர் மற்றும் கடவுச்சொல் கீழே உள்ளது."
+
 #~ msgid "%d day ago"
 #~ msgid_plural "%d days ago"
 #~ msgstr[0] "%d நாளுக்கு முன்பு"
 #~ msgstr[1] "%d நாட்களுக்கு முன்பு"
+
 #~ msgid "This alert has occurred <b>%d time</b> since %s"
 #~ msgid_plural "This alert has occurred <b>%d times</b> since %s"
 #~ msgstr[0] "இந்த எச்சரிக்கை <b>%d முறை</b> %s வரை நடந்துவிட்டது"
 #~ msgstr[1] "இந்த எச்சரிக்கை <b>%d முறைகள்</b> %s வரை நடந்துவிட்டது"
+
 #~ msgid "MLS Enabled"
 #~ msgstr "MLS செயல்படுத்தப்பட்டது"
+
 #~ msgid "Since your last login, there is %d new security alert to view."
 #~ msgid_plural ""
 #~ "Since your last login, there are %d new security alerts to view."
@@ -1016,14 +1153,16 @@ msgstr "பொத்தான்"
 #~ "உங்களின் கடைசி உட்புகு வரை, அங்கே %d புதிய பாதுகாப்பு விழிப்பூட்டலின் பார்வை."
 #~ msgstr[1] ""
 #~ "உங்களின் கடைசி உட்புகு வரை, அங்கே %d புதிய பாதுகாப்பு விழிப்பூட்டல்களின் பார்வை."
+
 #~ msgid "%d of the alerts may be very serious security violations."
 #~ msgid_plural "%d of the alerts may be very serious security violations."
 #~ msgstr[0] "விழிப்பூட்டல்களில் %d மிகவும் பாதுகாப்பில்லாதது."
 #~ msgstr[1] "விழிப்பூட்டல்களில் %d மிகவும் பாதுகாப்பில்லாதது."
+
 #~ msgid "%d New Security Alert"
 #~ msgid_plural "%d New Security Alerts"
 #~ msgstr[0] "%d புதிய பாதுகாப்பு விழிப்பூட்டல்"
 #~ msgstr[1] "%d புதிய பாதுகாப்பு விழிப்பூட்டல்கள்"
+
 #~ msgid "gtk-copy"
 #~ msgstr "gtk-நகல்"
-

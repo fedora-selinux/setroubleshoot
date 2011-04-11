@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot.tip-framework.as\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2009-12-11 14:53+0530\n"
 "Last-Translator: \n"
 "Language-Team: Assamese <>\n"
@@ -27,24 +27,24 @@ msgstr "SELinux Troubleshooter"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux দ্বাৰা প্ৰতিৰোধ কৰা অনুমতিৰ সমস্যা সমাধান কৰক"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr ""
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "অজ্ঞাত"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
@@ -52,185 +52,140 @@ msgid ""
 "dontaudit rules. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr ""
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr ""
 
-#: ../src/browser.py:225
-#, fuzzy
-msgid "Error while checking policy version."
-msgstr "<small><b>পলিচিৰ সংস্কৰণ পৰীক্ষা কৰিবলৈ সমস্যা ।</b></small>"
-
-#: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr ""
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr ""
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 #, fuzzy
 msgid "Source Process"
 msgstr "উৎসৰ RPM সৰঞ্জাম"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr ""
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr ""
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+msgid "Occurred"
 msgstr ""
 
-#: ../src/browser.py:250
-#, fuzzy
-msgid "Edit Status"
+#: ../src/browser.py:255 ../src/run_cmd.py:417
+msgid "Status"
 msgstr "অৱস্থা"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
 msgstr ""
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+#, fuzzy
+msgid "Ignore"
+msgstr "কেতিয়াও প্ৰত্যাখ্যান কৰা ন'হ'ব"
+
+#: ../src/browser.py:368
+msgid "<b>If you were trying to...</b>"
 msgstr ""
 
-#: ../src/browser.py:387
+#: ../src/browser.py:378
+msgid "<b>Then this is the solution.</b>"
+msgstr ""
+
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr ""
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+msgid ""
+"Plugin\n"
+"Details"
+msgstr ""
+
+#: ../src/browser.py:488
 #, fuzzy
 msgid ""
 "Report\n"
 "Bug"
 msgstr "এই বাগ সম্পৰ্কে সূচিত কৰক..."
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "প্লাগ-ইনৰ নাম"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr "অভিগম্যতা দিব নোৱাৰি ।"
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr ""
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
+#: ../src/browser.py:729
+#, python-format
+msgid "On this %s:"
 msgstr ""
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr ""
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+#, fuzzy
+msgid "No Alerts"
+msgstr "সতৰ্কবাৰ্তা আওকাণ কৰক"
+
+#: ../src/browser.py:843
+msgid "SELinux has detected a problem."
+msgstr ""
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr "Sealert ৰ ভুল"
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 msgid "Sealert Message"
 msgstr "Sealert বাৰ্তা"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "Setroubleshoot ৰ ঈ-মেইল সংক্ৰান্ত পছন্দ"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "যোগ কৰক"
-
-#: ../src/email_dialog.py:114
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"সতৰ্কবাৰ্তা প্ৰৰণৰ বাবে চিহ্নিত ঈ-মেইল ঠিকনাৰ\n"
-"তালিকা ।\n"
-"\n"
-"নতুন ঈ-মেইল ঠিকনা যোগ কৰাৰ বাবে, নিবেশ-বক্সত\n"
-"ঠিকনা লিখি 'যোগ কৰক' বুটাম টিপক । একেই ঠিকনা\n"
-" একাধিকবাৰ অন্তৰ্ভুক্ত কৰা নাযায় ।\n"
-"\n"
-"এক অথবা একাধিক ঈ-মেইল ঠিকনা আঁতৰুৱাৰ বাবে তালিকাৰ পৰা\n"
-"ঠিকনাসমূহ নিৰ্বাচন কৰি 'আঁতৰাওক' শীৰ্ষক বুটাম টিপক, অথবা\n"
-"delete চাবি টিপক । অথবা, ঠিকনা 'সম্পাদনা' কৰি মান আঁতৰুৱা যাব ।\n"
-"\n"
-"ঠিকনা পৰিবৰ্তনৰ বাবে প্ৰথমে ঠিকনা ক্লিক কৰক আৰু সেইটো সম্পাদনা কৰক ।\n"
-"\n"
-"তালিকাৰ বিন্যাস পৰিবৰ্তনৰ বাবে সংশ্লিষ্ট স্তম্ভৰ ওপৰত ক্লিক কৰক ।\n"
-"\n"
-"ফিল্টাৰ সংক্ৰান্ত বিকল্প পৰিবৰ্তনৰ বাবে ফিল্টাৰৰ ধৰনৰ ওপৰত ক্লিক কৰক\n"
-"আৰু তালিকাৰ পৰা সেইটো নিৰ্বাচন কৰক । চিহ্নিত ঈ-মেইল ঠিকনাৰ সকলো সতৰ্কবাৰ্তাৰ\n"
-"বাবে এই ফিল্টাৰ প্ৰযোজ্য ।\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "ফিল্টাৰৰ ধৰন"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "ঈ-মেইল ঠিকনা"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -311,16 +266,16 @@ msgid "user lookup failed"
 msgstr "ব্যৱহাৰকৰ্তা অনুসন্ধান ব্যৰ্থ"
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "সহায়"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "দুঃখিত, %s এটা সমস্যাৰ সম্মুখীন হৈছে!"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "ত্ৰুটি"
 
@@ -358,10 +313,6 @@ msgstr "আদেশ সঞ্চালন"
 msgid "Stop Command"
 msgstr "আদেশ বন্ধ কৰক"
 
-#: ../src/run_cmd.py:417
-msgid "Status"
-msgstr "অৱস্থা"
-
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr "সতৰ্কবাৰ্তা: আদেশৰ সঠিক মান পৰীক্ষণৰ বাবে ব্যৱহাৰকৰ্তা দায়ী ।"
@@ -392,25 +343,25 @@ msgstr "ব্যৰ্থ, প্ৰস্থানকালৰ অৱস্থ
 msgid "Done: "
 msgstr "সমাপ্ত: "
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " SELinux ৰ সম্পূৰ্ণ বাৰ্তা চোৱাৰ বাবে sealert -l %s ব্যৱহাৰ কৰক"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "ব্যৱহাৰকৰ্তা (%s) দ্বাৰা (%s) সংক্ৰান্ত তথ্য পৰিবৰ্তন কৰা সম্ভৱ নহয়"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "আৰম্ভ কৰা হৈছে"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "Audit Listener"
 
@@ -471,17 +422,102 @@ msgstr ""
 msgid "capability"
 msgstr ""
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s ৰ পাৰ্মিছিভ ধৰণ আছে (%s) । অভিগম কৰিব দিয়া হ'ল ।"
 
-#: ../src/signature.py:385
+#: ../src/signature.py:384
 #, fuzzy
-msgid "SEinux is in permissive mode. This access was not denied."
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux পাৰ্মিছিভ মোডত । অভিগম কৰিব দিয়া হ'ল ।"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "অতিৰিক্ত তথ্য"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "উৎসৰ কনটেক্সট"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "গন্তব্যৰ কনটেক্সট"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "গন্তব্যৰ অবজেক্ট"
+
+#: ../src/signature.py:473
+msgid "Source"
+msgstr "উৎস"
+
+#: ../src/signature.py:474
+msgid "Source Path"
+msgstr "উৎসৰ পথ"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "পোৰ্ট"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "গৃহস্থ"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "উৎসৰ RPM সৰঞ্জাম"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "উদ্দিষ্ট RPM সৰঞ্জাম"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "পলিচি RPM"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "Selinux সক্ৰিয়"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "নিয়মনীতিৰ ধৰন"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "Enforcing মোড"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "গৃহস্থৰ নাম"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "স্থাপত্য"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "সতৰ্কবাণীৰ সংখ্যা"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "প্ৰথম প্ৰদৰ্শন"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "সৰ্বশেষ প্ৰদৰ্শন"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "স্থানীয় ID"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "মূল অডিট বাৰ্তা"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -489,107 +525,37 @@ msgid ""
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
 msgstr ""
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
 msgstr ""
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
 msgstr ""
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "অতিৰিক্ত তথ্য"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "উৎসৰ কনটেক্সট"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "গন্তব্যৰ কনটেক্সট"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "গন্তব্যৰ অবজেক্ট"
-
-#: ../src/signature.py:485
-msgid "Source"
-msgstr "উৎস"
-
-#: ../src/signature.py:486
-msgid "Source Path"
-msgstr "উৎসৰ পথ"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "পোৰ্ট"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "গৃহস্থ"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "উৎসৰ RPM সৰঞ্জাম"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "উদ্দিষ্ট RPM সৰঞ্জাম"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "পলিচি RPM"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "Selinux সক্ৰিয়"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "নিয়মনীতিৰ ধৰন"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "Enforcing মোড"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "গৃহস্থৰ নাম"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "স্থাপত্য"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "সতৰ্কবাণীৰ সংখ্যা"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "প্ৰথম প্ৰদৰ্শন"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "সৰ্বশেষ প্ৰদৰ্শন"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "স্থানীয় ID"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "মূল অডিট বাৰ্তা"
+#: ../src/signature.py:553
+msgid ""
+"\n"
+"\n"
+msgstr ""
 
 #: ../src/updater.py:18
 #, python-format
@@ -601,28 +567,28 @@ msgstr ""
 msgid "newer: %s "
 msgstr ""
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 msgid "New SELinux security alert"
 msgstr "SELinux নিৰাপত্তাসূচক নতুন সতৰ্কবাৰ্তা"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC প্ৰত্যাখ্যান, আইকন ক্লিক কৰি প্ৰদৰ্শন কৰক"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr "বাতিল"
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr "প্ৰদৰ্শন"
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC প্ৰত্যাখ্যান, ক্লিক কৰি চাওক"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
 
@@ -654,9 +620,8 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr ""
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
-msgid "Access:"
-msgstr "সফল"
+msgid "Attempted this access:"
+msgstr ""
 
 #: ../gui/browser.glade.h:3
 #, fuzzy
@@ -674,91 +639,108 @@ msgstr ""
 " John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
-msgid "Delete current alert from the database."
+msgid "Delete Selected Alerts"
 msgstr ""
 
 #: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
+msgid "Delete current alert from the database."
 msgstr ""
 
 #: ../gui/browser.glade.h:11
-msgid "Email alert to system administrator."
+msgid "Details"
 msgstr ""
 
 #: ../gui/browser.glade.h:12
-#, fuzzy
-msgid "Ignore"
-msgstr "কেতিয়াও প্ৰত্যাখ্যান কৰা ন'হ'ব"
+msgid "Email alert to system administrator."
+msgstr ""
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "ভৱিষ্যতে এই         সুৰক্ষাৰ সতৰ্কবাৰ্তা আওকাণ কৰক ।"
+
+#: ../gui/browser.glade.h:15
 #, fuzzy
 msgid "List All Alerts"
 msgstr "সমস্ত সতৰ্কবাণী আঁতৰুৱা হ'ব"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr ""
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 msgid "No"
 msgstr ""
 
-#: ../gui/browser.glade.h:16
-#, fuzzy
-msgid "No Alerts"
-msgstr "সতৰ্কবাৰ্তা আওকাণ কৰক"
+#: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
 
-#: ../gui/browser.glade.h:17
+#: ../gui/browser.glade.h:20
+msgid "On this file:"
+msgstr ""
+
+#: ../gui/browser.glade.h:21
 msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
+"Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
 
-#: ../gui/browser.glade.h:18
-#, fuzzy
-msgid "Report"
-msgstr "এই বাগ সম্পৰ্কে সূচিত কৰক..."
-
-#: ../gui/browser.glade.h:19
+#: ../gui/browser.glade.h:22
 #, fuzzy
 msgid "SELinux Alert Browser"
 msgstr "SELinux নিৰাপত্তাসূচক সতৰ্কবাৰ্তা"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot সতৰ্কবাৰ্তাৰ তালিকা"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot সতৰ্কবাৰ্তাৰ তালিকা"
+
+#: ../gui/browser.glade.h:25
 #, fuzzy
 msgid "Show next alert."
 msgstr "সমস্ত সতৰ্কবাণী আঁতৰুৱা হ'ব"
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr ""
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "উৎসৰ RPM সৰঞ্জাম"
+
+#: ../gui/browser.glade.h:28
 #, fuzzy
 msgid "Troubleshoot"
 msgstr "SELinux Troubleshooter"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "SETroubleshoot সতৰ্কবাৰ্তাৰ তালিকা"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr ""
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr ""
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr ""
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr ""
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr ""
 
@@ -800,6 +782,75 @@ msgstr "সফল"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "বুটাম"
+
+#, fuzzy
+#~ msgid "Error while checking policy version."
+#~ msgstr "<small><b>পলিচিৰ সংস্কৰণ পৰীক্ষা কৰিবলৈ সমস্যা ।</b></small>"
+
+#, fuzzy
+#~ msgid "Edit Status"
+#~ msgstr "অৱস্থা"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "Setroubleshoot ৰ ঈ-মেইল সংক্ৰান্ত পছন্দ"
+
+#~ msgid "Add"
+#~ msgstr "যোগ কৰক"
+
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "সতৰ্কবাৰ্তা প্ৰৰণৰ বাবে চিহ্নিত ঈ-মেইল ঠিকনাৰ\n"
+#~ "তালিকা ।\n"
+#~ "\n"
+#~ "নতুন ঈ-মেইল ঠিকনা যোগ কৰাৰ বাবে, নিবেশ-বক্সত\n"
+#~ "ঠিকনা লিখি 'যোগ কৰক' বুটাম টিপক । একেই ঠিকনা\n"
+#~ " একাধিকবাৰ অন্তৰ্ভুক্ত কৰা নাযায় ।\n"
+#~ "\n"
+#~ "এক অথবা একাধিক ঈ-মেইল ঠিকনা আঁতৰুৱাৰ বাবে তালিকাৰ পৰা\n"
+#~ "ঠিকনাসমূহ নিৰ্বাচন কৰি 'আঁতৰাওক' শীৰ্ষক বুটাম টিপক, অথবা\n"
+#~ "delete চাবি টিপক । অথবা, ঠিকনা 'সম্পাদনা' কৰি মান আঁতৰুৱা যাব ।\n"
+#~ "\n"
+#~ "ঠিকনা পৰিবৰ্তনৰ বাবে প্ৰথমে ঠিকনা ক্লিক কৰক আৰু সেইটো সম্পাদনা কৰক ।\n"
+#~ "\n"
+#~ "তালিকাৰ বিন্যাস পৰিবৰ্তনৰ বাবে সংশ্লিষ্ট স্তম্ভৰ ওপৰত ক্লিক কৰক ।\n"
+#~ "\n"
+#~ "ফিল্টাৰ সংক্ৰান্ত বিকল্প পৰিবৰ্তনৰ বাবে ফিল্টাৰৰ ধৰনৰ ওপৰত ক্লিক কৰক\n"
+#~ "আৰু তালিকাৰ পৰা সেইটো নিৰ্বাচন কৰক । চিহ্নিত ঈ-মেইল ঠিকনাৰ সকলো সতৰ্কবাৰ্তাৰ\n"
+#~ "বাবে এই ফিল্টাৰ প্ৰযোজ্য ।\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "ফিল্টাৰৰ ধৰন"
+
+#~ msgid "Email Address"
+#~ msgstr "ঈ-মেইল ঠিকনা"
+
+#, fuzzy
+#~ msgid "Access:"
+#~ msgstr "সফল"
+
+#, fuzzy
+#~ msgid "Report"
+#~ msgstr "এই বাগ সম্পৰ্কে সূচিত কৰক..."
 
 #, fuzzy
 #~ msgid "Copy to Clipboard"
@@ -869,9 +920,6 @@ msgstr "বুটাম"
 #~ msgid "Fix Command"
 #~ msgstr "সমাধানৰ আদেশ"
 
-#~ msgid "Plugin Name"
-#~ msgstr "প্লাগ-ইনৰ নাম"
-
 #~ msgid "Line Numbers"
 #~ msgstr "পংক্তি সংখ্যা"
 
@@ -916,9 +964,6 @@ msgstr "বুটাম"
 
 #~ msgid "Copy full error output to clipboard."
 #~ msgstr "ত্ৰুটিৰ সম্পূৰ্ণ নিৰ্গম ক্লিপব'ৰ্ডলৈ নকল কৰা হ'ব ।"
-
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "ভৱিষ্যতে এই         সুৰক্ষাৰ সতৰ্কবাৰ্তা আওকাণ কৰক ।"
 
 #~ msgid "Next"
 #~ msgstr "পৰবৰ্তী"

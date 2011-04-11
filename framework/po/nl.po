@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2010-11-21 16:45+0200\n"
 "Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
 "Language-Team: Fedora\n"
@@ -27,17 +27,17 @@ msgstr "SELinux probleem oplosser"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Los SELinux toegang weigeringen op"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr "poort %s"
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
@@ -46,7 +46,7 @@ msgstr ""
 "%s \n"
 "**** Ongeldige AVC toegestaan in huidige tactiek ***\n"
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
@@ -57,11 +57,11 @@ msgstr ""
 "**** Ongeldige AVC dontaudited in huidige tactiek.  'semodule -B' zal "
 "dontaudit regels aanzetten. ***\n"
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr "policy_init moet eerst aangeroepen worden"
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
@@ -70,7 +70,7 @@ msgstr ""
 "%s \n"
 "**** Ongeldige AVC slechte doel context. ***\n"
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
@@ -79,7 +79,7 @@ msgstr ""
 "%s \n"
 "**** Ongeldig AVC slechte bron context. ***\n"
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
@@ -88,7 +88,7 @@ msgstr ""
 "%s \n"
 "**** Ongeldige AVC slecht type klasse ***\n"
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
@@ -97,67 +97,64 @@ msgstr ""
 "%s \n"
 "**** Ongeldige AVC slechte toestemming ***\n"
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr "Fout tijdens toegang vector berekening"
 
-#: ../src/browser.py:225
-msgid "Error while checking policy version."
-msgstr "Fout opgetreden bij het controleren van de tactiek versie."
-
-#: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-"Er is een nieuwere versie van de tactiek beschikbaar.  Vernieuwen van jouw "
-"tactiek kan de weigering waarmee je problemen hebt repareren."
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr "Nieuwste versie"
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr "Vernieuw tactiek"
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Source Process"
 msgstr "Bron proces"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr "Poging tot toegang"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr "Op dit"
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+#, fuzzy
+msgid "Occurred"
 msgstr "Opgetreden"
 
-#: ../src/browser.py:250
-msgid "Edit Status"
-msgstr "Bewerk status"
+#: ../src/browser.py:255 ../src/run_cmd.py:417
+msgid "Status"
+msgstr "Status"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
+msgstr ""
+
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+msgid "Ignore"
+msgstr "Negeren"
+
+#: ../src/browser.py:368
+#, fuzzy
+msgid "<b>If you were trying to...</b>"
 msgstr "Als je probeerde om..."
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:378
+#, fuzzy
+msgid "<b>Then this is the solution.</b>"
 msgstr "Dan is dit de oplossing."
 
-#: ../src/browser.py:387
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr "Als "
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+msgid ""
+"Plugin\n"
+"Details"
+msgstr ""
+
+#: ../src/browser.py:488
 msgid ""
 "Report\n"
 "Bug"
@@ -165,85 +162,45 @@ msgstr ""
 "Rapporteer\n"
 "fout"
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "Plug-in naam"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr "Niet in staat toegang te geven."
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Waarschuwing %d van %d"
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
-msgstr "(verwijderd)"
+#: ../src/browser.py:729
+#, fuzzy, python-format
+msgid "On this %s:"
+msgstr "Op dit"
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr ""
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+msgid "No Alerts"
+msgstr "Geen waarschuwingen"
+
+#: ../src/browser.py:843
+#, fuzzy
+msgid "SELinux has detected a problem."
+msgstr "<b>SELinux heeft een probleem gedetecteerd.</b>"
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr "Sealert fout"
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 msgid "Sealert Message"
 msgstr "Sealert boodschap"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "Setroubleshoot email voorkeuren"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "Toevoegen"
-
-#: ../src/email_dialog.py:114
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"Dit is een lijst van email adressen waar waarschuwingen\n"
-"naar toe worden gestuurd.\n"
-"\n"
-"Om een email adres toe te voegen type je het adres in de\n"
-"input box en klik je op de Toevoegen knop. Dubbele adressen\n"
-"zijn niet toegestaan.\n"
-"\n"
-"Om een of meer email adressen te verwijderen selecteer je de adressen\n"
-"in de lijst en klik je op de Verwijderen knop of gebruik je de Delete toets.\n"
-"Of je kunt het adres bewerken en leeg maken.\n"
-"\n"
-"Om een adres te bewerken klik op het adres en begin met bewerken.\n"
-"\n"
-"Om de lijst anders te sorteren klik op het kolom hoofd.\n"
-"\n"
-"Om de filter opties te veranderen klik op het filter type en\n"
-"kies van de lijst. Het filter wordt toegepast voor alle waarschuwingen\n"
-"voor dit email adres.\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "Filter type"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "Email adres"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -324,16 +281,16 @@ msgid "user lookup failed"
 msgstr "gebruiker opzoeken faalde"
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "Hulp"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Oeps, %s loopt tegen een fout aan!"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "Fout"
 
@@ -373,10 +330,6 @@ msgstr "Voer commando uit"
 msgid "Stop Command"
 msgstr "Stop commando"
 
-#: ../src/run_cmd.py:417
-msgid "Status"
-msgstr "Status"
-
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr ""
@@ -409,25 +362,25 @@ msgstr "Mislukt, exit status = %d"
 msgid "Done: "
 msgstr "Klaar: "
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " Voor complete SELinux boodschappen. voer sealert -l %s uit"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "De gebruiker (%s) kan geen data veranderen voor (%s)"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "Gestart"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "Audit luisteraar"
 
@@ -487,16 +440,102 @@ msgstr "node"
 msgid "capability"
 msgstr "mogelijkheid "
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s heeft een toelatend type (%s). Deze toegang was niet verboden."
 
-#: ../src/signature.py:385
-msgid "SEinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:384
+#, fuzzy
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux is in de toelatende mode. Deze toegang werd niet geweigerd."
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "Extra informatie"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "Bron context"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "Doel context"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "Doel objecten"
+
+#: ../src/signature.py:473
+msgid "Source"
+msgstr "Bron"
+
+#: ../src/signature.py:474
+msgid "Source Path"
+msgstr "Bron pad"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "Poort"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "Host"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "Bron RPM pakketten"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "Doel RPM pakketten"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "Tactiek RPM"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "SELinux aangezet"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "Tactiek type"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "Afdwingende mode"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "Host naam"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "Platform"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "Aantal waarschuwingen"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "Eerst gezien op"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "Laatst gezien op"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "Locale ID"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "Onbewerkte audit boodschappen"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -507,7 +546,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s vertrouwen) suggereert  "
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
@@ -515,7 +562,7 @@ msgstr ""
 "\n"
 "Als "
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
@@ -523,7 +570,7 @@ msgstr ""
 "\n"
 "Dan "
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
@@ -531,89 +578,14 @@ msgstr ""
 "\n"
 "Doe\n"
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "Extra informatie"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "Bron context"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "Doel context"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "Doel objecten"
-
-#: ../src/signature.py:485
-msgid "Source"
-msgstr "Bron"
-
-#: ../src/signature.py:486
-msgid "Source Path"
-msgstr "Bron pad"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "Poort"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "Host"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "Bron RPM pakketten"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "Doel RPM pakketten"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "Tactiek RPM"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "SELinux aangezet"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "Tactiek type"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "Afdwingende mode"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "Host naam"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "Platform"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "Aantal waarschuwingen"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "Eerst gezien op"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "Laatst gezien op"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "Locale ID"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "Onbewerkte audit boodschappen"
+#: ../src/signature.py:553
+#, fuzzy
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"Doe\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -625,28 +597,28 @@ msgstr "huidige: %s "
 msgid "newer: %s "
 msgstr "nieuwere: %s "
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 msgid "New SELinux security alert"
 msgstr "Nieuwe SELinux beveiliging waarschuwing"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC weigering, klik op icoon om te bekijken"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr "Verwerp"
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr "Laat zien"
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC weigering, klik om te bekijken"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux niet aangezet, sealert draait niet op niet-SELinux systemen"
 
@@ -678,8 +650,9 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux heeft een probleem gedetecteerd.</b>"
 
 #: ../gui/browser.glade.h:2
-msgid "Access:"
-msgstr "Toegang:"
+#, fuzzy
+msgid "Attempted this access:"
+msgstr "Poging tot toegang"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -696,88 +669,109 @@ msgstr ""
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
+#, fuzzy
+msgid "Delete Selected Alerts"
+msgstr "Geselecteerde waarschuwingen afdrukken"
+
+#: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
 msgstr "Verwijder huidige waarschuwing uit de data base."
 
-#: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
-msgstr ""
-"Laat de waarschuwing boodschap niet zien als deze waarschuwing geactiveerd "
-"wordt."
-
 #: ../gui/browser.glade.h:11
+msgid "Details"
+msgstr ""
+
+#: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
 msgstr "Email waarschuwing naar de systeembeheerder."
 
-#: ../gui/browser.glade.h:12
-msgid "Ignore"
-msgstr "Negeren"
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "Negeer deze SELinux beveiliging waarschuwing in het vervolg."
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:15
 msgid "List All Alerts"
 msgstr "Laat alle waarschuwingen zien"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr "Laat alle waarschuwingen in de database zien."
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "Geen"
 
-#: ../gui/browser.glade.h:16
-msgid "No Alerts"
-msgstr "Geen waarschuwingen"
+#: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
 
-#: ../gui/browser.glade.h:17
+#: ../gui/browser.glade.h:20
+#, fuzzy
+msgid "On this file:"
+msgstr "Op dit"
+
+#: ../gui/browser.glade.h:21
+#, fuzzy
 msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
+"Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
 "Lees waarschuwing probleem-oplos informatie.  Voor verhelpen zijn mogelijk "
 "beheer rechten nodig."
 
-#: ../gui/browser.glade.h:18
-msgid "Report"
-msgstr "Rapport"
-
-#: ../gui/browser.glade.h:19
+#: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
 msgstr "SELinux waarschuwingen browser"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot waarschuwingen lijst"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot waarschuwingen lijst"
+
+#: ../gui/browser.glade.h:25
 msgid "Show next alert."
 msgstr "Laat volgende waarschuwing zien."
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr "Laat vorige waarschuwing zien."
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "Bron proces"
+
+#: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "Probleem oplossen"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "Geselecteerde waarschuwingen afdrukken"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr "Zet alle waarschuwing pop-ups uit."
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr "Zet alle waarschuwing pop-ups aan."
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr "Wil je waarschuwingen ontvangen?"
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr "Ja"
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr "label"
 
@@ -809,7 +803,8 @@ msgstr ""
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr "Deze bewerking is klaar.  The quick brown fox jumped over the lazy dog."
+msgstr ""
+"Deze bewerking is klaar.  The quick brown fox jumped over the lazy dog."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
@@ -818,6 +813,93 @@ msgstr "Succes!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "knop"
+
+#~ msgid "Error while checking policy version."
+#~ msgstr "Fout opgetreden bij het controleren van de tactiek versie."
+
+#~ msgid ""
+#~ "There is a newer version of policy available.  Updating your policy may "
+#~ "fix the denial that you having problems with."
+#~ msgstr ""
+#~ "Er is een nieuwere versie van de tactiek beschikbaar.  Vernieuwen van "
+#~ "jouw tactiek kan de weigering waarmee je problemen hebt repareren."
+
+#~ msgid "Newest Version"
+#~ msgstr "Nieuwste versie"
+
+#~ msgid "Update Policy"
+#~ msgstr "Vernieuw tactiek"
+
+#~ msgid "Edit Status"
+#~ msgstr "Bewerk status"
+
+#~ msgid "(removed)"
+#~ msgstr "(verwijderd)"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "Setroubleshoot email voorkeuren"
+
+#~ msgid "Add"
+#~ msgstr "Toevoegen"
+
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Dit is een lijst van email adressen waar waarschuwingen\n"
+#~ "naar toe worden gestuurd.\n"
+#~ "\n"
+#~ "Om een email adres toe te voegen type je het adres in de\n"
+#~ "input box en klik je op de Toevoegen knop. Dubbele adressen\n"
+#~ "zijn niet toegestaan.\n"
+#~ "\n"
+#~ "Om een of meer email adressen te verwijderen selecteer je de adressen\n"
+#~ "in de lijst en klik je op de Verwijderen knop of gebruik je de Delete "
+#~ "toets.\n"
+#~ "Of je kunt het adres bewerken en leeg maken.\n"
+#~ "\n"
+#~ "Om een adres te bewerken klik op het adres en begin met bewerken.\n"
+#~ "\n"
+#~ "Om de lijst anders te sorteren klik op het kolom hoofd.\n"
+#~ "\n"
+#~ "Om de filter opties te veranderen klik op het filter type en\n"
+#~ "kies van de lijst. Het filter wordt toegepast voor alle waarschuwingen\n"
+#~ "voor dit email adres.\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "Filter type"
+
+#~ msgid "Email Address"
+#~ msgstr "Email adres"
+
+#~ msgid "Access:"
+#~ msgstr "Toegang:"
+
+#~ msgid "Do not show alert message, when this alert is triggered."
+#~ msgstr ""
+#~ "Laat de waarschuwing boodschap niet zien als deze waarschuwing "
+#~ "geactiveerd wordt."
+
+#~ msgid "Report"
+#~ msgstr "Rapport"
 
 #~ msgid "Copy to Clipboard"
 #~ msgstr "Kopieer naar klembord"
@@ -886,9 +968,6 @@ msgstr "knop"
 #~ msgid "Fix Command"
 #~ msgstr "Commando repareren"
 
-#~ msgid "Plugin Name"
-#~ msgstr "Plug-in naam"
-
 #~ msgid "Line Numbers"
 #~ msgstr "Regel nummers"
 
@@ -937,9 +1016,6 @@ msgstr "knop"
 
 #~ msgid "Ignore Alert"
 #~ msgstr "Negeer waarschuwing"
-
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "Negeer deze SELinux beveiliging waarschuwing in het vervolg."
 
 #~ msgid "Next"
 #~ msgstr "Volgende"
@@ -1167,9 +1243,6 @@ msgstr "knop"
 
 #~ msgid "Print..."
 #~ msgstr "Afdrukken..."
-
-#~ msgid "Print selected alerts"
-#~ msgstr "Geselecteerde waarschuwingen afdrukken"
 
 #~ msgid "Edit Email Alert List..."
 #~ msgstr "Bewerk email waarschuwings lijst..."

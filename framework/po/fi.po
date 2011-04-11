@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot-framework\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2010-10-28 17:25-0400\n"
+"POT-Creation-Date: 2011-03-10 09:33-0500\n"
 "PO-Revision-Date: 2010-12-16 00:53+0200\n"
 "Last-Translator: Ville-Pekka Vainio <vpivaini@cs.helsinki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
@@ -25,17 +25,17 @@ msgstr "SELinux-ongelmanratkaisin"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Ratkaise SELinuxin pääsyesto-ongelmia"
 
-#: ../src/audit_data.py:861
+#: ../src/audit_data.py:865
 #, python-format
 msgid "port %s"
 msgstr "portti %s"
 
-#: ../src/audit_data.py:863 ../src/browser.py:620 ../src/browser.py:673
+#: ../src/audit_data.py:867 ../src/browser.py:709 ../src/browser.py:784
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "Tuntematon"
 
-#: ../src/audit_data.py:948
+#: ../src/audit_data.py:957
 #, python-format
 msgid ""
 "%s \n"
@@ -44,7 +44,7 @@ msgstr ""
 "%s \n"
 "**** Virheellinen AVC, sallittu nykyisessä käytännössä ***\n"
 
-#: ../src/audit_data.py:950
+#: ../src/audit_data.py:959
 #, python-format
 msgid ""
 "%s \n"
@@ -55,11 +55,11 @@ msgstr ""
 "**** Virheellinen AVC, dontaudited nykyisessä käytännössä.  ”semodule -B” "
 "ottaa käyttöön dontaudit-säännöt. ***\n"
 
-#: ../src/audit_data.py:952
+#: ../src/audit_data.py:961
 msgid "Must call policy_init first"
 msgstr "policy_init:iä on kutsuttava ensin"
 
-#: ../src/audit_data.py:954
+#: ../src/audit_data.py:963
 #, python-format
 msgid ""
 "%s \n"
@@ -68,7 +68,7 @@ msgstr ""
 "%s \n"
 "**** Virheellinen AVC, virheellinen kohdekonteksti. ***\n"
 
-#: ../src/audit_data.py:956
+#: ../src/audit_data.py:965
 #, python-format
 msgid ""
 "%s \n"
@@ -77,7 +77,7 @@ msgstr ""
 "%s \n"
 "**** Virheellinen AVC, virheellinen lähdekonteksti. ***\n"
 
-#: ../src/audit_data.py:958
+#: ../src/audit_data.py:967
 #, python-format
 msgid ""
 "%s \n"
@@ -86,7 +86,7 @@ msgstr ""
 "%s \n"
 "**** Virheellinen AVC, virheellinen tyyppiluokka ***\n"
 
-#: ../src/audit_data.py:960
+#: ../src/audit_data.py:969
 #, python-format
 msgid ""
 "%s \n"
@@ -95,67 +95,64 @@ msgstr ""
 "%s \n"
 "**** Virheellinen AVC, virheellinen käyttöoikeus ***\n"
 
-#: ../src/audit_data.py:962
+#: ../src/audit_data.py:971
 msgid "Error during access vector computation"
 msgstr "Virhe pääsyvektorilaskennassa"
 
-#: ../src/browser.py:225
-msgid "Error while checking policy version."
-msgstr "Virhe tarkistettaessa käytäntöversiota."
-
-#: ../src/browser.py:230
-msgid ""
-"There is a newer version of policy available.  Updating your policy may fix "
-"the denial that you having problems with."
-msgstr ""
-"Uusi käytäntöversion on saatavilla. Käytännön päivittäminen saattaa "
-"ratkaista ongelmana olevan eston."
-
-#: ../src/browser.py:231
-msgid "Newest Version"
-msgstr "Uusin versio"
-
-#: ../src/browser.py:233
-msgid "Update Policy"
-msgstr "Päivitä käytäntö"
-
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Source Process"
 msgstr "Lähdeprosessi"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "Attempted Access"
 msgstr "Yritetty käyttö"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:255
 msgid "On this"
 msgstr ""
 
-#: ../src/browser.py:250
-msgid "Occured"
+#: ../src/browser.py:255
+#, fuzzy
+msgid "Occurred"
 msgstr "Tapahtui"
 
-#: ../src/browser.py:250
-msgid "Edit Status"
-msgstr "Muokkaa tilaa"
+#: ../src/browser.py:255 ../src/run_cmd.py:417
+msgid "Status"
+msgstr "Tila"
 
-#: ../src/browser.py:374
-msgid "If you were trying to..."
+#: ../src/browser.py:327 ../src/browser.py:792
+msgid "Notify"
+msgstr ""
+
+#: ../src/browser.py:331 ../src/browser.py:790 ../gui/browser.glade.h:13
+msgid "Ignore"
+msgstr "Ohita"
+
+#: ../src/browser.py:368
+#, fuzzy
+msgid "<b>If you were trying to...</b>"
 msgstr "Jos yritit…"
 
-#: ../src/browser.py:380
-msgid "Then this is the solution."
+#: ../src/browser.py:378
+#, fuzzy
+msgid "<b>Then this is the solution.</b>"
 msgstr "Silloin tämä on ratkaisu."
 
-#: ../src/browser.py:387
+#: ../src/browser.py:397 ../src/browser.py:519
 msgid "If "
 msgstr "Jos "
 
-#: ../src/browser.py:485
+#: ../src/browser.py:474
+msgid ""
+"Plugin\n"
+"Details"
+msgstr ""
+
+#: ../src/browser.py:488
 msgid ""
 "Report\n"
 "Bug"
@@ -163,85 +160,45 @@ msgstr ""
 "Ilmoita\n"
 "ohjelmavirheestä"
 
-#: ../src/browser.py:513
+#: ../src/browser.py:514
+#, fuzzy, python-format
+msgid "Plugin: %s "
+msgstr "Liitännäisen nimi"
+
+#: ../src/browser.py:572
 msgid "Unable to grant access."
 msgstr "Käyttöoikeutta ei voida antaa."
 
-#: ../src/browser.py:538 ../src/browser.py:646
+#: ../src/browser.py:604 ../src/browser.py:746
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Varoitus %d/%d"
 
-#: ../src/browser.py:731 ../src/browser.py:732 ../src/browser.py:733
-#: ../src/browser.py:752
-msgid "(removed)"
-msgstr "(poistettu)"
+#: ../src/browser.py:729
+#, python-format
+msgid "On this %s:"
+msgstr ""
 
-#: ../src/browser.py:799
+#: ../src/browser.py:777 ../src/browser.py:783 ../src/signature.py:396
+msgid "N/A"
+msgstr ""
+
+#: ../src/browser.py:824 ../src/browser.py:825 ../gui/browser.glade.h:18
+msgid "No Alerts"
+msgstr "Ei varoituksia"
+
+#: ../src/browser.py:843
+#, fuzzy
+msgid "SELinux has detected a problem."
+msgstr "<b>SELinux on havainnut ongelman.</b>"
+
+#: ../src/browser.py:948
 msgid "Sealert Error"
 msgstr "SEalert-virhe"
 
-#: ../src/browser.py:810
+#: ../src/browser.py:959
 msgid "Sealert Message"
 msgstr "Sealertin viesti"
-
-#: ../src/email_dialog.py:47
-msgid "Setroubleshoot Email Preferences"
-msgstr "Setroubleshootin sähköpostiasetukset"
-
-#: ../src/email_dialog.py:74
-msgid "Add"
-msgstr "Lisää"
-
-#: ../src/email_dialog.py:114
-msgid ""
-"This is a list of email addresses to whom alerts will be\n"
-"sent.\n"
-"\n"
-"To add an email address type the address in the\n"
-"input box and click the Add button. Duplicate addresses\n"
-"are not permitted.\n"
-"\n"
-"To delete one or more email addresses select the addresses\n"
-"in the list and click the Delete button or use the Delete key.\n"
-"Or you may edit the address and clear its value.\n"
-"\n"
-"To edit an address click the address to begin editing.\n"
-"\n"
-"To sort the list differently click on the column heading.\n"
-"\n"
-"To change the filtering option click on the filter type and\n"
-"pick from the list. The filter applies to all alerts for this\n"
-"email address.\n"
-"\n"
-msgstr ""
-"Varoitukset lähetetään tässä luettelossa oleviin\n"
-"sähköpostiosoitteisiin.\n"
-"Sähköpostiosoitteita voi lisätä luetteloon kirjoittamalla\n"
-"osoite syöttökenttään ja napsauttamalla Lisää. Luettelossa\n"
-"ei voi olla useita samoja osoitteita.\n"
-"\n"
-"Sähköpostiosoitteita voi poistaa valitsemalla niistä yhden\n"
-"tai useampia ja napsauttamalla Poista-painiketta tai\n"
-"painamalla Delete-näppäintä. Osoitteen voi poistaa myös\n"
-"muokkaamalla sitä ja tyhjentämällä osoitekentän.\n"
-"\n"
-"Osoitetta voi muokata napsauttamalla sitä.\n"
-"Luettelon voi järjestää eri tavoilla napsauttamalla\n"
-"sarakkeen otsikkoa.\n"
-"\n"
-"Suodatinvalintaa voi vaihtaa napsauttamalla suodatintyyppiä\n"
-"ja valitsemalla uuden luettelosta. Suodatin koskee kaikkia\n"
-"kyseiseen sähköpostiosoitteeseen lähetettäviä varoituksia.\n"
-"\n"
-
-#: ../src/email_dialog.py:247
-msgid "Filter Type"
-msgstr "Suotimen tyyppi"
-
-#: ../src/email_dialog.py:259
-msgid "Email Address"
-msgstr "Sähköpostiosoite"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:70
@@ -322,16 +279,16 @@ msgid "user lookup failed"
 msgstr "käyttäjäkysely epäonnistui"
 
 #. --- Interaction Dialogs ---
-#: ../src/gui_utils.py:79
+#: ../src/gui_utils.py:78
 msgid "Help"
 msgstr "Ohje"
 
-#: ../src/gui_utils.py:139
-#, python-format
+#: ../src/gui_utils.py:138 ../src/sealert:544
+#, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "%s-virhe"
 
-#: ../src/gui_utils.py:141 ../gui/fail_dialog.glade.h:1
+#: ../src/gui_utils.py:140 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "Virhe"
 
@@ -371,10 +328,6 @@ msgstr "Suorita komento"
 msgid "Stop Command"
 msgstr "Pysäytä komento"
 
-#: ../src/run_cmd.py:417
-msgid "Status"
-msgstr "Tila"
-
 #: ../src/run_cmd.py:424
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr "Varoitus: Varmista että tämä komento on oikein"
@@ -405,25 +358,25 @@ msgstr "Epäonnistui, lopetustila %d"
 msgid "Done: "
 msgstr "Valmis: "
 
-#: ../src/server.py:205
+#: ../src/server.py:202
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " suorita sealert -l %s kaikkien SELinux-viestien saamiseksi"
 
-#: ../src/server.py:397
+#: ../src/server.py:401
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Käyttäjä (%s) ei voi muokata käyttäjän (%s) tietoja"
 
-#: ../src/server.py:461 ../src/sealert:295
+#: ../src/server.py:465 ../src/sealert:295
 msgid "Started"
 msgstr "Aloitettu"
 
-#: ../src/server.py:508
+#: ../src/server.py:512
 msgid "AVC"
 msgstr "Pääsyvektorivälimuisti"
 
-#: ../src/server.py:575
+#: ../src/server.py:579
 msgid "Audit Listener"
 msgstr "Tarkastuskuuntelija"
 
@@ -483,16 +436,102 @@ msgstr "solmu"
 msgid "capability"
 msgstr "ominaisuus"
 
-#: ../src/signature.py:382
+#: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "Lähteellä %s on salliva tyyppi (%s). Tätä käyttöä ei estetty."
 
-#: ../src/signature.py:385
-msgid "SEinux is in permissive mode. This access was not denied."
+#: ../src/signature.py:384
+#, fuzzy
+msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux on sallivassa tilassa. Tätä käyttöä ei estetty."
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
+#, fuzzy
+msgid "Additional Information:\n"
+msgstr "Lisätiedot"
+
+#: ../src/signature.py:470
+msgid "Source Context"
+msgstr "Lähdekonteksti"
+
+#: ../src/signature.py:471
+msgid "Target Context"
+msgstr "Kohdekonteksti"
+
+#: ../src/signature.py:472
+msgid "Target Objects"
+msgstr "Kohdeobjektit"
+
+#: ../src/signature.py:473
+msgid "Source"
+msgstr "Lähde"
+
+#: ../src/signature.py:474
+msgid "Source Path"
+msgstr "Lähteen polku"
+
+#: ../src/signature.py:475
+msgid "Port"
+msgstr "Portti"
+
+#: ../src/signature.py:476
+msgid "Host"
+msgstr "Kone"
+
+#: ../src/signature.py:477
+msgid "Source RPM Packages"
+msgstr "Lähteen RPM-paketit"
+
+#: ../src/signature.py:478
+msgid "Target RPM Packages"
+msgstr "Kohteen RPM-paketit"
+
+#: ../src/signature.py:479
+msgid "Policy RPM"
+msgstr "Käytännön RPM"
+
+#: ../src/signature.py:480
+msgid "Selinux Enabled"
+msgstr "SELinux käytössä"
+
+#: ../src/signature.py:481
+msgid "Policy Type"
+msgstr "Käytännön tyyppi"
+
+#: ../src/signature.py:482
+msgid "Enforcing Mode"
+msgstr "Toimeenpanotila"
+
+#: ../src/signature.py:483
+msgid "Host Name"
+msgstr "Konenimi"
+
+#: ../src/signature.py:484
+msgid "Platform"
+msgstr "Alusta"
+
+#: ../src/signature.py:485
+msgid "Alert Count"
+msgstr "Varoitusten määrä"
+
+#: ../src/signature.py:486
+msgid "First Seen"
+msgstr "Ensimmäinen"
+
+#: ../src/signature.py:487
+msgid "Last Seen"
+msgstr "Viimeisin"
+
+#: ../src/signature.py:488
+msgid "Local ID"
+msgstr "Paikallinen tunniste"
+
+#: ../src/signature.py:490
+msgid "Raw Audit Messages"
+msgstr "Muokkaamattomat tarkastusviestit"
+
+#: ../src/signature.py:540
 #, python-format
 msgid ""
 "\n"
@@ -503,7 +542,15 @@ msgstr ""
 "\n"
 "*****  Liitännäinen %s (%.4s luottamusaste) ehdottaa  "
 
-#: ../src/signature.py:474
+#: ../src/signature.py:543
+msgid "*"
+msgstr ""
+
+#: ../src/signature.py:544
+msgid "\n"
+msgstr ""
+
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
@@ -511,7 +558,7 @@ msgstr ""
 "\n"
 "Jos "
 
-#: ../src/signature.py:476
+#: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
@@ -519,7 +566,7 @@ msgstr ""
 "\n"
 "Niin "
 
-#: ../src/signature.py:479
+#: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
@@ -527,89 +574,14 @@ msgstr ""
 "\n"
 "Tee\n"
 
-#: ../src/signature.py:480
-msgid "Additional Information"
-msgstr "Lisätiedot"
-
-#: ../src/signature.py:482
-msgid "Source Context"
-msgstr "Lähdekonteksti"
-
-#: ../src/signature.py:483
-msgid "Target Context"
-msgstr "Kohdekonteksti"
-
-#: ../src/signature.py:484
-msgid "Target Objects"
-msgstr "Kohdeobjektit"
-
-#: ../src/signature.py:485
-msgid "Source"
-msgstr "Lähde"
-
-#: ../src/signature.py:486
-msgid "Source Path"
-msgstr "Lähteen polku"
-
-#: ../src/signature.py:487
-msgid "Port"
-msgstr "Portti"
-
-#: ../src/signature.py:488
-msgid "Host"
-msgstr "Kone"
-
-#: ../src/signature.py:489
-msgid "Source RPM Packages"
-msgstr "Lähteen RPM-paketit"
-
-#: ../src/signature.py:490
-msgid "Target RPM Packages"
-msgstr "Kohteen RPM-paketit"
-
-#: ../src/signature.py:491
-msgid "Policy RPM"
-msgstr "Käytännön RPM"
-
-#: ../src/signature.py:492
-msgid "Selinux Enabled"
-msgstr "SELinux käytössä"
-
-#: ../src/signature.py:493
-msgid "Policy Type"
-msgstr "Käytännön tyyppi"
-
-#: ../src/signature.py:494
-msgid "Enforcing Mode"
-msgstr "Toimeenpanotila"
-
-#: ../src/signature.py:495
-msgid "Host Name"
-msgstr "Konenimi"
-
-#: ../src/signature.py:496
-msgid "Platform"
-msgstr "Alusta"
-
-#: ../src/signature.py:497
-msgid "Alert Count"
-msgstr "Varoitusten määrä"
-
-#: ../src/signature.py:498
-msgid "First Seen"
-msgstr "Ensimmäinen"
-
-#: ../src/signature.py:499
-msgid "Last Seen"
-msgstr "Viimeisin"
-
-#: ../src/signature.py:500
-msgid "Local ID"
-msgstr "Paikallinen tunniste"
-
-#: ../src/signature.py:502
-msgid "Raw Audit Messages"
-msgstr "Muokkaamattomat tarkastusviestit"
+#: ../src/signature.py:553
+#, fuzzy
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"Tee\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -621,28 +593,28 @@ msgstr "nykyinen: %s"
 msgid "newer: %s "
 msgstr "uudempi: %s"
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:187
 msgid "New SELinux security alert"
 msgstr "Uusi SELinux-turvallisuusvaroitus"
 
-#: ../src/seapplet.c:189
+#: ../src/seapplet.c:187
 msgid "AVC denial, click icon to view"
 msgstr "AVC-esto, näytä napsauttamalla kuvaketta"
 
-#: ../src/seapplet.c:197 ../src/seapplet.c:249
+#: ../src/seapplet.c:193 ../src/seapplet.c:244
 msgid "Dismiss"
 msgstr "Hylkää"
 
-#: ../src/seapplet.c:207 ../src/seapplet.c:259
+#: ../src/seapplet.c:203 ../src/seapplet.c:254
 msgid "Show"
 msgstr "Näytä"
 
 #. set tooltip
-#: ../src/seapplet.c:432 ../src/sealert:67
+#: ../src/seapplet.c:439 ../src/sealert:65
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinuxin AVC-esto, näytä napsauttamalla"
 
-#: ../src/sealert:104
+#: ../src/sealert:105
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux ei ole käytössä, sealertia ei suoriteta"
 
@@ -674,8 +646,9 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux on havainnut ongelman.</b>"
 
 #: ../gui/browser.glade.h:2
-msgid "Access:"
-msgstr "Pääsy:"
+#, fuzzy
+msgid "Attempted this access:"
+msgstr "Yritetty käyttö"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -692,92 +665,115 @@ msgstr ""
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
+#, fuzzy
+msgid "Delete Selected Alerts"
+msgstr "Tulosta valitut varoitukset"
+
+#: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
 msgstr "Poista nykyinen varoitus tietokannasta."
 
-#: ../gui/browser.glade.h:10
-msgid "Do not show alert message, when this alert is triggered."
-msgstr "Älä näytä varoitusviestiä, kun tämä varoitus annetaan."
-
 #: ../gui/browser.glade.h:11
+msgid "Details"
+msgstr ""
+
+#: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
 msgstr "Lähetä varoitus sähköpostilla järjestelmän ylläpitäjälle."
 
-#: ../gui/browser.glade.h:12
-msgid "Ignore"
-msgstr "Ohita"
+#: ../gui/browser.glade.h:14
+#, fuzzy
+msgid "Ignore alert in the future."
+msgstr "Ohita tämä SELinux-turvallisuusvaroitus jatkossa."
 
-#: ../gui/browser.glade.h:13
+#: ../gui/browser.glade.h:15
 msgid "List All Alerts"
 msgstr "Luettele kaikki varoitukset"
 
-#: ../gui/browser.glade.h:14
+#: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
 msgstr "Luettele kaikki tietokannassa olevat varoitukset."
 
-#: ../gui/browser.glade.h:15
+#: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "Ei"
 
-#: ../gui/browser.glade.h:16
-msgid "No Alerts"
-msgstr "Ei varoituksia"
+#: ../gui/browser.glade.h:19
+msgid "Notify Admin"
+msgstr ""
 
-#: ../gui/browser.glade.h:17
+#: ../gui/browser.glade.h:20
+msgid "On this file:"
+msgstr ""
+
+#: ../gui/browser.glade.h:21
+#, fuzzy
 msgid ""
-"Read alert troubleshoot information.  May require administrative privledge "
+"Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
 "Lue varoituksen ratkaisutiedot. Ongelman korjaaminen saattaa vaatia "
 "ylläpitäjän oikeuksia."
 
-#: ../gui/browser.glade.h:18
-msgid "Report"
-msgstr "Raportoi"
-
-#: ../gui/browser.glade.h:19
+#: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
 msgstr "SELinux-varoitusselain"
 
-#: ../gui/browser.glade.h:20
+#: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot-varoitusluettelo"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:24
+#, fuzzy
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot-varoitusluettelo"
+
+#: ../gui/browser.glade.h:25
 msgid "Show next alert."
 msgstr "Näytä seuraava varoitus."
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:26
 msgid "Show previous alert."
 msgstr "Näytä edellinen varoitus."
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:27
+#, fuzzy
+msgid "The source process:"
+msgstr "Lähdeprosessi"
+
+#: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "Vianetsintä"
 
-#: ../gui/browser.glade.h:24
+#: ../gui/browser.glade.h:29
+#, fuzzy
+msgid "Troubleshoot selected alert"
+msgstr "Tulosta valitut varoitukset"
+
+#: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
 msgstr "Poista käytöstä varoitusten ponnahdusikkunat."
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
 msgstr "Ottaa käyttöön varoitusten ponnahdusikkunat."
 
-#: ../gui/browser.glade.h:26
+#: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
 msgstr "Haluatko vastaanottaa varoituksia?"
 
-#: ../gui/browser.glade.h:27
+#: ../gui/browser.glade.h:33
 msgid "Yes"
 msgstr "Kyllä"
 
-#: ../gui/browser.glade.h:28
+#: ../gui/browser.glade.h:34
 msgid "label"
 msgstr "nimiö"
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr "<span size='large' weight='bold'>Tarkista ja lähetä vikailmoitus</span>"
+msgstr ""
+"<span size='large' weight='bold'>Tarkista ja lähetä vikailmoitus</span>"
 
 #: ../gui/bug_report.glade.h:2
 msgid "Included error output:"
@@ -812,6 +808,90 @@ msgstr "Onnistui!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "painike"
+
+#~ msgid "Error while checking policy version."
+#~ msgstr "Virhe tarkistettaessa käytäntöversiota."
+
+#~ msgid ""
+#~ "There is a newer version of policy available.  Updating your policy may "
+#~ "fix the denial that you having problems with."
+#~ msgstr ""
+#~ "Uusi käytäntöversion on saatavilla. Käytännön päivittäminen saattaa "
+#~ "ratkaista ongelmana olevan eston."
+
+#~ msgid "Newest Version"
+#~ msgstr "Uusin versio"
+
+#~ msgid "Update Policy"
+#~ msgstr "Päivitä käytäntö"
+
+#~ msgid "Edit Status"
+#~ msgstr "Muokkaa tilaa"
+
+#~ msgid "(removed)"
+#~ msgstr "(poistettu)"
+
+#~ msgid "Setroubleshoot Email Preferences"
+#~ msgstr "Setroubleshootin sähköpostiasetukset"
+
+#~ msgid "Add"
+#~ msgstr "Lisää"
+
+#~ msgid ""
+#~ "This is a list of email addresses to whom alerts will be\n"
+#~ "sent.\n"
+#~ "\n"
+#~ "To add an email address type the address in the\n"
+#~ "input box and click the Add button. Duplicate addresses\n"
+#~ "are not permitted.\n"
+#~ "\n"
+#~ "To delete one or more email addresses select the addresses\n"
+#~ "in the list and click the Delete button or use the Delete key.\n"
+#~ "Or you may edit the address and clear its value.\n"
+#~ "\n"
+#~ "To edit an address click the address to begin editing.\n"
+#~ "\n"
+#~ "To sort the list differently click on the column heading.\n"
+#~ "\n"
+#~ "To change the filtering option click on the filter type and\n"
+#~ "pick from the list. The filter applies to all alerts for this\n"
+#~ "email address.\n"
+#~ "\n"
+#~ msgstr ""
+#~ "Varoitukset lähetetään tässä luettelossa oleviin\n"
+#~ "sähköpostiosoitteisiin.\n"
+#~ "Sähköpostiosoitteita voi lisätä luetteloon kirjoittamalla\n"
+#~ "osoite syöttökenttään ja napsauttamalla Lisää. Luettelossa\n"
+#~ "ei voi olla useita samoja osoitteita.\n"
+#~ "\n"
+#~ "Sähköpostiosoitteita voi poistaa valitsemalla niistä yhden\n"
+#~ "tai useampia ja napsauttamalla Poista-painiketta tai\n"
+#~ "painamalla Delete-näppäintä. Osoitteen voi poistaa myös\n"
+#~ "muokkaamalla sitä ja tyhjentämällä osoitekentän.\n"
+#~ "\n"
+#~ "Osoitetta voi muokata napsauttamalla sitä.\n"
+#~ "Luettelon voi järjestää eri tavoilla napsauttamalla\n"
+#~ "sarakkeen otsikkoa.\n"
+#~ "\n"
+#~ "Suodatinvalintaa voi vaihtaa napsauttamalla suodatintyyppiä\n"
+#~ "ja valitsemalla uuden luettelosta. Suodatin koskee kaikkia\n"
+#~ "kyseiseen sähköpostiosoitteeseen lähetettäviä varoituksia.\n"
+#~ "\n"
+
+#~ msgid "Filter Type"
+#~ msgstr "Suotimen tyyppi"
+
+#~ msgid "Email Address"
+#~ msgstr "Sähköpostiosoite"
+
+#~ msgid "Access:"
+#~ msgstr "Pääsy:"
+
+#~ msgid "Do not show alert message, when this alert is triggered."
+#~ msgstr "Älä näytä varoitusviestiä, kun tämä varoitus annetaan."
+
+#~ msgid "Report"
+#~ msgstr "Raportoi"
 
 #~ msgid "Copy to Clipboard"
 #~ msgstr "Kopioi leikepöydälle"
@@ -880,9 +960,6 @@ msgstr "painike"
 #~ msgid "Fix Command"
 #~ msgstr "Korjauskomento"
 
-#~ msgid "Plugin Name"
-#~ msgstr "Liitännäisen nimi"
-
 #~ msgid "Line Numbers"
 #~ msgstr "Rivinumerot"
 
@@ -928,9 +1005,6 @@ msgstr "painike"
 
 #~ msgid "Ignore Alert"
 #~ msgstr "Ohita hälytys"
-
-#~ msgid "Ignore this SELinux Security Alert in the future."
-#~ msgstr "Ohita tämä SELinux-turvallisuusvaroitus jatkossa."
 
 #~ msgid "Next"
 #~ msgstr "Seuraava"
@@ -1152,9 +1226,6 @@ msgstr "painike"
 
 #~ msgid "Print..."
 #~ msgstr "Tulosta..."
-
-#~ msgid "Print selected alerts"
-#~ msgstr "Tulosta valitut varoitukset"
 
 #~ msgid "Edit Email Alert List..."
 #~ msgstr "Muokkaa sähköpostivaroitusluetteloa"
