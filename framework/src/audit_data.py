@@ -134,6 +134,13 @@ def parse_audit_binary_text(input):
 
 #------------------------------------------------------------------------
 
+import string
+def printable(s):
+    for c in s:
+        if c not in string.printable:
+            return False
+        return True
+    return False
 
 class AvcContext(XmlSerialize):
     _xml_info = {
@@ -710,6 +717,28 @@ class AVC:
         if self.tpath is None: return True
         return self.tpath not in standard_directories
 
+    def decodehex(self,path):
+        try:
+            t = path.decode("hex")
+            if t[0].encode("hex") == "00":
+                tpath = "@"
+            else:
+                tpath = t[0]
+
+            for i in range(len(t))[1:]:
+                if t[i].encode("hex") != "00":
+                    tpath = tpath + t[i]
+                else:
+                    break
+
+            if not printable(tpath):
+                return path
+
+        except:
+            return path
+
+        return tpath
+
     def _set_tpath(self):
         '''Derive the target path.
 
@@ -843,20 +872,7 @@ class AVC:
                 if match:
                     path = self.tclass
 
-        try:
-            t = path.decode("hex")
-            if t[0].encode("hex") == "00":
-                self.tpath = "@"
-            else:
-                self.tpath = t[0]
-
-            for i in range(len(t))[1:]:
-                if t[i].encode("hex") != "00":
-                    self.tpath = self.tpath + t[i]
-                else:
-                    break
-        except:
-            self.tpath = path
+        self.tpath = self.decodehex(path)
 
         if self.tpath is None:
             if self.tclass == "filesystem":
