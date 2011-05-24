@@ -369,7 +369,6 @@ class BrowserApplet:
         label.set_justify(gtk.JUSTIFY_LEFT)
         label.set_alignment(-1.0, 0.0)
         label.show()
-        col += 1
         self.table.attach(label, col, col + 1, 0, 1, xoptions=0, yoptions=0)
 
         label = gtk.Label()
@@ -413,7 +412,7 @@ class BrowserApplet:
             color = gtk.gdk.Color(0,65535,0)
 
         sev_toggle = gtk.ToggleButton()
-        sev_toggle.set_size_request(20,15)
+#        sev_toggle.set_size_request(20,20)
         sev_toggle.modify_bg(gtk.STATE_PRELIGHT, color)
         sev_toggle.modify_bg(gtk.STATE_SELECTED, black)
         sev_toggle.modify_bg(gtk.STATE_ACTIVE, color)
@@ -438,6 +437,15 @@ class BrowserApplet:
         if_label.set_line_wrap(True)
         if_label.show()
 
+        if_button = gtk.Button()
+        if_box = gtk.HBox(False, 5)
+        if_box.add(sev_toggle)
+        if_box.set_child_packing(sev_toggle, expand=False, fill=False, padding=0, pack_type=0)
+        if_box.add(if_label)
+        if_button.add(if_box)
+        if_box.show()
+        if_button.show()
+
         then_label = gtk.Label()
         then_label.set_text(then_text)
         then_label.set_selectable(True)
@@ -455,12 +463,14 @@ class BrowserApplet:
         then_scroll.set_size_request(450, 90)
 
         self.table.resize(rows, cols)
-        sev_toggle.connect("toggled", self.on_sev_togglebutton_activated, rows)
-        col = 0
-        self.table.attach(sev_toggle, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
+#        sev_toggle.connect("toggled", self.on_sev_togglebutton_activated, rows)
+#        col = 0
+#        self.table.attach(sev_toggle, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
 
-        col += 1
-        self.table.attach(if_label, col, col+1, rows, rows + 1, xoptions=0, yoptions=0) #xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.FILL)
+        col = 0
+#        col += 1
+        if_button.connect("clicked", self.on_sev_togglebutton_activated, rows)
+        self.table.attach(if_button, col, col+1, rows, rows + 1) # xoptions=gtk.EXPAND|gtk.FILL) #yoptions=gtk.FILL)
 
         col += 1
         self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
@@ -473,6 +483,7 @@ class BrowserApplet:
         report_button = gtk.Button()
         report_button.set_label(_("Plugin\nDetails"))
         report_button.show()
+
         report_button.connect("clicked", self.details, alert, plugin, args)
         vbox.add(report_button)
 
@@ -496,17 +507,19 @@ class BrowserApplet:
 
         return sev_toggle
     def on_sev_togglebutton_activated(self, widget, row):
-        if widget.get_active():
-            for child in self.table.get_children():
-                r, c = self.table.child_get(child, "top_attach", "left_attach")
-                if r == 0:
-                    continue
+        for child in self.table.get_children():
+            r, c = self.table.child_get(child, "top_attach", "left_attach")
+            if r == 0:
+                continue
 
-                if (c > 1):
-                    child.set_sensitive(r == row)
+            if (c > 0):
+                child.set_sensitive(r == row)
 
+            try:
                 if (c == 0) and child != widget:
-                        child.set_active(False)
+                    child.set_active(False)
+            except:
+                pass
 
     def details(self, widget, alert, plugin, args):
            avc = alert.audit_event.records
