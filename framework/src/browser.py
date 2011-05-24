@@ -1,7 +1,7 @@
 #!/usr/bin/python -Es
 # Author: Thomas Liu <tliu@redhat.com>
 # Author: Dan Walsh <dwalsh@redhat.com>
-# Copyright (C) 2006-2010 Red Hat, Inc.
+# Copyright (C) 2006-2011 Red Hat, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -590,8 +590,7 @@ class BrowserApplet:
 
             self.update_button_visibility()
             self.show_current_alert()
-            if self.alert_list_window.get_visible():
-                self.update_list_all()
+            self.update_list_all()
 
         if type == "add" or type == "modify": 
             async_rpc = self.database.query_alerts(item)
@@ -622,8 +621,7 @@ class BrowserApplet:
                self.current_alert = self.alert_list.index(alert)
            except ValueError:
                self.current_alert = 0
-           if self.alert_list_window.get_visible():
-               self.update_list_all()
+           self.update_list_all()
            self.show_current_alert()
 
     def on_troubleshoot_list_button_clicked(self, widget):
@@ -661,6 +659,7 @@ class BrowserApplet:
                 if self.current_alert > len(self.alert_list)-1:
                     self.current_alert = len(self.alert_list)-1
                     self.show_current_alert()
+            self.update_list_all()
         except ValueError:
             pass
 
