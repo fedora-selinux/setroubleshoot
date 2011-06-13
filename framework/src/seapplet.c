@@ -399,7 +399,7 @@ int main(int argc, char *argv[])
 	char *home;
 
 	if (is_selinux_enabled() != 1) {
-		fprintf(stderr, "Applet requires SELinux be enabled to run.\n");
+		fprintf(stderr, "SELinux Troubleshooter: Applet requires SELinux be enabled to run.\n");
 		return 1;
 	}
 
