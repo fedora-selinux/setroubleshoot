@@ -28,15 +28,10 @@ from xmlrpclib  import ProtocolError
 import gtk
 import gtk.glade
 from setroubleshoot.log import *
-#from setroubleshoot.analyze import *
-#from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
 from setroubleshoot.html_util import html_to_text
-#from setroubleshoot.rpc import *
-#from setroubleshoot.rpc_interfaces import *
-#from setroubleshoot.run_cmd import *
 import re
 import dbus
 import slip.dbus.service

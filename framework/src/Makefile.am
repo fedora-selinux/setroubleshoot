@@ -16,7 +16,6 @@ PYTHON_FILES =			\
 	Plugin.py			\
 	rpc.py				\
 	rpc_interfaces.py		\
-	run_cmd.py			\
 	server.py			\
 	serverconnection.py		\
 	signature.py			\
