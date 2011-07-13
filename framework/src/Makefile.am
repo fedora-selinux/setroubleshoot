@@ -28,11 +28,12 @@ bin_SCRIPTS =				\
 	sealert				\
 	$(NULL)
 
-sedispatch_LDADD = $(CAPNG_LDADD)
+sedispatch_LDADD = $(CAPNG_LDADD) $(DBUS_LIBS) -lauparse -lselinux
 sedispatch_SOURCES = 			\
 	sedispatch.c			\
 	sedbus.c
 
+seapplet_LDADD = $(SEAPPLET_LIBS) -lauparse -lselinux
 seapplet_SOURCES = 			\
 	sedbus.h			\
 	seapplet.c			\
@@ -47,8 +48,6 @@ sbin_PROGRAMS = 			\
 	$(NULL)
 
 INCLUDES =  $(SEAPPLET_CFLAGS)
-
-LIBS =   $(SEAPPLET_LIBS)  -lauparse -lselinux
 
 DEFS = @DEFS@ -DLOCALEDIR=\"$(localedir)\"
 
