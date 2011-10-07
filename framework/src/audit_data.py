@@ -136,9 +136,8 @@ def parse_audit_binary_text(input):
 
 import string
 def printable(s):
-    for c in s:
-        if c not in string.printable:
-            return False
+    filtered_path = filter(lambda x: x in string.printable, s)
+    if filtered_path == s:
         return True
     return False
 
@@ -732,10 +731,13 @@ class AVC:
                     break
 
             if not printable(tpath):
-                return path
+                tpath = path
 
         except:
-            return path
+            tpath = path
+
+        if not printable(tpath):
+            return ""
 
         return tpath
 
@@ -872,7 +874,7 @@ class AVC:
                 if match:
                     path = self.tclass
 
-        self.tpath = self.decodehex(path)
+        self.tpath = self.decodehex(path)                    
 
         if self.tpath is None:
             if self.tclass == "filesystem":
