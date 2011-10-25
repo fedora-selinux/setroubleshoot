@@ -556,113 +556,104 @@ if __name__ == '__main__':
     if debug:
         log_program.debug("main() args=%s", sys.argv)
 
-    def usage():
-        print _('''
-        -b --browser         Launch the browser
-        -h --help            Show this message
-        -s --service         Start sealert as a dbus service
-        -S --noservice       Start sealert without dbus service as stand alone app
-        -l --lookupid id     Lookup alert by id, id may be wildcard * to lookup all alerts
-        -a --analyze file    Scan a log file, analyze it's AVC's
-        -v --verbose         log INFO level and higher messages to console
-        -V --debug           log DEBUG level and higher messages to console
-        -u --user            logon user name
-        -p --password        logon password
-        -P --plugin          Plugin Name Required for -f
-        -f --fix             fix avc with the given uuid, requires plugin
-        ''')
-
-    def validate_invocation_style(style):
+    def validate_invocation_style(opt, opts_instance, conflict_opts):
         global invocation_style
-
-        if invocation_style is not None:
-            print >> sys.stderr, "cannot run as %s, already selected %s" % (style, invocation_style)
-            usage()
-            sys.exit(3)
-
-        invocation_style = style
-        
+        conflict_opts.remove(opt)
+        invocation_style = opt
+        for i in conflict_opts:
+            if (getattr(opts_instance,i)):
+                    print >> sys.stderr, "cannot run as %s with other option" % (opt)
+                    sys.exit(3)					
 
     try:
-        import getopt
+        from optparse import OptionParser
+        parser = OptionParser()
 
-        valid_opts = ['-b', '-h', '-q', '-s', '-S', '-l', '-a', '-v', '-V', '-u', '-p', '-P', '-f', '--help', '--browser','--quit','--service','--noservice','--lookupid', '--analyze','--verbose','--debug','--user','--password','--plugin', '--fix']
-        last = False
-        if sys.argv.count('-a') > 0:
-            if valid_opts.count(sys.argv[-1]) == 0:
-                last = True
+        parser.add_option("-b", "--browser", action="store_true", dest="browser", default=False,
+                            help="Launch the browser")
+        parser.add_option("-q", "--quit", action="store_true", dest="quit", default=False,
+                            help="Exit")
+        parser.add_option("-s", "--service", action="store_true", dest="service", default=False,
+                            help="Start sealert as a dbus service")
+        parser.add_option("-S", "--noservice", action="store_true", dest="noservice", default=False,
+                            help="Start sealert without dbus service as stand alone app")
+        parser.add_option("-l", "--lookupid", dest="lookupid", default=False,
+                            help="Lookup alert by id, id may be wildcard * to lookup all alerts")
+        parser.add_option("-a", "--analyze", dest="analyze",  default=False,
+                            help="Scan a log file, analyze it's AVC's", metavar="FILE")
+        parser.add_option("-v", "--verbose", action="store_false", dest="verbose", default=False,
+                            help="log INFO level and higher messages to console")
+        parser.add_option("-V", "--debug", action="store_false", dest="debug", default=False,
+                            help="log DEBUG level and higher messages to console")
+        parser.add_option("-u", "--user",  dest="user", default=False,
+                            help="logon user name")
+        parser.add_option("-p", "--pasword", dest="password", default=False,
+                            help="logon user password")
+        parser.add_option("-P", "--plugin", dest="plugin", default=False,
+                            help="Plugin Name Required for -f")
+        parser.add_option("-f", "--fix", dest="fix", default=False,
+                            help="fix avc with the given uuid, requires plugin")
 
-        sys_args = sys.argv[1:]
-        if last == True:
-            sys_args = sys.argv[1:-1]
-
-        try:
-            opts, args = getopt.getopt(sys_args, 'bhqsSl:avVu:p:f:P:',
-                         ['help', 'browser','quit','service','noservice','lookupid=',
-                          'analyze = ','verbose','debug','user=','password=','plugin=','fix='])
-        except getopt.GetoptError:
-            # print help information and exit:
-            usage()
-            sys.exit(2)
-
+        conflict_opts = ["analyze", "browser", "fix", "quit", "lookupid", "noservice", "service"]
         username = None
         password = None
         plugin_name = None
 
-        for o, a in opts:
-            if o in ('-h', '--help'):
-                usage()
-                sys.exit()
+        (options, args) = parser.parse_args()
 
-            if o in ('-b', '--browser'):
-                validate_invocation_style('browser')
+        if options.verbose:
+            enable_log_output('console')
+            set_default_category_level('info')
 
-            if o in ('-q', '--quit'):
-                validate_invocation_style('quit')
+        if options.debug:
+            enable_log_output('console')
+            set_default_category_level('debug')
 
-            if o in ('-s', '--service'):
-                validate_invocation_style('service')
-
-            if o in ('-S', '--noservice'):
-                validate_invocation_style('noservice')
-
-            if o in ('-l', '--lookupid'):
-                validate_invocation_style('lookupid')
-                local_id = a
-
-            if o in ('-a', '--analyze'):
-                validate_invocation_style('analyze')
-                logfile = "/dev/stdin"
-                if last == True:
-                    logfile = sys.argv[-1]
-            if o in ('-v', '--verbose'):
-                enable_log_output('console')
-                set_default_category_level('info')
-                #dump_log_levels()
-
-            if o in ('-V', '--debug'):
-                enable_log_output('console')
-                set_default_category_level('debug')
-                #dump_log_levels()
-
-            if o in ('-u', '--user'):
-                username = a
-
-            if o in ('-p', '--password'):
-                password = a
-            
-            if o in ('-f', '--fix'):
-                validate_invocation_style('fix')
-                local_id = a
-
-            if o in ('-P', '--plugin'):
-                plugin_name = a
-
-        if username is None:
+        if options.user:
+            username = options.user
+        else:
             username = get_identity()
-        if password is None:
+
+        if options.password:
+            password = options.password    
+        else:
             password = 'passwd'
 
+        if options.browser:
+            validate_invocation_style("browser", options, conflict_opts)
+      
+        if options.quit:
+            validate_invocation_style("quit", options, conflict_opts)
+
+        if options.service:
+            validate_invocation_style("service", options, conflict_opts)
+
+        if options.noservice:
+            validate_invocation_style("noservice", options, conflict_opts)
+
+        if options.lookupid:
+            validate_invocation_style("lookupid", options, conflict_opts)
+            local_id = options.lookupid
+
+        if options.analyze:
+            validate_invocation_style("analyze", options, conflict_opts)
+            use_terminal = True
+            if options.analyze != "False":
+                logfile = options.analyze 
+            else:
+                logfile = "/dev/stdin"
+
+        if options.plugin:
+            plugin_name = options.plugin
+
+        if options.fix:
+            validate_invocation_style("fix", options, conflict_opts)
+            local_id = options.fix
+            if options.plugin:
+                plugin_name = options.plugin
+            else:
+                print >> sys.stderr, "-P plugin_name required for fix"
+                sys.exit(3)
 
         # Attempt to communicate with the service.  DBus should start it if it is not
         # running, otherwise we will become the service
@@ -738,10 +729,6 @@ if __name__ == '__main__':
 
             from setroubleshoot.signature import *
             try:
-                if plugin_name == None:
-                    print >> sys.stderr, "-P plugin_name required for fix"
-                    sys.exit(3)
-
                 bus = dbus.SystemBus()
                 proxy_obj = bus.get_object(dbus_system_bus_name, dbus_system_object_path)
                 iface = dbus.Interface(proxy_obj, dbus_system_interface)
@@ -757,8 +744,7 @@ if __name__ == '__main__':
         else:
             print >> sys.stderr, "unknown invocation style (%s)" % invocation_style
             sys.exit(3)
-
-    except Exception, e:
+    except Exception, e:	
         log_program.exception("exception %s: %s",e.__class__.__name__, str(e))
         if use_terminal:
             display_terminal_traceback('sealert')
