@@ -28,7 +28,7 @@ import os, commands
 
 class plugin(Plugin):
     summary =_('''
-Ignore if IPV6 is disabled.
+Disable IPV6 properly.
     ''')
 
     problem_description = ""
@@ -37,13 +37,18 @@ Ignore if IPV6 is disabled.
 
     fix_cmd = ""
 
+    if_text = _("you want to disable IPV6 on this machine")
+    then_text = _("you need to set /proc/sys/net/ipv6/conf/all/disable_ipv6 to 1 and do not blacklist the module'")
+    do_text = """Add 
+net.ipv6.conf.all.disable_ipv6 = 1
+to /etc/sysctl.conf
+"""
+
     def __init__(self):
         Plugin.__init__(self, __name__)
-        self.level = "white"
 
     def analyze(self, avc):
         if avc.has_any_access_in(['module_request']) and avc.kmod == "net-pf-10":
-            if (commands.getstatusoutput("egrep 'blacklist[ \t].*ipv6' /etc/modprobe.d/ -R")[0] == 0):
-                # MATCH, White means ignore avc
-                return self.report()
+            # MATCH, White means ignore avc
+            return self.report()
         return None
