@@ -139,9 +139,7 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 	/* Flush any accumulated events from queue */
 	auparse_flush_feed(au);
 	auparse_destroy(au);
-	if (stop)
-		syslog(LOG_DEBUG,"sedispatch is exiting on stop request\n");
-	else
+	if (! stop)
 		syslog(LOG_ERR,"sedispatch is exiting on stdin EOF\n");
 
 	return 0;

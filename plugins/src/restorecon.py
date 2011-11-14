@@ -85,6 +85,7 @@ class plugin(Plugin):
 
     def analyze(self, avc):
         if not avc.query_environment: return None
+        if avc.tcontext.type in [ "cifs_t", "nfs_t" ]: return None
         restorecon_files = {} 
         restorecon_files['dir'] = S_IFDIR
         restorecon_files['file'] = S_IFREG
