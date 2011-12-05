@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-03-10 09:49-0500\n"
+"POT-Creation-Date: 2011-12-05 16:41-0500\n"
 "PO-Revision-Date: 2011-02-04 21:00+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <uk@li.org>\n"
@@ -1148,12 +1148,20 @@ msgstr ""
 #: ../src/disable_ipv6.py:30
 msgid ""
 "\n"
-"Ignore if IPV6 is disabled.\n"
+"Disable IPV6 properly.\n"
 "    "
 msgstr ""
-"\n"
-"Ігноруйте, якщо IPV6 вимкнено.\n"
-"    "
+
+#: ../src/disable_ipv6.py:40
+#, fuzzy
+msgid "you want to disable IPV6 on this machine"
+msgstr "Чи бажаєте ви вимкнути переходи до insmod."
+
+#: ../src/disable_ipv6.py:41
+msgid ""
+"you need to set /proc/sys/net/ipv6/conf/all/disable_ipv6 to 1 and do not "
+"blacklist the module'"
+msgstr ""
 
 #: ../src/file.py:27
 msgid ""
@@ -3733,6 +3741,15 @@ msgstr ""
 "Якщо ви бажаєте дозволити непривілейованим користувачам виконувати "
 "інструкцію DDL"
 
+#~ msgid ""
+#~ "\n"
+#~ "Ignore if IPV6 is disabled.\n"
+#~ "    "
+#~ msgstr ""
+#~ "\n"
+#~ "Ігноруйте, якщо IPV6 вимкнено.\n"
+#~ "    "
+
 #~ msgid "If you want to allow xdm logins as sysadm"
 #~ msgstr ""
 #~ "Чи бажаєте ви дозволити входи до системи у xdm від імені системного "
@@ -3740,9 +3757,6 @@ msgstr ""
 
 #~ msgid "If you want to control mozilla content access"
 #~ msgstr "Чи бажаєте ви керувати доступом до даних mozilla"
-
-#~ msgid "If you want to disable transitions to insmod."
-#~ msgstr "Чи бажаєте ви вимкнути переходи до insmod."
 
 #~ msgid ""
 #~ "\n"
