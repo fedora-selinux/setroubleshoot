@@ -447,7 +447,7 @@ install-data-hook:
 	for i in $(ICON_FILES); do d=`dirname $$i`; \
 		$(mkdir_p)  $(DESTDIR)$(icondir)$$d/apps;\
 		install --mode 644 $$i $(DESTDIR)$(icondir)$$d/apps; done
-	$(mkdir_p)  $(DESTDIR)$(datadir)/setroubleshoot/gui
+	$(mkdir_p)  $(DESTDIR)$(datadir)/usr/share/setroubleshoot/gui
 	$(LN_S) -f $(icondir)24x24/apps/setroubleshoot_icon.png $(DESTDIR)$(datadir)/setroubleshoot/gui
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
