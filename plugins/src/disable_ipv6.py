@@ -39,10 +39,10 @@ Disable IPV6 properly.
 
     if_text = _("you want to disable IPV6 on this machine")
     then_text = _("you need to set /proc/sys/net/ipv6/conf/all/disable_ipv6 to 1 and do not blacklist the module'")
-    do_text = """Add 
+    do_text = _("""Add 
 net.ipv6.conf.all.disable_ipv6 = 1
 to /etc/sysctl.conf
-"""
+""")
 
     def __init__(self):
         Plugin.__init__(self, __name__)

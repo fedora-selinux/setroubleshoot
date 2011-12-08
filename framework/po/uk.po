@@ -1,23 +1,24 @@
-# Ukrainian translation to setroubleshoot.
-# Copyright (C) Free Software Foundation
-# This file is distributed under the same license as the setroubleshoot package.
-#
-# Maxim Dziumanenko <dziumanenko@gmail.com>, 2003-2007.
-# Yuri Chornoivan <yurchor@ukr.net>, 2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Dimitris Glezos <glezos@indifex.com>, 2011.
+# Maxim Dziumanenko <dziumanenko@gmail.com>, 2003.
+# Yuri Chornoivan <yurchor@ukr.net>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-05 16:04-0500\n"
-"PO-Revision-Date: 2010-11-13 20:26+0200\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2011-12-06 17:13+0000\n"
+"Last-Translator: yurchor <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
-"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.1\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -50,12 +51,10 @@ msgstr ""
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
 msgstr ""
 "%s \n"
-"**** Некоректний AVC. Вимикання dontaudit у поточних правилах. 'semodule -B' "
-"увімкне правила dontaudit. ***\n"
+"**** Некоректний AVC. Вимикання dontaudit у поточних правилах. 'semodule -B' увімкне правила dontaudit. ***\n"
 
 #: ../src/audit_data.py:979
 msgid "Must call policy_init first"
@@ -111,14 +110,15 @@ msgstr "Первинний процес"
 
 #: ../src/browser.py:250
 msgid "Attempted Access"
-msgstr "Спроба доступу"
+msgstr ""
+"\n"
+"Спроба доступу\n"
 
 #: ../src/browser.py:250
 msgid "On this"
 msgstr "У цей"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Occurred"
 msgstr "Сталося"
 
@@ -128,21 +128,19 @@ msgstr "Статус"
 
 #: ../src/browser.py:322 ../src/browser.py:799
 msgid "Notify"
-msgstr ""
+msgstr "Сповістити"
 
 #: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:13
 msgid "Ignore"
 msgstr "Ігнорувати"
 
 #: ../src/browser.py:363
-#, fuzzy
 msgid "<b>If you were trying to...</b>"
-msgstr "Якщо ви намагалися…"
+msgstr "<b>Якщо ви намагалися…</b>"
 
 #: ../src/browser.py:372
-#, fuzzy
 msgid "<b>Then this is the solution.</b>"
-msgstr "Тоді це є вирішенням вашої проблеми."
+msgstr "<b>Ось вирішення вашої проблеми:</b>"
 
 #: ../src/browser.py:391 ../src/browser.py:527
 msgid "If "
@@ -153,6 +151,8 @@ msgid ""
 "Plugin\n"
 "Details"
 msgstr ""
+"Параметри⏎\n"
+"додатка"
 
 #: ../src/browser.py:494
 msgid ""
@@ -160,12 +160,12 @@ msgid ""
 "Bug"
 msgstr ""
 "Повідомити\n"
-"про ваду"
+"про ваду\n"
 
 #: ../src/browser.py:522
-#, fuzzy, python-format
+#, python-format
 msgid "Plugin: %s "
-msgstr "Назва доп.модуля"
+msgstr "Додаток: %s "
 
 #: ../src/browser.py:580
 msgid "Unable to grant access."
@@ -177,22 +177,21 @@ msgid "Alert %d of %d"
 msgstr "Сповіщення %d з %d"
 
 #: ../src/browser.py:736
-#, fuzzy, python-format
+#, python-format
 msgid "On this %s:"
-msgstr "У цей"
+msgstr "У цей %s:"
 
 #: ../src/browser.py:784 ../src/browser.py:790 ../src/signature.py:396
 msgid "N/A"
-msgstr ""
+msgstr "Н/д"
 
 #: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:18
 msgid "No Alerts"
 msgstr "Немає сповіщень"
 
 #: ../src/browser.py:850
-#, fuzzy
 msgid "SELinux has detected a problem."
-msgstr "<b>SELinux виявлено проблему.</b>"
+msgstr "SELinux виявлено проблему."
 
 #: ../src/browser.py:955
 msgid "Sealert Error"
@@ -442,16 +441,14 @@ msgstr ""
 "заборонено."
 
 #: ../src/signature.py:384
-#, fuzzy
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr ""
-"SELinux працює у режимі дозволеному (permissive) режимі. Доступ не було "
+"SELinux працює у режимі дозволеному (permissive) режимі. Доступ не було \n"
 "заборонено."
 
 #: ../src/signature.py:469
-#, fuzzy
 msgid "Additional Information:\n"
-msgstr "Додаткові відомості"
+msgstr "Додаткова інформація:\n"
 
 #: ../src/signature.py:470
 msgid "Source Context"
@@ -546,11 +543,11 @@ msgstr ""
 
 #: ../src/signature.py:543
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: ../src/signature.py:544
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../src/signature.py:546
 msgid ""
@@ -577,13 +574,12 @@ msgstr ""
 "Виконати\n"
 
 #: ../src/signature.py:553
-#, fuzzy
 msgid ""
 "\n"
 "\n"
 msgstr ""
 "\n"
-"Виконати\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -649,9 +645,8 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux виявлено проблему.</b>"
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
 msgid "Attempted this access:"
-msgstr "Спроба доступу"
+msgstr "Спроба такого доступу:"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -669,7 +664,7 @@ msgstr ""
 
 #: ../gui/browser.glade.h:9
 msgid "Delete Selected Alerts"
-msgstr ""
+msgstr "Вилучити позначені сповіщення"
 
 #: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
@@ -677,16 +672,15 @@ msgstr "Вилучити поточне сповіщення з бази дан�
 
 #: ../gui/browser.glade.h:11
 msgid "Details"
-msgstr ""
+msgstr "Подробиці"
 
 #: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
 msgstr "Надіслати сповіщення адміністраторові системи."
 
 #: ../gui/browser.glade.h:14
-#, fuzzy
 msgid "Ignore alert in the future."
-msgstr "У майбутньому ігнорувати це сповіщення безпеки SELinux."
+msgstr "Надалі ігнорувати сповіщення."
 
 #: ../gui/browser.glade.h:15
 msgid "List All Alerts"
@@ -702,21 +696,19 @@ msgstr "Ні"
 
 #: ../gui/browser.glade.h:19
 msgid "Notify Admin"
-msgstr ""
+msgstr "Сповістити адміністратора"
 
 #: ../gui/browser.glade.h:20
-#, fuzzy
 msgid "On this file:"
-msgstr "У цей"
+msgstr "На цьому файлі:"
 
 #: ../gui/browser.glade.h:21
-#, fuzzy
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
-"Читання діагностичних даних сповіщення. Виправлення помилок може потребувати "
-"адміністративних прав доступу."
+"Читання діагностичних даних сповіщення. Виправлення помилок може потребувати"
+" адміністративних прав доступу."
 
 #: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
@@ -727,9 +719,8 @@ msgid "SETroubleshoot Alert List"
 msgstr "Список сповіщень SETroubleshoot"
 
 #: ../gui/browser.glade.h:24
-#, fuzzy
 msgid "SETroubleshoot Details Window"
-msgstr "Список сповіщень SETroubleshoot"
+msgstr "Вікно подробиць SETroubleshoot"
 
 #: ../gui/browser.glade.h:25
 msgid "Show next alert."
@@ -740,18 +731,16 @@ msgid "Show previous alert."
 msgstr "Показати попереднє сповіщення."
 
 #: ../gui/browser.glade.h:27
-#, fuzzy
 msgid "The source process:"
-msgstr "Первинний процес"
+msgstr "Первинний процес:"
 
 #: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "Діагностика проблем"
 
 #: ../gui/browser.glade.h:29
-#, fuzzy
 msgid "Troubleshoot selected alert"
-msgstr "Список сповіщень SETroubleshoot"
+msgstr "Позначене діагностичне сповіщення"
 
 #: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
@@ -776,8 +765,8 @@ msgstr "мітка"
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
 msgstr ""
-"<span size='large' weight='bold'>Переглянути та надіслати звіт про помилку</"
-"span>"
+"<span size='large' weight='bold'>Переглянути та надіслати звіт про "
+"помилку</span>"
 
 #: ../gui/bug_report.glade.h:2
 msgid "Included error output:"
@@ -812,222 +801,4 @@ msgstr "Успішно!"
 msgid "button"
 msgstr "кнопка"
 
-#~ msgid "Help"
-#~ msgstr "Довідка"
 
-#~ msgid "Error while checking policy version."
-#~ msgstr "Помилка при перевірці версії правил."
-
-#~ msgid ""
-#~ "There is a newer version of policy available.  Updating your policy may "
-#~ "fix the denial that you having problems with."
-#~ msgstr ""
-#~ "Доступна новіша версії правил. Оновлення ваших правил може виправити "
-#~ "заборона, з якою у вас виникли проблеми."
-
-#~ msgid "Newest Version"
-#~ msgstr "Найновіша версія"
-
-#~ msgid "Update Policy"
-#~ msgstr "Оновлення правил"
-
-#~ msgid "Edit Status"
-#~ msgstr "Змінити стан"
-
-#~ msgid "(removed)"
-#~ msgstr "(вилучено)"
-
-#~ msgid "Setroubleshoot Email Preferences"
-#~ msgstr "Налаштовування електронної пошти для setroubleshoot"
-
-#~ msgid "Add"
-#~ msgstr "Додати"
-
-#~ msgid ""
-#~ "This is a list of email addresses to whom alerts will be\n"
-#~ "sent.\n"
-#~ "\n"
-#~ "To add an email address type the address in the\n"
-#~ "input box and click the Add button. Duplicate addresses\n"
-#~ "are not permitted.\n"
-#~ "\n"
-#~ "To delete one or more email addresses select the addresses\n"
-#~ "in the list and click the Delete button or use the Delete key.\n"
-#~ "Or you may edit the address and clear its value.\n"
-#~ "\n"
-#~ "To edit an address click the address to begin editing.\n"
-#~ "\n"
-#~ "To sort the list differently click on the column heading.\n"
-#~ "\n"
-#~ "To change the filtering option click on the filter type and\n"
-#~ "pick from the list. The filter applies to all alerts for this\n"
-#~ "email address.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Тут наведено список адресі, яким будуть надсилатись сповіщення.\n"
-#~ "\n"
-#~ "Щоб додати адресу, введіть її у полі вводу та натисніть «Додати».\n"
-#~ "Дублювання адрес не припускається.\n"
-#~ "\n"
-#~ "Щоб видалити адреси, виділіть їх у списку та натисніть «Видалити», \n"
-#~ "клавішу Delete чи просто приберіть рядок адреси.\n"
-#~ "\n"
-#~ "Для редагування адреси натисніть на ньому та внесіть зміни.\n"
-#~ "\n"
-#~ "Натискання на заголовку рядка призводить до сортування списку.\n"
-#~ "\n"
-#~ "Щоб змінити параметри фільтрів, натисніть на типі фільтру та\n"
-#~ "виберіть параметр. Фільтр буде застосований до усіх сповіщень\n"
-#~ "для конкретної адреси.\n"
-#~ "\n"
-
-#~ msgid "Filter Type"
-#~ msgstr "Тип фільтру"
-
-#~ msgid "Email Address"
-#~ msgstr "Адреса ел.пошти"
-
-#~ msgid "Access:"
-#~ msgstr "Доступ:"
-
-#~ msgid "Do not show alert message, when this alert is triggered."
-#~ msgstr "Не показувати повідомлення сповіщення у разі вмикання сповіщення."
-
-#~ msgid "Report"
-#~ msgstr "Звіт"
-
-#, fuzzy
-#~ msgid "Copy to Clipboard"
-#~ msgstr "Копіювати виділені помилки у буфер обміну."
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-#~ "Browser</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Перегляд діагностики "
-#~ "проблем SELinux</span>"
-
-#~ msgid "Summary"
-#~ msgstr "Зведення"
-
-#~ msgid "Count"
-#~ msgstr "Лічильник"
-
-#~ msgid "Date"
-#~ msgstr "Дата"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-#~ "seriously compromised!</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Безпека системи під "
-#~ "загрозою!</span>"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-#~ "suspicious behavior on your system</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Виявлено дивну "
-#~ "поведінку системи</span>"
-
-#~ msgid "Today"
-#~ msgstr "Сьогодні"
-
-#~ msgid "Yesterday"
-#~ msgstr "Вчора"
-
-#~ msgid "<span foreground='#555555'>%s on %s</span>"
-#~ msgstr "<span foreground='#555555'>%s на %s</span>"
-
-#~ msgid ""
-#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-#~ "weight='bold' size='large' face='verdana'>%d</span>"
-#~ msgstr ""
-#~ "Попередження <span weight='bold' size='large' face='verdana'> %d</span> о "
-#~ "<span weight='bold' size='large' face='verdana'>%d</span>"
-
-#~ msgid "Fix it"
-#~ msgstr "Виправити"
-
-#~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
-#~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
-
-#~ msgid "Detailed Description"
-#~ msgstr "Докладний опис"
-
-#~ msgid "Allowing Access"
-#~ msgstr "Дозвіл доступу"
-
-#~ msgid "Fix Command"
-#~ msgstr "Команда виправлення"
-
-#~ msgid "Line Numbers"
-#~ msgstr "Номери рядків"
-
-#~ msgid "SELinux"
-#~ msgstr "SELinux"
-
-#~ msgid "<small>Click here to install updates using PackageKit</small>"
-#~ msgstr ""
-#~ "<small>Натисніть тут для встановлення оновлень за допомогою PackageKit</"
-#~ "small>"
-
-#~ msgid "<small>There is a newer version of policy available.</small>"
-#~ msgstr "<small>Доступна нова версія політики.</small>"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' >Браузер діагностики проблем "
-#~ "SELinux</span>"
-
-#~ msgid "<span foreground='grey'>date</span>"
-#~ msgstr "<span foreground='grey'>дата</span>"
-
-#~ msgid ""
-#~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
-#~ "span>"
-#~ msgstr ""
-#~ "<span size='large' weight='bold' \tface='verdana'>Немає сповіщень для "
-#~ "перегляду.</span>"
-
-#~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-#~ msgstr ""
-#~ "<span weight='bold' size='large' face='verdana'>Сповіщення - </span>"
-
-#~ msgid ""
-#~ "Certain signatures allow administrators to correct your system with "
-#~ "setroubleshoot."
-#~ msgstr ""
-#~ "Деякі підписи дозволяють адміністраторам вирішувати проблеми за допомогою "
-#~ "setroubeshoot."
-
-#~ msgid "Copy full error output to clipboard."
-#~ msgstr "Копіювати виділені помилки у буфер обміну."
-
-#~ msgid "Next"
-#~ msgstr "Далі"
-
-#~ msgid "Previous"
-#~ msgstr "Назад"
-
-#~ msgid "Reports a bug to bugzilla.redhat.com."
-#~ msgstr "Створення запиту у bugzilla.redhat.com."
-
-#~ msgid "Show all..."
-#~ msgstr "Показати всі..."
-
-#~ msgid "Show full error output"
-#~ msgstr "Вивести повний текст помилки"
-
-#~ msgid "_File"
-#~ msgstr "_Файл"
-
-#~ msgid "_Help"
-#~ msgstr "_Довідка"
-
-#~ msgid "_Report this Bug..."
-#~ msgstr "_Створити звіт про помилку..."
-
-#~ msgid "gtk-cancel"
-#~ msgstr "gtk-cancel"

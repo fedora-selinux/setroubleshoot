@@ -1,27 +1,29 @@
-# translation of ru.po to Russian
-# translation of setroubleshoot.tip.ru.po to
-# translation of ru.po to
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-#
+# 
+# Translators:
 # Andrew Martynov <andrewm@inventa.ru>, 2006.
-# Yulia <ypoyarko@redhat.com>, 2006, 2009, 2010.
+# Dimitris Glezos <glezos@indifex.com>, 2011.
+# Misha Shnurapet <shnurapet@fedoraproject.org>, 2011.
 # Oksana Kurysheva <oksana.kurysheva@vdel.com>, 2009.
+# Stanislav Darchinov <darchinov@gmail.com>, 2011.
+# Stanislav Hanzhin <hanzhin.stas@gmail.com>, 2011.
+# Yulia <ypoyarko@redhat.com>, 2006, 2008, 2009, 2010.
+# Игорь Горбунов <igor.gorbounov@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: ru\n"
+"Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-05 16:04-0500\n"
-"PO-Revision-Date: 2010-05-06 12:23+1000\n"
-"Last-Translator: Yulia <ypoyarko@redhat.com>\n"
-"Language-Team: Russian\n"
-"Language: \n"
+"PO-Revision-Date: 2011-12-06 13:13+0000\n"
+"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"Language-Team: Russian <trans-ru@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -34,7 +36,7 @@ msgstr "Диагностика проблем отказа доступа SELinu
 #: ../src/audit_data.py:883
 #, python-format
 msgid "port %s"
-msgstr ""
+msgstr "порт %s"
 
 #: ../src/audit_data.py:885 ../src/browser.py:716 ../src/browser.py:791
 #: ../src/rpc.py:544 ../src/util.py:223
@@ -47,18 +49,21 @@ msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
+"%s \n"
+"**** Неверный AVC допускается в текущей политике ***\n"
 
 #: ../src/audit_data.py:977
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
 msgstr ""
+"%s \n"
+"**** Неверный AVC пропускается текущим набором правил.  «semodule -B»  правила «dontaudit». ***\n"
 
 #: ../src/audit_data.py:979
 msgid "Must call policy_init first"
-msgstr ""
+msgstr "Сначала требуется вызвать policy_init"
 
 #: ../src/audit_data.py:981
 #, python-format
@@ -66,6 +71,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr ""
+"%s \n"
+"**** Неверный AVC плохой целевой контекст. ***\n"
 
 #: ../src/audit_data.py:983
 #, python-format
@@ -73,6 +80,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr ""
+"%s \n"
+"**** Неверный AVC плохой исходный контекст. ***\n"
 
 #: ../src/audit_data.py:985
 #, python-format
@@ -80,6 +89,8 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr ""
+"%s \n"
+"**** Неверный AVC плохой класс типа ***\n"
 
 #: ../src/audit_data.py:987
 #, python-format
@@ -87,31 +98,34 @@ msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr ""
+"%s \n"
+"**** Неверный AVC плохие права доступа ***\n"
 
 #: ../src/audit_data.py:989
 msgid "Error during access vector computation"
-msgstr ""
+msgstr "Ошибка при вычислении вектора доступа"
 
 #: ../src/browser.py:250
 msgid "#"
 msgstr "#"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Source Process"
-msgstr "Исходные пакеты RPM"
+msgstr "Исходный процесс"
 
 #: ../src/browser.py:250
 msgid "Attempted Access"
 msgstr ""
+"\n"
+"Попытка доступа\n"
 
 #: ../src/browser.py:250
 msgid "On this"
-msgstr ""
+msgstr "На этом"
 
 #: ../src/browser.py:250
 msgid "Occurred"
-msgstr ""
+msgstr "Произошла"
 
 #: ../src/browser.py:250 ../src/run_cmd.py:418
 msgid "Status"
@@ -119,12 +133,11 @@ msgstr "Статус"
 
 #: ../src/browser.py:322 ../src/browser.py:799
 msgid "Notify"
-msgstr ""
+msgstr "Уведомить"
 
 #: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:13
-#, fuzzy
 msgid "Ignore"
-msgstr "Никогда не игнорировать"
+msgstr "Игнорировать"
 
 #: ../src/browser.py:363
 msgid "<b>If you were trying to...</b>"
@@ -136,25 +149,28 @@ msgstr ""
 
 #: ../src/browser.py:391 ../src/browser.py:527
 msgid "If "
-msgstr ""
+msgstr "Если "
 
 #: ../src/browser.py:479
 msgid ""
 "Plugin\n"
 "Details"
 msgstr ""
+"Сведения о\n"
+"подключаемом модуле"
 
 #: ../src/browser.py:494
-#, fuzzy
 msgid ""
 "Report\n"
 "Bug"
-msgstr "Создать отчёт об ошибке..."
+msgstr ""
+"Сообщить\n"
+"об ошибке\n"
 
 #: ../src/browser.py:522
-#, fuzzy, python-format
+#, python-format
 msgid "Plugin: %s "
-msgstr "Имя доп.модуля"
+msgstr "Модуль:%s"
 
 #: ../src/browser.py:580
 msgid "Unable to grant access."
@@ -163,25 +179,24 @@ msgstr "Не удалось предоставить доступ."
 #: ../src/browser.py:611 ../src/browser.py:753
 #, python-format
 msgid "Alert %d of %d"
-msgstr ""
+msgstr "Предупреждение %d о %d"
 
 #: ../src/browser.py:736
 #, python-format
 msgid "On this %s:"
-msgstr ""
+msgstr "На %s:"
 
 #: ../src/browser.py:784 ../src/browser.py:790 ../src/signature.py:396
 msgid "N/A"
-msgstr ""
+msgstr "Нет"
 
 #: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:18
-#, fuzzy
 msgid "No Alerts"
-msgstr "Игнорировать уведомление"
+msgstr "Оповещений нет"
 
 #: ../src/browser.py:850
 msgid "SELinux has detected a problem."
-msgstr ""
+msgstr "SELinux обнаружил проблему."
 
 #: ../src/browser.py:955
 msgid "Sealert Error"
@@ -283,6 +298,8 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
+"вы хотите предоставить $SOURCE_BASE_PATH доступ $ACCESS к $TARGET_BASE_PATH "
+"$TARGET_CLASS"
 
 #: ../src/run_cmd.py:180
 msgid "Input: "
@@ -379,48 +396,47 @@ msgstr "Игнорировать после первого уведомлени�
 
 #: ../src/signature.py:196
 msgid "directory"
-msgstr ""
+msgstr "каталог"
 
 #: ../src/signature.py:197
 msgid "semaphore"
-msgstr ""
+msgstr "семафор"
 
 #: ../src/signature.py:198
 msgid "shared memory"
-msgstr ""
+msgstr "разделяемая память"
 
 #: ../src/signature.py:199
 msgid "message queue"
-msgstr ""
+msgstr "очередь сообщений"
 
 #: ../src/signature.py:200
 msgid "message"
-msgstr ""
+msgstr "сообщение"
 
 #: ../src/signature.py:201
 msgid "file"
-msgstr ""
+msgstr "файл"
 
 #: ../src/signature.py:202
-#, fuzzy
 msgid "socket"
-msgstr "ошибка сокета"
+msgstr "сокет"
 
 #: ../src/signature.py:203
 msgid "process"
-msgstr ""
+msgstr "процесс"
 
 #: ../src/signature.py:204
 msgid "filesystem"
-msgstr ""
+msgstr "файловая система"
 
 #: ../src/signature.py:205
 msgid "node"
-msgstr ""
+msgstr "узел"
 
 #: ../src/signature.py:206
 msgid "capability"
-msgstr ""
+msgstr "совместимость"
 
 #: ../src/signature.py:381
 #, python-format
@@ -428,14 +444,12 @@ msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s запущен в разрешающем режиме (%s). Доступ не был запрещён."
 
 #: ../src/signature.py:384
-#, fuzzy
 msgid "SELinux is in permissive mode. This access was not denied."
-msgstr "SELinux работает в разрешающем режиме. Доступ не был запрещён."
+msgstr "SELinux в разрешающем режиме. Доступ не был запрещён."
 
 #: ../src/signature.py:469
-#, fuzzy
 msgid "Additional Information:\n"
-msgstr "Дополнительные сведения"
+msgstr "Дополнительные сведения:\n"
 
 #: ../src/signature.py:470
 msgid "Source Context"
@@ -524,48 +538,59 @@ msgid ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
+"\n"
+"\n"
+"*****  Модуль %s (%.4s ) предлагает  "
 
 #: ../src/signature.py:543
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: ../src/signature.py:544
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
 msgstr ""
+"\n"
+"Если "
 
 #: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
 msgstr ""
+"\n"
+"То "
 
 #: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
 msgstr ""
+"\n"
+"Сделать\n"
 
 #: ../src/signature.py:553
 msgid ""
 "\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
 msgid "current: %s "
-msgstr ""
+msgstr "текущий: %s "
 
 #: ../src/updater.py:27
 #, python-format
 msgid "newer: %s "
-msgstr ""
+msgstr "более : %s "
 
 #: ../src/seapplet.c:187
 msgid "New SELinux security alert"
@@ -591,6 +616,7 @@ msgstr "Отказ AVC SELinix. Нажмите для просмотра"
 #: ../src/sealert:106
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
+"SELinux не активирован, sealert не будет работать на системах без SELinux"
 
 #: ../src/sealert:155
 msgid "Not fixable."
@@ -604,11 +630,12 @@ msgstr "Успешно запущен %s"
 #: ../src/sealert:167
 #, c-format
 msgid "Plugin %s not valid for %s id"
-msgstr ""
+msgstr "Модуль %s недействителен для id %s"
 
 #: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
-msgstr "Механизм SELinux не включен. Работа setroubleshootd будет завершена..."
+msgstr ""
+"Механизм SELinux не включен. Работа setroubleshootd будет завершена..."
 
 #: ../src/setroubleshootd:113
 #, c-format
@@ -617,14 +644,13 @@ msgstr "ошибка: %d (%s)"
 
 #: ../gui/browser.glade.h:1
 msgid "<b>SELinux has detected a problem.</b>"
-msgstr ""
+msgstr "<b>SELinux обнаружил проблему.</b>"
 
 #: ../gui/browser.glade.h:2
 msgid "Attempted this access:"
-msgstr ""
+msgstr "Предпринята попытка доступа:"
 
 #: ../gui/browser.glade.h:3
-#, fuzzy
 msgid ""
 "Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -632,122 +658,117 @@ msgid ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
-"(c) 2009 Thomas Liu <tliu@redhat.com>\n"
-"M&#xE1;ir&#xED;n Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+"© 2010\n"
+"Томас Лью <tliu@redhat.com>\n"
+"Марин Даффи <duffy@redhat.com>\n"
+"Дэниэл Уолш <dwalsh@redhat.com> \n"
+"Джон Деннис<jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Delete Selected Alerts"
-msgstr ""
+msgstr "Удалить выбранные оповещения"
 
 #: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
-msgstr ""
+msgstr "Удалить текущее оповещение из базы данных."
 
 #: ../gui/browser.glade.h:11
 msgid "Details"
-msgstr ""
+msgstr "Подробности"
 
 #: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
-msgstr ""
+msgstr "Предупреждение системному администратору по e-mail."
 
 #: ../gui/browser.glade.h:14
-#, fuzzy
 msgid "Ignore alert in the future."
-msgstr "В будущем игнорировать это уведомление безопасности SELinux."
+msgstr "Игнорировать предупреждение в будущем."
 
 #: ../gui/browser.glade.h:15
-#, fuzzy
 msgid "List All Alerts"
-msgstr "_Удалить все уведомления"
+msgstr "Показать все предупреждения"
 
 #: ../gui/browser.glade.h:16
 msgid "List all alerts in the database."
-msgstr ""
+msgstr "Показать все предупреждения в базе данных."
 
 #: ../gui/browser.glade.h:17
 msgid "No"
-msgstr ""
+msgstr "Нет"
 
 #: ../gui/browser.glade.h:19
 msgid "Notify Admin"
-msgstr ""
+msgstr "Уведомить администратора"
 
 #: ../gui/browser.glade.h:20
 msgid "On this file:"
-msgstr ""
+msgstr "С этим файлом:"
 
 #: ../gui/browser.glade.h:21
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
+"Прочтите информацию о проблеме.  Для решения могут потребоваться права "
+"администратора."
 
 #: ../gui/browser.glade.h:22
-#, fuzzy
 msgid "SELinux Alert Browser"
-msgstr "Уведомления безопасности SELinux"
+msgstr "Обозреватель предупреждений SELinux"
 
 #: ../gui/browser.glade.h:23
 msgid "SETroubleshoot Alert List"
 msgstr "Список уведомлений SETroubleshoot"
 
 #: ../gui/browser.glade.h:24
-#, fuzzy
 msgid "SETroubleshoot Details Window"
-msgstr "Список уведомлений SETroubleshoot"
+msgstr "Окно подробностей SETroubleshoot"
 
 #: ../gui/browser.glade.h:25
-#, fuzzy
 msgid "Show next alert."
-msgstr "Удалить уведомление"
+msgstr "Показать следующее предупреждение."
 
 #: ../gui/browser.glade.h:26
 msgid "Show previous alert."
-msgstr ""
+msgstr "Показать предыдущее предупреждение."
 
 #: ../gui/browser.glade.h:27
-#, fuzzy
 msgid "The source process:"
-msgstr "Исходные пакеты RPM"
+msgstr "Исходный процесс:"
 
 #: ../gui/browser.glade.h:28
-#, fuzzy
 msgid "Troubleshoot"
-msgstr "Диагностика проблем SELinux"
+msgstr "Решение проблем"
 
 #: ../gui/browser.glade.h:29
-#, fuzzy
 msgid "Troubleshoot selected alert"
-msgstr "Список уведомлений SETroubleshoot"
+msgstr "Решить проблему выбранного предупреждения"
 
 #: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
-msgstr ""
+msgstr "Отключить всплывающие оповещения."
 
 #: ../gui/browser.glade.h:31
 msgid "Turn on alert pop-ups."
-msgstr ""
+msgstr "Включить всплывающие оповещения."
 
 #: ../gui/browser.glade.h:32
 msgid "Would you like to receive alerts?"
-msgstr ""
+msgstr "Хотели бы вы получать оповещения?"
 
 #: ../gui/browser.glade.h:33
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: ../gui/browser.glade.h:34
 msgid "label"
-msgstr ""
+msgstr "метка"
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
 msgstr ""
-"<span size='large' weight='bold'>Просмотреть и отправить отчёт об ошибке</"
-"span>"
+"<span size='large' weight='bold'>Просмотреть и отправить отчёт об "
+"ошибке</span>"
 
 #: ../gui/bug_report.glade.h:2
 msgid "Included error output:"
@@ -782,224 +803,4 @@ msgstr "Успешно"
 msgid "button"
 msgstr "клавиша"
 
-#~ msgid "Help"
-#~ msgstr "Справка"
 
-#, fuzzy
-#~ msgid "Error while checking policy version."
-#~ msgstr "<small><b>Ошибка при проверке версии политики</b></small>"
-
-#~ msgid ""
-#~ "There is a newer version of policy available.  Updating your policy may "
-#~ "fix the denial that you having problems with."
-#~ msgstr ""
-#~ "Доступна новая версия политики. Обновление политики может исправить "
-#~ "проблему отказа."
-
-#~ msgid "Update Policy"
-#~ msgstr "Обновить политику"
-
-#, fuzzy
-#~ msgid "Edit Status"
-#~ msgstr "Статус"
-
-#~ msgid "(removed)"
-#~ msgstr "(удалено)"
-
-#~ msgid "Setroubleshoot Email Preferences"
-#~ msgstr "Настройки электронной почты для setroubleshoot"
-
-#~ msgid "Add"
-#~ msgstr "Добавить"
-
-#~ msgid ""
-#~ "This is a list of email addresses to whom alerts will be\n"
-#~ "sent.\n"
-#~ "\n"
-#~ "To add an email address type the address in the\n"
-#~ "input box and click the Add button. Duplicate addresses\n"
-#~ "are not permitted.\n"
-#~ "\n"
-#~ "To delete one or more email addresses select the addresses\n"
-#~ "in the list and click the Delete button or use the Delete key.\n"
-#~ "Or you may edit the address and clear its value.\n"
-#~ "\n"
-#~ "To edit an address click the address to begin editing.\n"
-#~ "\n"
-#~ "To sort the list differently click on the column heading.\n"
-#~ "\n"
-#~ "To change the filtering option click on the filter type and\n"
-#~ "pick from the list. The filter applies to all alerts for this\n"
-#~ "email address.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Здесь приведен список адресов, которым будут отправляться\n"
-#~ "уведомления.\n"
-#~ "\n"
-#~ "Чтобы добавить адрес, введите его в поле ввода и нажмите кнопку "
-#~ "«Добавить».\n"
-#~ "Дублирование адресов не допускается.\n"
-#~ "\n"
-#~ "Чтобы удалить адреса, выделите их в списке и нажмите «Удалить», \n"
-#~ "клавишу Delete или просто удалите строку адреса.\n"
-#~ "\n"
-#~ "Для редактирования адреса нажмите на нем и внесите изменения.\n"
-#~ "\n"
-#~ "Нажатие на заголовке столбца отсортирует список.\n"
-#~ "\n"
-#~ "Чтобы изменить параметры фильтров, нажмите на типе фильтра и\n"
-#~ "выберите параметр. Фильтр будет применен ко всем уведомлениям\n"
-#~ "для конкретного адреса.\n"
-#~ "\n"
-
-#~ msgid "Filter Type"
-#~ msgstr "Тип фильтра"
-
-#~ msgid "Email Address"
-#~ msgstr "Эл.адрес"
-
-#, fuzzy
-#~ msgid "Access:"
-#~ msgstr "Успешно"
-
-#, fuzzy
-#~ msgid "Report"
-#~ msgstr "Создать отчёт об ошибке..."
-
-#~ msgid "Copy to Clipboard"
-#~ msgstr "Копировать в буфер"
-
-#~ msgid "No alerts to view."
-#~ msgstr "Нет уведомлений для просмотра."
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-#~ "Browser</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Диагностика проблем "
-#~ "SELinux</span>"
-
-#~ msgid "Summary"
-#~ msgstr "Сводка"
-
-#~ msgid "Count"
-#~ msgstr "Счётчик"
-
-#~ msgid "Date"
-#~ msgstr "Дата"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-#~ "seriously compromised!</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Безопасность вашей "
-#~ "системы находится под угрозой!</span>"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-#~ "suspicious behavior on your system</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Обнаружено странное "
-#~ "поведение вашей системы </span>"
-
-#~ msgid "Today"
-#~ msgstr "Сегодня"
-
-#~ msgid "Yesterday"
-#~ msgstr "Вчера"
-
-#~ msgid "<span foreground='#555555'>%s on %s</span>"
-#~ msgstr "<span foreground='#555555'>%s на %s</span>"
-
-#~ msgid ""
-#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-#~ "weight='bold' size='large' face='verdana'>%d</span>"
-#~ msgstr ""
-#~ "Предупреждение<span weight='bold' size='large' face='verdana'> %d</span> "
-#~ "о <span weight='bold' size='large' face='verdana'>%d</span>"
-
-#~ msgid "Fix it"
-#~ msgstr "Исправить"
-
-#~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
-#~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
-
-#~ msgid "Detailed Description"
-#~ msgstr "Подробное описание"
-
-#~ msgid "Allowing Access"
-#~ msgstr "Разрешение доступа"
-
-#~ msgid "Fix Command"
-#~ msgstr "Команда исправления"
-
-#~ msgid "Line Numbers"
-#~ msgstr "Номера строк"
-
-#~ msgid "SELinux"
-#~ msgstr "SELinux"
-
-#~ msgid "<small>Click here to install updates using PackageKit</small>"
-#~ msgstr ""
-#~ "<small>Нажмите здесь для установки обновлений при помощи PackageKit</"
-#~ "small>"
-
-#~ msgid "<small>There is a newer version of policy available.</small>"
-#~ msgstr "<small>Доступна новая версия политики.</small>"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' >Браузер диагностики проблем "
-#~ "SELinux</span>"
-
-#~ msgid "<span foreground='grey'>date</span>"
-#~ msgstr "<span foreground='grey'>дата</span>"
-
-#~ msgid ""
-#~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
-#~ "span>"
-#~ msgstr ""
-#~ "<span size='large' weight='bold' \tface='verdana'>Нет уведомлений для "
-#~ "просмотра.</span>"
-
-#~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-#~ msgstr ""
-#~ "<span weight='bold' size='large' face='verdana'>Уведомления - </span>"
-
-#~ msgid ""
-#~ "Certain signatures allow administrators to correct your system with "
-#~ "setroubleshoot."
-#~ msgstr ""
-#~ "Некоторые подписи позволяют администраторам решать проблемы с помощью "
-#~ "setroubeshoot."
-
-#~ msgid "Copy full error output to clipboard."
-#~ msgstr "Копировать вывод ошибки в буфер."
-
-#~ msgid "Next"
-#~ msgstr "Далее"
-
-#~ msgid "Previous"
-#~ msgstr "Назад"
-
-#~ msgid "Reports a bug to bugzilla.redhat.com."
-#~ msgstr "Создание запроса в bugzilla.redhat.com."
-
-#~ msgid "Show all..."
-#~ msgstr "Показать все..."
-
-#~ msgid "Show full error output"
-#~ msgstr "Вывести полный текст ошибки"
-
-#~ msgid "_File"
-#~ msgstr "_Файл"
-
-#~ msgid "_Help"
-#~ msgstr "_Справка"
-
-#~ msgid "_Report this Bug..."
-#~ msgstr "_Создать отчёт об ошибке..."
-
-#~ msgid "gtk-cancel"
-#~ msgstr "gtk-cancel"

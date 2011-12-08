@@ -1,19 +1,23 @@
-# translation of pl.po to Polish
-# Radosław Piliszek <radzio92@yahoo.com>, 2006.
-# Piotr Drąg <piotrdrag@gmail.com>, 2006.
-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Dimitris Glezos <glezos@indifex.com>, 2011.
+# Piotr Drąg <piotrdrag@gmail.com>, 2011.
 msgid ""
 msgstr ""
-"Project-Id-Version: pl\n"
+"Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-05 16:04-0500\n"
-"PO-Revision-Date: 2010-11-14 10:18+0100\n"
-"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <trans-pl@lists.fedoraproject.org>\n"
-"Language: pl\n"
+"PO-Revision-Date: 2011-12-06 13:35+0000\n"
+"Last-Translator: raven <piotrdrag@gmail.com>\n"
+"Language-Team: Polish (http://www.transifex.net/projects/p/fedora/team/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: pl\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -46,12 +50,10 @@ msgstr ""
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
 msgstr ""
 "%s \n"
-"**** Nieprawidłowe AVC \"dontaudited\" w bieżącej polityce. Polecenie "
-"\"semodule -B\" włączy reguły \"dontaudit\". ***\n"
+"**** Nieprawidłowe AVC \"dontaudited\" w bieżącej polityce. Polecenie \"semodule -B\" włączy reguły \"dontaudit\". ***\n"
 
 #: ../src/audit_data.py:979
 msgid "Must call policy_init first"
@@ -107,14 +109,15 @@ msgstr "Proces źródłowy"
 
 #: ../src/browser.py:250
 msgid "Attempted Access"
-msgstr "Próba dostępu"
+msgstr ""
+"\n"
+"Próba dostępu\n"
 
 #: ../src/browser.py:250
 msgid "On this"
 msgstr "W tym"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Occurred"
 msgstr "Wystąpiło"
 
@@ -124,21 +127,19 @@ msgstr "Stan"
 
 #: ../src/browser.py:322 ../src/browser.py:799
 msgid "Notify"
-msgstr ""
+msgstr "Powiadom"
 
 #: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:13
 msgid "Ignore"
 msgstr "Zignoruj"
 
 #: ../src/browser.py:363
-#, fuzzy
 msgid "<b>If you were trying to...</b>"
-msgstr "Jeśli próbowano..."
+msgstr "<b>Jeśli próbowano...</b>"
 
 #: ../src/browser.py:372
-#, fuzzy
 msgid "<b>Then this is the solution.</b>"
-msgstr "To jest rozwiązanie."
+msgstr "<b>Wtedy to jest rozwiązanie.</b>"
 
 #: ../src/browser.py:391 ../src/browser.py:527
 msgid "If "
@@ -149,6 +150,8 @@ msgid ""
 "Plugin\n"
 "Details"
 msgstr ""
+"Szczegóły\n"
+"wtyczki"
 
 #: ../src/browser.py:494
 msgid ""
@@ -156,12 +159,12 @@ msgid ""
 "Bug"
 msgstr ""
 "Zgłoś\n"
-"błąd"
+"błąd\n"
 
 #: ../src/browser.py:522
-#, fuzzy, python-format
+#, python-format
 msgid "Plugin: %s "
-msgstr "bieżąca: %s "
+msgstr "Wtyczka: %s "
 
 #: ../src/browser.py:580
 msgid "Unable to grant access."
@@ -173,22 +176,21 @@ msgid "Alert %d of %d"
 msgstr "Alarm %d z %d"
 
 #: ../src/browser.py:736
-#, fuzzy, python-format
+#, python-format
 msgid "On this %s:"
-msgstr "W tym"
+msgstr "W tym %s:"
 
 #: ../src/browser.py:784 ../src/browser.py:790 ../src/signature.py:396
 msgid "N/A"
-msgstr ""
+msgstr "Nie dotyczy"
 
 #: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:18
 msgid "No Alerts"
 msgstr "Brak alarmów"
 
 #: ../src/browser.py:850
-#, fuzzy
 msgid "SELinux has detected a problem."
-msgstr "<b>System SELinux wykrył problem.</b>"
+msgstr "SELinux wykrył problem."
 
 #: ../src/browser.py:955
 msgid "Sealert Error"
@@ -324,8 +326,8 @@ msgstr "Zatrzymanie polecenia"
 #: ../src/run_cmd.py:425
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr ""
-"Ostrzeżenie: użytkownik jest odpowiedzialny za sprawdzenie, czy te polecenie "
-"jest poprawne"
+"Ostrzeżenie: użytkownik jest odpowiedzialny za sprawdzenie, czy te polecenie"
+" jest poprawne"
 
 #: ../src/run_cmd.py:467
 msgid "Not Run Yet"
@@ -438,14 +440,12 @@ msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s posiada typ zezwalania (%s). Ten dostęp nie został odmówiony."
 
 #: ../src/signature.py:384
-#, fuzzy
 msgid "SELinux is in permissive mode. This access was not denied."
-msgstr "SELinux jest w trybie zezwalania. Ten dostęp nie został odmówiony."
+msgstr "SELinux jest w trybie zezwalania. Ten dostęp nie został zabroniony."
 
 #: ../src/signature.py:469
-#, fuzzy
 msgid "Additional Information:\n"
-msgstr "Dodatkowe informacje"
+msgstr "Dodatkowe informacje:\n"
 
 #: ../src/signature.py:470
 msgid "Source Context"
@@ -540,11 +540,11 @@ msgstr ""
 
 #: ../src/signature.py:543
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: ../src/signature.py:544
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../src/signature.py:546
 msgid ""
@@ -571,13 +571,12 @@ msgstr ""
 "Wykonać\n"
 
 #: ../src/signature.py:553
-#, fuzzy
 msgid ""
 "\n"
 "\n"
 msgstr ""
 "\n"
-"Wykonać\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -632,7 +631,8 @@ msgstr "Wtyczka %s nie jest prawidłowa dla identyfikatora %s"
 
 #: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
-msgstr "SELinux nie jest włączony, kończenie pracy programu setroubleshootd..."
+msgstr ""
+"SELinux nie jest włączony, kończenie pracy programu setroubleshootd..."
 
 #: ../src/setroubleshootd:113
 #, c-format
@@ -644,9 +644,8 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>System SELinux wykrył problem.</b>"
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
 msgid "Attempted this access:"
-msgstr "Próba dostępu"
+msgstr "Próbowało tego dostępu:"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -664,7 +663,7 @@ msgstr ""
 
 #: ../gui/browser.glade.h:9
 msgid "Delete Selected Alerts"
-msgstr ""
+msgstr "Usuń wybrane alarmy"
 
 #: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
@@ -672,7 +671,7 @@ msgstr "Usuwa bieżący alarm z bazy danych."
 
 #: ../gui/browser.glade.h:11
 msgid "Details"
-msgstr ""
+msgstr "Szczegóły"
 
 #: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
@@ -680,7 +679,7 @@ msgstr "Wysyła wiadomość e-mail do administratora komputera."
 
 #: ../gui/browser.glade.h:14
 msgid "Ignore alert in the future."
-msgstr ""
+msgstr "Ignoruj alarm w przyszłości."
 
 #: ../gui/browser.glade.h:15
 msgid "List All Alerts"
@@ -696,21 +695,19 @@ msgstr "Nie"
 
 #: ../gui/browser.glade.h:19
 msgid "Notify Admin"
-msgstr ""
+msgstr "Powiadom administratora"
 
 #: ../gui/browser.glade.h:20
-#, fuzzy
 msgid "On this file:"
-msgstr "W tym"
+msgstr "W tym pliku:"
 
 #: ../gui/browser.glade.h:21
-#, fuzzy
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
-"Należy przeczytać informacje alarmu o rozwiązywaniu problemów. Może wymagać "
-"uprawnień administratora, aby to naprawić."
+"Proszę przeczytać informacje o rozwiązywaniu błędów. Może wymagać uprawnień "
+"administracyjnych, aby je rozwiązać."
 
 #: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
@@ -721,9 +718,8 @@ msgid "SETroubleshoot Alert List"
 msgstr "Lista alarmów programu setroubleshoot"
 
 #: ../gui/browser.glade.h:24
-#, fuzzy
 msgid "SETroubleshoot Details Window"
-msgstr "Lista alarmów programu setroubleshoot"
+msgstr "Okno informacji programu "
 
 #: ../gui/browser.glade.h:25
 msgid "Show next alert."
@@ -734,18 +730,16 @@ msgid "Show previous alert."
 msgstr "Wyświetla poprzedni alarm."
 
 #: ../gui/browser.glade.h:27
-#, fuzzy
 msgid "The source process:"
-msgstr "Proces źródłowy"
+msgstr "Proces źródłowy:"
 
 #: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "Rozwiązywanie problemów"
 
 #: ../gui/browser.glade.h:29
-#, fuzzy
 msgid "Troubleshoot selected alert"
-msgstr "Lista alarmów programu setroubleshoot"
+msgstr "Alarm wybrany przez rozwiązywanie błędów"
 
 #: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
@@ -769,7 +763,8 @@ msgstr "etykieta"
 
 #: ../gui/bug_report.glade.h:1
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr "<span size='large' weight='bold'>Przejrzyj i zgłoś raport błędu</span>"
+msgstr ""
+"<span size='large' weight='bold'>Przejrzyj i zgłoś raport błędu</span>"
 
 #: ../gui/bug_report.glade.h:2
 msgid "Included error output:"
@@ -805,89 +800,4 @@ msgstr "Powodzenie."
 msgid "button"
 msgstr "przycisk"
 
-#~ msgid "Help"
-#~ msgstr "Pomoc"
 
-#~ msgid "Error while checking policy version."
-#~ msgstr "Błąd podczas sprawdzenia wersji polityki."
-
-#~ msgid ""
-#~ "There is a newer version of policy available.  Updating your policy may "
-#~ "fix the denial that you having problems with."
-#~ msgstr ""
-#~ "Dostępna jest nowsza wersja polityki. Zaktualizowanie polityki może "
-#~ "naprawić odmowy, z którymi są problemy."
-
-#~ msgid "Newest Version"
-#~ msgstr "Najnowsza wersja"
-
-#~ msgid "Update Policy"
-#~ msgstr "Aktualizacja polityki"
-
-#~ msgid "Edit Status"
-#~ msgstr "Zmodyfikuj stan"
-
-#~ msgid "(removed)"
-#~ msgstr "(usunięto)"
-
-#~ msgid "Setroubleshoot Email Preferences"
-#~ msgstr "Preferencje adresów e-mail programu setroubleshoot"
-
-#~ msgid "Add"
-#~ msgstr "Dodanie"
-
-#~ msgid ""
-#~ "This is a list of email addresses to whom alerts will be\n"
-#~ "sent.\n"
-#~ "\n"
-#~ "To add an email address type the address in the\n"
-#~ "input box and click the Add button. Duplicate addresses\n"
-#~ "are not permitted.\n"
-#~ "\n"
-#~ "To delete one or more email addresses select the addresses\n"
-#~ "in the list and click the Delete button or use the Delete key.\n"
-#~ "Or you may edit the address and clear its value.\n"
-#~ "\n"
-#~ "To edit an address click the address to begin editing.\n"
-#~ "\n"
-#~ "To sort the list differently click on the column heading.\n"
-#~ "\n"
-#~ "To change the filtering option click on the filter type and\n"
-#~ "pick from the list. The filter applies to all alerts for this\n"
-#~ "email address.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "To jest lista adresów e-mail, na które będą wysyłane alarmy.\n"
-#~ "\n"
-#~ "Aby dodać adres e-mail, należy podać adres w polu i nacisnąć\n"
-#~ "przycisk Dodaj. Powtarzające się adresy nie są dozwolone.\n"
-#~ "\n"
-#~ "Aby usunąć jeden lub więcej adresów e-mail, należy wybrać\n"
-#~ "adresy z listy i nacisnąć przycisk Usuń lub użyć klawisza\n"
-#~ "Delete. Można także zmodyfikować adres i wyczyścić jego\n"
-#~ "wartość.\n"
-#~ "\n"
-#~ "Aby zmodyfikować adres, należy nacisnąć na adres i zacząć\n"
-#~ "modyfikowanie.\n"
-#~ "\n"
-#~ "Aby uporządkować listę, należy nacisnąć na nagłówku kolumny.\n"
-#~ "\n"
-#~ "Aby zmienić opcje filtrowania, należy nacisnąć na typie filtru\n"
-#~ " i wybrać go z listy. Filtr jest stosowany do wszystkich\n"
-#~ "alarmów dla tego adresu e-mail.\n"
-#~ "\n"
-
-#~ msgid "Filter Type"
-#~ msgstr "Typ filtru"
-
-#~ msgid "Email Address"
-#~ msgstr "Adres e-mail"
-
-#~ msgid "Access:"
-#~ msgstr "Dostęp:"
-
-#~ msgid "Do not show alert message, when this alert is triggered."
-#~ msgstr "Bez wyświetlania tego komunikatu alarmu, jeśli wywołano ten alarm."
-
-#~ msgid "Report"
-#~ msgstr "Zgłoś"

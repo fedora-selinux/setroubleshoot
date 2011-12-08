@@ -1,23 +1,24 @@
-# Translation of setroubleshoot to Dutch
-# Copyright (C) 2007, 2008 The Free Software Foundation, Inc.
-# This file is distributed under the same license as the setroubleshoot package.
-# Geert Warrink <geert.warrink@onsnet.nu>, 2009, 2010.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Dimitris Glezos <glezos@indifex.com>, 2011.
+# Geert Warrink <geert.warrink@onsnet.nu>, 2009, 2010, 2011.
 # Peter van Egdom <p.van.egdom@gmail.com>, 2007, 2008, 2009.
-# Geert Warrink <geert.warrink@onsnet.nu>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-05 16:04-0500\n"
-"PO-Revision-Date: 2010-11-21 16:45+0200\n"
-"Last-Translator: Geert Warrink <geert.warrink@onsnet.nu>\n"
-"Language-Team: Fedora\n"
-"Language: nl\n"
+"PO-Revision-Date: 2011-12-07 10:48+0000\n"
+"Last-Translator: warrink <geert.warrink@onsnet.nu>\n"
+"Language-Team: Dutch (http://www.transifex.net/projects/p/fedora/team/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.6.1\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -50,12 +51,10 @@ msgstr ""
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
 msgstr ""
 "%s \n"
-"**** Ongeldige AVC dontaudited in huidige tactiek.  'semodule -B' zal "
-"dontaudit regels aanzetten. ***\n"
+"**** Ongeldige AVC dontaudited in huidige tactiek.  'semodule -B' zal dontaudit regels aanzetten. ***\n"
 
 #: ../src/audit_data.py:979
 msgid "Must call policy_init first"
@@ -111,14 +110,15 @@ msgstr "Bron proces"
 
 #: ../src/browser.py:250
 msgid "Attempted Access"
-msgstr "Poging tot toegang"
+msgstr ""
+"\n"
+"Poging tot toegang\n"
 
 #: ../src/browser.py:250
 msgid "On this"
 msgstr "Op dit"
 
 #: ../src/browser.py:250
-#, fuzzy
 msgid "Occurred"
 msgstr "Opgetreden"
 
@@ -128,21 +128,19 @@ msgstr "Status"
 
 #: ../src/browser.py:322 ../src/browser.py:799
 msgid "Notify"
-msgstr ""
+msgstr "Kennisgeven"
 
 #: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:13
 msgid "Ignore"
 msgstr "Negeren"
 
 #: ../src/browser.py:363
-#, fuzzy
 msgid "<b>If you were trying to...</b>"
-msgstr "Als je probeerde om..."
+msgstr "<b>Als je probeerde...</b>"
 
 #: ../src/browser.py:372
-#, fuzzy
 msgid "<b>Then this is the solution.</b>"
-msgstr "Dan is dit de oplossing."
+msgstr "<b>Dan is dit de oplossing.</b>"
 
 #: ../src/browser.py:391 ../src/browser.py:527
 msgid "If "
@@ -153,6 +151,8 @@ msgid ""
 "Plugin\n"
 "Details"
 msgstr ""
+"Plug-in\n"
+"details"
 
 #: ../src/browser.py:494
 msgid ""
@@ -160,12 +160,12 @@ msgid ""
 "Bug"
 msgstr ""
 "Rapporteer\n"
-"fout"
+"fout\n"
 
 #: ../src/browser.py:522
-#, fuzzy, python-format
+#, python-format
 msgid "Plugin: %s "
-msgstr "Plug-in naam"
+msgstr "Plug-in: %s "
 
 #: ../src/browser.py:580
 msgid "Unable to grant access."
@@ -177,22 +177,21 @@ msgid "Alert %d of %d"
 msgstr "Waarschuwing %d van %d"
 
 #: ../src/browser.py:736
-#, fuzzy, python-format
+#, python-format
 msgid "On this %s:"
-msgstr "Op dit"
+msgstr "Voor deze %s:"
 
 #: ../src/browser.py:784 ../src/browser.py:790 ../src/signature.py:396
 msgid "N/A"
-msgstr ""
+msgstr "N.v.t."
 
 #: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:18
 msgid "No Alerts"
 msgstr "Geen waarschuwingen"
 
 #: ../src/browser.py:850
-#, fuzzy
 msgid "SELinux has detected a problem."
-msgstr "<b>SELinux heeft een probleem gedetecteerd.</b>"
+msgstr "SELinux heeft een probleem ontdekt."
 
 #: ../src/browser.py:955
 msgid "Sealert Error"
@@ -441,14 +440,12 @@ msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s heeft een toelatend type (%s). Deze toegang was niet verboden."
 
 #: ../src/signature.py:384
-#, fuzzy
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux is in de toelatende mode. Deze toegang werd niet geweigerd."
 
 #: ../src/signature.py:469
-#, fuzzy
 msgid "Additional Information:\n"
-msgstr "Extra informatie"
+msgstr "Aanvullende informatie:\n"
 
 #: ../src/signature.py:470
 msgid "Source Context"
@@ -543,11 +540,11 @@ msgstr ""
 
 #: ../src/signature.py:543
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: ../src/signature.py:544
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../src/signature.py:546
 msgid ""
@@ -574,13 +571,12 @@ msgstr ""
 "Doe\n"
 
 #: ../src/signature.py:553
-#, fuzzy
 msgid ""
 "\n"
 "\n"
 msgstr ""
 "\n"
-"Doe\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -645,9 +641,8 @@ msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux heeft een probleem gedetecteerd.</b>"
 
 #: ../gui/browser.glade.h:2
-#, fuzzy
 msgid "Attempted this access:"
-msgstr "Poging tot toegang"
+msgstr "Deze toegang werd geprobeerd:"
 
 #: ../gui/browser.glade.h:3
 msgid ""
@@ -664,9 +659,8 @@ msgstr ""
 "John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
-#, fuzzy
 msgid "Delete Selected Alerts"
-msgstr "Geselecteerde waarschuwingen afdrukken"
+msgstr "Verwijder geselecteerde waarschuwingen"
 
 #: ../gui/browser.glade.h:10
 msgid "Delete current alert from the database."
@@ -674,16 +668,15 @@ msgstr "Verwijder huidige waarschuwing uit de data base."
 
 #: ../gui/browser.glade.h:11
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: ../gui/browser.glade.h:12
 msgid "Email alert to system administrator."
 msgstr "Email waarschuwing naar de systeembeheerder."
 
 #: ../gui/browser.glade.h:14
-#, fuzzy
 msgid "Ignore alert in the future."
-msgstr "Negeer deze SELinux beveiliging waarschuwing in het vervolg."
+msgstr "Waarschuwing in de toekomst negeren."
 
 #: ../gui/browser.glade.h:15
 msgid "List All Alerts"
@@ -699,21 +692,19 @@ msgstr "Geen"
 
 #: ../gui/browser.glade.h:19
 msgid "Notify Admin"
-msgstr ""
+msgstr "Geef bericht aan beheerder"
 
 #: ../gui/browser.glade.h:20
-#, fuzzy
 msgid "On this file:"
-msgstr "Op dit"
+msgstr "Over dit bestand:"
 
 #: ../gui/browser.glade.h:21
-#, fuzzy
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
-"Lees waarschuwing probleem-oplos informatie.  Voor verhelpen zijn mogelijk "
-"beheer rechten nodig."
+"Lees waarschuwing oplossen informatie.  Beheerder rechten kunnen nodig zijn "
+"om het te verhelpen."
 
 #: ../gui/browser.glade.h:22
 msgid "SELinux Alert Browser"
@@ -724,9 +715,8 @@ msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot waarschuwingen lijst"
 
 #: ../gui/browser.glade.h:24
-#, fuzzy
 msgid "SETroubleshoot Details Window"
-msgstr "SETroubleshoot waarschuwingen lijst"
+msgstr "Setroubleshoot details venster"
 
 #: ../gui/browser.glade.h:25
 msgid "Show next alert."
@@ -737,18 +727,16 @@ msgid "Show previous alert."
 msgstr "Laat vorige waarschuwing zien."
 
 #: ../gui/browser.glade.h:27
-#, fuzzy
 msgid "The source process:"
-msgstr "Bron proces"
+msgstr "Het bron proces:"
 
 #: ../gui/browser.glade.h:28
 msgid "Troubleshoot"
 msgstr "Probleem oplossen"
 
 #: ../gui/browser.glade.h:29
-#, fuzzy
 msgid "Troubleshoot selected alert"
-msgstr "Geselecteerde waarschuwingen afdrukken"
+msgstr "Waarschuwing geselecteerd door Troubleshoot"
 
 #: ../gui/browser.glade.h:30
 msgid "Turn off alert pop-ups."
@@ -792,8 +780,8 @@ msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
 msgstr ""
-"Je wilt de fout output, die aan dit fout rapport toegevoegd wordt, misschien "
-"bekijken en het veranderen om gevoelige data te verwijderen."
+"Je wilt de fout output, die aan dit fout rapport toegevoegd wordt, misschien"
+" bekijken en het veranderen om gevoelige data te verwijderen."
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
@@ -809,620 +797,4 @@ msgstr "Succes!"
 msgid "button"
 msgstr "knop"
 
-#~ msgid "Help"
-#~ msgstr "Hulp"
 
-#~ msgid "Error while checking policy version."
-#~ msgstr "Fout opgetreden bij het controleren van de tactiek versie."
-
-#~ msgid ""
-#~ "There is a newer version of policy available.  Updating your policy may "
-#~ "fix the denial that you having problems with."
-#~ msgstr ""
-#~ "Er is een nieuwere versie van de tactiek beschikbaar.  Vernieuwen van "
-#~ "jouw tactiek kan de weigering waarmee je problemen hebt repareren."
-
-#~ msgid "Newest Version"
-#~ msgstr "Nieuwste versie"
-
-#~ msgid "Update Policy"
-#~ msgstr "Vernieuw tactiek"
-
-#~ msgid "Edit Status"
-#~ msgstr "Bewerk status"
-
-#~ msgid "(removed)"
-#~ msgstr "(verwijderd)"
-
-#~ msgid "Setroubleshoot Email Preferences"
-#~ msgstr "Setroubleshoot email voorkeuren"
-
-#~ msgid "Add"
-#~ msgstr "Toevoegen"
-
-#~ msgid ""
-#~ "This is a list of email addresses to whom alerts will be\n"
-#~ "sent.\n"
-#~ "\n"
-#~ "To add an email address type the address in the\n"
-#~ "input box and click the Add button. Duplicate addresses\n"
-#~ "are not permitted.\n"
-#~ "\n"
-#~ "To delete one or more email addresses select the addresses\n"
-#~ "in the list and click the Delete button or use the Delete key.\n"
-#~ "Or you may edit the address and clear its value.\n"
-#~ "\n"
-#~ "To edit an address click the address to begin editing.\n"
-#~ "\n"
-#~ "To sort the list differently click on the column heading.\n"
-#~ "\n"
-#~ "To change the filtering option click on the filter type and\n"
-#~ "pick from the list. The filter applies to all alerts for this\n"
-#~ "email address.\n"
-#~ "\n"
-#~ msgstr ""
-#~ "Dit is een lijst van email adressen waar waarschuwingen\n"
-#~ "naar toe worden gestuurd.\n"
-#~ "\n"
-#~ "Om een email adres toe te voegen type je het adres in de\n"
-#~ "input box en klik je op de Toevoegen knop. Dubbele adressen\n"
-#~ "zijn niet toegestaan.\n"
-#~ "\n"
-#~ "Om een of meer email adressen te verwijderen selecteer je de adressen\n"
-#~ "in de lijst en klik je op de Verwijderen knop of gebruik je de Delete "
-#~ "toets.\n"
-#~ "Of je kunt het adres bewerken en leeg maken.\n"
-#~ "\n"
-#~ "Om een adres te bewerken klik op het adres en begin met bewerken.\n"
-#~ "\n"
-#~ "Om de lijst anders te sorteren klik op het kolom hoofd.\n"
-#~ "\n"
-#~ "Om de filter opties te veranderen klik op het filter type en\n"
-#~ "kies van de lijst. Het filter wordt toegepast voor alle waarschuwingen\n"
-#~ "voor dit email adres.\n"
-#~ "\n"
-
-#~ msgid "Filter Type"
-#~ msgstr "Filter type"
-
-#~ msgid "Email Address"
-#~ msgstr "Email adres"
-
-#~ msgid "Access:"
-#~ msgstr "Toegang:"
-
-#~ msgid "Do not show alert message, when this alert is triggered."
-#~ msgstr ""
-#~ "Laat de waarschuwing boodschap niet zien als deze waarschuwing "
-#~ "geactiveerd wordt."
-
-#~ msgid "Report"
-#~ msgstr "Rapport"
-
-#~ msgid "Copy to Clipboard"
-#~ msgstr "Kopieer naar klembord"
-
-#~ msgid "No alerts to view."
-#~ msgstr "Er zijn geen waarschuwingen."
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux Troubleshoot "
-#~ "Browser</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux probleem "
-#~ "oplosser browser</span>"
-
-#~ msgid "Summary"
-#~ msgstr "Samenvatting"
-
-#~ msgid "Count"
-#~ msgstr "Aantal"
-
-#~ msgid "Date"
-#~ msgstr "Datum"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Your system could be "
-#~ "seriously compromised!</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>Jouw systeem kan "
-#~ "ernstig in gevaar gebracht zijn!</span>"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux has detected "
-#~ "suspicious behavior on your system</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large' weight='bold'>SELinux heeft "
-#~ "verdacht gedrag op jouw systeem ontdekt</span>"
-
-#~ msgid "Today"
-#~ msgstr "Vandaag"
-
-#~ msgid "Yesterday"
-#~ msgstr "Gisteren"
-
-#~ msgid "<span foreground='#555555'>%s on %s</span>"
-#~ msgstr "<span foreground='#555555'>%s op %s</span>"
-
-#~ msgid ""
-#~ "Alert<span weight='bold' size='large' face='verdana'> %d</span> of <span "
-#~ "weight='bold' size='large' face='verdana'>%d</span>"
-#~ msgstr ""
-#~ "Waarschuwing<span weight='bold' size='large' face='verdana'> %d</span> "
-#~ "van <span weight='bold' size='large' face='verdana'>%d</span>"
-
-#~ msgid "Fix it"
-#~ msgstr "Repareer dit"
-
-#~ msgid "<font color=\"0000FF\">[%s]</font><p>%s"
-#~ msgstr "<font color=\"0000FF\">[%s]</font><p>%s"
-
-#~ msgid "Detailed Description"
-#~ msgstr "Gedetailleerde omschrijving"
-
-#~ msgid "Allowing Access"
-#~ msgstr "Toegang toestaan"
-
-#~ msgid "Fix Command"
-#~ msgstr "Commando repareren"
-
-#~ msgid "Line Numbers"
-#~ msgstr "Regel nummers"
-
-#~ msgid "SELinux"
-#~ msgstr "SELinux"
-
-#~ msgid "<small>Click here to install updates using PackageKit</small>"
-#~ msgstr ""
-#~ "<small>Klik hier on vernieuwingen te installeren met gebruik van "
-#~ "PackageKit</small>"
-
-#~ msgid "<small>There is a newer version of policy available.</small>"
-#~ msgstr ""
-#~ "<small>Er is een nieuwere versie van de tactiek beschikbaar.</small>"
-
-#~ msgid ""
-#~ "<span face=\"Helvetica\" size='large' >SELinux Troubleshoot Browser</span>"
-#~ msgstr ""
-#~ "<span face=\"Helvetica\" size='large'>SELinux probleem oplosser browser</"
-#~ "span>"
-
-#~ msgid "<span foreground='grey'>date</span>"
-#~ msgstr "<span foreground='grey'>datum</span>"
-
-#~ msgid ""
-#~ "<span size='large' weight='bold' \tface='verdana'>No alerts to view.</"
-#~ "span>"
-#~ msgstr ""
-#~ "<span size='large' weight='bold' \tface='verdana'>Er zijn geen "
-#~ "waarschuwingen te bekijken.</span>"
-
-#~ msgid "<span weight='bold' size='large' face='verdana'>Alert - of -</span>"
-#~ msgstr ""
-#~ "<span weight='bold' size='large' face='verdana'>Waarschuwing - van -</"
-#~ "span>"
-
-#~ msgid ""
-#~ "Certain signatures allow administrators to correct your system with "
-#~ "setroubleshoot."
-#~ msgstr ""
-#~ "Bepaalde ondertekeningen staan beheerders toe om jouw systeem met "
-#~ "setroubleshoot te herstellen."
-
-#~ msgid "Copy full error output to clipboard."
-#~ msgstr "Kopieer de volledige fout output naar het klembord"
-
-#~ msgid "Ignore Alert"
-#~ msgstr "Negeer waarschuwing"
-
-#~ msgid "Next"
-#~ msgstr "Volgende"
-
-#~ msgid "Previous"
-#~ msgstr "Vorige"
-
-#~ msgid "Reports a bug to bugzilla.redhat.com."
-#~ msgstr "Rapporteer een fout op bugzilla.redhat.com."
-
-#~ msgid "Show all..."
-#~ msgstr "Laat alles zien..."
-
-#~ msgid "Show full error output"
-#~ msgstr "Laat de volledige fout output zien"
-
-#~ msgid "_File"
-#~ msgstr "_Bestand"
-
-#~ msgid "_Help"
-#~ msgstr "_Hulp"
-
-#~ msgid "_Report this Bug..."
-#~ msgstr "_Rapporteer deze fout..."
-
-#~ msgid "gtk-cancel"
-#~ msgstr "gtk-cancel"
-
-#~ msgid ""
-#~ "Your bug could not be filed due to the following error when communicating "
-#~ "with bugzilla:\n"
-#~ "\n"
-#~ "%s"
-#~ msgstr ""
-#~ "Je fout kon niet ingediend worden door de volgende fout opgetreden "
-#~ "tijdens de communicatie met bugzilla:\n"
-#~ "\n"
-#~ "%s"
-
-#~ msgid ""
-#~ "Bug filing not supported. Your distribution does not provide a supported "
-#~ "bug filing system."
-#~ msgstr ""
-#~ "Fout indienen wordt niet ondersteund. Jouw distributie biedt geen "
-#~ "ondersteund fout afhandelings systeem aan."
-
-#~ msgid "Please provide a valid username and password."
-#~ msgstr "Geef een geldige gebruikersnaam en wachtwoord op."
-
-#~ msgid ""
-#~ "Unable to login.  There was an error logging in with the provided "
-#~ "username and password."
-#~ msgstr ""
-#~ "Inloggen lukt niet.  Er is een fout opgetreden tijdens het inloggen met "
-#~ "de opgegeven gebruikersnaam en wachtwoord."
-
-#~ msgid "Bug Created"
-#~ msgstr "Fout aangemaakt"
-
-#~ msgid ""
-#~ "A new bug has been created with your audit messages.  Please add "
-#~ "additional information such as what you were doing when you encountered "
-#~ "the bug, screenshots, and whatever else is appropriate to the following "
-#~ "bug:\n"
-#~ "\n"
-#~ "%s%s"
-#~ msgstr ""
-#~ "Een nieuwe fout is aangemaakt met jouw audit boodschappen. Voeg a.u.b "
-#~ "extra informatie toe zoals wat je aan het doen was toen de fout optrad, "
-#~ "schermafdrukken, en al het andere van van belang is voor de volgende "
-#~ "fout:\n"
-#~ "\n"
-#~ "%s%s"
-
-#~ msgid "Bug Updated"
-#~ msgstr "Fout vernieuwd"
-
-#~ msgid ""
-#~ "Bug Status: <b>%s %s</b>\n"
-#~ "\n"
-#~ "A bug with your information already exists.  Your account has been added "
-#~ "to the CC list.  Please add additional information such as what you were "
-#~ "doing when you encountered the bug, screenshots, and whatever else is "
-#~ "appropriate to the following bug:"
-#~ msgstr ""
-#~ "fout status: <b>%s %s</b>\n"
-#~ "\n"
-#~ "Een fout met jouw informatie bestaat al.  Je account is toegevoegd aan de "
-#~ "CC lijst.  Voeg a.u.b extra informatie toe zoals wat je aan het doen was "
-#~ "toen de fout optrad, schermafdrukken, en al het andere van van belang is "
-#~ "voor de volgende fout:"
-
-#~ msgid ""
-#~ "Alert<span weight='bold' size='large' face='verdana'> -</span> of <span "
-#~ "weight='bold' size='large' face='verdana'>-</span>"
-#~ msgstr ""
-#~ "Waarschuwing<span weight='bold' size='large' face='verdana'> -</span> van "
-#~ "<span weight='bold' size='large' face='verdana'>-</span>"
-
-#~ msgid "Bugzilla Username:"
-#~ msgstr "Bugzilla gebruikersnaam:"
-
-#~ msgid "Password:"
-#~ msgstr "Wachtwoord:"
-
-#~ msgid "Please enter your"
-#~ msgstr "Type a.u.b. je"
-
-#~ msgid "Save password in keyring."
-#~ msgstr "Sla wachtwoord op in de sleutelbos"
-
-#~ msgid "bugzilla.redhat.com"
-#~ msgstr "bugzilla.redhat.com"
-
-#~ msgid "username and password below."
-#~ msgstr "gebruikersnaam en wachtwoord hier beneden."
-
-#~ msgid "%d day ago"
-#~ msgid_plural "%d days ago"
-#~ msgstr[0] "%d dag geleden"
-#~ msgstr[1] "%d dagen geleden"
-
-#~ msgid "This alert has occurred <b>%d time</b> since %s"
-#~ msgid_plural "This alert has occurred <b>%d times</b> since %s"
-#~ msgstr[0] "Deze waarschuwing is <b>%d keer</b> opgetreden sinds %s"
-#~ msgstr[1] "Deze waarschuwing is <b>%d keer</b> opgetreden sinds %s"
-
-#~ msgid "MLS Enabled"
-#~ msgstr "MLS aangezet"
-
-#~ msgid "Since your last login, there is %d new security alert to view."
-#~ msgid_plural ""
-#~ "Since your last login, there are %d new security alerts to view."
-#~ msgstr[0] ""
-#~ "Sinds je vorige keer inloggen is er %d nieuwe beveiligingswaarschuwing om "
-#~ "te bekijken."
-#~ msgstr[1] ""
-#~ "Sinds je vorige keer inloggen zijn er %d nieuwe "
-#~ "beveiligingswaarschuwingen om te bekijken."
-
-#~ msgid "%d of the alerts may be very serious security violations."
-#~ msgid_plural "%d of the alerts may be very serious security violations."
-#~ msgstr[0] ""
-#~ "%d van de waarschuwingen kan een zeer ernstige beveiligings schending "
-#~ "zijn."
-#~ msgstr[1] ""
-#~ "%d van de waarschuwingen kunnen zeer ernstige beveiligings schendingen "
-#~ "zijn."
-
-#~ msgid "%d New Security Alert"
-#~ msgid_plural "%d New Security Alerts"
-#~ msgstr[0] "%d nieuwe beveiligingswaarschuwing"
-#~ msgstr[1] "%d nieuwe beveiligingswaarschuwingen"
-
-#~ msgid "gtk-copy"
-#~ msgstr "gtk-copy"
-
-#~ msgid "Don't notify me if this happens again."
-#~ msgstr "Geef me geen melding als dit weer gebeurt."
-
-#~ msgid "s"
-#~ msgstr "s"
-
-#~ msgid ""
-#~ "SELinux is in permissive mode, the operation would have been denied but "
-#~ "was permitted due to permissive mode."
-#~ msgstr ""
-#~ "SElinux is in de permissieve modus, de operatie zou verboden zijn maar "
-#~ "wastoegestaan dankzij de permissive modus."
-
-#~ msgid "Copyright (c) 2009 Thomas Liu <tliu@redhat.com>"
-#~ msgstr "Copyright (c) 2009 Thomas Liu <tliu@redhat.com>"
-
-#~ msgid ""
-#~ "SELinux denied access requested by <b>%s</b>. It is not expected that "
-#~ "this access is required by %s and this access may signal an intrusion "
-#~ "attempt. It is also possible that the specific version of configuration "
-#~ "of the application is causing it to requre additional access."
-#~ msgstr ""
-#~ "SELinux heeft toegang geweigerd verzocht door <b>%s</b>. Het is niet "
-#~ "verwacht dat deze toegang nodig is voor %s en deze toegang kan een teken "
-#~ "zijn van een indringings poging. Het is ook mogelijk dat de specifieke "
-#~ "versie van de instelling van de toepassing de oorzaak is dat het extra "
-#~ "toegang vraagt."
-
-#~ msgid "Quiet"
-#~ msgstr "Stil"
-
-#~ msgid "Category"
-#~ msgstr "Categorie"
-
-#~ msgid "Scan Log File"
-#~ msgstr "Logbestand scannen"
-
-#~ msgid "setroubleshoot browser"
-#~ msgstr "setroubleshoot browser"
-
-#~ msgid "_View"
-#~ msgstr "_Beeld"
-
-#~ msgid "_Edit"
-#~ msgstr "Be_werken"
-
-#~ msgid "_Column Visibility"
-#~ msgstr "_Kolom zichtbaarheid"
-
-#~ msgid "Connect To..."
-#~ msgstr "Verbinden met..."
-
-#~ msgid "Connect to setroubleshoot server, browse alert results"
-#~ msgstr ""
-#~ "Verbind met de troubleshoot server, blader door waarschuwings resultaten"
-
-#~ msgid "Scan Logfile..."
-#~ msgstr "Logbestand scannen..."
-
-#~ msgid "Scan a log file, browse alert results"
-#~ msgstr "Scan een log bestand, blader door waarschuwings resultaten"
-
-#~ msgid "Save _As..."
-#~ msgstr "Opslaan _als..."
-
-#~ msgid "Save selected alerts in file"
-#~ msgstr "Bewaar de geselecteerde waarschuwingen in bestand"
-
-#~ msgid "Print..."
-#~ msgstr "Afdrukken..."
-
-#~ msgid "Edit Email Alert List..."
-#~ msgstr "Bewerk email waarschuwings lijst..."
-
-#~ msgid "Edit list of email addresses which receive alerts"
-#~ msgstr "Bewerk lijst van email adressen die waarschuwingen ontvangen"
-
-#~ msgid "_Close"
-#~ msgstr "_Afsluiten"
-
-#~ msgid "Close the window"
-#~ msgstr "Sluit het venster"
-
-#~ msgid "_Quit"
-#~ msgstr "_Stil"
-
-#~ msgid "Exit the window"
-#~ msgstr "Verlaat het venster"
-
-#~ msgid "Select _All"
-#~ msgstr "_Alles selecteren"
-
-#~ msgid "Select _None"
-#~ msgstr "_Niets selecteren"
-
-#~ msgid "Remove all selections"
-#~ msgstr "Alle selecties verwijderen"
-
-#~ msgid "Copy"
-#~ msgstr "Copieer"
-
-#~ msgid "Copy selected text in detail pane"
-#~ msgstr "Copieer geselecteerde tekst in detail venster"
-
-#~ msgid "Copy selected alerts in entirety to clipboard"
-#~ msgstr "Copieer geselecteerde waarschuwingen in het geheel naar clipboard"
-
-#~ msgid "Mark _Delete"
-#~ msgstr "Markeer _verwijderen"
-
-#~ msgid "Mark for deletion"
-#~ msgstr "Markeet om te verwijderen"
-
-#~ msgid "_Undelete"
-#~ msgstr "_Herstellen"
-
-#~ msgid "Clear deletion flag"
-#~ msgstr "Maak verwijdervlag schoon"
-
-#~ msgid "Remove Marked Deleted"
-#~ msgstr "Hef markeer verwijderen op"
-
-#~ msgid "Permanently delete alerts marked for deletion"
-#~ msgstr "Definitief verwijderen van alarms gemarkeerd voor verwijderen"
-
-#~ msgid "Run Fix Command"
-#~ msgstr "Voer repareer commando uit"
-
-#~ msgid "Run the alert's fix command"
-#~ msgstr "Voer repareer commando voor waarschuwing uit"
-
-#~ msgid "Show help information"
-#~ msgstr "Hulpinformatie tonen"
-
-#~ msgid "About"
-#~ msgstr "Over"
-
-#~ msgid "View Audit Alerts"
-#~ msgstr "Audit waarschuwingen tonen"
-
-#~ msgid "View alerts from audit system"
-#~ msgstr "Bekijk waarschuwingen van audit systeem"
-
-#~ msgid "View Logfile Scan"
-#~ msgstr "Gescand logbestand tonen"
-
-#~ msgid "View alerts from last log file scan"
-#~ msgstr "Bekijk waatschuwingen van laatste log bestand scan"
-
-#~ msgid "Hide deleted"
-#~ msgstr "Verwijderde items verbergen"
-
-#~ msgid "Toggle hide deleted alerts"
-#~ msgstr "Toggle verberg verwijderde alarms"
-
-#~ msgid "Hide quiet"
-#~ msgstr "Stille items verbergen"
-
-#~ msgid "Toggle hide quiet alerts"
-#~ msgstr "Toggle verberg stille waarschuwingen"
-
-#~ msgid "Show Toolbar"
-#~ msgstr "Werkbalk tonen"
-
-#~ msgid "Toggle the toolbar on/off"
-#~ msgstr "Toggle gereedschapsbalk aan/uit"
-
-#~ msgid "Show %s Column"
-#~ msgstr "%s kolom tonen"
-
-#~ msgid "Show/Hide %s Column"
-#~ msgstr "%s kolom tonen/verbergen"
-
-#~ msgid "loading data ..."
-#~ msgstr "laden van gegevens ..."
-
-#~ msgid "Load %s"
-#~ msgstr "%s laden"
-
-#~ msgid "loading data done"
-#~ msgstr "laden van gegevens is gereed"
-
-#~ msgid "retrying connection"
-#~ msgstr "probeer verbinding opnieuw"
-
-#~ msgid "%d minutes %.1f seconds"
-#~ msgstr "%d minuten %.1f seconden"
-
-#~ msgid "%.0f seconds"
-#~ msgstr "%.0f seconden"
-
-#~ msgid "retrying connection in %s"
-#~ msgstr "probeer verbinding opnieuw in %s"
-
-#~ msgid "Copyright 2006-2008 Red Hat, Inc."
-#~ msgstr "Copyright 2006-2008 Red Hat, Inc."
-
-#~ msgid "A user friendly tool to diagnose and monitor SELinux AVC denials"
-#~ msgstr ""
-#~ "Een gebruikersvriendelijk gereedschap om SELinux AVC weigeringen te "
-#~ "onderzoekn en bekijken"
-
-#~ msgid "Save.."
-#~ msgstr "Opslaan.."
-
-#~ msgid "connected"
-#~ msgstr "verbonden"
-
-#~ msgid "open but not logged on"
-#~ msgstr "open maar niet ingelogd"
-
-#~ msgid "connection closed"
-#~ msgstr "verbinding afgesloten"
-
-#~ msgid "connection failed at %s, %s"
-#~ msgstr "verbinding mislukte naar %s, %s"
-
-#~ msgid "connection lost to %s"
-#~ msgstr "verbinding verloren naar %s"
-
-#~ msgid "connection timed out"
-#~ msgstr "verbinding kwam niet tot stand binnen de tijdslimiet"
-
-#~ msgid "authenticated"
-#~ msgstr "bekrachtigd"
-
-#~ msgid "connection lost to %s)"
-#~ msgstr "verbinding verloren naar %s)"
-
-#~ msgid "Open Connection"
-#~ msgstr "Verbinding openen"
-
-#~ msgid "No Connection"
-#~ msgstr "Geen verbinding"
-
-#~ msgid "Local Server"
-#~ msgstr "Lokale server"
-
-#~ msgid "Remote Server"
-#~ msgstr "Server op afstand"
-
-#~ msgid "<Unknown>"
-#~ msgstr "<Onbekend>"
-
-#~ msgid "Restarting in %d seconds"
-#~ msgstr "Herstarten over %d seconden"
-
-#~ msgid "Restart Now"
-#~ msgstr "Nu herstarten"
-
-#~ msgid "Ignore For 1 Day"
-#~ msgstr "1 dag negeren"
-
-#~ msgid "Ignore For 1 Week"
-#~ msgstr "1 week negeren"
