@@ -158,8 +158,10 @@ static int is_setroubleshoot(const char *context) {
 /* This function shows how to dump a whole record's text */
 static void dump_whole_record(auparse_state_t *au, void *conn)
 {
-        char *tmp = NULL;
-	int len = 0;
+	size_t size = 1;
+        char *tmp = NULL, *end=NULL;
+	int i = 0;
+	const char * rec = NULL;
 	const char *scon = auparse_find_field(au, "scontext");
 	const char *tcon = auparse_find_field(au, "tcontext");
 	if (is_setroubleshoot(scon) ||
@@ -170,15 +172,20 @@ static void dump_whole_record(auparse_state_t *au, void *conn)
 			
 	auparse_first_record(au);
 	do {
-	  len = asprintf(&tmp, "%s%s\n", 
-			 tmp, auparse_get_record_text(au));
-	  if (len < 0) {
-	    syslog(LOG_ERR,"sedispatch out of memory\n");
-	    free(tmp);
-	    return;
-	  }
-	} while(auparse_next_record(au) > 0);
-	
+		rec = auparse_get_record_text(au);
+		size += strlen(rec);
+	} while (auparse_next_record(au) > 0);
+	tmp = malloc(size);
+	if (!tmp) {
+		syslog(LOG_ERR,"sedispatch out of memory\n");
+		return;
+	}
+	auparse_first_record(au);
+	end=stpcpy(tmp, auparse_get_record_text(au));
+	while (auparse_next_record(au) > 0) {
+		end=stpcpy(end, auparse_get_record_text(au));
+	}
+
 	if (! dbusconn) {
 		dbusconn=init_dbus();
 	}
