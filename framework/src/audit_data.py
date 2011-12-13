@@ -136,9 +136,10 @@ def parse_audit_binary_text(input):
 
 import string
 def printable(s):
-    filtered_path = filter(lambda x: x in string.printable, s)
-    if filtered_path == s:
-        return True
+    if s:
+        filtered_path = filter(lambda x: x in string.printable, s)
+        if filtered_path == s:
+            return True
     return False
 
 class AvcContext(XmlSerialize):
