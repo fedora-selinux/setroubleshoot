@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Dušan Kazik <prescott66@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-05 16:04-0500\n"
+"POT-Creation-Date: 2012-01-11 08:39-0500\n"
 "PO-Revision-Date: 2011-12-16 21:12+0000\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak (http://www.transifex.net/projects/p/fedora/team/sk/)\n"
+"Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -26,17 +26,17 @@ msgstr "SELinux vyhľadávač porúch"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Vyhľadanie SELinux porúch zamietnutých prístupov"
 
-#: ../src/audit_data.py:883
+#: ../src/audit_data.py:884
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:716 ../src/browser.py:791
+#: ../src/audit_data.py:886 ../src/browser.py:716 ../src/browser.py:791
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:976
 #, python-format
 msgid ""
 "%s \n"
@@ -45,18 +45,19 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC povolené v aktuálnej politike ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:978
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:980
 msgid "Must call policy_init first"
 msgstr ""
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:982
 #, python-format
 msgid ""
 "%s \n"
@@ -65,7 +66,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC zlý cieľový kontext. ***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:984
 #, python-format
 msgid ""
 "%s \n"
@@ -74,7 +75,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC zlá zdrojový kontext. ***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:986
 #, python-format
 msgid ""
 "%s \n"
@@ -83,7 +84,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC zlá typová trieda ***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:988
 #, python-format
 msgid ""
 "%s \n"
@@ -92,7 +93,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC zlé oprávnenie ***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:990
 msgid "Error during access vector computation"
 msgstr "Chyba počas prístupu k vektorovému výpočtu"
 
@@ -124,7 +125,7 @@ msgstr "Stav"
 msgid "Notify"
 msgstr "Oznámenie"
 
-#: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:13
+#: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Ignorovať"
 
@@ -179,7 +180,7 @@ msgstr "Na tomto %s:"
 msgid "N/A"
 msgstr "Nedostupné"
 
-#: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:18
+#: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "Žiadne výstrahy"
 
@@ -625,14 +626,6 @@ msgid "fork #1 failed: %d (%s)"
 msgstr ""
 
 #: ../gui/browser.glade.h:1
-msgid "<b>SELinux has detected a problem.</b>"
-msgstr "<b>SELinux narazil na problém.</b>"
-
-#: ../gui/browser.glade.h:2
-msgid "Attempted this access:"
-msgstr "Pokus o tento prístup:"
-
-#: ../gui/browser.glade.h:3
 msgid ""
 "Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -646,126 +639,134 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
+#: ../gui/browser.glade.h:7
+msgid "SETroubleshoot Alert List"
+msgstr ""
+
+#: ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr ""
+
 #: ../gui/browser.glade.h:9
+msgid "Troubleshoot selected alert"
+msgstr ""
+
+#: ../gui/browser.glade.h:10
 msgid "Delete Selected Alerts"
 msgstr "Zmazať zvolené výstrahy"
 
-#: ../gui/browser.glade.h:10
-msgid "Delete current alert from the database."
-msgstr "Zmazať aktuálnu výstrahu z databázy."
-
 #: ../gui/browser.glade.h:11
-msgid "Details"
-msgstr "Podrobnosti"
+msgid "SETroubleshoot Details Window"
+msgstr ""
 
 #: ../gui/browser.glade.h:12
-msgid "Email alert to system administrator."
-msgstr "Odoslať výstrahu Emailom administrátorovi."
+msgid "SELinux Alert Browser"
+msgstr "Prehliadač SELinux výstrah"
+
+#: ../gui/browser.glade.h:13
+msgid "<b>SELinux has detected a problem.</b>"
+msgstr "<b>SELinux narazil na problém.</b>"
 
 #: ../gui/browser.glade.h:14
-msgid "Ignore alert in the future."
-msgstr "Ignorovať výstrahu v budúcnosti"
+msgid "Would you like to receive alerts?"
+msgstr "Chcete prijímať výstrahy?"
 
 #: ../gui/browser.glade.h:15
-msgid "List All Alerts"
-msgstr "Zoznam všetkých výstrah"
+msgid "Yes"
+msgstr "Áno"
 
 #: ../gui/browser.glade.h:16
-msgid "List all alerts in the database."
-msgstr "Zoznam všetkých výstrah v databáze."
+msgid "Turn on alert pop-ups."
+msgstr "Zapnúť vyskakovacie okná s výstrahami."
 
 #: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "Nie"
 
+#: ../gui/browser.glade.h:18
+msgid "Turn off alert pop-ups."
+msgstr "Vypnúť vyskakovacie okná s výstrahami."
+
 #: ../gui/browser.glade.h:19
-msgid "Notify Admin"
-msgstr "Ohlásiť administrátorovi"
+msgid "The source process:"
+msgstr "Zdrojový proces:"
 
 #: ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr "Pokus o tento prístup:"
+
+#: ../gui/browser.glade.h:21
 msgid "On this file:"
 msgstr "Na tento súbor:"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:22
+msgid "label"
+msgstr "menovka"
+
+#: ../gui/browser.glade.h:23
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
 
-#: ../gui/browser.glade.h:22
-msgid "SELinux Alert Browser"
-msgstr "Prehliadač SELinux výstrah"
-
-#: ../gui/browser.glade.h:23
-msgid "SETroubleshoot Alert List"
-msgstr ""
-
 #: ../gui/browser.glade.h:24
-msgid "SETroubleshoot Details Window"
-msgstr ""
+msgid "Notify Admin"
+msgstr "Ohlásiť administrátorovi"
 
 #: ../gui/browser.glade.h:25
-msgid "Show next alert."
-msgstr "Zobraziť nasledujúcu výstrahu."
+msgid "Email alert to system administrator."
+msgstr "Odoslať výstrahu Emailom administrátorovi."
 
 #: ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "Podrobnosti"
+
+#: ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "Ignorovať výstrahu v budúcnosti"
+
+#: ../gui/browser.glade.h:29
+msgid "Delete current alert from the database."
+msgstr "Zmazať aktuálnu výstrahu z databázy."
+
+#: ../gui/browser.glade.h:30
 msgid "Show previous alert."
 msgstr "Zobraziť predošlú výstrahu."
 
-#: ../gui/browser.glade.h:27
-msgid "The source process:"
-msgstr "Zdrojový proces:"
-
-#: ../gui/browser.glade.h:28
-msgid "Troubleshoot"
-msgstr ""
-
-#: ../gui/browser.glade.h:29
-msgid "Troubleshoot selected alert"
-msgstr ""
-
-#: ../gui/browser.glade.h:30
-msgid "Turn off alert pop-ups."
-msgstr "Vypnúť vyskakovacie okná s výstrahami."
-
-#: ../gui/browser.glade.h:31
-msgid "Turn on alert pop-ups."
-msgstr "Zapnúť vyskakovacie okná s výstrahami."
-
 #: ../gui/browser.glade.h:32
-msgid "Would you like to receive alerts?"
-msgstr "Chcete prijímať výstrahy?"
+msgid "Show next alert."
+msgstr "Zobraziť nasledujúcu výstrahu."
 
 #: ../gui/browser.glade.h:33
-msgid "Yes"
-msgstr "Áno"
+msgid "List All Alerts"
+msgstr "Zoznam všetkých výstrah"
 
 #: ../gui/browser.glade.h:34
-msgid "label"
-msgstr "menovka"
+msgid "List all alerts in the database."
+msgstr "Zoznam všetkých výstrah v databáze."
 
 #: ../gui/bug_report.glade.h:1
+msgid "Review and Submit Bug Report"
+msgstr "Posúdiť a podať hlásenie o chybe"
+
+#: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
 msgstr ""
 "<span size='large' weight='bold'>Posúdiť a podať hlásenie o chybe</span>"
 
-#: ../gui/bug_report.glade.h:2
-msgid "Included error output:"
-msgstr "Zahrnutý výstup chyby:"
-
 #: ../gui/bug_report.glade.h:3
-msgid "Review and Submit Bug Report"
-msgstr "Posúdiť a podať hlásenie o chybe"
-
-#: ../gui/bug_report.glade.h:4
-msgid "Submit Report"
-msgstr "Podať hlásenie"
-
-#: ../gui/bug_report.glade.h:5
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
 msgstr ""
+
+#: ../gui/bug_report.glade.h:4
+msgid "Included error output:"
+msgstr "Zahrnutý výstup chyby:"
+
+#: ../gui/bug_report.glade.h:5
+msgid "Submit Report"
+msgstr "Podať hlásenie"
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
@@ -779,5 +780,3 @@ msgstr "Úspech!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "tlačidlo"
-
-

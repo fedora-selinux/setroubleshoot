@@ -1,21 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Onur Baysan <onurbaysan@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-05 16:04-0500\n"
+"POT-Creation-Date: 2012-01-11 08:39-0500\n"
 "PO-Revision-Date: 2011-12-06 13:13+0000\n"
 "Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Turkish (http://www.transifex.net/projects/p/fedora/team/tr/)\n"
+"Language-Team: Turkish (http://www.transifex.net/projects/p/fedora/team/"
+"tr/)\n"
+"Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -26,35 +27,36 @@ msgstr ""
 msgid "Troubleshoot SELinux access denials"
 msgstr ""
 
-#: ../src/audit_data.py:883
+#: ../src/audit_data.py:884
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:716 ../src/browser.py:791
+#: ../src/audit_data.py:886 ../src/browser.py:716 ../src/browser.py:791
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:976
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:978
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:980
 msgid "Must call policy_init first"
 msgstr "İlk olarak policy_init çağırılmalı"
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:982
 #, python-format
 msgid ""
 "%s \n"
@@ -63,7 +65,7 @@ msgstr ""
 "%s \n"
 "**** Geçersiz AVC kötü hedef içeriği. *** \n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:984
 #, python-format
 msgid ""
 "%s \n"
@@ -72,7 +74,7 @@ msgstr ""
 "%s \n"
 "**** Geçersiz AVC kötü hedef içeriği. *** \n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:986
 #, python-format
 msgid ""
 "%s \n"
@@ -81,7 +83,7 @@ msgstr ""
 "%s \n"
 "**** Geçersiz AVC kötü tip sınıfı *** \n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:988
 #, python-format
 msgid ""
 "%s \n"
@@ -90,7 +92,7 @@ msgstr ""
 "%s \n"
 "**** Geçersiz AVC kötü izin *** \n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:990
 msgid "Error during access vector computation"
 msgstr "Vector hesaplaması erişimi sırasında hata"
 
@@ -122,7 +124,7 @@ msgstr "Durum"
 msgid "Notify"
 msgstr "Bildir"
 
-#: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:13
+#: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Yoksay"
 
@@ -177,7 +179,7 @@ msgstr "%s üzerinde:"
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:18
+#: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "Uyarı yok"
 
@@ -285,8 +287,8 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"$TARGET_BASE_PATH $TARGET_CLASS üzerinde $ACCESS  erişim hakkına sahip olmak"
-" için $SOURCE_BASE_PATH e izin vermelisiniz"
+"$TARGET_BASE_PATH $TARGET_CLASS üzerinde $ACCESS  erişim hakkına sahip olmak "
+"için $SOURCE_BASE_PATH e izin vermelisiniz"
 
 #: ../src/run_cmd.py:180
 msgid "Input: "
@@ -624,14 +626,6 @@ msgid "fork #1 failed: %d (%s)"
 msgstr "fork#1 başarısız: %d(%s)"
 
 #: ../gui/browser.glade.h:1
-msgid "<b>SELinux has detected a problem.</b>"
-msgstr "<b>SELinux hata tespit etti.</b>"
-
-#: ../gui/browser.glade.h:2
-msgid "Attempted this access:"
-msgstr ""
-
-#: ../gui/browser.glade.h:3
 msgid ""
 "Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -645,126 +639,134 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
+#: ../gui/browser.glade.h:7
+msgid "SETroubleshoot Alert List"
+msgstr "SETroubleshoot Uyarı Listesi"
+
+#: ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr "Sorun Giderme"
+
 #: ../gui/browser.glade.h:9
+msgid "Troubleshoot selected alert"
+msgstr ""
+
+#: ../gui/browser.glade.h:10
 msgid "Delete Selected Alerts"
 msgstr "Seçili Uyarıları Sil"
 
-#: ../gui/browser.glade.h:10
-msgid "Delete current alert from the database."
-msgstr "Mevcut uyarıyı veritabanından sil"
-
 #: ../gui/browser.glade.h:11
-msgid "Details"
-msgstr "Detaylar"
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot Detaylar Penceresi"
 
 #: ../gui/browser.glade.h:12
-msgid "Email alert to system administrator."
-msgstr ""
+msgid "SELinux Alert Browser"
+msgstr "SELinux Uyarı Tarayıcı"
+
+#: ../gui/browser.glade.h:13
+msgid "<b>SELinux has detected a problem.</b>"
+msgstr "<b>SELinux hata tespit etti.</b>"
 
 #: ../gui/browser.glade.h:14
-msgid "Ignore alert in the future."
-msgstr "Gelecekteki uyarıları yoksay"
+msgid "Would you like to receive alerts?"
+msgstr "Uyarıları almak ister misiniz?"
 
 #: ../gui/browser.glade.h:15
-msgid "List All Alerts"
-msgstr "Tüm Uyarıları Listele"
+msgid "Yes"
+msgstr "Evet"
 
 #: ../gui/browser.glade.h:16
-msgid "List all alerts in the database."
-msgstr "Veritabanındaki Tüm Uyarıları Listele"
+msgid "Turn on alert pop-ups."
+msgstr "Açılır pencere uyarılarını aç."
 
 #: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "Hayır"
 
+#: ../gui/browser.glade.h:18
+msgid "Turn off alert pop-ups."
+msgstr "Açılır pencere uyarılarını kapat."
+
 #: ../gui/browser.glade.h:19
-msgid "Notify Admin"
-msgstr "Yöneticiye Bildir"
+msgid "The source process:"
+msgstr "Kaynak işlem:"
 
 #: ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr ""
+
+#: ../gui/browser.glade.h:21
 msgid "On this file:"
 msgstr "Bu dosya üzerinde:"
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:22
+msgid "label"
+msgstr "label"
+
+#: ../gui/browser.glade.h:23
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
 
-#: ../gui/browser.glade.h:22
-msgid "SELinux Alert Browser"
-msgstr "SELinux Uyarı Tarayıcı"
-
-#: ../gui/browser.glade.h:23
-msgid "SETroubleshoot Alert List"
-msgstr "SETroubleshoot Uyarı Listesi"
-
 #: ../gui/browser.glade.h:24
-msgid "SETroubleshoot Details Window"
-msgstr "SETroubleshoot Detaylar Penceresi"
+msgid "Notify Admin"
+msgstr "Yöneticiye Bildir"
 
 #: ../gui/browser.glade.h:25
-msgid "Show next alert."
-msgstr "Sonraki uyarıyı göster."
+msgid "Email alert to system administrator."
+msgstr ""
 
 #: ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "Detaylar"
+
+#: ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "Gelecekteki uyarıları yoksay"
+
+#: ../gui/browser.glade.h:29
+msgid "Delete current alert from the database."
+msgstr "Mevcut uyarıyı veritabanından sil"
+
+#: ../gui/browser.glade.h:30
 msgid "Show previous alert."
 msgstr "Önceki uyarıyı göster."
 
-#: ../gui/browser.glade.h:27
-msgid "The source process:"
-msgstr "Kaynak işlem:"
-
-#: ../gui/browser.glade.h:28
-msgid "Troubleshoot"
-msgstr "Sorun Giderme"
-
-#: ../gui/browser.glade.h:29
-msgid "Troubleshoot selected alert"
-msgstr ""
-
-#: ../gui/browser.glade.h:30
-msgid "Turn off alert pop-ups."
-msgstr "Açılır pencere uyarılarını kapat."
-
-#: ../gui/browser.glade.h:31
-msgid "Turn on alert pop-ups."
-msgstr "Açılır pencere uyarılarını aç."
-
 #: ../gui/browser.glade.h:32
-msgid "Would you like to receive alerts?"
-msgstr "Uyarıları almak ister misiniz?"
+msgid "Show next alert."
+msgstr "Sonraki uyarıyı göster."
 
 #: ../gui/browser.glade.h:33
-msgid "Yes"
-msgstr "Evet"
+msgid "List All Alerts"
+msgstr "Tüm Uyarıları Listele"
 
 #: ../gui/browser.glade.h:34
-msgid "label"
-msgstr "label"
+msgid "List all alerts in the database."
+msgstr "Veritabanındaki Tüm Uyarıları Listele"
 
 #: ../gui/bug_report.glade.h:1
+msgid "Review and Submit Bug Report"
+msgstr "Gözden Geçir ve Hata Raporunu Gönder"
+
+#: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
 msgstr ""
 "<span size='large' weight='bold'>Gözden Geçir ve Hata Raporunu Gönder</span>"
 
-#: ../gui/bug_report.glade.h:2
-msgid "Included error output:"
-msgstr ""
-
 #: ../gui/bug_report.glade.h:3
-msgid "Review and Submit Bug Report"
-msgstr "Gözden Geçir ve Hata Raporunu Gönder"
-
-#: ../gui/bug_report.glade.h:4
-msgid "Submit Report"
-msgstr "Raporu Gönder"
-
-#: ../gui/bug_report.glade.h:5
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
 msgstr ""
+
+#: ../gui/bug_report.glade.h:4
+msgid "Included error output:"
+msgstr ""
+
+#: ../gui/bug_report.glade.h:5
+msgid "Submit Report"
+msgstr "Raporu Gönder"
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
@@ -779,5 +781,3 @@ msgstr "Başarılı!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "button"
-
-

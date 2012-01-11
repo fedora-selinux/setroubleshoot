@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Cheng-Chia Tseng <pswo10680@gmail.com>, 2011.
 # Chester Cheng <ccheng@redhat.com>, 2006.
@@ -12,14 +12,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-05 16:04-0500\n"
+"POT-Creation-Date: 2012-01-11 08:39-0500\n"
 "PO-Revision-Date: 2011-12-07 03:42+0000\n"
 "Last-Translator: zerng07 <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <trans-zh_TW@lists.fedoraproject.org>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -30,17 +30,17 @@ msgstr "SELinux 疑難排解器"
 msgid "Troubleshoot SELinux access denials"
 msgstr "為 SELinux 被拒絕存取進行疑難排解"
 
-#: ../src/audit_data.py:883
+#: ../src/audit_data.py:884
 #, python-format
 msgid "port %s"
 msgstr "連接埠 %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:716 ../src/browser.py:791
+#: ../src/audit_data.py:886 ../src/browser.py:716 ../src/browser.py:791
 #: ../src/rpc.py:544 ../src/util.py:223
 msgid "Unknown"
 msgstr "未知"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:976
 #, python-format
 msgid ""
 "%s \n"
@@ -49,20 +49,22 @@ msgstr ""
 "%s \n"
 "**** 目前方針中允許了無效的 AVC ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:978
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
 msgstr ""
 "%s \n"
-"**** 已在目前的方針中 dontaudited 了無效的 AVC。'semodule -B' 將會開啟 dontaudit 規則。***\n"
+"**** 已在目前的方針中 dontaudited 了無效的 AVC。'semodule -B' 將會開啟 "
+"dontaudit 規則。***\n"
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:980
 msgid "Must call policy_init first"
 msgstr "必須先呼叫 policy_init"
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:982
 #, python-format
 msgid ""
 "%s \n"
@@ -71,7 +73,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，目標情境不良。***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:984
 #, python-format
 msgid ""
 "%s \n"
@@ -80,7 +82,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，來源情境不良。***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:986
 #, python-format
 msgid ""
 "%s \n"
@@ -89,7 +91,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，類別類型不良。***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:988
 #, python-format
 msgid ""
 "%s \n"
@@ -98,7 +100,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，權限不良。***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:990
 msgid "Error during access vector computation"
 msgstr "存取向量運算時發生了錯誤"
 
@@ -130,7 +132,7 @@ msgstr "狀態"
 msgid "Notify"
 msgstr "通知"
 
-#: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:13
+#: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "忽略"
 
@@ -185,7 +187,7 @@ msgstr "這個 %s："
 msgid "N/A"
 msgstr "無法使用"
 
-#: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:18
+#: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "無警告"
 
@@ -293,7 +295,8 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"您想要允許 $SOURCE_BASE_PATH 對 $TARGET_BASE_PATH $TARGET_CLASS 有 $ACCESS 存取權"
+"您想要允許 $SOURCE_BASE_PATH 對 $TARGET_BASE_PATH $TARGET_CLASS 有 $ACCESS 存"
+"取權"
 
 #: ../src/run_cmd.py:180
 msgid "Input: "
@@ -634,14 +637,6 @@ msgid "fork #1 failed: %d (%s)"
 msgstr "fork 指令失敗: %d (%s)"
 
 #: ../gui/browser.glade.h:1
-msgid "<b>SELinux has detected a problem.</b>"
-msgstr "<b>SELinux 已偵測到一個問題。</b>"
-
-#: ../gui/browser.glade.h:2
-msgid "Attempted this access:"
-msgstr "企圖此存取："
-
-#: ../gui/browser.glade.h:3
 msgid ""
 "Copyright (c) 2010 \n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -655,125 +650,134 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
+#: ../gui/browser.glade.h:7
+msgid "SETroubleshoot Alert List"
+msgstr "SETroubleshoot 警示清單"
+
+#: ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr "疑難排解"
+
 #: ../gui/browser.glade.h:9
+msgid "Troubleshoot selected alert"
+msgstr "排解所選警告的問題"
+
+#: ../gui/browser.glade.h:10
 msgid "Delete Selected Alerts"
 msgstr "刪除所選的警告"
 
-#: ../gui/browser.glade.h:10
-msgid "Delete current alert from the database."
-msgstr "從資料庫刪除目前的警告。"
-
 #: ../gui/browser.glade.h:11
-msgid "Details"
-msgstr "細節"
+msgid "SETroubleshoot Details Window"
+msgstr "SETroubleshoot 細節視窗"
 
 #: ../gui/browser.glade.h:12
-msgid "Email alert to system administrator."
-msgstr "透過電子郵件將警告寄送給系統管理員。"
+msgid "SELinux Alert Browser"
+msgstr "SELinux 警告瀏覽器"
+
+#: ../gui/browser.glade.h:13
+msgid "<b>SELinux has detected a problem.</b>"
+msgstr "<b>SELinux 已偵測到一個問題。</b>"
 
 #: ../gui/browser.glade.h:14
-msgid "Ignore alert in the future."
-msgstr "將來請忽略警告。"
+msgid "Would you like to receive alerts?"
+msgstr "您想要接收警告嗎？"
 
 #: ../gui/browser.glade.h:15
-msgid "List All Alerts"
-msgstr "列出所有警告"
+msgid "Yes"
+msgstr "是"
 
 #: ../gui/browser.glade.h:16
-msgid "List all alerts in the database."
-msgstr "列出資料庫內的所有警告。"
+msgid "Turn on alert pop-ups."
+msgstr "開啟警告彈出功能。"
 
 #: ../gui/browser.glade.h:17
 msgid "No"
 msgstr "否"
 
+#: ../gui/browser.glade.h:18
+msgid "Turn off alert pop-ups."
+msgstr "關閉警告彈出功能。"
+
 #: ../gui/browser.glade.h:19
-msgid "Notify Admin"
-msgstr "通知管理員"
+msgid "The source process:"
+msgstr "來源程序："
 
 #: ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr "企圖此存取："
+
+#: ../gui/browser.glade.h:21
 msgid "On this file:"
 msgstr "這個檔案："
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:22
+msgid "label"
+msgstr "標籤"
+
+#: ../gui/browser.glade.h:23
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr "閱讀警告的疑難排解資訊。可能需要管理權力才能處理。"
 
-#: ../gui/browser.glade.h:22
-msgid "SELinux Alert Browser"
-msgstr "SELinux 警告瀏覽器"
-
-#: ../gui/browser.glade.h:23
-msgid "SETroubleshoot Alert List"
-msgstr "SETroubleshoot 警示清單"
-
 #: ../gui/browser.glade.h:24
-msgid "SETroubleshoot Details Window"
-msgstr "SETroubleshoot 細節視窗"
+msgid "Notify Admin"
+msgstr "通知管理員"
 
 #: ../gui/browser.glade.h:25
-msgid "Show next alert."
-msgstr "顯示下個警告。"
+msgid "Email alert to system administrator."
+msgstr "透過電子郵件將警告寄送給系統管理員。"
 
 #: ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "細節"
+
+#: ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "將來請忽略警告。"
+
+#: ../gui/browser.glade.h:29
+msgid "Delete current alert from the database."
+msgstr "從資料庫刪除目前的警告。"
+
+#: ../gui/browser.glade.h:30
 msgid "Show previous alert."
 msgstr "顯示前個警告。"
 
-#: ../gui/browser.glade.h:27
-msgid "The source process:"
-msgstr "來源程序："
-
-#: ../gui/browser.glade.h:28
-msgid "Troubleshoot"
-msgstr "疑難排解"
-
-#: ../gui/browser.glade.h:29
-msgid "Troubleshoot selected alert"
-msgstr "排解所選警告的問題"
-
-#: ../gui/browser.glade.h:30
-msgid "Turn off alert pop-ups."
-msgstr "關閉警告彈出功能。"
-
-#: ../gui/browser.glade.h:31
-msgid "Turn on alert pop-ups."
-msgstr "開啟警告彈出功能。"
-
 #: ../gui/browser.glade.h:32
-msgid "Would you like to receive alerts?"
-msgstr "您想要接收警告嗎？"
+msgid "Show next alert."
+msgstr "顯示下個警告。"
 
 #: ../gui/browser.glade.h:33
-msgid "Yes"
-msgstr "是"
+msgid "List All Alerts"
+msgstr "列出所有警告"
 
 #: ../gui/browser.glade.h:34
-msgid "label"
-msgstr "標籤"
+msgid "List all alerts in the database."
+msgstr "列出資料庫內的所有警告。"
 
 #: ../gui/bug_report.glade.h:1
-msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr "<span size='large' weight='bold'>檢視並提交錯誤報告</span>"
-
-#: ../gui/bug_report.glade.h:2
-msgid "Included error output:"
-msgstr "包含的錯誤輸出："
-
-#: ../gui/bug_report.glade.h:3
 msgid "Review and Submit Bug Report"
 msgstr "檢視並提交錯誤報告"
 
-#: ../gui/bug_report.glade.h:4
-msgid "Submit Report"
-msgstr "提交報告"
+#: ../gui/bug_report.glade.h:2
+msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
+msgstr "<span size='large' weight='bold'>檢視並提交錯誤報告</span>"
 
-#: ../gui/bug_report.glade.h:5
+#: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr "建議您檢查並修改即將包含在此錯誤報告中的錯誤輸出，並排除以下所有敏感資料。"
+msgstr ""
+"建議您檢查並修改即將包含在此錯誤報告中的錯誤輸出，並排除以下所有敏感資料。"
+
+#: ../gui/bug_report.glade.h:4
+msgid "Included error output:"
+msgstr "包含的錯誤輸出："
+
+#: ../gui/bug_report.glade.h:5
+msgid "Submit Report"
+msgstr "提交報告"
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
@@ -787,5 +791,3 @@ msgstr "成功！"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "按鈕"
-
-
