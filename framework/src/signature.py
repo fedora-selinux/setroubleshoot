@@ -124,7 +124,8 @@ class SEEnvironment(XmlSerialize):
 
         self.platform, self.kernel = get_os_environment()
         self.policy_type = selinux.selinux_getpolicytype()[1]
-        self.policy_rpm = get_rpm_nvr_by_name("selinux-policy")
+        #self.policy_rpm = get_rpm_nvr_by_name("selinux-policy")
+        self.policy_rpm = get_rpm_nvr_by_name_temporary("selinux-policy")
         self.policyvers = str(selinux.security_policyvers())
         enforce = selinux.security_getenforce()
         if enforce == 0:

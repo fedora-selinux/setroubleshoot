@@ -33,6 +33,8 @@ __all__ = [
     'get_rpm_nvr_from_header',
     'get_rpm_nvr_by_name',
     'get_rpm_nvr_by_file_path',
+    'get_rpm_nvr_by_name_temporary',
+    'get_rpm_nvr_by_file_path_temporary',
     'is_hex',
     'split_rpm_nvr',
     'get_user_home_dir',
@@ -248,6 +250,39 @@ def get_rpm_nvr_from_header(hdr):
     release = hdr['release']
 
     return "%s-%s-%s" % (name, version, release)
+
+### these functions are for now until rpm memory leak gets a fix
+
+def get_rpm_nvr_by_name_temporary(name):
+    if name is None:
+        return None
+
+    nvr = None
+    try:
+        import commands
+        rc, output = commands.getstatusoutput("rpm -q %s" % name)
+        if rc == 0:
+            nvr = output
+    except:
+        log_plugin.exception("failed to retrieve rpm info for %s", name)
+    return nvr
+
+
+def get_rpm_nvr_by_file_path_temporary(name):
+    if name is None:
+        return None
+
+    nvr = None
+    try:
+        import commands
+        rc, output = commands.getstatusoutput("rpm -qf %s" % name)
+        if rc == 0:
+            nvr = output
+    except:
+        log_plugin.exception("failed to retrieve rpm info for %s", name)
+    return nvr
+
+###
 
 def get_rpm_nvr_by_name(name):
     if name is None:

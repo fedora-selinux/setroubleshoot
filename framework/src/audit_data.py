@@ -994,12 +994,14 @@ class AVC:
     def derive_environmental_info(self):
         if self.query_environment:
             if self.spath:
-                self.source_pkg = get_rpm_nvr_by_file_path(self.spath)
+                #self.source_pkg = get_rpm_nvr_by_file_path(self.spath)
+                self.source_pkg = get_rpm_nvr_by_file_path_temporary(self.spath)
                 if self.source_pkg:
                     self.src_rpms.append(self.source_pkg)
         
             if self.tpath:
-                rpm = get_rpm_nvr_by_file_path(self.tpath)
+                #rpm = get_rpm_nvr_by_file_path(self.tpath)
+                rpm = get_rpm_nvr_by_file_path_temporary(self.tpath)
                 if rpm:
                     self.tgt_rpms.append(rpm)
 
