@@ -27,8 +27,6 @@ import getopt
 import sys
 import syslog
 from setroubleshoot.config import parse_config_setting, get_config
-from setroubleshoot.log import *
-log_init(sys.argv[0])
 import gettext
 gettext.install(domain    = get_config('general', 'i18n_text_domain'),
                 localedir = get_config('general', 'i18n_locale_dir'))
@@ -48,7 +46,7 @@ def usage():
 fork = True
 
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "fc:vVh", ["nofork","config=","verbose","debug","help"])
+    opts, args = getopt.getopt(sys.argv[1:], "fc:h", ["nofork","config=","help"])
 except getopt.GetoptError:
     # print help information and exit:
     usage()
@@ -67,17 +65,6 @@ for o, a in opts:
         if not parse_config_setting(config_setting):
             syslog.syslog(syslog.LOG_ERR, "could not parse config setting '%s'", config_setting)
 
-    if o in ('-v', '--verbose'):
-        enable_log_output('console')
-        set_default_category_level('info')
-        #dump_log_levels()
-
-    if o in ('-V', '--debug'):
-        enable_log_output('console')
-        set_default_category_level('debug')
-        #dump_log_levels()
-
-
 if not selinux.is_selinux_enabled():
     syslog.syslog(syslog.LOG_ERR, _("SELinux not enabled, setroubleshootd exiting..."))
     sys.exit(3)
@@ -86,7 +73,9 @@ import dbus.service
 import dbus
 
 try: 
+    timeout = 0
     if fork:
+        timeput = 10
         # do the UNIX double-fork magic, see Stevens' "Advanced 
         # Programming in the UNIX Environment" for details (ISBN 0201563177)
         pid = os.fork() 
@@ -105,9 +94,8 @@ try:
         f.write(str(os.getpid()))
         f.close()
     
-    from setroubleshoot.log import *
     from setroubleshoot.server import RunFaultServer
-    RunFaultServer()
+    RunFaultServer(timeout)
     
 except OSError, e: 
     print >>sys.stderr, _("fork #1 failed: %d (%s)") % (e.errno, e.strerror) 

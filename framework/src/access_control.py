@@ -23,9 +23,9 @@ UserServerAccess for more information."""
 
 import struct
 import socket as Socket
+import syslog
 
 from setroubleshoot.config import get_config
-from setroubleshoot.log import *
 
 __all__ = [
     'ServerAccess',
@@ -84,7 +84,7 @@ class ServerAccess:
     def valid_privilege(self, privilege):
         valid = ServerAccess.privileges.has_key(privilege)
         if valid: return True
-        log_program.error("unknown access privilege (%s)", privilege)
+        syslog.syslog(syslog.LOG_ERR, "unknown access privilege (%s)" % privilege)
         return False
 
     def unrestricted_privilege(self, privilege):
@@ -156,7 +156,7 @@ class ServerAccess:
             if gid == -1: gid = None
         except Exception, e:
             pid = uid = gid = None
-            log_program.error("get_credentials(): %s", e)
+            syslog.syslog(syslog.LOG_ERR, "get_credentials(): %s" % e)
 
         return uid, gid
 

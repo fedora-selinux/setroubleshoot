@@ -38,7 +38,6 @@ import base64
 from types import *
 import selinux.audit2why as audit2why
 
-from setroubleshoot.log import *
 from setroubleshoot.util import *
 from setroubleshoot.html_util import *
 from setroubleshoot.xml_serialize import *

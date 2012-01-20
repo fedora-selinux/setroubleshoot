@@ -18,7 +18,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
-
+import syslog
 from subprocess import *
 import setroubleshoot.default_encoding_utf8
 
@@ -48,16 +48,12 @@ if __name__ == "__main__":
     from setroubleshoot.config import parse_config_setting, get_config
     gettext.install(domain    = get_config('general', 'i18n_text_domain'),
 		    localedir = get_config('general', 'i18n_locale_dir'))
-    from setroubleshoot.log import log_init
-    log_init('test', {'console':True,
-			   'level':'debug'})
 
 from gettext import ngettext as P_
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
 from setroubleshoot.util import *
 from setroubleshoot.xml_serialize import *
-from setroubleshoot.log import *
 from setroubleshoot.html_util import *
 import setroubleshoot.uuid as uuid
 from setroubleshoot.audit_data import *
@@ -180,13 +176,11 @@ class SEFaultSignatureUser(XmlSerialize):
         setattr(self, item, data)
 
     def update_filter(self, filter_type, data=None):
-        if debug:
-            log_sig.debug("update_filter: filter_type=%s data=%s", map_filter_value_to_name.get(filter_type, 'unknown'), data)
+        syslog.syslog(syslog.LOG_DEBUG, "update_filter: filter_type=%s data=%s" % (map_filter_value_to_name.get(filter_type, 'unknown'), data))
         if filter_type == FILTER_NEVER or \
            filter_type == FILTER_AFTER_FIRST or \
            filter_type == FILTER_ALWAYS:
-            if debug:
-                log_sig.debug("update_filter: !!!")
+            syslog.syslog(syslog.LOG_DEBUG, "update_filter: !!!")
             self.filter = SEFilter(filter_type=filter_type)
             return True
         else:
@@ -310,15 +304,13 @@ class SEFaultSignatureInfo(XmlSerialize):
         for user in self.users:
             if user.username == username:
                 return user
-        if debug:
-            log_sig.debug("new SEFaultSignatureUser for %s", username)
+        syslog.syslog(syslog.LOG_DEBUG, "new SEFaultSignatureUser for %s" % username)
         user = SEFaultSignatureUser(username)
         self.users.append(user)
         return user
 
     def find_filter_by_username(self, username):
-        if debug:
-            log_sig.debug("find_filter_by_username %s", username)
+        syslog.syslog(syslog.LOG_DEBUG, "find_filter_by_username %s" % username)
         
         filter = None
         user_data = self.get_user_data(username)
@@ -333,15 +325,12 @@ class SEFaultSignatureInfo(XmlSerialize):
     def evaluate_filter_for_user(self, username, filter_type=None):
         action = 'display'
         f = self.find_filter_by_username(username)
-        if debug:
-            log_rpc.debug("evaluate_filter_for_user: found %s user's filter = %s", username, f)
+        syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found %s user's filter = %s" % username, f)
         if f is not None:
             if filter_type is not None:
                 f.filter_type = filter_type
             action = self.evaluate_filter(f)
-            if debug:
-                log_alert.debug("evaluate_filter_for_user: found filter for %s: %s\n%s",
-                                username, action, f)
+            syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found filter for %s: %s\n%s" % (username, action, f))
         return action
         
     def evaluate_filter(self, filter):
@@ -775,16 +764,16 @@ class SEEmailRecipientSet(XmlSerialize):
                             if option == 'filter_type':
                                 filter_type = map_filter_name_to_value.get(value.lower(), None)
                                 if filter_type is None:
-                                    log_email.warn("unknown email filter (%s) for address %s", option, address)
+                                    syslog.syslog(syslog.LOG_DEBUG, "unknown email filter (%s) for address %s" % (option, address))
                                     
                             else:
-                                log_email.warn("unknown email option (%s) for address %s", option, address)
+                                syslog.syslog(syslog.LOG_DEBUG, "unknown email option (%s) for address %s" % (option, address))
                                 
                     try:
                         self.add_address(address, filter_type)
                     except ProgramError, e:
                         if e.errno == ERR_INVALID_EMAIL_ADDR:
-                            log_email.warn(e.strerror)
+                            syslog.syslog(syslog.LOG_DEBUG, e.strerror)
                         else:
                             raise e
 

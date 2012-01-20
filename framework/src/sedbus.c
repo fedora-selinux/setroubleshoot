@@ -165,6 +165,7 @@ int sedbus_send_avc(DBusConnection* conn, char *avc) {
 	else
 		dbus_message_iter_get_basic(&args, &reply);
 
+	printf("Send: %s\n", avc);
 	printf("Got Reply: %s\n", reply);
 
 	// free reply and close connection

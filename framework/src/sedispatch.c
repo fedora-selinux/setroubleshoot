@@ -173,9 +173,9 @@ static void dump_whole_record(auparse_state_t *au, void *conn)
 	auparse_first_record(au);
 	do {
 		rec = auparse_get_record_text(au);
-		size += strlen(rec);
+		size += strlen(rec) + 1;
 	} while (auparse_next_record(au) > 0);
-	tmp = malloc(size);
+	tmp = malloc(size+1);
 	if (!tmp) {
 		syslog(LOG_ERR,"sedispatch out of memory\n");
 		return;
@@ -184,8 +184,8 @@ static void dump_whole_record(auparse_state_t *au, void *conn)
 	end=stpcpy(tmp, auparse_get_record_text(au));
 	while (auparse_next_record(au) > 0) {
 		end=stpcpy(end, auparse_get_record_text(au));
+		*end++='\n';
 	}
-
 	if (! dbusconn) {
 		dbusconn=init_dbus();
 	}

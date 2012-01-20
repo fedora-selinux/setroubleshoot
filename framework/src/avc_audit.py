@@ -23,6 +23,7 @@ __all__ = [
     'verify_avc', 
     ]
 
+import syslog
 import audit
 import select
 import selinux
@@ -34,7 +35,6 @@ import time
 
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
-from setroubleshoot.log import *
 from setroubleshoot.util import *
 from setroubleshoot.audit_data import *
 
@@ -51,8 +51,8 @@ def verify_avc(avc):
         return False
 
     if my_context.type == avc.scontext.type:
-        log_program.error( "setroubleshoot generated AVC, exiting to avoid recursion, context=%s, AVC scontext=%s", my_context, avc.scontext)
-        log_program.error( "audit event\n%s", avc.audit_event.format())
+        syslog.syslog(syslog.LOG_ERR, "setroubleshoot generated AVC, exiting to avoid recursion, context=%s, AVC scontext=%s" % (my_context, avc.scontext))
+        syslog.syslog(syslog.LOG_ERR, "audit event\n%s" % (avc.audit_event.format()))
         import sys
         sys.exit(0)
 
@@ -158,8 +158,7 @@ class AuditRecordReceiver:
         return self.cache.get(str(record.event_id), None)
 
     def add_record_to_cache(self, record):
-        if debug:
-            log_avc.debug("%s.add_record_to_cache(): %s", self.__class__.__name__, record)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.add_record_to_cache(): %s" % (self.__class__.__name__, record))
         
         audit_event = self.get_event_from_record(record)
         if record.record_type == 'EOE':
@@ -228,8 +227,7 @@ class AuditRecordReceiver:
 
     def feed(self, record):
         'Accept a new audit record into the system for processing.'
-        if debug:
-            log_avc.debug("%s.feed() got %s'", self.__class__.__name__, record)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.feed() got %s'" % (self.__class__.__name__, record))
 
         self.flush_count += 1
         if record.record_type in ('AVC', 'AVC_PATH', 'SYSCALL', 'CWD', 'PATH', 'EOE'):
@@ -280,24 +278,20 @@ class AuditSocketReceiverThread(threading.Thread):
                             fcntl.fcntl(self.audit_socket.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
                             self.audit_socket.connect(self.audit_socket_path)
                             self.audit_socket_fd = self.audit_socket.makefile()
-                            log_avc.info("audit socket (%s) connected", self.audit_socket_path)
+                            syslog.syslog(syslog.LOG_DEBUG, "audit socket (%s) connected" % self.audit_socket_path)
                             return
                         except Socket.error, e:
                             errno, strerror = get_error_from_socket_exception(e)
-                            log_avc.info("attempt to open audit socket (%s) failed, error='%s'",
-                                         self.audit_socket_path, strerror)
+                            syslog.syslog(syslog.LOG_DEBUG, "attempt to open audit socket (%s) failed, error='%s'" % (self.audit_socket_path, strerror))
 
-                log_avc.warning("could not open any audit sockets (%s), retry in %d seconds",
-                                ', '.join(self.audit_socket_paths), self.retry_interval)
+                syslog.syslog(syslog.LOG_DEBUG, "could not open any audit sockets (%s), retry in %d seconds" % (', '.join(self.audit_socket_paths), self.retry_interval))
 
             except Socket.error, e:
                 errno, strerror = get_error_from_socket_exception(e)
-                log_avc.warning("audit socket (%s) failed, error='%s', retry in %d seconds",
-                                self.audit_socket_path, strerror, self.retry_interval)
+                syslog.syslog(syslog.LOG_DEBUG, "audit socket (%s) failed, error='%s', retry in %d seconds" % (self.audit_socket_path, strerror, self.retry_interval))
                 
             except OSError, e:
-                log_avc.warning("audit socket (%s) failed, error='%s', retry in %d seconds",
-                                self.audit_socket_path, e[1], self.retry_interval)
+                syslog.syslog(syslog.LOG_DEBUG, "audit socket (%s) failed, error='%s', retry in %d seconds" % (self.audit_socket_path, e[1], self.retry_interval))
 
             time.sleep(self.retry_interval)
 
@@ -310,8 +304,7 @@ class AuditSocketReceiverThread(threading.Thread):
             self.new_audit_event_handler(audit_event)
 
     def new_audit_event_handler(self, audit_event):
-        if debug:
-            log_avc.debug("new_audit_event_handler: event=%s", audit_event)
+        syslog.syslog(syslog.LOG_DEBUG, "new_audit_event_handler: event=%s" % audit_event)
 
         if audit_event.is_avc() and not audit_event.is_granted() and audit_event.num_records() > 0:
             avc = AVC(audit_event)
@@ -330,12 +323,10 @@ class AuditSocketReceiverThread(threading.Thread):
                     import os
                     new_data = os.read(self.audit_socket_fd.fileno(), 1024)
                     if new_data == '':
-                        if debug:
-                            log_avc.debug("audit socket connection dropped")
+                        syslog.syslog(syslog.LOG_DEBUG, "audit socket connection dropped")
                         self.connect()
                     else:
-                        if debug:
-                            log_avc.debug("cached audit event count = %d", self.record_receiver.num_cached_events())
+                        syslog.syslog(syslog.LOG_DEBUG, "cached audit event count = %d" % (self.record_receiver.num_cached_events()))
                         if not self.has_audit_eoe:
                             timeout = self.timeout_interval
                         for (record_type, event_id, body_text, fields, line_number) in self.record_reader.feed(new_data):
@@ -351,16 +342,14 @@ class AuditSocketReceiverThread(threading.Thread):
                         timeout = None
 
             except KeyboardInterrupt, e:
-                if debug:
-                    log_avc.debug("KeyboardInterrupt exception in %s", self.__class__.__name__)
+                syslog.syslog(syslog.LOG_DEBUG, "KeyboardInterrupt exception in %s" % self.__class__.__name__)
                 thread.interrupt_main()
 
             except SystemExit, e:
-                if debug:
-                    log_avc.debug("SystemExit exception in %s", self.__class__.__name__)
+                syslog.syslog(syslog.LOG_DEBUG, "SystemExit exception in %s" % self.__class__.__name__)
                 thread.interrupt_main()
 
             except Exception, e:
-                log_avc.exception("exception %s: %s",e.__class__.__name__, str(e))
+                syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
                 return
 

@@ -69,11 +69,10 @@ import sys
 import textwrap
 import time
 from types import *
+import syslog
 
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
-from setroubleshoot.log import *
-
 
 DATABASE_MAJOR_VERSION = 3
 DATABASE_MINOR_VERSION = 0
@@ -93,13 +92,10 @@ def database_version_compatible(version):
     if len(components) >= 2: minor = int(components[1])
 
     if major < DATABASE_MAJOR_VERSION:
-        log_database.info("database version %s not compatible with current %d.%d version", 
-                          version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION)
+        syslog.syslog(syslog.LOG_DEBUG, "database version %s not compatible with current %d.%d version" % (version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION))
         return False
     else:
-        if debug:
-            log_database.debug("database version %s compatible with current %d.%d version", 
-                               version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION)
+        syslog.syslog(syslog.LOG_DEBUG, "database version %s compatible with current %d.%d version" % (version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION))
         return True
 
 
@@ -239,7 +235,7 @@ def get_standard_directories():
         for i in h.fiFromHeader():
             lst.append(i[0])
     except:
-        log_program.exception("failed to get filesystem list from rpm")
+        syslog.syslog(syslog.LOG_ERR, "failed to get filesystem list from rpm")
         
     return lst
 
@@ -264,7 +260,7 @@ def get_rpm_nvr_by_name_temporary(name):
         if rc == 0:
             nvr = output
     except:
-        log_plugin.exception("failed to retrieve rpm info for %s", name)
+        syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
     return nvr
 
 
@@ -279,7 +275,7 @@ def get_rpm_nvr_by_file_path_temporary(name):
         if rc == 0:
             nvr = output
     except:
-        log_plugin.exception("failed to retrieve rpm info for %s", name)
+        syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
     return nvr
 
 ###
@@ -297,7 +293,7 @@ def get_rpm_nvr_by_name(name):
             nvr = get_rpm_nvr_from_header(h)
             break
     except:
-        log_plugin.exception("failed to retrieve rpm info for %s", name)
+        syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
     return nvr
 
 def get_rpm_nvr_by_file_path(path):
@@ -313,7 +309,7 @@ def get_rpm_nvr_by_file_path(path):
             nvr = get_rpm_nvr_from_header(h)
             break
     except:
-        log_plugin.exception("failed to retrieve rpm info for %s", path)
+        syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % path)
     return nvr
 
 def split_rpm_nvr(nvr):
@@ -363,13 +359,13 @@ def assure_file_ownership_permissions(filepath, mode, owner, group=None):
             f.close()
         except Exception, e:
             result = False
-            log_program.error("cannot create file %s [%s]", filepath, e.strerror)
+            syslog.syslog(syslog.LOG_ERR, "cannot create file %s [%s]" % filepath, e.strerror)
     
     try:
         os.chmod(filepath, mode)
     except OSError, e:
         result = False
-        log_program.error("cannot chmod %s to %o [%s]", filepath, mode, e.strerror)
+        syslog.syslog(syslog.LOG_ERR, "cannot chmod %s to %o [%s]" % (filepath, mode, e.strerror))
 
     try:
         if isinstance(owner, int):
@@ -390,7 +386,7 @@ def assure_file_ownership_permissions(filepath, mode, owner, group=None):
     except OSError, e:
         result = False
         import grp
-        log_program.error("cannot chown %s to %s:%s [%s]", filepath, pwd.getpwuid(uid)[0], grp.getgrgid(gid)[0], e.strerror)
+        syslog.syslog(syslog.LOG_ERR, "cannot chown %s to %s:%s [%s]" % (filepath, pwd.getpwuid(uid)[0], grp.getgrgid(gid)[0], e.strerror))
 
     return result
 
@@ -427,23 +423,21 @@ def load_plugins(filter_glob=None):
     plugin_base = os.path.basename(plugin_dir)
     plugins = []
     plugin_names = get_plugin_names(filter_glob)
-    if debug:
-        log_plugin.debug("load_plugins() names=%s", plugin_names)
+    syslog.syslog(syslog.LOG_DEBUG, "load_plugins() names=%s" % plugin_names)
 
     # load the parent (e.g. the package containing the submodules), required for python 2.5 and above
     module_name = plugin_base
     plugin_name = '__init__'
     if module_name in sys.modules:
-        if debug:
-            log_plugin.debug("load_plugins() %s previously imported", module_name)
+        syslog.syslog(syslog.LOG_DEBUG, "load_plugins() %s previously imported" % module_name)
     else:
-        log_plugin.info("importing %s as %s", os.path.join(plugin_dir, plugin_name), module_name)
+        syslog.syslog(syslog.LOG_DEBUG, "importing %s as %s" % (os.path.join(plugin_dir, plugin_name), module_name))
         try:
             import imp
             mod_fp, mod_path, mod_description = imp.find_module(plugin_name, [plugin_dir])
             mod = imp.load_module(module_name, mod_fp, mod_path, mod_description)
         except Exception:
-            log_plugin.exception("failed to load %s plugin", plugin_name)
+            syslog.syslog(syslog.LOG_ERR, "failed to load %s plugin" % plugin_name)
 
         if mod_fp:
             mod_fp.close()
@@ -452,18 +446,16 @@ def load_plugins(filter_glob=None):
         module_name = "%s.%s" % (plugin_base, plugin_name)
         mod = sys.modules.get(module_name)
         if mod is not None:
-            if debug:
-                log_plugin.debug("load_plugins() %s previously imported", module_name)
+            syslog.syslog(syslog.LOG_DEBUG, "load_plugins() %s previously imported" % module_name)
             plugins.append(mod.plugin())
             continue
-        #log_plugin.info("importing %s as %s", os.path.join(plugin_dir, plugin_name), module_name)
         try:
             import imp
             mod_fp, mod_path, mod_description = imp.find_module(plugin_name, [plugin_dir])
             mod = imp.load_module(module_name, mod_fp, mod_path, mod_description)
             plugins.append(mod.plugin())
         except Exception:
-            log_plugin.exception("failed to load %s plugin", plugin_name)
+            syslog.syslog(syslog.LOG_ERR, "failed to load %s plugin" % plugin_name)
 
         if mod_fp:
             mod_fp.close()
@@ -504,7 +496,7 @@ def get_hostname():
         hostname = Socket.gethostname()
         return hostname
     except Exception, e:
-        log_program.warning("cannot lookup hostname: %s", e)
+        syslog.syslog(syslog.LOG_ERR, "cannot lookup hostname: %s" % e)
         return None
         
 def find_program(prog):
@@ -558,11 +550,10 @@ def parse_datetime_offset(text):
 
     if found:
         td = datetime.timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
-        if debug:
-            log_cfg.debug("parse_datetime_offset(%s) = time delta %s", text, td)
+        syslog.syslog(syslog.LOG_DEBUG, "parse_datetime_offset(%s) = time delta %s" % (text, td))
         return td
     else:
-        log_cfg.warning("could not parse datetime offset (%s)", text)
+        syslog.syslog(syslog.LOG_ERR, "could not parse datetime offset (%s)" % text)
         return None
 
 #------------------------------------------------------------------------------

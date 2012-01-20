@@ -27,7 +27,6 @@ from xml.dom import minidom
 from xmlrpclib  import ProtocolError
 import gtk
 import gtk.glade
-from setroubleshoot.log import *
 from setroubleshoot.errcode import *
 from setroubleshoot.signature import *
 from setroubleshoot.util import *

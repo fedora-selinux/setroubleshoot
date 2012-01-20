@@ -20,6 +20,7 @@
 __all__ = ["RunCmdGUI",
           ]
 
+import syslog
 import os
 import signal
 #import sys
@@ -41,11 +42,6 @@ if __name__ == "__main__":
     gettext.install(domain    = get_config('general', 'i18n_text_domain'),
                     unicode = True,
 		    localedir = get_config('general', 'i18n_locale_dir'))
-    from setroubleshoot.log import log_init
-    log_init('test', {'console':True,
-             'level':'debug'})
-
-from setroubleshoot.log import *
 
 #------------------------------------------------------------------------
 
@@ -128,9 +124,7 @@ class TextWindow(gtk.Bin):
 
 
     def do_size_allocate(self, allocation):
-        if debug:
-            log_gui.debug("%s.do_size_allocate: (%d,%d)(%dx%d)",
-                          self.__class__.__name__, allocation.x, allocation.y, allocation.width, allocation.height)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.do_size_allocate: (%d,%d)(%dx%d)" % (self.__class__.__name__, allocation.x, allocation.y, allocation.width, allocation.height))
 
         self.child.size_allocate(allocation)
 
@@ -143,9 +137,7 @@ class TextWindow(gtk.Bin):
 	self.child.hide_all()
 
     def do_size_request(self, requisition):
-        if debug:
-            log_gui.debug("%s.do_size_request: %s (%dx%d)",
-                          self.__class__.__name__, self.myname, requisition.width, requisition.height)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.do_size_request: %s (%dx%d)" % (self.__class__.__name__, self.myname, requisition.width, requisition.height))
 
 	child_req = gtk.gdk.Rectangle(0, 0, *self.child.size_request())
 
@@ -235,16 +227,12 @@ class TTYView(gtk.Bin):
 	self.hide()
 
     def do_size_allocate(self, allocation):
-        if debug:
-            log_gui.debug("%s.do_size_allocate: (%d,%d)(%dx%d)",
-                          self.__class__.__name__, allocation.x, allocation.y, allocation.width, allocation.height)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.do_size_allocate: (%d,%d)(%dx%d)" % (self.__class__.__name__, allocation.x, allocation.y, allocation.width, allocation.height))
 
         self.child.size_allocate(allocation)
 
     def do_size_request(self, requisition):
-        if debug:
-            log_gui.debug("%s.do_size_request: (%dx%d)",
-                          self.__class__.__name__, requisition.width, requisition.height)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.do_size_request: (%dx%d)" % (self.__class__.__name__, requisition.width, requisition.height))
 
 	child_req = gtk.gdk.Rectangle(0, 0, *self.child.size_request())
 
@@ -510,8 +498,7 @@ class RunCmdGUI(object):
         self.status_widget.set_text(self.status_msg)
 
     def insert_text(self, buf, text):
-	if debug:
-	    log_subprocess.debug("insert_text: buf=%s text=%s", buf, text)
+        syslog.syslog(syslog.LOG_DEBUG, "insert_text: buf=%s text=%s" % (buf, text))
 	if buf == 'stdout':
 	    text_view = self.stdout_view
 	elif buf == 'stderr':

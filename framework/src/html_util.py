@@ -26,6 +26,7 @@ __all__ = [
     'html_document',
 ]
 
+import syslog
 import htmllib
 import formatter as Formatter
 import string
@@ -131,7 +132,7 @@ def html_to_text(html, maxcol=80):
         buffer.close()
         return text
     except Exception, e:
-        log_program.error('cannot convert html to text: %s' % e)
+        syslog.syslog(syslog.LOG_ERR, 'cannot convert html to text: %s' % e)
         return None
 
 def html_document(*body_components):

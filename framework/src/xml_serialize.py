@@ -44,7 +44,7 @@ import sys
 from types import *
 import libxml2
 
-from setroubleshoot.log import *
+import syslog
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
 from setroubleshoot.util import *
@@ -57,15 +57,15 @@ i18n_encoding = get_config('general', 'i18n_encoding')
 
 def validate_database_doc(doc):
     if doc is None:
-        log_database.warning("validate_database_doc: doc is empty, validate fails")
+        syslog.syslog(syslog.LOG_DEBUG, "validate_database_doc: doc is empty, validate fails")
         return False
     root_node = doc.getRootElement()
     if root_node is None:
-        log_database.warning("validate_database_doc: root is empty, validate fails")
+        syslog.syslog(syslog.LOG_DEBUG, "validate_database_doc: root is empty, validate fails")
         return False
     version = root_node.prop('version')
     if version is None:
-        log_database.warning("validate_database_doc: version is empty, validate fails")
+        syslog.syslog(syslog.LOG_DEBUG, "validate_database_doc: version is empty, validate fails")
         return False
     else:
         return database_version_compatible(version)
@@ -267,7 +267,7 @@ class XmlSerialize(object):
                 root_node = doc.getRootElement()
                 self.init_from_xml_node(doc, obj_name)
             except libxml2.parserError, e:
-                log_xml.error("read_xml() libxml2.parserError: %s", e)
+                syslog.syslog(syslog.LOG_ERR, "read_xml() libxml2.parserError: %s" % e)
                 return
         finally:
             if doc is not None:
@@ -282,10 +282,10 @@ class XmlSerialize(object):
                     if not validate_doc(doc): return False
                 self.init_from_xml_node(doc, obj_name)
             except libxml2.parserError, e:
-                log_xml.error("read_xml_file() libxml2.parserError: %s", e)
+                syslog.syslog(syslog.LOG_ERR, "read_xml_file() libxml2.parserError: %s" % e)
                 return False
             except Exception, e:
-                log_xml.error("read_xml_file() error: %s", e)
+                syslog.syslog(syslog.LOG_ERR, "read_xml_file() error: %s" % e)
                 return False
         finally:
             if doc is not None:
@@ -309,7 +309,7 @@ class XmlSerialize(object):
             if need_to_close:
                 f.close()
         except Exception, e:
-            log_xml.error("could not write %s: %s", f, e)
+            syslog.syslog(syslog.LOG_ERR, "could not write %s: %s" % (f, e))
 
     def get_xml_nodes(self, doc, obj_name=None):
         elements, attributes = self.get_elements_and_attributes()
@@ -361,17 +361,13 @@ class XmlSerialize(object):
                         child = typecast(doc, value)
                         element_node.addChild(child)
             except Exception, e:
-                log_xml.exception("%s.%s value=%s", self.__class__.__name__, name, value)
+                syslog.syslog(syslog.LOG_ERR, "%s.%s value=%s" % (self.__class__.__name__, name, value))
 
         return root
 
     def init_from_xml_node(self, xml_node, obj_name=None):
         elements, attributes = self.get_elements_and_attributes()
         self._init_defaults()
-
-        if debug:
-            #log_xml.debug("init_from_xml_node(): obj_name='%s' xml_node=%s", obj_name, repr(xml_node))
-            pass
 
         if obj_name is None:
             root = xml_node
@@ -380,17 +376,13 @@ class XmlSerialize(object):
             if root is None:
                 raise KeyError("xml child element (%s) not found in node %s" % (obj_name, xml_node.get_name()))
 
-        if debug:
-            #log_xml.debug("doc=%s\n%s\nxml_node=%s\n%s", repr(doc), doc, repr(xml_node), xml_node)
-            pass
-
         # Read the attributes in the xml node Cast the attribute value
         # to a Python type and store coerced value in the Python
         # object (self) which can then be accessed by "name"
 
         for name, value in xml_attributes(root):
             if name not in attributes:
-                log_xml.warning("unknown attribute (%s) found in xml element (%s)", name, root.get_name())
+                syslog.syslog(syslog.LOG_DEBUG,"unknown attribute (%s) found in xml element (%s)" % (name, root.get_name()))
                 continue
             name_info = self._xml_info[name]
             typecast = name_info.get('import_typecast', str)
@@ -413,7 +405,7 @@ class XmlSerialize(object):
                 # Python value in the Python object (self) which can then be
                 # accessed by "name"
                 if name not in elements:
-                    log_xml.warning("unknown element (%s) found in xml element (%s)", name, root.get_name())
+                    syslog.syslog(syslog.LOG_DEBUG,"unknown element (%s) found in xml element (%s)" % (name, root.get_name()))
                     continue
                 name_info = self._xml_info[name]
                 typecast =  name_info.get('import_typecast', str)

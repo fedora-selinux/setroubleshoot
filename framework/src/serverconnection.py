@@ -18,7 +18,6 @@ from setroubleshoot.rpc import RpcChannel,ConnectionState
 from setroubleshoot.rpc_interfaces import SETroubleshootServerInterface
 from setroubleshoot.rpc_interfaces import SETroubleshootDatabaseInterface
 from setroubleshoot.util import Retry, get_error_from_socket_exception
-from setroubleshoot.log import *
 
 __all__ = [
     "ServerConnectionHandler"
@@ -94,7 +93,7 @@ class ServerConnectionHandler(RpcChannel,
         except Socket.error, e:
             errno, strerror = get_error_from_socket_exception(e)
             if self.report_connect_failure == True:
-                log_rpc.error("attempt to open server connection failed: %s", strerror)
+                syslog.syslog(syslog.LOG_ERR, "attempt to open server connection failed: %s" % strerror)
                 self.report_connect_failure = False
             if errno == Errno.EPIPE:
                 add_flags = ConnectionState.HUP
@@ -117,7 +116,7 @@ class ServerConnectionHandler(RpcChannel,
             return 60
 
     def async_error_callback(self, method, errno, strerror):
-        log_program.error("async_error: method=%s errno=%s: %s", method, errno, strerror)
+        syslog.syslog(syslog.LOG_ERR, "async_error: method=%s errno=%s: %s" % (method, errno, strerror))
         self.emit('async-error', method, errno, strerror)
 
     def bind(self):

@@ -20,6 +20,7 @@
 __all__ = ['email_alert',
           ]
 
+import syslog
 import re
 from email.MIMEText import MIMEText
 from email.MIMEMultipart import MIMEMultipart
@@ -27,7 +28,6 @@ from email.Utils import formatdate
 
 from setroubleshoot.config import get_config
 from setroubleshoot.util import *
-from setroubleshoot.log import *
 
 email_addr_re = re.compile('^\s*([^@ \t]+)(@([^@ \t]+))?\s*$')
 
@@ -52,9 +52,7 @@ def email_alert(siginfo, to_addrs):
         from_domain = get_hostname()
     from_address = '%s@%s' % (from_user, from_domain)
 
-    if debug:
-        log_email.debug("alert smtp=%s:%d  -> %s",
-                        smtp_host, smtp_port, ','.join(to_addrs))
+    syslog.syslog(syslog.LOG_DEBUG, "alert smtp=%s:%d  -> %s" % (smtp_host, smtp_port, ','.join(to_addrs)))
 
     siginfo.update_derived_template_substitutions()
     summary = siginfo.substitute(siginfo.summary())
@@ -75,7 +73,7 @@ def email_alert(siginfo, to_addrs):
         smtp.sendmail(from_address, to_addrs, email_msg.as_string())
         smtp.quit()
     except smtplib.SMTPException, e:
-        log_email.error("email failed: %s", e)
+        syslog.syslog(syslog.LOG_ERR, "email failed: %s" % e)
 
 #-----------------------------------------------------------------------------
 

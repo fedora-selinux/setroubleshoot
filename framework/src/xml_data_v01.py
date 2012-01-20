@@ -54,6 +54,7 @@ __all__ = ['XMLNotFoundException',
            'filter_text'
            ]
 
+import syslog
 import libuser
 global VALID_EXES
 INVALID_EXES=libuser.get_user_shells() + [ "/usr/bin/perl" , "/usr/bin/python" ]
@@ -61,7 +62,6 @@ INVALID_EXES=libuser.get_user_shells() + [ "/usr/bin/perl" , "/usr/bin/python" ]
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
 from setroubleshoot.util import *
-from setroubleshoot.log import *
 from setroubleshoot.util import *
 import setroubleshoot.uuid as uuid
 
@@ -589,7 +589,7 @@ class XmlSerialize(object):
                 root_node = doc.getRootElement()
                 self.init_from_xml_node(doc, 'sub', obj_name)
             except libxml2.parserError, e:
-                log_xml.error("read_xml() libxml2.parserError: %s", e)
+                syslog.syslog(syslog.LOG_ERR, "read_xml() libxml2.parserError: %s" % e)
                 return
         finally:
             if doc is not None:
@@ -603,7 +603,7 @@ class XmlSerialize(object):
                 root_node = doc.getRootElement()
                 self.init_from_xml_node(doc, 'sub', obj_name)
             except libxml2.parserError, e:
-                log_xml.error("read_xml_file() libxml2.parserError: %s", e)
+                syslog.syslog(syslog.LOG_ERR, "read_xml_file() libxml2.parserError: %s" % e)
                 return
         finally:
             if doc is not None:
@@ -679,24 +679,16 @@ class XmlSerialize(object):
                             else:
                                 root.newChild(None, name, value)
             except Exception, e:
-                log_xml.exception("%s.%s value=%s", self.__class__.__name__, name, value)
+                syslog.syslog(syslog.LOG_ERR, "%s.%s value=%s" % (self.__class__.__name__, name, value))
                 
         return root
 
     def init_from_xml_node(self, xml_node, scope='base', obj_name=None):
         elements, attributes = self.get_elements_and_attributes()
 
-        if debug:
-            #log_xml.debug("init_from_xml_node(): scope=%s obj_name='%s' xml_node=%s", scope, obj_name, repr(xml_node))
-            pass
-
         doc = xml_node.get_doc()
         context = doc.xpathNewContext()
         context.setContextNode(xml_node)
-
-        if debug:
-            #log_xml.debug("doc=%s\n%s\nxml_node=%s\n%s", repr(doc), doc, repr(xml_node), xml_node)
-            pass
 
         if scope == 'base':
             if xml_node.name == obj_name:
@@ -989,15 +981,13 @@ class SEFaultSignatureInfo(XmlSerialize):
         for user in self.users:
             if user.username == username:
                 return user
-        if debug:
-            log_sig.debug("new SEFaultSignatureUser for %s", username)
+        syslog.syslog(syslog.LOG_DEBUG, "new SEFaultSignatureUser for %s" % username)
         user = SEFaultSignatureUser(username=username)
         self.users.append(user)
         return user
 
     def find_filter_by_username(self, username):
-        if debug:
-            log_sig.debug("find_filter_by_username %s", username)
+        syslog.syslog(syslog.LOG_DEBUG, "find_filter_by_username %s" % username)
         
         filter = None
         user_data = self.get_user_data(username)
@@ -1012,15 +1002,12 @@ class SEFaultSignatureInfo(XmlSerialize):
     def evaluate_filter_for_user(self, username, filter_type=None):
         action = 'display'
         f = self.find_filter_by_username(username)
-        if debug:
-            log_rpc.debug("evaluate_filter_for_user: found %s user's filter = %s", username, f)
+        syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found %s user's filter = %s" % (username, f))
         if f is not None:
             if filter_type is not None:
                 f.filter_type = filter_type
             action = self.evaluate_filter(f)
-            if debug:
-                log_alert.debug("evaluate_filter_for_user: found filter for %s: %s\n%s",
-                                username, action, f)
+            syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found filter for %s: %s\n%s" % (username, action, f))
         return action
         
     def evaluate_filter(self, filter):
@@ -1042,8 +1029,7 @@ class SEFaultSignatureInfo(XmlSerialize):
             action = 'ignore'
             for rpmNVR in filter.rpm_watch_list:
                 rpmName = split_rpm_nvr(rpmNVR)[0]
-                if debug:
-                    log_sig.debug("checking rpm %s name=%s", rpmNVR, rpmName)
+                syslog.syslog(syslog.LOG_DEBUG, "checking rpm %s name=%s" % (rpmNVR, rpmName))
                 curRpmNVR = get_rpm_nvr_by_name(rpmName)
                 if rpmNVR != curRpmNVR:
                     action = 'display'
@@ -1282,14 +1268,12 @@ class SEFaultSignatureUser(XmlSerialize):
         self.__dict__[item] = data
 
     def update_filter(self, filter_type, data=None):
-        if debug:
-            log_sig.debug("update_filter: filter_type=%s data=%s", filter_type, data)
+        syslog.syslog(syslog.LOG_DEBUG, "update_filter: filter_type=%s data=%s" % (filter_type, data))
         if filter_type == FILTER_NEVER or \
            filter_type == FILTER_AFTER_FIRST or \
            filter_type == FILTER_ALWAYS or \
            filter_type == FILTER_TILL_FIX:
-            if debug:
-                log_sig.debug("update_filter: !!!")
+            syslog.syslog(syslog.LOG_DEBUG, "update_filter: !!!")
             self.filter = SEFilter(filter_type=filter_type)
             return True
         elif filter_type == FILTER_TILL_RPM_CHANGE or \
@@ -1498,16 +1482,16 @@ class SEEmailRecipientSet(XmlSerialize):
                             if option == 'filter_type':
                                 filter_type = map_filter_name_to_value.get(value.lower(), None)
                                 if filter_type is None:
-                                    log_email.warn("unknown email filter (%s) for address %s", option, address)
+                                    syslog.syslog(syslog.LOG_DEBUG, "unknown email filter (%s) for address %s" % (option, address))
                                     
                             else:
-                                log_email.warn("unknown email option (%s) for address %s", option, address)
+                                syslog.syslog(syslog.LOG_DEBUG, "unknown email option (%s) for address %s" % (option, address))
                                 
                     try:
                         self.add_address(address, filter_type)
                     except ProgramError, e:
                         if e.errno == ERR_INVALID_EMAIL_ADDR:
-                            log_email.warn(e.strerror)
+                            syslog.syslog(syslog.LOG_DEBUG, e.strerror)
                         else:
                             raise e
 

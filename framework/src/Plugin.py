@@ -21,7 +21,6 @@
 
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
-from setroubleshoot.log import *
 
 #import sys
 #import os.path

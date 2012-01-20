@@ -19,6 +19,7 @@
 
 import libxml2
 import re
+import syslog
 
 import errno as Errno
 import gobject
@@ -30,7 +31,6 @@ from types import *
 
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
-from setroubleshoot.log import *
 from setroubleshoot.xml_serialize import xml_child_elements, xml_get_child_elements_by_name
 from setroubleshoot.util import *
 
@@ -55,7 +55,6 @@ __all__ = [
 
 #--------------------------------- Variables ---------------------------------
 
-verbose = False
 content_length_re = re.compile("content-length:(\d+)")
 header_end_re = re.compile("\r\n\r\n")
 header_field_re = re.compile("([a-zA-Z0-9_-]+):(.*)\r\n")
@@ -67,9 +66,9 @@ def parse_socket_address_list(addr_string, default_port=None):
     socket_addresses = []
     family_re = re.compile('\s*{(unix|inet)}(.+)')
 
-    if debug:
-        log_communication.debug("parse_socket_address_list: input='%s'", addr_string)
-    if not addr_string: return socket_addresses
+    syslog.syslog(syslog.LOG_DEBUG, "parse_socket_address_list: input='%s'" %  addr_string)
+    if not addr_string: 
+        return socket_addresses
     addrs = re.split('[\s,]+', addr_string)
     for cfg_addr in addrs:
         if not cfg_addr: continue
@@ -80,7 +79,7 @@ def parse_socket_address_list(addr_string, default_port=None):
 
             family = SocketAddress.map_family(family_tag)
             if family is None:
-                log_communication.warning("unknown socket family - %s in address %s", family_tag, cfg_addr)
+                syslog.syslog(syslog.LOG_DEBUG, "unknown socket family - %s in address %s" % (family_tag, cfg_addr))
                 continue
         else:
             family = Socket.AF_INET
@@ -88,8 +87,8 @@ def parse_socket_address_list(addr_string, default_port=None):
 
         socket_address = SocketAddress(family, address, default_port)
         socket_addresses.append(socket_address)
-    if debug:
-        log_communication.debug("parse_socket_address_list: %s --> %s", cfg_addr, socket_address)
+
+    syslog.syslog(syslog.LOG_DEBUG, "parse_socket_address_list: %s --> %s" % ( cfg_addr, socket_address))
     return socket_addresses
 
 def get_default_port():
@@ -278,9 +277,6 @@ class ConnectionState(gobject.GObject):
         return(self.result_code, self.result_msg)
 
     def update(self, add_flags=0, remove_flags=0, result_code=0, result_msg=''):
-        if debug and False:
-            log_communication.debug("%s.update: %s add_flags=%s, remove_flags=%s", self.__class__.__name__,
-                                    self, self.flags_to_string(add_flags), self.flags_to_string(remove_flags))
         previous_flags = self.flags
 
         self.flags |= add_flags
@@ -454,9 +450,7 @@ def rpc_method(interface):
     def decorator(method_ptr):
         rpc_def = interface_registry.set_rpc_def('method', interface, method_ptr)
         method = method_ptr.__name__
-        if debug and verbose:
-            log_rpc.debug("@rpc_method() interface=%s method=%s positional_args=%s",
-                          rpc_def.interface, method, rpc_def.get_positional_arg_names())
+        syslog.syslog(syslog.LOG_DEBUG, "@rpc_method() interface=%s method=%s positional_args=%s" % (rpc_def.interface, method, rpc_def.get_positional_arg_names()))
         def rpc_func(self, *args):
             rpc_id = self.new_rpc_id()
             rpc_def = interface_registry.get_rpc_def(interface, method)
@@ -473,18 +467,14 @@ def rpc_arg_type(interface, *arg_types):
         method = method_ptr.__name__
         rpc_def = interface_registry.get_rpc_def(interface, method)
         rpc_def.set_arg_obj_types(*arg_types)
-        if debug and verbose:
-            log_rpc.debug("@rpc_arg_types() interface=%s method=%s arg_types=%s",
-                          rpc_def.interface, rpc_def.method, arg_types)
+        syslog.syslog(syslog.LOG_DEBUG, "@rpc_arg_types() interface=%s method=%s arg_types=%s" % (rpc_def.interface, rpc_def.method, arg_types))
         return method_ptr
     return decorator
 
 def rpc_callback(interface, method):
     def decorator(method_ptr):
         rpc_callback_def = interface_registry.set_rpc_def('method_return', interface, method_ptr)
-        if debug and verbose:
-            log_rpc.debug("@rpc_callback() interface=%s method=%s positional_args=%s",
-                          rpc_callback_def.interface, rpc_callback_def.method, rpc_callback_def.get_positional_arg_names())
+        syslog.syslog(syslog.LOG_DEBUG, "@rpc_callback() interface=%s method=%s positional_args=%s" % (rpc_callback_def.interface, rpc_callback_def.method, rpc_callback_def.get_positional_arg_names()))
         rpc_def = interface_registry.get_rpc_def(interface, method)
         rpc_def.set_callback(rpc_callback_def.method)
         method_ptr._rpc_definition = True
@@ -496,9 +486,7 @@ def rpc_signal(interface):
     def decorator(method_ptr):
         rpc_def = interface_registry.set_rpc_def('signal', interface, method_ptr)
         method = method_ptr.__name__
-        if debug and verbose:
-            log_rpc.debug("interface=%s method=%s positional_args=%s",
-                          rpc_def.interface, method, rpc_def.get_positional_arg_names())
+        syslog.syslog(syslog.LOG_DEBUG, "interface=%s method=%s positional_args=%s" % (rpc_def.interface, method, rpc_def.get_positional_arg_names()))
         def rpc_func(self, *args):
             rpc_id = self.new_rpc_id()
             rpc_def = interface_registry.get_rpc_def(interface, method)
@@ -660,8 +648,7 @@ class ListeningServer(ConnectionIO):
                 if not os.path.exists(path):
                     os.makedirs(path)
 
-        if debug:
-            log_communication.debug("new_listening_socket: %s", self.socket_address)
+        syslog.syslog(syslog.LOG_DEBUG, "new_listening_socket: %s" % self.socket_address)
 
         self.socket_address.socket = Socket.socket(self.socket_address.family, self.socket_address.type)
         fcntl.fcntl(self.socket_address.socket.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
@@ -685,10 +672,6 @@ class ListeningServer(ConnectionIO):
         return True
 
     def handle_client_connect(self, socket, io_condition):
-        if debug:
-            #log_rpc.debug("handle_client_connect(): io_condition=%s", io_condition_to_string(io_condition))
-            pass
-
         try:
             if not self.valid_io_condition(io_condition):
                 return False
@@ -703,7 +686,7 @@ class ListeningServer(ConnectionIO):
 
                 except Socket.error, e:
                     errno, strerror = get_error_from_socket_exception(e)
-                    log_rpc.error("closing client connection due to socket error(%s): %s", self.socket_address, strerror)
+                    syslog.syslog(syslog.LOG_ERR, "closing client connection due to socket error(%s): %s" % (self.socket_address, strerror))
                     if errno == Errno.EPIPE:
                         add_flags = ConnectionState.HUP
                     else:
@@ -711,7 +694,7 @@ class ListeningServer(ConnectionIO):
                     self.connection_state.update(add_flags, 0, errno, strerror)
 
         except Exception, e:
-            log_rpc.exception("exception %s: %s",e.__class__.__name__, str(e))
+            syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
             self.connection_state.update(ConnectionState.ERROR, 0, -1, str(e))
 
         return True
@@ -754,9 +737,6 @@ class RequestReceiver:
                 self.feed_buf = self.feed_buf[bodyEnd:]
                 self.headerLen = -1
                 self.bodyLen = -1
-                if debug:
-                    #log_rpc.debug("dispatch msg: header=%s body=%s", self.header, self.body)
-                    pass
                 self.dispatchFunc(self.header, self.body)
                 continue
             # Have neither a full header nor a full body.
@@ -794,21 +774,21 @@ class RpcManage(object):
         return str(self.rpc_id)
     
     def dump_async_rpc_cache(self):
-        log_rpc.debug("async_rpc_cache: %d entries, cur rpc_id=%s", len(self.async_rpc_cache), self.rpc_id)
+        syslog.syslog(syslog.LOG_DEBUG, "async_rpc_cache: %d entries, cur rpc_id=%s" % (len(self.async_rpc_cache), self.rpc_id))
         rpc_ids = self.async_rpc_cache.keys()
         rpc_ids.sort()
         for rpc_id in rpc_ids:
-            log_rpc.debug("%s: %s", rpc_id, self.async_rpc_cache[rpc_id])
+            syslog.syslog(syslog.LOG_DEBUG, "%s: %s" % (rpc_id, self.async_rpc_cache[rpc_id]))
 
     def flush_async_rpc_cache(self):
         self.async_rpc_cache.clear()
 
     def default_errback(self, method, err_code, err_msg):
-        log_rpc.error("[%s] %d %s", method, err_code, err_msg)
+        syslog.syslog(syslog.LOG_ERR, "[%s] %d %s" % (method, err_code, err_msg))
 
     def process_async_return(self, async_rpc):
         if async_rpc is None:
-            log_rpc.error("process_async_return(): rpc_id=%s not in async_rpc_cache", rpc_id)
+            syslog.syslog(syslog.LOG_ERR, "process_async_return(): rpc_id=%s not in async_rpc_cache" % rpc_id)
             return
         if async_rpc.return_type == 'method_return':
             for callback in async_rpc.callbacks:
@@ -851,9 +831,7 @@ class RpcChannel(ConnectionIO, RpcManage):
         return self.channel_type
 
     def close_connection(self, add_flags=0, remove_flags=0, result_code=0, result_msg=''):
-        if debug:
-            log_communication.debug("close_connection: %s", self.socket_address)
-            self.dump_async_rpc_cache()
+        syslog.syslog(syslog.LOG_DEBUG, "close_connection: %s" % (self.socket_address))
         self.flush_async_rpc_cache()
         if self.socket_address.socket is None:
             return
@@ -878,7 +856,7 @@ class RpcChannel(ConnectionIO, RpcManage):
 
     def emit_rpc(self, rpc_id, type, rpc_def, *args):
         if len(rpc_def.positional_args) != len(args):
-            log_rpc.error("emit_rpc() arg length=%s does not match rpc_def(%s)", len(args), rpc_def)
+            syslog.syslog(syslog.LOG_ERR, "emit_rpc() arg length=%s does not match rpc_def(%s)" % (len(args), rpc_def))
             return
         rpc_xml = convert_rpc_to_xml(rpc_id, rpc_def, *args)
         rpc_data = rpc_message(rpc_id, type, rpc_xml)
@@ -887,9 +865,6 @@ class RpcChannel(ConnectionIO, RpcManage):
     def send_data(self, data):
         if not (self.connection_state.flags & ConnectionState.OPEN):
             return
-        if debug:
-            #log_rpc.debug("send_data() data=%s", data)
-            pass
         self.acquire_write_lock()
         try:
             totalSent = 0
@@ -900,13 +875,13 @@ class RpcChannel(ConnectionIO, RpcManage):
                     raise ProgramError(ERR_SOCKET_HUP, detail=self.connection_state)
                 totalSent = totalSent + sent
         except Socket.timeout, e:
-            log_rpc.error("socket timeout: (%s)", self.socket_address)
+            syslog.syslog(syslog.LOG_ERR, "socket timeout: (%s)" % (self.socket_address))
             self.release_write_lock()
             self.connection_state.update(ConnectionState.TIMEOUT)
             return
         except Socket.error, e:
             errno, strerror = get_error_from_socket_exception(e)
-            log_rpc.error("could not send data on socket (%s): %s", self.socket_address, strerror)
+            syslog.syslog(syslog.LOG_ERR, "could not send data on socket (%s): %s" % (self.socket_address, strerror))
             self.release_write_lock()
             if errno == Errno.EPIPE:
                 add_flags = ConnectionState.HUP
@@ -918,9 +893,6 @@ class RpcChannel(ConnectionIO, RpcManage):
         self.release_write_lock()
 
     def handle_client_io(self, socket, io_condition):
-        if debug:
-            #log_rpc.debug("handle_client_io(): io_condition=%s", io_condition_to_string(io_condition))
-            pass
 
         try:
             if not self.valid_io_condition(io_condition):
@@ -934,7 +906,7 @@ class RpcChannel(ConnectionIO, RpcManage):
                         return False
                 except Socket.error, e:
                     errno, strerror = get_error_from_socket_exception(e)
-                    log_rpc.error("socket error (%s): %s", self.socket_address, strerror)
+                    syslog.syslog(syslog.LOG_ERR, "socket error (%s): %s" % (self.socket_address, strerror))
                     if errno == Errno.EPIPE:
                         add_flags = ConnectionState.HUP
                     else:
@@ -945,7 +917,7 @@ class RpcChannel(ConnectionIO, RpcManage):
                 self.connection_state.update(0, ConnectionState.PROBLEM_FLAGS)
                 self.receiver.feed(data)
         except Exception, e:
-            log_rpc.exception("exception %s: %s",e.__class__.__name__, str(e))
+            syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
             self.close_connection(ConnectionState.ERROR, 0, -1, str(e))
             return False
 
@@ -954,12 +926,10 @@ class RpcChannel(ConnectionIO, RpcManage):
     def handle_return(self, type, rpc_id, body):
         async_rpc = self.async_rpc_cache.pop(rpc_id, None)
         if async_rpc is None:
-            log_rpc.error("handle_return(): rpc_id=%s not in async_rpc_cache", rpc_id)
+            syslog.syslog(syslog.LOG_ERR, "handle_return(): rpc_id=%s not in async_rpc_cache" % rpc_id)
             return
 
-        if debug and verbose:
-            log_rpc.debug("%s.handle_return: rpc_id=%s type=%s %s.%s, {%s}",
-                          self.__class__.__name__, rpc_id, type, async_rpc.rpc_def.interface, async_rpc.rpc_def.method, body)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.handle_return: rpc_id=%s type=%s %s.%s, {%s}" % (self.__class__.__name__, rpc_id, type, async_rpc.rpc_def.interface, async_rpc.rpc_def.method, body))
 
         interface, method, args = convert_rpc_xml_to_args(body)
         async_rpc.return_type = type
@@ -970,9 +940,7 @@ class RpcChannel(ConnectionIO, RpcManage):
 	rpc_id    = header.get('rpc_id', 0)
 	type      = header.get('type', None)
 
-        if debug and verbose:
-            log_rpc.debug("%s.default_request_handler: rpc_id=%s type=%s {%s}",
-                          self.__class__.__name__, rpc_id, type, body)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.default_request_handler: rpc_id=%s type=%s {%s}" % (self.__class__.__name__, rpc_id, type, body))
 
 	if type == 'error_return' or type == 'method_return':
             self.handle_return(type, rpc_id, body)

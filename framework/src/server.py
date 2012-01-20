@@ -64,14 +64,6 @@ from setroubleshoot.errcode import (ProgramError,
                                     ERR_DATABASE_NOT_FOUND, 
                                     )
                                     
-from setroubleshoot.log import (debug, 
-                                log_server,
-                                log_rpc,
-                                log_email,
-                                log_communication,
-                                log_alert, 
-                                )
-                                
 from setroubleshoot.rpc import (RpcChannel,
                                 ConnectionState, 
                                 get_socket_list_from_config, 
@@ -91,11 +83,10 @@ from setroubleshoot.util import (get_hostname,
     
 
 def sighandler(signum, frame):
-    if debug:
-        log_server.debug("received signal=%s", signum)
+    syslog.syslog(syslog.LOG_DEBUG, "received signal=%s" % signum)
     import setroubleshoot.config as config
     if signum == signal.SIGHUP:
-        log_server.warning("reloading configuration file")
+        syslog.syslog(syslog.LOG_DEBUG, "reloading configuration file")
         config.config_init()
         return
     import sys    
@@ -147,13 +138,13 @@ class ConnectionPool(object):
 
     def add_client(self, handler):
         if self.client_pool.has_key(handler):
-            log_rpc.warning("add_client: client (%s) already in client pool" % handler)
+            syslog.syslog(syslog.LOG_DEBUG, "add_client: client (%s) already in client pool" % handler)
             return
         self.client_pool[handler] = None
 
     def remove_client(self, handler):
         if not self.client_pool.has_key(handler):
-            log_rpc.warning("remove_client: client (%s) not in client pool" % handler)
+            syslog.syslog(syslog.LOG_DEBUG, "remove_client: client (%s) not in client pool" % handler)
             return
         del(self.client_pool[handler])
 
@@ -186,16 +177,14 @@ class AlertPluginReportReceiver(PluginReportReceiver):
                 username = "email:%s" % recipient.address
                 action = siginfo.evaluate_filter_for_user(username, recipient.filter_type)
                 if action != "ignore":
-                    if debug:
-                        log_email.debug("siginfo.sig=%s", siginfo.sig)
+                    syslog.syslog(syslog.LOG_DEBUG, "Email: siginfo.sig=%s" % siginfo.sig)
                     to_addrs.append(recipient.address)
 
             if len(to_addrs):
                 from setroubleshoot.email_alert import email_alert
                 email_alert(siginfo, to_addrs)
         
-        if debug:
-            log_alert.debug("sending alert to all clients")
+        syslog.syslog(syslog.LOG_DEBUG,"sending alert to all clients")
 
         # FIXME: should this be using our logging objects in log.py?
         from setroubleshoot.html_util import html_to_text
@@ -218,11 +207,7 @@ class ClientConnectionHandler(RpcChannel):
         self.connection_state.connect('changed', self.on_connection_state_change)
 
     def on_connection_state_change(self, connection_state, flags, flags_added, flags_removed):
-        if debug:
-            log_communication.debug("%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s",
-                              self.__class__.__name__, connection_state,
-                              connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed),
-                              self.socket_address)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" % (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed), self.socket_address))
 
         if flags_removed & ConnectionState.OPEN:
             connection_pool.remove_client(self)
@@ -259,19 +244,14 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         self.gid = None
 
     def on_connection_state_change(self, connection_state, flags, flags_added, flags_removed):
-        if debug:
-            log_communication.debug("%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s",
-                                    self.__class__.__name__, connection_state,
-                                    connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed),
-                                    self.socket_address)
+        syslog.syslog(syslog.LOG_DEBUG, "%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" % (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed),self.socket_address))
 
         if flags_removed & ConnectionState.OPEN:
             connection_pool.remove_client(self)
 
         if flags_added & ConnectionState.OPEN:
             self.uid, self.gid = self.access.get_credentials(self.socket_address.socket)
-            log_communication.debug("%s.on_connection_state_change: open, socket credentials: uid=%s gid=%s", 
-                                    self.__class__.__name__, self.uid, self.gid)
+            syslog.syslog(syslog.LOG_DEBUG,"%s.on_connection_state_change: open, socket credentials: uid=%s gid=%s" % (self.__class__.__name__, self.uid, self.gid))
             connection_pool.add_client(self)
 
     def open(self, socket, socket_address):
@@ -295,8 +275,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         
 
     def logon(self, type, username, password):
-        if debug:
-            log_rpc.debug("logon(%s) type=%s username=%s", self, type, username)
+        syslog.syslog(syslog.LOG_DEBUG, "logon(%s) type=%s username=%s" % (self, type, username))
 
         if username != get_identity(self.uid):
             raise ProgramError(ERR_USER_LOOKUP, detail="uid=%s does not match logon username (%s)" % (self.uid, username))
@@ -328,8 +307,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
     def set_email_recipients(self, recipients):
         global email_recipients
 
-        if debug:
-            log_email.debug("set_email_recipients: %s", recipients)
+        syslog.syslog(syslog.LOG_DEBUG, "set_email_recipients: %s" % recipients)
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
             raise ProgramError(ERR_NOT_AUTHENTICATED)
@@ -340,8 +318,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
     # ----  SETroubleshootDatabaseInterface Methods ----
 
     def delete_signature(self, sig):
-        if debug:
-            log_rpc.debug("delete_signature: sig=%s", sig)
+        syslog.syslog(syslog.LOG_DEBUG,"delete_signature: sig=%s" % sig)
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
             raise ProgramError(ERR_NOT_AUTHENTICATED)
@@ -350,8 +327,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         return None
         
     def get_properties(self):
-        if debug:
-            log_rpc.debug("get_properties")
+        syslog.syslog(syslog.LOG_DEBUG,"get_properties")
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
             raise ProgramError(ERR_NOT_AUTHENTICATED)
@@ -360,8 +336,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         return [properties]
 
     def evaluate_alert_filter(self, sig, username):
-        if debug:
-            log_rpc.debug("evaluate_alert_filter: username=%s sig=%s", username, sig)
+        syslog.syslog(syslog.LOG_DEBUG,"evaluate_alert_filter: username=%s sig=%s" % (username, sig))
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
             raise ProgramError(ERR_NOT_AUTHENTICATED)
@@ -370,8 +345,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         return [action]
 
     def lookup_local_id(self, local_id):
-        if debug:
-            log_rpc.debug("lookup_local_id: %s", local_id)
+        syslog.syslog(syslog.LOG_DEBUG, "lookup_local_id: %s" % local_id)
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
             raise ProgramError(ERR_NOT_AUTHENTICATED)
@@ -380,8 +354,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         return [siginfo]
 
     def query_alerts(self, criteria):
-        if debug:
-            log_rpc.debug("query_alerts: criteria=%s", criteria)
+        syslog.syslog(syslog.LOG_DEBUG, "query_alerts: criteria=%s" % criteria)
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
             raise ProgramError(ERR_NOT_AUTHENTICATED)
@@ -390,9 +363,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         return [sigs]
 
     def set_filter(self, sig, username, filter_type, data = "" ):
-        if debug:
-            log_rpc.debug("set_filter: username=%s filter_type=%s sig=\n%s",
-                          username, filter_type, sig)
+        syslog.syslog(syslog.LOG_DEBUG,"set_filter: username=%s filter_type=%s sig=\n%s" % (username, filter_type, sig))
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
             raise ProgramError(ERR_NOT_AUTHENTICATED)
@@ -405,9 +376,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
 
 
     def set_user_data(self, sig, username, item, data):
-        if debug:
-            log_rpc.debug("set_user_data: username=%s item=%s data=%s sig=\n%s",
-                          username, item, data, sig)
+        syslog.syslog(syslog.LOG_DEBUG, "set_user_data: username=%s item=%s data=%s sig=\n%s" % (username, item, data, sig))
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
             raise ProgramError(ERR_NOT_AUTHENTICATED)
@@ -433,11 +402,12 @@ class ClientNotifier(object):
 from setroubleshoot.audit_data import *
 
 class SetroubleshootdDBusObject(dbus.service.Object):
-    def __init__(self, object_path, analysis_queue, alert_receiver):
+    def __init__(self, object_path, analysis_queue, alert_receiver, timeout = 10):
         dbus.service.Object.__init__(self, dbus.SystemBus(), object_path)
         self.conn_ctr=0
-        self.alarm()
-        log_server.debug('dbus __init__ %s called' % object_path)
+        self.timeout = timeout
+        self.alarm(self.timeout)
+        syslog.syslog(syslog.LOG_DEBUG,'dbus __init__ %s called' % object_path)
         self.queue = analysis_queue
         self.receiver = alert_receiver
         self.record_reader = AuditRecordReader(AuditRecordReader.TEXT_FORMAT)
@@ -461,7 +431,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
     def start(self):
         self.alarm(0)
         self.conn_ctr += 1
-        log_server.debug('dbus iface start() called: %d Connections' % self.conn_ctr)
+        syslog.syslog(syslog.LOG_DEBUG,'dbus iface start() called: %d Connections' % self.conn_ctr)
         return _("Started")
     
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ii')
@@ -493,11 +463,11 @@ class SetroubleshootdDBusObject(dbus.service.Object):
     def avc(self, data):
         self.alarm(0)
         self.conn_ctr += 1
-        log_server.debug('dbus avc(%s) called: %d Connections' % (data, self.conn_ctr))
+        syslog.syslog(syslog.LOG_DEBUG,'dbus avc(%s) called: %d Connections' % (data, self.conn_ctr))
         for (record_type, event_id, body_text, fields, line_number) in self.record_reader.feed(str(data)):
             audit_record = AuditRecord(record_type, event_id, body_text, fields, line_number)
             audit_record.audispd_rectify()
-            
+
             for audit_event in self.record_receiver.feed(audit_record):
                 self.add(AVC(audit_event))
 
@@ -505,17 +475,17 @@ class SetroubleshootdDBusObject(dbus.service.Object):
             try:
                 self.add(AVC(audit_event))
             except ValueError, e:
-                log_server.error("Unable to add audit event: %s" % e)
+                syslog.syslog(syslog.LOG_ERR, "Unable to add audit event: %s" % e)
 
         self.conn_ctr -= 1
-        self.alarm()
+        self.alarm(self.timeout)
         return _("AVC")
 
     @dbus.service.method(dbus_system_interface)
     def finish(self):
         self.conn_ctr -= 1
-        log_server.debug('dbus iface finish() called: %d Connections' % self.conn_ctr)
-        self.alarm()
+        syslog.syslog(syslog.LOG_DEBUG,'dbus iface finish() called: %d Connections' % self.conn_ctr)
+        self.alarm(self.timeout)
         return ""
 
     def alarm(self, timeout = 10):
@@ -526,13 +496,12 @@ def compare_sig(a, b):
     return cmp(a.last_seen_date, b.last_seen_date)
 
 class SetroubleshootdDBus:
-    def __init__(self, analysis_queue, alert_receiver):
+    def __init__(self, analysis_queue, alert_receiver, timeout):
         try:
-            log_server.info("creating system dbus: bus_name=%s object_path=%s interface=%s",
-                            dbus_system_bus_name, dbus_system_object_path, dbus_system_interface)
-            self.dbus_obj = SetroubleshootdDBusObject(dbus_system_object_path, analysis_queue, alert_receiver)
+            syslog.syslog(syslog.LOG_DEBUG, "creating system dbus: bus_name=%s object_path=%s interface=%s" % (dbus_system_bus_name, dbus_system_object_path, dbus_system_interface))
+            self.dbus_obj = SetroubleshootdDBusObject(dbus_system_object_path, analysis_queue, alert_receiver, timeout)
         except Exception, e:
-            log_server.error("cannot start system DBus service: %s" % e)
+            syslog.syslog(syslog.LOG_ERR, "cannot start system DBus service: %s" % e)
             raise e
 
     def do_restart(self):
@@ -547,7 +516,7 @@ def goodbye(database):
     database.save()
     audit2why.finish()
 
-def RunFaultServer():
+def RunFaultServer(timeout=10):
     # FIXME
     audit2why.init()
     global host_database, analysis_queue, email_recipients
@@ -638,7 +607,7 @@ def RunFaultServer():
             email_recipients.parse_recipient_file(email_recipients_filepath)
         except ProgramError, e:
             if e.errno == ERR_FILE_OPEN:
-                log_email.warning(e.strerror)
+                syslog.syslog(syslog.LOG_DEBUG, e.strerror)
             else:
                 raise e
 
@@ -649,20 +618,18 @@ def RunFaultServer():
             listening_server.open()
 
         dbus.glib.init_threads()
-        setroubleshootd_dbus = SetroubleshootdDBus(analysis_queue, alert_receiver)
+        setroubleshootd_dbus = SetroubleshootdDBus(analysis_queue, alert_receiver, timeout)
         main_loop = gobject.MainLoop()
         main_loop.run()
 
     except KeyboardInterrupt, e:
-        if debug:
-            log_server.debug("KeyboardInterrupt in RunFaultServer")
+        syslog.syslog(syslog.LOG_DEBUG, "KeyboardInterrupt in RunFaultServer")
 
     except SystemExit, e:
-        if debug:
-            log_server.debug("raising SystemExit in RunFaultServer")
+        syslog.syslog(syslog.LOG_DEBUG, "raising SystemExit in RunFaultServer")
 
     except Exception, e:
-        log_rpc.exception("exception %s: %s", e.__class__.__name__, str(e))
+        syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
 
 if __name__=='__main__':
     RunFaultServer()

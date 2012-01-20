@@ -12,7 +12,6 @@ PYTHON_FILES =			\
 	errcode.py			\
 	gui_utils.py			\
 	html_util.py			\
-	log.py				\
 	Plugin.py			\
 	rpc.py				\
 	rpc_interfaces.py		\
