@@ -33,8 +33,6 @@ __all__ = [
     'get_rpm_nvr_from_header',
     'get_rpm_nvr_by_name',
     'get_rpm_nvr_by_file_path',
-    'get_rpm_nvr_by_name_temporary',
-    'get_rpm_nvr_by_file_path_temporary',
     'is_hex',
     'split_rpm_nvr',
     'get_user_home_dir',
@@ -281,6 +279,7 @@ def get_rpm_nvr_by_file_path_temporary(name):
 ###
 
 def get_rpm_nvr_by_name(name):
+    return get_rpm_nvr_by_name_temporary(name)
     if name is None:
         return None
 
@@ -297,6 +296,7 @@ def get_rpm_nvr_by_name(name):
     return nvr
 
 def get_rpm_nvr_by_file_path(path):
+    return get_rpm_nvr_by_file_path_temporary(path)
     if path is None:
         return None
 

@@ -85,8 +85,7 @@ def old():
     desktop_icon_dict = {}
     for desktop_app_info in gio.app_info_get_all():
         exe = fullpath(desktop_app_info.get_executable())
-        #rpmver = get_rpm_nvr_by_file_path(exe)
-        rpmver = get_rpm_nvr_by_file_path_temporary(exe)
+        rpmver = get_rpm_nvr_by_file_path(exe)
         if rpmver:
             if rpmver in desktop_icon_dict:
                 desktop_icon_dict[rpmver].append(desktop_app_info)
@@ -108,8 +107,7 @@ def get_icon(path, tclass="*"):
                 if icon:
                     return icon
 
-        #rpmver = get_rpm_nvr_by_file_path(path)
-        rpmver = get_rpm_nvr_by_file_path_temporary(path)
+        rpmver = get_rpm_nvr_by_file_path(path)
         if rpmver in desktop_icon_dict:
             for m in desktop_icon_dict[rpmver]:
                 icon = m.get_icon()

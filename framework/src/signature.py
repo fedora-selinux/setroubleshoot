@@ -120,8 +120,7 @@ class SEEnvironment(XmlSerialize):
 
         self.platform, self.kernel = get_os_environment()
         self.policy_type = selinux.selinux_getpolicytype()[1]
-        #self.policy_rpm = get_rpm_nvr_by_name("selinux-policy")
-        self.policy_rpm = get_rpm_nvr_by_name_temporary("selinux-policy")
+        self.policy_rpm = get_rpm_nvr_by_name("selinux-policy")
         self.policyvers = str(selinux.security_policyvers())
         enforce = selinux.security_getenforce()
         if enforce == 0:
@@ -325,7 +324,7 @@ class SEFaultSignatureInfo(XmlSerialize):
     def evaluate_filter_for_user(self, username, filter_type=None):
         action = 'display'
         f = self.find_filter_by_username(username)
-        syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found %s user's filter = %s" % username, f)
+        syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found %s user's filter = %s" % (username, f))
         if f is not None:
             if filter_type is not None:
                 f.filter_type = filter_type

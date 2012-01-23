@@ -182,6 +182,7 @@ def command_line_lookup_id(local_id, html=False):
     def query_alerts_callback(sigs):
         for siginfo in sigs.signature_list:
             print siginfo.format_text()
+            print siginfo.format_details()
         cl.main_loop.quit()
 
     def query_alerts_error(method, errno, strerror):
@@ -450,7 +451,7 @@ class SECommandLine(object):
         async_rpc.add_errback(self.async_error_callback)
 
     def on_connection_state_change(self, connection, connection_state, flags, flags_added, flags_removed):
-        syslog.syslog(syslog.LOG_DEBUG,"%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed), connection.socket_address))
+        syslog.syslog(syslog.LOG_DEBUG,"%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" % (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed), connection.socket_address))
 
         if flags_added & ConnectionState.ERROR:
             errno, strerror = connection_state.get_result()
@@ -509,6 +510,7 @@ class ScanLogfile:
         for siginfo in sigs.signature_list:
             print seperator
             print siginfo.format_text()
+            print siginfo.format_details()
 
 def do_analyze_logfile(logfile_path):
     import selinux.audit2why as audit2why
