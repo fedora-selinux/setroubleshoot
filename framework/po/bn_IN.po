@@ -1,23 +1,24 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Dimitris Glezos <glezos@indifex.com>, 2011.
 # Runa Bhattacharjee <runab@fedoraproject.org>, 2008, 2009.
 # Runa Bhattacharjee <runab@redhat.com>, 2006, 2007, 2009, 2010.
+#   <runabh@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-11 08:39-0500\n"
-"PO-Revision-Date: 2011-12-06 13:13+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-01-27 11:03+0000\n"
+"Last-Translator: runa <runabh@gmail.com>\n"
 "Language-Team: Bengali (India) <anubad@lists.ankur.org.in>\n"
-"Language: bn_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: bn_IN\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -51,12 +52,10 @@ msgstr ""
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
 msgstr ""
 "%s \n"
-"**** বর্তমান নিয়মনীতির জন্য অবৈধ AVC dontaudit করা হয়েছে।  'semodule -B' দ্বারা "
-"dontaudit নিয়ম সক্রিয় করা হবে। ***\n"
+"**** বর্তমান নিয়মনীতির জন্য অবৈধ AVC dontaudit করা হয়েছে।  'semodule -B' দ্বারা dontaudit নিয়ম সক্রিয় করা হবে। ***\n"
 
 #: ../src/audit_data.py:980
 msgid "Must call policy_init first"
@@ -112,7 +111,9 @@ msgstr "উৎসের প্রক্রিয়া"
 
 #: ../src/browser.py:250
 msgid "Attempted Access"
-msgstr "ব্যবহারের প্রয়াস"
+msgstr ""
+"\n"
+"ব্যবহারের প্রয়াস\n"
 
 #: ../src/browser.py:250
 msgid "On this"
@@ -120,7 +121,7 @@ msgstr "চিহ্নিত সামগ্রীর ক্ষেত্রে"
 
 #: ../src/browser.py:250
 msgid "Occurred"
-msgstr ""
+msgstr "ঘটিত"
 
 #: ../src/browser.py:250 ../src/run_cmd.py:418
 msgid "Status"
@@ -128,7 +129,7 @@ msgstr "অবস্থা"
 
 #: ../src/browser.py:322 ../src/browser.py:799
 msgid "Notify"
-msgstr ""
+msgstr "সূচনাপ্রদান"
 
 #: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:27
 msgid "Ignore"
@@ -136,11 +137,11 @@ msgstr "উপেক্ষা করা হবে"
 
 #: ../src/browser.py:363
 msgid "<b>If you were trying to...</b>"
-msgstr ""
+msgstr "<b>আপনি যদি চেষ্টা করছিলেন...</b>"
 
 #: ../src/browser.py:372
 msgid "<b>Then this is the solution.</b>"
-msgstr ""
+msgstr "<b>তাহলে এর সমাধান হল।</b>"
 
 #: ../src/browser.py:391 ../src/browser.py:527
 msgid "If "
@@ -151,6 +152,8 @@ msgid ""
 "Plugin\n"
 "Details"
 msgstr ""
+"প্লাগ-ইন\n"
+"বিবরণ"
 
 #: ../src/browser.py:494
 msgid ""
@@ -158,12 +161,12 @@ msgid ""
 "Bug"
 msgstr ""
 "বাগ সম্পর্কে\n"
-"সূচিত করুন"
+"সূচিত করুন\n"
 
 #: ../src/browser.py:522
 #, python-format
 msgid "Plugin: %s "
-msgstr ""
+msgstr "প্লাগ-ইন: %s "
 
 #: ../src/browser.py:580
 msgid "Unable to grant access."
@@ -177,11 +180,11 @@ msgstr "%d সতর্কবাণী, সর্বমোট %d"
 #: ../src/browser.py:736
 #, python-format
 msgid "On this %s:"
-msgstr ""
+msgstr "এই %s-র উপর:"
 
 #: ../src/browser.py:784 ../src/browser.py:790 ../src/signature.py:396
 msgid "N/A"
-msgstr ""
+msgstr "উপলব্ধ নয়"
 
 #: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:31
 msgid "No Alerts"
@@ -189,7 +192,7 @@ msgstr "কোনো সতর্কবার্তা নেই"
 
 #: ../src/browser.py:850
 msgid "SELinux has detected a problem."
-msgstr ""
+msgstr "SELinux দ্বারা একটি সমস্যা সনাক্ত করা হয়েছে"
 
 #: ../src/browser.py:955
 msgid "Sealert Error"
@@ -291,8 +294,8 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"‌$SOURCE_BASE_PATH-কে $TARGET_BASE_PATH $TARGET_CLASS-র জন্য $ACCESS ব্যবহারের "
-"অধিকার প্রদান করতে ইচ্ছুক হলে"
+"‌$SOURCE_BASE_PATH-কে $TARGET_BASE_PATH $TARGET_CLASS-র জন্য $ACCESS "
+"ব্যবহারের অধিকার প্রদান করতে ইচ্ছুক হলে"
 
 #: ../src/run_cmd.py:180
 msgid "Input: "
@@ -434,16 +437,18 @@ msgstr "ক্ষমতা"
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr ""
-"%s-র ক্ষেত্রে permissive (সতর্কতামূলক) ধরন ধার্য করা হয়েছে (%s)। এই অনুমোদন প্রদান "
-"করা হয়নি।"
+"%s-র ক্ষেত্রে permissive (সতর্কতামূলক) ধরন ধার্য করা হয়েছে (%s)। এই অনুমোদন "
+"প্রদান করা হয়নি।"
 
 #: ../src/signature.py:384
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr ""
+"SELinux বর্তমান সতর্কতামূলক (permissive) মোডে রয়েছে। এই অনুরোধ প্রত্যাখ্যান"
+" করা হয়নি।"
 
 #: ../src/signature.py:469
 msgid "Additional Information:\n"
-msgstr ""
+msgstr "অতিরিক্ত তথ্য:\n"
 
 #: ../src/signature.py:470
 msgid "Source Context"
@@ -538,11 +543,11 @@ msgstr ""
 
 #: ../src/signature.py:543
 msgid "*"
-msgstr ""
+msgstr "*"
 
 #: ../src/signature.py:544
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../src/signature.py:546
 msgid ""
@@ -573,6 +578,8 @@ msgid ""
 "\n"
 "\n"
 msgstr ""
+"\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -607,7 +614,8 @@ msgstr "SELinux AVC প্রত্যাখ্যান, ক্লিক কর
 
 #: ../src/sealert:106
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SELinux সক্রিয় করা হয়নি, SELinux বিহীন সিস্টেমের মধ্যে sealert চলবে না"
+msgstr ""
+"SELinux সক্রিয় করা হয়নি, SELinux বিহীন সিস্টেমের মধ্যে sealert চলবে না"
 
 #: ../src/sealert:155
 msgid "Not fixable."
@@ -656,15 +664,15 @@ msgstr "সমস্যাসমাধান"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
-msgstr ""
+msgstr "নির্বাচিত সতর্কবার্তার সমস্যাটি সমাধান করুন"
 
 #: ../gui/browser.glade.h:10
 msgid "Delete Selected Alerts"
-msgstr ""
+msgstr "নির্বাচিত সতর্কবার্তাগুলি মুছে ফেলা হবে"
 
 #: ../gui/browser.glade.h:11
 msgid "SETroubleshoot Details Window"
-msgstr ""
+msgstr "SETroubleshoot বিবরণের উইন্ডো"
 
 #: ../gui/browser.glade.h:12
 msgid "SELinux Alert Browser"
@@ -696,15 +704,15 @@ msgstr "সতর্কবার্তামূলক পপ-আপ বন্ধ
 
 #: ../gui/browser.glade.h:19
 msgid "The source process:"
-msgstr ""
+msgstr "উৎসের প্রণালী:"
 
 #: ../gui/browser.glade.h:20
 msgid "Attempted this access:"
-msgstr ""
+msgstr "উল্লিখিত অনুরোধের প্রয়াস করা হয়েছে:"
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
-msgstr ""
+msgstr "চিহ্নিত ফাইলের মধ্যে:"
 
 #: ../gui/browser.glade.h:22
 msgid "label"
@@ -715,10 +723,12 @@ msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
+"সতর্কবার্তার সমস্যা সমাধানের জন্য পড়ুন।  সমাধানের জন্য প্রশাসনিক অধিকার "
+"প্রয়োজন হতে পারে।"
 
 #: ../gui/browser.glade.h:24
 msgid "Notify Admin"
-msgstr ""
+msgstr "অ্যাডমিনকে সূচিত করা হবে"
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
@@ -726,11 +736,11 @@ msgstr "সিস্টেম অ্যাডমিনিস্ট্রেট�
 
 #: ../gui/browser.glade.h:26
 msgid "Details"
-msgstr ""
+msgstr "বিবরণ"
 
 #: ../gui/browser.glade.h:28
 msgid "Ignore alert in the future."
-msgstr ""
+msgstr "ভবিষ্যতে এই সতর্কবার্তা উপেক্ষা করা হবে।"
 
 #: ../gui/browser.glade.h:29
 msgid "Delete current alert from the database."
@@ -759,15 +769,16 @@ msgstr "বাগ রিপোর্ট পর্যালোচনা করে
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
 msgstr ""
-"<span size='large' weight='bold'>বাগ রিপোর্ট পর্যালোচনা করে দায়ের করুন</span>"
+"<span size='large' weight='bold'>বাগ রিপোর্ট পর্যালোচনা করে দায়ের "
+"করুন</span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
 msgstr ""
-"এই বাগ রিপোর্টের সাথে অন্তর্ভুক্ত করার উদ্দেশ্যে চিহ্নিত ত্রুটির আউটপুট পর্যালোচনা করে "
-"সংবেদনশীল তথ্যগুলি নীচে মুছে ফেলা যাবে।"
+"এই বাগ রিপোর্টের সাথে অন্তর্ভুক্ত করার উদ্দেশ্যে চিহ্নিত ত্রুটির আউটপুট "
+"পর্যালোচনা করে সংবেদনশীল তথ্যগুলি নীচে মুছে ফেলা যাবে।"
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
@@ -789,3 +800,5 @@ msgstr "সফল!"
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "বাটন"
+
+
