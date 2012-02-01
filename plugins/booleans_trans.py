@@ -180,7 +180,7 @@ _("If you want to allow unconfined executables to make their stack executable.  
 _("If you want to allow confined virtual guests to manage cifs files")
 _("If you want to allow sasl to read shadow")
 _("If you want to allow ftp servers to upload files,  used for public file transfer services. Directories must be labeled public_content_rw_t.")
-_("If you want to allow vidio playing tools to tun unconfined")
+_("If you want to allow video playing tools to run unconfined")
 _("If you want to allow gssd to read temp directory.  For access to kerberos tgt.")
 _("If you want to allow webadm to manage files in users home directories")
 _("If you want to allow clamd to use JIT compiler")
