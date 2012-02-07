@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Ani Peter <apeter@redhat.com>, 2006, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-27 11:45-0500\n"
-"PO-Revision-Date: 2011-12-06 13:13+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2012-02-01 15:36-0500\n"
+"PO-Revision-Date: 2012-02-03 11:20+0000\n"
+"Last-Translator: Ani Peter <apeter@redhat.com>\n"
 "Language-Team: Malayalam <discuss@lists.smc.org.in>\n"
-"Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ml\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../src/allow_anon_write.py:27
@@ -24,6 +25,10 @@ msgid ""
 "    directory.\n"
 "    "
 msgstr ""
+"\n"
+"    ഒരു പബ്ളിക്ക് ഡയറക്ടറിയിലേക്ക് എഴുതുന്നതില്‍ നിന്നും httpd സ്ക്രിപ്റ്റിനെ SELinux\n"
+"    പോളിസി എതിര്‍ക്കുന്നു.\n"
+"    "
 
 #: ../src/allow_anon_write.py:32
 msgid ""
@@ -33,31 +38,44 @@ msgid ""
 "    could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    ഒരു പബ്ളിക്ക് ഡയറക്ടറിയിലേക്ക് എഴുതുന്നതില്‍ നിന്നും httpd സ്ക്രിപ്റ്റിനെ SELinux\n"
+"    പോളിസി എതിര്‍ക്കുന്നു. പബ്ളിക്ക് ഡയറക്ടറികളിലേക്ക് എഴുതുന്നതിനായി http സജ്ജമല്ല\n"
+"    എങ്കില്‍, ഇതിന് അനുവാദമില്ലാത്ത ഒരു പ്രവര്‍ത്തനം ശ്രമിക്കുന്നതിന് തുല്ല്യമാണ്.\n"
+"    "
 
 #: ../src/allow_anon_write.py:38
 msgid ""
 "\n"
-"    If httpd scripts should be allowed to write to public directories you "
-"need to turn on the $BOOLEAN boolean and change the file context of the "
-"public directory to public_content_rw_t.  Read the httpd_selinux\n"
+"    If httpd scripts should be allowed to write to public directories you need to turn on the $BOOLEAN boolean and change the file context of the public directory to public_content_rw_t.  Read the httpd_selinux\n"
 "    man page for further information:\n"
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"public_content_rw_t <path>\"\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
 msgstr ""
+"\n"
+"    httpd സ്ക്രിപ്റ്റുകള്‍ പബ്ളിക്ക് ഡയറക്ടറിയിലേക്ക് എഴുതുന്നതിനായി അനുവദിക്കണമെങ്കില്‍, \n"
+"$BOOLEAN boolean ഓണ്‍ ചെയ്ത് പബ്ളിക്ക് ഡയറക്ടറിയുടെ ഫയലിന്‍റെ\n"
+"കോണ്‍ട്ടെക്സ്റ്റ് public_content_rw_t എന്ന് മാറ്റേണ്ടതാണ്.  കൂടുതല്‍\n"
+"    വിവരങ്ങള്‍ക്കായി httpd_selinux man പേജ് വായിക്കുക:\n"
+"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
+"    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
 "you want to allow $SOURCE_PATH to be able to write to shared public content"
 msgstr ""
+"പങ്കിടുന്ന പബ്ലിക് ഉള്ളടക്കത്തിലേക്കു് സൂക്ഷിയ്ക്കുവാന്‍ നിങ്ങള്‍ "
+"$SOURCE_PATH-നെ അനുവദിയ്ക്കേണ്ടതുണ്ടു്"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
 msgstr ""
+"$TARGET_PATH-ലുള്ള ലേബലിനെ public_content_rw_t-ലേക്കു് മാറ്റേണ്ടതുണ്ടു്, "
+"കൂടാതെ allow_httpd_sys_script_anon_write boolean ഓണ്‍ ചെയ്യുകയും വേണം."
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -66,24 +84,37 @@ msgid ""
 "    protection of memory on the heap.\n"
 "    "
 msgstr ""
+"\n"
+"    ഹീപ്പിലുളള മെമ്മറി സുരക്ഷയ്ക്കുളള അനുമതി മാറ്റുന്നതില്‍ നിന്നും $SOURCE_PATH-നെ\n"
+"    SELinux എതിര്‍ക്കുന്നു.\n"
+"    "
 
 #: ../src/allow_execheap.py:32
 msgid ""
 "\n"
-"    The $SOURCE application attempted to change the access protection of "
-"memory on\n"
+"    The $SOURCE application attempted to change the access protection of memory on\n"
 "    the heap (e.g., allocated using malloc).  This is a potential security\n"
 "    problem.  Applications should not be doing this. Applications are\n"
 "    sometimes coded incorrectly and request this permission.  The\n"
-"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux "
-"Memory Protection Tests</a>\n"
-"    web page explains how to remove this requirement.  If $SOURCE does not "
-"work and\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n"
+"    web page explains how to remove this requirement.  If $SOURCE does not work and\n"
 "    you need it to work, you can configure SELinux temporarily to allow\n"
 "    this access until the application is fixed. Please file a bug\n"
 "    report against this package.\n"
 "    "
 msgstr ""
+"\n"
+"    ഹീപ്പിലുളള മെമ്മറിയിലേക്കുളള (ഉദാ., malloc ഉപയോഗിച്ച് ഉണ്ടാക്കിയവ) പ്രവേശനം സുരക്ഷാസംവിധാനം\n"
+"    മാറ്റുന്നതിനായി $SOURCE ആപ്ളിക്കേഷന്‍ ശ്രമിച്ചിരിക്കുന്നു.  ഇത് സുരക്ഷ\n"
+"    സംബന്ധിച്ചുളള ഒരു വളരെ പ്രധാന പ്രശ്നമാണ്. മിക്ക ലൈബ്രറികള്‍ക്കും ഈ പെര്‍മിഷന്‍റെ ആവശ്യമില്ല.\n"
+"    ചിലപ്പോള്‍ ലൈബ്രറികള്‍ തെറ്റായി കോഡ് ചെയ്യുന്പോള്‍ മാത്രം ഈ പെര്‍മിഷനായി ആവശ്യപ്പെടുന്നു.\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux മെമ്മറി പ്രൊട്ടെക്ഷന്‍ ടെസ്റ്റ്</a>\n"
+"    വെബ് പേജ് ഈ ആവശ്യം എങ്ങനെ ഒഴിവാക്കണമെന്ന് വ്യക്തമാക്കുന്നു.  ആപ്ളിക്കേഷന്‍ ശരിയാക്കുന്നത്\n"
+"വരെ, നിങ്ങള്‍ക്ക് അഥവാ\n"
+"   $SOURCE ഉപയോഗിക്കണമെങ്കില്‍ (അത് പ്രവര്‍ത്തിക്കുന്നില്ലെങ്കില്‍)\n"
+"    താല്‍ക്കാലികമായി SELinux ക്രമികരിക്കാവുന്നതാണ്. ഈ പാക്കേജിന് എതിരെ ഒരു \n"
+"    ബഗ് രേഖപ്പെടുത്തുക.\n"
+"    "
 
 #: ../src/allow_execheap.py:44
 msgid ""
@@ -93,16 +124,23 @@ msgid ""
 "    on the system.\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങള്‍ക്ക് $SOURCE തുടരണമെങ്കില്‍, നിങ്ങള്‍ $BOOLEAN boolean\n"
+"    പ്രവര്‍ത്തിപ്പിക്കേണ്ടതാണ്.  കുറിപ്പ്: ഈ boolean ഈ സിസ്റ്റമിലുളള എല്ലാ പ്രയോഗങ്ങളിലും\n"
+"    ബാധകമാകുന്നു.\n"
+"    "
 
 #: ../src/allow_execheap.py:50
 msgid ""
 "you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
 msgstr ""
+"എഴുതുവാനും പ്രവര്‍ത്തിപ്പിയ്ക്കുവാനും സാധ്യമാകുന്ന ഹീപ്പ് മെമ്മറി മാപ്പ് "
+"ചെയ്യുവാന്‍ $SOURCE_PATH-ന്റെ ആവശ്യമില്ലെന്നു് കരുതുന്നു."
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
-msgstr ""
+msgstr "ബഗ് രേഖപ്പെടുത്തേണ്ടതുണ്ടു്. "
 
 #: ../src/allow_execheap.py:52 ../src/allow_execstack.py:89
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
@@ -110,14 +148,18 @@ msgstr ""
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
 msgid "Contact your security administrator and report this issue."
 msgstr ""
+"നിങ്ങളുടെ സിസ്റ്റം അഡ്മിനിസ്ട്രേറ്ററുമായി ബന്ധപ്പെട്ടു്, ഈ പ്രശ്നം "
+"രേഖപ്പെടുത്തുക."
 
 #: ../src/allow_execmod.py:29
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH from loading $TARGET_PATH which "
-"requires text relocation.\n"
+"    SELinux is preventing $SOURCE_PATH from loading $TARGET_PATH which requires text relocation.\n"
 "    "
 msgstr ""
+"\n"
+"    ടെക്സ്റ്റ് റിലോക്കേഷന്‍ ആവശ്യമുളള $TARGET_PATH തുടങ്ങുന്നതില്‍ നിന്നും $SOURCE_PATH-നെ SELinux എതിര്‍ക്കുന്നു.\n"
+"    "
 
 #: ../src/allow_execmod.py:33
 msgid ""
@@ -126,14 +168,24 @@ msgid ""
 "    requires text relocation.  This is a potential security problem.\n"
 "    Most libraries do not need this permission. Libraries are\n"
 "    sometimes coded incorrectly and request this permission.  The\n"
-"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux "
-"Memory Protection Tests</a>\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n"
 "    web page explains how to remove this requirement.  You can configure\n"
 "    SELinux temporarily to allow $TARGET_PATH to use relocation as a\n"
 "    workaround, until the library is fixed. Please file a \n"
 "bug report.\n"
 "    "
 msgstr ""
+"\n"
+"    ടെക്സ്റ്റിന്‍റെ സ്ഥാനം മാറ്റുന്നതിന് ആവശ്യമുളള $TARGET_PATH ലോഡ് ചെയ്യുന്നതിനായി\n"
+"    $SOURCE ആപ്ളിക്കേഷന്‍ ശ്രമിച്ചിരിക്കുന്നു.  ഇത് സുരക്ഷ സംബന്ധിച്ചുളള ഒരു \n"
+"    വളരെ പ്രധാന പ്രശ്നമാണ്. മിക്ക ലൈബ്രറികള്‍ക്കും ഈ പെര്‍മിഷന്‍റെ ആവശ്യമില്ല. ചിലപ്പോള്‍\n"
+"    ലൈബ്രറികള്‍ തെറ്റായി കോഡ് ചെയ്യുന്പോള്‍ മാത്രം ഈ പെര്‍മിഷനായി ആവശ്യപ്പെടുന്നു.\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux മെമ്മറി പ്രൊട്ടെക്ഷന്‍ ടെസ്റ്റ്</a>\n"
+"    വെബ് പേജ് ഈ ആവശ്യം എങ്ങനെ ഒഴിവാക്കണമെന്ന് വ്യക്തമാക്കുന്നു.  ലൈബ്രറി ശരിയാക്കുന്നത്\n"
+"    വരെ, നിങ്ങള്‍ക്ക് റിലോക്കേഷന്‍ ഉപയോഗിക്കുന്നത് $TARGET_PATH-നെ അനുവദിക്കുന്നതിനായി\n"
+"    താല്‍ക്കാലികമായി SELinux ക്രമികരിക്കാവുന്നതാണ്. ഈ പാക്കേജിന് എതിരെ ഒരു \n"
+"ബഗ് രേഖപ്പെടുത്തുക.\n"
+"    "
 
 #: ../src/allow_execmod.py:45
 msgid ""
@@ -143,18 +195,27 @@ msgid ""
 "    Most libraries should not need this permission.   The   \n"
 "    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">\n"
 "    SELinux Memory Protection Tests</a>\n"
-"    web page explains this check.  This tool examined the library and it "
-"looks \n"
-"    like it was built correctly. So setroubleshoot can not determine if "
-"this \n"
-"    application is compromized or not.  This could be a serious issue. "
-"Your \n"
+"    web page explains this check.  This tool examined the library and it looks \n"
+"    like it was built correctly. So setroubleshoot can not determine if this \n"
+"    application is compromized or not.  This could be a serious issue. Your \n"
 "    system may very well be compromised.\n"
 "\n"
 "    Contact your security administrator and report this issue.\n"
 "\n"
 "    "
 msgstr ""
+"\n"
+"    ടെക്സ്റ്റിന്‍റെ സ്ഥാനം മാറ്റുന്നതിന് ആവശ്യമുളള $TARGET_PATH ലോഡ് ചെയ്യുന്നതിനായി\n"
+"    $SOURCE ആപ്ളിക്കേഷന്‍ ശ്രമിച്ചിരിക്കുന്നു.  ഇത് സുരക്ഷ സംബന്ധിച്ചുളള ഒരു \n"
+"    വളരെ പ്രധാന പ്രശ്നമാണ്. മിക്ക ലൈബ്രറികള്‍ക്കും ഈ പെര്‍മിഷന്‍റെ ആവശ്യമില്ല. ചിലപ്പോള്‍\n"
+"    ലൈബ്രറികള്‍ തെറ്റായി കോഡ് ചെയ്യുന്പോള്‍ മാത്രം ഈ പെര്‍മിഷനായി ആവശ്യപ്പെടുന്നു.\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux മെമ്മറി പ്രൊട്ടെക്ഷന്‍ ടെസ്റ്റ്</a>\n"
+"    വെബ് പേജ് ഈ ആവശ്യം എങ്ങനെ ഒഴിവാക്കണമെന്ന് വ്യക്തമാക്കുന്നു.  ലൈബ്രറി ശരിയാക്കുന്നത്\n"
+"    വരെ, നിങ്ങള്‍ക്ക് റിലോക്കേഷന്‍ ഉപയോഗിക്കുന്നത് $TARGET_PATH-നെ അനുവദിക്കുന്നതിനായി\n"
+"    താല്‍ക്കാലികമായി SELinux ക്രമികരിക്കാവുന്നതാണ്. ഈ പാക്കേജിന് എതിരെ ഒരു \n"
+"   <a href=\"http://bugzilla.redhat.com/bugzilla/enter_bug.cgi\">ബഗ് റിപ്പോര്‍ട്ട്</a>\n"
+"    തയ്യാറാക്കുക.\n"
+"    "
 
 #: ../src/allow_execmod.py:62
 msgid ""
@@ -162,20 +223,27 @@ msgid ""
 "    If you trust $TARGET_PATH to run correctly, you can change the\n"
 "    file context to textrel_shlib_t. \"chcon -t textrel_shlib_t\n"
 "    '$TARGET_PATH'\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"textrel_shlib_t '$FIX_TARGET_PATH'\"\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH ശരിയായി പ്രവര്‍ത്തിപ്പിക്കുവാന്‍ സാധ്യമെന്ന് ഉറപ്പെങ്കില്‍\n"
+"     ഫയല്‍ കോണ്‍ട്ടെക്സ്റ്റ് textrel_shlib_t എന്ന് മാറ്റുക. \"chcon -t textrel_shlib_t\n"
+"    $TARGET_PATH\"\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n"
+"    \n"
+"    "
 
 #: ../src/allow_execstack.py:53
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH from making the program stack "
-"executable.\n"
+"    SELinux is preventing $SOURCE_PATH from making the program stack executable.\n"
 "    "
 msgstr ""
+"\n"
+"    പ്രോഗ്രാം സ്റ്റാക്ക് പ്രവര്‍ത്തിപ്പിക്കുന്നതില്‍ നിന്നും $SOURCE_PATH-നെ SELinux എതിര്‍ക്കുന്നു.\n"
+"    "
 
 #: ../src/allow_execstack.py:57
 msgid ""
@@ -187,15 +255,24 @@ msgid ""
 "    is one of the biggest security problems. An execstack error might\n"
 "    in fact be most likely raised by malicious code. Applications are\n"
 "    sometimes coded incorrectly and request this permission.  The\n"
-"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux "
-"Memory Protection Tests</a>\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n"
 "    web page explains how to remove this requirement.  If $SOURCE does not\n"
 "    work and you need it to work, you can configure SELinux\n"
-"    temporarily to allow this access until the application is fixed. "
-"Please \n"
+"    temporarily to allow this access until the application is fixed. Please \n"
 "file a bug report.\n"
 "    "
 msgstr ""
+"\n"
+"    സ്റ്റാക്ക് പ്രവര്‍ത്തിപ്പിക്കുന്നതിനായി $SOURCE ആപ്ളിക്കേഷന്‍ ശ്രമിച്ചിരിക്കുന്നു.\n"
+"    ഇത് സുരക്ഷ സംബന്ധിച്ചുളള ഒരു വളരെ പ്രധാന പ്രശ്നമാണ്. ഇത് ഒരിക്കലും ആവശ്യമായി\n"
+"    വന്നിട്ടില്ല. മിക്ക OS-കളിലും സ്റ്റാക്ക് മെമ്മറി ഉപയോഗിക്കുവാന്‍ സാധ്യമല്ല, അതിനാല്‍\n"
+"    മാറ്റുകയുമില്ല. പ്രവര്‍ത്തിക്കുന്ന സ്റ്റാക്ക് മെമ്മറി ഒരു വലിയ സുരക്ഷാ പ്രശ്നമാണ്. തെറ്റായി കോഡ്     കാരണം, ഒരു execstack പിഴവ് സംഭവിക്കാവുന്നതാണ്. ആപ്ളിക്കേഷന്‍ ചിലപ്പോള്‍ തെറ്റായ കോഡ്     ഉപയോഗിച്ച് ഈ പെര്‍മിഷനായി ആവശ്യപ്പെടുന്നു.\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux മെമ്മറി പ്രൊട്ടെക്ഷന്‍ ടെസ്റ്റ്</a>\n"
+"    വെബ് പേജ് ഈ ആവശ്യം എങ്ങനെ ഒഴിവാക്കണമെന്ന് വ്യക്തമാക്കുന്നു.  ആപ്ളിക്കേഷന്‍ ശരിയാക്കുന്നത്\n"
+"    വരെ, നിങ്ങള്‍ക്ക് അഥവാ $SOURCE ഉപയോഗിക്കണമെങ്കില്‍ (അത് പ്രവര്‍ത്തിക്കുന്നില്ലെങ്കില്‍)\n"
+"    താല്‍ക്കാലികമായി SELinux ക്രമികരിക്കാവുന്നതാണ്. ദയവായി\n"
+"ഈ പാക്കേജിന് എതിരെ ഒരു ബഗ് രേഖപ്പെടുത്തുക.\n"
+"    "
 
 #: ../src/allow_execstack.py:72
 msgid ""
@@ -208,24 +285,37 @@ msgid ""
 "    run correctly, you can change the context of the executable to\n"
 "    execmem_exec_t. \"chcon -t execmem_exec_t\n"
 "    '$SOURCE_PATH'\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"execmem_exec_t '$FIX_SOURCE_PATH'\"\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t execmem_exec_t '$FIX_SOURCE_PATH'\"\n"
 "    \n"
 "    "
 msgstr ""
+"\n"
+"    ചിലപ്പോള്‍ ഒരു ലൈബ്രറി execstack ഫ്ളാഗ് എന്ന് തെറ്റായി അടയാളപ്പെടുത്തിയിരിക്കാം,\n"
+"    execstack -c LIBRARY_PATH ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക് ആ ഫ്ളാഗ്\n"
+"    വെടിപ്പാക്കാവുന്നതാണ്.  ശേഷം ആപ്ളിക്കേഷന്‍ വീണ്ടും ശ്രമിക്കുക. എന്നിട്ടും ആപ്ളിക്കേഷന്‍\n"
+"    പ്രവര്‍ത്തിച്ചില്ലായെങ്കില്‍, നിങ്ങള്‍ക്ക് execstack -s LIBRARY_PATH ഉപയോഗിച്ച് ഫ്ളാഗ്         നിങ്ങള്‍ക്ക് തിരികെ ഓണ്‍ ചെയ്യാവുന്നതാണ്.  അല്ലെങ്കില്‍, നിങ്ങള്‍ക്ക് $SOURCE\n"
+"    ശരിയായി പ്രവര്‍ത്തിപ്പാക്കാമെങ്കില്‍, എക്സിക്യൂട്ടബിളിന്‍റെ കോണ്‍ട്ടെക്സ്റ്റ്\n"
+"     execmem_exec_t. \"chcon -t execmem_exec_t\n"
+"    '$SOURCE_PATH'\" എന്നു് മാറ്റുവാന്‍ സാധിക്കുന്നു \n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t execmem_exec_t '$FIX_SOURCE_PATH'\"\n"
+"    \n"
+"    "
 
 #: ../src/allow_execstack.py:87
 msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
 msgstr ""
+"എഴുതുവാനും പ്രവര്‍ത്തിപ്പിയ്ക്കുവാനും സാധ്യമാകുന്ന സ്റ്റാക്ക് മെമ്മറി മാപ്പ്"
+" ചെയ്യുവാന്‍ $SOURCE_PATH-ന്റെ ആവശ്യമില്ലെന്നു് കരുതുന്നു."
 
 #: ../src/allow_execstack.py:88
 msgid ""
 "you need to report a bug. \n"
 "This is a potentially dangerous access."
 msgstr ""
+"ബഗ് രേഖപ്പെടുത്തേണ്ടതുണ്ടു്. \n"
+"ഇതു് അപകടകരമാണു്."
 
 #: ../src/allow_execstack.py:97
 #, python-format
@@ -234,47 +324,63 @@ msgid ""
 "%s\n"
 "should not require execstack"
 msgstr ""
+"%s-നു് execstack\n"
+"ആവശ്യമുണ്ടെന്നു്\n"
+"കരുതുന്നു"
 
 #: ../src/allow_execstack.py:106
 #, python-format
 msgid ""
-"you should clear the execstack flag and see if $SOURCE_PATH works "
-"correctly.\n"
+"you should clear the execstack flag and see if $SOURCE_PATH works correctly.\n"
 "Report this as a bug on %s.\n"
 "You can clear the exestack flag by executing:"
 msgstr ""
+"നിങ്ങള്‍ execstack ഫ്ലാഗ് വെടിപ്പാക്കി, $SOURCE_PATH ശരിയായി പ്രവര്‍ത്തിയ്ക്കുന്നു എന്നുറപ്പാക്കുക.\n"
+"%s-ല്‍ ഇതൊരു ബഗായി രേഖപ്പെടുത്തുക.\n"
+"ഇപ്രകാരം നിങ്ങള്‍ക്കു് exestack ഫ്ലാഗ് വെടിപ്പാക്കാം:"
 
 #: ../src/allow_execstack.py:116
 #, python-format
 msgid "execstack -c %s"
-msgstr ""
+msgstr "execstack -c %s"
 
 #: ../src/allow_ftpd_use_cifs.py:29
 msgid ""
 "\n"
-"    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS "
-"filesystem.\n"
+"    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.\n"
 "    "
 msgstr ""
+"\n"
+"    CIFS ഫയല്‍ സിസ്റ്റത്തിലുള്ള $ACCESS ഫയലുകളിലേക്ക് ftp ഡെമണിനെ SELinux സമ്മതിക്കുന്നില്ല.\n"
+"    "
 
 #: ../src/allow_ftpd_use_cifs.py:33
 msgid ""
 "\n"
-"    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS "
-"filesystem.\n"
+"    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.\n"
 "    CIFS (Comment Internet File System) is a network filesystem similar to\n"
-"    SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www."
-"microsoft.com/mind/1196/cifs.asp</a>)\n"
+"    SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www.microsoft.com/mind/1196/cifs.asp</a>)\n"
 "    The ftp daemon attempted to read one or more files or directories from\n"
 "    a mounted filesystem of this type.  As CIFS filesystems do not support\n"
 "    fine-grained SELinux labeling, all files and directories in the\n"
 "    filesystem will have the same security context.\n"
 "    \n"
-"    If you have not configured the ftp daemon to read files from a CIFS "
-"filesystem\n"
+"    If you have not configured the ftp daemon to read files from a CIFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    CIFS ഫയല്‍ സിസ്റ്റമിലുളള $ACCESS ഫയലുകളിലേക്ക് ftp ഡെമണിനെ SELinux സമ്മതിക്കുന്നില്ല.\n"
+"    SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www.microsoft.com/mind/1196/cifs.asp</a>) പോലൊരു നെറ്റ് വര്‍ക്ക് ഫയല്‍ സിസ്റ്റമാണ്\n"
+"    CIFS (കോമണ്‍ ഇന്‍റര്‍നെറ്റ് ഫയല്‍ സിസ്റ്റം)\n"
+"    ഈ തരത്തിലുളള ഒരു മൌണ്ട് ചെയ്ത ഫയല്‍ സിസ്റ്റമിലുളള ഫയല്‍ അതോ ഡയറക്ടറി വായിക്കുവാന്‍\n"
+"    ftp ഡെമണ്‍ ശ്രമിക്കുന്നു.  CIFS ഫയല്‍ സിസ്റ്റം സൂക്ഷമമായ SELinux ലേബലിങ്\n"
+"    പിന്തുണയ്ക്കാത്തതിനാല്‍, ഫയല്‍ സിസ്റ്റമിലുളള എല്ലാ ഫയലും ഡയറക്ടറികള്‍ക്കും ഒരേ സെര്യൂരിറ്റി\n"
+"    കോണ്‍ട്ടെക്സ്റ്റ് ആണ്.\n"
+"    \n"
+"    ഒരു CIFS ഫയല്‍ സിസ്റ്റമില്‍ നിന്നും ftp ഡെമണ്‍ ഫയലുകള്‍ വായിക്കുന്നതിനായി ക്രമികരിച്ചിട്ടില്ല എങ്കില്‍\n"
+"ഈ ശ്രമം തെറ്റായ ഒരു പ്രവര്‍ത്തി ആയി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/allow_ftpd_use_cifs.py:46
 msgid ""
@@ -283,6 +389,10 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1.\"\n"
 "    "
 msgstr ""
+"\n"
+"    \"$BOOLEAN\" boolean true ആയി മാറ്റിയാല്‍ ഇതിന് അനുവദിക്കുന്നു:\n"
+"    \"setsebool -P $BOOLEAN=1.\"\n"
+"    "
 
 #: ../src/allow_ftpd_use_cifs.py:53
 msgid ""
@@ -294,30 +404,40 @@ msgid ""
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on CIFS filesystems.  "
 msgstr ""
+" \"$BOOLEAN\", \"$WRITE_BOOLEAN\"\n"
+"    എന്നീ boolean true ആക്കിയാല്‍ ഇതിനുളള അനുമതി ലഭിക്കുന്നു:\n"
+"    \"setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1\".\n"
+"    മുന്നറിയിപ്പ്: \"$WRITE_BOOLEAN\" boolean true ആക്കിയാല്‍\n"
+"    CIFS ഫയല്‍ സിസ്റ്റമുകളിലുളള ഫയലുകളിലും ഡയറക്ടറികളിലും എഴുതുന്നത്\n"
+"    കൂടാതെ, എല്ലാ പബ്ളിക് കണ്‍ട്ടെറ്റിലേക്കും (public_content_t ടൈപ്പിലുളള\n"
+"    ഫയലുകളും ഡയറക്ടറികളും) എഴുതുന്നതിനായി ftp ഡെമണിനെ\n"
+"    അനുവദിക്കുന്നു.  "
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
 msgstr ""
+"cifs ഫയല്‍ സിസ്റ്റങ്ങളിലേക്കു് സൂക്ഷിയ്ക്കുന്നതിനായി നിങ്ങള്‍ ftpd "
+"അനുവദിയ്ക്കേണ്ടതുണ്ടു്"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
-msgstr ""
+msgstr "SELinux-നെ ഇതിനെപ്പറ്റി അറിയിയ്ക്കുക"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
 "\n"
-"    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS "
-"filesystem.\n"
+"    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS filesystem.\n"
 "    "
 msgstr ""
+"\n"
+"    NFS ഫയല്‍ സിസ്റ്റത്തിലുള്ള $ACCESS ഫയലുകളിലേക്ക് ftp ഡെമണിനെ SELinux സമ്മതിക്കുന്നില്ല.\n"
+"    "
 
 #: ../src/allow_ftpd_use_nfs.py:33
 msgid ""
 "\n"
-"    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS "
-"filesystem.\n"
-"    NFS (Network Filesystem) is a network filesystem commonly used on Unix / "
-"Linux\n"
+"    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS filesystem.\n"
+"    NFS (Network Filesystem) is a network filesystem commonly used on Unix / Linux\n"
 "    systems.\n"
 "    \n"
 "    The ftp daemon attempted to read one or more files or directories from\n"
@@ -325,20 +445,34 @@ msgid ""
 "    fine-grained SELinux labeling, all files and directories in the\n"
 "    filesystem will have the same security context.\n"
 "    \n"
-"    If you have not configured the ftp daemon to read files from a NFS "
-"filesystem\n"
+"    If you have not configured the ftp daemon to read files from a NFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    NFS ഫയല്‍ സിസ്റ്റമിലുളള $ACCESS ഫയലുകളിലേക്ക് ftp ഡെമണിനെ SELinux സമ്മതിക്കുന്നില്ല.\n"
+"    NFS (നെറ്റ് വര്‍ക്ക് സിസ്റ്റം) Unix / Linux സിസ്റ്റമുകളില്‍ ഉപയോഗിക്കുന്ന ഒരു നെറ്റ് വര്‍ക്ക് ഫയല്‍ സിസ്റ്റം ആണ്.\n"
+"    \n"
+"    ഈ തരത്തിലുളള ഒരു മൌണ്ട് ചെയ്ത ഫയല്‍ സിസ്റ്റമിലുളള ഫയല്‍ അതോ ഡയറക്ടറി വായിക്കുവാന്‍\n"
+"    ftp ഡെമണ്‍ ശ്രമിക്കുന്നു.  NFS ഫയല്‍ സിസ്റ്റം സൂക്ഷമമായ SELinux ലേബലിങ്\n"
+"    പിന്തുണയ്ക്കാത്തതിനാല്‍, ഫയല്‍ സിസ്റ്റമിലുളള എല്ലാ ഫയലും ഡയറക്ടറികള്‍ക്കും ഒരേ സെര്യൂരിറ്റി\n"
+"    കോണ്‍ട്ടെക്സ്റ്റ് ആണ്.\n"
+"    \n"
+"    ഒരു NFS ഫയല്‍ സിസ്റ്റമില്‍ നിന്നും ftp ഡെമണ്‍ ഫയലുകള്‍ വായിക്കുന്നതിനായി ക്രമികരിച്ചിട്ടില്ല എങ്കില്‍\n"
+"ഈ ശ്രമം തെറ്റായ ഒരു പ്രവര്‍ത്തി ആയി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/allow_ftpd_use_nfs.py:47
 msgid ""
 "\n"
-"    Changing the \"allow_ftpd_use_nfs\" boolean to true will allow this "
-"access:\n"
+"    Changing the \"allow_ftpd_use_nfs\" boolean to true will allow this access:\n"
 "    \"setsebool -P allow_ftpd_use_nfs=1.\"\n"
 "    "
 msgstr ""
+"\n"
+"    \"allow_ftpd_use_nfs\" boolean true ആക്കി മാറ്റിയാല്‍ ഇതിന് അനുവദിക്കുന്നു:\n"
+"    \"setsebool -P allow_ftpd_use_nfs=1.\"\n"
+"    "
 
 #: ../src/allow_ftpd_use_nfs.py:54
 msgid ""
@@ -350,18 +484,30 @@ msgid ""
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
 msgstr ""
+" \"allow_ftpd_use_nfs\",\"$WRITE_BOOLEAN\"\n"
+"    എന്നീ boolean true ആക്കിയാല്‍ ഇതിനുളള അനുമതി ലഭിക്കുന്നു:\n"
+"    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n"
+"    മുന്നറിയിപ്പ്: \"$WRITE_BOOLEAN\" boolean true ആക്കിയാല്‍\n"
+"    NFS ഫയല്‍ സിസ്റ്റമുകളിലുളള ഫയലുകളിലും ഡയറക്ടറികളിലും എഴുതുന്നത്\n"
+"    കൂടാതെ, എല്ലാ പബ്ളിക് കണ്‍ട്ടെറ്റിലേക്കും (public_content_t ടൈപ്പിലുളള\n"
+"    ഫയലുകളും ഡയറക്ടറികളും) എഴുതുന്നതിനായി ftp ഡെമണിനെ\n"
+"    അനുവദിക്കുന്നു.  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
 msgstr ""
+"nfs ഫയല്‍ സിസ്റ്റങ്ങളിലേക്കു് സൂക്ഷിയ്ക്കുന്നതിനായി നിങ്ങള്‍ ftpd "
+"അനുവദിയ്ക്കേണ്ടതുണ്ടു്"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
 "\n"
-"    SELinux is preventing the $SOURCE_PATH from executing potentially "
-"mislabeled files $TARGET_PATH.\n"
+"    SELinux is preventing the $SOURCE_PATH from executing potentially mislabeled files $TARGET_PATH.\n"
 "    "
 msgstr ""
+"\n"
+"    തെറ്റായ ലേബലുകളുളള ഫയലുകള്‍ $TARGET_PATH ഉപയോഗിക്കുന്നതില്‍ നിന്നും $SOURCE_PATH-നെ SELinux തടയുന്നു .\n"
+"    "
 
 #: ../src/automount_exec_config.py:31
 msgid ""
@@ -370,21 +516,26 @@ msgid ""
 "    mislabeled files $TARGET_PATH.  Automounter can be setup to execute\n"
 "    configuration files. If $TARGET_PATH is an automount executable\n"
 "    configuration file it needs to have a file label of bin_t.\n"
-"    If automounter is trying to execute something that it is not supposed "
-"to, this could indicate an intrusion attempt.\n"
+"    If automounter is trying to execute something that it is not supposed to, this could indicate an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    തെറ്റായ ലേബലുകളുളള ഫയലുകള്‍ $TARGET_PATH ഉപയോഗിക്കുന്നതില്‍ നിന്നും\n"
+"    $SOURCE_PATH-നെ SELinux തടയുന്നു.  കോണ്‍ഫിഗറേഷന്‍ ഫയലുകള്‍ പ്രവര്‍ത്തിക്കുന്നതിനായി\n"
+"    ഓട്ടോമൌണ്ടര്‍ ക്രമികരിക്കുവാന്‍ സാധ്യമാണ്. $TARGET_PATH ഒരു automount എക്സിക്ക്യൂട്ടബിള്‍\n"
+"    കോണ്‍ഫിഗറേഷന്‍ ഫയല്‍ ആണ് എങ്കില്‍, അതിന് bin_t എന്ന ഫയല്‍ ലേബല്‍ ഉണ്ടാകേണ്ടതാണ്.\n"
+"    പാടില്ലാത്ത പ്രവര്‍ത്തി എന്തെങ്കിലും ആണ് ഓട്ടോമൌണ്ടറ്‍ ചെയ്യുവാന്‍ ശ്രമിക്കുന്നത് എങ്കില്‍, അത് തെറ്റായ ഒരു പ്രക്രിയ ആയി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/automount_exec_config.py:39
 msgid ""
 "\n"
-"    If you want to change the file context of $TARGET_PATH so that the "
-"automounter can execute it you can execute \"chcon -t bin_t $TARGET_PATH\".  "
-"If you want this to survive a relabel, you need to permanently change the "
-"file context: execute  \"semanage fcontext -a -t bin_t "
-"'$FIX_TARGET_PATH'\".\n"
+"    If you want to change the file context of $TARGET_PATH so that the automounter can execute it you can execute \"chcon -t bin_t $TARGET_PATH\".  If you want this to survive a relabel, you need to permanently change the file context: execute  \"semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\".\n"
 "    "
 msgstr ""
+"\n"
+"    ഓട്ടോമൌണ്ടര്‍ പ്രവര്‍ത്തിയ്ക്കുന്നതിനായി $TARGET_PATH-ന്റെ ഫയല്‍ കോണ്‍ട്ടെക്സ്റ്റ് മാറ്റണമെങ്കില്‍, നിങ്ങള്‍ക്ക് chcon -t bin_t.$TARGET_PATH പ്രവര്‍ത്തിപ്പിക്കാവുന്നതാണ്.  നിങ്ങള്‍ക്ക് ഇതിനു് വീണ്ടും ഒരു ലേബല്‍ നല്‍കണമെങ്കില്‍, നിങ്ങള്‍ എന്നേക്കുമായി ഫയല്‍ കോണ്‍ട്ടെക്സ്റ്റ് മാറ്റേണ്ടതാണു്,  \"semanage fcontext -a -t bin_t $FIX_TARGET_PATH\" പ്രവര്‍ത്തിപ്പിക്കുക.\n"
+"    "
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -392,29 +543,36 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH from binding to port $PORT_NUMBER.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE_PATH-നെ പോര്‍ട്ട് $PORT_NUMBER-ലേക്ക് കൂട്ടി ചേര്‍ക്കുന്നതില്‍ നിന്നും SELinux തടയുന്നു.\n"
+"    "
 
 #: ../src/bind_ports.py:31
 #, python-format
 msgid ""
 "\n"
-"    SELinux has denied the $SOURCE from binding to a network port "
-"$PORT_NUMBER which does not have an SELinux type associated with it.\n"
-"    If $SOURCE should be allowed to listen on $PORT_NUMBER, use the "
-"<i>semanage</i> command to assign $PORT_NUMBER to a port type that "
-"$SOURCE_TYPE can bind to (%s). \n"
+"    SELinux has denied the $SOURCE from binding to a network port $PORT_NUMBER which does not have an SELinux type associated with it.\n"
+"    If $SOURCE should be allowed to listen on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can bind to (%s). \n"
 "    \n"
 "\n"
 "If $SOURCE is not supposed\n"
 "    to bind to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux തരമില്ലാത്ത നെറ്റ്‌വര്‍ക്ക് പോര്‍ട്ട് $PORT_NUMBER-ലേക്ക് $SOURCE-നെ ബൈന്‍ഡ് ചെയ്യുന്നതില്‍ നിന്നും തടയുന്നു.\n"
+"    $SOURCE-നു് $PORT_NUMBER-ല്‍ പ്രവര്‍ത്തിക്കണമെങ്കില്‍, <i>semanage</i> കമാന്‍ഡ് ഉപയോഗിച്ചു് $SOURCE_TYPE-നു് ബൈന്‍ഡ് ചെയ്യുവാന്‍ സാധിക്കുന്ന പോര്‍ട്ട് തരത്തിലുള്ളതിനു് $PORT_NUMBER നല്‍കുക (%s). \n"
+"    \n"
+"\n"
+"$SOURCE $PORT_NUMBER-ലേക്ക് ബൈന്‍ഡ് ചെയ്യേണ്ടെങ്കില്‍,\n"
+"    ഇതു് തെറ്റായൊരു പ്രക്രിയയായി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/bind_ports.py:38
 #, python-format
 msgid ""
 "\n"
-"    If you want to allow $SOURCE to bind to port $PORT_NUMBER, you can "
-"execute \n"
+"    If you want to allow $SOURCE to bind to port $PORT_NUMBER, you can execute \n"
 "\n"
 "    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "    \n"
@@ -422,10 +580,19 @@ msgid ""
 "\n"
 "    \n"
 "\n"
-"If this system is running as an NIS Client, turning on the allow_ypbind "
-"boolean may fix the problem.  setsebool -P allow_ypbind=1.\n"
+"If this system is running as an NIS Client, turning on the allow_ypbind boolean may fix the problem.  setsebool -P allow_ypbind=1.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE $PORT_NUMBER പോര്‍ട്ടിലേക്ക് ബൈന്‍ഡ് ചെയ്യുന്നതു് അനുവദിക്കണമെങ്കില്‍, ചെയ്യേണ്ടതു് \n"
+"\n"
+"    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
+"    ഇവിടെ PORT_TYPE ഇതിലൊന്നാണു്: %s.\n"
+"\n"
+"    \n"
+"\n"
+"ഈ സിസ്റ്റം NIS ക്ലൈന്റായി പ്രവര്‍ത്തുക്കുന്നെങ്കില്‍, allow_ypbind ബൂളിയന്‍ ഓണാക്കുന്നതു് പ്രശ്നം പരിഹരിക്കുന്നു.  setsebool -P allow_ypbind=1.\n"
+"    "
 
 #: ../src/bind_ports.py:51 ../src/connect_ports.py:50
 #, python-format
@@ -433,6 +600,8 @@ msgid ""
 "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "    where PORT_TYPE is one of the following: %s."
 msgstr ""
+"#semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b>\n"
+"    <br>ഇവിടെ PORT_TYPE ഇവയിലൊന്നാണു്: %s."
 
 #: ../src/catchall_boolean.py:32
 msgid ""
@@ -440,6 +609,9 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access on $TARGET_PATH.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE_PATH \"$ACCESS\" $TARGET_PATH-ലേക്കുളള പ്രവേശനം SELinux തടയുന്നു. \n"
+"    "
 
 #: ../src/catchall_boolean.py:36
 msgid ""
@@ -447,32 +619,43 @@ msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. The current boolean \n"
 "    settings do not allow this access.  If you have not setup $SOURCE to\n"
-"    require this access this may signal an intrusion attempt. If you do "
-"intend \n"
+"    require this access this may signal an intrusion attempt. If you do intend \n"
 "    this access you need to change the booleans on this system to allow \n"
 "    the access.\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"    $SOURCE ആവശ്യപ്പെട്ടിരിക്കുന്നത് SELinux നിഷേധിച്ചിരിക്കുന്നു. നിലവിലുള്ള ബൂളിയന്‍\n"
+"    ക്രമികരണങ്ങള്‍ ഇതിന് അനുവദിക്കുന്നില്ല. നിങ്ങള്‍ ഇതിന് ആവശ്യമുള്ള $SOURCE\n"
+"    ക്രമികരിച്ചില്ല എങ്കില്‍ ഇത് തെറ്റായ പ്രവര്‍ത്തി ആയി കണക്കാക്കുന്നു. നിങ്ങള്‍ക്ക് ഇത്\n"
+"സാധ്യമാകണമെങ്കില്‍, ബൂളിയനുകള്‍ മാറ്റി അനുവാദം ലഭ്യമാക്കേണ്ടതുണ്ട്.\n"
+"\n"
+"    "
 
 #: ../src/catchall_boolean.py:45
 msgid ""
 "\n"
-"    Confined processes can be configured to run requiring different access, "
-"SELinux provides booleans to allow you to turn on/off \n"
+"    Confined processes can be configured to run requiring different access, SELinux provides booleans to allow you to turn on/off \n"
 "    access as needed.\n"
 "\n"
 "    "
 msgstr ""
+"\n"
+"    പരിമിതികളുള്ള പ്രക്രിയകള്‍ പല ആക്സസ്സ് ഉപയോഗിച്ച് പ്രവര്‍ത്തിക്കുന്നതിനായി ക്രമീകരിക്കുവാന്‍ സാധ്യമാണ്. നിങ്ങളുടെ ആവശ്യമനുസരിച്ച് ബൂളിയനുകള്‍ ഓണ്‍\n"
+"    ചെയ്യുകയും ഓഫ് ചെയ്യുകയും ചെയ്യുന്നതിനുള്ള അനുവാദം SELinux നല്‍കുന്നു.\n"
+"\n"
+"    "
 
 #: ../src/catchall_boolean.py:60
 #, python-format
 msgid "you want to %s"
-msgstr ""
+msgstr "%s ചെയ്യണം"
 
 #: ../src/catchall_boolean.py:63
 #, python-format
 msgid "setsebool -P %s %s"
-msgstr ""
+msgstr "setsebool -P %s %s"
 
 #: ../src/catchall_boolean.py:67
 #, python-format
@@ -480,11 +663,14 @@ msgid ""
 "You must tell SELinux about this by enabling the '%s' boolean. You can read "
 "'%s' man page for more details."
 msgstr ""
+"'%s'ബൂളിയന്‍ പ്രവര്‍ത്തന സജ്ജമാക്കി ഇതിനെപ്പറ്റി SELinux-നെ അറിയിയ്ക്കണം. "
+"കൂടുതല്‍ വിവരങ്ങള്‍ക്കായി '%s' മാന്‍ താള്‍ കാണുക."
 
 #: ../src/catchall_boolean.py:69
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s'boolean."
 msgstr ""
+"'%s'ബൂളിയന്‍ പ്രവര്‍ത്തന സജ്ജമാക്കി ഇതിനെപ്പറ്റി SELinux-നെ അറിയിയ്ക്കണം."
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -492,18 +678,24 @@ msgid ""
 "\n"
 "    SELinux has denied the $SOURCE access to potentially\n"
 "    mislabeled files $TARGET_PATH.  This means that SELinux will not\n"
-"    allow httpd to use these files. If httpd should be allowed this access "
-"to these files you should change the file context to one of the following "
-"types, %s.\n"
+"    allow httpd to use these files. If httpd should be allowed this access to these files you should change the file context to one of the following types, %s.\n"
 "    Many third party apps install html files\n"
 "    in directories that SELinux policy cannot predict.  These directories\n"
 "    have to be labeled with a file context which httpd can access.\n"
 "    "
 msgstr ""
+"\n"
+"    തെറ്റായ ലേബലുകളുളള ഫയലുകള്‍ $TARGET_PATH \n"
+"    ഉപയോഗിക്കുന്നതില്‍ നിന്നും $SOURCE-നെ SELinux തടയുന്നു.\n"
+"    ഇതിനര്‍ത്ഥം, SELinux ഈ ഫയലുകള്‍ ഉപയോഗിക്കുന്നതിനായി httpd-യെ അനുവദിക്കില്ല.ഈ ഫയലുകളിലേക്ക് httpd-യ്ക്ക് അനുമതി നല്‍കണമെങ്കില്‍, നിങ്ങള്‍ക്കു് ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഇതിലൊരു രീതിയിലേക്ക് മാറ്റണം, %s.\n"
+"    SELinux പോളിസിയ്ക്ക് അറിയുവാന്‍ സാധിക്കാത്ത html ഫയലുകളും പല ഥേര്‍ഡ് പാര്‍ട്ടി പ്രയോഗങ്ങള്‍ക്ക്\n"
+"    ഇന്‍സ്റ്റോള്‍ ചെയ്യുവാന്‍ സാധിക്കുന്നു. httpd-യ്ക്ക് ഉചിതമായ ഫയല്‍ കോണ്‍ട്ടെക്സ്റ്റ്\n"
+"    ഈ ഡയറക്ടറികള്‍ക്ക് നല്‍കേണ്ടതാകുന്നു.\n"
+"    "
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
-msgstr ""
+msgstr "$FIX_TARGET_PATH-ലുള്ള ലേബല്‍ മാറ്റേണ്ടതുണ്ടു്"
 
 #: ../src/catchall_labels.py:40
 #, python-format
@@ -513,10 +705,14 @@ msgid ""
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
 msgstr ""
+"# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\n"
+"where FILE_TYPE is one of the following: %s. \n"
+"Then execute: \n"
+"restorecon -v '$FIX_TARGET_PATH'\n"
 
 #: ../src/catchall.py:29
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr ""
+msgstr "$SOURCE_PATH \"$ACCESS\" പ്രവേശനം SELinux തടയുന്നു."
 
 #: ../src/catchall.py:31
 msgid ""
@@ -530,41 +726,59 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"    $SOURCE ആവശ്യപ്പെട്ടിരിക്കുന്നത് SELinux നിഷേധിച്ചിരിക്കുന്നു.\n"
+"    $SOURCE-ന് ഇത് ആവശ്യമെന്ന് പ്രതീക്ഷിക്കുന്നില്ല, അങ്ങനെ ഉണ്ടെങ്കില്‍, അത്\n"
+"    തെറ്റായ പ്രവര്‍ത്തി ആയി കണക്കാക്കുന്നു. ആപ്ളിക്കേഷന്‍റെ ഒരു പ്രത്യേക വേര്‍ഷന്‍\n"
+"    അല്ലെങ്കില്‍ കോണ്‍ഫിഗറേഷന്‍, കൂടുതല്‍ ആക്സസ്സിനായി ആവശ്യപ്പെടുന്നു.\n"
+"\n"
+"    "
 
 #: ../src/catchall.py:41
 msgid ""
 "\n"
 "    You can generate a local policy module to allow this\n"
-"    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/"
-"#id2961385\">FAQ</a>\n"
+"    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n"
 "\n"
 "    Please file a bug report.\n"
 "    "
 msgstr ""
+"\n"
+"    ഈ അനുമതിയ്ക്കായി നിങ്ങള്‍ക്കു് ഒരു ലോക്കല്‍ പോളിസി ഘടകം\n"
+"    ലഭ്യമാക്കുവാന്‍ സാധ്യമാണു് - കാണുക <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n"
+"    ദയവായി ഒരു ബഗ് രേഖപ്പെടുത്തുക.\n"
+"    "
 
 #: ../src/catchall.py:50
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
+"സ്വതവേ, $TARGET_TYPE എന്ന ലേബലുള്ള പ്രക്രിയയില്‍ $SOURCE_BASE_PATH, $ACCESS "
+"പ്രവേശനം അനുവദിയ്ക്കണം എന്നു് കരുതുന്നു."
 
 #: ../src/catchall.py:52
 msgid ""
 "you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
-msgstr ""
+msgstr "സ്വതവേ, $SOURCE_BASE_PATH-നു് $ACCESS വിശേഷത ഉണ്ടെന്നു് കരുതുന്നു."
 
 #: ../src/catchall.py:53
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
+"സ്വതവേ, $TARGET_TYPE എന്ന ലേബലുള്ള $TARGET_BASE_PATH $TARGET_CLASS-ല്‍ "
+"$SOURCE_BASE_PATH, $ACCESS പ്രവേശനം അനുവദിയ്ക്കണം എന്നു് കരുതുന്നു."
 
 #: ../src/catchall.py:55
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
+"ഇതൊരു ബഗായി രേഖപ്പെടുത്തണം.\n"
+"ഇതു് അനുവദിയ്ക്കുന്നതിനായി നിങ്ങള്‍ക്കൊരു ലോക്കല്‍ പോളിസി ഘടകം ലഭ്യമാക്കാം."
 
 #: ../src/catchall.py:56
 msgid ""
@@ -572,82 +786,106 @@ msgid ""
 "# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"തല്‍ക്കാലത്തേക്കു് ഈ പ്രവേശനം അനുവദിയ്ക്കുന്നതിനായി ഇതു് നടപ്പിലാക്കുക:\n"
+"# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH from connecting to port "
-"$PORT_NUMBER.\n"
+"    SELinux is preventing $SOURCE_PATH from connecting to port $PORT_NUMBER.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE_PATH പോര്‍ട്ട് $PORT_NUMBER-ലേക്ക് കണക്ട് ചെയ്യുന്നതില്‍ നിന്നും SELinux തടയുന്നു.\n"
+"    "
 
 #: ../src/connect_ports.py:31
 #, python-format
 msgid ""
 "\n"
-"    SELinux has denied $SOURCE from connecting to a network port "
-"$PORT_NUMBER which does not have an SELinux type associated with it.\n"
-"    If $SOURCE should be allowed to connect on $PORT_NUMBER, use the "
-"<i>semanage</i> command to assign $PORT_NUMBER to a port type that "
-"$SOURCE_TYPE can connect to (%s). \n"
+"    SELinux has denied $SOURCE from connecting to a network port $PORT_NUMBER which does not have an SELinux type associated with it.\n"
+"    If $SOURCE should be allowed to connect on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can connect to (%s). \n"
 "    \n"
 "\n"
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux തരമില്ലാത്ത നെറ്റ്‌വര്‍ക്ക് പോര്‍ട്ട് $PORT_NUMBER-ലേക്ക് $SOURCE-നെ കണക്ട് ചെയ്യുന്നതില്‍ നിന്നും തടയുന്നു. $SOURCE-നു് $PORT_NUMBER-ല്‍ പ്രവര്‍ത്തിക്കണമെങ്കില്‍,\n"
+"    <i>semanage</i> കമാന്‍ഡ് ഉപയോഗിച്ചു് $SOURCE_TYPE-നു് ബൈന്‍ഡ് ചെയ്യുവാന്‍ സാധിക്കുന്ന പോര്‍ട്ട് തരത്തിലുള്ളതിനു് $PORT_NUMBER നല്‍കുക (%s). \n"
+"    \n"
+"\n"
+"$SOURCE $PORT_NUMBER-ലേക്ക് ബൈന്‍ഡ് ചെയ്യേണ്ടെങ്കില്‍,\n"
+"    ഇതു് തെറ്റായൊരു പ്രക്രിയയായി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/connect_ports.py:39
 #, python-format
 msgid ""
 "\n"
-"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can "
-"execute \n"
+"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute \n"
 "\n"
 "    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "\n"
 "    where PORT_TYPE is one of the following: %s.\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങള്‍ക്ക് $SOURCE-നെ $PORT_NUMBER ചേര്‍ക്കണമെങ്കില്‍, ഇങ്ങനെ ചെയ്യാം:\n"
+"\n"
+"    #semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER</b>\n"
+"    ഇവിടെ PORT_TYPE ഇവയിലൊന്നാണു്: %s.\n"
+"    "
 
 #: ../src/cvs_data.py:27
 msgid ""
 "\n"
-"    SELinux is preventing cvs ($SOURCE_PATH) \"$ACCESS\" access to "
-"$TARGET_PATH\n"
+"    SELinux is preventing cvs ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH\n"
 "    "
 msgstr ""
+"\n"
+"    സ് $TARGET_PATH-ലേക് cvs ($SOURCE_PATH) \"$ACCESS\"കുളള പ്രവേശനം SELinux തടയുനനു. \n"
+"    "
 
 #: ../src/cvs_data.py:31
 msgid ""
 "\n"
 "    SELinux denied cvs access to $TARGET_PATH.\n"
 "    If this is a CVS repository it needs to have a file context label of\n"
-"    cvs_data_t. If you did not intend to use $TARGET_PATH as a CVS "
-"repository\n"
+"    cvs_data_t. If you did not intend to use $TARGET_PATH as a CVS repository\n"
 "    it could indicate either a bug or it could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുളള cvs പ്രവേശനം SELinux നിഷേധിച്ചിരിക്കുന്നു.\n"
+"    ഇത് ഒരു CVS റിപ്പോസിറ്ററി ആണ് എങ്കില്‍, cvs_data_t എന്ന ഫയല്‍ കോണ്‍ട്ടെക്സ്റ്റ്\n"
+"    ലേബല്‍ ഉണ്ടാകേണ്ടതാണ്. നിങ്ങള്‍ക്ക് $TARGET_PATH ഒരു cvs റിപ്പോസിറ്ററി ആയി\n"
+"    ഉപയോഗിക്കണമെങ്കില്‍, അത് ഒരു ബഗ് അല്ലെങ്കില്‍ തെറ്റായ പ്രവര്‍ത്തി ആയി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/cvs_data.py:38
 msgid ""
 "\n"
-"    You can alter the file context by executing chcon -R -t cvs_data_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"cvs_data_t '$FIX_TARGET_PATH'\"\n"
+"    You can alter the file context by executing chcon -R -t cvs_data_t '$TARGET_PATH'\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
 msgstr ""
+"\n"
+"    chcon -R -t cvs_data_t '$TARGET_PATH' ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക് ഫയല്‍ കോണ്‍ടെക്സ്റ്റില്‍ മാറ്റം വരുത്തുവാന്‍ സാധിക്കുന്നു\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n"
+"    \n"
+"     "
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "cvs ഡെമണ്‍ മുഖേന $TARGET_BASE_PATH പങ്കിടേണ്ടതുണ്ടു്"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
-msgstr ""
+msgstr "$TARGET_BASE_PATH'-ലുള്ള ലേബല്‍ മാറ്റേണ്ടതുണ്ടു്"
 
 #: ../src/dac_override.py:28
 msgid ""
@@ -655,28 +893,36 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
 "    "
 msgstr ""
+"\n"
+"    SELinux $SOURCE_PATH-നുള്ള \"sys_resource\" വിശേഷത തടസ്സപ്പെടുത്തുന്നു. \n"
+"    "
 
 #: ../src/dac_override.py:32
 msgid ""
 "\n"
-"\tdac_override and dac_read_search capabilities usually indicates that the "
-"root process does not have access to a file based on the permission flags.  "
-"This usually mean you have some file with the wrong ownership/permissions on "
-"it.\n"
+"\tdac_override and dac_read_search capabilities usually indicates that the root process does not have access to a file based on the permission flags.  This usually mean you have some file with the wrong ownership/permissions on it.\n"
 "    "
 msgstr ""
+"\n"
+"\tdac_override and dac_read_search capabilities usually indicates that the root process does not have access to a file based on the permission flags.  This usually mean you have some file with the wrong ownership/permissions on it.\n"
+"    "
 
 #: ../src/dac_override.py:38
 msgid ""
 "you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
 msgstr ""
+"ഡൊമെയിനിനു് ഈ പ്രവേശനം ആവശ്യമെങ്കില്‍ അല്ലെങ്കില്‍ നിങ്ങളുടെ സിസ്റ്റത്തില്‍ "
+"തെറ്റായ അനുമതികളോടെ ഒരു ഫയല്‍ ഉണ്ടെങ്കില്‍ നിങ്ങള്‍ക്കു് ഇതു് "
+"തിരിച്ചറിയുന്നതിനായി സഹായിയ്ക്കണം"
 
 #: ../src/dac_override.py:39
 msgid ""
 "turn on full auditing to get path information about the offending file and "
 "generate the error again."
 msgstr ""
+"തെറ്റായ ഫയലിലേക്കുള്ള പാഥ് വിവരം ലഭ്യമാക്കുന്നതിനും പിശക് വീണ്ടും "
+"കാണുന്നതിനു് പൂര്‍ണ്ണ ഓഡിറ്റിങ് ഓണ്‍ ചെയ്യുക."
 
 #: ../src/dac_override.py:40
 msgid ""
@@ -688,65 +934,96 @@ msgid ""
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
 "otherwise report as a bugzilla."
 msgstr ""
+"\n"
+"പൂര്‍ണ്ണ ഓഡിറ്റിങ് ഓണ്‍ ചെയ്യുക\n"
+"# auditctl -w /etc/shadow -p w\n"
+"വീണ്ടും എവിസി തയ്യാറാക്കുവാന്‍ ശ്രമിയ്ക്കുക. അങ്ങനെയെങ്കില്‍,\n"
+"# ausearch -m avc -ts recent\n"
+"PATH റിക്കോര്‍ഡുകള്‍ ലഭ്യമായാല്‍, ഫയലിന്റെ ഉടമസ്ഥാവകാശം/അനുമതികള്‍ പരിശോധിച്ചു്, പരിഹരിയ്ക്കുക,\n"
+"അല്ലെങ്കില്‍ ബഗ്സിലയില്‍ രേഖപ്പെടുത്തുക."
 
 #: ../src/device.py:29
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to device "
-"$TARGET_PATH. \n"
+"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to device $TARGET_PATH. \n"
 "    "
 msgstr ""
+"\n"
+"    ഡിവൈസ് $TARGET_PATH-ലേക്കുള്ള $SOURCE_PATH \"$ACCESS\" പ്രവേശനം SELinux തടയുന്നു. \n"
+"    "
 
 #: ../src/device.py:33
 msgid ""
 "\n"
 "\n"
 "    SELinux has denied $SOURCE \"$ACCESS\" access to device $TARGET_PATH.\n"
-"    $TARGET_PATH is mislabeled, this device has the default label of the /"
-"dev directory, which should not\n"
+"    $TARGET_PATH is mislabeled, this device has the default label of the /dev directory, which should not\n"
 "    happen.  All Character and/or Block Devices should have a label.\n"
 "\n"
 "    You can attempt to change the label of the file using\n"
 "\n"
 "    restorecon -v '$TARGET_PATH'.\n"
 "\n"
-"    If this device remains labeled device_t, then this is a bug in SELinux "
-"policy.\n"
+"    If this device remains labeled device_t, then this is a bug in SELinux policy.\n"
 "\n"
 "    Please file a bg report.\n"
 "\n"
-"    If you look at the other similar devices labels, ls -lZ /dev/SIMILAR, "
-"and find a type that would work for $TARGET_PATH,\n"
-"    you can use chcon -t SIMILAR_TYPE '$TARGET_PATH', If this fixes the "
-"problem, you can make this permanent by executing\n"
+"    If you look at the other similar devices labels, ls -lZ /dev/SIMILAR, and find a type that would work for $TARGET_PATH,\n"
+"    you can use chcon -t SIMILAR_TYPE '$TARGET_PATH', If this fixes the problem, you can make this permanent by executing\n"
 "    semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "\n"
-"    If the restorecon changes the context, this indicates that the "
-"application that created the device, created it without\n"
-"    using SELinux APIs.  If you can figure out which application created the "
-"device, please file a bug report against this application.\n"
+"    If the restorecon changes the context, this indicates that the application that created the device, created it without\n"
+"    using SELinux APIs.  If you can figure out which application created the device, please file a bug report against this application.\n"
 "    \n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"    ഡിവൈസ് $TARGET_PATH-ലേക്കുളള $SOURCE \"$ACCESS\" പ്രവേശനം SELinux നിഷേധിക്കുന്നു.\n"
+"    $TARGET_PATH-ന് തെറ്റായ ലേബല്‍ നല്‍കിയിരിക്കുന്നു, ഈ ഡിവൈസിന് /dev ഡയറക്ടറിയുടെ ഡീഫോള്‍ട്ട് ലേബല്‍ ആണുളളത്, ഇത് പക്ഷേ പാടില്ല.\n"
+"    എല്ലാ ക്യാരക്റ്റര്‍/ബ്ളോക്ക് ഡിവൈസുകള്‍ക്ക് ലേബല്‍ ആവശ്യമുണ്ട്.\n"
+"\n"
+"    നിങ്ങള്‍ക്ക് ഇത് മാറ്റുന്നതിനായി\n"
+"\n"
+"    restorecon -v '$TARGET_PATH' ഉപയോഗിക്കാം.\n"
+"\n"
+"    ഈ ഡിവൈസിന്‍റെ ലേബല്‍ വീണ്ടും device_t ആണ് എങ്കില്‍, ഇത് SELinux പോളിസിയുടെ ഒരു ബഗ് ആണ്.\n"
+"\n"
+"    ദയവായി ഒരു ബഗ് രേഖപ്പെടുത്തുക.\n"
+"\n"
+"    അതേപോലുളള ഡിവൈസ് നിങ്ങള്‍ തിരഞ്ഞ്, ls -lZ /dev/SIMILAR, $TARGET_PATH -നൊപ്പം പ്രവര്‍ത്തിക്കുന്നവ ലഭ്യമായാല്‍,\n"
+"    നിങ്ങള്‍ക്ക് chcon -t SIMILAR_TYPE $TARGET_PATH ഉപയോഗിക്കാം. ഇത് പ്രശ്നം പരിഹരിക്കുന്നു എങ്കില്‍, നിങ്ങള്‍ക്ക് ഇത് സ്ഥിരം ആക്കുന്നതിന്\n"
+"    semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH' ഉപയോഗിക്കാം\n"
+"\n"
+"    restorecon കോണ്‍ട്ടെക്സ്റ്റ് മാറ്റിയാല്‍, ഇതിനര്‍ത്ഥം ഡിവൈസ് ഉണ്ടാക്കിയ ആപ്ളിക്കേഷന്‍ context, this അത് ഉണ്ടാക്കിയത്\n"
+"    SELinux APIs ഇല്ലാതെയാണു്.  ഡിവൈസ് ഉണ്ടാക്കിയ ആപ്ളിക്കേഷന്‍ നിങ്ങള്‍ക്ക് ലഭ്യമായാല്‍, ദയവായി ഇതിനെതിരെ ഒരു ബഗ് രേഖപ്പെടുത്തുക.\n"
+"    \n"
+"    "
 
 #: ../src/device.py:56
 msgid ""
 "\n"
-"    Attempt restorecon -v '$TARGET_PATH' or chcon -t SIMILAR_TYPE "
-"'$TARGET_PATH'\n"
+"    Attempt restorecon -v '$TARGET_PATH' or chcon -t SIMILAR_TYPE '$TARGET_PATH'\n"
 "    "
 msgstr ""
+"\n"
+"    restorecon -v '$TARGET_PATH' അല്ലെങ്കില്‍ chcon -t SIMILAR_TYPE $TARGET_PATH ശ്രമിക്കുക\n"
+"    "
 
 #: ../src/device.py:60
 msgid ""
 "You need to change the label on $TARGET_PATH to a type of a similar device."
 msgstr ""
+"ഒരേ തരത്തിലുള്ളൊരു ഡിവൈസിലേക്കു് $TARGET_PATH-ലുള്ള ലേബല്‍ മാറ്റേണ്ടതുണ്ടു്."
+" "
 
 #: ../src/device.py:61
 msgid ""
 "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/disable_ipv6.py:30
 msgid ""
@@ -754,16 +1031,21 @@ msgid ""
 "Disable IPV6 properly.\n"
 "    "
 msgstr ""
+"\n"
+"ശരിയായി IPV6 പ്രവര്‍ത്തന രഹിതമാക്കുക.\n"
+"    "
 
 #: ../src/disable_ipv6.py:40
 msgid "you want to disable IPV6 on this machine"
-msgstr ""
+msgstr "ഈ സിസ്റ്റത്തില്‍ IPV6 പ്രവര്‍ത്തന രഹിതമാക്കണം"
 
 #: ../src/disable_ipv6.py:41
 msgid ""
 "you need to set /proc/sys/net/ipv6/conf/all/disable_ipv6 to 1 and do not "
 "blacklist the module'"
 msgstr ""
+"/proc/sys/net/ipv6/conf/all/disable_ipv6-നെ 1 എന്നു് സജ്ജമാക്കുക, ഘടകം "
+"ബ്ലാക്ക്ലിസ്റ്റ് ചെയ്യുവാന്‍ പാടില്ല"
 
 #: ../src/disable_ipv6.py:42
 msgid ""
@@ -771,6 +1053,9 @@ msgid ""
 "net.ipv6.conf.all.disable_ipv6 = 1\n"
 "to /etc/sysctl.conf\n"
 msgstr ""
+"/etc/sysctl.conf-ലേക്കു്\n"
+"net.ipv6.conf.all.disable_ipv6 = 1\n"
+"ചേര്‍ക്കുക.\n"
 
 #: ../src/file.py:27
 msgid ""
@@ -778,6 +1063,9 @@ msgid ""
 "    SELinux is preventing access to files with the label, file_t.\n"
 "    "
 msgstr ""
+"\n"
+"    file_t, എന്ന ലേബലുളള ഫയലുകളിലേക്കുളള പ്രവേശനം SELinux തടയുന്നു.\n"
+"    "
 
 #: ../src/file.py:31
 msgid ""
@@ -788,11 +1076,20 @@ msgid ""
 "    problem. No files on an SELinux box should ever be labeled file_t.\n"
 "    If you have just added a disk drive to the system you can\n"
 "    relabel it using the restorecon command.  For example if you saved the \n"
-"home directory from a previous installation that did not use SELinux, "
-"'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
+"home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
 msgstr ""
+"\n"
+"    file_t, എന്ന ലേബലുളള ഫയലുകളിലേക്കുളള പ്രവേശനം SELinux തടയുന്നു.\n"
+"    ലേബല്‍ ഇല്ലാത്ത ഫയലുകള്‍ക്ക് SELinux നല്‍കുന്ന കോണ്‍ട്ടെക്സ്റ്റ് ആണ് file_t.\n"
+"    ഇത് ഒരു ഗുരുതരമായ ലേബലിങ് പ്രശ്നം ആണ്. SELinux ബോക്സിലുളള ഒരു\n"
+"    ഫയലുകള്‍ക്കും file_t എന്ന ലേബല്‍ പാടില്ല. നിങ്ങള്‍ സിസ്റ്റമിലേക്ക് ഒരു പുതിയ\n"
+"    ഡിസ്ക് ഡ്രൈവ് ചേര്‍ത്തിരിക്കുന്നു എങ്കില്‍, restorecon കമാന്‍ഡ് ഉപയോഗിച്ച്\n"
+"    അത് വീണ്ടും ലേബല്‍ ചെയ്യുക. ഉദാഹരണത്തിനു്, SELinux ഉപയോഗിക്കാത്ത\n"
+"    മുമ്പുള്ളൊരു ഇന്‍സ്റ്റലേഷനില്‍ നിന്നും ഹോം ഡയറക്ടറി സൂക്ഷിച്ചെങ്കില്‍, 'restorecon -R -v /home'     ലേബലുകള്‍ പരിഹരിക്കുന്നു. അല്ലെങ്കില്‍ നിങ്ങള്‍ മുഴുവന്‍ ഫയല്‍ സിസ്റ്റം\n"
+"    റീലേബല്‍ ചെയ്യേണ്ടി വരുന്നതാണ്.\n"
+"        "
 
 #: ../src/file.py:42
 msgid ""
@@ -801,73 +1098,91 @@ msgid ""
 "    computer system: \"touch /.autorelabel; reboot\"\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങളുടെ കംപ്യൂട്ടര്‍ സിസ്റ്റം റൂട്ട് ആയി നിന്ന് ഈ കമാന്‍ഡ് ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക്\n"
+"    റീലേബല്‍ ചെയ്യുവാന്‍ സാധ്യമാണ്: \"touch /.autorelabel; reboot\"\n"
+"    "
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr ""
+msgstr "പുതുതായി തയ്യാറാക്കിയ ഫയല്‍ സിസ്റ്റം കാരണം ഇതു് സംഭവിയ്ക്കുന്നു."
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
 msgstr ""
+"തെറ്റായി ലേബല്‍ ചെയ്തിരിയ്ക്കുന്നൊരു സിസ്റ്റം കാരണം ഇങ്ങനെ "
+"സംഭവിച്ചിരിയ്ക്കുന്നു എന്നു് നിങ്ങള്‍ വിശ്വസിയ്ക്കുന്നു."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
-msgstr ""
+msgstr "ഇതിലേക്കു് ലേബലുകള്‍ ചേര്‍ക്കേണ്ടതുണ്ടു്."
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
-msgstr ""
+msgstr "വീണ്ടും പൂര്‍ണ്ണമായി ലേബല്‍ ചെയ്യേണ്ടതുണ്ടു്."
 
 #: ../src/filesystem_associate.py:27
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH from creating a file with a context "
-"of $SOURCE_TYPE on a filesystem.\n"
+"    SELinux is preventing $SOURCE_PATH from creating a file with a context of $SOURCE_TYPE on a filesystem.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE_TYPE കോണ്‍ടെക്സ്റ്റില്‍ ഒരു ഫയല്‍സിസ്റ്റത്തില്‍ $SOURCE_PATH-നെ ഒരു ഫയല്‍ ഉണ്ടാക്കുന്നതില്‍ നിന്നും SELinux തടയുന്നു.\n"
+"    "
 
 #: ../src/filesystem_associate.py:31
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE from creating a file with a context of "
-"$SOURCE_TYPE on a filesystem.\n"
-"    Usually this happens when you ask the cp command to maintain the context "
-"of a file when\n"
-"    copying between file systems, \"cp -a\" for example.  Not all file "
-"contexts should be maintained\n"
-"    between the file systems.  For example, a read-only file type like "
-"iso9660_t should not be placed\n"
-"    on a r/w system.  \"cp -p\" might be a better solution, as this will "
-"adopt the default file context\n"
+"    SELinux is preventing $SOURCE from creating a file with a context of $SOURCE_TYPE on a filesystem.\n"
+"    Usually this happens when you ask the cp command to maintain the context of a file when\n"
+"    copying between file systems, \"cp -a\" for example.  Not all file contexts should be maintained\n"
+"    between the file systems.  For example, a read-only file type like iso9660_t should not be placed\n"
+"    on a r/w system.  \"cp -p\" might be a better solution, as this will adopt the default file context\n"
 "    for the destination.  \n"
 "    "
 msgstr ""
+"\n"
+"    ഒരു ഫയല്‍ സിസ്റ്റമില്‍ $SOURCE-ന് $SOURCE_TYPE കോണ്‍ടെക്സ്റ്റുകള്ള ഒരു ഫയല്‍ ഉണ്ടാക്കുന്നതില്‍ നിന്നും SELinux തടയുന്നു.\n"
+"    സാധാരണ ഇത് സംഭവിക്കുന്നത് ഫയല്‍ സിസ്റ്റമുകളില്‍ പകര്‍പ്പുകള്‍ നടത്തുമ്പോള്‍, cp കമാന്‍ഡ് ഉപയോഗിച്ച് \n"
+"    കോണ്‍ടെക്സ്റ്റ് കൈകാര്യം ചെയ്യുവാന്‍ ആവശ്യപ്പെടുമ്പോഴാണ്. ഉദാ: \"cp -a\".  എല്ലാ ഫയലുകളും ഫയല്‍ സിസ്റ്റമുകളില്‍ കൈകാര്യം ചെയ്യുവാന്‍ സാധ്യമല്ല. ഉദാഹരണത്തിന്,\n"
+"    iso9660_t പോലുള്ള റീഡ്-ഒണ്‍ലി ഫയലുകള്‍ ഒരു r/w സിസ്റ്റമില്‍ സ്ഥാപിക്കുവാന്‍ സാധ്യമല്ല. \"cp -p\" ആണ് മെച്ചപ്പെട്ട രീതി. കാരണം ഇത് ലക്ഷ്യസ്ഥാനത്തേക്കുള്ള സ്വതവേയുള്ള ഫയല്‍\n"
+"കോണ്‍ടെക്സ്റ്റ് സ്വീകരിക്കുന്നു.  \n"
+"    "
 
 #: ../src/filesystem_associate.py:40
 msgid ""
 "\n"
-"    Use a command like \"cp -p\" to preserve all permissions except SELinux "
-"context.\n"
+"    Use a command like \"cp -p\" to preserve all permissions except SELinux context.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux  കോണ്‍ടെക്സ്റ്റ് ഒഴികെ ബാക്കിയെല്ലാ അനുമതികളും സൂക്ഷിക്കുന്നതിനായി \"cp -p\" പോലുള്ള കമാന്‍ഡ് ഉപയോഗിക്കുക.\n"
+"    "
 
 #: ../src/filesystem_associate.py:43
 msgid ""
 "you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
 "files"
 msgstr ""
+"$TARGET_BASE_PATH ഫയലുകള്‍ തയ്യാറാക്കുന്നതിനായി $SOURCE_BASE_PATH-നെ "
+"അനുവദിയ്ക്കേണ്ടതുണ്ടെന്നു് കരുതുന്നു"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
 "you need to use a different command. You are not allowed to preserve the "
 "SELinux context on the target file system."
 msgstr ""
+"മറ്റൊരു കമാന്‍ഡ് ഉപയോഗിയ്ക്കേണ്ടതുണ്ടു്. ഒരു ഫയല്‍ സിസ്റ്റത്തില്‍ SELinux "
+"കോണ്‍ടെക്സ്റ്റ് സൂക്ഷിയ്ക്കുവാന്‍ നിങ്ങള്‍ക്കു് അനുവാദമില്ല."
 
 #: ../src/filesystem_associate.py:46
 msgid ""
 "use a command like \"cp -p\" to preserve all permissions except SELinux "
 "context."
 msgstr ""
+"SELinux  കോണ്‍ടെക്സ്റ്റ് ഒഴികെ ബാക്കിയെല്ലാ അനുമതികളും സൂക്ഷിക്കുന്നതിനായി "
+"\"cp -p\" പോലുള്ള കമാന്‍ഡ് ഉപയോഗിക്കുക."
 
 #: ../src/httpd_can_sendmail.py:28
 msgid ""
@@ -875,6 +1190,9 @@ msgid ""
 "    SELinux is preventing the http daemon from sending mail.\n"
 "    "
 msgstr ""
+"\n"
+"    മെയില്‍ അയയ്ക്കുന്നതില്‍ നിന്നും http ഡെമണിനെ SELinux തടയുന്നു.\n"
+"    "
 
 #: ../src/httpd_can_sendmail.py:32
 msgid ""
@@ -885,6 +1203,12 @@ msgid ""
 "    signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    മെയില്‍ അയയ്ക്കുന്നതില്‍ നിന്നും http ഡെമണിനെ SELinux തടയുന്നു.\n"
+"    ഒരു httpd സ്ക്രിപ്റ്റ് ഒരു മെയില്‍ പോര്‍ട്ടിലേക്ക് കണക്ട് ചെയ്യുവാന്‍ ശ്രമിക്കുന്നു\n"
+"    അല്ലെങ്കില്‍ sendmail കമാന്‍ഡ് പ്രവര്‍ത്തിപ്പിക്കുക. sendmail-നായി httpd\n"
+"    ക്രമീകരിച്ചില്ലെങ്കില്‍, ഇത് ഒരു തെറ്റായി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/httpd_can_sendmail.py:39
 msgid ""
@@ -894,14 +1218,19 @@ msgid ""
 "    $BOOLEAN=1\"\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങള്‍ക്ക് httpd മെയില്‍ അയയ്ക്കണമെങ്കില്‍, $BOOLEAN\n"
+"    boolean ഓണ്‍ ചെയ്യേണ്ടതുണ്ട്: \"setsebool -P\n"
+"    $BOOLEAN=1\"\n"
+"    "
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
-msgstr ""
+msgstr "മെയില്‍ അയയ്ക്കുന്നതിനായി httpd അനുവദിയ്ക്കേണ്ടതുണ്ടു്"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
-msgstr ""
+msgstr "ഇതു് അനുവദിയ്ക്കുന്നതിനായി SELinux സജ്ജമാക്കേണ്ടതുണ്ടു്"
 
 #: ../src/httpd_unified.py:29
 msgid ""
@@ -909,31 +1238,45 @@ msgid ""
 "    SELinux prevented httpd $ACCESS access to http files.\n"
 "    "
 msgstr ""
+"\n"
+"    http ഫയലുകളിലേക്കുള്ള $ACCESS പ്രവേശനം SELinux തടയുന്നു. \n"
+"    "
 
 #: ../src/httpd_unified.py:33
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
 "\n"
-"    Ordinarily httpd is allowed full access to all files labeled with http "
-"file\n"
-"    context.  This machine has a tightened security policy with the "
-"$BOOLEAN\n"
-"    turned off,  This requires explicit labeling of all files.  If a file "
-"is\n"
-"    a cgi script it needs to be labeled with httpd_TYPE_script_exec_t in "
-"order\n"
+"    Ordinarily httpd is allowed full access to all files labeled with http file\n"
+"    context.  This machine has a tightened security policy with the $BOOLEAN\n"
+"    turned off,  This requires explicit labeling of all files.  If a file is\n"
+"    a cgi script it needs to be labeled with httpd_TYPE_script_exec_t in order\n"
 "    to be executed.  If it is read only content, it needs to be labeled\n"
 "    httpd_TYPE_content_t, it is writable content. it needs to be labeled\n"
 "    httpd_TYPE_script_rw_t or httpd_TYPE_script_ra_t. You can use the\n"
 "    chcon command to change these context.  Please refer to the man page\n"
 "    \"man httpd_selinux\" or \n"
 "    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
-"    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially "
-"other\n"
+"    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially other\n"
 "    script types.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux prevented httpd $ACCESS access to http files.\n"
+"\n"
+"    Ordinarily httpd is allowed full access to all files labeled with http file\n"
+"    context.  This machine has a tightened security policy with the $BOOLEAN\n"
+"    turned off,  This requires explicit labeling of all files.  If a file is\n"
+"    a cgi script it needs to be labeled with httpd_TYPE_script_exec_t in order\n"
+"    to be executed.  If it is read only content, it needs to be labeled\n"
+"    httpd_TYPE_content_t, it is writable content. it needs to be labeled\n"
+"    httpd_TYPE_script_rw_t or httpd_TYPE_script_ra_t. You can use the\n"
+"    chcon command to change these context.  Please refer to the man page\n"
+"    \"man httpd_selinux\" or \n"
+"    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
+"    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially other\n"
+"    script types.\n"
+"    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -942,18 +1285,26 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1\"\n"
 "    "
 msgstr ""
+"\n"
+"    \"$BOOLEAN\" boolean, true ആക്കിയാല്‍ ഇത് അനുവദിക്കുന്നതാണ്:\n"
+"    \"setsebool -P $BOOLEAN=1\"\n"
+"    "
 
 #: ../src/httpd_unified.py:57
 msgid ""
 "you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
 "of all content files."
 msgstr ""
+"cgi സ്ക്രിപ്റ്റുകള്‍ പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനും എല്ലാ ഫയലുകളുടേയും HTTPD "
+"ഹാന്‍ഡിലിങ് ഒന്നാക്കുന്നതിനായി നിങ്ങള്‍ httpd അനുവദിയ്ക്കേണ്ടതുണ്ടു്."
 
 #: ../src/httpd_unified.py:58
 msgid ""
 "you must tell SELinux about this by enabling the 'httpd_unified' and "
 "'http_enable_cgi' booleans"
 msgstr ""
+"'httpd_unified', 'http_enable_cgi' എന്നീ ബൂളിയനുകള്‍ പ്രവര്‍ത്തന സജ്ജമാക്കി "
+"ഇതു് SELinux-നെ അറിയിയ്ക്കണം"
 
 #: ../src/httpd_write_content.py:30
 msgid ""
@@ -962,24 +1313,31 @@ msgid ""
 "\n"
 "    httpd scripts are not allowed to write to content without explicit \n"
 "    labeling of all files.  If $TARGET_PATH is writable content. it needs \n"
-"    to be labeled httpd_sys_rw_content_t or if all you need is append you "
-"can label it httpd_sys_ra_content_t.   Please refer to 'man httpd_selinux' "
-"for more information on setting up httpd and selinux.\n"
+"    to be labeled httpd_sys_rw_content_t or if all you need is append you can label it httpd_sys_ra_content_t.   Please refer to 'man httpd_selinux' for more information on setting up httpd and selinux.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux prevented httpd $ACCESS access to $TARGET_PATH.\n"
+"\n"
+"    httpd scripts are not allowed to write to content without explicit \n"
+"    labeling of all files.  If $TARGET_PATH is writable content. it needs \n"
+"    to be labeled httpd_sys_rw_content_t or if all you need is append you can label it httpd_sys_ra_content_t.   Please refer to 'man httpd_selinux' for more information on setting up httpd and selinux.\n"
+"    "
 
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
 msgid "You need to change the label on '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "'$FIX_TARGET_PATH'-ലുള്ള ലേബല്‍ മാറ്റേണ്ടതുണ്ടു്"
 
 #: ../src/kernel_modules.py:29
 msgid ""
 "\n"
-"    Your system may be seriously compromised! $SOURCE_PATH tried to modify "
-"kernel configuration.\n"
+"    Your system may be seriously compromised! $SOURCE_PATH tried to modify kernel configuration.\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങളുടെ സിസ്റ്റത്തില്‍ കാര്യമായ തകരാറുണ്ടു്! കേര്‍ണലിന്റെ ക്രമീകരണം മാറ്റുവാന്‍ $SOURCE_PATH ശ്രമിച്ചു.\n"
+"    "
 
 #: ../src/kernel_modules.py:33
 msgid ""
@@ -987,112 +1345,139 @@ msgid ""
 "    SELinux has prevented $SOURCE from modifying $TARGET.  This denial \n"
 "    indicates $SOURCE was trying to modify the way the kernel runs or to \n"
 "    actually insert code into the kernel. All applications that need this \n"
-"    access should have already had policy written for them.  If a "
-"compromised \n"
-"    application tries to modify the kernel this AVC will be generated. This "
-"is a \n"
+"    access should have already had policy written for them.  If a compromised \n"
+"    application tries to modify the kernel this AVC will be generated. This is a \n"
 "    serious issue. Your system may very well be compromised.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET-ല്‍ മാറ്റം വരുത്തുന്നതില്‍ നിന്നും SELinux $SOURCE-നെ തടയുന്നു.\n"
+"    $SOURCE കേര്‍ണല്‍ പ്രവര്‍ത്തന രീതി മാറ്റം വരുത്തുവാന്‍ ശ്രമിക്കുന്നു അല്ലെങ്കില്‍\n"
+"    കേര്‍ണലിലേക്ക് ശരിയായ കോഡ് ചേര്‍ക്കുന്നു എന്നതു് ഈ നിഷേധം സൂചിപ്പിക്കുന്നു.\n"
+"    ഈ അനുമതി ആവശ്യമുള്ള എല്ലാ പ്രയോഗങ്ങളും അവയ്ക്കുള്ള പോളിസി   തയ്യാറാക്കേണ്ടതുണ്ടു്. തകരാറുള്ള പ്രയോഗം SELinux പോളിസിയില്‍ മാറ്റം വരുത്തുവാന്‍\n"
+"    ശ്രമിച്ചാല്‍, ഈ AVC ലഭ്യമാകുന്നു. ഇതു് ഗുരുതരമായ ഒരു പ്രശ്നമാണു്. സിസ്റ്റം\n"
+"    പ്രത്യേകം ശ്രദ്ധിക്കുക.\n"
+"    "
 
 #: ../src/kernel_modules.py:44 ../src/selinuxpolicy.py:44
 msgid ""
 "you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
 msgstr ""
+"$TARGET_BASE_PATH-ല്‍ $SOURCE_BASE_PATH $ACCESS അനുമതി ശ്രമിയ്ക്കണം "
+"എന്നില്ല."
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
 "you may be under attack by a hacker, since confined applications should not "
 "need this access."
 msgstr ""
+"നിങ്ങളെ ഒരു ഹാക്കര്‍ സമീപ്പിച്ചിരിയ്ക്കുന്നു, ചില പ്രയോഗങ്ങളില്‍ ഈ പ്രവേശനം "
+"സാധ്യമല്ല."
 
 #: ../src/leaks.py:27
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH access to a leaked $TARGET_PATH file "
-"descriptor.\n"
+"    SELinux is preventing $SOURCE_PATH access to a leaked $TARGET_PATH file descriptor.\n"
 "    "
 msgstr ""
+"\n"
+"    ഒരു ലീക്ക്ഡ് $TARGET_PATH ഫയല്‍ ഡിസ്ക്രിപ്ടറിലേക്കുള്ള $SOURCE_PATH പ്രവേശനം SELinux തടയുന്നു.\n"
+"    "
 
 #: ../src/leaks.py:31
 msgid ""
 "\n"
-"    SELinux denied access requested by the $SOURCE command. It looks like "
-"this is either a leaked descriptor or $SOURCE output was redirected to a "
-"file it is not allowed to access.  Leaks usually can be ignored since "
-"SELinux is just closing the leak and reporting the error.  The application "
-"does not use the descriptor, so it will run properly.  If this is a "
-"redirection, you will not get output in the $TARGET_PATH.  You should "
-"generate a bugzilla on selinux-policy, and it will get routed to the "
-"appropriate package.  You can safely ignore this avc.\n"
+"    SELinux denied access requested by the $SOURCE command. It looks like this is either a leaked descriptor or $SOURCE output was redirected to a file it is not allowed to access.  Leaks usually can be ignored since SELinux is just closing the leak and reporting the error.  The application does not use the descriptor, so it will run properly.  If this is a redirection, you will not get output in the $TARGET_PATH.  You should generate a bugzilla on selinux-policy, and it will get routed to the appropriate package.  You can safely ignore this avc.\n"
 "    "
 msgstr ""
+"\n"
+"     $SOURCE കമാന്‍ഡ് ആവശ്യപ്പെട്ട അനുമതി SELinux നിഷേധിച്ചു. ഒരു ലീക്ക്ഡ് ഡിസ്ക്രിപ്റ്റര്‍ അല്ലെങ്കില്‍ അനുമതിയില്ലാത്ത ഒരു ഫയലിലേക്ക് $SOURCE ഔട്ട്പുട്ട് നല്‍കിയിരിക്കുന്നു.  ലീക്കുകള്‍ സാധാരണ SELinux അടച്ചു് പിശക് രേഖപ്പെടു‌ത്തുന്നതിനാല്‍ അവ അവഗണിക്കാം.  പ്രയോഗം ഡിസ്ക്രിപ്റ്റര്‍ ഉപയോഗിക്കാത്തതിനാല്‍ അതു് ശരിയായി പ്രവര്‍ത്തിക്കുന്നു.  അനുമതിയില്ലാത്ത ഫയലിലേക്ക് ഔട്ട്പുട്ട് നല്‍കിയതാണെങ്കില്‍, നിങ്ങള്‍ക്കു് $TARGET_PATH-ല്‍ ഔട്ട്പുട്ട് ലഭിക്കുന്നതല്ല.  selinux-policy-ല്‍ ഒരു ബഗ് ലഭ്യമാക്കുക. അതു് ശരിയായ പാക്കേജിലേക്ക് നയിക്കുന്നു. ഈ avc നിങ്ങള്‍ക്കു് സുരക്ഷിതമായി അവഗണിക്കാം.\n"
+"    "
 
 #: ../src/leaks.py:35
 msgid ""
 "\n"
 "    You can generate a local policy module to allow this\n"
-"    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/"
-"#id2961385\">FAQ</a>\n"
+"    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n"
 "    "
 msgstr ""
+"\n"
+"    ഈ അനുമതിയ്ക്കായി നിങ്ങള്‍ക്കു് ഒരു ലോക്കല്‍ പോളിസി ഘടകം\n"
+"    ലഭ്യമാക്കുവാന്‍ സാധ്യമാണു് - കാണുക <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n"
+"    "
 
 #: ../src/leaks.py:42
 msgid ""
 "you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the "
-"$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
-"access."
+"$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this"
+" access."
 msgstr ""
+"$TARGET_BASE_PATH $TARGET_CLASS-ലേക്കു് $ACCESS പ്രവേശിച്ചു് "
+"നിങ്ങള്‍ക്കു്$SOURCE_BASE_PATH ഉപേക്ഷിയ്ക്കണം. കാരണം ഇതിനു് ഈ പ്രവേശനം "
+"ആവശ്യമില്ലെന്നു് കരുതുന്നു."
 
 #: ../src/leaks.py:43
 msgid ""
 "You should report this as a bug.  \n"
 "You can generate a local policy module to dontaudit this access."
 msgstr ""
+"ഇതൊരു ബഗായി രേഖപ്പെടുത്തണം.  \n"
+"ഈ അനുമതി dontaudit ചെയ്യുന്നതിനായി ഒരു ലോക്കല്‍ പോളിസി ഘടകം ലഭ്യമാക്കേണ്ടതുണ്ടു്."
 
 #: ../src/leaks.py:44
 msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
 "# semodule -i mypol.pp"
 msgstr ""
+"# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
+"# semodule -i mypol.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
 "\n"
-"    Your system may be seriously compromised! $SOURCE_PATH attempted to mmap "
-"low kernel memory.\n"
+"    Your system may be seriously compromised! $SOURCE_PATH attempted to mmap low kernel memory.\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങളുടെ സിസ്റ്റത്തില്‍ കാര്യമായ തകരാറുണ്ടു്! കുറഞ്ഞ കേര്‍ണല്‍ മെമ്മറി mmap ചെയ്യുന്നതിനായി $SOURCE_PATH ശ്രമിച്ചിരിക്കുന്നു.\n"
+"    "
 
 #: ../src/mmap_zero.py:33
 msgid ""
 "\n"
-"    SELinux has denied the $SOURCE the ability to mmap low area of the "
-"kernel \n"
-"    address space.  The ability to mmap a low area of the address space, "
-"as \n"
-"    configured by /proc/sys/kernel/mmap_min_addr.  Preventing such "
-"mappings \n"
+"    SELinux has denied the $SOURCE the ability to mmap low area of the kernel \n"
+"    address space.  The ability to mmap a low area of the address space, as \n"
+"    configured by /proc/sys/kernel/mmap_min_addr.  Preventing such mappings \n"
 "    helps protect against exploiting null deref bugs in the kernel. All \n"
-"    applications that need this access should have already had policy "
-"written \n"
-"    for them.  If a compromised application tries modify the kernel this "
-"AVC \n"
-"    would be generated. This is a serious issue. Your system may very well "
-"be \n"
+"    applications that need this access should have already had policy written \n"
+"    for them.  If a compromised application tries modify the kernel this AVC \n"
+"    would be generated. This is a serious issue. Your system may very well be \n"
 "    compromised.\n"
 "    "
 msgstr ""
+"\n"
+"    കേര്‍ണല്‍ അഡ്രസ്സ് സ്പെയിസിന്റെ ലോ ഏരിയാ mmap ചെയ്യുന്നതിനുള്ള $SOURCE-ന്റെ വിശേഷത\n"
+"    SELinux നിഷേധിക്കുന്നു.  അഡ്രസ്സ് സ്പെയിസ് ലോ ഏരിയാ mmap ചെയ്യുന്നതിനുള്ള വിശേഷത  The ability to mmap a low area of the address space, /proc/sys/kernel/mmap_min_addr \n"
+"    സജ്ജമാക്കുന്നു .  കേര്‍ണലിലുള്ള null deref ബഗുകളെ ഇല്ലാതാക്കുന്നതിനെതിരെ ഇത്തരം മാപ്പിങ്ങുകള്‍ \n"
+"    സഹായിക്കുന്നു. ഈ അനുമതി ആവശ്യമുള്ള എല്ലാ പ്രയോഗങ്ങളും അവയ്ക്കുള്ള പോളിസി\n"
+"   തയ്യാറാക്കേണ്ടതുണ്ടു്. തകരാറുള്ള പ്രയോഗം SELinux പോളിസിയില്‍ മാറ്റം വരുത്തുവാന്‍\n"
+"    ശ്രമിച്ചാല്‍, ഈ AVC ലഭ്യമാകുന്നു. ഇതു് ഗുരുതരമായ ഒരു പ്രശ്നമാണു്. സിസ്റ്റം\n"
+"    പ്രത്യേകം ശ്രദ്ധിക്കുക.\n"
+"    "
 
 #: ../src/mmap_zero.py:46
 msgid ""
 "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
 msgstr ""
+"കേര്‍ണലില്‍ ലോ മെമ്മറി mmap ചെയ്യുന്നതിനായി $SOURCE_PATH ആവശ്യമുണ്ടെന്നു് "
+"കരുതുന്നില്ല."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
 msgstr ""
+"നിങ്ങളുടെ സിസ്റ്റത്തില്‍ ഹാക്കര്‍ പ്രവേശിച്ചിരിയ്ക്കുന്നു, ഇതു് വളരെ "
+"അപകടകരമാകുന്നു."
 
 #: ../src/mounton.py:29
 msgid ""
@@ -1101,6 +1486,10 @@ msgid ""
 "    \"$TARGET_PATH\" (type \"$TARGET_TYPE\").\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE-നെ ഫയല്‍ അല്ലെങ്കില്‍ ഡയറക്ടറിയിലേക്ക് \"$TARGET_PATH\" (type\n"
+"    \"$TARGET_TYPE\") മൌണ്ട് ചെയ്യുന്നതിനായി SELinux അനുവദിക്കുന്നില്ല.\n"
+"    "
 
 #: ../src/mounton.py:34
 msgid ""
@@ -1113,26 +1502,38 @@ msgid ""
 "    label of the file or directory.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE-നെ ഫയല്‍ അല്ലെങ്കില്‍ ഡയറക്ടറിയിലേക്ക് \"$TARGET_PATH\" (type\n"
+"    \"$TARGET_TYPE\") മൌണ്ട് ചെയ്യുന്നതിനായി SELinux അനുവദിക്കുന്നില്ല. ഡീഫോള്‍ട്ടായി\n"
+"     SELinux ഫയല്‍ സിസ്റ്റം മൌണ്ട് ചെയ്യുന്നതിന് ചില അതിരുകള്‍ പാലിക്കുന്നു. മൌണ്ട് പോയിന്റ്\n"
+"     ലഭ്യമായ ഫയല്‍, ഡയറക്ടറി എന്നിവയ്ക്ക് മാത്രം അനുവദിക്കുന്നു. \"$TARGET_TYPE\"\n"
+"    തരത്തിലുള്ളവയ്ക്ക് ഈ വിശേഷത ലഭ്യമല്ല. നിങ്ങള്‍ക്ക് ഫയല്‍ അല്ലെങ്കില്‍ ഡയറക്ടറിയുടെ പേര്\n"
+"    മാറ്റുകയോ ചെയ്യാം.\n"
+"    "
 
 #: ../src/mounton.py:43
 msgid ""
 "\n"
-"    Changing the file_context to mnt_t will allow mount to mount the file "
-"system:\n"
+"    Changing the file_context to mnt_t will allow mount to mount the file system:\n"
 "    \"chcon -t mnt_t '$TARGET_PATH'.\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"mnt_t '$FIX_TARGET_PATH'\"\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t mnt_t '$FIX_TARGET_PATH'\"\n"
 "    "
 msgstr ""
+"\n"
+"    ഫയല്‍സിസ്റ്റമിലേക്ക് mount മൌണ്ട് ചെയ്യുന്നതിനായി file_context, mnt_t ആയി മാറ്റുക:\n"
+"    \"chcon -t mnt_t '$TARGET_PATH'.\"\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t mnt_t '$FIX_TARGET_PATH'\"\n"
+"    "
 
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
 msgstr ""
+"$TARGET_BASE_PATH-ല്‍ മൌണ്ട് ചെയ്യുന്നതിനായി $SOURCE_BASE_PATH-നെ "
+"അനുവദിയ്ക്കുന്നു."
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
-msgstr ""
+msgstr "$TARGET_PATH-ലുള്ള ലേബല്‍ മാറ്റേണ്ടതുണ്ടു്."
 
 #: ../src/openvpn.py:32 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -1142,144 +1543,177 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുളള $SOURCE_PATH \"$ACCESS\" പ്രവേശനം SELinux തടയുന്നു. \n"
+"    "
 
 #: ../src/openvpn.py:36
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
-"    be a mislabeled. openvpn is allowed to read content in home directory if "
-"it \n"
+"    be a mislabeled. openvpn is allowed to read content in home directory if it \n"
 "    is labeled correctly.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE ആവശ്യപ്പെടുന്ന പ്രവേശനം SELinux തടഞ്ഞിരിക്കുന്നു. ഒരു പക്ഷേ,\n"
+"    $TARGET_PATH-നുള്ള ലേബല്‍ മാറിയിരിക്കാം. ശരിയായി ലേബല്‍ ചെയ്തിരിക്കുന്നെങ്കില്‍\n"
+"      ആസ്ഥാന ഡയറക്ടറിയില്‍ ഉള്ളടക്കം ലഭ്യമാക്കുന്നതിനായി openvpn അനുവദിയ്ക്കുന്നു.\n"
+"     "
 
 #: ../src/openvpn.py:42 ../src/sshd_root.py:42
 msgid ""
 "\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
+"    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
 "    "
 msgstr ""
+"\n"
+"    ഈ ഫയലിലേക്ക് സ്വതവേയുള്ള സിസ്റ്റം കോണ്‍ടെക്സ്റ്റ് വീണ്ടെടുക്കുന്നതിനായി, restorecon\n"
+"കമാന്‍ഡ് ഉപയോഗിക്കാം.\n"
+"    restorecon വീണ്ടെടുക്കുന്നതിനു് restorecon -R /root/.ssh.\n"
+"    "
 
 #: ../src/openvpn.py:49
 msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"$TARGET_BASE_PATH-നെ സാധാരണ സ്ഥാനത്തിലേക്കു് mv ചെയ്യുന്നു. അങ്ങനെ "
+"$SOURCE_BASE_PATH-നു് $ACCESS അനുമതി ലഭ്യമാണു്"
 
 #: ../src/openvpn.py:51
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
 msgstr ""
+"$TARGET_BASE_PATH-ല്‍ ലേബലില്‍ മാറ്റം വരുത്തേണ്ടതുണ്ടു്. അങ്ങനെ "
+"$SOURCE_BASE_PATH-നു് $ACCESS അനുമതി ലഭ്യമാകുന്നു"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
-msgstr ""
+msgstr "~/.cert ഡയറക്ടറിയിലേക്കു് cert ഫയല്‍ നീക്കേണ്ടതുണ്ടു്"
 
 #: ../src/openvpn.py:57 ../src/sshd_root.py:47
 msgid "you must fix the labels."
-msgstr ""
+msgstr "ലേബലുകള്‍ പരിഹരിയ്ക്കേണ്ടതുണ്ടു്."
 
 #: ../src/public_content.py:31
 msgid ""
 "\n"
 "    SELinux denied access to $TARGET_PATH requested by $SOURCE.\n"
-"    $TARGET_PATH has a context used for sharing by a different program. If "
-"you\n"
+"    $TARGET_PATH has a context used for sharing by a different program. If you\n"
 "    would like to share $TARGET_PATH from $SOURCE also, you need to\n"
 "    change its file context to public_content_t.  If you did not intend to\n"
 "    allow this access, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE ആവശ്യപ്പെട്ട $TARGET_PATH-ലേക്കുള്ള അനുമതി SELinux നിഷേധിക്കുന്നു.\n"
+"    മറ്റൊരു പ്രോഗ്രാം പങ്കിടുന്ന കോണ്‍ടെക്സ്റ്റ് $TARGET_PATH-ല്‍ ലഭിക്കുന്നു. നിങ്ങള്‍ക്കു് $SOURCE-ല്‍\n"
+"    നിന്നും $TARGET_PATH പങ്കിടണമെങ്കില്‍, അതിന്റെ ഫയല്‍ കോണ്‍ടെക്സ്റ്റ്\n"
+"    public_content_t ആയി മാറ്റേണ്ടതാണു്.  നിങ്ങള്‍ ഇതു് അനുവദിക്കുന്നില്ലെങ്കില്‍,\n"
+"    ഇതൊരു തെറ്റായ പ്രവര്‍ത്തിയായി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/public_content.py:39
 msgid ""
 "\n"
-"    You can alter the file context by executing chcon -t public_content_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"public_content_t '$FIX_TARGET_PATH'\"\n"
+"    You can alter the file context by executing chcon -t public_content_t '$TARGET_PATH'\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n"
 "    "
 msgstr ""
+"\n"
+"    chcon -t public_content_t '$TARGET_PATH' ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക് ഫയല്‍ കോണ്‍ടെക്സ്റ്റില്‍ മാറ്റം വരുത്തുവാന്‍ സാധിക്കുന്നു\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n"
+"    "
 
 #: ../src/public_content.py:50
 msgid "you want to treat $TARGET_BASE_PATH as pubic content"
-msgstr ""
+msgstr "you want to treat $TARGET_BASE_PATH as pubic content"
 
 #: ../src/public_content.py:51
 msgid ""
 "You need to change the label on $TARGET_BASE_PATH to public_content_t or "
 "public_content_rw_t."
 msgstr ""
+"public_content_t അല്ലെങ്കില്‍ public_content_rw_t-ലേക്കു് "
+"$TARGET_BASE_PATH-ലുള്ള ലേബലിനെ മാറ്റേണ്ടതുണ്ടു്."
 
 #: ../src/qemu_blk_image.py:31
 msgid ""
 "\n"
 "    SELinux denied qemu access to the block device $TARGET_PATH.\n"
-"    If this is a virtualization image, it needs to be labeled with a "
-"virtualization file context (virt_image_t). You can relabel $TARGET_PATH to "
-"be virt_image_t using chcon.  You also need to execute semanage fcontext -a -"
-"t virt_image_t '$FIX_TARGET_PATH' to add this\n"
-"    new path to the system defaults. If you did not intend to use "
-"$TARGET_PATH as a qemu\n"
+"    If this is a virtualization image, it needs to be labeled with a virtualization file context (virt_image_t). You can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add this\n"
+"    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"     ബ്ലോക്ക് ഡിവൈസ് $TARGET_PATH-ലേക്കുള്ള qemu അനുമതി SELinux നിഷേധിച്ചു.\n"
+"     ഇതൊരു വിര്‍ച്ച്വലൈസേഷന്‍ ഇമേജാണെങ്കില്‍, വിര്‍ച്ച്വലൈസേഷന്‍ ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് (virt_image_t) ഉപയോഗിച്ചു് ഇതു് ലേബല്‍ ചെയ്യുക. chcon ഉപയോഗിച്ചു് നിങ്ങള്‍ക്കു് $TARGET_PATH-നെ virt_image_t എന്നു് വീണ്ടും ലേബല്‍ ചെയ്യുവാന്‍ സാധിക്കുന്നു. സിസ്റ്റം സ്വതവേയുള്ളതിലേക്ക് ഇതു് ചേര്‍ക്കുന്നതിനായി നിങ്ങള്‍ക്കു്\n"
+"    semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' ഉപയോഗിക്കണം. നിങ്ങള്‍ qemu ഇമേജായി $TARGET_PATH\n"
+"    ഉപയോഗിക്കുന്നില്ലെങ്കില്‍, ഒരു ബഗായി അല്ലെങ്കില്‍ തെറ്റായ പ്രവര്‍ത്തിയായി സൂചിപ്പിക്കുന്നു\n"
+"    "
 
 #: ../src/qemu_blk_image.py:38 ../src/qemu_file_image.py:41
 msgid ""
 "\n"
-"    You can alter the file context by executing chcon -t virt_image_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"virt_image_t '$FIX_TARGET_PATH'\"\n"
+"    You can alter the file context by executing chcon -t virt_image_t '$TARGET_PATH'\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
 msgstr ""
+"\n"
+"    chcon -t virt_image_t '$TARGET_PATH' ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക് ഫയല്‍ കോണ്‍ടെക്സ്റ്റില്‍ മാറ്റം വരുത്തുവാന്‍ സാധിക്കുന്നു\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\"\n"
+"    "
 
 #: ../src/qemu_blk_image.py:46
 msgid ""
 "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
+"# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/qemu_file_image.py:31
 msgid ""
 "\n"
 "    SELinux denied qemu access to $TARGET_PATH.\n"
-"    If this is a virtualization image, it has to have a file context label "
-"of\n"
-"    virt_image_t. The system is setup to label image files in directory./var/"
-"lib/libvirt/images\n"
-"    correctly.  We recommend that you copy your image file to /var/lib/"
-"libvirt/images.\n"
-"    If you really want to have your qemu image files in the current "
-"directory, you can relabel $TARGET_PATH to be virt_image_t using chcon.  You "
-"also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' "
-"to add this\n"
-"    new path to the system defaults. If you did not intend to use "
-"$TARGET_PATH as a qemu\n"
+"    If this is a virtualization image, it has to have a file context label of\n"
+"    virt_image_t. The system is setup to label image files in directory./var/lib/libvirt/images\n"
+"    correctly.  We recommend that you copy your image file to /var/lib/libvirt/images.\n"
+"    If you really want to have your qemu image files in the current directory, you can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add this\n"
+"    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുള്ള qemu അനുമതി SELinux നിഷേധിച്ചു.\n"
+"    ഇതൊരു വിര്‍ച്ച്വലൈസേഷന്‍ ഇമേജാണെങ്കില്‍, അതിനൊരു virt_image_t ഫയല്‍ കോണ്‍ടെക്സ്റ്റ്    ലേബല്‍ ആവശ്യമുണ്ടു്. directory./var/lib/libvirt/images-ലുള്ള ഇമേജ് ഫയലുകള്‍ സിസ്റ്റം ശരിയായി ലേബല്‍ ചെയ്യുന്നു.\n"
+"    നിങ്ങളുടെ ഇമേജ് ഫയല്‍ അതിനാല്‍ /var/lib/libvirt/images-ലേക്ക് പകര്‍ത്തുക.\n"
+"    നിങ്ങള്‍ക്ക് qemu ഇമേജുകള്‍ നിലവിലുള്ള ഡയറക്ടറില്‍ വേണമെങ്കില്‍, chcon ഉപയോഗിച്ചു് നിങ്ങള്‍ക്കു് $TARGET_PATH, virt_image_t ആയി വീണ്ടും ലേബല്‍ ചെയ്യാം. കൂടാതെ സിസ്റ്റം സ്വതവേയുള്ളവയിലേക്ക് പുതിയ പാഥ് ചേര്‍ക്കുന്നതിനായി semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
+"    ഉപയോഗിക്കുക. നിങ്ങള്‍ qemu ഇമേജായി $TARGET_PATHഉപയോഗിക്കുന്നില്ലെങ്കില്‍,\n"
+"ഒരു ബഗായി അല്ലെങ്കില്‍ തെറ്റായ പ്രവര്‍ത്തിയായി സൂചിപ്പിക്കുന്നു\n"
+"    "
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "$TARGET_BASE_PATH ഒരു വിര്‍ച്ച്വലൈസേഷന്‍ ഗസ്റ്റാണു്"
 
 #: ../src/restorecon.py:38
 msgid ""
 "\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
-"    restorecon command.  restorecon '$TARGET_PATH', if this file is a "
-"directory,\n"
+"    You can restore the default system context to this file by executing the\n"
+"    restorecon command.  restorecon '$TARGET_PATH', if this file is a directory,\n"
 "    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
 "    "
 msgstr ""
+"\n"
+"    ഈ ഫയലിലേക്ക് സ്വതവേയുള്ള സിസ്റ്റം കോണ്‍ടെക്സ്റ്റ് വീണ്ടെടുക്കുന്നതിനായി, restoreconകമാന്‍ഡ് ഉപയോഗിക്കുക.\n"
+"    restorecon '$TARGET_PATH', ഈ ഫയല്‍ ഒരു ഡയറക്ടറിയാണെങ്കില്‍, ആവര്‍ത്തിച്ചു് വീണ്ടെടുക്കുന്നതിനായി,\n"
+"    restorecon -R '$TARGET_PATH' ഉപയോഗിക്കാം.\n"
+"     "
 
 #: ../src/restorecon.py:45
 #, python-format
@@ -1292,35 +1726,49 @@ msgid ""
 "    <p>\n"
 "    File contexts can be assigned to a file in the following ways.\n"
 "    <ul>\n"
-"        <li>Files created in a directory receive the file context of the "
-"parent directory by default.\n"
-"        <li>The SELinux policy might override the default label inherited "
-"from the parent directory by\n"
-"            specifying a process running in context A which creates a file "
-"in a directory labeled B\n"
-"            will instead create the file with label C. An example of this "
-"would be the dhcp client running\n"
-"            with the dhclient_t type and creating a file in the directory /"
-"etc. This file would normally\n"
-"            receive the etc_t type due to parental inheritance but instead "
-"the file\n"
-"            is labeled with the net_conf_t type because the SELinux policy "
-"specifies this.\n"
-"        <li>Users can change the file context on a file using tools such as "
-"chcon, or restorecon.\n"
+"        <li>Files created in a directory receive the file context of the parent directory by default.\n"
+"        <li>The SELinux policy might override the default label inherited from the parent directory by\n"
+"            specifying a process running in context A which creates a file in a directory labeled B\n"
+"            will instead create the file with label C. An example of this would be the dhcp client running\n"
+"            with the dhclient_t type and creating a file in the directory /etc. This file would normally\n"
+"            receive the etc_t type due to parental inheritance but instead the file\n"
+"            is labeled with the net_conf_t type because the SELinux policy specifies this.\n"
+"        <li>Users can change the file context on a file using tools such as chcon, or restorecon.\n"
 "    </ul>\n"
-"    This file could have been mislabeled either by user error, or if an "
-"normally confined application\n"
+"    This file could have been mislabeled either by user error, or if an normally confined application\n"
 "    was run under the wrong domain.\n"
 "    <p> \n"
-"    However, this might also indicate a bug in SELinux because the file "
-"should not have been labeled\n"
+"    However, this might also indicate a bug in SELinux because the file should not have been labeled\n"
 "    with this type.\n"
 "    <p>\n"
-"    If you believe this is a bug, please file a bug report against this "
-"package.\n"
+"    If you believe this is a bug, please file a bug report against this package.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE ആവശ്യപ്പെട്ട അനുമതി SELinux നിഷേധിച്ചു. $TARGET_PATH ഒരു പക്ഷേ\n"
+"    തെറ്റായി ലേബല്‍ ചെയ്തിരിക്കാം.  $TARGET_PATH സ്വതവേയുള്ള SELinux തരം\n"
+"    <B>%s</B> ആണു്, പക്ഷേ നിലവിലുള്ള തരം <B>$TARGET_TYPE</B> ആണു്. ഈ ഫയല്‍\n"
+"     തിരിച്ചു് സ്വതവേയുള്ള രീതിയിലാക്കുന്നതു് പ്രശ്നങ്ങളുണ്ടാക്കാം.\n"
+"    <p>\n"
+"    താഴെ പറയുന്ന രീതികളില്‍ ഒരു ഫയലിനു് ഫയല്‍ കോണ്‍ടെക്സ്റ്റുകള്‍ നല്‍കുവാന്‍ സാധിക്കുന്നു.\n"
+"    <ul>\n"
+"        <li>ഒരു ഡയറക്ടറിയില്‍ ഉണ്ടാക്കുന്ന ഫയലുകള്‍ക്കു് സ്വതവേ പേരന്റ് ഡയറക്ടറിയുടെഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ലഭിക്കുന്നു.\n"
+"        <li>കോണ്‍ടെക്സ്റ്റ് A-ല്‍ പ്രവര്‍ത്തിക്കുന്ന ഒരു പ്രക്രിയ നല്‍കി SELinux പോളിസി പേരന്റ് ഡയറക്ടറിയില്‍ നിന്നും\n"
+"            സ്വതവേ ലഭ്യമായ ലേബല്‍ തിരുത്തിയെഴുതാം. ഇതു് B എന്ന ലേബലില്‍ ഡയറക്ടറിയില്‍ ഒരു\n"
+"           ഫയലുണ്ടാക്കുന്നു. C ലേബലിലുള്ള ഒരു ഫയലും ഇങ്ങനെ ഉണ്ടാകുന്നു. dhclient_t type ഉപയോഗിച്ചു്\n"
+"          പ്രവര്‍ത്തിക്കുന്ന ഒരു dhcp ക്ലൈന്റും /-ല്‍ ഒരു ഫയലുണ്ടാക്കുന്നതും എല്ലാം ഉദാഹരണമായി കാണാം.\n"
+"            പേരന്റില്‍ നിന്നും ഈ ഫയലിനു് etc_t type ലഭ്യമാകുന്നു. പക്ഷേ, ഇവിടെ\n"
+"            SELinux പോളിസി കാരണം, net_conf_t രീതിയില്‍ ലേബല്‍ നല്‍കുന്നതാണു്. \n"
+"        <li>chcon, അല്ലെങ്കില്‍ restorecon പോലുള്ള പ്രയോഗങ്ങളുപയോഗിച്ചു് ഉപയോക്താക്കള്‍ക്കു് ഫയല്‍ കോണ്‍ടെക്സ്റ്റില്‍ മാറ്റം വരുത്താം.\n"
+"    </ul>\n"
+"    ഉപയോക്താവിന്റെ പിശക്, അല്ലെങ്കില്‍ സാധാരണയുള്ള പ്രയോഗം തെറ്റായ ഡൊമെയിന്‍പ്രവര്‍ത്തിച്ചെങ്കില്‍, ഈ ഫയല്‍ തെറ്റായി\n"
+"    ലേബല്‍ ചെയ്യപ്പെടാം.\n"
+"    <p> \n"
+"    ഫയല്‍ ഈ രീതിയില്‍ ലേബല്‍ ചെയ്യുവാന്‍ പാടില്ലാത്തതിനാല്‍, ഇതു് SELinux-ലുള്ളഒരു ബഗായി\n"
+"    കണക്കാക്കാം.\n"
+"    <p>\n"
+"    നിങ്ങള്‍ക്കിതൊരു ബഗായി തോന്നിയാല്‍, ദയാവായി ഈ പാക്കേജിനെതിരെ ഒരു ബഗ് രേഖപ്പെടുത്തുക.\n"
+"    "
 
 #: ../src/restorecon.py:71
 #, python-format
@@ -1328,79 +1776,96 @@ msgid ""
 "you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
 msgstr ""
+"ലേബല്‍ പരിഹരിയ്ക്കേണ്ടതുണ്ടു്. \n"
+"$TARGET_PATH സ്വതവേയുള്ള ലേബല്‍ %s ആയിരിയ്ക്കണം."
 
 #: ../src/restorecon.py:76
 msgid "you can run restorecon."
-msgstr ""
+msgstr "നിങ്ങള്‍ക്കു് restorecon പ്രവര്‍ത്തിപ്പിയ്ക്കാം."
 
 #: ../src/restorecon.py:84
 msgid ""
 "Restore\n"
 "Context"
 msgstr ""
+"കോണ്‍ടെക്സ്റ്റ്\n"
+"വീണ്ടെടുക്കുക"
 
 #: ../src/rsync_data.py:31
 msgid ""
 "\n"
 "    SELinux denied rsync access to $TARGET_PATH.\n"
 "    If this is a RSYNC repository it has to have a file context label of\n"
-"    rsync_data_t. If you did not intend to use $TARGET_PATH as a rsync "
-"repository\n"
+"    rsync_data_t. If you did not intend to use $TARGET_PATH as a rsync repository\n"
 "    it could indicate either a bug or it could signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുളള rsync പ്രവേശനം SELinux നിഷേധിച്ചിരിക്കുന്നു.\n"
+"    ഇത് ഒരു RSYNC റിപ്പോസിറ്ററി ആണ് എങ്കില്‍, rsync_data_t എന്ന ഫയല്‍ കോണ്‍ട്ടെക്സ്റ്റ്\n"
+"    ലേബല്‍ ഉണ്ടാകേണ്ടതാണ്. നിങ്ങള്‍ക്ക് $TARGET_PATH ഒരു rsync റിപ്പോസിറ്ററിയായി\n"
+"    ഉപയോഗിക്കണമെങ്കില്‍, അത് ഒരു ബഗ് അല്ലെങ്കില്‍ തെറ്റായ പ്രവര്‍ത്തി ആയി കണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/rsync_data.py:38
 msgid ""
 "\n"
-"    You can alter the file context by executing chcon -R -t rsync_data_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"rsync_data_t '$FIX_TARGET_PATH'\"\n"
+"    You can alter the file context by executing chcon -R -t rsync_data_t '$TARGET_PATH'\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\"\n"
 "    "
 msgstr ""
+"\n"
+"    chcon -R -t cvs_data_t '$TARGET_PATH' ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക് ഫയല്‍ കോണ്‍ടെക്സ്റ്റില്‍ മാറ്റം വരുത്തുവാന്‍ സാധിക്കുന്നു\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\"\n"
+"    "
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr ""
+msgstr "rsync ഡെമണ്‍ മുഖേന $TARGET_BASE_PATH പങ്കിടേണം"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
-msgstr ""
+msgstr "$TARGET_BASE_PATH-ലുള്ള ലേബല്‍ നിങ്ങള്‍ മാറ്റേണ്ടതുണ്ടു്"
 
 #: ../src/samba_share.py:27
 msgid ""
 "\n"
-"    SELinux is preventing Samba ($SOURCE_PATH) \"$ACCESS\" access to "
-"$TARGET_PATH.\n"
+"    SELinux is preventing Samba ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുളള സാംബാ ($SOURCE_PATH) \"$ACCESS\" പ്രവേശനം SELinux തടയുന്നു. \n"
+"    "
 
 #: ../src/samba_share.py:31
 msgid ""
 "\n"
 "    SELinux denied samba access to $TARGET_PATH.\n"
-"    If you want to share this directory with samba it has to have a file "
-"context label of\n"
-"    samba_share_t. If you did not intend to use $TARGET_PATH as a samba "
-"repository\n"
+"    If you want to share this directory with samba it has to have a file context label of\n"
+"    samba_share_t. If you did not intend to use $TARGET_PATH as a samba repository\n"
 "    it could indicate either a bug or it could signal a intrusion attempt.\n"
-"    Please refer to 'man samba_selinux' for more information on setting up "
-"Samba and SELinux.\n"
+"    Please refer to 'man samba_selinux' for more information on setting up Samba and SELinux.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുളള samba പ്രവേശനം SELinux നിഷേധിച്ചിരിക്കുന്നു.\n"
+"    ഈ ഡയറക്ടറി samba-യ്ക്കൊപ്പം പങ്കിടണമെങ്കില്‍, samba_share_t എന്ന ഫയല്‍ കോണ്‍ട്ടെക്സ്റ്റ് ലേബല്‍\n"
+"    ഉണ്ടാകേണ്ടതാണു്. നിങ്ങള്‍ക്ക് $TARGET_PATH ഒരു samba റിപ്പോസിറ്ററിയായി ഉപയോഗിക്കണമെങ്കില്‍\n"
+"   , അത് ഒരു ബഗ് അല്ലെങ്കില്‍ തെറ്റായ പ്രവര്‍ത്തി ആയികണക്കാക്കുന്നു.\n"
+"Samba, SELinux എന്നിവ സജ്ജമാക്കുന്നതിനുള്ള കൂടുതല്‍ വിവരങ്ങള്‍ക്കായി ദയവായി 'man samba_selinux' കാണുക.\n"
+"    "
 
 #: ../src/samba_share.py:39
 msgid ""
 "\n"
-"    You can alter the file context by executing chcon -R -t samba_share_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"samba_share_t '$FIX_TARGET_PATH'\"\n"
+"    You can alter the file context by executing chcon -R -t samba_share_t '$TARGET_PATH'\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\"\n"
 "    "
 msgstr ""
+"\n"
+"    chcon -R -t samba_share_t '$TARGET_PATH' ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക് ഫയല്‍ കോണ്‍ടെക്സ്റ്റില്‍ മാറ്റം വരുത്തുവാന്‍ സാധിക്കുന്നു\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\"\n"
+"    "
 
 #: ../src/samba_share.py:53
 #, python-format
@@ -1408,6 +1873,8 @@ msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
 msgstr ""
+"# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
+"# restorecon %s -v '$FIX_TARGET_PATH'"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -1415,76 +1882,99 @@ msgid ""
 "    Your system may be seriously compromised!\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങളുടെ സിസ്റ്റത്തില്‍ കാര്യമായ തകരാറുണ്ടു്!\n"
+"    "
 
 #: ../src/selinuxpolicy.py:33
 msgid ""
 "\n"
 "    SELinux has prevented $SOURCE from modifying $TARGET.  This denial \n"
-"    indicates $SOURCE was trying to modify the selinux policy "
-"configuration. \n"
+"    indicates $SOURCE was trying to modify the selinux policy configuration. \n"
 "    All applications that need this access should have already had policy \n"
-"    written for them.  If a compromised application tries to modify the "
-"SELinux\n"
-"    policy this AVC will be generated. This is a serious issue. Your "
-"system \n"
+"    written for them.  If a compromised application tries to modify the SELinux\n"
+"    policy this AVC will be generated. This is a serious issue. Your system \n"
 "    may very well be compromised.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET-ല്‍ മാറ്റം വരുത്തുന്നതില്‍ നിന്നും SELinux $SOURCE-നെ തടയുന്നു.\n"
+"    $SOURCE selinux പോളിസിയില്‍ മാറ്റം വരുത്തുവാന്‍ ശ്രമിച്ചു എന്നതു് ഈ നിഷേധം സൂചിപ്പിക്കുന്നു.\n"
+"    ഈ അനുമതി ആവശ്യമുള്ള എല്ലാ പ്രയോഗങ്ങളും അവയ്ക്കുള്ള പോളിസി\n"
+"   തയ്യാറാക്കേണ്ടതുണ്ടു്. തകരാറുള്ള പ്രയോഗം SELinux പോളിസിയില്‍ മാറ്റം വരുത്തുവാന്‍\n"
+"    ശ്രമിച്ചാല്‍, ഈ AVC ലഭ്യമാകുന്നു. ഇതു് ഗുരുതരമായ ഒരു പ്രശ്നമാണു്. സിസ്റ്റം\n"
+"    പ്രത്യേകം ശ്രദ്ധിക്കുക.\n"
+"    "
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
-msgstr ""
+msgstr "ഈ എവിസി നിങ്ങള്‍ പരീക്ഷണത്തിലൂടെ നേരിട്ട് ലഭ്യമാക്കിയിട്ടില്ല."
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
-msgstr ""
+msgstr "നിങ്ങള്‍ ഹാക്ക് ചെയ്യപ്പെട്ടിരിയ്ക്കുന്നു എന്നു് കരുതുന്നെങ്കില്‍"
 
 #: ../src/setenforce.py:32
 msgid ""
 "\n"
-"    Your system may be seriously compromised! $SOURCE_PATH tried to modify "
-"SELinux enforcement.\n"
+"    Your system may be seriously compromised! $SOURCE_PATH tried to modify SELinux enforcement.\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങളുടെ സിസ്റ്റത്തില്‍ കാര്യമായ തകരാറുണ്ടു്! $SOURCE_PATH SELinux എന്‍ഫോഴ്സ്മെന്റില്‍ മാറ്റം വരുത്തുന്നതിനായി ശ്രമിച്ചു.\n"
+"    "
 
 #: ../src/setenforce.py:36
 msgid ""
 "\n"
 "    SELinux has prevented $SOURCE from writing to a file under /selinux.\n"
 "    Files under /selinux control the way SELinux is configured.\n"
-"    All programs that need to write to files under /selinux should have "
-"already had policy\n"
-"    written for them. If a compromised application tries to turn off "
-"SELinux\n"
-"    this AVC will be generated. This is a serious issue. Your system may "
-"very\n"
+"    All programs that need to write to files under /selinux should have already had policy\n"
+"    written for them. If a compromised application tries to turn off SELinux\n"
+"    this AVC will be generated. This is a serious issue. Your system may very\n"
 "    well be compromised.\n"
 "    "
 msgstr ""
+"\n"
+"   /selinux-ലുള്ള ഫയലിലേക്കു് $SOURCE പ്രവര്‍ത്തിക്കുന്നതില്‍ നിന്നും SELinux തടയുന്നു.\n"
+"   /selinux-ലുള്ള ഫയലുകള്‍ SELinux-ന്റെ ക്രമീകരണ രീതി നിയന്ത്രിക്കുന്നു.\n"
+"   /selinux-ലുള്ള ഫയലുകളില്‍ പ്രവര്‍ത്തിക്കുന്ന എല്ലാ പ്രോഗ്രാമുകള്‍ക്കും പോളിസി തയ്യാറാകേണ്ടതുണ്ടു്.\n"
+"    തകരാറുള്ള ഒരു പ്രയോഗം SELinu ഓഫ് ചെയ്യുവാന്‍ ശ്രമിച്ചാല്‍, ഈ AVC ലഭ്യമാകുന്നു.\n"
+"    ഇതു് വളരെ ഗുരുതരമായ സംഗതിയാണു്. നിങ്ങളുടെ സിസ്റ്റം പ്രത്യേകം\n"
+"    ശ്രദ്ധിക്കുക.\n"
+"    "
 
 #: ../src/setenforce.py:48
 msgid "you believe $SOURCE_PATH tried to disable SELinux."
 msgstr ""
+"SELinux പ്രവര്‍ത്തന രഹിതമാക്കുവാന്‍ $SOURCE_PATH ശ്രമിച്ചു എന്നു് നിങ്ങള്‍ "
+"കരുതുന്നു."
 
 #: ../src/setenforce.py:49
 msgid ""
 "you may be under attack by a hacker, since confined applications should "
 "never need this access."
 msgstr ""
+"നിങ്ങളെ ഒരു ഹാക്കര്‍ സമീപ്പിച്ചിരിയ്ക്കുന്നു, ചില പ്രയോഗങ്ങളില്‍ ഈ പ്രവേശനം "
+"സാധ്യമല്ല."
 
 #: ../src/sshd_root.py:36
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
-"    be a mislabeled. sshd is allowed to read content in /root/.ssh directory "
-"if it \n"
+"    be a mislabeled. sshd is allowed to read content in /root/.ssh directory if it \n"
 "    is labeled correctly.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE ആവശ്യപ്പെടുന്ന പ്രവേശനം SELinux തടഞ്ഞിരിക്കുന്നു. ഒരു പക്ഷേ, $TARGET_PATH-നുള്ള\n"
+"    ലേബല്‍ മാറിയിരിക്കാം. ശരിയായി ലേബല്‍ ചെയ്തിരിക്കുന്നെങ്കില്‍, /root/.ssh ഡയറക്ടറിയിലുള്ളവ sshd-യ്ക്കു് \n"
+"    ലഭ്യമാക്കുവാന്‍ സാധിക്കുന്നു.\n"
+"    "
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"
-msgstr ""
+msgstr "കോണ്‍ടെക്സ്റ്റ് വീണ്ടെടുക്കുക"
 
 #: ../src/swapfile.py:27
 msgid ""
@@ -1492,6 +1982,9 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" to $TARGET_PATH.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുള്ള $SOURCE_PATH \"$ACCESS\" SELinux അനുവദിക്കുന്നില്ല.\n"
+"    "
 
 #: ../src/swapfile.py:31
 msgid ""
@@ -1499,63 +1992,81 @@ msgid ""
 "    SELinux denied $SOURCE access to $TARGET_PATH.\n"
 "    If this is a swapfile it has to have a file context label of\n"
 "    swapfile_t. If you did not intend to use\n"
-"    $TARGET_PATH as a swapfile it probably indicates a bug, however it could "
-"also\n"
+"    $TARGET_PATH as a swapfile it probably indicates a bug, however it could also\n"
 "    signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുളള $SOURCE പ്രവേശനം SELinux നിഷേധിച്ചിരിക്കുന്നു.\n"
+"    ഇത് ഒരു swapfile ആണെങ്കില്‍, swapfile_t എന്ന ഫയല്‍ കോണ്‍ട്ടെക്സ്റ്റ്\n"
+"    ലേബല്‍ ഉണ്ടാകേണ്ടതാണ്. നിങ്ങള്‍ക്ക് $TARGET_PATH\n"
+"    ഒരു swapfile_t ആയി ഉപയോഗിക്കേണ്ടെങ്കില്‍, അതൊരുു ബഗ് അല്ലെങ്കില്‍ തെറ്റാ\n"
+"   യ പ്രവര്‍ത്തി ആയികണക്കാക്കുന്നു.\n"
+"    "
 
 #: ../src/swapfile.py:39
 msgid ""
 "\n"
-"    You can alter the file context by executing chcon -t swapfile_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"swapfile_t '$FIX_TARGET_PATH'\"\n"
+"    You can alter the file context by executing chcon -t swapfile_t '$TARGET_PATH'\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\"\n"
 "    "
 msgstr ""
+"\n"
+"    chcon -t swapfile_t '$TARGET_PATH' ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക് ഫയല്‍ കോണ്‍ടെക്സ്റ്റില്‍ മാറ്റം വരുത്തുവാന്‍ സാധിക്കുന്നു\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\"\n"
+"    "
 
 #: ../src/sys_module.py:28
 msgid ""
 "you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
 msgstr ""
+"കേര്‍ണല്‍ ഘടകങ്ങള്‍ ലഭ്യമാക്കി, നിങ്ങളുടെ $SOURCE_PATH-നു് കേര്‍ണലില്‍ "
+"മാറ്റം വരുത്തുവാന്‍ സാധ്യമെന്നു് കരുതുന്നില്ല."
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
-msgstr ""
+msgstr "നിങ്ങളെ ആരോ ഹാക്ക് ചെയ്തിരിയ്ക്കുന്നു."
 
 #: ../src/sys_module.py:33
 msgid ""
 "\n"
-"    Your system may be seriously compromised! $SOURCE_PATH tried to load a "
-"kernel module.\n"
+"    Your system may be seriously compromised! $SOURCE_PATH tried to load a kernel module.\n"
 "    "
 msgstr ""
+"\n"
+"    നിങ്ങളുടെ സിസ്റ്റത്തില്‍ കാര്യമായ തകരാറുണ്ടു്! ഒരു കേര്‍ണല്‍ ഘടകം ലഭ്യമാക്കുന്നതിനായി $SOURCE_PATH ശ്രമിച്ചു.\n"
+"    "
 
 #: ../src/sys_module.py:37
 msgid ""
 "\n"
 "    SELinux has prevented $SOURCE from loading a kernel module.\n"
-"    All confined programs that need to load kernel modules should have "
-"already had policy\n"
+"    All confined programs that need to load kernel modules should have already had policy\n"
 "    written for them. If a compromised application \n"
-"    tries to modify the kernel this AVC will be generated. This is a "
-"serious \n"
+"    tries to modify the kernel this AVC will be generated. This is a serious \n"
 "    issue. Your system may very well be compromised.\n"
 "    "
 msgstr ""
+"\n"
+"    ഒരു കേര്‍ണല്‍ ഘടകം ലഭ്യമാക്കുന്നതില്‍ നിന്നും SELinux $SOURCE-നെ തടയുന്നു.\n"
+"    കേര്‍ണല്‍ ഘടകങ്ങള്‍ ലഭ്യമാകുവാന്‍ ആവശ്യമുള്ള എല്ലാ പ്രോഗ്രമുകളും അവയ്ക്കുള്ള പോളിസികല്‍\n"
+"    തയ്യാറാക്കേണ്ടതാണു്. അഥവാ തകരാറുള്ള\n"
+"    ഒരു പ്രയോഗം കേര്‍ണലില്‍ മാറ്റങ്ങള്‍ വരുത്തുന്നതിനായി ശ്രമിച്ചാല്‍,     ഈ AVC ലഭിക്കുന്നു.\n"
+"    ഇതു് വളരെ ഗുരുതരമായ പ്രശ്നമാണു്, സിസ്റ്റം പ്രത്യേകം ശ്രദ്ധിക്കുക.\n"
+"    "
 
 #: ../src/sys_module.py:46
 msgid ""
 "you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
 msgstr ""
+"ഒരു കേര്‍ണല്‍ ഘടകം ലഭ്യമാക്കി, നിങ്ങളുടെ $SOURCE_PATH-നു് കേര്‍ണലില്‍ മാറ്റം"
+" വരുത്തുവാന്‍ സാധ്യമെന്നു് കരുതുന്നില്ല."
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
-msgstr ""
+msgstr "നിങ്ങളുടെ സിസ്റ്റം ഹാക്ക് ചെയ്യുവാന്‍ ഒരു പ്രക്രിയ ശ്രമിയ്ക്കുന്നു."
 
 #: ../src/sys_resource.py:28
 msgid ""
@@ -1563,37 +2074,47 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH the \"sys_resource\" capability. \n"
 "    "
 msgstr ""
+"\n"
+"    SELinux $SOURCE_PATH-നുള്ള \"sys_resource\" വിശേഷത തടസ്സപ്പെടുത്തുന്നു. \n"
+"    "
 
 #: ../src/sys_resource.py:32
 msgid ""
 "\n"
-"    Confined domains should not require \"sys_resource\". This usually means "
-"that     your system is running out of disk space. Please clear up the disk "
-"and this\n"
-"    AVC message should go away. If this AVC continues after you clear up the "
-"disk space, please report this as a bug. \n"
+"    Confined domains should not require \"sys_resource\". This usually means that     your system is running out of disk space. Please clear up the disk and this\n"
+"    AVC message should go away. If this AVC continues after you clear up the disk space, please report this as a bug. \n"
 "    "
 msgstr ""
+"\n"
+"    പരിമിതികളുള്ള ഡൊമെയിനുകള്‍ക്കു് \"sys_resource\" ആവശ്യമില്ല. ഇതിനര്‍ത്ഥം നിങ്ങളുടെ സിസ്റ്റത്തില്‍ ആവശ്യത്തിനുള്ള സ്ഥലം ലഭ്യമല്ലെന്നാണു്. ദയവായി നിങ്ങളടെ ഡിസ്ക് വെടിപ്പാക്കുക.\n"
+"    ഇങ്ങനെ എവിസി സന്ദേശം നീങ്ങുന്നു. ഡിസ്കിലുള്ള സ്ഥലം വെടിപ്പാക്കിയ ശേഷവും എവിസി തുടരുന്നെങ്കില്‍, ദയവായി ഒരു ബഗ് രേഖപ്പെടുത്തുക. \n"
+"    "
 
 #: ../src/sys_resource.py:39
 msgid ""
 "you do not want to get this AVC any longer. These AVC's are caused by "
 "running out of resources, usually disk space on your / partition."
 msgstr ""
+"ഈ എവിസി ഇനി ലഭ്യമാക്കണമെന്നില്ല. നിങ്ങളുടെ / പാര്‍ട്ടീഷനില്‍ ഡിസ്ക് സ്ഥലം "
+"ലഭ്യമല്ല എന്നിങ്ങനെയുള്ള പരിമിതികള്‍ കാരണം ഈ എവിസികള്‍ ഉണ്ടാകുന്നു."
 
 #: ../src/sys_resource.py:40
 msgid ""
 "you must cleanup diskspace or make sure you are not running too many "
 "processes."
 msgstr ""
+"ഡിസ്കിലുള്ള സ്ഥലം വെടിപ്പാക്കണം അല്ലെങ്കില്‍ അനവധി പ്രക്രിയകള്‍ "
+"പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നില്ല എന്നുറപ്പാക്കുക."
 
 #: ../src/vbetool.py:30
 msgid ""
 "\n"
-"    SELinux has prevented vbetool from performing an unsafe memory "
-"operation.\n"
+"    SELinux has prevented vbetool from performing an unsafe memory operation.\n"
 "    "
 msgstr ""
+"\n"
+"    സുരക്ഷിതമല്ലാത്ത മെമ്മറി പ്രക്രിയ vbetool ഉപയോഗിക്കുന്നതില്‍ നിന്നും SELinux തടയുന്നു.\n"
+"    "
 
 #: ../src/vbetool.py:34
 msgid ""
@@ -1601,14 +2122,23 @@ msgid ""
 "SELinux denied an operation requested by $SOURCE, a program used\n"
 "to alter video hardware state.  This program is known to use\n"
 "an unsafe operation on system memory but so are a number of\n"
-"malware/exploit programs which masquerade as vbetool.  This tool is used "
-"to \n"
+"malware/exploit programs which masquerade as vbetool.  This tool is used to \n"
 "reset video state when a machine resumes from a suspend.  If your machine \n"
 "is not resuming properly your only choice is to allow this\n"
 "operation and reduce your system security against such malware.\n"
 "\n"
 "    "
 msgstr ""
+"\n"
+"SELinux denied an operation requested by $SOURCE, a program used\n"
+"to alter video hardware state.  This program is known to use\n"
+"an unsafe operation on system memory but so are a number of\n"
+"malware/exploit programs which masquerade as vbetool.  This tool is used to \n"
+"reset video state when a machine resumes from a suspend.  If your machine \n"
+"is not resuming properly your only choice is to allow this\n"
+"operation and reduce your system security against such malware.\n"
+"\n"
+"    "
 
 #: ../src/vbetool.py:45 ../src/wine.py:56
 msgid ""
@@ -1619,22 +2149,31 @@ msgid ""
 "\n"
 "# setsebool -P mmap_low_allowed 1\n"
 msgstr ""
+"\n"
+"ഈ പ്രോഗ്രാം തുടര്‍ന്നും പ്രവര്‍ത്തിക്കുന്നതിനായി നിങ്ങള്‍ക്കു്\n"
+"ഈ പ്രക്രിയ അനുവദിക്കേണം.  കമാന്‍ഡ് ലൈനില്‍ ഇതു് പ്രവര്‍ത്തിപ്പിച്ചു് നടപ്പിലാക്കുക:\n"
+"\n"
+"# setsebool -P mmap_low_allowed 1\n"
 
 #: ../src/vbetool.py:55
 msgid ""
 "you want to ignore this AVC because it is dangerous and your machine seems "
 "to be working correctly."
 msgstr ""
+"ഈ എവിസി അപകടകരമാണു് അതിനാല്‍ ഈ എവിസി ഉപേക്ഷിയ്ക്കണം. കൂടാതെ നിങ്ങളുടെ "
+"സിസ്റ്റം ശരിയായി പ്രവര്‍ത്തിയ്ക്കുന്നു എന്നും ഉറപ്പാക്കുക."
 
 #: ../src/vbetool.py:56
 msgid ""
 "you must tell SELinux about this by enabling the vbetool_mmap_zero_ignore "
 "boolean."
 msgstr ""
+"vbetool_mmap_zero_ignore ബൂളിയന്‍ പ്രവര്‍ത്തന രഹിതമാക്കി ഇതിനെപ്പറ്റി "
+"SELinux-നെ അറിയിയ്ക്കണം."
 
 #: ../src/vbetool.py:62 ../src/wine.py:73
 msgid "Turn off memory protection"
-msgstr ""
+msgstr "മെമ്മറി സുരക്ഷ ഓഫ് ചെയ്യുക"
 
 #: ../src/wine.py:31
 msgid ""
@@ -1642,6 +2181,9 @@ msgid ""
 "    SELinux has prevented wine from performing an unsafe memory operation.\n"
 "    "
 msgstr ""
+"\n"
+"    സുരക്ഷിതമല്ലാത്ത മെമ്മറി പ്രക്രിയ wine ഉപയോഗിക്കുന്നതില്‍ നിന്നും SELinux തടയുന്നു.\n"
+"    "
 
 #: ../src/wine.py:35
 msgid ""
@@ -1666,418 +2208,593 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"SELinux denied an operation requested by wine-preloader, a program used\n"
+"to run Windows applications under Linux.  This program is known to use\n"
+"an unsafe operation on system memory but so are a number of\n"
+"malware/exploit programs which masquerade as wine.  If you were\n"
+"attempting to run a Windows program your only choices are to allow this\n"
+"operation and reduce your system security against such malware or to\n"
+"refrain from running Windows applications under Linux.  If you were not\n"
+"attempting to run a Windows application this indicates you are likely\n"
+"being attacked by some for of malware or program trying to exploit your\n"
+"system for nefarious purposes.\n"
+"\n"
+"Please refer to \n"
+"\n"
+"http://wiki.winehq.org/PreloaderPageZeroProblem\n"
+"\n"
+"Which outlines the other problems wine encounters due to its unsafe use\n"
+"of memory and solutions to those problems.\n"
+"\n"
+"    "
 
 #: ../src/wine.py:66
 msgid ""
 "you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
 msgstr ""
+"ഈ എവിസി അപകടകരമാണു് അതിനാല്‍ ഈ എവിസി ഉപേക്ഷിയ്ക്കണം. കൂടാതെ നിങ്ങളുടെ wine "
+"പ്രയോഗങ്ങള്‍ ശരിയായി പ്രവര്‍ത്തിയ്ക്കുന്നു എന്നും ഉറപ്പാക്കുക."
 
 #: ../src/wine.py:67
 msgid ""
 "you must tell SELinux about this by enabling the wine_mmap_zero_ignore "
 "boolean."
 msgstr ""
+"wine_mmap_zero_ignore ബൂളിയന്‍ പ്രവര്‍ത്തന രഹിതമാക്കി ഇതിനെപ്പറ്റി "
+"SELinux-നെ അറിയിയ്ക്കണം."
 
 #: ../src/xen_image.py:27
 msgid ""
 "\n"
-"    SELinux is preventing xen ($SOURCE_PATH) \"$ACCESS\" access to "
-"$TARGET_PATH.\n"
+"    SELinux is preventing xen ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുളള xen ($SOURCE_PATH) \"$ACCESS\" പ്രവേശനം SELinux തടയുന്നു. \n"
+"    "
 
 #: ../src/xen_image.py:31
 msgid ""
 "\n"
 "    SELinux denied xen access to $TARGET_PATH.\n"
 "    If this is a XEN image, it has to have a file context label of\n"
-"    xen_image_t. The system is setup to label image files in directory /var/"
-"lib/xen/images\n"
-"    correctly.  We recommend that you copy your image file to /var/lib/xen/"
-"images.\n"
-"    If you really want to have your xen image files in the current "
-"directory, you can relabel $TARGET_PATH to be xen_image_t using chcon.  You "
-"also need to execute semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH' "
-"to add this\n"
-"    new path to the system defaults. If you did not intend to use "
-"$TARGET_PATH as a xen\n"
+"    xen_image_t. The system is setup to label image files in directory /var/lib/xen/images\n"
+"    correctly.  We recommend that you copy your image file to /var/lib/xen/images.\n"
+"    If you really want to have your xen image files in the current directory, you can relabel $TARGET_PATH to be xen_image_t using chcon.  You also need to execute semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH' to add this\n"
+"    new path to the system defaults. If you did not intend to use $TARGET_PATH as a xen\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    $TARGET_PATH-ലേക്കുള്ള xen അനുമതി SELinux നിഷേധിച്ചിരിക്കുന്നു.\n"
+"    ഇതൊരു XEN ഇമേജാണെങ്കില്‍, അതിനൊരു xen_image_t ഫയല്‍ കോണ്‍ടെക്സ്റ്റ്\n"
+"    ലേബല്‍ ആവശ്യമുണ്ടു്. directory./var/lib/xen/images-ലുള്ള ഇമേജ് ഫയലുകള്‍ സിസ്റ്റം ശരിയായി ലേബല്‍ ചെയ്യുന്നു.\n"
+"    നിങ്ങളുടെ ഇമേജ് ഫയല്‍ അതിനാല്‍ /var/lib/xen/images-ലേക്ക് പകര്‍ത്തുക.\n"
+"    നിങ്ങള്‍ക്ക് xen ഇമേജുകള്‍ നിലവിലുള്ള ഡയറക്ടറില്‍ വേണമെങ്കില്‍, chcon ഉപയോഗിച്ചു് നിങ്ങള്‍ക്കു് $TARGET_PATH, xen_image_t ആയി വീണ്ടും ലേബല്‍ ചെയ്യാം. കൂടാതെ സിസ്റ്റം സ്വതവേയുള്ളവയിലേക്ക് പുതിയ പാഥ് ചേര്‍ക്കുന്നതിനായി fcontext -a -t xen_image_t '$FIX_TARGET_PATH' \n"
+"    ഉപയോഗിക്കുക. നിങ്ങള്‍ xen ഇമേജായി $TARGET_PATHഉപയോഗിക്കുന്നില്ലെങ്കില്‍,\n"
+"ഒരു ബഗായി അല്ലെങ്കില്‍ തെറ്റായ പ്രവര്‍ത്തിയായി സൂചിപ്പിക്കുന്നു\n"
+"    "
 
 #: ../src/xen_image.py:41
 msgid ""
 "\n"
-"    You can alter the file context by executing chcon -t xen_image_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"xen_image_t '$FIX_TARGET_PATH'\"\n"
+"    You can alter the file context by executing chcon -t xen_image_t '$TARGET_PATH'\n"
+"    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
 msgstr ""
+"\n"
+"    chcon -t xen_image_t '$TARGET_PATH' ഉപയോഗിച്ച് നിങ്ങള്‍ക്ക് ഫയല്‍ കോണ്‍ടെക്സ്റ്റില്‍ മാറ്റം വരുത്തുവാന്‍ സാധിക്കുന്നു\n"
+"    പൂര്‍ണ്ണ റീലേബല്‍ ചെയ്യുമ്പോള്‍ ഇവയെ സൂക്ഷിക്കുന്നതിനായി നിങ്ങള്‍ സ്വതവേയുള്ള ഫയല്‍ കോണ്‍ടെക്സ്റ്റ് ഫയലുകള്‍ മാറ്റേണ്ടതാകുന്നു.  \"semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n"
+"    "
 
 #: ../booleans_trans.py:1
 msgid ""
-"If you want to allow ftp to read and write files in the user home directories"
+"If you want to allow ftp to read and write files in the user home "
+"directories"
 msgstr ""
+"ഉപയോക്താവിന്റെ ആസ്ഥാന ഡയറക്ടറികളില്‍ ഫയലുകള്‍ എഴുതുന്നതിനും "
+"സൂക്ഷിയ്ക്കുന്നതിനും നിങ്ങള്‍ക്കു് ftp അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:2
 msgid ""
 "If you want to allow privoxy to connect to all ports, not just HTTP, FTP, "
 "and Gopher ports."
 msgstr ""
+"HTTP, FTP, ഗോഫര്‍ പോര്‍ട്ടുകള്‍ മാത്രമല്ല, എല്ലാ പോര്‍ട്ടുകളിലേക്കും privoxy"
+" അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:3
 msgid ""
 "If you want to allow the graphical login program to login directly as "
 "sysadm_r:sysadm_t"
 msgstr ""
+"ഗ്രാഫിക്കല്‍ പ്രവേശന പ്രോഗ്രാമിലേക്കു് നേരിട്ട് sysadm_r:sysadm_t ആയി "
+"പ്രവേശിയ്ക്കുന്നതിനായി അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:4
 msgid "If you want to allow xen to manage nfs files"
-msgstr ""
+msgstr "nfs ഫയലുകള്‍ കൈകാര്യം ചെയ്യുന്നതിനായി xen അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:5
 msgid ""
 "If you want to allow confined web browsers to read home directory content"
 msgstr ""
+"ആസ്ഥാന ഡയറക്ടറിയുടെ ഉള്ളടക്കം ലഭ്യമാക്കുന്നതിനായി ചില വെബ് ബ്രൌസറുകള്‍ "
+"അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:6
 msgid ""
 "If you want to allow xguest users to configure Network Manager and connect "
 "to apache ports"
 msgstr ""
+"നെറ്റ്‌വര്‍ക്ക് മാനേജര്‍ ക്രമീകരിയ്ക്കുന്നതിനും അപ്പാച്ചെ "
+"പോര്‍ട്ടുകളിലേക്കു് കണക്ട് ചെയ്യുന്നതിനും xguest ഉപയോക്താക്കളെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:7
 msgid "If you want to allow database admins to execute DML statement"
 msgstr ""
+"ഡിഎംഎല്‍ സ്റ്റേറ്റ്മെന്റ് പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി ഡേറ്റാബെയിസ് "
+"അഡ്മിനുകളെ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:8
 msgid "If you want to allow clamscan to read user content"
 msgstr ""
+"ഉപയോക്താവിനുള്ള ഉള്ളടക്കം ലഭ്യമാക്കുന്നതിനായി clamsan അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:9
 msgid ""
 "If you want to allow tftp to modify public files used for public file "
 "transfer services."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഥര്‍ സേവനങ്ങള്‍ക്കുള്ള പബ്ലിക് ഫയലുകളില്‍ മാറ്റം "
+"വരുത്തുന്നതിനായി ftp അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:10
 msgid ""
 "If you want to allow ZoneMinder to modify public files used for public file "
 "transfer services."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കുള്ള ഫയലുകളില്‍ മാറ്റം "
+"വരുത്തുന്നതിനായി ZoneMinder അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:11
 msgid ""
-"If you want to allow direct login to the console device. Required for System "
-"390"
+"If you want to allow direct login to the console device. Required for System"
+" 390"
 msgstr ""
+"കണ്‍സോള്‍ ഡിവൈസിലേക്കു് നേരിട്ടുള്ള പ്രവേശനം അനുവദിയ്ക്കണമെങ്കില്‍. സിസ്റ്റം"
+" 390-നു് ആവശ്യമുണ്ടു്."
 
 #: ../booleans_trans.py:12
 msgid "If you want to allow user spamassassin clients to use the network."
 msgstr ""
+"നെറ്റ്‌വര്‍ക്ക് ഉപയോഗിയ്ക്കുന്നതിനായി spamassassin ക്ലയന്റുകള്‍ "
+"അനുവദിയ്ക്കണമെങ്കില്‍. "
 
 #: ../booleans_trans.py:13
 msgid "If you want to allow httpd to act as a relay"
-msgstr ""
+msgstr "ഒരു റിലേ ആയി httpd അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:14
 msgid "If you want to allow openvpn to read home directories"
-msgstr ""
+msgstr "ഹോം ഡയറക്ടറികള്‍ ലഭ്യമാക്കുന്നതിനായി openvpn അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:15
 msgid ""
 "If you want to allow usage of the gpg-agent --write-env-file option. This "
 "also allows gpg-agent to manage user files."
 msgstr ""
+"gpg-agent --write-env-file ഐച്ഛികത്തിന്റെ ഉപയോഗം അനുവദിയ്ക്കണമെങ്കില്‍. "
+"ഉപയോക്താവിനുള്ള ഫയലുകള്‍ കൈകാര്യം ചെയ്യുന്നതിനായി ഇതു് gpg-agent-നെ "
+"അനുവദിയ്ക്കുന്നു."
 
 #: ../booleans_trans.py:16
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
 "generic TCP port."
 msgstr ""
+"ഏതെങ്കിലും സാധാരണ ടിസിപി പോര്‍ട്ടിലേക്കു് കണക്ട് ചെയ്യുവാന്‍ ടെലിപ്പഥി "
+"കണക്ഷന്‍ മാനേജറുകളെ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:17
 msgid ""
 "If you want to allow unconfined users to transition to the Mozilla plugin "
 "domain when running xulrunner plugin-container."
 msgstr ""
+"xulrunner plugin-container പ്രവര്‍ത്തിപ്പിയ്ക്കുമ്പോള്‍ മോസിലാ പ്ലഗിന്‍ "
+"ഡൊമെയിനിലേക്കു് ഉപയോക്താക്കള്‍ക്കു് നീങ്ങുന്നതിനായി ഉപയോക്താക്കളെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:18
 msgid "If you want to allow confined virtual guests to read fuse files"
 msgstr ""
+"fuse ഫലുകള്‍ ലഭ്യമാക്കുന്നതിനായി അനുമതിയില്ലാത്ത വിര്‍ച്ച്വല്‍ ഗസ്റ്റുകള്‍ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:19
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to databases over "
 "the network."
 msgstr ""
+"നെറ്റ്‌വര്‍ക്കില്‍ ഡേറ്റാബെയിസുകളിലേക്കു് HTTPD സ്ക്രിപ്റ്റുകളും ഘടകങ്ങളും "
+"കണക്ട് ചെയ്യുന്നതിനായി അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:20
 msgid ""
-"If you want to allow ssh with chroot env to read and write files in the user "
-"home directories"
+"If you want to allow ssh with chroot env to read and write files in the user"
+" home directories"
 msgstr ""
+"ഉപയോക്താവിനുള്ള ആസ്ഥാന ഡയറക്ടറികളില്‍ ഫയലുകള്‍ ലഭ്യമാക്കുകയോ സൂക്ഷിയ്ക്കുകയോ"
+" ചെയ്യുന്നതിനായി chroot env-യ്ക്കൊപ്പം ssh അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:21
 msgid "If you want to allow users to connect to the local mysql server"
 msgstr ""
+"ലോക്കല്‍ mysql സര്‍വറിലേക്കു് ഉപയോക്താക്കളെ കണക്ട് ചെയ്യുവാന്‍ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow user processes to change their priority"
 msgstr ""
+"ഉപയോക്താക്കളുടെ പ്രക്രിയകള്‍ക്കു് അവയുടെ മുന്‍ഗണന മാറ്റുവാന്‍ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:23
 msgid ""
 "If you want to allow ftp servers to login to local users and read/write all "
 "files on the system, governed by DAC."
 msgstr ""
+"പ്രാദേശിക ഉപയോക്താക്കളിലേക്കു് പ്രവേശിച്ചു് ഡിഎസി നയിയ്ക്കുന്ന "
+"സിസ്റ്റത്തിലുള്ള എല്ലാ ഫയലുകളും ലഭ്യമാക്കുകയോ സൂക്ഷിയ്ക്കുകയോ "
+"ചെയ്യുന്നതിനായി നിങ്ങള്‍ക്കു് ftp സര്‍വറുകള്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:24
 msgid "If you want to allow httpd to run gpg in gpg-web domain"
 msgstr ""
+"gpg-web ഡൊമെയിനില്‍ gpg പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി httpd "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:25
 msgid ""
 "If you want to allow samba to act as the domain controller, add users, "
 "groups and change passwords."
 msgstr ""
+"ഡൊമെയിന്‍ കണ്ട്രോളര്‍, ഉപയോക്താക്കളും ഗ്രൂപ്പുകളും ചേര്‍ക്കുക, "
+"അടയാളവാക്കുകള്‍ മാറ്റുക എന്നിങ്ങനെയുള്ള പ്രവര്‍ത്തികള്‍ക്കായി സാംബയെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:26
 msgid "If you want to allow httpd to execute cgi scripts"
 msgstr ""
+"cgi സ്ക്രിപ്റ്റുകള്‍ പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി httpd "
+"അനുവദിയ്ക്കണെങ്കില്‍"
 
 #: ../booleans_trans.py:27
 msgid "If you want to determine whether polipo can access cifs file systems."
 msgstr ""
+"polipo-യ്ക്കു് cifs ഫയല്‍ സിസ്റ്റങ്ങള്‍ ലഭ്യമാക്കണമോ എന്നറിയണമെങ്കില്‍."
 
 #: ../booleans_trans.py:28 ../booleans_trans.py:140
 msgid "If you want to allow confined virtual guests to manage nfs files"
 msgstr ""
+"nfs ഫയലുകള്‍ കൈകാര്യം ചെയ്യുന്നതിനായി അനുമതിയില്ലാത്ത വിര്‍ച്ച്വല്‍ "
+"ഗസ്റ്റുകള്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:29
 msgid "If you want to allow all daemons the ability to read/write terminals"
 msgstr ""
+"ടെര്‍മിനുകളിലേക്കു് ലഭ്യമാക്കുക/എഴുതന്നതിനോ എല്ലാ ഡെമണുകളേയും "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:30
 msgid ""
 "If you want to allow confined virtual guests to use serial/parallel "
 "communication ports"
 msgstr ""
+"സീരിയല്‍/പാരലല്‍ ആശയവിനിമയ പോര്‍ട്ടുകള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി വിര്‍ച്ച്വല്‍"
+" ഗസ്റ്റുകളെ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:31
 msgid ""
 "If you want to allow samba to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കുള്ള പബ്ലിക് ഫയലുകളില്‍ മാറ്റം "
+"വരുത്തുന്നതിനായി സാംബ ഉപയോഗിയ്ക്കണമെങ്കില്‍. ഫയലുകള്‍/ഡയറക്ടറികള്‍ "
+"public_content_rw_t ആയി ലേബല്‍ ചെയ്യണം."
 
 #: ../booleans_trans.py:32
 msgid "If you want to allow rsync to run as a client"
 msgstr ""
+"ഒരു ക്ലയന്റായി പ്രവര്‍ത്തിയ്ക്കുന്നതിനു് നിങ്ങള്‍ക്കു് rsync "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:33
 msgid ""
 "If you want to allow rgmanager domain to connect to the network using TCP."
 msgstr ""
+"ടിസിപി വഴി നെറ്റ്‌വര്‍ക്കിലേക്കു് rgmanager ഡൊമെയിന്‍ കണക്ട് ചെയ്യുന്നതു് "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:34
 msgid "If you want to allow exim to read unprivileged user files."
 msgstr ""
+"അനുമതികള്‍ ലഭ്യമല്ലാത്ത ഉപയോക്തൃ ഫയലുകള്‍ ലഭ്യമാക്കുന്നതിനായി exim "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:35
 msgid "If you want to allow sysadm to debug or ptrace all processes."
 msgstr ""
+"എല്ലാ പ്രക്രിയകളും debug അല്ലെങ്കില്‍ ptrace ചെയ്യുന്നതിനായി sysadm "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:36
 msgid "If you want to allow Puppet client to manage all file types."
 msgstr ""
+"എല്ലാ തരത്തിലുള്ള ഫയലുകളും കൈകാര്യം ചെയ്യുന്നതിനായി പപ്പറ്റ് ക്ലയന്റ് "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:37
 msgid ""
 "If you want to allow the use of the audio devices as the source for the "
 "entropy feeds"
 msgstr ""
+"എന്‍ട്രോപ്പി ഫീഡുകള്‍ക്കുള്ള ശ്രോതസ്സായി ഓഡിയോ ഡിവൈസുകളുടെ ഉപയോഗം "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:38
 msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
 msgstr ""
+"sysadm_r:sysadm_t ആയി നിങ്ങള്‍ക്കു് ssh പ്രവേശനങ്ങള്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:39
 msgid ""
 "If you want to determine whether Polipo session daemon can send syslog "
 "messages."
 msgstr ""
+"Polipo സെഷന്‍ ഡെമണിനു് syslog സന്ദേശങ്ങള്‍ അയയ്ക്കുവാന്‍ സാധ്യമോ "
+"എന്നറിയുന്നതിനായി."
 
 #: ../booleans_trans.py:40
 msgid ""
 "If you want to allow BIND to write the master zone files. Generally this is "
 "used for dynamic DNS or zone transfers."
 msgstr ""
+"മാസ്റ്റര്‍ സോണ്‍ ഫയലുകളിലേക്കു് BIND അനുവദിയ്ക്കണമെങ്കില്‍. സാധാരണ "
+"ഇതുപയോഗിയ്ക്കുന്നതു് ഡൈനമിക് ഡിഎന്‍എസ് അല്ലെങ്കില്‍ സോണ്‍ "
+"ട്രാന്‍സ്ഫറുകള്‍ക്കാണു്."
 
 #: ../booleans_trans.py:41
 msgid "If you want to allow Git daemon system to access cifs file systems."
 msgstr ""
+"cifs ഫയല്‍ സിസ്റ്റങ്ങള്‍ ലഭ്യമാക്കുന്നതിനായി Git ഡെമണ്‍ സിസ്റ്റം "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:42
 msgid ""
 "If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
 msgstr ""
+"കരുതിയിട്ടില്ലാത്ത പോര്‍ട്ടുകളിലേക്കു് tcp സോക്കറ്റുകള്‍ ബൈന്‍ഡ് "
+"ചെയ്യുന്നതിനായി tor ഡെമണ്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:43
 msgid "If you want to allow host key based authentication"
 msgstr ""
+"ഹോസ്റ്റ് കീ അടിസ്ഥാനത്തിലുള്ള ആധികാരിത ഉറപ്പാക്കല്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:44
 msgid "If you want to allow httpd to access cifs file systems"
 msgstr ""
+"cifs ഫയല്‍ സിസ്റ്റങ്ങളിലേക്കുള്ള പ്രവേശനത്തിനായി നിങ്ങള്‍ക്കു് httpd "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:45
 msgid ""
 "If you want to allow piranha-lvs domain to connect to the network using TCP."
 msgstr ""
+"ടിസിപി ഉപയോഗിച്ചു് നെറ്റ്‌വര്‍ക്കിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി piranha-lvs"
+" ഡൊമെയിന്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:46
 msgid ""
 "If you want to disallow programs, such as newrole, from transitioning to "
 "administrative user domains."
 msgstr ""
+"അഡ്മിനിസ്ട്രേറ്റീവ് യൂസര്‍ ഡൊമെയിനുകളിലേക്കു് മാറുന്നതു് പോലുള്ള പുതിയ "
+"പ്രവര്‍ത്തികള്‍ക്കായി പ്രോഗ്രാമുകള്‍ അനുവദിയ്ക്കേണ്ടെങ്കില്‍."
 
 #: ../booleans_trans.py:47
 msgid "If you want to allow Apache to use mod_auth_pam"
 msgstr ""
+"mod_auth_pam ഉപയോഗിയ്ക്കുന്നതിനായി നിങ്ങള്‍ക്കു് അപ്പാച്ചെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:48
 msgid "If you want to allow pppd to be run for a regular user"
 msgstr ""
+"സാധാരണയുള്ളൊരു ഉപയോക്താവിനു് പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി pppd "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:49
 msgid "If you want to allow samba to share any file/directory read only."
 msgstr ""
+"ഏതെങ്കിലും ഫയല്‍/ഡയറക്ടറി റീഡ് ഒണ്‍ലി ആയി പങ്കിടുന്നതു് സാംബാ "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:50
 msgid "If you want to allow ftp servers to connect to mysql database ports"
 msgstr ""
+"mysql ഡേറ്റാബെയിസ് പോര്‍ട്ടുകളിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി ftp സര്‍വറുകളെ"
+" അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:51
 msgid "If you want to allow Git daemon system to search home directories."
 msgstr ""
+"ആസ്ഥാന ഡയറക്ടറികള്‍ തെരയുന്നതിനു് Git ഡെമണ്‍ സിസ്റ്റത്തിനെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:52
 msgid "If you want to support SAMBA home directories"
-msgstr ""
+msgstr "സാംബാ ഹോം ഡയറക്ടറികള്‍ പിന്തുണയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:53
 msgid "If you want to allow mock to read files in home directories."
 msgstr ""
+"ആസ്ഥാന ഡയറക്ടറികളില്‍ ഫയലുകള്‍ ലഭ്യമാക്കുന്നതിനായി mock "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:54
 msgid "If you want to allow users to login using a sssd server"
 msgstr ""
+"ഒരു sssd സര്‍വര്‍ ഉപയോഗിച്ചു് പ്രവേശിയ്ക്കുന്നതിനായി ഉപയോക്താക്കളെ "
+"അനുവദിയ്ക്കുന്നതിനു്"
 
 #: ../booleans_trans.py:55
 msgid ""
 "If you want to allow samba to create new home directories (e.g. via PAM)"
 msgstr ""
+"പുതിയ ഹോം ഡയറക്ടറികള്‍ തയ്യാറാക്കുന്നതിനായി നിങ്ങള്‍ സാംബ "
+"അനുവദിയ്ക്കണമെങ്കില്‍ (ഉദാ. PAM മുഖേന)"
 
 #: ../booleans_trans.py:56
 msgid "If you want to control users use of ping and traceroute"
 msgstr ""
+"ping, traceroute എന്നിവയുടെ ഉപയോക്താക്കളുടെ ഉപയോഗം "
+"നിയന്ത്രിയ്ക്കിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:57
 msgid ""
 "If you want to allow ftp servers to use cifs used for public file transfer "
 "services."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കായി cifs ഉപയോഗിയ്ക്കുന്നതിനു് ftp "
+"സര്‍വറുകളെ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:58
 msgid ""
 "If you want to allow the Irssi IRC Client to connect to any port, and to "
 "bind to any unreserved port."
 msgstr ""
+"ഏതെങ്കിലും പോര്‍ട്ടിലേക്കു് Irssi ഐആര്‍സി ക്ലയന്റ് കണക്ട് ചെയ്യുക, "
+"കരുതിയിട്ടില്ലാത്ത പോര്‍ട്ടിലേക്കു് ബൈന്‍ഡ് ചെയ്യുക എന്നിവയ്ക്കു് "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:59
 msgid "If you want to allow zabbix to connect to unreserved ports"
 msgstr ""
+"കരുതിയിട്ടില്ലാത്ത പോര്‍ട്ടുകളിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി zabbix "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:60
 msgid "If you want to allow fenced domain to execute ssh."
 msgstr ""
+"ssh പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി fenced ഡൊമെയിന്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:61
 msgid ""
 "If you want to allow ftp servers to use nfs used for public file transfer "
 "services."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കായി nfs ഉപയോഗിയ്ക്കുന്നതിനായി "
+"നിങ്ങള്‍ക്കു് ftp സര്‍വറുകള്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:62
 msgid "If you want to allow httpd to read home directories"
-msgstr ""
+msgstr "ഹോം ഡയറക്ടറികള്‍ ലഭ്യമാക്കുവാന്‍ httpd അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:63
 msgid ""
 "If you want to allow gpg web domain to modify public files used for public "
 "file transfer services."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കായി പബ്ലിക് ഫയലുകളില്‍ മാറ്റം "
+"വരുത്തുന്നതിനായി നിങ്ങള്‍ക്കു് gpg വെബ് ഡൊമെയിന്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:64
 msgid "If you want to allow rsync to export any files/directories read only."
 msgstr ""
+"ഏതെങ്കിലും ഫയലുകള്‍/ഡയറക്ടറികള്‍ റീഡ് ഒണ്‍ലി മാത്രമായി എക്സ്പോര്‍ട്ട് "
+"ചെയ്യുവാന്‍ rsync അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:65
 msgid ""
 "If you want to allow all unconfined executables to use libraries requiring "
 "text relocation that are not labeled textrel_shlib_t"
 msgstr ""
+"textrel_shlib_t എന്നു് ലേബല്‍ ചെയ്തിട്ടില്ലാത്ത ടെക്സ്റ്റ് റീലൊക്കേഷന്‍ "
+"ആവശ്യമുള്ള ലൈബ്രറികള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി എല്ലാ എക്സിക്യൂട്ടബിളുകളും "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:66
 msgid ""
-"If you want to allow apache scripts to write to public content.  Directories/"
-"Files must be labeled public_rw_content_t."
+"If you want to allow apache scripts to write to public content.  "
+"Directories/Files must be labeled public_rw_content_t."
 msgstr ""
+"പബ്ലിക് കണ്ടന്റിലേക്കു് സൂക്ഷിയ്ക്കുന്നതിനായി നിങ്ങള്‍ക്കു് അപ്പാച്ചെ "
+"സ്ക്രിപ്റ്റുകള്‍ അനുവദിയ്ക്കണമെങ്കില്‍.  ഡയറക്ടറികള്‍/ഫയലുകള്‍ "
+"public_rw_content_t ആയി ലേബല്‍ ചെയ്യണം."
 
 #: ../booleans_trans.py:67
 msgid "If you want to allow qemu to use cifs/Samba file systems"
 msgstr ""
+"cifs/സാംബാ ഫയല്‍ സിസ്റ്റങ്ങള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി qemu "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:68
 msgid ""
 "If you want to determine whether Polipo session daemon can bind tcp sockets "
 "to all unreserved ports."
 msgstr ""
+"കരുതിയിട്ടില്ലാത്ത പോര്‍ട്ടുകളിലേക്കു് ടിസിപി സോക്കറ്റുകള്‍ ബൈന്‍ഡ് "
+"ചെയ്യുവാന്‍ Polipo സെഷന്‍ ഡെമണിനു് സാധ്യമോ എന്നറിയണമെങ്കില്‍."
 
 #: ../booleans_trans.py:69
 msgid "If you want to allow qemu to use serial/parallel communication ports"
 msgstr ""
+"സീരിയല്‍/പാരലല്‍ ആശയവിനിമയ പോര്‍ട്ടുകള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി qemu "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:70
 msgid "If you want to allow Apache to communicate with avahi service via dbus"
 msgstr ""
+"dbus മുഖേന avahi സേവനുമായി ബന്ധപ്പെടുന്നതിനു് അപ്പാച്ചെ അനുവദിയ്ക്കണെങ്കില്‍"
 
 #: ../booleans_trans.py:71
 msgid "If you want to allow all daemons to use tcp wrappers."
 msgstr ""
+"ടിസിപി റാപ്പറുകള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി എല്ലാ ഡെമണുകളും "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:72
 msgid "If you want to allow samba to share users home directories."
 msgstr ""
+"ഉപയോക്താക്കള്‍ക്കുള്ള ആസ്ഥാന ഡയറക്ടറികള്‍ പങ്കിടുന്നതിനായി സാംബാ "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:73
 msgid "If you want to enable reading of urandom for all domains."
 msgstr ""
+"എല്ലാ ഡൊമെയിനുകള്‍ക്കുള്ള urandom ലഭ്യമാക്കുന്നതു് പ്രവര്‍ത്തന "
+"സജ്ജമാക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:74
 msgid "If you want to allow racoon to read shadow"
-msgstr ""
+msgstr "shadow ലഭ്യമാക്കുന്നതിനായി racoon അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:75
 msgid "If you want to allow Cobbler to connect to the network using TCP."
 msgstr ""
+"ടിസിപി ഉപയോഗിച്ചു് നെറ്റ്‌വര്‍ക്കിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി കോബ്ലര്‍ "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:76
 msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
 msgstr ""
+"ട്രാന്‍സ്പരന്റ് പ്രോക്സി (TPROXY) ആയി പ്രവര്‍ത്തിയ്ക്കുന്നതിനു് squid "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:77
 msgid ""
@@ -2085,6 +2802,10 @@ msgid ""
 "enforcing mode, and changing boolean values.  Set this to true and you have "
 "to reboot to set it back"
 msgstr ""
+"പോളിസി ലഭ്യമാക്കുന്നതിനും, എന്‍ഫോഴ്സിങ് മോഡ് സജ്ജമാക്കുന്നതിനും, ബൂളിയന്‍ "
+"മൂല്ല്യങ്ങള്‍ മാറ്റുന്നതിനു് നിങ്ങള്‍ക്കു് ഡൊമെയിനുകള്‍ തടയണമെങ്കില്‍.  ഇതു്"
+" true ആയി സജ്ജമാക്കുക, ശേഷം ഇതു് തിരികെ സജ്ജമാക്കുന്നതിനായി വീണ്ടും ബൂട്ട് "
+"ചെയ്യുക"
 
 #: ../booleans_trans.py:78
 msgid ""
@@ -2093,268 +2814,361 @@ msgid ""
 "coded executable, but could indicate an attack. This executable should be "
 "reported in bugzilla"
 msgstr ""
+"എക്സിക്യൂട്ടബിളുകളുടെ ഹീപ്പ് മെമ്മറി പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി ഇതു് "
+"അനുവദിയ്ക്കണമെങ്കില്‍. ഇതു് നല്ലൊരു രീതിയല്ല. ഇതു് ബഗ്സിലയില്‍ "
+"രേഖപ്പെടുത്തണം."
 
 #: ../booleans_trans.py:79
 msgid "If you want to allow dbadm to manage files in users home directories"
 msgstr ""
+"ഉപയോക്താക്കളുടെ ആസ്ഥാന ഡയറക്ടറികളില്‍ ഫയലുകള്‍ കൈകാര്യം ചെയ്യുന്നതിനായി "
+"dbadm കൈകാര്യം ചെയ്യണമെങ്കില്‍"
 
 #: ../booleans_trans.py:80
 msgid ""
 "If you want to allow confined virtual guests to interact with the xserver"
 msgstr ""
+"xserver-മായി ബന്ധപ്പെടുന്നതിനായി വിര്‍ച്ച്വല്‍ ഗസ്റ്റുകള്‍ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:81
 msgid "If you want to allow Git daemon system to access nfs file systems."
 msgstr ""
+"nfs ഫയല്‍ സിസ്റ്റങ്ങളിലേക്കു് പ്രവേശിയ്ക്കുന്നതിനായി Git ഡെമണ്‍ സിസ്റ്റം "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:82
 msgid "If you want to unify HTTPD handling of all content files."
-msgstr ""
+msgstr "എല്ലാ ഫയലുകളും HTTPD കൈകാര്യം ചെയ്യുന്നതു് ഒന്നിപ്പിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:83
 msgid "If you want to allow nsplugin code to connect to unreserved ports"
 msgstr ""
+"കരുതിയിട്ടില്ലാത്ത പോര്‍ട്ടുകളിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി nsplugin കോഡ് "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:84
 msgid ""
 "If you want to allow rsync to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കുള്ള പബ്ലിക് ഫയലുകളില്‍ മാറ്റം "
+"വരുത്തുന്നതിനായി rsync ഉപയോഗിയ്ക്കണമെങ്കില്‍. ഫയലുകള്‍/ഡയറക്ടറികള്‍ "
+"public_content_rw_t ആയി ലേബല്‍ ചെയ്യണം."
 
 #: ../booleans_trans.py:85
 msgid "If you want to allow qemu to use nfs file systems"
 msgstr ""
+"nfs ഫയല്‍ സിസ്റ്റങ്ങള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി qemu അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:86
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to the network "
 "using any TCP port."
 msgstr ""
+"ഏതെങ്കിലും ടിസിപി പോര്‍ട്ട് ഉപയോഗിച്ചു് നെറ്റ്‌വര്‍ക്കിലേക്കു് കണക്ട് "
+"ചെയ്യുന്നതിനായി HTTPD സ്ക്രിപ്റ്റുകളും ഘടകങ്ങളും അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:87
 msgid "If you want to allow qemu to use usb devices"
-msgstr ""
+msgstr "യുഎസ്ബി ഡിവൈസുകള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി qemu അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:88
 msgid "If you want to allow exim to connect to databases (PostgreSQL, MySQL)"
 msgstr ""
+"ഡേറ്റാബെയിസുകളിലേക്കു് (PostgreSQL, MySQL) കണക്ട് ചെയ്യുന്നതിനായി exim "
+"അനുവദിയ്ക്കണമെങ്കില്‍ "
 
 #: ../booleans_trans.py:89
 msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
 msgstr ""
+"HTTP മാത്രമല്ല, എല്ലാ പോര്‍ട്ടുകളിലേക്കും കണക്ട് ചെയ്യുന്നതിനായി varnishd "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:90
 msgid "If you want to allow mplayer executable stack"
-msgstr ""
+msgstr "mplayer എക്സിക്ക്യൂട്ടബിള്‍ സ്റ്റാക്ക് അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:91
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
 msgstr ""
+"httpd സ്ക്രിപ്റ്റുകള്‍ക്കും ഘടകങ്ങള്‍ക്കുമുള്ള execmem/execstack "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:92
 msgid "If you want to allow all daemons to write corefiles to /"
-msgstr ""
+msgstr "എല്ലാ ഡെമണുകള്‍ക്കും കോര്‍ഫയലുകള്‍ /-ലേക്കു് സൂക്ഷിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:93
 msgid "If you want to allow httpd to connect to the ldap port"
 msgstr ""
+"ldap പോര്‍ട്ടിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി httpd അനുവദിയ്ക്കണെങ്കില്‍"
 
 #: ../booleans_trans.py:94
 msgid ""
-"If you want to allow confined virtual guests to manage device configuration, "
-"(pci)"
+"If you want to allow confined virtual guests to manage device configuration,"
+" (pci)"
 msgstr ""
+"ഡിവൈസ് ക്രമീകരണം കൈകാര്യം ചെയ്യുന്നതിനായി അനുമതിയില്ലാത്ത വിര്‍ച്ച്വല്‍ "
+"ഗസ്റ്റുകളെ അനുവദിയ്ക്കണമെങ്കില്‍ (പിസിഐ)"
 
 #: ../booleans_trans.py:95
 msgid "If you want to allow spamd to read/write user home directories."
 msgstr ""
+"ഉപയോക്താവിനുള്ള ആസ്ഥാന ഡയറക്ടറികള്‍ "
+"ലഭ്യമാക്കുന്നതിനായി/സൂക്ഷിയ്ക്കുന്നതിനായി spamd അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:96
 msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
 msgstr ""
+"mod_auth_ntlm_winbind ഉപയോഗിയ്ക്കുന്നതിനായി അപ്പാച്ചെ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:97
 msgid "If you want to allow the graphical login program to execute bootloader"
 msgstr ""
+"ബൂട്ട്ലോഡര്‍ പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി ഗ്രാഫിക്കല്‍ ലോഗിന്‍ പ്രോഗ്രാം "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:98
 msgid "If you want to allow system to run with NIS"
 msgstr ""
+"NIS ഉപയോഗിച്ചു് നിങ്ങള്‍ക്കു് സിസ്റ്റം പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതു് "
+"അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:99
 msgid "If you want to allow qemu to connect fully to the network"
 msgstr ""
+"നെറ്റ്‌വര്‍ക്കിലേക്കിലേക്കു് പൂര്‍ണ്ണമായി കണക്ട് ചെയ്യുന്നതിനായി qemu "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:100
 msgid ""
-"If you want to allow nfs servers to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
+"If you want to allow nfs servers to modify public files used for public file"
+" transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കുള്ള പബ്ലിക് ഫയലുകളില്‍ മാറ്റം "
+"വരുത്തുന്നതിനായി nfs ഉപയോഗിയ്ക്കണമെങ്കില്‍. ഫയലുകള്‍/ഡയറക്ടറികള്‍ "
+"public_content_rw_t ആയി ലേബല്‍ ചെയ്യണം."
 
 #: ../booleans_trans.py:101
 msgid ""
 "If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
 "ABRT event scripts"
 msgstr ""
+"ABRT ഇവന്റ് സ്ക്രിപ്റ്റുകള്‍ കൈകാര്യം ചെയ്യുന്നതിനായി abrt_handle_event_t "
+"ഡൊമെയിനില്‍ ABRT പ്രവര്‍ത്തിപ്പിയ്ക്കുവാന്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:102
 msgid ""
 "If you want to unify HTTPD to communicate with the terminal. Needed for "
 "entering the passphrase for certificates at the terminal."
 msgstr ""
+"ടെര്‍മിനലുമായി ബന്ധപ്പെടുന്നതിനു് HTTPD ഒന്നിപ്പിയ്ക്കണമെങ്കില്‍. "
+"ടെര്‍മിനലില്‍ സര്‍ട്ടിഫിക്കേറ്റുകള്‍ക്കുള്ള പാസ്ഫ്രെയിസുകള്‍ നല്‍കുന്നതിനു് "
+"ആവശ്യമുണ്ടു്."
 
 #: ../booleans_trans.py:103
 msgid ""
-"If you want to allow xend to run qemu-dm. Not required if using paravirt and "
-"no vfb."
+"If you want to allow xend to run qemu-dm. Not required if using paravirt and"
+" no vfb."
 msgstr ""
+"qemu-dm പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി xend അനുവദിയ്ക്കണമെങ്കില്‍. paravirt "
+"ഉപയോഗിയ്ക്കുന്നില്ലെങ്കില്‍ അല്ലെങ്കില്‍ vfb ഇല്ലെങ്കില്‍."
 
 #: ../booleans_trans.py:104
 msgid ""
 "If you want to allow sftp-internal to read and write files in the user home "
 "directories"
 msgstr ""
+"ഉപയോക്താക്കള്‍ക്കുള്ള ആസ്ഥാന ഡയറക്ടറികള്‍ സൂക്ഷിയ്ക്കുന്നതിനോ "
+"ലഭ്യമാക്കുന്നതിനോ sftp-internal അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:105
 msgid "If you want to support fusefs home directories"
-msgstr ""
+msgstr "fusefs ഹോം ഡയറക്ടറികള്‍ പിന്തുണയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:106
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
 "network port."
 msgstr ""
+"ഏതെങ്കിലും നെറ്റ്‌വര്‍ക്ക് പോര്‍ട്ടിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി ടെലിപ്പതി"
+" കണക്ഷന്‍ മാനേജറുകളെ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:107
 msgid ""
 "If you want to determine whether calling user domains can execute Polipo "
 "daemon in the polipo_session_t domain."
 msgstr ""
+"polipo_session_t domain-ല്‍ Polipo ഡെമണ്‍ പ്രവര്‍ത്തിപ്പിയ്ക്കുവാന്‍ "
+"ഉപയോക്താവിനുള്ള ഡൊമെയിനുകള്‍ക്കു് സാധ്യമെന്നു് അറിയണമെങ്കില്‍."
 
 #: ../booleans_trans.py:108
 msgid "If you want to allow confined applications to use nscd shared memory."
 msgstr ""
+"nscd ഷെയര്‍ഡ് മെമ്മറി ഉപയോഗിയ്ക്കുന്നതിനായി പ്രയോഗങ്ങള്‍ "
+"ഉപയോഗിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:109
 msgid "If you want to allow w to display everyone"
-msgstr ""
+msgstr "എല്ലാവരേയും പ്രദര്‍ശിപ്പിയ്ക്കണമെങ്കില്‍ w അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:110
 msgid ""
 "If you want to allow Apache to modify public files used for public file "
 "transfer services. Directories/Files must be labeled public_content_rw_t."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കുള്ള പബ്ലിക് ഫയലുകളില്‍ മാറ്റം വരുത്തുന്നതിനായി \n"
+"അപ്പാച്ചെ ഉപയോഗിയ്ക്കണമെങ്കില്‍. ഫയലുകള്‍/ഡയറക്ടറികള്‍ public_content_rw_t ആയി ലേബല്‍ ചെയ്യണം."
 
 #: ../booleans_trans.py:111
 msgid "If you want to allow user music sharing"
-msgstr ""
+msgstr "ഉപയോക്താവിനുള്ള മ്യൂസിക് ഷെയറിങ് അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:112
 msgid "If you want to allow dbadm to read files in users home directories"
 msgstr ""
+"ആസ്ഥാന ഹോം ഡയറക്ടറികളില്‍ ഫയലുകള്‍ ലഭ്യമാക്കുന്നതിനായി dbadm "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:113
 msgid "If you want to allow regular users direct dri device access"
 msgstr ""
+"സാധാരണ ഉപയോക്താക്കള്‍ക്കു് നേരിട്ടുള്ള dri ഡിവൈസ് അനുമതി "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:114
 msgid "If you want to allow the mount command to mount any directory or file."
 msgstr ""
+"ഏതെങ്കിലും ഡയറക്ടറി അല്ലെങ്കില്‍ ഫയല്‍ മൌണ്ട് ചെയ്യുന്നതിനായി mount കമാന്‍ഡ്"
+" അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:115
 msgid "If you want to allow a user to login as an unconfined domain"
 msgstr ""
+"അനുമതികളില്ലാത്ത ഡൊമെയിനായി പ്രവേശിയ്ക്കുന്നതിനു് ഒരു ഉപയോക്താവിനെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:116
 msgid ""
 "If you want to disallow programs and users from transitioning to insmod "
 "domain."
 msgstr ""
+"insmod ഡൊമെയിനിലേക്കു് നീക്കുന്നതിനായി പ്രോഗ്രാമുകളും ഉപയോക്താക്കളും "
+"അനുവദിയ്ക്കാതിരിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:117
 msgid ""
-"If you want to allow httpd to act as a FTP client connecting to the ftp port "
-"and ephemeral ports"
+"If you want to allow httpd to act as a FTP client connecting to the ftp port"
+" and ephemeral ports"
 msgstr ""
+"ftp പോര്‍ട്ടിലേക്കും ephemeral പോര്‍ട്ടിലേക്കും ഒരു FTP ക്ലയന്റായി കണക്ട് "
+"ചെയ്യുന്നതിനു് httpd അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:118
 msgid "If you want to allow Cobbler to access nfs file systems."
 msgstr ""
+"nfs ഫയല്‍ സിസ്റ്റങ്ങളിലേക്കു് പ്രവേശിയ്ക്കുന്നതിനായി കോബ്ലര്‍ "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:119
 msgid "If you want to allow nsplugin code to execmem/execstack"
-msgstr ""
+msgstr "execmem/execstack ചെയ്യുന്നതിനായി nsplugin കോഡ് അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:120
 msgid ""
 "If you want to allows clients to write to the X server shared memory "
 "segments."
 msgstr ""
+"എക്സ് സര്‍വര്‍ ഷെയര്‍ഡ് മെമ്മറി സെഗ്മെന്റുകളിലേക്കു് ക്ലയന്റുകളെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:121
 msgid ""
 "If you want to allow confined virtual guests to use executable memory and "
 "executable stack"
 msgstr ""
+"എക്സിക്യൂട്ടബിള്‍ മെമ്മറിയും എക്സിക്യൂട്ടബിള്‍ സ്റ്റാക്കും "
+"ഉപയോഗിയ്ക്കുന്നതിനായി അനുമതിയില്ലാത്ത വിര്‍ച്ച്വല്‍ ഗസ്റ്റുകളെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:122
 msgid "If you want to allow webadm to read files in users home directories"
 msgstr ""
+"ഉപയോക്താക്കളുടെ ആസ്ഥാന ഡയറക്ടറികളില്‍ ഫയലുകള്‍ ലഭ്യമാക്കുന്നതിനായി webadm "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:123
 msgid "If you want to enable polyinstantiated directory support."
 msgstr ""
+"പോളിഇന്‍സ്റ്റന്റാനിയേറ്റഡ് ഡയറക്ടറി പിന്തുണ പ്രവര്‍ത്തന സജ്ജമാക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:124
 msgid "If you want to support X userspace object manager"
-msgstr ""
+msgstr "എക്സ് യൂസര്‍സ്പെയിസ് ഒബ്ജക്ട് മാനേജര്‍ പിന്തുണയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:125
 msgid "If you want to ignore vbetool mmap_zero errors."
-msgstr ""
+msgstr "vbetool mmap_zero പിശകുകള്‍ ഉപേക്ഷിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:126
 msgid "If you want to allow httpd to read user content"
-msgstr ""
+msgstr "ഉപയോക്താവിനുള്ള വിവരം ലഭ്യമാക്കുന്നതിനായി httpd അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:127
 msgid "If you want to allow httpd to access nfs file systems"
 msgstr ""
+"nfs ഫയല്‍ സിസ്റ്റങ്ങളിലേക്കു് പ്രവേശിയ്ക്കുന്നതിനായി httpd "
+"അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:128
 msgid ""
 "If you want to allow unconfined users to transition to the chrome sandbox "
 "domains when running chrome-sandbox"
 msgstr ""
+"chrome-sandbox പ്രവര്‍ത്തിപ്പിയ്ക്കുമ്പോള്‍ അനുമതിയില്ലാത്ത "
+"ഉപയോക്താക്കള്‍ക്കു് chrome sandbox ഡൊമെയിനുകളിലേക്കു് മാറ്റുന്നതിനായി "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:129
 msgid ""
 "If you want to allow postfix_local domain full write access to mail_spool "
 "directories"
 msgstr ""
+"mail_spool ഡയറക്ടറികളിലേക്കു് postfix_local ഡൊമെയിന്‍ പൂര്‍ണ്ണ റൈറ്റ് അനുമതി"
+" ലഭ്യമാക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:130
 msgid "If you want to allow xguest users to use blue tooth devices"
 msgstr ""
+"ബ്ലൂടൂത് ഡിവൈസുകള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി xguest ഉപയോക്താക്കളെ "
+"അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:131
 msgid "If you want to use lpd server instead of cups"
-msgstr ""
+msgstr "cups-നു് പകരം lpd സര്‍വര്‍ ഉപയോഗിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:132
 msgid ""
-"If you want to allow any files/directories to be exported read/write via NFS."
+"If you want to allow any files/directories to be exported read/write via "
+"NFS."
 msgstr ""
+"NFS മുഖേന ഫയലുകള്‍/ഡയറക്ടറികള്‍ റീഡ്/റൈറ്റ് ആയി എക്സ്പോര്‍ട്ട് "
+"ചെയ്യണമെങ്കില്‍."
 
 #: ../booleans_trans.py:133
 msgid "If you want to allow Apache to execute tmp content."
 msgstr ""
+"tmp വിവരങ്ങള്‍ പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി Apache അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:134
 msgid ""
 "If you want to allow user to r/w files on filesystems that do not have "
 "extended attributes (FAT, CDROM, FLOPPY)"
 msgstr ""
+"എക്സ്റ്റെന്‍ഡഡ് വിശേഷതകള്‍ (FAT, CDROM, FLOPPY) ലഭ്യമല്ലാത്ത "
+"ഫയല്‍സിസ്റ്റങ്ങളിലുള്ള ഫയലുകളിലേക്കു് സൂക്ഷിയ്ക്കുകയോ ലഭ്യമാക്കുകയോ "
+"ചെയ്യുന്നതിനായി നിങ്ങള്‍ക്കു് ഉപയോക്താവിനെ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:135
 msgid ""
@@ -2362,332 +3176,453 @@ msgid ""
 "connection from the same domain and outside users)  disabling this forces "
 "FTP passive mode and may change other protocols."
 msgstr ""
+"ടിസിപി സര്‍വറുകള്‍ (പോര്‍ട്ടുകളിലേക്കു് ബൈന്‍ഡ് ചെയ്തു് ഒരേ ഡൊമെയിനും "
+"പുറത്തുള്ള ഉപയോക്താക്കളില്‍ നിന്നും കണക്ഷന്‍ സ്വീകരിയ്ക്കുക) "
+"പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി ഉപയോക്താക്കളെ അനുവദിയ്ക്കണമെങ്കില്‍, ഇതിനായി "
+"FTP പാസ്സീവ് മോഡ് നിര്‍ബന്ധമായും പ്രവര്‍ത്തന രഹിതമാക്കുന്നു. കൂടാതെ, മറ്റു് "
+"പ്രോട്ടോക്കോളുകളും മാറാം."
 
 #: ../booleans_trans.py:136
 msgid "If you want to allow mysqld to connect to all ports"
 msgstr ""
+"എല്ലാ പോര്‍ട്ടുകളിലേക്കും കണക്ട് ചെയ്യുന്നതിനായി mysqld "
+"അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:137
 msgid "If you want to allow regular users direct mouse access"
 msgstr ""
+"മൌസിലേക്കു് നേരിട്ടുള്ള അനുമതിയ്ക്കായി സാധാരണ ഉപയോക്താക്കളെ "
+"അനുവദിയ്ക്കണെങ്കില്‍"
 
 #: ../booleans_trans.py:138
 msgid ""
 "If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
 "dedicated logical volumes for disk images."
 msgstr ""
+"blktapctrl/tapdisk പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി xend "
+"അനുവദിയ്ക്കണമെങ്കില്‍. ഡിസ്ക് ഇമേജുകള്‍ക്കുള്ള ലോജിക്കല്‍ വോള്യങ്ങള്‍ "
+"ആണുപയോഗിയ്ക്കുന്നതെങ്കില്‍ ആവശ്യമില്ല."
 
 #: ../booleans_trans.py:139
 msgid ""
 "If you want to allow confined virtual guests to interact with the sanlock"
 msgstr ""
+"sanlock ഉപയോഗിച്ചു് അനുമതിയില്ലാത്ത വിര്‍ച്ച്വല്‍ ഗസ്റ്റുകളെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:141
 msgid "If you want to allow all domains to have the kernel load modules"
 msgstr ""
+"ഘടകങ്ങളെ കേര്‍ണലിനു് ലഭ്യമാക്കുന്നതിനായി എല്ലാ ഡൊമെയിനുകളെ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:142
 msgid "If you want to allow confined virtual guests to use usb devices"
 msgstr ""
+"വിര്‍ച്ച്വല്‍ ഗസ്റ്റുകള്‍ usb ഡിവൈസുകള്‍ ഉപയോഗിയ്ക്കുന്നതു് "
+"അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:143
 msgid ""
 "If you want to enable additional permissions needed to support devices on "
 "3ware controllers."
 msgstr ""
+"3ware കണ്ട്രോളറുകളറുകളില്‍ ഡിവൈസുകള്‍ പിന്തുണയ്ക്കുന്നതിനുള്ള അധികം "
+"അനുമതികള്‍ പ്രവര്‍ത്തന സജ്ജമാക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:144
 msgid ""
 "If you want to allow ABRT to modify public files used for public file "
 "transfer services."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ സേവനങ്ങള്‍ക്കുള്ള പബ്ലിക് ഫയലുകളില്‍ മാറ്റം വരുത്തുന്നതിനായി "
+"ABRT അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:145
 msgid "If you want to allow java executable stack"
-msgstr ""
+msgstr "ജാവാ എക്സിക്യൂട്ടബിള്‍ സ്റ്റാക്ക് അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow http daemon to send mail"
-msgstr ""
+msgstr "മെയില്‍ അയയ്ക്കുന്നതിനായി httpd അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow samba to export ntfs/fusefs volumes."
 msgstr ""
+"ntfs/fusefs വോള്യങ്ങള്‍ എക്സ്പോര്‍ട്ട് ചെയ്യുന്നതിനായി സാംബാ "
+"അനുവദിയ്ക്കുന്നതിനായി."
 
 #: ../booleans_trans.py:148
 msgid "If you want to enable support for upstart as the init program."
 msgstr ""
+"init പ്രോഗ്രാമായി upstart-നുള്ള പിന്തുണ പ്രവര്‍ത്തന സജ്ജമാക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:149
 msgid "If you want to allow sshd to forward port connections"
 msgstr ""
+"പോര്‍ട്ട് കണക്ഷനുകള്‍ ഫോര്‍വേഡ് ചെയ്യുന്നതിനായി sshd അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:150
 msgid "If you want to allow zebra daemon to write it configuration files"
 msgstr ""
+"ക്രമീകരണ ഫയലുകള്‍ എഴുതുന്നതില്‍ നിന്നും zebra ഡെമണിനെ SELinux തടയുന്നു"
 
 #: ../booleans_trans.py:151
 msgid "If you want to allow httpd to use built in scripting (usually php)"
 msgstr ""
+"ബിള്‍ട്ടിന്‍ സ്ക്രിപ്റ്റിങ് (സാധാരണ php)) ഉപയോഗിയ്ക്കുന്നതിനായി httpd "
+"അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:152
 msgid ""
 "If you want to allow exim to create, read, write, and delete unprivileged "
 "user files."
 msgstr ""
+"അനുമതികളില്ലാത്ത ഉപയോക്തൃ ഫയലുകള്‍ വെട്ടി നീക്കുക, തയ്യാറാക്കുക, "
+"ലഭ്യമാക്കുക, സൂക്ഷിയ്ക്കുക എന്നിവ exim അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:153
 msgid ""
-"If you want to allow cdrecord to read various content. nfs, samba, removable "
-"devices, user temp and untrusted content files"
+"If you want to allow cdrecord to read various content. nfs, samba, removable"
+" devices, user temp and untrusted content files"
 msgstr ""
+"അനുവധി കാര്യങ്ങള്‍ ലഭ്യമാക്കുന്നതിനായി cdrecord അനുവദിയ്ക്കണമെങ്കില്‍. nfs, "
+"സാംബാ, നീക്കം ചെയ്യുവാന്‍ സാധിയ്ക്കുന്ന ഡിവൈസുകള്‍, ഉപയോക്താവിനുള്ള "
+"താല്‍ക്കാലികവും അവിശ്വസനീയവുമായ ഫയലുകള്‍"
 
 #: ../booleans_trans.py:154
 msgid ""
 "If you want to allow Cobbler to modify public files used for public file "
 "transfer services."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കുള്ള പബ്ലിക് ഫയലുകളില്‍ മാറ്റം "
+"വരുത്തുന്നതിനായി കോബ്ലര്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:155
 msgid "If you want to allow samba to export NFS volumes."
 msgstr ""
+"NFS വോള്യങ്ങള്‍ എക്സ്പോര്‍ട്ട് ചെയ്യുന്നതിനായി സാംബാ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:156
 msgid ""
 "If you want to control the ability to mmap a low area of the address space, "
 "as configured by /proc/sys/kernel/mmap_min_addr."
 msgstr ""
+"/proc/sys/kernel/mmap_min_addr ക്രമീകരിച്ചിരിയ്ക്കുന്നതു് പോലെ, അഡ്രസ്സ് "
+"സ്പെയിസിനുള്ള ലോ ഏരിയയ്ക്കുള്ള mmap-നുള്ള വിശേഷത നിയന്ത്രിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:157
 msgid "If you want to ignore wine mmap_zero errors."
-msgstr ""
+msgstr "wine mmap_zero പിശകുകള്‍ ഉപേക്ഷിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:158
 msgid "If you want to allow collectd to connect to the network using TCP."
 msgstr ""
+"ടിസിപി ഉപയോഗിച്ചു് നെറ്റ്‌വര്‍ക്കിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി collectd "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:159
-msgid "If you want to allow logging in and using the system from /dev/console."
+msgid ""
+"If you want to allow logging in and using the system from /dev/console."
 msgstr ""
+"പ്രവേശനം അനുവദിയ്ക്കുന്നതും /dev/console-ല്‍ നിന്നും സിസ്റ്റം "
+"ഉപയോഗിയ്ക്കുന്നതും അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:160
-msgid "If you want to allow fenced domain to connect to the network using TCP."
+msgid ""
+"If you want to allow fenced domain to connect to the network using TCP."
 msgstr ""
+"ടിസിപി ഉപയോഗിച്ചു് നെറ്റ്‌വര്‍ക്കിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി fenced "
+"ഡൊമെയിന്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:161
 msgid ""
 "If you want to allow dhcpc client applications to execute iptables commands"
 msgstr ""
+"iptables കമാന്‍ഡുകള്‍ പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി dhcpc ക്ലയന്റ് "
+"പ്രയോഗങ്ങള്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:162
 msgid "If you want to allow users to connect to PostgreSQL"
 msgstr ""
+"PostgreSQL-ലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി ഉപയോക്തക്കളെ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:163
 msgid "If you want to allow cvs daemon to read shadow"
-msgstr ""
+msgstr "shadow ലഭ്യമാക്കുന്നതിനായി cvs ഡെമണ്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:164
 msgid "If you want to allow http daemon to check spam"
-msgstr ""
+msgstr "സ്പാം പരിശോധിയ്ക്കുന്നതിനായി http ഡെമണ്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:165
 msgid ""
 "If you want to allow sftp-internal to login to local users and read/write "
 "all files on the system, governed by DAC."
 msgstr ""
+"പ്രാദേശിക ഉപയോക്താക്കളിലേക്കു് പ്രവേശിച്ചു് ഡിഎസി നയിയ്ക്കുന്ന "
+"സിസ്റ്റത്തിലുള്ള എല്ലാ ഫയലുകളും ലഭ്യമാക്കുകയോ സൂക്ഷിയ്ക്കുകയോ "
+"ചെയ്യുന്നതിനായി പ്രവേശിയ്ക്കുന്നതിനായി sftp-internal അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:166
 msgid "If you want to allow xguest users to mount removable media"
 msgstr ""
+"നീക്കം ചെയ്യുവാന്‍ സാധിയ്ക്കുന്ന മീഡിയാ മൌണ്ട് ചെയ്യുന്നതിനായി xguest "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:167
 msgid ""
 "If you want to allow icecast to connect to all ports, not just sound ports."
 msgstr ""
+"ശബ്ദത്തിനുള്ള പോര്‍ട്ടുകള്‍ മാത്രമല്ല, എല്ലാ പോര്‍ട്ടുകളിലേക്കും കണക്ട് "
+"ചെയ്യുന്നതിനായി icesast അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:168
 msgid "If you want to allow pppd to load kernel modules for certain modems"
 msgstr ""
+"ചില മോഡമുകള്‍ക്കുള്ള കേര്‍ണല്‍ ഘടകങ്ങള്‍ ലഭ്യമാക്കുന്നതിനായി pppd "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:169
 msgid ""
-"If you want to deny user domains applications to map a memory region as both "
-"executable and writable, this is dangerous and the executable should be "
+"If you want to deny user domains applications to map a memory region as both"
+" executable and writable, this is dangerous and the executable should be "
 "reported in bugzilla"
 msgstr ""
+"എക്സിക്യൂട്ടബിള്‍ അല്ലെങ്കില്‍ റൈറ്റബിളായി ഒരു മെമ്മറി മാപ്പ് "
+"ചെയ്യുന്നതിനായി അനുമതിയില്ലാത്ത എക്സിക്യൂട്ടബിളുകള്‍  അനുവദിയ്ക്കണമെങ്കില്‍."
+" ഇതു് നല്ലൊരു രീതിയല്ല. ഇതു് ബഗ്സിലയില്‍ രേഖപ്പെടുത്തണം."
 
 #: ../booleans_trans.py:170
 msgid "If you want to allow syslogd daemon to send mail"
-msgstr ""
+msgstr "മെയില്‍ അയയ്ക്കുന്നതിനായി syslogd ഡെമണ്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:171
 msgid "If you want to determine whether Polipo can access nfs file systems."
 msgstr ""
+"Polipo-നു് nfs ഫയല്‍ സിസ്റ്റങ്ങളിലേക്കു് അനുമതിയുണ്ടോ എന്നു് അറിയണമെങ്കില്‍"
 
 #: ../booleans_trans.py:172
 msgid "If you want to allow samba to run unconfined scripts"
 msgstr ""
+"സ്ക്രിപ്റ്റുകള്‍ പ്രവര്‍ത്തിയ്ക്കുന്നതിനായി സാംബാ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:173
 msgid "If you want to support NFS home directories"
-msgstr ""
+msgstr "NFS ഹോം ഡയറക്ടറികള്‍ പിന്തുണയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:174
 msgid "If you want to allow ftp servers to connect to all ports > 1023"
 msgstr ""
+"1023-ക്കാള്‍ എല്ലാ പോര്‍ട്ടുകളിലേക്കും കണക്ട് ചെയ്യുന്നതിനായി ftp "
+"സര്‍വറുകള്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:175
 msgid "If you want to allow confined applications to run with kerberos."
 msgstr ""
+"കെര്‍ബറോസ് ഉപയോഗിച്ചു് പ്രയോഗങ്ങള്‍ പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതു് "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:176
 msgid "If you want to allow BIND to bind apache port."
 msgstr ""
+"അപ്പാച്ചെ പോര്‍ട്ട് ബൈന്‍ഡ് ചെയ്യുന്നതിനായി BIND അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:177
 msgid "If you want to allow httpd to connect to memcache server"
 msgstr ""
+"memcache സര്‍വറിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി httpd അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:178
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to cobbler over "
 "the network."
 msgstr ""
+"നെറ്റ്‌വര്‍ക്കില്‍ കോബ്ലറിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി HTTPD "
+"സ്ക്രിപ്റ്റുകളും ഘടകങ്ങളും അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:179
 msgid ""
-"If you want to allow unconfined executables to make their stack executable.  "
-"This should never, ever be necessary. Probably indicates a badly coded "
-"executable, but could indicate an attack. This executable should be reported "
-"in bugzilla"
+"If you want to allow unconfined executables to make their stack executable."
+"  This should never, ever be necessary. Probably indicates a badly coded "
+"executable, but could indicate an attack. This executable should be reported"
+" in bugzilla"
 msgstr ""
+"If you want to allow unconfined executables to make their stack executable."
+"  This should never, ever be necessary. Probably indicates a badly coded "
+"executable, but could indicate an attack. This executable should be reported"
+" in bugzilla"
 
 #: ../booleans_trans.py:180 ../booleans_trans.py:202
 msgid "If you want to allow confined virtual guests to manage cifs files"
 msgstr ""
+"cifs ഫയലുകള്‍ കൈകാര്യം ചെയ്യുന്നതിനായി അനുമതിയില്ലാത്ത വിര്‍ച്ച്വല്‍ "
+"ഗസ്റ്റുകളെ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:181
 msgid "If you want to allow sasl to read shadow"
-msgstr ""
+msgstr "shadow ലഭ്യമാക്കുന്നതിനായി sasl അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:182
 msgid ""
 "If you want to allow ftp servers to upload files,  used for public file "
 "transfer services. Directories must be labeled public_content_rw_t."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കുള്ള ഫയലുകള്‍ അപ്ലോഡ് "
+"ചെയ്യുന്നതിനായി ftp സര്‍വറുകള്‍ അനുവദിയ്ക്കണമെങ്കില്‍. ഡയറക്ടറികള്‍ "
+"public_content_rw_t എന്നു് ലേബല്‍ ചെയ്തിരിയ്ക്കണം."
 
 #: ../booleans_trans.py:183
 msgid "If you want to allow video playing tools to run unconfined"
 msgstr ""
+"അനുമതിയുള്ളവ പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി video പ്രവര്‍ത്തിപ്പിയ്ക്കുന്ന "
+"പ്രയോഗങ്ങള്‍ അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:184
 msgid ""
 "If you want to allow gssd to read temp directory.  For access to kerberos "
 "tgt."
 msgstr ""
+"temp ഡയറക്ടറി ലഭ്യമാക്കുന്നതിനായി gssd അനുവദിയ്ക്കണമെങ്കില്‍.  "
+"കെര്‍ബറോസ്tgt-ലേക്കുള്ള പ്രവേശനത്തിനായി."
 
 #: ../booleans_trans.py:185
 msgid "If you want to allow webadm to manage files in users home directories"
 msgstr ""
+"ഉപയോക്താക്കളുടെ ഹോം ഡയറക്ടറികളില്‍ ഫയലുകള്‍ കൈകാര്യം ചെയ്യുന്നതിനായി webadm "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:186
 msgid "If you want to allow clamd to use JIT compiler"
-msgstr ""
+msgstr "ജിഐറ്റി കംപൈലര്‍ ഉപയോഗിയ്ക്കുന്നതിനായി clamd അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:187
 msgid "If you want to allows XServer to execute writable memory"
-msgstr ""
+msgstr "റൈറ്റബിള്‍ മെമ്മറി ലഭ്യമാക്കുന്നതിനായി XServer അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:188
 msgid ""
 "If you want to allow Git daemon session to bind tcp sockets to all "
 "unreserved ports."
 msgstr ""
+"സൂക്ഷിച്ചിട്ടാല്ലാത്ത പോര്‍ട്ടുകളിലേക്കു് ടിസിപി സോക്കറ്റുകള്‍ ബൈന്‍ഡ് "
+"ചെയ്യുന്നതിനായി Git ഡെമണ്‍ സെഷന്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:189
 msgid ""
 "If you want to allow HTTPD to run SSI executables in the same domain as "
 "system CGI scripts."
 msgstr ""
+"സിസ്റ്റം സിജിഐ സ്ക്രിപ്റ്റുകള്‍ പോലുള്ള അതേ ഡൊമെയിനില്‍ എസ്എസ്ഐ "
+"എക്സിക്യൂട്ടബിളുകള്‍ പ്രവര്‍ത്തിപ്പിയ്ക്കുന്നതിനായി HTTPD "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:190
 msgid "If you want to allow samba to share any file/directory read/write."
 msgstr ""
+"ഏതെങ്കിലും ഫയല്‍/ഡയറക്ടറി റീഡ്/റൈറ്റ് പങ്കിടുന്നതിനായി സാംബാ "
+"അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:191
 msgid ""
 "If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
 "database"
 msgstr ""
+"MySQL, PostgreSQL ഡേറ്റാബെയിസിലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി പപ്പറ്റ് "
+"മാസ്റ്റര്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:192
 msgid ""
 "If you want to allow httpd to act as a FTP server by listening on the ftp "
 "port."
 msgstr ""
+"ftp പോര്‍ട്ടില്‍ ശ്രദ്ധിച്ചു് ഒരു FTP സര്‍വറായി httpd അനുവദിയ്ക്കുന്നതിനായി."
 
 #: ../booleans_trans.py:193
 msgid "If you want to enable extra rules in the cron domain to support fcron."
 msgstr ""
+"fcron പിന്തുണയ്ക്കുന്നതിനായി cron ഡൊമെയിനില്‍ അധികമായ നിയമങ്ങള്‍ പ്രവര്‍ത്തന"
+" സജ്ജമാക്കുന്നതിനായി."
 
 #: ../booleans_trans.py:194
 msgid ""
 "If you want to allow internal-sftp to read and write files in the user ssh "
 "home directories."
 msgstr ""
+"ഉപയോക്താവിനുള്ള ssh ആസ്ഥാന ഡയറക്ടറികളില്‍ ഫയലുകള്‍ ലഭ്യമാക്കുന്നതിനും "
+"സൂക്ഷിയ്ക്കുന്നതിനും internal-sftp അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:195
 msgid "If you want to allow http daemon to connect to zabbix"
 msgstr ""
+"zabbix-ലേക്കു് കണക്ട് ചെയ്യുന്നതിനായി http ഡെമണ്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:196
 msgid "If you want to allow all domains to use other domains file descriptors"
 msgstr ""
+"മറ്റു് ഡൊമെയിന്‍ ഫയല്‍ ഡിസ്ക്രിപ്റ്ററുകള്‍ ഉപയോഗിയ്ക്കുന്നതിനായി എല്ലാ "
+"ഡൊമെയിനുകളും അനുവദിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:197
 msgid "If you want to allow users to login using a radius server"
-msgstr ""
+msgstr "ഒരു റേഡിയസ് സര്‍വറായി ഉപയോക്താക്കള്‍ക്കു് പ്രവേശിയ്ക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:198
 msgid "If you want to allow Cobbler to access cifs file systems."
 msgstr ""
+"cifs ഫയല്‍ സിസ്റ്റങ്ങള്‍ ലഭ്യമാക്കുന്നതിനായി കോബ്ലര്‍ അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:199
 msgid "If you want to allow httpd daemon to change system limits"
 msgstr ""
+"സിസ്റ്റത്തിന്റെ പരിമിതികള്‍ മാറ്റുന്നതിനായി httpd ഡെമണ്‍ "
+"അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:200
 msgid ""
 "If you want to allow squid to connect to all ports, not just HTTP, FTP, and "
 "Gopher ports."
 msgstr ""
+"HTTP, FTP, ഗോഫര്‍ മാത്രമല്ല, എല്ലാ പോര്‍ട്ടുകളിലേക്കു് കണക്ട് "
+"ചെയ്യുന്നതിനായി squid അനുവദിയ്ക്കണമെങ്കില്‍"
 
 #: ../booleans_trans.py:201
 msgid "If you want to allow users to read system messages."
-msgstr ""
+msgstr "സിസ്റ്റം സന്ദേശങ്ങള്‍ ഉപയോക്താക്കള്‍ക്കു് ലഭ്യമാക്കുന്നതിനായി "
 
 #: ../booleans_trans.py:203
 msgid "If you want to enable support for systemd as the init program."
 msgstr ""
+"init പ്രോഗ്രാമായി systemd-നുള്ള പിന്തുണ പ്രവര്‍ത്തന സജ്ജമാക്കുന്നതിനായി"
 
 #: ../booleans_trans.py:204
 msgid ""
 "If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
+"NFS മുഖേന ഏതെങ്കിലും ഫയലുകള്‍/ഡയറക്ടറികള്‍ റീഡ് ഒണ്‍ലി ആയി എക്സ്പോര്‍ട്ട് "
+"ചെയ്യുന്നതു് അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:205
 msgid ""
 "If you want to allow system cron jobs to relabel filesystem for restoring "
 "file contexts."
 msgstr ""
+"ഫയല്‍ കോണ്‍ടെക്സ്റ്റുകള്‍ വീണ്ടും ലഭ്യമാക്കുന്നതിനു് ഫയല്‍ സിസ്റ്റം വീണ്ടും "
+"ലേബല്‍ ചെയ്യുന്നതിനായി സിസ്റ്റം ക്രോണ്‍ ജോലികള്‍ അനുവദിയ്ക്കണമെങ്കില്‍."
 
 #: ../booleans_trans.py:206
 msgid ""
 "If you want to allow anon internal-sftp to upload files, used for public "
 "file transfer services. Directories must be labeled public_content_rw_t."
 msgstr ""
+"പബ്ലിക് ഫയല്‍ ട്രാന്‍സ്ഫര്‍ സേവനങ്ങള്‍ക്കുള്ള ഫയലുകള്‍ അപ്ലോഡ് "
+"ചെയ്യുന്നതിനായി anon internal-sftp അനുവദിയ്ക്കണമെങ്കില്‍. ഡയറക്ടറികള്‍ "
+"public_content_rw_t എന്നു് ലേബല്‍ ചെയ്തിരിയ്ക്കണം."
 
 #: ../booleans_trans.py:207
 msgid "If you want to allow unprivileged users to execute DDL statement"
 msgstr ""
+"ഡിഡിഎല്‍ സ്റ്റേറ്റ്മെന്റ് ലഭ്യമാക്കുന്നതിനായി unprived ഉപയോക്താക്കള്‍ "
+"അനുവദിയ്ക്കുന്നതിനായി"
+
+
