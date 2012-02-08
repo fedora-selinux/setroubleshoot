@@ -4,7 +4,7 @@ sealert \- setroubleshoot client tool
 
 .SH "SYNOPSIS"
 .B sealert
-.I [\-b] [-f local_id] [-h] [-H] [-s] [-S] [\-l id] [\-a file] [-u] [-p] [-P plugin_name]
+.I [\-b] [-f local_id] [-h] [-s] [-S] [\-l id] [\-a file] [-u] [-p] [-P plugin_name]
 
 .SH "DESCRIPTION"
 This manual page describes the
@@ -54,8 +54,7 @@ useful when setroubleshootd is being run on a headless system without
 the GUI desktop alert facility. The -a analyze option is equivalent to
 the "Scan Logfile" command in the browser. The log file is scanned for
 audit messages, analysis is performed, alerts generated, and then
-written to stdout. In both cases the -H option can be used to cause the
-alert to be written out in HTML format rather than the default plain text. 
+written to stdout. 
 
 .SH "LOG FILE SCANNING"
 You may ask sealert to parse a file accumulating all the audit
@@ -92,9 +91,6 @@ Execute the fix command for the avc with the given uuid and plugin, requires --p
 .TP 
 .B \-h \-\-help           
 Show this message
-.TP 
-.B \-H \-\-html_output    
-Ouput in html, Used with the -a or -l option
 .TP 
 .B \-s \-\-service        
 Start sealert service,  Usually used by dbus.
