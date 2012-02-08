@@ -22,8 +22,8 @@ hy	id	is	it	ja	ka	kn	ko	ku	\
 lo	lt	lv	mk	ml	mr	ms	my	nb	\
 nl	nn	nso	or	pa	pl	pt_BR	pt	ro	\
 ru	si	sk	sl	sq	sr@latin	sr	sv	\
-ta	te	th	tr	uk	ur	vi	zh_CN	zh_TW	\
-zu									\
+ta	te	tg	th	tr	uk	ur	vi	zh_CN	\
+zh_TW	zu \
 "
 
 AC_PROG_LN_S
