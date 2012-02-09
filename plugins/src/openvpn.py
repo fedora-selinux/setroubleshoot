@@ -73,7 +73,7 @@ class plugin(Plugin):
 
     def analyze(self, avc):
         if avc.matches_source_types(['openvpn_t'])           and \
-                avc.matches_target_types(['user_home_t'])            and \
+                avc.matches_target_types(['user_home_t', 'user_tmp_t'])            and \
                 avc.all_accesses_are_in(avc.read_file_perms)  and \
                 avc.has_tclass_in(['file']):
             return [self.report(("move",None)), self.report(("fixlabel",None))]
