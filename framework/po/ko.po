@@ -1,10 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Dimitris Glezos <glezos@indifex.com>, 2011.
 # Eunju Kim <eukim@redhat.com>, 2006, 2007, 2009.
+# Eun-Ju Kim <eukim@redhat.com>, 2012.
 #   <kwb0128@gmail.com>, 2011.
 #   <raypoatssium@gmail.com>, 2011.
 msgid ""
@@ -12,13 +13,13 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-11 08:39-0500\n"
-"PO-Revision-Date: 2011-12-07 11:03+0000\n"
-"Last-Translator: fedoracat <raypoatssium@gmail.com>\n"
-"Language-Team: Korean (http://www.transifex.net/projects/p/fedora/team/ko/)\n"
-"Language: ko\n"
+"PO-Revision-Date: 2012-02-10 05:43+0000\n"
+"Last-Translator: eukim <eukim@redhat.com>\n"
+"Language-Team: Korean (http://www.transifex.net/projects/p/fedora/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -32,7 +33,7 @@ msgstr "SELinux 액세스 거부 문제 해결 "
 #: ../src/audit_data.py:884
 #, python-format
 msgid "port %s"
-msgstr ""
+msgstr "포트 %s"
 
 #: ../src/audit_data.py:886 ../src/browser.py:716 ../src/browser.py:791
 #: ../src/rpc.py:544 ../src/util.py:223
@@ -44,15 +45,14 @@ msgstr "알려지지 않음"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr ""
+msgstr "%s \n**** 잘못된 AVC가 현재 정책에서 허용되어 있습니다 ***\n"
 
 #: ../src/audit_data.py:978
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
-msgstr ""
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+msgstr "%s \n**** 잘못된 AVC가 현재 정책에서 dontaudit되었습니다. 'semodule -B'는 dontaudit 규칙을 활성화하게 됩니다. ***\n"
 
 #: ../src/audit_data.py:980
 msgid "Must call policy_init first"
@@ -63,32 +63,32 @@ msgstr "반드시 policy_init이 먼저 호출돼야합니다."
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr ""
+msgstr "%s \n**** 잘못된 AVC 잘못된 대상 문맥. ***\n"
 
 #: ../src/audit_data.py:984
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr ""
+msgstr "%s \n**** 잘못된 AVC 잘못된 소스 문맥  ***\n"
 
 #: ../src/audit_data.py:986
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr ""
+msgstr "%s \n**** 잘못된 AVC 잘못된 유형 클래스 ***\n"
 
 #: ../src/audit_data.py:988
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr ""
+msgstr "%s \n**** 잘못된 AVC 잘못된 권한 ***\n"
 
 #: ../src/audit_data.py:990
 msgid "Error during access vector computation"
-msgstr ""
+msgstr "액세스 벡터 연산시 오류 발생 "
 
 #: ../src/browser.py:250
 msgid "#"
@@ -132,23 +132,19 @@ msgstr "<b>이 방법이 그 해답일 것입니다.</b>"
 
 #: ../src/browser.py:391 ../src/browser.py:527
 msgid "If "
-msgstr ""
+msgstr "가정 "
 
 #: ../src/browser.py:479
 msgid ""
 "Plugin\n"
 "Details"
-msgstr ""
-"플러그인\n"
-"세부 정보"
+msgstr "플러그인\n세부 정보"
 
 #: ../src/browser.py:494
 msgid ""
 "Report\n"
 "Bug"
-msgstr ""
-"버그\n"
-"보고"
+msgstr "버그\n보고"
 
 #: ../src/browser.py:522
 #, python-format
@@ -167,7 +163,7 @@ msgstr "%d번째 보고/ 총 %d개"
 #: ../src/browser.py:736
 #, python-format
 msgid "On this %s:"
-msgstr ""
+msgstr "%s 에서: "
 
 #: ../src/browser.py:784 ../src/browser.py:790 ../src/signature.py:396
 msgid "N/A"
@@ -280,9 +276,7 @@ msgstr "오류 "
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr ""
-"$ACCESS 접근 권한을 위해 $TARGET_BASE_PATH의 $TARGET_CLASS에 접근하여 "
-"$SOURCE_BASE를 허가하고자 합니다."
+msgstr "$ACCESS 접근 권한을 위해 $TARGET_BASE_PATH의 $TARGET_CLASS에 접근하여 $SOURCE_BASE를 허가하고자 합니다."
 
 #: ../src/run_cmd.py:180
 msgid "Input: "
@@ -382,7 +376,7 @@ msgstr "디렉토리"
 
 #: ../src/signature.py:197
 msgid "semaphore"
-msgstr ""
+msgstr "세마포어 "
 
 #: ../src/signature.py:198
 msgid "shared memory"
@@ -418,13 +412,12 @@ msgstr "노드"
 
 #: ../src/signature.py:206
 msgid "capability"
-msgstr ""
+msgstr "기능 "
 
 #: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
-msgstr ""
-"%s은(는) 허용 유형 (%s)이 있습니다. 이 액세스는 거부되지 않습니다.       "
+msgstr "%s은(는) 허용 유형 (%s)이 있습니다. 이 액세스는 거부되지 않습니다.       "
 
 #: ../src/signature.py:384
 msgid "SELinux is in permissive mode. This access was not denied."
@@ -520,7 +513,7 @@ msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr ""
+msgstr "\n\n*****  플러그인 %s (%.4s confidence) 제안  "
 
 #: ../src/signature.py:543
 msgid "*"
@@ -528,31 +521,31 @@ msgstr "*"
 
 #: ../src/signature.py:544
 msgid "\n"
-msgstr ""
+msgstr "\n"
 
 #: ../src/signature.py:546
 msgid ""
 "\n"
 "If "
-msgstr ""
+msgstr "\nIf "
 
 #: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
-msgstr ""
+msgstr "\nThen "
 
 #: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
-msgstr ""
+msgstr "\nDo\n"
 
 #: ../src/signature.py:553
 msgid ""
 "\n"
 "\n"
-msgstr ""
+msgstr "\n\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -562,7 +555,7 @@ msgstr "현재: %s"
 #: ../src/updater.py:27
 #, python-format
 msgid "newer: %s "
-msgstr ""
+msgstr "최신: %s "
 
 #: ../src/seapplet.c:187
 msgid "New SELinux security alert"
@@ -587,8 +580,7 @@ msgstr "SELinux AVC 거부, 클릭하여 보기 "
 
 #: ../src/sealert:106
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr ""
-"SELinux가 활성화되어있지 않습니다. sealert는 SELinux 시스템에서만 작동합니다."
+msgstr "SELinux가 활성화되어있지 않습니다. sealert는 SELinux 시스템에서만 작동합니다."
 
 #: ../src/sealert:155
 msgid "Not fixable."
@@ -620,12 +612,7 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr ""
-"Copyright (c) 2010 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"Máirín Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+msgstr "Copyright (c) 2010 \nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
@@ -637,7 +624,7 @@ msgstr "문제 해결"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
-msgstr ""
+msgstr "문제 해결이 경고 선택 "
 
 #: ../gui/browser.glade.h:10
 msgid "Delete Selected Alerts"
@@ -665,7 +652,7 @@ msgstr "예"
 
 #: ../gui/browser.glade.h:16
 msgid "Turn on alert pop-ups."
-msgstr ""
+msgstr "알림 팝업창을 활성화 "
 
 #: ../gui/browser.glade.h:17
 msgid "No"
@@ -673,7 +660,7 @@ msgstr "아니오"
 
 #: ../gui/browser.glade.h:18
 msgid "Turn off alert pop-ups."
-msgstr ""
+msgstr "알림 팝업창을 비활성화 "
 
 #: ../gui/browser.glade.h:19
 msgid "The source process:"
@@ -695,8 +682,7 @@ msgstr "레이블"
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr ""
-"문제 해결 정보를 읽어보십시오.  관리자 권한 회복이 필요할 수도 있습니다."
+msgstr "문제 해결 정보를 읽어보십시오.  관리자 권한 회복이 필요할 수도 있습니다."
 
 #: ../gui/browser.glade.h:24
 msgid "Notify Admin"
@@ -746,9 +732,7 @@ msgstr "<span size='large' weight='bold'>버그 보고 검색 및 제출</span> 
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr ""
-"이 버그 보고에 포함된 오류 출력 결과를 다시 확인하여 기밀 데이터를 제외시키"
-"실 수도 있습니다."
+msgstr "이 버그 보고에 포함된 오류 출력 결과를 다시 확인하여 기밀 데이터를 제외시키실 수도 있습니다."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
@@ -761,8 +745,7 @@ msgstr "보고서 제출  "
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr ""
-"이 작업이 완료되었습니다.  The quick brown fox jumped over the lazy dog."
+msgstr "이 작업이 완료되었습니다.  The quick brown fox jumped over the lazy dog."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
