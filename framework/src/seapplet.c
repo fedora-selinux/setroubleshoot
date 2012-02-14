@@ -36,6 +36,7 @@
 
 #include <dbus/dbus-glib-lowlevel.h>
 #include "sedbus.h"
+#include <gio/gdesktopappinfo.h>
 
 #ifdef ENABLE_NLS
 #include <locale.h>		/* for setlocale() */
@@ -140,15 +141,15 @@ static void show_notification(sealert *alert) {
 
 static void trayIconActivated(GObject *notused, gpointer ptr)
 {
-        GAppInfo *app;
+        GDesktopAppInfo *app;
         GAppLaunchContext *context;
 	sealert *alert = (sealert*) ptr;
 	gtk_status_icon_set_visible(alert->trayIcon, FALSE);
 	alert->need_bubble = FALSE;
 	notify_notification_close (alert->notify, NULL);
-        app = (GAppInfo*)g_desktop_app_info_new("setroubleshoot.desktop");
+        app = g_desktop_app_info_new("setroubleshoot.desktop");
         context = (GAppLaunchContext*)gdk_app_launch_context_new ();
-        g_app_info_launch (app, NULL, context, NULL);
+        g_app_info_launch ((GAppInfo*) app, NULL, context, NULL);
 }
 
 
@@ -364,7 +365,6 @@ static int check_for_avcs(char *pos[])
 			}
 			if (strncmp(buf, CTAG, clen) == 0) {
 				check_on_login=atoi(buf + clen);
-				printf("found %d %s\n", check_on_login);
 			}
 		}
 		fclose(cfg);
