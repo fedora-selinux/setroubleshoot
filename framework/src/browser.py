@@ -537,7 +537,7 @@ class BrowserApplet:
 
     def read_config(self):
         filename = PREF_PATH 
-        self.checkonlogin=0
+        self.checkonlogin=1
         try:
             fd = open(filename, "r")
             for i in fd.readlines():
