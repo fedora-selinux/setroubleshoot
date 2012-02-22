@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Francesco Tombolini <tombo@adamantio.net>, 2006, 2007, 2008, 2009.
+# Gianluca Busiello <busiello@ceinge.unina.it>, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-08 14:04-0500\n"
-"PO-Revision-Date: 2012-02-08 19:16+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-02-18 19:57+0000\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Italian <trans-it@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +25,7 @@ msgid ""
 "    SELinux policy is preventing an httpd script from writing to a public\n"
 "    directory.\n"
 "    "
-msgstr ""
+msgstr "\n    La policy di SELinux sta evitando che uno script httpd scriva in una\n    cartella pubblica.\n    "
 
 #: ../src/allow_anon_write.py:32
 msgid ""
@@ -32,7 +34,7 @@ msgid ""
 "    directory.  If httpd is not setup to write to public directories, this\n"
 "    could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    La policy di SELinux sta evitando che uno script httpd scriva in una\n    cartella pubblica.  Se httpd non è impostato per scrivere nelle\n    cartelle  pubbliche, ciò potrebbe segnalare un tentativo di\n    intrusione.\n    "
 
 #: ../src/allow_anon_write.py:38
 msgid ""
@@ -42,7 +44,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    Se gli scripts httpd dovessero poter scrivere nelle cartelle pubbliche si dovrebbe attivare il booleano $BOOLEAN e cambiare il contesto dei file nelle cartelle pubbliche in public_content_rw_t.  Per ulteriori informazioni\n    leggere le pagine man httpd_selinux:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n    Si deve inoltre cambiare i file di contesto del file predefinito sul sistema per preservarli anche da una completa rietichettatura.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -61,7 +63,7 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH from changing the access\n"
 "    protection of memory on the heap.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce al $SOURCE_PATH di cambiare la protezione d'accesso\n    della memoria sull'heap.\n    "
 
 #: ../src/allow_execheap.py:32
 msgid ""
@@ -76,7 +78,7 @@ msgid ""
 "    this access until the application is fixed. Please file a bug\n"
 "    report against this package.\n"
 "    "
-msgstr ""
+msgstr "\n    L'applicazione $SOURCE ha tentato di cambiare la protezione di accesso\n    della memoria sull'heap (es., allocata usando malloc).  Questo è un\n    potenziale problema di sicurezza.  Le applicazioni non dovrebbero farlo. Le\napplicazioni sono talvolta codificate in modo non corretto e richiedono questo\n    permesso.  La pagina web <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n    spiega come rimuovere questo requisito.  Se $SOURCE non funziona ma risulta\n    necessario per il normale utilizzo, è possibile configurare SELinux per\n    abilitare temporaneamente questo accesso fino a che l'applicazione non sarà\n    corretta. Si invita ad inviare un bug report relativo a questo pacchetto.\n    "
 
 #: ../src/allow_execheap.py:44
 msgid ""
@@ -85,7 +87,7 @@ msgid ""
 "    $BOOLEAN boolean.  Note: This boolean will affect all applications\n"
 "    on the system.\n"
 "    "
-msgstr ""
+msgstr "\n    Se si vuole che $SOURCE continui, bisogna impostare a on il\n    booleano $BOOLEAN.  Nota: Questo booleano avrà effetto su tutte le\n    applicazioni del sistema.\n    "
 
 #: ../src/allow_execheap.py:50
 msgid ""
@@ -109,7 +111,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from loading $TARGET_PATH which requires text relocation.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux al $SOURCE_PATH di caricare $TARGET_PATH il quale necessita di un text relocation.\n    "
 
 #: ../src/allow_execmod.py:33
 msgid ""
@@ -124,7 +126,7 @@ msgid ""
 "    workaround, until the library is fixed. Please file a \n"
 "bug report.\n"
 "    "
-msgstr ""
+msgstr "\n    L'applicazione $SOURCE ha tentato di caricare $TARGET_PATH che\n    necessita di un text relocation.  Questo è un potenziale problema di sicurezza.\n    Molte librerie non hanno bisogno di questo permesso. Le librerie sono\n    talvolta codificate in modo non corretto e richiedono questo permesso. La\n    pagina web <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n    spiega come rimuovere questo requisito.  E' possibile configurare\n    SELinux per permettere temporaneamente a $TARGET_PATH di usare relocation\n    come soluzione temporanea, fino a che la libreria non sia corretta. Si\n    prega di inviare un bug report nei confronti di questo pacchetto.\n    "
 
 #: ../src/allow_execmod.py:45
 msgid ""
@@ -142,7 +144,7 @@ msgid ""
 "    Contact your security administrator and report this issue.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n    L'applicazione $SOURCE ha tentato di caricare $TARGET_PATH che\n    necessita text relocation.  Questo è un potenziale problema di sicurezza.\n    Molte librerie non hanno bisogno di questo permesso.\n    La pagina web <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n    spiega come rimuovere questa richiesta.  Questo strumento ha\n    esaminato la libreria e sembra che sia stata compilata correttamente.\n    Quindi setroubleshoot non è in grado di determinare se questa\n    applicazione sia compromessa oppure no.  Questo potrebbe essere\n    un problema serio.  Il sistema potrebbe essere seriamente\n    compromesso.  Contattare l'amministratore di sistema e riportare\n    questo problema.\n    "
 
 #: ../src/allow_execmod.py:62
 msgid ""
@@ -153,14 +155,14 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
-msgstr ""
+msgstr "\n    Se si ritiene che $TARGET_PATH sia correttamente in esecuzione, è\n    possibile cambiare il contesto del file in textrel_shlib_t. \"chcon -t textrel_shlib_t\n    '$TARGET_PATH'\"\n    È necessario inoltre cambiare i file di contesto del file predefinito sul sistema per preservarli anche da una completa rietichettatura.  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n    \n    "
 
 #: ../src/allow_execstack.py:53
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from making the program stack executable.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce al $SOURCE_PATH di rendere lo stack del programma eseguibile.\n    "
 
 #: ../src/allow_execstack.py:57
 msgid ""
@@ -178,7 +180,7 @@ msgid ""
 "    temporarily to allow this access until the application is fixed. Please \n"
 "file a bug report.\n"
 "    "
-msgstr ""
+msgstr "\n    L'applicazione $SOURCE ha tentato di rendere il suo stack\n    eseguibile.  Questo è un potenziale problema di sicurezza.  Ciò non\n    dovrebbe mai essere necessario. La stack memory non è eseguibile sulla\n    maggior parte degli OS odierni e tale tendenza non cambierà. La stack\n    memory eseguibile è uno frai più grandi problemi di sicurezza. Un errore\n    execstack potrebbe in effetti essere causato da codice malizioso. Le\n    applicazioni sono talvolta codificate in modo non corretto e richiedono\n    questo permesso.  La pagina web <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n    spiega come rimuovere questo requisito.  Se $SOURCE non funziona ma è\n    necessario per lavorare, è possibile configurare SELinux per permettere\n    temporaneamente questo accesso fino a che l'applicazione non sarà corretta.\nInviare un bug report relativo a\n questo pacchetto.\n    "
 
 #: ../src/allow_execstack.py:72
 msgid ""
@@ -194,7 +196,7 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t execmem_exec_t '$FIX_SOURCE_PATH'\"\n"
 "    \n"
 "    "
-msgstr ""
+msgstr "\n    Talvolta una libreria è accidentalmente contrassegnata con il flag\n    execstack, se si trova una librerria con questo flag, è possibile\n    cancellarlo con execstack -c LIBRARY_PATH.  Quindi riavviare l'applicazione.\n    Se l'applicazione continua a non funzionare, è possibile ripristinare il\n    flag con execstack -s LIBRARY_PATH.  Altrimenti, se si ritiene che\n    $SOURCE sia correttamente eseguito, è possibile cambiare il contesto\n    dell'eseguibile in execmem_exec_t. \"chcon -t execmem_exec_t\n    '$SOURCE_PATH'\"\n     Si deve inoltre cambiare i file di contesto del file predefinito sul sistema per preservarli anche da una completa rietichettatura.  \"semanage fcontext -a -t execmem_exec_t '$FIX_SOURCE_PATH'\"\n    \n    "
 
 #: ../src/allow_execstack.py:87
 msgid ""
@@ -250,7 +252,7 @@ msgid ""
 "    If you have not configured the ftp daemon to read files from a CIFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha evitato al demone ftp di $ACCESS files immmagazzinati su un\n    filesystem CIFS. CIFS (Comment Internet File System) è un filesystem di\n    rete simile a SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www.microsoft.com/mind/1196/cifs.asp</a>)\n    Il demone ftp ha tentato di leggere uno o più files o directories da\n    un filesystem montato di questo tipo.  Poiché il sistema CIFS non supporta\n    l'etichettatura granulare di SELinux, tutti i files e le cartelle nel\n    filesystem avranno lo stesso contesto di sicurezza.\n    \n    Se non si è configurato il demone per leggere i files da un filesystem CIFS\n    questo tentativo di accesso può segnalare un tentativo d'intrusione.\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:46
 msgid ""
@@ -258,7 +260,7 @@ msgid ""
 "    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
 "    \"setsebool -P $BOOLEAN=1.\"\n"
 "    "
-msgstr ""
+msgstr "\n    Cambiando il booleano \"$BOOLEAN\" a true verrà permesso tale accesso:\n    \"setsebool -P $BOOLEAN=1.\"\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:53
 msgid ""
@@ -269,7 +271,7 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on CIFS filesystems.  "
-msgstr ""
+msgstr " Cambiando le booleane \"$BOOLEAN\" e\n    \"$WRITE_BOOLEAN\" in true si permetterà tale accesso:\n    \"setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1\".\n    attenzione: impostare la booleana \"$WRITE_BOOLEAN\" su true\n    permetterà al demone ftp di scrivere tutto il contenuto publico (file e\n    cartelle con tipo public_content_t) oltre a scrivere\n    file e cartelle sui filesystems CIFS.  "
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
@@ -301,7 +303,7 @@ msgid ""
 "    If you have not configured the ftp daemon to read files from a NFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha evitato al demone ftp di $ACCESS a file registrati su un\n    filesystem NFS. L'NFS (Network Filesystem) è un filesystem di rete\n    comunemente utilizzato sui sistemi Unix / Linux.\n    \n    Il demone ftp ha tentato di leggere uno o più files o directories da un\n    filesystem montato di questo tipo.  Poiché il filesystems NFS non supporta\n    l'etichettatura fine-grained di SELinux, tutti i file e le cartelle nel\n    filesystem avranno lo stesso contesto di sicurezza.\n    \n    Se non si è configurato il demone ftp per leggere files da un filesystem NFS\n    questo accesso potrebbe segnalare un tentativo di intrusione.\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:47
 msgid ""
@@ -309,7 +311,7 @@ msgid ""
 "    Changing the \"allow_ftpd_use_nfs\" boolean to true will allow this access:\n"
 "    \"setsebool -P allow_ftpd_use_nfs=1.\"\n"
 "    "
-msgstr ""
+msgstr "\n    Cambiando il booleano \"allow_ftpd_use_nfs\" in true verrà permesso questo accesso:\n    \"setsebool -P allow_ftpd_use_nfs=1.\"\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:54
 msgid ""
@@ -320,7 +322,7 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
-msgstr ""
+msgstr " Cambiando il booleano \"allow_ftpd_use_nfs\" e\n    \"$WRITE_BOOLEAN\" in true si permetterà questo accesso:\n    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n    attenzione: impostando il booleano \"$WRITE_BOOLEAN\" su true\n    si permetterà al demone ftp di scrivere tutti i contenuti pubblici (file e\n    cartelle con il tipo public_content_t) oltre a scrivere\n    file e cartelle sui filesystems NFS."
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
@@ -331,7 +333,7 @@ msgid ""
 "\n"
 "    SELinux is preventing the $SOURCE_PATH from executing potentially mislabeled files $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce a $SOURCE_PATH l'utilizzo di file ($TARGET_PATH) potenzialmente etichettati in modo incorretto.\n    "
 
 #: ../src/automount_exec_config.py:31
 msgid ""
@@ -342,7 +344,7 @@ msgid ""
 "    configuration file it needs to have a file label of bin_t.\n"
 "    If automounter is trying to execute something that it is not supposed to, this could indicate an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha impedito a $SOURCE_PATH di eseguire i file $TARGET_PATH\n    potenzialmente etichettati in modo non corretto.  Automounter può\n    essere impostato per eseguire i file di configurazione. Se $TARGET_PATH\n    risulta essere un file di configurazione eseguibile di automount, esso\n    avrà bisogno di una etichetta bin_t.\n    Se automounter cerca di eseguire un'azione non prevista, tale tentativo\n    potrebbe indicare un tentativo d'intrusione.\n    "
 
 #: ../src/automount_exec_config.py:39
 msgid ""
@@ -356,7 +358,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from binding to port $PORT_NUMBER.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce al $SOURCE_PATH di associarsi alla porta $PORT_NUMBER.\n    "
 
 #: ../src/bind_ports.py:31
 #, python-format
@@ -399,7 +401,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access on $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce al $SOURCE_PATH \"$ACCESS\" di accedere al dispositivo $TARGET_PATH.\n    "
 
 #: ../src/catchall_boolean.py:36
 msgid ""
@@ -411,7 +413,7 @@ msgid ""
 "    this access you need to change the booleans on this system to allow \n"
 "    the access.\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux ha negato l'accesso richiesto da $SOURCE. Le attuali impostazioni\n    del booleano non consentono questo accesso.  Se non è stato impostato\n    $SOURCE per richiedere questo accesso ciò potrebbe  segnalare un tentativo\n    di intrusione. Se si intende permettere l'accesso è necessario cambiare i booleani del\n    sistema per consentire l'accesso.\n    "
 
 #: ../src/catchall_boolean.py:45
 msgid ""
@@ -420,7 +422,7 @@ msgid ""
 "    access as needed.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n    I processi confinati possono essere configurati per essere eseguiti richiedendo accessi differenti, SELinux fornisce booleane per permettere di attivare o disattivare \n    l'accesso secondo le necessità.\n\n    "
 
 #: ../src/catchall_boolean.py:60
 #, python-format
@@ -455,7 +457,7 @@ msgid ""
 "    in directories that SELinux policy cannot predict.  These directories\n"
 "    have to be labeled with a file context which httpd can access.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato l'accesso a $SOURCE ai file $TARGET_PATH etichettati\n    in modo potenzialmente incorretto.  Ciò significa che SELinux non\n    permetterà a httpd di utilizzare questi file. Se httpd ha bisogno\n    dell'accesso a questi file bisogna cambiare il contesto dei file nei\n    seguenti tipi, %s.. Numerose applicazioni di terzi installano file html\n    in cartelle che le policy di SELinux non possono prevedere.  Le suddette\n    cartelle devono essere etichettate con un contesto file accessibile\n    da parte di httpd.\n    "
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
@@ -485,7 +487,7 @@ msgid ""
 "    additional access.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux ha negato l'accesso richiesto da $SOURCE. Non è previsto\n    che questo accesso venga richiesto da $SOURCE, e tale accesso può\n    segnalare un tentativo di intrusione.  È anche possibile che questo sia\n    provocato dalla specifica versione o dalla configurazione dell'applicazione\n    per richiedere un ulteriore accesso.\n\n    "
 
 #: ../src/catchall.py:41
 msgid ""
@@ -495,7 +497,7 @@ msgid ""
 "\n"
 "    Please file a bug report.\n"
 "    "
-msgstr ""
+msgstr "\n    E' possibile generare un modulo di politica locale per\n    consentire questo accesso - consultare le <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n\nInviare un bug report.\n    "
 
 #: ../src/catchall.py:50
 msgid ""
@@ -533,7 +535,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from connecting to port $PORT_NUMBER.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce al $SOURCE_PATH di collegarsi alla porta $PORT_NUMBER.\n    "
 
 #: ../src/connect_ports.py:31
 #, python-format
@@ -565,7 +567,7 @@ msgid ""
 "\n"
 "    SELinux is preventing cvs ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce l'accesso cvs ($SOURCE_PATH) \"$ACCESS\" a $TARGET_PATH.\n    "
 
 #: ../src/cvs_data.py:31
 msgid ""
@@ -575,7 +577,7 @@ msgid ""
 "    cvs_data_t. If you did not intend to use $TARGET_PATH as a CVS repository\n"
 "    it could indicate either a bug or it could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato l'accesso cvs a $TARGET_PATH.\n    Se si tratta di un repository CVS, sarà necessario avere una etichetta del\n    contesto del file cvs_data_t. Se non si desiderava utilizzare\n    $TARGET_PATH come repository CVS, ciò potrebbe indicare un bug\n    oppure potrebbe segnalare un tentativo di intrusione.\n    "
 
 #: ../src/cvs_data.py:38
 msgid ""
@@ -584,7 +586,7 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
-msgstr ""
+msgstr "\n    È possibile alterare il contesto del file eseguendo chcon -R -t cvs_data_t '$TARGET_PATH'\n    Inoltre bisogna cambiare i file di contesto del file predefinito per preservarli anche in caso di una completa rietichettatura.  \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n    \n    "
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
@@ -636,7 +638,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to device $TARGET_PATH. \n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce l'accesso $SOURCE_PATH \"$ACCESS\" al dispositivo $TARGET_PATH.\n    "
 
 #: ../src/device.py:33
 msgid ""
@@ -662,14 +664,14 @@ msgid ""
 "    using SELinux APIs.  If you can figure out which application created the device, please file a bug report against this application.\n"
 "    \n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux ha negato l'accesso $SOURCE \"$ACCESS\" al dispositivo $TARGET_PATH.\n    $TARGET_PATH non è etichettato correttamente, questo dispositivo possiede l'etichetta predefinita\n    della directory /dev, e questo non è corretto. Tutti i dispositivi a blocchi e/o a\ncaratteri, dovrebbero avere una etichetta.\n\n    È possibile modificare l'etichetta del file utilizzando\n\n    restorecon -v '$TARGET_PATH'.\n\n    Se questo dispositivo resta etichettato device_t, ciò risulterà essere un bug relativo alla politica di SELinux.\n\nInviare un bug report\n\n    Se si controllano le altre etichette simili del dispositivo, ls -lZ /dev/SIMILAR, e si trova un tipo\n    in grado di funzionare con $TARGET_PATH, è possibile utilizzare chcon -t SIMILAR_TYPE '$TARGET_PATH', Se tale operazione corregge il problema è possibile renderla permanente eseguendo\n    semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n\n    Se restorecon modifica il contesto, ciò indicherà che l'applicazione che ha creato il dispositivo, lo ha creato senza utilizzare le API di SELinux.  Se si è in grado di sapere quale\napplicazione ha creato il dispositivo,    si prega di inviare un bug report relativo a questa applicazione.\n    \n    "
 
 #: ../src/device.py:56
 msgid ""
 "\n"
 "    Attempt restorecon -v '$TARGET_PATH' or chcon -t SIMILAR_TYPE '$TARGET_PATH'\n"
 "    "
-msgstr ""
+msgstr "\n    Tentare restorecon -v $TARGET_PATH oppure chcon -t SIMILAR_TYPE $TARGET_PATH\n    "
 
 #: ../src/device.py:60
 msgid ""
@@ -711,7 +713,7 @@ msgid ""
 "\n"
 "    SELinux is preventing access to files with the label, file_t.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce l'accesso ai file con l'etichetta file_t.\n    "
 
 #: ../src/file.py:31
 msgid ""
@@ -725,7 +727,7 @@ msgid ""
 "home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
-msgstr ""
+msgstr "\n    I controlli dei permessi di SELinux sui file etichettati file_t sono stati\n    negati. file_t è il contesto che il kernel SELinux conferisce ai file che\n    non possiedono un'etichetta. Ciò potrebbe indicare un serio problema\n    riguardo l'etichettatura. Nessun file di SELinux dovrebbe essere etichettato file_t.\n    Se è stata appena aggiunta una unità disco al sistema, è possibile\n    rietichettarla utilizzando il comando restorecon. Per esempio se la home directory è stata\nsalvata da una installazione precedente la quale non utilizzava SELinux, 'restorecon -R -v /home' correggerà le etichette. In caso contrario si\n    può rietichettare l'intero file system.\n    "
 
 #: ../src/file.py:42
 msgid ""
@@ -733,7 +735,7 @@ msgid ""
 "    You can execute the following command as root to relabel your\n"
 "    computer system: \"touch /.autorelabel; reboot\"\n"
 "    "
-msgstr ""
+msgstr "\n    È possibile eseguire il seguente comando come utente root, in modo da\n    rietichettare il sistema:  \"touch /.autorelabel; reboot\"\n    "
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
@@ -756,7 +758,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from creating a file with a context of $SOURCE_TYPE on a filesystem.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce a $SOURCE_PATH di creare un file con un contesto di $SOURCE_TYPE su un filesystem.\n    "
 
 #: ../src/filesystem_associate.py:31
 msgid ""
@@ -768,14 +770,14 @@ msgid ""
 "    on a r/w system.  \"cp -p\" might be a better solution, as this will adopt the default file context\n"
 "    for the destination.  \n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha impedito che $SOURCE crei un file con un contesto di $SOURCE_TYPE su un filesystem.\n    Solitamente ciò avviene quando si chiede al comando cp di mantenere il contesto di un file quando\n    si copia tra file systems.  \"cp -a\" ad esempio.  Non tutti i contesti dei file dovrebbero essere mantenuti\n    tra i file system.  Ad esempio un tipo di file di sola lettura come l'iso9660_t non dovrebbe essere posto in \n    un sistema r/w.  \"cp -p\" potrebbe essere una soluzione migliore, in quanto adotterebbe il contesto per il file predefinito\n    per la destinazione.  \n    "
 
 #: ../src/filesystem_associate.py:40
 msgid ""
 "\n"
 "    Use a command like \"cp -p\" to preserve all permissions except SELinux context.\n"
 "    "
-msgstr ""
+msgstr "\n    Usare un comando come \"cp -p\" per preservare tutti i permessi tranne il contesto SELinux.\n    "
 
 #: ../src/filesystem_associate.py:43
 msgid ""
@@ -800,7 +802,7 @@ msgid ""
 "\n"
 "    SELinux is preventing the http daemon from sending mail.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha impedito al demone http di inviare posta.\n    "
 
 #: ../src/httpd_can_sendmail.py:32
 msgid ""
@@ -810,7 +812,7 @@ msgid ""
 "    sendmail command. If you did not setup httpd to sendmail, this could \n"
 "    signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha impedito al demone http di inviare posta. Uno\n    script httpd stà cercando di collegarsi ad una porta di posta\n    oppure di eseguire il comando sendmail.  Se non è stato impostato\n    httpd in modo da inviare posta, ciò potrebbe segnalare un tentativo\n    d'intrusione.\n    "
 
 #: ../src/httpd_can_sendmail.py:39
 msgid ""
@@ -819,7 +821,7 @@ msgid ""
 "    $BOOLEAN boolean: \"setsebool -P\n"
 "    $BOOLEAN=1\"\n"
 "    "
-msgstr ""
+msgstr "\n    Se si desidera che httpd invii posta, allora bisogna\n    abilitare il booleano $BOOLEAN: \"setsebool -P\n    $BOOLEAN=1\"\n    "
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
@@ -862,7 +864,7 @@ msgid ""
 "    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
 "    \"setsebool -P $BOOLEAN=1\"\n"
 "    "
-msgstr ""
+msgstr "\n    Cambiando il booleano \"$BOOLEAN\" in true si permetterà questo accesso:\n    \"setsebool -P $BOOLEAN=1\"\n    "
 
 #: ../src/httpd_unified.py:57
 msgid ""
@@ -885,7 +887,7 @@ msgid ""
 "    labeling of all files.  If $TARGET_PATH is writable content. it needs \n"
 "    to be labeled httpd_sys_rw_content_t or if all you need is append you can label it httpd_sys_ra_content_t.   Please refer to 'man httpd_selinux' for more information on setting up httpd and selinux.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha impedito l'accesso httpd $ACCESS a $TARGET_PATH.\n\n    Gli script httpd non possono scrivere il contenuto senza una etichettatura \n    esplicita di tutti i file. Se $TARGET_PATH è un contenuto scrivibile esso deve essere \n    etichettato httpd_sys_rw_content_t oppure se è necesario solo aggiungere del contenuto sarà possibile etichettarlo httpd_sys_ra_content_t.   Consultare 'man httpd_selinux' per maggiori informazioni su come impostare httpd e selinux.\n    "
 
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
@@ -897,7 +899,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH tried to modify kernel configuration.\n"
 "    "
-msgstr ""
+msgstr "\n    Il sistema potrebbe essere seriamente compromesso! $SOURCE_PATH ha cercato di modificare la configurazione del kernel.\n    "
 
 #: ../src/kernel_modules.py:33
 msgid ""
@@ -909,7 +911,7 @@ msgid ""
 "    application tries to modify the kernel this AVC will be generated. This is a \n"
 "    serious issue. Your system may very well be compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha prevenuto la modifica di $TARGET da parte di $SOURCE.\n    Questo divieto indica che $SOURCE stava tentando di modificare il modo\n    in cui si esegue il kernel o di inserire attualmente del codice nel kernel.\n    Tutte le applicazioni che hanno bisogno di questo accesso dovrebbero\n    avere già una politica per questo.  Se una applicazione compromessa\n    tenta di modificare il kernel verrà generato questo AVC. Questa è una\n    questione seria. Il sistema potrebbe essere molto compromesso\n    "
 
 #: ../src/kernel_modules.py:44 ../src/selinuxpolicy.py:44
 msgid ""
@@ -928,14 +930,14 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH access to a leaked $TARGET_PATH file descriptor.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce l'accesso $SOURCE_PATH ad un descrittore difettoso del file $TARGET_PATH.\n    "
 
 #: ../src/leaks.py:31
 msgid ""
 "\n"
 "    SELinux denied access requested by the $SOURCE command. It looks like this is either a leaked descriptor or $SOURCE output was redirected to a file it is not allowed to access.  Leaks usually can be ignored since SELinux is just closing the leak and reporting the error.  The application does not use the descriptor, so it will run properly.  If this is a redirection, you will not get output in the $TARGET_PATH.  You should generate a bugzilla on selinux-policy, and it will get routed to the appropriate package.  You can safely ignore this avc.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha rifiutato l'accesso richiesto dal comando $SOURCE. Sembra che sia un descrittore difettoso oppure l'uscita di $SOURCE è stata reindirizzata ad un file a cui non è consentito accedere.  I difetti normalmente possono essere ignorati fintanto che SELinux chiude il difetto e riporta l'errore.  L'applicazione non usa il descrittore, quindi può essere eseguita correttamente.  Se questo è un reindirizzamento, non verrà ricevuto output nel $TARGET_PATH. è necessario generare un bugzilla su selinux-policy, che verrà instradata verso il pacchetto appropriato.  E' possibile ignorare in sicurezza questo avc.\n    "
 
 #: ../src/leaks.py:35
 msgid ""
@@ -943,7 +945,7 @@ msgid ""
 "    You can generate a local policy module to allow this\n"
 "    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n"
 "    "
-msgstr ""
+msgstr "\n    E' possibile generare un modulo di politica locale per\n    consentire questo accesso - consultare le <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n    "
 
 #: ../src/leaks.py:42
 msgid ""
@@ -969,7 +971,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH attempted to mmap low kernel memory.\n"
 "    "
-msgstr ""
+msgstr "\n    Il sistema potrebbe essere seriamente compromesso! $SOURCE_PATH ha cercato di mappare la memoria bassa del kernel.\n    "
 
 #: ../src/mmap_zero.py:33
 msgid ""
@@ -983,7 +985,7 @@ msgid ""
 "    would be generated. This is a serious issue. Your system may very well be \n"
 "    compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato a $SOURCE la possibilità di eseguire mmap sull'area bassa\n    degli spazi di indirizzo del kernel.  L'abilità di eseguire mmap su una area bassa\n    dello spazio degli indirizzi, come configurato da /proc/sys/kernel/mmap_min_addr.\n    Prevenendo questa mappatura si aiuta la protezione contro l'esplorazione dei\n    bug di null deref nel kernel. Tutte le applicazioni che hanno bisogno di questo\n    accosso dovrebbero avere già una politica scritta.  Se una applicazione\n    compromessa tenta di modificare il kernel verrà generato questo AVC.  Questa\n    è una questione seria. Il sistema potrebbe essere seriamente compromesso.\n    "
 
 #: ../src/mmap_zero.py:46
 msgid ""
@@ -1000,7 +1002,7 @@ msgid ""
 "    SELinux prevented $SOURCE from mounting on the file or directory\n"
 "    \"$TARGET_PATH\" (type \"$TARGET_TYPE\").\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha evitato che $SOURCE montasse il file o cartella\n    \"$TARGET_PATH\" (tipo \"$TARGET_TYPE\").\n    "
 
 #: ../src/mounton.py:34
 msgid ""
@@ -1012,7 +1014,7 @@ msgid ""
 "    type \"$TARGET_TYPE\" does not have this attribute. You can change the \n"
 "    label of the file or directory.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha impedito a $SOURCE di montare un filesystem sul file o cartella\n    \"$TARGET_PATH\" di tipo \"$TARGET_TYPE\". In modo predefinito SELinux limita il\n    montaggio dei filesystem, solo ad alcuni file o cartelle (quelli che\n    contengono gli attributi di mountpoint). Il tipo \"$TARGET_TYPE\" non possiede\n    questo tipo di attributi. È possibile modificare l'etichetta del file o\n    della cartella.\n    "
 
 #: ../src/mounton.py:43
 msgid ""
@@ -1021,7 +1023,7 @@ msgid ""
 "    \"chcon -t mnt_t '$TARGET_PATH'.\"\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t mnt_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    Cambiando il file_context in mnt_t sarà possibile montare il filesystem:\n    \"chcon -t mnt_t '$TARGET_PATH'.\"\n    È necessario inoltre modificare i file di contesto del file predefinito sul sistema per preservarli anche da una completa rietichettatura.  \"semanage fcontext -a -t mnt_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
@@ -1038,7 +1040,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce l'accesso $SOURCE_PATH \"$ACCESS\" a $TARGET_PATH.\n    "
 
 #: ../src/openvpn.py:36
 msgid ""
@@ -1055,7 +1057,7 @@ msgid ""
 "    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
 "    "
-msgstr ""
+msgstr "\n    È possibile ripristinare il contesto del sistema predefinito su questo fileeseguendo\n   il comando restorecon.  ripristino utilizzando restorecon -R /root/.ssh.\n    "
 
 #: ../src/openvpn.py:49
 msgid ""
@@ -1086,7 +1088,7 @@ msgid ""
 "    change its file context to public_content_t.  If you did not intend to\n"
 "    allow this access, this could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato l'accesso a $TARGET_PATH richiesto da $SOURCE.\n    $TARGET_PATH presenta un contesto utilizzato per una condivisione tra\n    diversi programmi. Se si desidera condividere anche $TARGET_PATH\n    da $SOURCE, bisogna modificare il contesto del file in\n    public_content_t.  Se non si desiderava consentire questo accesso,\n    ciò potrebbe segnalare un tentativo d'intrusione.\n    "
 
 #: ../src/public_content.py:39
 msgid ""
@@ -1094,7 +1096,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t public_content_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    È possibile alterare il contesto del file eseguendo chcon -t public_content_t '$TARGET_PATH'\n    È necessario inoltre modificare i file di contesto del file predefinito sul sistema per preservarli da una completa rietichettatura.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/public_content.py:50
 msgid "you want to treat $TARGET_BASE_PATH as public content"
@@ -1114,7 +1116,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato l'accesso qemu al dispositivo a blocchi $TARGET_PATH.\n    Se questa è un immagine di virtualizzazione essa deve essere etichettata con un contesto di file di virtualizzazione (virt_image_t). E' possibile rietichettare $TARGET_PATH per essere virt_image_t usando chcon.  E' inoltre possibile eseguire semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' per aggiungere questo\n    nuovo percorso alle impostazioni di sistema predefinite. Se non si intendeva utilizzare $TARGET_PATH come immagine qemu\n    ciò potrebbe indicare un errore o un tentativo di intrusione.\n    "
 
 #: ../src/qemu_blk_image.py:38 ../src/qemu_file_image.py:41
 msgid ""
@@ -1122,7 +1124,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t virt_image_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    E' possibile alterare il contesto del file eseguendo chcon -t virt_image_t '$TARGET_PATH'\n    È necessario inoltre modificare i file per il contesto del file predefinito sul sistema per preservarli da una completa rietichettatura.  \"semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/qemu_blk_image.py:46
 msgid ""
@@ -1141,7 +1143,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato l'accesso qemu a $TARGET_PATH.\n    Se questa è un immagine di virtualizzazione allora dovrà avere una etichetta del contesto di file\n    virt_image_t. Il sistema è impostato per etichettare correttamente i file immagine in directory./var/lib/libvirt/images\n    Si consiglia di copiare il proprio file immagine in /var/lib/libvirt/images.\n    Se si desidera veramente avere i file immagine qemu nella directory corrente, è possibile rietichettare $TARGET_PATH in modo da diventare virt_image_t usando chcon.  Si dovrà anche eseguire semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' per aggiungere\n    questo nuovo percorso alle impostazioni di sistema predefinite.  Se non si intendeva utilizzare $TARGET_PATH come una immagine qemu\n    ciò potrebbe indicare un errore o un tentativo di intrusione.\n    "
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
@@ -1154,7 +1156,7 @@ msgid ""
 "    restorecon command.  restorecon '$TARGET_PATH', if this file is a directory,\n"
 "    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
 "    "
-msgstr ""
+msgstr "\n    È possibile ripristinare il contesto del sistema predefinito a questo file\n    eseguendo il comando restorecon.  restorecon '$TARGET_PATH', se il file\n    indicato è una cartella, è possibile ripristinare ricorsivamente utilizzando\n    restorecon -R '$TARGET_PATH'.\n    "
 
 #: ../src/restorecon.py:45
 #, python-format
@@ -1211,7 +1213,7 @@ msgid ""
 "    rsync_data_t. If you did not intend to use $TARGET_PATH as a rsync repository\n"
 "    it could indicate either a bug or it could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato a rsync l'accesso a $TARGET_PATH.\n    Se risulta essere un repository RSYNC sarà necessaria un'etichetta del\n    contesto del file rsync_data_t. Se non si voleva utilizzare $TARGET_PATH\n    come repository rsync, tale comportamento potrebbe indicare un bug oppure\n    un tentativo d'intrusione.\n    "
 
 #: ../src/rsync_data.py:38
 msgid ""
@@ -1219,7 +1221,7 @@ msgid ""
 "    You can alter the file context by executing chcon -R -t rsync_data_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    È possibile alterare il contesto del file eseguendo chcon -R -t rsync_data_t '$TARGET_PATH'\n    È necessario inoltre modificare i file per il contesto del file predefinito sul sistema per preservarli anche da una completa rietichettatura.  \"semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
@@ -1234,7 +1236,7 @@ msgid ""
 "\n"
 "    SELinux is preventing Samba ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce l'accesso Samba ($SOURCE_PATH) \"$ACCESS\" al dispositivo $TARGET_PATH.\n    "
 
 #: ../src/samba_share.py:31
 msgid ""
@@ -1245,7 +1247,7 @@ msgid ""
 "    it could indicate either a bug or it could signal a intrusion attempt.\n"
 "    Please refer to 'man samba_selinux' for more information on setting up Samba and SELinux.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato un accesso samba a $TARGET_PATH.\n    Se si desidera condividere questa directory con samba, allora sarà necessaria\n    l'etichetta del contesto del file samba_share_t. Se non si desidera utilizzare $TARGET_PATH\n    come repositorio di samba, tale situazione potrebbe indicare un bug\n    oppure un tentativo d'intrusione. Consultare 'man samba_selinux' per maggiori informazioni su come impostare Samba e SELinux.\n    "
 
 #: ../src/samba_share.py:39
 msgid ""
@@ -1253,7 +1255,7 @@ msgid ""
 "    You can alter the file context by executing chcon -R -t samba_share_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    È possibile alterare il contesto del file eseguendo chcon -R -t samba_share_t '$TARGET_PATH'\n    È necessario altresì modificare i file per il contesto del file predefinito sul sistema per preservarli anche da una completa rietichettatura.  \"semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/samba_share.py:53
 #, python-format
@@ -1267,7 +1269,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised!\n"
 "    "
-msgstr ""
+msgstr "\n    Il sistema potrebbe essere seriamente compromesso!\n    "
 
 #: ../src/selinuxpolicy.py:33
 msgid ""
@@ -1279,7 +1281,7 @@ msgid ""
 "    policy this AVC will be generated. This is a serious issue. Your system \n"
 "    may very well be compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha prevenuto che $SOURCE modificasse $TARGET.  Questo\n    rifiuto indica che $SOURCE stava tentando di modificare la configurazione\n    della politica di selinux.  Tutte le applicazioni che necessitano di questo\n    accesso hanno una politica già scritta.  Se una applicazione\n    compromessa tenta di modificare la politica di SELinux verrà generato\n    questo messaggio AVC.  Questa è una questione seria. Il sistema potrebbe\n    essere seriamente compromesso.\n    "
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
@@ -1294,7 +1296,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH tried to modify SELinux enforcement.\n"
 "    "
-msgstr ""
+msgstr "\n    Il sistema potrebbe essere seriamente compromesso! $SOURCE_PATH ha cercato di modificare la modalità enforcement di SELinux.\n    "
 
 #: ../src/setenforce.py:36
 msgid ""
@@ -1306,7 +1308,7 @@ msgid ""
 "    this AVC will be generated. This is a serious issue. Your system may very\n"
 "    well be compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha prevenuto che $SOURCE modificasse un file sotto /selinux.\n    I file sotto /selinux controllano il modo in cui è configurato SELinux.\n    Tutte le applicazioni che necessitano di scrivere i file sotto /selinux\n    dovrebbero avere una politica già scritta.  Se una applicazione\n    compromessa tenta di spegnere SELinux verrà generato questo\n    messaggio AVC.  Questa è una questione seria. Il sistema potrebbe\n    essere seriamente compromesso.\n    "
 
 #: ../src/setenforce.py:48
 msgid "you believe $SOURCE_PATH tried to disable SELinux."
@@ -1325,18 +1327,18 @@ msgid ""
 "    be a mislabeled. sshd is allowed to read content in /root/.ssh directory if it \n"
 "    is labeled correctly.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato l'accesso richiesto da $SOURCE. $TARGET_PATH potrebbe\n    essere stato etichettato incorrettamente. sshd è in grado di leggere il contenuto nella directory /root/.ssh \n    se etichettato in modo corretto.\n    "
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"
-msgstr ""
+msgstr "Ripristinare il contesto"
 
 #: ../src/swapfile.py:27
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" to $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce $SOURCE_PATH \"$ACCESS\" a $TARGET_PATH.\n    "
 
 #: ../src/swapfile.py:31
 msgid ""
@@ -1347,7 +1349,7 @@ msgid ""
 "    $TARGET_PATH as a swapfile it probably indicates a bug, however it could also\n"
 "    signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato a $SOURCE di accedere a $TARGET_PATH.\n    Se esso è uno swapfile allora sarà necessario avere una etichetta\n    swapfile_t. Se non si desiderava utilizzare\n    $TARGET_PATH come swapfile, tale comportamento potrebbe indicare un bug,\n    oppure un tentativo d'intrusione.\n    "
 
 #: ../src/swapfile.py:39
 msgid ""
@@ -1355,7 +1357,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t swapfile_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    È possibile alterare il contesto del file eseguendo chcon -t swapfile_t '$TARGET_PATH'\n    È necessario inoltre modificare i file per il contesto del file predefinito sul sistema per preservarli anche da una completa rietichettatura.  \"semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/sys_module.py:28
 msgid ""
@@ -1372,7 +1374,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH tried to load a kernel module.\n"
 "    "
-msgstr ""
+msgstr "\n    Il sistema potrebbe essere seriamente compromesso! $SOURCE_PATH ha cercato di caricare un modulo del kernel.\n    "
 
 #: ../src/sys_module.py:37
 msgid ""
@@ -1383,7 +1385,7 @@ msgid ""
 "    tries to modify the kernel this AVC will be generated. This is a serious \n"
 "    issue. Your system may very well be compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha prevenuto che $SOURCE caricasse un modulo del kernel.\n    Tutte le applicazioni che necessitano di caricare un modulo del kernel\n    dovrebbero avere una politica già scritta.  Se una applicazione\n    compromessa tenta di modificare il kernel verrà generato questo\n    messaggio AVC.  Questa è una questione seria. Il sistema potrebbe\n    essere seriamente compromesso.\n    "
 
 #: ../src/sys_module.py:46
 msgid ""
@@ -1400,7 +1402,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH the \"sys_resource\" capability. \n"
 "    "
-msgstr ""
+msgstr "\n    SELinux nega a $SOURCE_PATH la funzione \"sys_resource\".\n    "
 
 #: ../src/sys_resource.py:32
 msgid ""
@@ -1408,7 +1410,7 @@ msgid ""
 "    Confined domains should not require \"sys_resource\". This usually means that     your system is running out of disk space. Please clear up the disk and this\n"
 "    AVC message should go away. If this AVC continues after you clear up the disk space, please report this as a bug. \n"
 "    "
-msgstr ""
+msgstr "\n    I domini confinati non dovrebbero richiedere \"sys_resource\". Tale comportamento generalmente significa che il sistema ha quasi esaurito lo spazio del disco. Rendendo disponibile spazio sul disco\n   il messaggio AVC dovrebbe scomparire. Se tale messaggio non scompare, segnalare questo comportamento come un bug. \n    "
 
 #: ../src/sys_resource.py:39
 msgid ""
@@ -1427,7 +1429,7 @@ msgid ""
 "\n"
 "    SELinux has prevented vbetool from performing an unsafe memory operation.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha impedito a vbetool di eseguire una operazione non sicura della memoria.\n    "
 
 #: ../src/vbetool.py:34
 msgid ""
@@ -1441,7 +1443,7 @@ msgid ""
 "operation and reduce your system security against such malware.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\nSELinux ha negato l'operazione richiesta da $SOURCE, un programma usato\nper alterare lo stato dell'hardware video.  Questo programma utilizza\nuna operazione non sicura sulla memoria del sistema in modo simile ad un\nnumero di programmi malware/exploit i quali si mascherano come vbetool. Questo tool viene usato per \nresettare lo stato del video quando una macchina ripristina le proprie funzioni\nda uno stato di sospensione. Se la macchina non esegue questa procedura\n correttamente, l'unica opzione disponibile è quella di permettere tale operazione e diminuire così la sicurezza del sistema nei confronti dei suddetti malware.\n\n    "
 
 #: ../src/vbetool.py:45 ../src/wine.py:56
 msgid ""
@@ -1451,7 +1453,7 @@ msgid ""
 "executing:\n"
 "\n"
 "# setsebool -P mmap_low_allowed 1\n"
-msgstr ""
+msgstr "\nSe si desidera di continuare ad eseguire il programma in questione l'utente\navrà bisogno di abilitare questa operazione. Ciò può essere eseguito sulla\nlinea di comando usando:\n\n# setsebool -P mmap_low_allowed 1\n"
 
 #: ../src/vbetool.py:55
 msgid ""
@@ -1467,14 +1469,14 @@ msgstr ""
 
 #: ../src/vbetool.py:62 ../src/wine.py:73
 msgid "Turn off memory protection"
-msgstr ""
+msgstr "Disabilitare la protezione della memoria"
 
 #: ../src/wine.py:31
 msgid ""
 "\n"
 "    SELinux has prevented wine from performing an unsafe memory operation.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha impedito a wine di eseguire una operazione non sicura della memoria.\n    "
 
 #: ../src/wine.py:35
 msgid ""
@@ -1498,7 +1500,7 @@ msgid ""
 "of memory and solutions to those problems.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\nSELinux ha negato l'operazione richiesta da wine-preloader, un programma\n usato per eseguire le applicazioni di Windows con Linux.  Questo programma\n utilizza una operazione non sicura sulla memoria del sistema, in modo simile ad\n un numero di programmi malware/exploit i quali si mascherano come wine. Se\n stavi cercando di eseguire un programma Windows le uniche opzioni disponibili\n sono quelle di permettere tale operazione, e diminuire così la sicurezza del\n sistema nei confronti dei suddetti malware, o di non eseguire le applicazioni\n Windows con Linux. Se non stavi cercando di eseguire un'applicazione\n Windows tale comportamento potrebbe indicare un attacco da parte di un\n malware o programma malizioso al sistema per scopi maliziosi.\n\nConsultare \n\nhttp://wiki.winehq.org/PreloaderPageZeroProblem\n\nIl quale riporta altre problematiche incontrate da wine a causa di un utilizzo\nnon sicuro della memoria insieme alle soluzione ai suddetti problemi.\n\n    "
 
 #: ../src/wine.py:66
 msgid ""
@@ -1517,7 +1519,7 @@ msgid ""
 "\n"
 "    SELinux is preventing xen ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux impedisce l'accesso xen ($SOURCE_PATH) \"$ACCESS\" a $TARGET_PATH.\n    "
 
 #: ../src/xen_image.py:31
 msgid ""
@@ -1530,7 +1532,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a xen\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha negato l'accesso xen a $TARGET_PATH.\n    Se questa è un immagine XEN allora dovrà possedere una etichetta del\n contesto del file xen_image_t. Il sistema è impostato per etichettare correttamente i file\n    immagine in /var/lib/xen/images.  Si consiglia copiare il fileimmagine in /var/lib/xen/images.\n    Se si desidera veramente avere i file immagine xen nella directory corrente, è possibile rietichettare $TARGET_PATH in xen_image_t usando chcon.  Se si vuole farlo si dovrà anche eseguire semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH' per aggiungere\n    questo nuovo percorso alle impostazioni di sistema predefinite.  Se non si intende utilizzare $TARGET_PATH come una immagine xen\n    ciò potrebbe indicare un bug o un tentativo di intrusione.\n    "
 
 #: ../src/xen_image.py:41
 msgid ""
@@ -1538,7 +1540,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t xen_image_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    È possibile alterare il contesto del file eseguendo chcon -t xen_image_t '$TARGET_PATH'\n    È necessario inoltre modificare i file per il contesto del file predefinito sul sistema per preservarli anche da una completa rietichettatura.  \"semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../booleans_trans.py:1
 msgid ""
@@ -2518,5 +2520,3 @@ msgstr ""
 #: ../booleans_trans.py:207
 msgid "If you want to allow unprivileged users to execute DDL statement"
 msgstr ""
-
-

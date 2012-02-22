@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alexander Todorov <atodorov@redhat.com>, 2008.
+# Doncho N. Gunchev <gunchev@gmail.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-08 14:04-0500\n"
-"PO-Revision-Date: 2012-02-08 19:16+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-02-18 20:01+0000\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Bulgarian <trans-bg@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +25,7 @@ msgid ""
 "    SELinux policy is preventing an httpd script from writing to a public\n"
 "    directory.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux политиката пречи на http скрипт да пише в публична\n    директория.\n    "
 
 #: ../src/allow_anon_write.py:32
 msgid ""
@@ -85,7 +87,7 @@ msgid ""
 "    $BOOLEAN boolean.  Note: This boolean will affect all applications\n"
 "    on the system.\n"
 "    "
-msgstr ""
+msgstr "\n    Ако искате $SOURCE да продължи, трябва да изключите\n    булевата променлива $BOOLEAN.  Забележка: Тази булева променлива\n    засяга всички приложения в системата.\n    "
 
 #: ../src/allow_execheap.py:50
 msgid ""
@@ -250,7 +252,7 @@ msgid ""
 "    If you have not configured the ftp daemon to read files from a CIFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux попречи на ftp демона да $ACCESS файлове записани на CIFS файлова система.\n    CIFS (Comment Internet File System) е мрежова файлова система като\n    SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www.microsoft.com/mind/1196/cifs.asp</a>)\n    Ftp демона се опита да чете един или повече файлове или директории от\n    монтирана файлова система от този тип.  Тъй като CIFS файловите системи\n    не поддържат фино-настроени SELinux етикети, всички файлове и директории\n    върху файловата система имат еднакъв контекст на сигурност.\n    \n    Ако не сте настроили ftp демона да чете файлове от CIFS файлова система\n    този опит за достъп може да е сигнал за опит за пробив.\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:46
 msgid ""
@@ -258,7 +260,7 @@ msgid ""
 "    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
 "    \"setsebool -P $BOOLEAN=1.\"\n"
 "    "
-msgstr ""
+msgstr "\n    Установяването на булевата променлива \"$BOOLEAN\" ще позволи този достъп:\n    \"setsebool -P $BOOLEAN=1.\"\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:53
 msgid ""
@@ -269,7 +271,7 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on CIFS filesystems.  "
-msgstr ""
+msgstr " Включването на булевите променливи \"$BOOLEAN\" и\n    \"$WRITE_BOOLEAN\" ще позволи този достъп:\n    \"setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1\".\n    предупреждение: включването на \"$WRITE_BOOLEAN\" ще\n    позволи на ftp демона да пише върху цялото публично съдържание (файлове и\n    директории с тип public_content_t) освен писането на\n    файлове и директории на CIFS файлови системи.  "
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
@@ -301,7 +303,7 @@ msgid ""
 "    If you have not configured the ftp daemon to read files from a NFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux спря ftp демона да $ACCESS файлове записани NFS файлова система.\n    NFS (Мрежова Файлова Система) е мрежова файлова система \n    ползвана обикновено в Unix / Linux системи.\n    \n    Ftp се опита да чете един или няколко файла или директории от\n    монтирана файлова система от този тип.  Тъй като NFS файловите\n    системи не поддържат фино-настроени SELinux етикети, всички \n    файлове и директории върху файловата система имат еднакъв\n    контекст на сигурност.\n    \n    Ако не сте настроили ftp демона да чете файлове от NFS файлова система\n    този опит за достъп може да е сигнал за опит за пробив.\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:47
 msgid ""
@@ -309,7 +311,7 @@ msgid ""
 "    Changing the \"allow_ftpd_use_nfs\" boolean to true will allow this access:\n"
 "    \"setsebool -P allow_ftpd_use_nfs=1.\"\n"
 "    "
-msgstr ""
+msgstr "\n    Включването на булева променлива \"allow_ftpd_use_nfs\" ще позволи този достъп:\n    \"setsebool -P allow_ftpd_use_nfs=1.\"\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:54
 msgid ""
@@ -320,7 +322,7 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
-msgstr ""
+msgstr " Включването на булевите променливи \"allow_ftpd_use_nfs\" и\n    \"$WRITE_BOOLEAN\" ще посволи този достъп:\n    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n    предупреждение: включването на булевата променлива \"$WRITE_BOOLEAN\" ще\n    позволи на ftp демона да пише в цялото публично съдържание (файлове и\n    директории с тип public_content_t) освен писането във\n    файлове и директории върху NFS файлови системи.  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
@@ -411,7 +413,7 @@ msgid ""
 "    this access you need to change the booleans on this system to allow \n"
 "    the access.\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux забрани достъпа изискан от $SOURCE. Сегашните\n    настройки не позволяват този достъп. Ако не сте настройли $SOURCE да\n    изисква този достъп, това може да е сигнал за опит за пробив.\n    Ако желаете този достъп ще трябва да промените булевите променливи в системата.\n\n    "
 
 #: ../src/catchall_boolean.py:45
 msgid ""
@@ -485,7 +487,7 @@ msgid ""
 "    additional access.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux забрани достъпа изискан от $SOURCE. Не се очаква\n    този достъп да се изисква от $SOURCE и този достъп\n    може да е сигнал за опит за пробив. Също така е възможно,\n    специфична версия или конфигурация на приложението да го кара\n    да изисква този допълнителен достъп.\n\n    "
 
 #: ../src/catchall.py:41
 msgid ""
@@ -669,7 +671,7 @@ msgid ""
 "\n"
 "    Attempt restorecon -v '$TARGET_PATH' or chcon -t SIMILAR_TYPE '$TARGET_PATH'\n"
 "    "
-msgstr ""
+msgstr "\n    Опитайте с restorecon -v $TARGET_PATH или chcon -t SIMILAR_TYPE '$TARGET_PATH'\n    "
 
 #: ../src/device.py:60
 msgid ""
@@ -711,7 +713,7 @@ msgid ""
 "\n"
 "    SELinux is preventing access to files with the label, file_t.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux спира достъпа до файлове с етикета file_t.\n    "
 
 #: ../src/file.py:31
 msgid ""
@@ -733,7 +735,7 @@ msgid ""
 "    You can execute the following command as root to relabel your\n"
 "    computer system: \"touch /.autorelabel; reboot\"\n"
 "    "
-msgstr ""
+msgstr "\n    Можете да стартирате следната команда като root за да\n    преетикирате системата си: \"touch /.autorelabel; reboot\"\n    "
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
@@ -834,7 +836,7 @@ msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux предотврати httpd достъп за $ACCESS до уеб файлове.\n    "
 
 #: ../src/httpd_unified.py:33
 msgid ""
@@ -862,7 +864,7 @@ msgid ""
 "    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
 "    \"setsebool -P $BOOLEAN=1\"\n"
 "    "
-msgstr ""
+msgstr "\n    Установяването на булевата променлива \"$BOOLEAN\" ще позволи този достъп:\n    \"setsebool -P $BOOLEAN=1\"\n    "
 
 #: ../src/httpd_unified.py:57
 msgid ""
@@ -1000,7 +1002,7 @@ msgid ""
 "    SELinux prevented $SOURCE from mounting on the file or directory\n"
 "    \"$TARGET_PATH\" (type \"$TARGET_TYPE\").\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux попречи на $SOURCE да монтира върху файла или\n    директорията \"$TARGET_PATH\" (от тип \"$TARGET_TYPE\").\n    "
 
 #: ../src/mounton.py:34
 msgid ""
@@ -1012,7 +1014,7 @@ msgid ""
 "    type \"$TARGET_TYPE\" does not have this attribute. You can change the \n"
 "    label of the file or directory.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux попречи на $SOURCE_ да монтира файлова система върху\n    файл или директория \"$TARGET_PATH\" от тип \"$TARGET_TYPE\". Обикновено\n    SELinux ограничава монтирането на файлови системи само до някои файлове и\n    директории (тези с типове имащи атрибута mountpoint). Типа\n    \"$TARGET_TYPE\" няма този атрибут. Можете да промените етикета\n    на файла или директорията.\n    "
 
 #: ../src/mounton.py:43
 msgid ""
@@ -1154,7 +1156,7 @@ msgid ""
 "    restorecon command.  restorecon '$TARGET_PATH', if this file is a directory,\n"
 "    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
 "    "
-msgstr ""
+msgstr "\n    Можете да възстановите подразбрания системен контекст на този файл\n    чрез командата restorecon.  restorecon '$TARGET_PATH', ако това е директория,\n    рекурсивното възстановяване става с restorecon -R '$TARGET_PATH'.\n    "
 
 #: ../src/restorecon.py:45
 #, python-format
@@ -1211,7 +1213,7 @@ msgid ""
 "    rsync_data_t. If you did not intend to use $TARGET_PATH as a rsync repository\n"
 "    it could indicate either a bug or it could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux забрани на rsync достъп до $TARGET_PATH.\n    Ако това е RSYNC хранилище, то то трябва да има файлов контекст от тип\n    rsync_data_t. Ако не сте възнамерявали да ползвате $TARGET_PATH като rsync хранилище\n    това може да показва или грешка или опит за пробив.\n    "
 
 #: ../src/rsync_data.py:38
 msgid ""
@@ -1347,7 +1349,7 @@ msgid ""
 "    $TARGET_PATH as a swapfile it probably indicates a bug, however it could also\n"
 "    signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux забрани на $SOURCE достъпа до $TARGET_PATH.\n    Ако това е swap файл, то трябва да има етикет от тип\n    swapfile_t. Ако не сте смятали да ползвате\n    $TARGET_PATH като swap файл, това сигурно е грешка, но може също така\n    да е сигнал за опит за пробив.\n    "
 
 #: ../src/swapfile.py:39
 msgid ""
@@ -2518,5 +2520,3 @@ msgstr ""
 #: ../booleans_trans.py:207
 msgid "If you want to allow unprivileged users to execute DDL statement"
 msgstr ""
-
-

@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Arpad Biro <biro_arpad@yahoo.com>, 2006, 2007.
+# Nikolas Slivka <snicore@gmail.com>, 2010.
+# Oszkár Ocsenás <ocsenaso@gmail.com>, 2009.
+# Sulyok Péter <peti@fedoraproject.org>, 200, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-08 14:04-0500\n"
-"PO-Revision-Date: 2012-02-08 19:16+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-02-18 19:54+0000\n"
+"Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Hungarian <trans-hu@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +27,7 @@ msgid ""
 "    SELinux policy is preventing an httpd script from writing to a public\n"
 "    directory.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux-szabályzat megakadályozza, hogy egy HTTP-szkript egy\n    nyilvános könyvtárba írjon.\n    "
 
 #: ../src/allow_anon_write.py:32
 msgid ""
@@ -32,7 +36,7 @@ msgid ""
 "    directory.  If httpd is not setup to write to public directories, this\n"
 "    could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    A SELinux szabályzat megakadályozza, hogy egy httpd alkalmazás írjon\n    egy nyilvános mappába. Ha a httpd beállítása nem engedi meg az\n    írást nyilvános mappákba, akkor ez behatolás kísérletet jelezhet.\n    "
 
 #: ../src/allow_anon_write.py:38
 msgid ""
@@ -42,7 +46,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    Ha szükséges engedélyezni, hogy a \"httpd\"-szkriptek írhassanak a\n    nyilvános könyvtárakba, akkor be kell kapcsolnia a(z) $BOOLEAN\n    logikai értéket, valamint módosítania kell a nyilvános könyvtár\n    fájl beállítását erre: public_content_rw_t. További információk\n    találhatók a \"httpd_selinux\" kézikönyvlapon (man). A fenti\n    tevékenységeket elvégző parancs: \"setsebool -P $BOOLEAN=1;\n    chcon -t public_content_rw_t <útvonal>\".\n    Az alap beállítás fájlokat is meg kell változtatnia, hogy az előbbi \n    maradandó legyen teljes újracímkézés esetén is.\n    „semanage fcontext -a -t public_content_rw_t <ösvény>”"
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -61,7 +65,7 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH from changing the access\n"
 "    protection of memory on the heap.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy $SOURCE_PATH megváltoztassa a heap \n    memória hozzáférés védelmét.\n    "
 
 #: ../src/allow_execheap.py:32
 msgid ""
@@ -76,7 +80,7 @@ msgid ""
 "    this access until the application is fixed. Please file a bug\n"
 "    report against this package.\n"
 "    "
-msgstr ""
+msgstr "\n    $SOURCE alkalmazás megkísérelt változtatni a heap (pl. a malloc \n    függvénnyel lefoglalt) memória hozzáférés védelmén.\n    Ez lehet biztonsági probléma. Alkalmazásoknak ezt tenniük.\n    Néha hibás alkalmazások kérnek ilyen engedélyt.  A\n    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n    weblap elmagyarázza, hogyan kell megszüntetni ezt az igényt.  Ha \n    $SOURCE nem működik, de szükség van rá, akkor ideiglenesen\n    beállíthatja, hogy SELinux megengedje ezt a\n    hozzáférést, amíg az alkalmazást ki nem javítják. Tegyen hibabejelentést\n    e csomagra.\n    "
 
 #: ../src/allow_execheap.py:44
 msgid ""
@@ -85,7 +89,7 @@ msgid ""
 "    $BOOLEAN boolean.  Note: This boolean will affect all applications\n"
 "    on the system.\n"
 "    "
-msgstr ""
+msgstr "\n    Ha szeretné, hogy $SOURCE folytatódjon, akkor be kell\n    kapcsolni $BOOLEAN logikai értéket.  Megjegyzés: ez a\n    logikai érték a rendszer minden alkalmazására kihat.\n    "
 
 #: ../src/allow_execheap.py:50
 msgid ""
@@ -109,7 +113,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from loading $TARGET_PATH which requires text relocation.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy $SOURCE_PATH betöltsön $TARGET_PATH ösvényről,\n    amihez szöveg áthelyezés szükséges.\n    "
 
 #: ../src/allow_execmod.py:33
 msgid ""
@@ -124,7 +128,7 @@ msgid ""
 "    workaround, until the library is fixed. Please file a \n"
 "bug report.\n"
 "    "
-msgstr ""
+msgstr "\n    $SOURCE alkalmazás megkísérelt betölteni $TARGET_PATH ösvényről,\n    amihez szöveg áthelyezés kellene. Ez lehet biztonsági probléma.\n    A legtöbb mappának nem kell ilyen engedély. Hibás mappák\n    kérhetnek ilyen engedélyt. A\n    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n    weblap elmagyarázza, hogyan kell megszüntetni ezt az igényt.\n    Ideiglenesen átállíthatja SELinuxot, hogy megengedje $TARGET_PATH számára\n    szöveg áthelyezést, amíg a könyvtárt ki nem javítják. Tegyen hibabejelentést\n    e csomagra.\n    "
 
 #: ../src/allow_execmod.py:45
 msgid ""
@@ -142,7 +146,7 @@ msgid ""
 "    Contact your security administrator and report this issue.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n    $SOURCE alkalmazás megkísérelt betölteni $TARGET_PATH ösvényről,\n    amihez szöveg áthelyezés kellene. Ez lehet biztonsági probléma.\n    A legtöbb könyvtárnak nem kell ilyen engedély. A\n    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n    weblap elmagyarázza ezt az ellenőrzést.  Ez az eszköz megvizsgálta \n    a mappát, és úgy tűnik az jó. Így setroubleshoot nem tudja megállapítani,\n    hogy megváltoztatták-e az alkalmazást.  Ez komoly dolog is lehet. A \n    rendszert nagyon is elronthatták.\n\n    Keresse meg a biztonsági személyzetet, és jelentse ezt az esetet.\n\n    "
 
 #: ../src/allow_execmod.py:62
 msgid ""
@@ -153,14 +157,14 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
-msgstr ""
+msgstr "\n    Ha bíznak abban, hogy $TARGET_PATH helyesen működik, akkor\n    módosíthatják a fájl beállítást textrel_shlib_t típusra:\n    „chcon -t textrel_shlib_t '$TARGET_PATH'”\n    Az alap fájl beállítás fájlokat szintén meg kell változtatni, hogy a változások megmaradjanak még teljes újracímkézés esetén is:\n    „semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'”\n\n    "
 
 #: ../src/allow_execstack.py:53
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from making the program stack executable.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy $SOURCE_PATH végrehajthatóvá tegye\n    a verem memóriát (stack).\n    "
 
 #: ../src/allow_execstack.py:57
 msgid ""
@@ -178,7 +182,7 @@ msgid ""
 "    temporarily to allow this access until the application is fixed. Please \n"
 "file a bug report.\n"
 "    "
-msgstr ""
+msgstr "\n    $SOURCE alkalmazás megkísérelte végrehajthatóvá tenni a\n    vermét (stack). Ez biztonsági problémát jelenthet.  Ez sohasem\n    szükséges. A verem memória a legtöbb operációs\n    rendszerben nem végrehajtható – ez a jövőben sem fog változni. A\n    végrehajtható verem memória az egyik legnagyobb biztonsági probléma.\n    A végrehajtható veremmel kapcsolatos hiba gyakran rosszindulatú\n    programra utal. Bizonyos alkalmazások viszont hibásra sikerültek,\n    és igénylik ezt az engedélyt. Az\n    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux Memory Protection Tests</a>\n    weblap elmagyarázza, hogyan kell megszüntetni ezt az igényt. Ha $SOURCE \n    nem működik, de szükség van rá, akkor ideiglenesen beállíthatja,\n    hogy SELinux engedélyezze ezt a hozzáférést, amíg az alkalmazást\n    ki nem javítják. Kérem tegyen hibabejelentést.\n    "
 
 #: ../src/allow_execstack.py:72
 msgid ""
@@ -194,7 +198,7 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t execmem_exec_t '$FIX_SOURCE_PATH'\"\n"
 "    \n"
 "    "
-msgstr ""
+msgstr "\n    Néha egy függvénykönyvtárt véletlenül execstack jelzéssel \n    látnak el. Ha ilyen jelzésű könyvtárt találnak, az \n    execstack -c LIBRARY_PATH paranccsal törölheti.\n    Ezután próbálja ismét az alkalmazást. Ha még mindig nem működik, akkor\n    az execstack -s LIBRARY_PATH paranccsal ismét bekapcsolhatja a jelet.\n    Különben ha bízik abban, hogy $SOURCE helyesen működik, akkor \n    módosíthatja a program beállítását unconfined_execmem_exec_t típusra.\n    „chcon -t execmem_exec_t $SOURCE_PATH”\n    Az alap beállítás fájlokat is meg kell változtatnia, hogy az előbbi \n    maradandó legyen teljes újracímkézés esetén is.\n    „semanage fcontext -a -t execmem_exec_t '$FIX_SOURCE_PATH'”"
 
 #: ../src/allow_execstack.py:87
 msgid ""
@@ -250,7 +254,7 @@ msgid ""
 "    If you have not configured the ftp daemon to read files from a CIFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta ftpd szolgáltatás $ACCESS hozzáférését\n    CIFS fájlrendszerben tárolt fájlokhoz.\n    A CIFS (Common Internet File System) az SMB-hez\n    hasonló hálózati fájlrendszer\n    (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www.microsoft.com/mind/1196/cifs.asp</a>).\n    Az ftpd szolgáltatás megkísérelt olvasni egy vagy több olyan\n    fájlt illetve mappát, amely ilyen típusú csatolt fájlrendszeren\n    van. A CIFS fájlrendszerek nem támogatják a kifinomult\n    SELinux címkézést, ezért a fájlrendszerben levő összes fájl és\n    mappa ugyanazon biztonsági beállítással rendelkezik.\n\n    Ha nem állították be ftpd szolgáltatást \n    fájlok olvasására valamely CIFS fájlrendszerből, akkor ez\n    behatolás próbálkozást jelezhet.\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:46
 msgid ""
@@ -258,7 +262,7 @@ msgid ""
 "    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
 "    \"setsebool -P $BOOLEAN=1.\"\n"
 "    "
-msgstr ""
+msgstr "\n    „$BOOLEAN” logikai érték igazra állításával megengedheti e hozzáférést:\n    „setsebool -P $BOOLEAN=1”.\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:53
 msgid ""
@@ -269,7 +273,7 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on CIFS filesystems.  "
-msgstr ""
+msgstr " „$BOOLEAN” és a(z) „$WRITE_BOOLEAN” logikai érték igazra állítása\n    engedélyezi e hozzáférést: „setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1”\n    Figyelmeztetés: „$WRITE_BOOLEAN” logikai\n    érték igazra állítása engedélyezi az ftpd szolgáltatásnak\n    az összes nyilvános tartalom (a public_content_t típusú fájlok\n    és könyvtárak) írását is azon felül, hogy írhatja a\n    CIFS-fájlrendszereken levő fájlokat és könyvtárakat.\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
@@ -301,7 +305,7 @@ msgid ""
 "    If you have not configured the ftp daemon to read files from a NFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy az \"ftp\" szolgáltatás a következő\n    módon hozzáférjen egy NFS-fájlrendszeren tárolt fájlokhoz:\n    \"$ACCESS\". Az NFS (Network Filesystem, azaz hálózati fájlrendszer)\n    egy olyan hálózati fájlrendszer, amely Unix- illetve\n    Linux-rendszereken gyakran használatos.\n\n    Az \"ftp\" szolgáltatás megkísérelt olvasni egy vagy több olyan\n    fájlt illetve mappát, amely ilyen típusú csatolt fájlrendszeren\n    van. Az NFS-fájlrendszerek nem támogatják a nagy részletességű\n    SELinux-címkézést, ezért a fájlrendszerben levő összes fájl és\n    könyvtár ugyanazon biztonsági beállítás rendelkezik.\n\n    Ha Ön nem állította be az \"ftp\" szolgáltatást arra, hogy az\n    fájlokat olvasson valamely NFS-fájlrendszerről, akkor ez a\n    hozzáférési kísérlet behatolási próbálkozást is jelezhet.\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:47
 msgid ""
@@ -309,7 +313,7 @@ msgid ""
 "    Changing the \"allow_ftpd_use_nfs\" boolean to true will allow this access:\n"
 "    \"setsebool -P allow_ftpd_use_nfs=1.\"\n"
 "    "
-msgstr ""
+msgstr "\n    Az \"allow_ftpd_use_nfs\" logikai érték igazra való módosítása\n    engedélyezi ezt a hozzáférést: \"setsebool -P allow_ftpd_use_nfs=1\".\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:54
 msgid ""
@@ -320,7 +324,7 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
-msgstr ""
+msgstr "Az \"allow_ftpd_use_nfs\" és a(z) \"$WRITE_BOOLEAN\" logikai érték igazra\n    való módosítása (\"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\")\n    engedélyezi ezt a hozzáférést. Figyelmeztetés: a(z) \"$WRITE_BOOLEAN\"\n    logikai érték igazra való módosítása engedélyezi az \"ftp\"\n    szolgáltatás számára az összes nyilvános tartalom (a public_content_t\n    típusú fájlok és könyvtárak) írását is azon felül, hogy írhatja az\n    NFS-fájlrendszereken levő fájlokat és könyvtárakat.\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
@@ -331,7 +335,7 @@ msgid ""
 "\n"
 "    SELinux is preventing the $SOURCE_PATH from executing potentially mislabeled files $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy $SOURCE_PATH végrehajtsa $TARGET_PATH elcímkézett fájlokat.\n    "
 
 #: ../src/automount_exec_config.py:31
 msgid ""
@@ -342,7 +346,7 @@ msgid ""
 "    configuration file it needs to have a file label of bin_t.\n"
 "    If automounter is trying to execute something that it is not supposed to, this could indicate an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy $SOURCE_PATH végrehajtsa\n    $TARGET_PATH elcímkézett fájlokat.  Az önműködő csatolót\n    beállíthatják úgy, hogy végrehajtson beállítás fájlokat.\n    Ha $TARGET_PATH egy automount program, akkor\n    azt bin_t típusúnak kell címkézni. Ha az önműködő\n    csatoló megpróbál végrehajtani valamit, amit nem\n    volna szabad, akkor ez behatolás kísérletet jelezhet.\n    "
 
 #: ../src/automount_exec_config.py:39
 msgid ""
@@ -356,7 +360,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from binding to port $PORT_NUMBER.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy $SOURCE_PATH elfoglalja $PORT_NUMBER. kaput.\n    "
 
 #: ../src/bind_ports.py:31
 #, python-format
@@ -399,7 +403,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access on $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza $SOURCE_PATH „$ACCESS” hozzáférését $TARGET_PATH helyre.\n    "
 
 #: ../src/catchall_boolean.py:36
 msgid ""
@@ -411,7 +415,7 @@ msgid ""
 "    this access you need to change the booleans on this system to allow \n"
 "    the access.\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux elutasította a(z) $SOURCE által igényelt\n    hozzáférést. Normál esetben a(z) $SOURCE nem igényli\n    ezt a hozzáférést, ezért ez a hozzáférés egy behatolási próbálkozást\n    is jelezhet. Az is elképzelhető, hogy az alkalmazás verziója vagy\n    beállítása miatt van szükség további hozzáférésre.\n\n    "
 
 #: ../src/catchall_boolean.py:45
 msgid ""
@@ -420,7 +424,7 @@ msgid ""
 "    access as needed.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n    Korlátozott folyamatokat beállíthatnak úgy, hogy különféle hozzáféréseket igényeljenek. SELinux igaz-hamis változókat tartalmaz \n    ezek be/kikapcsolására szükség szerint.\n\n    "
 
 #: ../src/catchall_boolean.py:60
 #, python-format
@@ -455,7 +459,7 @@ msgid ""
 "    in directories that SELinux policy cannot predict.  These directories\n"
 "    have to be labeled with a file context which httpd can access.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította, hogy $SOURCE hozzáférjen $TARGET_PATH\n    elcímkézett fájlokhoz. Ez azt jelenti, hogy SELinux nem fogja\n    megengedni httpd-nek e fájlok használatát. Ha httpd-nek el kell\n    érnie e fájlokat, akkor változatassa meg a fájl beállítását a \n    következő típusok egyikére: %s.\n    Sok idegen alkalmazás telepít html fájlokat olyan mappákba,\n    amiket SELinux szabályzat nem tud előre jelezni. E mappákat\n    olyan beállítással kell felcímkézni, amihez httpd hozzáférhet.\n    "
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
@@ -485,7 +489,7 @@ msgid ""
 "    additional access.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux elutasította a(z) $SOURCE által igényelt\n    hozzáférést. Normál esetben a(z) $SOURCE nem igényli\n    ezt a hozzáférést, ezért ez a hozzáférés egy behatolási próbálkozást\n    is jelezhet. Az is elképzelhető, hogy az alkalmazás verziója vagy\n    beállítása miatt van szükség további hozzáférésre.\n\n    "
 
 #: ../src/catchall.py:41
 msgid ""
@@ -495,7 +499,7 @@ msgid ""
 "\n"
 "    Please file a bug report.\n"
 "    "
-msgstr ""
+msgstr "\n    Készíthet helyi szabályzat modult a hozzáférés engedélyezésére\n    – lásd <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>.\n\n    Tegyen hibabejelentést.\n    "
 
 #: ../src/catchall.py:50
 msgid ""
@@ -533,7 +537,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from connecting to port $PORT_NUMBER.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy $SOURCE_PATH kapcsolódjon $PORT_NUMBER. kapura.\n    "
 
 #: ../src/connect_ports.py:31
 #, python-format
@@ -565,7 +569,7 @@ msgid ""
 "\n"
 "    SELinux is preventing cvs ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza cvs ($SOURCE_PATH) „$ACCESS” hozzáférését $TARGET_PATH helyre\n    "
 
 #: ../src/cvs_data.py:31
 msgid ""
@@ -575,7 +579,7 @@ msgid ""
 "    cvs_data_t. If you did not intend to use $TARGET_PATH as a CVS repository\n"
 "    it could indicate either a bug or it could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megtagadta cvs hozzáférését $TARGET_PATH helyre.\n    Ha ez CVS tároló, akkor cvs_data_t beállítás címke kell neki.\n    Ha nem szándékozik $TARGET_PATH helyet CVS tárolónak használni,\n    akkor ez hibát vagy behatolás kísérletet jelezhet.\n    "
 
 #: ../src/cvs_data.py:38
 msgid ""
@@ -584,7 +588,7 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
-msgstr ""
+msgstr "\n    Megváltoztathatja a fájl beállítást a chcon -R -t cvs_data_t '$TARGET_PATH' parancs végrehajtásával.\n    Az alapértelmezett fájl beállítást szintén meg kell változtatni, hogy a változás maradandó legyen még teljes újracímkézés után is.  „semanage fcontext -a -t cvs_data_t '$TARGET_PATH'”\n    \n    "
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
@@ -636,7 +640,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to device $TARGET_PATH. \n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza $SOURCE_PATH „$ACCESS” hozzáférését $TARGET_PATH eszközhöz.\n    "
 
 #: ../src/device.py:33
 msgid ""
@@ -662,14 +666,14 @@ msgid ""
 "    using SELinux APIs.  If you can figure out which application created the device, please file a bug report against this application.\n"
 "    \n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux elutasította $SOURCE „$ACCESS” hozzáférését $TARGET_PATH eszközhöz.\n    $TARGET_PATH eszközt elcímkézték – a /dev mappa alapértelmezett címkéjét kapta,\n    amit nem kellett volna.  Minden karakter és/vagy blokk eszköznek saját címke kell.\n\n    Megpróbálhat változtatni ezen a következőképpen:\n\n    restorecon -v '$TARGET_PATH'\n\n    Ha az eszközön device_t címke marad, akkor ez a SELinux szabályzat hibája.\n\n    Tegyen hibabejelentést.\n\n    Ha megnézi más hasonló eszközök címkéit, ls -lZ /dev/HASONLÓ, és talál olyan típust, ami jó lenne\n    $TARGET_PATH eszközre, akkor használhatja a chcon -t HASONLÓ_TÍPUS '$TARGET_PATH'\n    parancsot. Ha ez megoldja a problémát, akkor azt állandósíthatja a\n    semanage fcontext -a -t HASONLÓ_TÍPUS '$TARGET_PATH' paranccsal.\n\n    Ha restorecon megváltoztatja a beállítást, akkor ez azt jelzi, hogy az illető alkalmazás SELinux API-k használata\n    nélkül csinált eszközt.  Ha megtudja, hogy melyik alkalmazás csinálta ezt, akkor tegyen hibabejelentést az alkalmazásra.\n    \n    "
 
 #: ../src/device.py:56
 msgid ""
 "\n"
 "    Attempt restorecon -v '$TARGET_PATH' or chcon -t SIMILAR_TYPE '$TARGET_PATH'\n"
 "    "
-msgstr ""
+msgstr "\n    Próbálja meg a restorecon -v '$TARGET_PATH' vagy a chcon -t HASONLÓ_TÍPUS '$TARGET_PATH' parancsot.\n    "
 
 #: ../src/device.py:60
 msgid ""
@@ -711,7 +715,7 @@ msgid ""
 "\n"
 "    SELinux is preventing access to files with the label, file_t.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza a file_t címkéjű fájlokhoz való hozzáférést.\n    "
 
 #: ../src/file.py:31
 msgid ""
@@ -725,7 +729,7 @@ msgid ""
 "home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
-msgstr ""
+msgstr "\n    A file_t címkéjű fájlok engedély ellenőrzését SELinux elutasítja.\n    SELinux-kernelnek a címke nélküli fájlok beállítása file_t.\n    Ez komoly címkézés problémát jelez. SELinux rendszerben\n    egy fájlnak sem kellene file_t címkét kapnia.\n    Ha éppen új lemezegységet adott hozzá a rendszerhez,\n    újracímkézheti a „restorecon” programmal. Például\n    ha a saját mappáját egy korábbi SELinux nélküli rendszerben\n    mentette el, akkor „restorecon -R -v /home” a megoldás.\n    Különben címkézze újra az egész fájlrendszert.\n    "
 
 #: ../src/file.py:42
 msgid ""
@@ -733,7 +737,7 @@ msgid ""
 "    You can execute the following command as root to relabel your\n"
 "    computer system: \"touch /.autorelabel; reboot\"\n"
 "    "
-msgstr ""
+msgstr "\n    A számítógépes rendszer újracímkézése a következő paranccsal\n    végezhető el: \"touch /.autorelabel; reboot\" (rendszergazdai\n    jogosultságot igényel).\n    "
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
@@ -756,7 +760,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from creating a file with a context of $SOURCE_TYPE on a filesystem.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy $SOURCE_PATH egy $SOURCE_TYPE\n    beállítással fájlt csináljon egy fájlrendszerben.\n    "
 
 #: ../src/filesystem_associate.py:31
 msgid ""
@@ -800,7 +804,7 @@ msgid ""
 "\n"
 "    SELinux is preventing the http daemon from sending mail.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy a httpd szolgáltatás levelet küldjön.\n    "
 
 #: ../src/httpd_can_sendmail.py:32
 msgid ""
@@ -810,7 +814,7 @@ msgid ""
 "    sendmail command. If you did not setup httpd to sendmail, this could \n"
 "    signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította, hogy a httpd szolgáltatás levelet küldjön.\n    Egy httpd program próbál kapcsolódni a levelező kapuhoz, vagy\n    végrehajtani a sendmail parancsot. Ha nem állították be a\n    httpd szolgáltatást a sendmailhez, akkor ez behatolás\n    próbálkozást jelezhet.\n    "
 
 #: ../src/httpd_can_sendmail.py:39
 msgid ""
@@ -819,7 +823,7 @@ msgid ""
 "    $BOOLEAN boolean: \"setsebool -P\n"
 "    $BOOLEAN=1\"\n"
 "    "
-msgstr ""
+msgstr "\n    Ha akarja, hogy httpd leveleket küldjön, akkor be kell\n    kapcsolnia $BOOLEAN logikai értéket:\n    „setsebool -P $BOOLEAN=1”.\n    "
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
@@ -862,7 +866,7 @@ msgid ""
 "    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
 "    \"setsebool -P $BOOLEAN=1\"\n"
 "    "
-msgstr ""
+msgstr "\n    „$BOOLEAN” logikai érték igazra állítása engedélyezi e hozzáférést:\n    „setsebool -P $BOOLEAN=1”\n    "
 
 #: ../src/httpd_unified.py:57
 msgid ""
@@ -885,7 +889,7 @@ msgid ""
 "    labeling of all files.  If $TARGET_PATH is writable content. it needs \n"
 "    to be labeled httpd_sys_rw_content_t or if all you need is append you can label it httpd_sys_ra_content_t.   Please refer to 'man httpd_selinux' for more information on setting up httpd and selinux.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy httpd $ACCESS elérje $TARGET_PATH fájlt.\n\n    httpd írásoknak nem szabad tartalomba írniuk, ha nincs minden fájl kifejezetten  \n    így felcímkézve.  Ha $TARGET_PATH írható tartalom, akkor a \n    httpd_sys_rw_content_t típusként kell megjelölni, vagy ha csak hozzáfűzni kell, akkor httpd_sys_ra_content_t legyen.   Kérem tekintse meg a 'man httpd_selinux' kézikönyv lapot további tudnivalókért a httpd és selinux beállításait illetően.\n    "
 
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
@@ -897,7 +901,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH tried to modify kernel configuration.\n"
 "    "
-msgstr ""
+msgstr "\n    A rendszer komolyan sérülhetett! $SOURCE_PATH rendszermag beállítást próbált meg változtatni.\n    "
 
 #: ../src/kernel_modules.py:33
 msgid ""
@@ -909,7 +913,7 @@ msgid ""
 "    application tries to modify the kernel this AVC will be generated. This is a \n"
 "    serious issue. Your system may very well be compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy $SOURCE megváltoztassa $TARGET fájlt.  Ez azt \n    jelzi, hogy $SOURCE megpróbált változtatni azon, ahogy a rendszermag fut, vagy \n    megpróbált kódot juttatni a rendszermagba. Minden ezt igénylő alkalmazásnak már \n    kellene rendelkeznie neki írt szabályzattal.  Ha egy rossz alkalmazás \n    megpróbál változtatni a rendszermagon, ez az AVC keletkezik. Ez komoly baj. \n    A rendszert nagyon is elronthatták.\n    "
 
 #: ../src/kernel_modules.py:44 ../src/selinuxpolicy.py:44
 msgid ""
@@ -928,14 +932,14 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH access to a leaked $TARGET_PATH file descriptor.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza, hogy $SOURCE_PATH hozzáférjen $TARGET_PATH fájleíróhoz.\n    "
 
 #: ../src/leaks.py:31
 msgid ""
 "\n"
 "    SELinux denied access requested by the $SOURCE command. It looks like this is either a leaked descriptor or $SOURCE output was redirected to a file it is not allowed to access.  Leaks usually can be ignored since SELinux is just closing the leak and reporting the error.  The application does not use the descriptor, so it will run properly.  If this is a redirection, you will not get output in the $TARGET_PATH.  You should generate a bugzilla on selinux-policy, and it will get routed to the appropriate package.  You can safely ignore this avc.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megtagadta a hozzáférést, amit $SOURCE parancs kért. Úgy tűnik ez vagy egy szivárgó leíró vagy $SOURCE kimenetét olyan fájlba irányították, amire nem terjed ki a jogköre.  Szivárgásokat szokás szerint figyelmen kívül hagyhatják, mivel SELinux lezárja azt, és jelenti a hibát.  Az alkalmazás nem használja a leírót, így az jól fog futni.  Ha ez egy átirányítás, akkor nem fog megjelenni $TARGET_PATH kimenete.  Csináljon egy bugzillát a selinux-policy-ra, és azt majd a megfelelő csomagra továbbítják.  Biztonsággal figyelmen kívül hagyhatja ezt az üzenetet.\n    "
 
 #: ../src/leaks.py:35
 msgid ""
@@ -943,7 +947,7 @@ msgid ""
 "    You can generate a local policy module to allow this\n"
 "    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n"
 "    "
-msgstr ""
+msgstr "\n    Csinálhat helyi szabályzatot, hogy megengedje e hozzáférést\n    – lásd <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n    "
 
 #: ../src/leaks.py:42
 msgid ""
@@ -969,7 +973,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH attempted to mmap low kernel memory.\n"
 "    "
-msgstr ""
+msgstr "\n    A rendszer komolyan megsérülhetett! $SOURCE_PATH alacsony rendszermag memóriát próbált meg mmapolni.\n    "
 
 #: ../src/mmap_zero.py:33
 msgid ""
@@ -983,7 +987,7 @@ msgid ""
 "    would be generated. This is a serious issue. Your system may very well be \n"
 "    compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megtagadta, hogy $SOURCE képes legyen mmapolni az rendszermag címterének \n    alacsony részét.  A címtér alacsony részének mmapolása képessége beállítás a \n    /proc/sys/kernel/mmap_min_addr helyen van.  Ilyen leképezések megakadályozása \n    segít a rendszermag null deref hibáinak kihasználása elleni védekezésben. Minden \n    alkalmazáshoz, ami e hozzáférést igényli, kellene már lennie neki írt szabályzatnak. \n    Ha egy elrontott alkalmazás megpróbálja megváltoztatni a rendszermagot, ez az AVC \n    keletkezik. Ez komoly baj. A rendszert komolyan megsérülhetett.\n    "
 
 #: ../src/mmap_zero.py:46
 msgid ""
@@ -1000,7 +1004,7 @@ msgid ""
 "    SELinux prevented $SOURCE from mounting on the file or directory\n"
 "    \"$TARGET_PATH\" (type \"$TARGET_TYPE\").\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy a(z) $SOURCE fájlrendszer-csatolást\n    végezzen ezen a fájlon vagy könyvtáron: \"$TARGET_PATH\" (típus:\n    \"$TARGET_TYPE\").\n    "
 
 #: ../src/mounton.py:34
 msgid ""
@@ -1012,7 +1016,7 @@ msgid ""
 "    type \"$TARGET_TYPE\" does not have this attribute. You can change the \n"
 "    label of the file or directory.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy $SOURCE becsatoljon egy „$$TARGET_TYPE”\n    típusú fájlrendszert „$TARGET_PATH” fájlra vagy mappára.\n    Alapértelmezésben SELinux bizonyos fájlokra illetve könyvtárakra\n    korlátozza a fájlrendszerek csatolását (azokra, amelyek rendelkeznek\n    csatolható tulajdonsággal). „$TARGET_TYPE” típusnak nincs ilyenl a \n    tulajdonsága. A fájl illetve mappa címkéje megváltoztatható.\n    "
 
 #: ../src/mounton.py:43
 msgid ""
@@ -1021,7 +1025,7 @@ msgid ""
 "    \"chcon -t mnt_t '$TARGET_PATH'.\"\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t mnt_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    A fájl beállítás megváltozatatása mnt_t típusúra megengedi mountnak, hogy\n    becsatoljon egy fájlrendszert: „chcon -t mnt_t '$TARGET_PATH'”.\n    Az alapértelmezett fájl beállítást is meg kell változtatni, hogy a teljes újracímkézés ne rontsa el a beállítást: „semanage fcontext -a -t mnt_t '$FIX_TARGET_PATH'”\n    "
 
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
@@ -1038,7 +1042,7 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza $SOURCE_PATH „$ACCESS” hozzáférését $TARGET_PATH helyhez.\n    "
 
 #: ../src/openvpn.py:36
 msgid ""
@@ -1055,7 +1059,7 @@ msgid ""
 "    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
 "    "
-msgstr ""
+msgstr "\n    Visszaállíthatja az alap beállítást e fájlra a restorecon parancs\n    végrehajtásával. restorecon visszaállítás a 'restorecon -R /root/.ssh\n    használatával.\n    "
 
 #: ../src/openvpn.py:49
 msgid ""
@@ -1086,7 +1090,7 @@ msgid ""
 "    change its file context to public_content_t.  If you did not intend to\n"
 "    allow this access, this could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította $SOURCE által igényelt hozzáférést $TARGET_PATH\n    helyre. $TARGET_PATH beállítását más program megosztásra használja.\n    Ha szeretné megosztani $TARGET_PATH fájlt $SOURCE programból is,\n    akkor változtassa a fájl beállítását public_content_t típusúra.\n    Ha nem akart ilyen hozzáférést megengedni, , akkor\n    ez behatolási próbálkozást is jelezhet.\n    "
 
 #: ../src/public_content.py:39
 msgid ""
@@ -1094,7 +1098,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t public_content_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    A fájl beállítását a chcon -t public_content_t '$TARGET_PATH' parancs végrehajtásával lehet megváltoztatni.\n    Az alapértelmezett fájl beállítás fájlokat is meg kell változtatni, hogy a teljes újracímkézés ne rontsa el a változásokat:\n    semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\n    "
 
 #: ../src/public_content.py:50
 msgid "you want to treat $TARGET_BASE_PATH as public content"
@@ -1114,7 +1118,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította, hogy qemu hozzáférjen $TARGET_PATH\n    blokk eszközhöz. Ha ez egy virtuálizációs kép, akkor virtualizációs\n    fájl beállítás címke kell neki (virt_image_t). Újra lehet címkézni\n    $TARGET_PATH fájlt virt_image_t típusúra a chcon paranccsal.\n    A semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n    parancs kell ahhoz, hogy ezt az új ösvényt rendszer alapértelmezésévé\n    tegye. Ha nem akarják $TARGET_PATH fájlt quemu képként használni,\n    akkor ez jelezhet hibát illetve behatolás próbálkozást.\n    "
 
 #: ../src/qemu_blk_image.py:38 ../src/qemu_file_image.py:41
 msgid ""
@@ -1122,7 +1126,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t virt_image_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    A fájl beállítását megváltoztatni a chcon -t virt_image_t '$TARGET_PATH' parancs végrehajtásával lehet.\n    Az alapértelmezett fájl beállítást szintén meg kell változtatni, hogy az megmaradjon teljes újracímkézés esetén is: semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n    "
 
 #: ../src/qemu_blk_image.py:46
 msgid ""
@@ -1141,7 +1145,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította, hogy qemu hozzáférjen $TARGET_PATH\n    fájlhoz. Ha ez egy virtualizációs kép, akkor virt_image_t\n    fájl beállítás címkéje kell legyen. A rendszert úgy állították\n    be, hogy a /var/lib/libvirt/images mappában levő kép fájlokat\n    helyesen címkézze. Javasoljuk, hogy másolja kép fájlt a\n    /var/lib/libvirt/images mappába. Ha tényleg az aktuális\n    mappában akarja tartani a qemu kép fájlokat, akkor címkézze\n    fel a $TARGET_PATH mappát virt_image_t típusúra a chcon\n    parancsot használva. A semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n    parancs is szükséges, hogy ezt az új ösvényt hozzáadja a\n    rendszer alapértelmezéseihez. Ha nem akarták $TARGET_PATH\n    fájlt qemu képként használni, akkor ez hibát vagy egy behatolás\n    próbálkozást jelezhet.\n    "
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
@@ -1154,7 +1158,7 @@ msgid ""
 "    restorecon command.  restorecon '$TARGET_PATH', if this file is a directory,\n"
 "    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
 "    "
-msgstr ""
+msgstr "\n    Visszaállíthatja az alap beállítást e fájlra a restorecon parancs\n    végrehajtásával.  restorecon '$TARGET_PATH', ha e fájl mappa,\n    akkor rekurzívan is teheti: restorecon -R '$TARGET_PATH'.\n    "
 
 #: ../src/restorecon.py:45
 #, python-format
@@ -1211,7 +1215,7 @@ msgid ""
 "    rsync_data_t. If you did not intend to use $TARGET_PATH as a rsync repository\n"
 "    it could indicate either a bug or it could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította, hogy az \"rsync\" hozzáférjen ehhez:\n    \"$TARGET_PATH\". Ha ez egy Rsync-tároló, akkor rsync_data_t\n    fájl beállítás címkével kell rendelkeznie. Ha Ön nem akarta\n    Rsync-tárolóként használni a(z) \"$TARGET_PATH\" objektumot, akkor\n    ez egy hibát vagy egy behatolási próbálkozást is jelezhet.\n    "
 
 #: ../src/rsync_data.py:38
 msgid ""
@@ -1219,7 +1223,7 @@ msgid ""
 "    You can alter the file context by executing chcon -R -t rsync_data_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    A fájl beállítását megváltoztatni a chcon -R -t rsync_data_t '$TARGET_PATH' parancs végrehajtásával lehet.\n    Az alapértelmezett fájl beállítást szintén meg kell változtatni, hogy az megmaradjon teljes újracímkézés esetén is: semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\n    "
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
@@ -1234,7 +1238,7 @@ msgid ""
 "\n"
 "    SELinux is preventing Samba ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza Samba ($SOURCE_PATH) $ACCESS hozzáférését $TARGET_PATH fájlhoz.\n    "
 
 #: ../src/samba_share.py:31
 msgid ""
@@ -1245,7 +1249,7 @@ msgid ""
 "    it could indicate either a bug or it could signal a intrusion attempt.\n"
 "    Please refer to 'man samba_selinux' for more information on setting up Samba and SELinux.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította, hogy samba hozzáférjen $TARGET_PATH fájlhoz.\n    Ha meg akarja osztani e mappát sambával, akkor annak samba_share_t\n    típusú fájl beállítás kell. Ha nem akarták $TARGET_PATH\n    helyet samba tárolóként használni, akkor ez hibát vagy egy behatolás\n    próbálkozást jelezhet.\n    Kérem forduljon a „man samba_selinux” parancshoz további információkért\n    Samba és SELinux beállítását illetően.\n    "
 
 #: ../src/samba_share.py:39
 msgid ""
@@ -1253,7 +1257,7 @@ msgid ""
 "    You can alter the file context by executing chcon -R -t samba_share_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    A fájl beállítását megváltoztatni a chcon -R -t samba_share_t '$TARGET_PATH' parancs végrehajtásával lehet.\n    Az alapértelmezett fájl beállítást szintén meg kell változtatni, hogy az megmaradjon teljes újracímkézés esetén is: semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\n    "
 
 #: ../src/samba_share.py:53
 #, python-format
@@ -1267,7 +1271,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised!\n"
 "    "
-msgstr ""
+msgstr "\n    A rendszer komoly veszélyben lehet!\n    "
 
 #: ../src/selinuxpolicy.py:33
 msgid ""
@@ -1279,7 +1283,7 @@ msgid ""
 "    policy this AVC will be generated. This is a serious issue. Your system \n"
 "    may very well be compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy $SOURCE megváltoztassa $TARGET fájlt.  E \n    visszautasítás jelzi, hogy $SOURCE selinux szabályozást próbált átállítani. \n    Minden ilyen hozzáférést igénylő alkalmazáshoz már kell, hogy legyen neki \n    írt szabályzat.  Ha egy rossz alkalmazás próbál megváltoztatni SELinux\n    szabályzatot ez az AVC keletkezik. Ez komoly dolog. A rendszer komoly \n    veszélyben lehet.\n    "
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
@@ -1294,7 +1298,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH tried to modify SELinux enforcement.\n"
 "    "
-msgstr ""
+msgstr "\n    A rendszer komoly veszélyben lehet! $SOURCE_PATH megpróbálta megváltoztatni a SELinux kényszerítést.\n    "
 
 #: ../src/setenforce.py:36
 msgid ""
@@ -1306,7 +1310,7 @@ msgid ""
 "    this AVC will be generated. This is a serious issue. Your system may very\n"
 "    well be compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy $SOURCE /selinux alá fájlba írjon. \n    A /selinux alatti fájlok vezérlik a SELinux beállítását. \n    Minden a /selinux alá írást igénylő alkalmazáshoz már kell, hogy legyen neki \n    írt szabályzat.  Ha egy rossz alkalmazás próbálja kikapcsolni SELinuxot,\n    ez az AVC keletkezik. Ez komoly dolog. A rendszer komoly \n    veszélyben lehet.\n    "
 
 #: ../src/setenforce.py:48
 msgid "you believe $SOURCE_PATH tried to disable SELinux."
@@ -1325,18 +1329,18 @@ msgid ""
 "    be a mislabeled. sshd is allowed to read content in /root/.ssh directory if it \n"
 "    is labeled correctly.\n"
 "    "
-msgstr ""
+msgstr "\n    A SELinux megtagadta $SOURCE hozzáférési kérelmét. Lehetséges, hogy $TARGET_PATH\n    címkéje nem megfelelő. Az sshd olvashatja a /root/.ssh könyvtár tartalmát, amennyiben\n    a címkéje megfelelő\n    "
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"
-msgstr ""
+msgstr "Beállítás visszaállítása"
 
 #: ../src/swapfile.py:27
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" to $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza $SOURCE_PATH „$ACCESS” hozzáférését $TARGET_PATH fájlhoz.\n    "
 
 #: ../src/swapfile.py:31
 msgid ""
@@ -1347,7 +1351,7 @@ msgid ""
 "    $TARGET_PATH as a swapfile it probably indicates a bug, however it could also\n"
 "    signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította, hogy $SOURCE hozzáférjen $TARGET_PATH\n    fájlhoz. Ha ez egy lapozó fájl (swap), akkor swapfile_t\n    típus beállítás kell. Ha nem szándékozzák\n    $TARGET_PATH fájlt lapozóként használni, akkor\n    ez valószínűleg hibát jelez, azonban jelezhet behatolás\n    próbálkozást is.\n    "
 
 #: ../src/swapfile.py:39
 msgid ""
@@ -1355,7 +1359,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t swapfile_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    A fájl beállítását megváltoztatni a chcon -t swapfile_t '$TARGET_PATH' parancs végrehajtásával lehet.\n    Az alapértelmezett fájl beállítást szintén meg kell változtatni, hogy az megmaradjon teljes újracímkézés esetén is: semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\n    "
 
 #: ../src/sys_module.py:28
 msgid ""
@@ -1372,7 +1376,7 @@ msgid ""
 "\n"
 "    Your system may be seriously compromised! $SOURCE_PATH tried to load a kernel module.\n"
 "    "
-msgstr ""
+msgstr "\n    A rendszer komoly veszélyben lehet! $SOURCE_PATH rendszermag modult próbált betölteni.\n    "
 
 #: ../src/sys_module.py:37
 msgid ""
@@ -1383,7 +1387,7 @@ msgid ""
 "    tries to modify the kernel this AVC will be generated. This is a serious \n"
 "    issue. Your system may very well be compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy $SOURCE rendszermag modult töltsön be. \n    Minden rendszermag modul betöltését igénylő korlátozott programhoz már kell, \n    hogy legyen neki írt szabályzat.  Ha egy rossz alkalmazás próbálja a rendszermagot \n    megváltoztatni, ez az AVC keletkezik. Ez komoly dolog. A rendszer komoly \n    veszélyben lehet.\n    "
 
 #: ../src/sys_module.py:46
 msgid ""
@@ -1427,7 +1431,7 @@ msgid ""
 "\n"
 "    SELinux has prevented vbetool from performing an unsafe memory operation.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy vbetool nem biztonságos memóriaműveletet végezzen.\n    "
 
 #: ../src/vbetool.py:34
 msgid ""
@@ -1441,7 +1445,7 @@ msgid ""
 "operation and reduce your system security against such malware.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\nSELinux visszautasította a műveletet, amit a videó hardver állapot változtatására \nvaló $SOURCE program kért.  E programról tudni lehet, hogy a rendszermemórián \nnem biztonságos műveletet végez, de van még sok rosszindulatú program is, ami \nvbetoolnak álcázza magát.  Ez az eszköz a videó állapot visszaállítására való, \nmiután a rendszer feléled a felfüggesztésből.  Ha a gép nem jól éled fel, \naz egyetlen lehetősége, hogy megengedi e műveletet, és csökkenti \na rendszer biztonságát az ilyen rosszindulatú szoftverekkel szemben.\n\n    "
 
 #: ../src/vbetool.py:45 ../src/wine.py:56
 msgid ""
@@ -1451,7 +1455,7 @@ msgid ""
 "executing:\n"
 "\n"
 "# setsebool -P mmap_low_allowed 1\n"
-msgstr ""
+msgstr "\nHa úgy dönt, hogy folytatja a kérdéses program futtatását, akkor \nengedélyezze e műveletet.  Ezt teheti a parancssorból a következő\nvégrehajtásával:\n\n# setsebool -P mmap_low_allowed 1\n"
 
 #: ../src/vbetool.py:55
 msgid ""
@@ -1467,14 +1471,14 @@ msgstr ""
 
 #: ../src/vbetool.py:62 ../src/wine.py:73
 msgid "Turn off memory protection"
-msgstr ""
+msgstr "Kapcsolja ki a memória védelmet"
 
 #: ../src/wine.py:31
 msgid ""
 "\n"
 "    SELinux has prevented wine from performing an unsafe memory operation.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozta, hogy wine nem biztonságos memóriaműveletet végezzen.\n    "
 
 #: ../src/wine.py:35
 msgid ""
@@ -1498,7 +1502,7 @@ msgid ""
 "of memory and solutions to those problems.\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\nSELinux visszautasította a Windows alkalmazások Linuxon futtatására használt \nwine-preloader által kért műveletet.  E programról tudni lehet, hogy a rendszermemórián \nnem biztonságos műveletet végez, de van még sok rosszindulatú program is, ami \nwine-nak álcázza magát.  Ha Windows programot próbált futtatni, akkor csak annyit \ntehet, hogy megengedi e műveletet, és csökkenti a rendszer biztonságát az ilyen \nrosszindulatú szoftverekkel szemben, vagy tartózkodik a Windows alkalmazások \nLinuxon történő futtatásától.  Ha nem próbált Windows alkalmazást futtatni, akkor ez \nvalószínűleg rosszindulatú program támadását jelzi, ami a rendszer erőforrásait \ngonosz célokra használná fel.\n\nLásd\n\nhttp://wiki.winehq.org/PreloaderPageZeroProblem\n\nEz felvázolja a többi problémát, amivel wine találkozik a memória nem biztonságos\nhasználata miatt, és a megoldásokat azon problémákra.\n\n    "
 
 #: ../src/wine.py:66
 msgid ""
@@ -1517,7 +1521,7 @@ msgid ""
 "\n"
 "    SELinux is preventing xen ($SOURCE_PATH) \"$ACCESS\" access to $TARGET_PATH.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux megakadályozza xen ($SOURCE_PATH) $ACCESS hozzáférését $TARGET_PATH fájlhoz.\n    "
 
 #: ../src/xen_image.py:31
 msgid ""
@@ -1530,7 +1534,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a xen\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux elutasította, hogy xen hozzáférjen $TARGET_PATH\n    fájlhoz. Ha ez XEN kép, akkor xen_image_t fájl beállítás\n    címke kell neki. A rendszert úgy állították be, hogy a /var/lib/xen/\n    helyen levő kép fájlokat jól címkézze. Javasolt e könyvtárba másolni\n    a kép fájlt. Ha valóban az aktuális mappába akarja tenni a xem kép fájlokat, akkor $TARGET_PATH fájlt átcímkézheti xen_image_t típusra a chcon paranccsal. A semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH' végrehajtására szintén szükség lehet, hogy ezt az új ösvényt hozzáadja a rendszer alapértelmezésihez.\n    Ha nem akarta $TARGET_PATH fájlt Xen képként használni,\n    akkor ez egy hibát vagy egy behatolás próbálkozást jelezhet.\n    "
 
 #: ../src/xen_image.py:41
 msgid ""
@@ -1538,7 +1542,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t xen_image_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr ""
+msgstr "\n    A fájl beállítását megváltoztatni a chcon -t xen_image_t '$TARGET_PATH' parancs végrehajtásával lehet.\n    Az alapértelmezett fájl beállítást szintén meg kell változtatni, hogy az megmaradjon teljes újracímkézés esetén is: semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\n    "
 
 #: ../booleans_trans.py:1
 msgid ""
@@ -2518,5 +2522,3 @@ msgstr ""
 #: ../booleans_trans.py:207
 msgid "If you want to allow unprivileged users to execute DDL statement"
 msgstr ""
-
-
