@@ -39,7 +39,7 @@ class plugin(Plugin):
     If httpd scripts should be allowed to write to public directories you need to turn on the $BOOLEAN boolean and change the file context of the public directory to public_content_rw_t.  Read the httpd_selinux
     man page for further information:
     "setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>"
-    You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t public_content_rw_t <path>"
+    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  "semanage fcontext -a -t public_content_rw_t <path>"
     ''')
     if_text = _("you want to allow $SOURCE_PATH to be able to write to shared public content")
     then_text = _("you need to change the label on $TARGET_PATH to public_content_rw_t, and potentially turn on the allow_httpd_sys_script_anon_write boolean.")

@@ -1,26 +1,28 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Dimitris Glezos <glezos@indifex.com>, 2011.
 # Francesco Tombolini <tombo@adamantio.net>, 2006, 2007, 2008, 2009, 2011.
 # Gianluca Busiello <busiello@ceinge.unina.it>, 2008.
 # Luca Manlio De Lisi <lukefiltroman@gmail.com>, 2011.
 #   <lukefiltroman@gmail.com>, 2011.
+# Mario Santagiuliana <fedora at marionline.it>, 2012.
+# silvio pierro <perplesso82@gmail.com>, 2012.
 # Silvio Pierro <perplesso82@gmail.com>, 2008, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-01-11 08:39-0500\n"
-"PO-Revision-Date: 2011-12-11 09:06+0000\n"
-"Last-Translator: Francesco Tombolini <tombo@adamantio.net>\n"
+"PO-Revision-Date: 2012-03-01 12:02+0000\n"
+"Last-Translator: Silvio Pierro <perplesso82@gmail.com>\n"
 "Language-Team: Italian <trans-it@lists.fedoraproject.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -29,7 +31,7 @@ msgstr "Risoluzione problemi SELinux"
 
 #: ../setroubleshoot.desktop.in.h:2
 msgid "Troubleshoot SELinux access denials"
-msgstr "Risoluzione problemi SELinux rifiuti di accesso"
+msgstr "Risoluzione problemi SELinux accessi rifiutati"
 
 #: ../src/audit_data.py:884
 #, python-format
@@ -46,15 +48,14 @@ msgstr "Sconosciuto"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr ""
+msgstr "%s \n**** AVC non valido consentito nella politica attuale ***\n"
 
 #: ../src/audit_data.py:978
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
-msgstr ""
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+msgstr "%s \n**** AVC non valido nell'attuale politica di dontaudit.  'semodule -B' abilita le regole dontaudit. ***\n"
 
 #: ../src/audit_data.py:980
 msgid "Must call policy_init first"
@@ -65,28 +66,28 @@ msgstr "Evocare prima policy_init"
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr ""
+msgstr "%s \n**** AVC non valido in cattivo contesto target. ***\n"
 
 #: ../src/audit_data.py:984
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr ""
+msgstr "%s \n**** AVC non valido in cattivo contesto sorgente. ***\n"
 
 #: ../src/audit_data.py:986
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr ""
+msgstr "%s \n**** AVC non valido in cattivo tipo di classe ***\n"
 
 #: ../src/audit_data.py:988
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr ""
+msgstr "%s \n**** AVC non valido in cattivo permesso ***\n"
 
 #: ../src/audit_data.py:990
 msgid "Error during access vector computation"
@@ -134,15 +135,13 @@ msgstr "<b>Allora la soluzione è questa.</b>"
 
 #: ../src/browser.py:391 ../src/browser.py:527
 msgid "If "
-msgstr "Se"
+msgstr "Se "
 
 #: ../src/browser.py:479
 msgid ""
 "Plugin\n"
 "Details"
-msgstr ""
-"Plugin\n"
-"Dettagli"
+msgstr "Plugin\nDettagli"
 
 #: ../src/browser.py:494
 msgid ""
@@ -155,7 +154,7 @@ msgstr ""
 #: ../src/browser.py:522
 #, python-format
 msgid "Plugin: %s "
-msgstr "Plugin: %s"
+msgstr "Plugin: %s "
 
 #: ../src/browser.py:580
 msgid "Unable to grant access."
@@ -164,7 +163,7 @@ msgstr "Impossibile conferire l'accesso."
 #: ../src/browser.py:611 ../src/browser.py:753
 #, python-format
 msgid "Alert %d of %d"
-msgstr "Allarme %d di %s:"
+msgstr "Allarme %d di %d"
 
 #: ../src/browser.py:736
 #, python-format
@@ -210,7 +209,7 @@ msgstr "database non trovato"
 
 #: ../src/errcode.py:74
 msgid "item is not a member"
-msgstr "l'oggetto non è un membro"
+msgstr "la voce non è un membro"
 
 #: ../src/errcode.py:75
 msgid "illegal to change user"
@@ -247,7 +246,7 @@ msgstr "la connessione è stata interrotta"
 
 #: ../src/errcode.py:85
 msgid "Invalid request. The file descriptor is not open"
-msgstr "Richiesta non valida. Il descrittore del file non è open"
+msgstr "Richiesta non valida. Il descrittore del file non è aperto"
 
 #: ../src/errcode.py:87
 msgid "insufficient permission to modify user"
@@ -282,9 +281,7 @@ msgstr "Errore"
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr ""
-"vuoi abilitare $SOURCE_BASE_PATH ad avere $ACCESS accesso al "
-"$TARGET_BASE_PATH $TARGET_CLASS"
+msgstr "vuoi abilitare $SOURCE_BASE_PATH ad avere $ACCESS accesso al $TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:180
 msgid "Input: "
@@ -316,8 +313,7 @@ msgstr "Ferma comando"
 
 #: ../src/run_cmd.py:425
 msgid "Warning: You are responsible for verifying this command is correct"
-msgstr ""
-"Attenzione: Siete responsabili della verifica che questo comando sia corretto"
+msgstr "Attenzione: Si è responsabili della verifica di correttezza di questo comando"
 
 #: ../src/run_cmd.py:467
 msgid "Not Run Yet"
@@ -393,7 +389,7 @@ msgstr "memoria condivisa"
 
 #: ../src/signature.py:199
 msgid "message queue"
-msgstr "coda di messaggi"
+msgstr "coda dei messaggi"
 
 #: ../src/signature.py:200
 msgid "message"
@@ -426,8 +422,7 @@ msgstr "capacità"
 #: ../src/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
-msgstr ""
-"%s presenta una tipologia permissiva (%s). Questo accesso non è stato negato."
+msgstr "%s presenta una tipologia permissiva (%s). Questo accesso non è stato negato."
 
 #: ../src/signature.py:384
 msgid "SELinux is in permissive mode. This access was not denied."
@@ -523,10 +518,7 @@ msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr ""
-"\n"
-"\n"
-"***** Plugin %s (%.4s confidence) suggerisce"
+msgstr "\n\n***** Plugin %s (%.4s confidence) suggerisce  "
 
 #: ../src/signature.py:543
 msgid "*"
@@ -540,43 +532,35 @@ msgstr "\n"
 msgid ""
 "\n"
 "If "
-msgstr ""
-"\n"
-"Se"
+msgstr "\nSe "
 
 #: ../src/signature.py:548
 msgid ""
 "\n"
 "Then "
-msgstr ""
-"\n"
-"Quindi"
+msgstr "\nQuindi "
 
 #: ../src/signature.py:551
 msgid ""
 "\n"
 "Do\n"
-msgstr ""
-"\n"
-"Fai\n"
+msgstr "\nFai\n"
 
 #: ../src/signature.py:553
 msgid ""
 "\n"
 "\n"
-msgstr ""
-"\n"
-"\n"
+msgstr "\n\n"
 
 #: ../src/updater.py:18
 #, python-format
 msgid "current: %s "
-msgstr "corrente: %s"
+msgstr "corrente: %s "
 
 #: ../src/updater.py:27
 #, python-format
 msgid "newer: %s "
-msgstr "nuovo: %s"
+msgstr "nuovo: %s "
 
 #: ../src/seapplet.c:187
 msgid "New SELinux security alert"
@@ -619,7 +603,7 @@ msgstr "Il plugin %s non è valido per l'id %s"
 
 #: ../src/setroubleshootd:82
 msgid "SELinux not enabled, setroubleshootd exiting..."
-msgstr "SELinux non abilitato, setroubleshootd stà per uscire..."
+msgstr "SELinux non abilitato, setroubleshootd sta per uscire..."
 
 #: ../src/setroubleshootd:113
 #, c-format
@@ -633,12 +617,7 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr ""
-"Copyright (c) 2010 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"Máirín Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+msgstr "Copyright (c) 2010 \nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
@@ -670,7 +649,7 @@ msgstr "<b>SELinux ha trovato un problema.</b>"
 
 #: ../gui/browser.glade.h:14
 msgid "Would you like to receive alerts?"
-msgstr "Vorresti ricevere gli allarmi?"
+msgstr "Si vogliono ricevere gli allarmi?"
 
 #: ../gui/browser.glade.h:15
 msgid "Yes"
@@ -708,9 +687,7 @@ msgstr "etichetta"
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr ""
-"Leggi informazioni sulla risoluzione dei problemi. Potrebbe richiedere "
-"privilegi di amministratore per rimediare."
+msgstr "Leggi informazioni sulla risoluzione dei problemi. Potrebbe richiedere privilegi di amministratore per rimediare."
 
 #: ../gui/browser.glade.h:24
 msgid "Notify Admin"
@@ -754,16 +731,13 @@ msgstr "Rivedi e sottometti il rapporto bug "
 
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr ""
-"<span size='large' weight='bold'>Rivedi e Sottometti il Bug Report</span>"
+msgstr "<span size='large' weight='bold'>Rivedi e Sottometti il Bug Report</span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr ""
-"È possibile controllare l'output dell'errore che sarà incluso in questo bug "
-"report e modificarlo per escludere qualsiasi dato sensibile."
+msgstr "È possibile controllare l'output dell'errore che sarà incluso in questo bug report e modificarlo per escludere qualsiasi dato sensibile."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
@@ -776,9 +750,7 @@ msgstr "Sottometti rapporto"
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr ""
-"Questa operazione è stata completata.  La veloce volpe marrone ha saltato il "
-"cane pigro."
+msgstr "Questa operazione è stata completata.  La veloce volpe marrone ha saltato il cane pigro."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
@@ -786,4 +758,4 @@ msgstr "Successo!"
 
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
-msgstr "tasto"
+msgstr "bottone"
