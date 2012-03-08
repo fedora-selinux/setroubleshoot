@@ -199,7 +199,7 @@ static int perform_av_query(const apol_policy_t * policy, const options_t * opt,
 
 static PyObject* print_av_results(const apol_policy_t * policy, const options_t * opt, const apol_vector_t * v)
 {
-    PyObject *list = PyList_New(0);
+	PyObject *list = NULL;
 	qpol_policy_t *q = apol_policy_get_qpol(policy);
 	size_t i, num_rules = 0;
 	const qpol_avrule_t *rule = NULL;
@@ -214,8 +214,7 @@ static PyObject* print_av_results(const apol_policy_t * policy, const options_t 
 	if (!(num_rules = apol_vector_get_size(v)))
 		return 0;
 
-
-
+	list = PyList_New(0);
 
 	for (i = 0; i < num_rules; i++) {
 		enable_char = branch_char = ' ';
@@ -227,8 +226,6 @@ static PyObject* print_av_results(const apol_policy_t * policy, const options_t 
         if (!enabled)
             continue;
 		
-        
-        
         const qpol_type_t *type;
         const char *tmp_name;
         uint32_t rule_type = 0;
