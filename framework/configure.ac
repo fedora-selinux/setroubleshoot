@@ -1,4 +1,4 @@
-AC_INIT([setroubleshoot], [3.1.5],
+AC_INIT([setroubleshoot], [3.1.7],
         [http://bugzilla.redhat.com/bugzilla/enter_bug.cgi?product=setroubleshoot])
 
 AC_CONFIG_SRCDIR(src/__init__.py)
@@ -20,16 +20,20 @@ GETTEXT_PACKAGE=setroubleshoot
 AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
 IT_PROG_INTLTOOL
+
 ALL_LINGUAS="\
-af	am	ar	as	be	bg	bn_IN	bn	ca	\
-cs	cy	da	de	el	en_GB	es	et	eu_ES	\
-fa	fi	fr	gl	gu	he	hi	hr	hu	\
-hy	id	is	it	ja	ka	kn	ko	ku	\
-lo	lt	lv	mk	ml	mr	ms	my	nb	\
-nl	nn	nso	or	pa	pl	pt_BR	pt	ro	\
-ru	si	sk	sl	sq	sr@latin	sr	sv	\
-ta	te	th	tr	uk	ur	vi	zh_CN	zh_TW	\
-zu									\
+af     bs     et     hy     lt   nso    sq        vi 	\
+aln    ca     eu_ES  id     lv   or     sr@latin  vi_VN	\
+am     cs_CZ  fa_IR  is     mai  pa     sr        zh_CN	\
+ar     cs     fa     it     mk   pl     sv        zh_HK	\
+as     cy     fi     ja_JP  ml   pt_BR  ta_IN     zh_TW	\
+ast    da     fr     ja     mr   pt     ta        zu	\
+bal    de_CH  gl     ka     ms   ro     te	\
+be     de     gu     kn     my   ru     tg	\
+bg     el     he     ko     nb   ru_RU  th	\
+bn_BD  en_GB  hi     ku     nds  si     tr	\
+bn_IN  es_ES  hr     lo     nl   sk     uk	\
+bn     es     hu     lt_LT  nn   sl     ur	\
 "
 
 AC_PROG_LN_S
