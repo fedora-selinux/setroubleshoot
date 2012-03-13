@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-11 08:39-0500\n"
+"POT-Creation-Date: 2012-03-13 09:15-0400\n"
 "PO-Revision-Date: 2011-12-06 13:13+0000\n"
 "Last-Translator: dwalsh <dwalsh@redhat.com>\n"
 "Language-Team: English (United Kingdom) (http://www.transifex.net/projects/p/"
@@ -30,17 +30,17 @@ msgstr "SELinux Troubleshooter"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Troubleshoot SELinux access denials"
 
-#: ../src/audit_data.py:884
+#: ../src/audit_data.py:883
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:886 ../src/browser.py:716 ../src/browser.py:791
-#: ../src/rpc.py:544 ../src/util.py:223
+#: ../src/audit_data.py:885 ../src/browser.py:715 ../src/browser.py:790
+#: ../src/rpc.py:532 ../src/util.py:219
 msgid "Unknown"
 msgstr "Unknown"
 
-#: ../src/audit_data.py:976
+#: ../src/audit_data.py:975
 #, python-format
 msgid ""
 "%s \n"
@@ -49,7 +49,7 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 
-#: ../src/audit_data.py:978
+#: ../src/audit_data.py:977
 #, python-format
 msgid ""
 "%s \n"
@@ -60,11 +60,11 @@ msgstr ""
 "**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
 "dontaudit rules. ***\n"
 
-#: ../src/audit_data.py:980
+#: ../src/audit_data.py:979
 msgid "Must call policy_init first"
 msgstr "Must call policy_init first"
 
-#: ../src/audit_data.py:982
+#: ../src/audit_data.py:981
 #, python-format
 msgid ""
 "%s \n"
@@ -73,7 +73,7 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 
-#: ../src/audit_data.py:984
+#: ../src/audit_data.py:983
 #, python-format
 msgid ""
 "%s \n"
@@ -82,7 +82,7 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 
-#: ../src/audit_data.py:986
+#: ../src/audit_data.py:985
 #, python-format
 msgid ""
 "%s \n"
@@ -91,7 +91,7 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 
-#: ../src/audit_data.py:988
+#: ../src/audit_data.py:987
 #, python-format
 msgid ""
 "%s \n"
@@ -100,55 +100,55 @@ msgstr ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 
-#: ../src/audit_data.py:990
+#: ../src/audit_data.py:989
 msgid "Error during access vector computation"
 msgstr "Error during access vector computation"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "Source Process"
 msgstr "Source Process"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "Attempted Access"
 msgstr "Attempted Access"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "On this"
 msgstr "On this"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "Occurred"
 msgstr "Occurred"
 
-#: ../src/browser.py:250 ../src/run_cmd.py:418
+#: ../src/browser.py:249 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "Status"
 
-#: ../src/browser.py:322 ../src/browser.py:799
+#: ../src/browser.py:321 ../src/browser.py:798
 msgid "Notify"
 msgstr "Notify"
 
-#: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:27
+#: ../src/browser.py:325 ../src/browser.py:796 ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Ignore"
 
-#: ../src/browser.py:363
+#: ../src/browser.py:362
 msgid "<b>If you were trying to...</b>"
 msgstr ""
 
-#: ../src/browser.py:372
+#: ../src/browser.py:371
 msgid "<b>Then this is the solution.</b>"
 msgstr ""
 
-#: ../src/browser.py:391 ../src/browser.py:527
+#: ../src/browser.py:390 ../src/browser.py:526
 msgid "If "
 msgstr "If "
 
-#: ../src/browser.py:479
+#: ../src/browser.py:478
 msgid ""
 "Plugin\n"
 "Details"
@@ -156,7 +156,7 @@ msgstr ""
 "Plugin\n"
 "Details"
 
-#: ../src/browser.py:494
+#: ../src/browser.py:493
 msgid ""
 "Report\n"
 "Bug"
@@ -164,42 +164,42 @@ msgstr ""
 "Report\n"
 "Bug"
 
-#: ../src/browser.py:522
+#: ../src/browser.py:521
 #, python-format
 msgid "Plugin: %s "
 msgstr "Plugin: %s "
 
-#: ../src/browser.py:580
+#: ../src/browser.py:579
 msgid "Unable to grant access."
 msgstr "Unable to grant access."
 
-#: ../src/browser.py:611 ../src/browser.py:753
+#: ../src/browser.py:610 ../src/browser.py:752
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Alert %d of %d"
 
-#: ../src/browser.py:736
+#: ../src/browser.py:735
 #, python-format
 msgid "On this %s:"
 msgstr "On this %s:"
 
-#: ../src/browser.py:784 ../src/browser.py:790 ../src/signature.py:396
+#: ../src/browser.py:783 ../src/browser.py:789 ../src/signature.py:385
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:31
+#: ../src/browser.py:830 ../src/browser.py:831 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "No Alerts"
 
-#: ../src/browser.py:850
+#: ../src/browser.py:849
 msgid "SELinux has detected a problem."
 msgstr "SELinux has detected a problem."
 
-#: ../src/browser.py:955
+#: ../src/browser.py:954
 msgid "Sealert Error"
 msgstr "Sealert Error"
 
-#: ../src/browser.py:966
+#: ../src/browser.py:965
 msgid "Sealert Message"
 msgstr "Sealert Message"
 
@@ -281,7 +281,7 @@ msgstr "not authenticated"
 msgid "user lookup failed"
 msgstr "user lookup failed"
 
-#: ../src/gui_utils.py:53 ../src/sealert:545
+#: ../src/gui_utils.py:53 ../src/sealert:527
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Oops, %s hit an error!"
@@ -290,7 +290,7 @@ msgstr "Oops, %s hit an error!"
 msgid "Error"
 msgstr "Error"
 
-#: ../src/Plugin.py:79
+#: ../src/Plugin.py:78
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -298,236 +298,236 @@ msgstr ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 
-#: ../src/run_cmd.py:180
+#: ../src/run_cmd.py:172
 msgid "Input: "
 msgstr "Input: "
 
-#: ../src/run_cmd.py:267
+#: ../src/run_cmd.py:255
 msgid "Enter Password"
 msgstr "Enter Password"
 
-#: ../src/run_cmd.py:280
+#: ../src/run_cmd.py:268
 msgid "Password: "
 msgstr "Password: "
 
-#: ../src/run_cmd.py:379
+#: ../src/run_cmd.py:367
 msgid "SELinux Fix"
 msgstr "SELinux Fix"
 
-#: ../src/run_cmd.py:390
+#: ../src/run_cmd.py:378
 msgid "Command"
 msgstr "Command"
 
-#: ../src/run_cmd.py:400
+#: ../src/run_cmd.py:388
 msgid "Run Command"
 msgstr "Run Command"
 
-#: ../src/run_cmd.py:403
+#: ../src/run_cmd.py:391
 msgid "Stop Command"
 msgstr "Stop Command"
 
-#: ../src/run_cmd.py:425
+#: ../src/run_cmd.py:413
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr "Warning: You are responsible for verifying this command is correct"
 
-#: ../src/run_cmd.py:467
+#: ../src/run_cmd.py:455
 msgid "Not Run Yet"
 msgstr "Not Run Yet"
 
-#: ../src/run_cmd.py:478
+#: ../src/run_cmd.py:466
 msgid "Running..."
 msgstr "Running..."
 
-#: ../src/run_cmd.py:493
+#: ../src/run_cmd.py:481
 #, python-format
 msgid "Interrupted, exit on signal %d"
 msgstr "Interrupted, exit on signal %d"
 
-#: ../src/run_cmd.py:495
+#: ../src/run_cmd.py:483
 msgid "Success"
 msgstr "Success"
 
-#: ../src/run_cmd.py:497
+#: ../src/run_cmd.py:485
 #, python-format
 msgid "Failed, exit status = %d"
 msgstr "Failed, exit status = %d"
 
-#: ../src/run_cmd.py:499
+#: ../src/run_cmd.py:487
 msgid "Done: "
 msgstr "Done: "
 
-#: ../src/server.py:202
+#: ../src/server.py:191
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " For complete SELinux messages. run sealert -l %s"
 
-#: ../src/server.py:401
+#: ../src/server.py:372
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "The user (%s) cannot modify data for (%s)"
 
-#: ../src/server.py:465 ../src/sealert:296
+#: ../src/server.py:435 ../src/sealert:291
 msgid "Started"
 msgstr "Started"
 
-#: ../src/server.py:512
+#: ../src/server.py:482
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:579
+#: ../src/server.py:548
 msgid "Audit Listener"
 msgstr "Audit Listener"
 
-#: ../src/signature.py:75
+#: ../src/signature.py:71
 msgid "Never Ignore"
 msgstr "Never Ignore"
 
-#: ../src/signature.py:76
+#: ../src/signature.py:72
 msgid "Ignore Always"
 msgstr "Ignore Always"
 
-#: ../src/signature.py:77
+#: ../src/signature.py:73
 msgid "Ignore After First Alert"
 msgstr "Ignore After First Alert"
 
-#: ../src/signature.py:196
+#: ../src/signature.py:190
 msgid "directory"
 msgstr "directory"
 
-#: ../src/signature.py:197
+#: ../src/signature.py:191
 msgid "semaphore"
 msgstr "semaphore"
 
-#: ../src/signature.py:198
+#: ../src/signature.py:192
 msgid "shared memory"
 msgstr "shared memory"
 
-#: ../src/signature.py:199
+#: ../src/signature.py:193
 msgid "message queue"
 msgstr "message queue"
 
-#: ../src/signature.py:200
+#: ../src/signature.py:194
 msgid "message"
 msgstr "message"
 
-#: ../src/signature.py:201
+#: ../src/signature.py:195
 msgid "file"
 msgstr "file"
 
-#: ../src/signature.py:202
+#: ../src/signature.py:196
 msgid "socket"
 msgstr "socket"
 
-#: ../src/signature.py:203
+#: ../src/signature.py:197
 msgid "process"
 msgstr "process"
 
-#: ../src/signature.py:204
+#: ../src/signature.py:198
 msgid "filesystem"
 msgstr "filesystem"
 
-#: ../src/signature.py:205
+#: ../src/signature.py:199
 msgid "node"
 msgstr "node"
 
-#: ../src/signature.py:206
+#: ../src/signature.py:200
 msgid "capability"
 msgstr "capability"
 
-#: ../src/signature.py:381
+#: ../src/signature.py:370
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s has a permissive type (%s). This access was not denied."
 
-#: ../src/signature.py:384
+#: ../src/signature.py:373
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux is in permissive mode. This access was not denied."
 
-#: ../src/signature.py:469
+#: ../src/signature.py:458
 msgid "Additional Information:\n"
 msgstr "Additional Information:\n"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:459
 msgid "Source Context"
 msgstr "Source Context"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:460
 msgid "Target Context"
 msgstr "Target Context"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:461
 msgid "Target Objects"
 msgstr "Target Objects"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:462
 msgid "Source"
 msgstr "Source"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:463
 msgid "Source Path"
 msgstr "Source Path"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:464
 msgid "Port"
 msgstr "Port"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:465
 msgid "Host"
 msgstr "Host"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:466
 msgid "Source RPM Packages"
 msgstr "Source RPM Packages"
 
-#: ../src/signature.py:478
+#: ../src/signature.py:467
 msgid "Target RPM Packages"
 msgstr "Target RPM Packages"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:468
 msgid "Policy RPM"
 msgstr "Policy RPM"
 
-#: ../src/signature.py:480
+#: ../src/signature.py:469
 msgid "Selinux Enabled"
 msgstr "Selinux Enabled"
 
-#: ../src/signature.py:481
+#: ../src/signature.py:470
 msgid "Policy Type"
 msgstr "Policy Type"
 
-#: ../src/signature.py:482
+#: ../src/signature.py:471
 msgid "Enforcing Mode"
 msgstr "Enforcing Mode"
 
-#: ../src/signature.py:483
+#: ../src/signature.py:472
 msgid "Host Name"
 msgstr "Host Name"
 
-#: ../src/signature.py:484
+#: ../src/signature.py:473
 msgid "Platform"
 msgstr "Platform"
 
-#: ../src/signature.py:485
+#: ../src/signature.py:474
 msgid "Alert Count"
 msgstr "Alert Count"
 
-#: ../src/signature.py:486
+#: ../src/signature.py:475
 msgid "First Seen"
 msgstr "First Seen"
 
-#: ../src/signature.py:487
+#: ../src/signature.py:476
 msgid "Last Seen"
 msgstr "Last Seen"
 
-#: ../src/signature.py:488
+#: ../src/signature.py:477
 msgid "Local ID"
 msgstr "Local ID"
 
-#: ../src/signature.py:490
+#: ../src/signature.py:479
 msgid "Raw Audit Messages"
 msgstr "Raw Audit Messages"
 
-#: ../src/signature.py:540
+#: ../src/signature.py:529
 #, python-format
 msgid ""
 "\n"
@@ -538,15 +538,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 
-#: ../src/signature.py:543
+#: ../src/signature.py:532
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:544
+#: ../src/signature.py:533
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:546
+#: ../src/signature.py:535
 msgid ""
 "\n"
 "If "
@@ -554,7 +554,7 @@ msgstr ""
 "\n"
 "If "
 
-#: ../src/signature.py:548
+#: ../src/signature.py:537
 msgid ""
 "\n"
 "Then "
@@ -562,7 +562,7 @@ msgstr ""
 "\n"
 "Then "
 
-#: ../src/signature.py:551
+#: ../src/signature.py:540
 msgid ""
 "\n"
 "Do\n"
@@ -570,7 +570,7 @@ msgstr ""
 "\n"
 "Do\n"
 
-#: ../src/signature.py:553
+#: ../src/signature.py:542
 msgid ""
 "\n"
 "\n"
@@ -588,50 +588,50 @@ msgstr "current: %s "
 msgid "newer: %s "
 msgstr "newer: %s "
 
-#: ../src/seapplet.c:187
+#: ../src/seapplet.c:188
 msgid "New SELinux security alert"
 msgstr "New SELinux security alert"
 
-#: ../src/seapplet.c:187
+#: ../src/seapplet.c:188
 msgid "AVC denial, click icon to view"
 msgstr "AVC denial, click icon to view"
 
-#: ../src/seapplet.c:193 ../src/seapplet.c:244
+#: ../src/seapplet.c:194 ../src/seapplet.c:245
 msgid "Dismiss"
 msgstr "Dismiss"
 
-#: ../src/seapplet.c:203 ../src/seapplet.c:254
+#: ../src/seapplet.c:204 ../src/seapplet.c:255
 msgid "Show"
 msgstr "Show"
 
 #. set tooltip
-#: ../src/seapplet.c:439 ../src/sealert:66
+#: ../src/seapplet.c:439 ../src/sealert:64
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC denial, click to view"
 
-#: ../src/sealert:106
+#: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux not enabled, sealert will not run on non SELinux systems"
 
-#: ../src/sealert:155
+#: ../src/sealert:150
 msgid "Not fixable."
 msgstr "Not fixable."
 
-#: ../src/sealert:162
+#: ../src/sealert:157
 #, c-format
 msgid "Successfully ran %s"
 msgstr "Successfully ran %s"
 
-#: ../src/sealert:167
+#: ../src/sealert:162
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "Plugin %s not valid for %s id"
 
-#: ../src/setroubleshootd:82
+#: ../src/setroubleshootd:69
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux not enabled, setroubleshootd exiting..."
 
-#: ../src/setroubleshootd:113
+#: ../src/setroubleshootd:101
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork #1 failed: %d (%s)"

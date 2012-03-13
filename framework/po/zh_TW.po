@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-11 08:39-0500\n"
+"POT-Creation-Date: 2012-03-13 09:15-0400\n"
 "PO-Revision-Date: 2011-12-07 03:42+0000\n"
 "Last-Translator: zerng07 <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <trans-zh_TW@lists.fedoraproject.org>\n"
@@ -30,17 +30,17 @@ msgstr "SELinux 疑難排解器"
 msgid "Troubleshoot SELinux access denials"
 msgstr "為 SELinux 被拒絕存取進行疑難排解"
 
-#: ../src/audit_data.py:884
+#: ../src/audit_data.py:883
 #, python-format
 msgid "port %s"
 msgstr "連接埠 %s"
 
-#: ../src/audit_data.py:886 ../src/browser.py:716 ../src/browser.py:791
-#: ../src/rpc.py:544 ../src/util.py:223
+#: ../src/audit_data.py:885 ../src/browser.py:715 ../src/browser.py:790
+#: ../src/rpc.py:532 ../src/util.py:219
 msgid "Unknown"
 msgstr "未知"
 
-#: ../src/audit_data.py:976
+#: ../src/audit_data.py:975
 #, python-format
 msgid ""
 "%s \n"
@@ -49,7 +49,7 @@ msgstr ""
 "%s \n"
 "**** 目前方針中允許了無效的 AVC ***\n"
 
-#: ../src/audit_data.py:978
+#: ../src/audit_data.py:977
 #, python-format
 msgid ""
 "%s \n"
@@ -60,11 +60,11 @@ msgstr ""
 "**** 已在目前的方針中 dontaudited 了無效的 AVC。'semodule -B' 將會開啟 "
 "dontaudit 規則。***\n"
 
-#: ../src/audit_data.py:980
+#: ../src/audit_data.py:979
 msgid "Must call policy_init first"
 msgstr "必須先呼叫 policy_init"
 
-#: ../src/audit_data.py:982
+#: ../src/audit_data.py:981
 #, python-format
 msgid ""
 "%s \n"
@@ -73,7 +73,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，目標情境不良。***\n"
 
-#: ../src/audit_data.py:984
+#: ../src/audit_data.py:983
 #, python-format
 msgid ""
 "%s \n"
@@ -82,7 +82,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，來源情境不良。***\n"
 
-#: ../src/audit_data.py:986
+#: ../src/audit_data.py:985
 #, python-format
 msgid ""
 "%s \n"
@@ -91,7 +91,7 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，類別類型不良。***\n"
 
-#: ../src/audit_data.py:988
+#: ../src/audit_data.py:987
 #, python-format
 msgid ""
 "%s \n"
@@ -100,55 +100,55 @@ msgstr ""
 "%s \n"
 "**** 無效的 AVC，權限不良。***\n"
 
-#: ../src/audit_data.py:990
+#: ../src/audit_data.py:989
 msgid "Error during access vector computation"
 msgstr "存取向量運算時發生了錯誤"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "Source Process"
 msgstr "來源程序"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "Attempted Access"
 msgstr "企圖存取"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "On this"
 msgstr "它"
 
-#: ../src/browser.py:250
+#: ../src/browser.py:249
 msgid "Occurred"
 msgstr "發生"
 
-#: ../src/browser.py:250 ../src/run_cmd.py:418
+#: ../src/browser.py:249 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "狀態"
 
-#: ../src/browser.py:322 ../src/browser.py:799
+#: ../src/browser.py:321 ../src/browser.py:798
 msgid "Notify"
 msgstr "通知"
 
-#: ../src/browser.py:326 ../src/browser.py:797 ../gui/browser.glade.h:27
+#: ../src/browser.py:325 ../src/browser.py:796 ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "忽略"
 
-#: ../src/browser.py:363
+#: ../src/browser.py:362
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>若您之前是嘗試要...</b>"
 
-#: ../src/browser.py:372
+#: ../src/browser.py:371
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>那這是解決方案。</b>"
 
-#: ../src/browser.py:391 ../src/browser.py:527
+#: ../src/browser.py:390 ../src/browser.py:526
 msgid "If "
 msgstr "若"
 
-#: ../src/browser.py:479
+#: ../src/browser.py:478
 msgid ""
 "Plugin\n"
 "Details"
@@ -156,7 +156,7 @@ msgstr ""
 "插件\n"
 "細節"
 
-#: ../src/browser.py:494
+#: ../src/browser.py:493
 msgid ""
 "Report\n"
 "Bug"
@@ -164,42 +164,42 @@ msgstr ""
 "回報\n"
 "臭蟲"
 
-#: ../src/browser.py:522
+#: ../src/browser.py:521
 #, python-format
 msgid "Plugin: %s "
 msgstr "插件：%s"
 
-#: ../src/browser.py:580
+#: ../src/browser.py:579
 msgid "Unable to grant access."
 msgstr "無法存取"
 
-#: ../src/browser.py:611 ../src/browser.py:753
+#: ../src/browser.py:610 ../src/browser.py:752
 #, python-format
 msgid "Alert %d of %d"
 msgstr "警告 %d / %d"
 
-#: ../src/browser.py:736
+#: ../src/browser.py:735
 #, python-format
 msgid "On this %s:"
 msgstr "這個 %s："
 
-#: ../src/browser.py:784 ../src/browser.py:790 ../src/signature.py:396
+#: ../src/browser.py:783 ../src/browser.py:789 ../src/signature.py:385
 msgid "N/A"
 msgstr "無法使用"
 
-#: ../src/browser.py:831 ../src/browser.py:832 ../gui/browser.glade.h:31
+#: ../src/browser.py:830 ../src/browser.py:831 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "無警告"
 
-#: ../src/browser.py:850
+#: ../src/browser.py:849
 msgid "SELinux has detected a problem."
 msgstr "SELinux 已偵測到一個問題。"
 
-#: ../src/browser.py:955
+#: ../src/browser.py:954
 msgid "Sealert Error"
 msgstr "Sealert 錯誤"
 
-#: ../src/browser.py:966
+#: ../src/browser.py:965
 msgid "Sealert Message"
 msgstr "Sealert 訊息"
 
@@ -281,7 +281,7 @@ msgstr "未驗證"
 msgid "user lookup failed"
 msgstr "使用者搜尋失敗"
 
-#: ../src/gui_utils.py:53 ../src/sealert:545
+#: ../src/gui_utils.py:53 ../src/sealert:527
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "噢，%s 遇到了錯誤！"
@@ -290,7 +290,7 @@ msgstr "噢，%s 遇到了錯誤！"
 msgid "Error"
 msgstr "錯誤"
 
-#: ../src/Plugin.py:79
+#: ../src/Plugin.py:78
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -298,236 +298,236 @@ msgstr ""
 "您想要允許 $SOURCE_BASE_PATH 對 $TARGET_BASE_PATH $TARGET_CLASS 有 $ACCESS 存"
 "取權"
 
-#: ../src/run_cmd.py:180
+#: ../src/run_cmd.py:172
 msgid "Input: "
 msgstr "輸入："
 
-#: ../src/run_cmd.py:267
+#: ../src/run_cmd.py:255
 msgid "Enter Password"
 msgstr "輸入密碼"
 
-#: ../src/run_cmd.py:280
+#: ../src/run_cmd.py:268
 msgid "Password: "
 msgstr "密碼："
 
-#: ../src/run_cmd.py:379
+#: ../src/run_cmd.py:367
 msgid "SELinux Fix"
 msgstr "SELinux 修正"
 
-#: ../src/run_cmd.py:390
+#: ../src/run_cmd.py:378
 msgid "Command"
 msgstr "指令"
 
-#: ../src/run_cmd.py:400
+#: ../src/run_cmd.py:388
 msgid "Run Command"
 msgstr "執行指令"
 
-#: ../src/run_cmd.py:403
+#: ../src/run_cmd.py:391
 msgid "Stop Command"
 msgstr "停止指令"
 
-#: ../src/run_cmd.py:425
+#: ../src/run_cmd.py:413
 msgid "Warning: You are responsible for verifying this command is correct"
 msgstr "警告：您必須負責驗證這項指令是否正確"
 
-#: ../src/run_cmd.py:467
+#: ../src/run_cmd.py:455
 msgid "Not Run Yet"
 msgstr "還未執行"
 
-#: ../src/run_cmd.py:478
+#: ../src/run_cmd.py:466
 msgid "Running..."
 msgstr "執行中..."
 
-#: ../src/run_cmd.py:493
+#: ../src/run_cmd.py:481
 #, python-format
 msgid "Interrupted, exit on signal %d"
 msgstr "已被干擾，於信號 %d 退出"
 
-#: ../src/run_cmd.py:495
+#: ../src/run_cmd.py:483
 msgid "Success"
 msgstr "成功"
 
-#: ../src/run_cmd.py:497
+#: ../src/run_cmd.py:485
 #, python-format
 msgid "Failed, exit status = %d"
 msgstr "失敗，退出狀態 = %d"
 
-#: ../src/run_cmd.py:499
+#: ../src/run_cmd.py:487
 msgid "Done: "
 msgstr "完成："
 
-#: ../src/server.py:202
+#: ../src/server.py:191
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " 若要檢視完整的 SELinux 訊息，請執行 sealert -l %s"
 
-#: ../src/server.py:401
+#: ../src/server.py:372
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "使用者 (%s) 無法修改 (%s) 的資料"
 
-#: ../src/server.py:465 ../src/sealert:296
+#: ../src/server.py:435 ../src/sealert:291
 msgid "Started"
 msgstr "已啟用"
 
-#: ../src/server.py:512
+#: ../src/server.py:482
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:579
+#: ../src/server.py:548
 msgid "Audit Listener"
 msgstr "稽核監聽者"
 
-#: ../src/signature.py:75
+#: ../src/signature.py:71
 msgid "Never Ignore"
 msgstr "絕不略過"
 
-#: ../src/signature.py:76
+#: ../src/signature.py:72
 msgid "Ignore Always"
 msgstr "總是略過"
 
-#: ../src/signature.py:77
+#: ../src/signature.py:73
 msgid "Ignore After First Alert"
 msgstr "第一個警示後略過"
 
-#: ../src/signature.py:196
+#: ../src/signature.py:190
 msgid "directory"
 msgstr "目錄"
 
-#: ../src/signature.py:197
+#: ../src/signature.py:191
 msgid "semaphore"
 msgstr "信號"
 
-#: ../src/signature.py:198
+#: ../src/signature.py:192
 msgid "shared memory"
 msgstr "共享記憶體"
 
-#: ../src/signature.py:199
+#: ../src/signature.py:193
 msgid "message queue"
 msgstr "訊息佇列"
 
-#: ../src/signature.py:200
+#: ../src/signature.py:194
 msgid "message"
 msgstr "訊息"
 
-#: ../src/signature.py:201
+#: ../src/signature.py:195
 msgid "file"
 msgstr "檔案"
 
-#: ../src/signature.py:202
+#: ../src/signature.py:196
 msgid "socket"
 msgstr "socket"
 
-#: ../src/signature.py:203
+#: ../src/signature.py:197
 msgid "process"
 msgstr "程序"
 
-#: ../src/signature.py:204
+#: ../src/signature.py:198
 msgid "filesystem"
 msgstr "檔案系統"
 
-#: ../src/signature.py:205
+#: ../src/signature.py:199
 msgid "node"
 msgstr "節點"
 
-#: ../src/signature.py:206
+#: ../src/signature.py:200
 msgid "capability"
 msgstr "能力"
 
-#: ../src/signature.py:381
+#: ../src/signature.py:370
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s 目前處於寬鬆模式 (%s)。這次存取未被拒絕。"
 
-#: ../src/signature.py:384
+#: ../src/signature.py:373
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux 為許可模式。這個存取不會被拒絕。"
 
-#: ../src/signature.py:469
+#: ../src/signature.py:458
 msgid "Additional Information:\n"
 msgstr "額外資訊：\n"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:459
 msgid "Source Context"
 msgstr "來源情境"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:460
 msgid "Target Context"
 msgstr "目標情境"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:461
 msgid "Target Objects"
 msgstr "目標物件"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:462
 msgid "Source"
 msgstr "來源"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:463
 msgid "Source Path"
 msgstr "來源路徑"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:464
 msgid "Port"
 msgstr "連接埠"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:465
 msgid "Host"
 msgstr "主機"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:466
 msgid "Source RPM Packages"
 msgstr "來源 RPM 套件"
 
-#: ../src/signature.py:478
+#: ../src/signature.py:467
 msgid "Target RPM Packages"
 msgstr "目標 RPM 套件"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:468
 msgid "Policy RPM"
 msgstr "方針 RPM"
 
-#: ../src/signature.py:480
+#: ../src/signature.py:469
 msgid "Selinux Enabled"
 msgstr "Selinux 已啟用"
 
-#: ../src/signature.py:481
+#: ../src/signature.py:470
 msgid "Policy Type"
 msgstr "方針類型"
 
-#: ../src/signature.py:482
+#: ../src/signature.py:471
 msgid "Enforcing Mode"
 msgstr "強制模式"
 
-#: ../src/signature.py:483
+#: ../src/signature.py:472
 msgid "Host Name"
 msgstr "主機名稱"
 
-#: ../src/signature.py:484
+#: ../src/signature.py:473
 msgid "Platform"
 msgstr "平台"
 
-#: ../src/signature.py:485
+#: ../src/signature.py:474
 msgid "Alert Count"
 msgstr "警示計數"
 
-#: ../src/signature.py:486
+#: ../src/signature.py:475
 msgid "First Seen"
 msgstr "第一次看見"
 
-#: ../src/signature.py:487
+#: ../src/signature.py:476
 msgid "Last Seen"
 msgstr "最後一次看見"
 
-#: ../src/signature.py:488
+#: ../src/signature.py:477
 msgid "Local ID"
 msgstr "本地 ID"
 
-#: ../src/signature.py:490
+#: ../src/signature.py:479
 msgid "Raw Audit Messages"
 msgstr "原始稽核訊息"
 
-#: ../src/signature.py:540
+#: ../src/signature.py:529
 #, python-format
 msgid ""
 "\n"
@@ -538,15 +538,15 @@ msgstr ""
 "\n"
 "*****  插件 %s (%.4s 信賴度) 項建議"
 
-#: ../src/signature.py:543
+#: ../src/signature.py:532
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:544
+#: ../src/signature.py:533
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:546
+#: ../src/signature.py:535
 msgid ""
 "\n"
 "If "
@@ -554,7 +554,7 @@ msgstr ""
 "\n"
 "如果 "
 
-#: ../src/signature.py:548
+#: ../src/signature.py:537
 msgid ""
 "\n"
 "Then "
@@ -562,7 +562,7 @@ msgstr ""
 "\n"
 "接著 "
 
-#: ../src/signature.py:551
+#: ../src/signature.py:540
 msgid ""
 "\n"
 "Do\n"
@@ -570,7 +570,7 @@ msgstr ""
 "\n"
 "執行\n"
 
-#: ../src/signature.py:553
+#: ../src/signature.py:542
 msgid ""
 "\n"
 "\n"
@@ -588,50 +588,50 @@ msgstr "目前：%s"
 msgid "newer: %s "
 msgstr "較新：%s"
 
-#: ../src/seapplet.c:187
+#: ../src/seapplet.c:188
 msgid "New SELinux security alert"
 msgstr "新的 SELinux 安全性警告"
 
-#: ../src/seapplet.c:187
+#: ../src/seapplet.c:188
 msgid "AVC denial, click icon to view"
 msgstr "AVC 否定，請點選圖像來進行檢視"
 
-#: ../src/seapplet.c:193 ../src/seapplet.c:244
+#: ../src/seapplet.c:194 ../src/seapplet.c:245
 msgid "Dismiss"
 msgstr "消除"
 
-#: ../src/seapplet.c:203 ../src/seapplet.c:254
+#: ../src/seapplet.c:204 ../src/seapplet.c:255
 msgid "Show"
 msgstr "顯示"
 
 #. set tooltip
-#: ../src/seapplet.c:439 ../src/sealert:66
+#: ../src/seapplet.c:439 ../src/sealert:64
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC 否定，請點選以進行檢視"
 
-#: ../src/sealert:106
+#: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux 未啟用，sealert 無法在沒有 SELinux 的系統上執行"
 
-#: ../src/sealert:155
+#: ../src/sealert:150
 msgid "Not fixable."
 msgstr "無法修復。"
 
-#: ../src/sealert:162
+#: ../src/sealert:157
 #, c-format
 msgid "Successfully ran %s"
 msgstr "成功地執行了 %s"
 
-#: ../src/sealert:167
+#: ../src/sealert:162
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "%s 插件對於 %s id 無效"
 
-#: ../src/setroubleshootd:82
+#: ../src/setroubleshootd:69
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux未有啟用，setroubleshootd離開..."
 
-#: ../src/setroubleshootd:113
+#: ../src/setroubleshootd:101
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork 指令失敗: %d (%s)"

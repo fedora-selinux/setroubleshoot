@@ -28,7 +28,7 @@ am     cs_CZ  fa_IR  is     mai  pa     sr        zh_CN	\
 ar     cs     fa     it     mk   pl     sv        zh_HK	\
 as     cy     fi     ja_JP  ml   pt_BR  ta_IN     zh_TW	\
 ast    da     fr     ja     mr   pt     ta        zu	\
-bal    de_CH  gl     ka     ms   ro     te	\
+bal    de_DE  de_CH  gl     ka   ms     ro        te	\
 be     de     gu     kn     my   ru     tg	\
 bg     el     he     ko     nb   ru_RU  th	\
 bn_BD  en_GB  hi     ku     nds  si     tr	\
