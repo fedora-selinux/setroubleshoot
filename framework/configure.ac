@@ -22,18 +22,12 @@ AM_GLIB_GNU_GETTEXT
 IT_PROG_INTLTOOL
 
 ALL_LINGUAS="\
-af     bs     et     hy     lt   nso    sq        vi 	\
-aln    ca     eu_ES  id     lv   or     sr@latin  vi_VN	\
-am     cs_CZ  fa_IR  is     mai  pa     sr        zh_CN	\
-ar     cs     fa     it     mk   pl     sv        zh_HK	\
-as     cy     fi     ja_JP  ml   pt_BR  ta_IN     zh_TW	\
-ast    da     fr     ja     mr   pt     ta        zu	\
-bal    de_DE  de_CH  gl     ka   ms     ro        te	\
-be     de     gu     kn     my   ru     tg	\
-bg     el     he     ko     nb   ru_RU  th	\
-bn_BD  en_GB  hi     ku     nds  si     tr	\
-bn_IN  es_ES  hr     lo     nl   sk     uk	\
-bn     es     hu     lt_LT  nn   sl     ur	\
+af am ang ar as ast az az_IR be be@latin bg bn bn_IN br bs ca ca@valencia \
+crh cs cy da de dz el en en_CA en_GB en@shaw eo es et eu fa fi fr ga gl gu \
+he hi hr hu hy ia id io is it ja ka kg kk kn ko ku lg li lt lv mai mi mk \
+ml mn mr ms my nb nds ne nl nn nso oc or pa pl ps pt pt_BR ro ru rw si sk \
+sl sq sr sr@ije sr@latin sv ta te th tk tr tt ug uk ur uz uz@cyrillic vi \
+wa xh yi zh_CN zh_HK zh_TW
 "
 
 AC_PROG_LN_S
