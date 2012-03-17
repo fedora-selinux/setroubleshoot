@@ -16,8 +16,9 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
-
-
+import gettext
+translation=gettext.translation('setroubleshoot-plugins', fallback=True)
+_=translation.ugettext
 
 __all__ = [
     'ProgramError',

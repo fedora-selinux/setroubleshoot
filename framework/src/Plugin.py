@@ -19,6 +19,9 @@
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
 
+import gettext
+translation=gettext.translation('setroubleshoot-plugins', fallback=True)
+_=translation.ugettext
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
 

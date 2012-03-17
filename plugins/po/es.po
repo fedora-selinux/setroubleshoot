@@ -5,7 +5,7 @@
 # Translators:
 # Domingo Becker <domingobecker@gmail.com>, 2008, 2009.
 # Fernando Gonzalez Blanco <fgonz@fedoraproject.org>, 2009.
-# Gladys Guerrero <gguerrer@redhat.com>, 2010.
+# Gladys Guerrero <gguerrer@redhat.com>, 2010, 2012.
 # Héctor Daniel Cabrera <logan@fedoraproject.org>, 2009, 2010, 2011.
 # Manuel Ospina <mospina@redhat.com>, 2006.
 msgid ""
@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-03-16 04:11+0000\n"
+"Last-Translator: Gladys Guerrero <gguerrer@redhat.com>\n"
 "Language-Team: Spanish (Castilian) <trans-es@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -442,12 +442,12 @@ msgstr "setsebool -P %s %s"
 msgid ""
 "You must tell SELinux about this by enabling the '%s' boolean. You can read "
 "'%s' man page for more details."
-msgstr ""
+msgstr "Debe comunicarle a SELinux acerca de esto al habilitar el booleano  '%s'. Para obtener mayor información, consulte la página de manual '%s'."
 
 #: ../src/catchall_boolean.py:69
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s'boolean."
-msgstr ""
+msgstr "Debe comunicarle a  SELinux acerca de esto al habilitar el boolenao '%s'."
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -692,24 +692,24 @@ msgid ""
 "\n"
 "Disable IPV6 properly.\n"
 "    "
-msgstr ""
+msgstr "\nInhabilte IPV6 correctamente.\n    "
 
 #: ../src/disable_ipv6.py:40
 msgid "you want to disable IPV6 on this machine"
-msgstr ""
+msgstr "Si desea inhabilitar IPV6 en esta máquina"
 
 #: ../src/disable_ipv6.py:41
 msgid ""
 "you need to set /proc/sys/net/ipv6/conf/all/disable_ipv6 to 1 and do not "
 "blacklist the module'"
-msgstr ""
+msgstr "necesita establecer /proc/sys/net/ipv6/conf/all/disable_ipv6 a 1 y no poner en lista negra el módulo'"
 
 #: ../src/disable_ipv6.py:42
 msgid ""
 "Add \n"
 "net.ipv6.conf.all.disable_ipv6 = 1\n"
 "to /etc/sysctl.conf\n"
-msgstr ""
+msgstr "Añada\nnet.ipv6.conf.all.disable_ipv6 = 1\na /etc/sysctl.conf\n"
 
 #: ../src/file.py:27
 msgid ""
@@ -1119,7 +1119,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux negó acceso a qemu para el dispositivo de bloque  $TARGET_PATH.\n    Si esta es la imagen de virtualización, se necesita etiquetar con el contexto de archivo de virtualización (virt_image_t). Puede re-etiquetar $TARGET_PATH mediante chcon para que sea virt_image_t . También necesita ejecutar semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' para añadir esta nueva ruta a los sistemas predeterminados. Si no trató de usar  $TARGET_PATH como imagen qemu\n   podría indicar que existe un error o que hay un intento de intrusión.\n    "
 
 #: ../src/qemu_blk_image.py:38 ../src/qemu_file_image.py:41
 msgid ""
@@ -1584,7 +1584,7 @@ msgstr "Si desea permitir que administradores de bases de datos ejecuten ordenes
 
 #: ../booleans_trans.py:8
 msgid "If you want to allow clamscan to read user content"
-msgstr ""
+msgstr "Si desea permitir que clamscan lea el contenido"
 
 #: ../booleans_trans.py:9
 msgid ""
@@ -1596,7 +1596,7 @@ msgstr "Si desea permitir a tftp que modifique archivos públicos utilizados par
 msgid ""
 "If you want to allow ZoneMinder to modify public files used for public file "
 "transfer services."
-msgstr ""
+msgstr "Si desea que ZoneMinder modifique archivos públicos utilizados para tranferir servicios de archivos públicos."
 
 #: ../booleans_trans.py:11
 msgid ""
@@ -1648,7 +1648,7 @@ msgstr "Si desea permitir que programas y módulos HTTPD se conecten a bases de 
 msgid ""
 "If you want to allow ssh with chroot env to read and write files in the user"
 " home directories"
-msgstr ""
+msgstr "Si desea  otorgar ssh con chroot env derechos de lectura en los directorios principales de usuario"
 
 #: ../booleans_trans.py:21
 msgid "If you want to allow users to connect to the local mysql server"
@@ -1680,7 +1680,7 @@ msgstr "Si desea permitir que httpd ejecute programas cgi"
 
 #: ../booleans_trans.py:27
 msgid "If you want to determine whether polipo can access cifs file systems."
-msgstr ""
+msgstr "Si desea determinar si polipo puede acceder a sistemas de  archivos cifs."
 
 #: ../booleans_trans.py:28 ../booleans_trans.py:142
 msgid "If you want to allow confined virtual guests to manage nfs files"
@@ -1727,7 +1727,7 @@ msgstr "Si desea permitir que el cliente Puppet administre todos los tipos de ar
 msgid ""
 "If you want to allow the use of the audio devices as the source for the "
 "entropy feeds"
-msgstr ""
+msgstr "Si desea otorgar el uso de los dispositivos auditivos como fuente para alimentadores de entropía"
 
 #: ../booleans_trans.py:38
 msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
@@ -1737,7 +1737,7 @@ msgstr "Si desea permitir que ssh se registre como sysadm_r:sysadm_t"
 msgid ""
 "If you want to determine whether Polipo session daemon can send syslog "
 "messages."
-msgstr ""
+msgstr "Si desea determinar si el demonio de la sesión de Polipo puede enviar mensajes syslog."
 
 #: ../booleans_trans.py:40
 msgid ""
@@ -1789,7 +1789,7 @@ msgstr "Si desea permitir que samba comparta cualquier directorio o archivo de s
 
 #: ../booleans_trans.py:50
 msgid "If you want to allow ftp servers to connect to mysql database ports"
-msgstr ""
+msgstr "Si desea que servidores ftp se conecten a puertos de base de datos mysql"
 
 #: ../booleans_trans.py:51
 msgid "If you want to allow Git daemon system to search home directories."
@@ -1801,7 +1801,7 @@ msgstr "Si desea tener soporte SAMBA en directorios personales"
 
 #: ../booleans_trans.py:53
 msgid "If you want to allow mock to read files in home directories."
-msgstr ""
+msgstr "Si desea permitir que mock lea archivos en directorios principales."
 
 #: ../booleans_trans.py:54
 msgid "If you want to allow users to login using a sssd server"
@@ -1830,7 +1830,7 @@ msgstr "Si desea permitir que el cliente Irssi de IRC pueda conectarse a cualqui
 
 #: ../booleans_trans.py:59
 msgid "If you want to allow zabbix to connect to unreserved ports"
-msgstr ""
+msgstr "Si desea otorgar permiso a zabbix para que se conectedn a puertos no reservados"
 
 #: ../booleans_trans.py:60
 msgid "If you want to allow Apache to use mod_auth_pam"
@@ -1876,7 +1876,7 @@ msgstr "Si desea permitirle a qemu utilizar sistemas de arvhivos cifs/Samba"
 msgid ""
 "If you want to determine whether Polipo session daemon can bind tcp sockets "
 "to all unreserved ports."
-msgstr ""
+msgstr "Si desea determinar si el demonio de sesión de Polipo pueda conectar sockets tcp a puertos no reservados."
 
 #: ../booleans_trans.py:69
 msgid "If you want to allow qemu to use serial/parallel communication ports"
@@ -1888,7 +1888,7 @@ msgstr "Si desea permitir que Apache se comunique con el servicio avahi mediante
 
 #: ../booleans_trans.py:71
 msgid "If you want to allow all daemons to use tcp wrappers."
-msgstr ""
+msgstr "Si desea permitir que todos los demonios usen envolturas tcp."
 
 #: ../booleans_trans.py:72
 msgid "If you want to allow samba to share users home directories."
@@ -1968,7 +1968,7 @@ msgstr "Si desea permitir que qemu utilice dispositivos usb"
 
 #: ../booleans_trans.py:88
 msgid "If you want to allow exim to connect to databases (PostgreSQL, MySQL)"
-msgstr ""
+msgstr "Si desea permitir que exim se conecte a base de datos (PostgreSQML, MySQL)"
 
 #: ../booleans_trans.py:89
 msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
@@ -1988,7 +1988,7 @@ msgstr "Si desea permitir que todos los demonios puedan modificar o agregar arch
 
 #: ../booleans_trans.py:93
 msgid "If you want to allow httpd to connect to the ldap port"
-msgstr ""
+msgstr "Si desea permitir la conexión httpd al puerto Ldap"
 
 #: ../booleans_trans.py:94
 msgid ""
@@ -2026,7 +2026,7 @@ msgstr "Si desea permitir que servidores nfs modifiquen archivos públicos utili
 msgid ""
 "If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
 "ABRT event scripts"
-msgstr ""
+msgstr "Si desea permitir que ABRT ejecute el dominio   abrt_handle_event_t para manejar scripts de eventos ABRT."
 
 #: ../booleans_trans.py:102
 msgid ""
@@ -2038,7 +2038,7 @@ msgstr "Si desea unificar HTTPD para comunicarse con la terminal. Esto es necesa
 msgid ""
 "If you want to allow xend to run qemu-dm. Not required if using paravirt and"
 " no vfb."
-msgstr ""
+msgstr "Si desea permitir que xend ejecute qemu-dm. No se requiere si se utiliza paravirt y no vfb."
 
 #: ../booleans_trans.py:104
 msgid ""
@@ -2054,13 +2054,13 @@ msgstr "Si desea tener soporte fusefs en los directorios personales"
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
 "network port."
-msgstr ""
+msgstr "Si desea permitir que los gestores de conexión Telepathy se conecten al puerto de red. "
 
 #: ../booleans_trans.py:107
 msgid ""
 "If you want to determine whether calling user domains can execute Polipo "
 "daemon in the polipo_session_t domain."
-msgstr ""
+msgstr "Si desea determinar si los dominios de usuarios de llamadas puedan ejecutar el demonio Polipo en el domino polipo_session_t."
 
 #: ../booleans_trans.py:108
 msgid "If you want to allow confined applications to use nscd shared memory."
@@ -2072,7 +2072,7 @@ msgstr "Si desea permitir que w muestre a todos"
 
 #: ../booleans_trans.py:110
 msgid "If you want to allow fenced domain to execute ssh."
-msgstr ""
+msgstr "Si desea otorgar dominio de vallas para ejecutar ssh."
 
 #: ../booleans_trans.py:111
 msgid ""
@@ -2082,7 +2082,7 @@ msgstr "Si desea permitir que Apache modifique archivos públicos utilizados por
 
 #: ../booleans_trans.py:112
 msgid "If you want to allow user music sharing"
-msgstr ""
+msgstr "Si desea permitir que el usuario comparta música"
 
 #: ../booleans_trans.py:113
 msgid "If you want to allow dbadm to read files in users home directories"
@@ -2110,7 +2110,7 @@ msgstr "Si desea evitar que programas o usuarios se trasladen al dominio insmod.
 msgid ""
 "If you want to allow httpd to act as a FTP client connecting to the ftp port"
 " and ephemeral ports"
-msgstr ""
+msgstr "Si desea permitir que httpd actúe como un cliente FTP para el  puerto ftp y puertos efímeros."
 
 #: ../booleans_trans.py:119
 msgid "If you want to allow Cobbler to access nfs file systems."
@@ -2130,7 +2130,7 @@ msgstr "Si desea permitir que clientes modifiquen segmentos de memoria compartid
 msgid ""
 "If you want to allow confined virtual guests to use executable memory and "
 "executable stack"
-msgstr ""
+msgstr "Si desea permitir que los huéspedes virtuales confinados usen memoria y pila ejecutables"
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow webadm to read files in users home directories"
@@ -2160,7 +2160,7 @@ msgstr "Si desea permitir que httpd tenga acceso a sistemas de archivos nfs"
 msgid ""
 "If you want to allow unconfined users to transition to the chrome sandbox "
 "domains when running chrome-sandbox"
-msgstr ""
+msgstr "Si desea permitir que usuarios no confinados pasen a dominios chrome de entorno de prueba cuando ejecuten chrome-sandbox"
 
 #: ../booleans_trans.py:130
 msgid ""
@@ -2215,12 +2215,12 @@ msgstr "Si desea permitir que usuarios regulares tengan acceso directo a través
 msgid ""
 "If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
 "dedicated logical volumes for disk images."
-msgstr ""
+msgstr "Si desea permitir que xend ejecute blktapctrl/tapdisk. No se requiere si utiliza volúmenes lógicos para imágenes de disco."
 
 #: ../booleans_trans.py:141
 msgid ""
 "If you want to allow confined virtual guests to interact with the sanlock"
-msgstr ""
+msgstr "Si desea permitir que los huéspedes virtuales confinados interactúen con el sanlock"
 
 #: ../booleans_trans.py:143
 msgid "If you want to allow all domains to have the kernel load modules"
@@ -2298,7 +2298,7 @@ msgstr "Si desea ignorar errores de  wine mmap_zero."
 
 #: ../booleans_trans.py:159
 msgid "If you want to allow collectd to connect to the network using TCP."
-msgstr ""
+msgstr "Si desea permitir que collectd se conecte a la red mediante TCP."
 
 #: ../booleans_trans.py:160
 msgid ""

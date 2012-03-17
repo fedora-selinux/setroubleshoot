@@ -35,6 +35,7 @@ __all__ = [
     'get_rpm_nvr_by_file_path',
     'is_hex',
     'split_rpm_nvr',
+    'file_types',
     'get_user_home_dir',
     'get_plugin_names',
     'load_plugins',
@@ -277,6 +278,9 @@ def get_rpm_nvr_by_file_path_temporary(name):
     return nvr
 
 ###
+
+import setools
+file_types =  setools.seinfo(setools.ATTRIBUTE,"file_type")[0]["types"]
 
 def get_rpm_nvr_by_name(name):
     return get_rpm_nvr_by_name_temporary(name)
