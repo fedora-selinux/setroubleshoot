@@ -12,6 +12,7 @@ PLUGIN_FILES =				\
 	allow_execstack.py		\
 	allow_ftpd_use_cifs.py		\
 	allow_ftpd_use_nfs.py		\
+	associate.py			\
 	automount_exec_config.py	\
 	bind_ports.py			\
 	catchall_boolean.py		\

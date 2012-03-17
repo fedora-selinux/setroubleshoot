@@ -52,6 +52,7 @@ class plugin(Plugin):
     def analyze(self, avc):
         if avc.matches_target_types(['.*fs_t'])    and \
            avc.all_accesses_are_in(['associate'])  and \
+           avc.tcontext.type in file_types and \
            avc.has_tclass_in(['filesystem']):
             # MATCH
             return self.report()
