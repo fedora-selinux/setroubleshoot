@@ -49,7 +49,6 @@ class plugin(Plugin):
         self.set_priority(6)
 
     def analyze(self, avc):
-        import commands
         if avc.syscall == 'execve':
             if not avc.has_tclass_in(['process', 'capability']) or \
                     avc.has_any_access_in(['write', 'append']):

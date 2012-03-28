@@ -27,7 +27,6 @@ from setroubleshoot.Plugin import Plugin
 import os 
 from stat import *
 
-import selinux
 class plugin(Plugin):
     summary = _('''
     SELinux is preventing $SOURCE_PATH "$ACCESS" access to $TARGET_PATH.

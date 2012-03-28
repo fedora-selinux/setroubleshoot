@@ -328,7 +328,7 @@ def get_user_home_dir():
     uid = os.getuid()
     try:
         pw = pwd.getpwuid(uid)
-    except KeyError, e:
+    except KeyError:
         return None
     home_dir = pw.pw_dir
     return home_dir
