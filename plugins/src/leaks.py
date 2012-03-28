@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2009 Red Hat, Inc.
+# Copyright (C) 2009-2012 Red Hat, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -46,12 +46,12 @@ class plugin(Plugin):
 
     def __init__(self):
         Plugin.__init__(self,__name__)
-        self.set_priority(1)
+        self.set_priority(6)
 
     def analyze(self, avc):
         import commands
         if avc.syscall == 'execve':
-            if not avc.has_tclass_in(['process', 'capability', 'file']) or \
+            if not avc.has_tclass_in(['process', 'capability']) or \
                     avc.has_any_access_in(['write', 'append']):
             # MATCH
                 return self.report()

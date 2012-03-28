@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-03-17 16:47+0000\n"
+"Last-Translator: Valentin Laskov <laskov@festa.bg>\n"
 "Language-Team: Bulgarian <trans-bg@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    Ако на httpd скриптове трябва да бъде позволено да пишат в публични директории, Вие ще трябва да включите булевата променлива $BOOLEAN и да промените файловия контекст на публичната директория на public_content_rw_t.  Прочетете httpd_selinux\n    man страницата за още информация:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <път>\"\n    Вие ще трябва да промените също и файловия контекст по подразбиране на файловете в директорията с цел да ги запазите даже и при пълно преетикетиране.  \"semanage fcontext -a -t public_content_rw_t <път>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -94,7 +94,7 @@ msgstr "\n    Ако искате $SOURCE да продължи, трябва д
 msgid ""
 "you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "не мислите, че на $SOURCE_PATH ще е нужен map на heap паметта, която да е едновременно за писане и изпълнение."
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
@@ -203,7 +203,7 @@ msgstr "\n    Понякога библиотека погрешно е марк
 msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "не мислите, че на $SOURCE_PATH ще е нужен map на паметта на стека, която да е едновременно за писане и изпълнение."
 
 #: ../src/allow_execstack.py:88
 msgid ""
@@ -986,12 +986,12 @@ msgid ""
 "    would be generated. This is a serious issue. Your system may very well be \n"
 "    compromised.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux забрани на $SOURCE възможността за mmap на ниската част от \n    адресното пространство на ядрото.  Тази възможност е конфигурирана от \n    /proc/sys/kernel/mmap_min_addr.  Предотвратяването спомага за \n    защитата срещу използването на null deref бъгове в ядрото. За всички \n    приложения, които се нуждаят от такъв достъп, трябва вече да има \n    написани политики.  Това AVC се генерира, когато компрометирано \n    приложение се опита да промени ядрото. Това е сериозен проблем. \n    Вашата система най-вероятно е компрометирана.\n    "
 
 #: ../src/mmap_zero.py:46
 msgid ""
 "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
-msgstr ""
+msgstr "не мислите, че на $SOURCE_PATH ще е нужен mmap на долната част от паметта в ядрото."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
@@ -1646,7 +1646,7 @@ msgstr "Ако искате да позволите HTTPD скриптове и 
 msgid ""
 "If you want to allow ssh with chroot env to read and write files in the user"
 " home directories"
-msgstr ""
+msgstr "Ако искате да позволите ssh с chroot среда да чете и пише файлове в домашните директории на потребители"
 
 #: ../booleans_trans.py:21
 msgid "If you want to allow users to connect to the local mysql server"
@@ -1654,7 +1654,7 @@ msgstr "Ако искате да позволите потребители да 
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "Ако искате да позволите polipo да се свързва към всички портове > 1023"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -1678,7 +1678,7 @@ msgstr "Ако искате да позволите httpd да изпълняв�
 
 #: ../booleans_trans.py:27
 msgid "If you want to determine whether polipo can access cifs file systems."
-msgstr ""
+msgstr "Ако искате да се определя дали polipo да има достъп до cifs файлови системи."
 
 #: ../booleans_trans.py:28 ../booleans_trans.py:142
 msgid "If you want to allow confined virtual guests to manage nfs files"
@@ -1715,7 +1715,7 @@ msgstr "Ако искате да позволите exim да чете непр�
 
 #: ../booleans_trans.py:35
 msgid "If you want to allow sysadm to debug or ptrace all processes."
-msgstr ""
+msgstr "Ако искате да позволите сисадминът да проследява (debug, ptrace) всички процеси."
 
 #: ../booleans_trans.py:36
 msgid "If you want to allow Puppet client to manage all file types."
@@ -1725,7 +1725,7 @@ msgstr "Ако искате да позволите Puppet клиент да у�
 msgid ""
 "If you want to allow the use of the audio devices as the source for the "
 "entropy feeds"
-msgstr ""
+msgstr "Ако искате да позволите употребата на аудио устройства като източникът за емисии на entropy"
 
 #: ../booleans_trans.py:38
 msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
@@ -1735,7 +1735,7 @@ msgstr "Ако искате да позволите ssh влизания кат�
 msgid ""
 "If you want to determine whether Polipo session daemon can send syslog "
 "messages."
-msgstr ""
+msgstr "Ако искате да се определя дали Polipo демон за сесии да може да изпраща syslog съобщения."
 
 #: ../booleans_trans.py:40
 msgid ""
@@ -1769,7 +1769,7 @@ msgstr "Ако искате да позволите piranha-lvs среда да 
 msgid ""
 "If you want to disallow programs, such as newrole, from transitioning to "
 "administrative user domains."
-msgstr ""
+msgstr "Ако искате да забраните програми, като newrole, да се променят в административни потребителски среди."
 
 #: ../booleans_trans.py:47
 msgid ""
@@ -1874,7 +1874,7 @@ msgstr "Ако искате да позволите qemu да ползва cifs/
 msgid ""
 "If you want to determine whether Polipo session daemon can bind tcp sockets "
 "to all unreserved ports."
-msgstr ""
+msgstr "Ако искате да се определя дали Polipo демон за сесии да може да привързва tcp сокети към всички нерезервирани портове."
 
 #: ../booleans_trans.py:69
 msgid "If you want to allow qemu to use serial/parallel communication ports"
@@ -1921,7 +1921,7 @@ msgid ""
 "executable.  Doing this is a really bad idea. Probably indicates a badly "
 "coded executable, but could indicate an attack. This executable should be "
 "reported in bugzilla"
-msgstr ""
+msgstr "Ако искате да позволите неограничени програми да правят паметта си изпълнима.  Да направите това е наистина лоша идея. Вероятно е показател за лошо създадена програма, но може да е и индикатор за атака. Тази програма трябва да бъде докладвана в bugzilla"
 
 #: ../booleans_trans.py:79
 msgid "If you want to allow dbadm to manage files in users home directories"
@@ -2024,7 +2024,7 @@ msgstr "Ако искате да позволите nfs сървъри да пр
 msgid ""
 "If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
 "ABRT event scripts"
-msgstr ""
+msgstr "Ако искате да позволите ABRT да работи в abrt_handle_event_t среда за да обработва ABRT скриптове за събития"
 
 #: ../booleans_trans.py:102
 msgid ""
@@ -2036,7 +2036,7 @@ msgstr "Ако искате да уеднаквите комуникиранет
 msgid ""
 "If you want to allow xend to run qemu-dm. Not required if using paravirt and"
 " no vfb."
-msgstr ""
+msgstr "Ако искате да позволите xend да стартира qemu-dm. Не се изисква при ползване на paravirt и не vfb."
 
 #: ../booleans_trans.py:104
 msgid ""
@@ -2058,7 +2058,7 @@ msgstr "Ако искате да позволите мениджърите на 
 msgid ""
 "If you want to determine whether calling user domains can execute Polipo "
 "daemon in the polipo_session_t domain."
-msgstr ""
+msgstr "Ако искате да се определя дали извикващи потребителски среди могат да стартират демона Polipo в polipo_session_t средите."
 
 #: ../booleans_trans.py:108
 msgid "If you want to allow confined applications to use nscd shared memory."
@@ -2070,7 +2070,7 @@ msgstr "Ако искате да позволите w да показва все
 
 #: ../booleans_trans.py:110
 msgid "If you want to allow fenced domain to execute ssh."
-msgstr ""
+msgstr "Ако искате да позволите оградени среди да стартират ssh."
 
 #: ../booleans_trans.py:111
 msgid ""
@@ -2102,13 +2102,13 @@ msgstr "Ако искате да позволите потребител да в
 msgid ""
 "If you want to disallow programs and users from transitioning to insmod "
 "domain."
-msgstr ""
+msgstr "Ако искате да забраните програми и потребители да се превръщат в insmod среди."
 
 #: ../booleans_trans.py:118
 msgid ""
 "If you want to allow httpd to act as a FTP client connecting to the ftp port"
 " and ephemeral ports"
-msgstr ""
+msgstr "Ако искате да позволите httpd да действа като FTP клиент, свързвайки се към ftp порта и ефимерни портове"
 
 #: ../booleans_trans.py:119
 msgid "If you want to allow Cobbler to access nfs file systems."
@@ -2128,7 +2128,7 @@ msgstr "Ако искате да позволите клиенти да пиша
 msgid ""
 "If you want to allow confined virtual guests to use executable memory and "
 "executable stack"
-msgstr ""
+msgstr "Ако искате да позволите ограничени виртуални гости да ползват изпълнима памет и изпълним стек"
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow webadm to read files in users home directories"
@@ -2136,7 +2136,7 @@ msgstr "Ако искате да позволите webadm да чете фай�
 
 #: ../booleans_trans.py:124
 msgid "If you want to enable polyinstantiated directory support."
-msgstr ""
+msgstr "Ако искате да позволите поддръжка на polyinstantiated directory."
 
 #: ../booleans_trans.py:125
 msgid "If you want to support X userspace object manager"
@@ -2158,7 +2158,7 @@ msgstr "Ако искате да позволите на httpd достъп до
 msgid ""
 "If you want to allow unconfined users to transition to the chrome sandbox "
 "domains when running chrome-sandbox"
-msgstr ""
+msgstr "Ако искате да позволите неограничени потребители да се променят на chrome sandbox среди, когато стартират chrome-sandbox"
 
 #: ../booleans_trans.py:130
 msgid ""
@@ -2168,7 +2168,7 @@ msgstr "Ако искате да позволите на postfix_local domain п
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
+msgstr "Ако искате да позволите на sge достъп до nfs файлови системи."
 
 #: ../booleans_trans.py:132
 msgid "If you want to allow xguest users to use blue tooth devices"
@@ -2199,7 +2199,7 @@ msgid ""
 "If you want to allow users to run TCP servers (bind to ports and accept "
 "connection from the same domain and outside users)  disabling this forces "
 "FTP passive mode and may change other protocols."
-msgstr ""
+msgstr "Ако искате да позволите потребители да стартират TCP сървъри (да се привързват към портове и да приемат връзки от същата среда и извън потребители)  забраняването ще предизвика FTP passive mode и може да промени други протоколи."
 
 #: ../booleans_trans.py:138
 msgid "If you want to allow mysqld to connect to all ports"
@@ -2213,16 +2213,16 @@ msgstr "Ако искате да позволите на обикновени п
 msgid ""
 "If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
 "dedicated logical volumes for disk images."
-msgstr ""
+msgstr "Ако искате да позволите xend да стартира blktapctrl/tapdisk. Не е необходимо при използване на dedicated логически томове за дискови образи."
 
 #: ../booleans_trans.py:141
 msgid ""
 "If you want to allow confined virtual guests to interact with the sanlock"
-msgstr ""
+msgstr "Ако искате да позволите ограничени виртуални гости да си взаимодействат със sanlock"
 
 #: ../booleans_trans.py:143
 msgid "If you want to allow all domains to have the kernel load modules"
-msgstr ""
+msgstr "Ако искате да позволите всички среди да имат зареждането на модули към ядрото"
 
 #: ../booleans_trans.py:144
 msgid "If you want to allow confined virtual guests to use usb devices"
@@ -2236,7 +2236,7 @@ msgstr "Ако искате да разрешите допълнителни п�
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "Ако искате да позволите httpd процеси да управляват IPA съдържание"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
@@ -2288,7 +2288,7 @@ msgstr "Ако искате да позволите samba да експорти�
 msgid ""
 "If you want to control the ability to mmap a low area of the address space, "
 "as configured by /proc/sys/kernel/mmap_min_addr."
-msgstr ""
+msgstr "Ако искате да контролирате възможността за mmap на долните части от адресното пространство, както е конфигурирано от /proc/sys/kernel/mmap_min_addr."
 
 #: ../booleans_trans.py:158
 msgid "If you want to ignore wine mmap_zero errors."
@@ -2310,7 +2310,7 @@ msgstr "Ако искате да позволите потребителски �
 #: ../booleans_trans.py:162
 msgid ""
 "If you want to allow fenced domain to connect to the network using TCP."
-msgstr ""
+msgstr "Ако искате да позволите оградени среди да се свързват към мрежата чрез TCP."
 
 #: ../booleans_trans.py:163
 msgid ""
@@ -2333,7 +2333,7 @@ msgstr "Ако искате да позволите http демон да про�
 msgid ""
 "If you want to allow sftp-internal to login to local users and read/write "
 "all files on the system, governed by DAC."
-msgstr ""
+msgstr "Ако искате да позволите sftp-internal да влиза в локални потребители и да чете/пише всички файлове в системата, регулирано от DAC."
 
 #: ../booleans_trans.py:168
 msgid "If you want to allow xguest users to mount removable media"
@@ -2353,7 +2353,7 @@ msgid ""
 "If you want to deny user domains applications to map a memory region as both"
 " executable and writable, this is dangerous and the executable should be "
 "reported in bugzilla"
-msgstr ""
+msgstr "Ако искате да забраните приложения в потребителски среди да заделят части от паметта като изпълняема или записваема, понеже е опасно и такива приложения би трябвало да се докладват в bugzilla"
 
 #: ../booleans_trans.py:172
 msgid "If you want to allow syslogd daemon to send mail"
@@ -2361,7 +2361,7 @@ msgstr "Ако искате да позволите демона syslogd да и
 
 #: ../booleans_trans.py:173
 msgid "If you want to determine whether Polipo can access nfs file systems."
-msgstr "Ако искате да зададете дали Polipo да има достъп до nfs файлови системи."
+msgstr "Ако искате да се определя дали Polipo да има достъп до nfs файлови системи."
 
 #: ../booleans_trans.py:174
 msgid "If you want to allow samba to run unconfined scripts"
@@ -2385,7 +2385,7 @@ msgstr "Ако искате да позволите BIND да се привър�
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "Ако искате да позволите демона gitisis да изпраща поща"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2507,7 +2507,7 @@ msgstr "Ако искате да позволите squid да се свързв
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "Ако искате да позволите възможността syslogd да чете/пише в терминали"
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."

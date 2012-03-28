@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-16 04:11+0000\n"
+"PO-Revision-Date: 2012-03-19 01:27+0000\n"
 "Last-Translator: Gladys Guerrero <gguerrer@redhat.com>\n"
 "Language-Team: Spanish (Castilian) <trans-es@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    Si los scripts httpd deben tener permiso de escritura para los directorios públicos, es necesario encender el booleano $BOOLEAN y cambiar el contexto de archivos del directorio público a  public_content_rw_t.  Consulte la página de manual httpd_selinux\n    para obtener mayor información:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n    También debe cambiar los archivos de etiquetas de contexto de archivo predeterminado en el sistema con el fin de preservar el etiquetamiento del directorio público incluso en un reetiquetamiento completo.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -1103,7 +1103,7 @@ msgstr "\n    Puede modificar el contexto de archivo ejecutando chcon -t public_
 
 #: ../src/public_content.py:50
 msgid "you want to treat $TARGET_BASE_PATH as public content"
-msgstr ""
+msgstr "Si desea tratar a $TARGET_BASE_PATH como contenido público"
 
 #: ../src/public_content.py:51
 msgid ""
@@ -1656,7 +1656,7 @@ msgstr "Si desea permitir que los usuarios se conecten al servidor local mysql"
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "Si desea otorgar a Polipo conexión a todos los puertos > 1023 "
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -2170,7 +2170,7 @@ msgstr "Si desea permitir que el dominio postfix_local tenga acceso completo y p
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
+msgstr "Si desea otorgar a sge acceso a sistemas de archivos nfs."
 
 #: ../booleans_trans.py:132
 msgid "If you want to allow xguest users to use blue tooth devices"
@@ -2238,7 +2238,7 @@ msgstr "Si desea habilitar permisos adicionales necesarios para soportar disposi
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "Si desea permitir que los procesos httpd puedan administrar el contenido IPA"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
@@ -2355,15 +2355,15 @@ msgid ""
 "If you want to deny user domains applications to map a memory region as both"
 " executable and writable, this is dangerous and the executable should be "
 "reported in bugzilla"
-msgstr ""
+msgstr "Si desea negar aplicaciones de dominios de usuario para asignar región de memoria  tanto en modo de ejecución como de escritura es peligroso y el ejecutable debe ser reportado en bugzilla."
 
 #: ../booleans_trans.py:172
 msgid "If you want to allow syslogd daemon to send mail"
-msgstr ""
+msgstr "Si desea permitir que el demonio syslogd envíe correo"
 
 #: ../booleans_trans.py:173
 msgid "If you want to determine whether Polipo can access nfs file systems."
-msgstr ""
+msgstr "Si desea determinar si Polipo puede acceder a sistemas de archivos nfs."
 
 #: ../booleans_trans.py:174
 msgid "If you want to allow samba to run unconfined scripts"
@@ -2375,7 +2375,7 @@ msgstr "Si desea tener soporte NFS en los directorios personales"
 
 #: ../booleans_trans.py:176
 msgid "If you want to allow ftp servers to connect to all ports > 1023"
-msgstr ""
+msgstr "Si desea permitir que servidores ftp puedan conectarse a todos los puertos > 1023"
 
 #: ../booleans_trans.py:177
 msgid "If you want to allow confined applications to run with kerberos."
@@ -2383,11 +2383,11 @@ msgstr "Si desea permitir que aplicaciones confinadas sean ejecutadas con kerber
 
 #: ../booleans_trans.py:178
 msgid "If you want to allow BIND to bind apache port."
-msgstr ""
+msgstr "Si desea permitir que BIND conecte al puerto de Apache."
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "Si desea permitir que el demonio gitisis envíe correo"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2423,7 +2423,7 @@ msgstr "Si desea permitir que servidores ftp carguen archivos, utilizados por se
 
 #: ../booleans_trans.py:186
 msgid "If you want to allow video playing tools to run unconfined"
-msgstr ""
+msgstr "Si desea permitir que las herramientas de juegos de vídeo se ejecuten sin ser confinadas"
 
 #: ../booleans_trans.py:187
 msgid ""
@@ -2463,7 +2463,7 @@ msgstr "Si desea permitir a samba compartir cualquier archivo o directorio de le
 msgid ""
 "If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
 "database"
-msgstr ""
+msgstr "Si desea que el master Puppet que va usar pueda conectarse a MySQL y  a la base de datos PostgreSQL"
 
 #: ../booleans_trans.py:195
 msgid ""
@@ -2483,7 +2483,7 @@ msgstr "Si desea permitir que internal-sftp lea y escriba archivos en los direct
 
 #: ../booleans_trans.py:198
 msgid "If you want to allow http daemon to connect to zabbix"
-msgstr ""
+msgstr "Si desea permitir que el demonio http se conecte con zabbix"
 
 #: ../booleans_trans.py:199
 msgid "If you want to allow all domains to use other domains file descriptors"
@@ -2509,7 +2509,7 @@ msgstr "Si desea permitir que squid se conecte con todos los puertos, no sólo c
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "Si desea otorgar a syslogd la capacidad de leer y escribir en terminales."
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."
@@ -2538,4 +2538,4 @@ msgstr "Si desea permitir que internal-sftp anónimos carguen archivos, utilizad
 
 #: ../booleans_trans.py:211
 msgid "If you want to allow unprivileged users to execute DDL statement"
-msgstr ""
+msgstr "Si desea permitir que usuarios sin privilegios ejecuten la declaración DDL"

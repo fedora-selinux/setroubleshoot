@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-03-25 04:08+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <trans-zh_TW@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,7 +47,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    如果該允許 httpd 指令稿寫入公用目錄，您需要開啟 $BOOLEAN 布林值，並將公共目錄的檔案情境變更為 public_content_rw_t。請閱讀 httpd_selinux\n    man 頁面以瞭解更多資訊：\n    「setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>」\n    您必須也變更系統上的預設檔案情境標籤檔，這樣才能連完整重新標記的情況下也能留住公共目錄標籤。「semanage fcontext -a -t public_content_rw_t <path>」\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -81,7 +81,7 @@ msgid ""
 "    this access until the application is fixed. Please file a bug\n"
 "    report against this package.\n"
 "    "
-msgstr "\n    $SOURCE 應用程式嘗試更改堆疊上的記憶體（利用 malloc 來分配的）存取\n    保護。這是個潛在的安全性\n    問題。應用程式不該這麼作。應用程式有時\n    會被錯誤編寫，並要求此許可。\n    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux 記憶體保護測試</a>\n    網頁解釋如何移除這項需求。若 $SOURCE 無法運作而\n    您需要它運作的話，您可透過暫時性地設定 SELinux 以允許\n    這項存取，直到應用程式被修復。請針對於此套件提交一份\n    錯誤報告。\n    "
+msgstr "\n    $SOURCE 應用程式嘗試更改堆疊上的記憶體 (利用 malloc 來分配的) 存取\n    保護。這是個潛在的安全性\n    問題。應用程式不該這麼作。應用程式有時\n    會被錯誤編寫，並要求此許可。\n    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux 記憶體保護測試</a>\n    網頁解釋如何移除這項需求。若 $SOURCE 無法運作而\n    您需要它運作的話，您可透過暫時性地設定 SELinux 以允許\n    這項存取，直到應用程式被修復。請針對於此套件提交一份\n    錯誤報告。\n    "
 
 #: ../src/allow_execheap.py:44
 msgid ""
@@ -158,7 +158,7 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
-msgstr "\n    若您信任 $TARGET_PATH 可正確執行的話，您可將\n    檔案 context 更改為 textrel_shlib_t。「chcon -t textrel_shlib_t\n    '$TARGET_PATH'」\n    您也必須要更改系統上的預設檔案情境檔才可將它們保留（就算是進行完整重新標記後）。「semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'」\n    \n    "
+msgstr "\n    若您信任 $TARGET_PATH 可正確執行的話，您可將\n    檔案 context 更改為 textrel_shlib_t。「chcon -t textrel_shlib_t\n    '$TARGET_PATH'」\n    您也必須要更改系統上的預設檔案情境檔才可將它們保留（就算是進行完全重新標記後）。「semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'」\n    \n    "
 
 #: ../src/allow_execstack.py:53
 msgid ""
@@ -232,14 +232,14 @@ msgstr ""
 #: ../src/allow_execstack.py:116
 #, python-format
 msgid "execstack -c %s"
-msgstr ""
+msgstr "execstack -c %s"
 
 #: ../src/allow_ftpd_use_cifs.py:29
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 防止 ftp 幕後程式 $ACCESS 檔案儲存於 CIFS 檔案系統。\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:33
 msgid ""
@@ -289,7 +289,7 @@ msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS filesystem.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 防止 ftp 幕後程式 $ACCESS 檔案儲存於 NFS 檔案系統。"
 
 #: ../src/allow_ftpd_use_nfs.py:33
 msgid ""
@@ -354,7 +354,7 @@ msgid ""
 "\n"
 "    If you want to change the file context of $TARGET_PATH so that the automounter can execute it you can execute \"chcon -t bin_t $TARGET_PATH\".  If you want this to survive a relabel, you need to permanently change the file context: execute  \"semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\".\n"
 "    "
-msgstr ""
+msgstr "\n    如果您想變更 $TARGET_PATH 的檔案情境來讓自動掛載器可以執行它，您可以執行「chcon -t bin_t $TARGET_PATH」。如果您想讓它在重新標記後仍可使用，您需要永久性更動檔案情境：執行「semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'」。\n    "
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -374,7 +374,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to bind to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 已拒絕 $SOURCE 綁定至沒有 SELinux 類型關聯的 $PORT_NUMBER 網路連接埠。\n    如果應該允許 $SOURCE 聽取 $PORT_NUMBER，請使用 <i>semanage</i> 指令來指派 $PORT_NUMBER 為 $SOURCE_TYPE 可以綁定至的連接埠類型 (%s)。\n    \n\n如果 $SOURCE 不應該\n    綁定至 $PORT_NUMBER，這可能是有人企圖入侵的訊號。\n    "
 
 #: ../src/bind_ports.py:38
 #, python-format
@@ -390,14 +390,14 @@ msgid ""
 "\n"
 "If this system is running as an NIS Client, turning on the allow_ypbind boolean may fix the problem.  setsebool -P allow_ypbind=1.\n"
 "    "
-msgstr ""
+msgstr "\n    如果您想允許 $SOURCE 綁定至連接埠 $PORT_NUMBER，您可以執行\n\n    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    \nPORT_TYPE 為後述之一：%s。\n\n    \n\n如果此系統正以 NIS Client 執行，開啟 allow_ypbind 布林值可能修正這個問題。setsebool -P allow_ypbind=1。\n    "
 
 #: ../src/bind_ports.py:51 ../src/connect_ports.py:50
 #, python-format
 msgid ""
 "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "    where PORT_TYPE is one of the following: %s."
-msgstr ""
+msgstr "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    PORT_TYPE 為後述之一：%s。"
 
 #: ../src/catchall_boolean.py:32
 msgid ""
@@ -430,12 +430,12 @@ msgstr "\n    使用者可設定受限的程序，以執行所需的各種存取
 #: ../src/catchall_boolean.py:60
 #, python-format
 msgid "you want to %s"
-msgstr ""
+msgstr "您想要%s"
 
 #: ../src/catchall_boolean.py:63
 #, python-format
 msgid "setsebool -P %s %s"
-msgstr ""
+msgstr "setsebool -P %s %s"
 
 #: ../src/catchall_boolean.py:67
 #, python-format
@@ -473,11 +473,11 @@ msgid ""
 "where FILE_TYPE is one of the following: %s. \n"
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
-msgstr ""
+msgstr "# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\nFILE_TYPE 為後述之一：%s。\n接著執行：\nrestorecon -v '$FIX_TARGET_PATH'\n"
 
 #: ../src/catchall.py:29
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr ""
+msgstr "SELinux 防止 $SOURCE_PATH 「$ACCESS」存取。"
 
 #: ../src/catchall.py:31
 msgid ""
@@ -531,7 +531,7 @@ msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
-msgstr ""
+msgstr "現在透過執行以下指令來允許此存取：\n# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
 msgid ""
@@ -593,7 +593,7 @@ msgstr "\n    您可透過執行 chcon -R -t cvs_data_t '$TARGET_PATH' 來更改
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "$TARGET_BASE_PATH 應該透過 cvs 幕後程式分享"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
@@ -604,14 +604,14 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 防止 $SOURCE_PATH 「$ACCESS」的能力。\n    "
 
 #: ../src/dac_override.py:32
 msgid ""
 "\n"
 "\tdac_override and dac_read_search capabilities usually indicates that the root process does not have access to a file based on the permission flags.  This usually mean you have some file with the wrong ownership/permissions on it.\n"
 "    "
-msgstr ""
+msgstr "\n\tdac_override 與 dac_read_search 能力通常表示根程序基於許可權旗標設定而沒有檔案的存取權。這通常代表您有些擁有者/許可權設定有誤的檔案。\n    "
 
 #: ../src/dac_override.py:38
 msgid ""
@@ -685,18 +685,18 @@ msgstr ""
 msgid ""
 "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/disable_ipv6.py:30
 msgid ""
 "\n"
 "Disable IPV6 properly.\n"
 "    "
-msgstr ""
+msgstr "\n適當停用 IPV6。\n    "
 
 #: ../src/disable_ipv6.py:40
 msgid "you want to disable IPV6 on this machine"
-msgstr ""
+msgstr "您想要在此機器上停用 IPV6"
 
 #: ../src/disable_ipv6.py:41
 msgid ""
@@ -709,7 +709,7 @@ msgid ""
 "Add \n"
 "net.ipv6.conf.all.disable_ipv6 = 1\n"
 "to /etc/sysctl.conf\n"
-msgstr ""
+msgstr "將\nnet.ipv6.conf.all.disable_ipv6 = 1\n加入至 /etc/sysctl.conf\n"
 
 #: ../src/file.py:27
 msgid ""
@@ -742,7 +742,7 @@ msgstr "\n    您可以 root 身份執行下列指令來重新標記您\n    的
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr ""
+msgstr "這是由新建的檔案系統造成。"
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
@@ -754,7 +754,7 @@ msgstr ""
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
-msgstr ""
+msgstr "您需要完整重新標記。"
 
 #: ../src/filesystem_associate.py:27
 msgid ""
@@ -798,7 +798,7 @@ msgstr ""
 msgid ""
 "use a command like \"cp -p\" to preserve all permissions except SELinux "
 "context."
-msgstr ""
+msgstr "使用像是「cp -p」的指令來保留完整許可權設定，但不包含 SELinux 情境。"
 
 #: ../src/httpd_can_sendmail.py:28
 msgid ""
@@ -839,7 +839,7 @@ msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 防止 httpd $ACCESS 存取 http 檔案。"
 
 #: ../src/httpd_unified.py:33
 msgid ""
@@ -859,7 +859,7 @@ msgid ""
 "    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially other\n"
 "    script types.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 防止 httpd $ACCESS 存取 http 檔案。\n\n    原本來說 httpd 允許完全存取所有標有 http 檔案情境標籤\n    的檔案。這部機器已把 $BOOLEAN 關閉而有高度緊繃的安\n    全方針。這需要每個檔案都有明確標籤。如果有個檔案是 \n    cgi 指令稿，則需要有 httpd_TYPE_script_exec_t 標籤才能被\n    執行。如果它是唯讀的內容，則需要有 \n    httpd_TYPE_script_rw_t 或 httpd_TYPE_script_ra_t 標籤。您\n    可以使用 chcon 指令來更動這些情境。請參閱 man 頁面\n    「man httpd_selinux」或 \n    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n    「TYPE」指的是 \"sys\", \"user\" 或 \"staff\" 之一，或者可能是其他\n    指令稿類型。\n    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -926,7 +926,7 @@ msgstr ""
 msgid ""
 "you may be under attack by a hacker, since confined applications should not "
 "need this access."
-msgstr ""
+msgstr "您可能遭受駭客攻擊，因為受限制的應用程式永遠不需要這種存取動作。"
 
 #: ../src/leaks.py:27
 msgid ""
@@ -967,7 +967,7 @@ msgstr ""
 msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
 "# semodule -i mypol.pp"
-msgstr ""
+msgstr "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n# semodule -i mypol.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -997,7 +997,7 @@ msgstr ""
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
-msgstr ""
+msgstr "您可能遭受駭客攻擊，這是相當危險的存取動作。"
 
 #: ../src/mounton.py:29
 msgid ""
@@ -1052,7 +1052,7 @@ msgid ""
 "    be a mislabeled. openvpn is allowed to read content in home directory if it \n"
 "    is labeled correctly.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 拒絕 $SOURCE 的存取請求。$TARGET_PATH 可能標記\n    錯誤。如果 openvpn 標記正確的話，可以讀取家目錄內的\n    內容。\n    "
 
 #: ../src/openvpn.py:42 ../src/sshd_root.py:42
 msgid ""
@@ -1080,7 +1080,7 @@ msgstr ""
 
 #: ../src/openvpn.py:57 ../src/sshd_root.py:47
 msgid "you must fix the labels."
-msgstr ""
+msgstr "您必須修正標籤。"
 
 #: ../src/public_content.py:31
 msgid ""
@@ -1133,7 +1133,7 @@ msgstr "\n    您可透過執行 chcon -t virt_image_t '$TARGET_PATH' 來修改�
 msgid ""
 "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/qemu_file_image.py:31
 msgid ""
@@ -1150,7 +1150,7 @@ msgstr "\n    SELinux 拒絕 qemu 存取 $TARGET_PATH。\n    若這是個虛擬
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "$TARGET_BASE_PATH 為虛擬化目標"
 
 #: ../src/restorecon.py:38
 msgid ""
@@ -1189,7 +1189,7 @@ msgid ""
 "    <p>\n"
 "    If you believe this is a bug, please file a bug report against this package.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 拒絕 $SOURCE 的存取請求。$TARGET_PATH 可能\n    標記錯誤。$TARGET_PATH 預設 SELinux 類型為\n    <B>%s</B>，但它目前的類型為 <B>$TARGET_TYPE</B>。將\n    此檔案變更回預設類型可能修正您的問題。\n    <p>\n    檔案情境可以透過下列方式指派給檔案。\n    <ul>\n        <li>目錄中建立的檔案預設情況下接收上層目錄的檔案情境。\n        <li>SELinux 方針可能透過指定執行情境 A 的程序在標記 B 的目錄中建立檔案，\n            建立的檔案標籤為 C 的方式，來凌駕從上層目錄繼承的預設標籤。這個情況\n             的例子為 dhcp 客戶端以 dhclient_t 類型執行，並在 /etc 目錄中建立檔案。\n            這個檔案一般由於親代繼承會接收 etc_t 類型；但該檔案會被標記為\n            net_conf_t 類型，因為 SELinux 方針指定這樣處理。\n        <li>使用者可以使用像是 chcon 或 restorecon 等工具來變更檔案的檔案情境。\n    </ul>\n    這個檔案可能由於使用者的錯誤，或是一般受限制應用程式在錯誤網域下執行而標記\n    錯誤。\n    <p> \n    然而，這可能暗示 SELinux 有臭蟲，因為該檔案不應該被標記為這種類型。\n    <p>\n    如果您認為這是臭蟲，請針對此套件提交一份臭蟲回報。\n    "
 
 #: ../src/restorecon.py:71
 #, python-format
@@ -1200,13 +1200,13 @@ msgstr ""
 
 #: ../src/restorecon.py:76
 msgid "you can run restorecon."
-msgstr ""
+msgstr "您可以執行 restorecon。"
 
 #: ../src/restorecon.py:84
 msgid ""
 "Restore\n"
 "Context"
-msgstr ""
+msgstr "還原\n情境"
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1228,11 +1228,11 @@ msgstr "\n    您可透過執行 chcon -R -t rsync_data_t '$TARGET_PATH' 來修�
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr ""
+msgstr "$TARGET_BASE_PATH 應該透過 rsync 幕後程式分享"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
-msgstr ""
+msgstr "您需要變更 $TARGET_BASE_PATH 上的標籤"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1265,7 +1265,7 @@ msgstr "\n    您可透過執行 chcon -R -t samba_share_t '$TARGET_PATH' 來修
 msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n# restorecon %s -v '$FIX_TARGET_PATH'"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -1284,7 +1284,7 @@ msgid ""
 "    policy this AVC will be generated. This is a serious issue. Your system \n"
 "    may very well be compromised.\n"
 "    "
-msgstr "\n    SELinux 拒絕 $SOURCE 修改 $TARGET。這項拒絕動作\n    顯示 $SOURCE 嘗試修改 selinux policy 設定。\n    所有需要這項存取許可的應用程式都應有個為它們而\n    編寫的方針。若有個遭到入侵的應用程式嘗試修改 SELinux\n    方針的話，此 AVC 便會產生。這是一項嚴重的問題。您的系統\n    可能已遭到入侵。\n    "
+msgstr "\n    SELinux 已防止 $SOURCE 修改 $TARGET。這項拒絕動作\n    顯示 $SOURCE 嘗試修改 selinux policy 設定。\n    所有需要這項存取許可的應用程式都應有個為它們而\n    編寫的方針。若有個遭到入侵的應用程式嘗試修改 SELinux\n    方針的話，此 AVC 便會產生。這是一項嚴重的問題。您的系統\n    可能已遭到入侵。\n    "
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
@@ -1292,7 +1292,7 @@ msgstr ""
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
-msgstr ""
+msgstr "如果您認為您可能已經被駭"
 
 #: ../src/setenforce.py:32
 msgid ""
@@ -1321,7 +1321,7 @@ msgstr ""
 msgid ""
 "you may be under attack by a hacker, since confined applications should "
 "never need this access."
-msgstr ""
+msgstr "您可能遭受駭客攻擊，因為受限制的應用程式應該永遠不需要這種存取動作。"
 
 #: ../src/sshd_root.py:36
 msgid ""
@@ -1370,7 +1370,7 @@ msgstr ""
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
-msgstr ""
+msgstr "您可能已經被駭。"
 
 #: ../src/sys_module.py:33
 msgid ""
@@ -1398,7 +1398,7 @@ msgstr ""
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
-msgstr ""
+msgstr "有程序可能試圖駭進您的系統。"
 
 #: ../src/sys_resource.py:28
 msgid ""
@@ -1432,7 +1432,7 @@ msgid ""
 "\n"
 "    SELinux has prevented vbetool from performing an unsafe memory operation.\n"
 "    "
-msgstr "\n    SELinux 防止 vbetool 進行一項不安全的記憶體作業。\n    "
+msgstr "\n    SELinux 已防止 vbetool 進行一項不安全的記憶體作業。\n    "
 
 #: ../src/vbetool.py:34
 msgid ""
@@ -1479,7 +1479,7 @@ msgid ""
 "\n"
 "    SELinux has prevented wine from performing an unsafe memory operation.\n"
 "    "
-msgstr "\n    SELinux 防止 wine 執行一項不安全的記憶體作業。\n    "
+msgstr "\n    SELinux 已防止 wine 執行一項不安全的記憶體作業。\n    "
 
 #: ../src/wine.py:35
 msgid ""
