@@ -7,13 +7,14 @@
 # Gianluca Busiello <busiello@ceinge.unina.it>, 2008.
 # Mario Santagiuliana <fedora at marionline.it>, 2012.
 # silvio pierro <perplesso82@gmail.com>, 2012.
+# Silvio Pierro <perplesso82@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-04-17 14:00+0000\n"
+"Last-Translator: Silvio Pierro <perplesso82@gmail.com>\n"
 "Language-Team: Italian <trans-it@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +47,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    Se gli script httpd devono avere il permesso di scrivere nelle cartelle pubbliche è necessario abilitare il booleano $BOOLEAN e modificare il contesto file della cartella publica in public_content_rw_t.  Leggere le magine di man httpd_selinux\n    per maggiori informazioni:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <percorso>\"\n    Inoltre è necessario modificare il file di etichettatura di contesto file predefinito sul sistema per evitare l'etichettatura delle cartelle pubbliche in caso di completa rietichettatura.  \"semanage fcontext -a -t public_content_rw_t <percorso>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -1655,7 +1656,7 @@ msgstr "Se si desidera consentire agli utenti di connettersi al server mysql loc
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "Se si desidera consentire a polipo di connettersi a tutte le porte > 1023"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -2169,7 +2170,7 @@ msgstr "Se si desidera consentire al dominio postfix_local l'accesso in completa
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
+msgstr "Se si desidera consentire a sge di accedere ai file system nfs."
 
 #: ../booleans_trans.py:132
 msgid "If you want to allow xguest users to use blue tooth devices"
@@ -2237,7 +2238,7 @@ msgstr "Se si desidera abilitare permessi aggiuntivi necessari al supporto di di
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "Se si desidera consentire ai processi httpd di gestire contenuto IPA"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
@@ -2386,7 +2387,7 @@ msgstr "Se si desidera consentire a Bind di legarsi alla porta apache."
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "Se si desidera consentire al demone gitsis di inviare mail"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2508,7 +2509,7 @@ msgstr "Se si desidera consentire a squid di connettersi a tutte le porte, non s
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "Se si desidera consentire a syslogd la possibilità di leggere/scrivere terminali"
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."
