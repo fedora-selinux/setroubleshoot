@@ -63,23 +63,24 @@ class plugin(Plugin):
         return _("setsebool -P %s %s") % (args[0], args[1])
 
     def get_then_text(self, avc, args):
-        if os.path.isfile("/usr/share/man/man8/%s_selinux.8.gz" % args[2].split("_")[0]) and args[2] != "":
-            return _("You must tell SELinux about this by enabling the '%s' boolean. You can read '%s' man page for more details.") % (args[0], args[2])
-        else:
-            return _("You must tell SELinux about this by enabling the '%s'boolean.") % (args[0])
+        text = _("You must tell SELinux about this by enabling the '%s' boolean.") % args[0]
+        try:
+            if os.path.isfile("/usr/share/man/man8/%s.8.gz" % args[2]):
+                text += _("You can read '%s' man page for more details.") % args[2]
+        except IndexError:
+            pass
 
+        return text
+        
     def analyze(self, avc):
-        man_page = ""
+        man_page = avc.tcontext.type[:-2] + "_selinux"
         if  len(avc.bools) > 0:            
             reports = []
             fix = self.fix_description
             fix_cmd = ""
             bools = avc.bools
             for b in bools:
-                name_apps = b[0].split("_")[0]
-                man_page = name_apps+"_selinux"
                 reports.append(self.report((b[0], b[1], man_page)))
-                man_page = ""
 			
             return reports
         return None

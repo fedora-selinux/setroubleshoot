@@ -74,15 +74,10 @@ file a bug report.
     if you find a library with this flag you can clear it with the
     execstack -c LIBRARY_PATH.  Then retry your application.  If the
     app continues to not work, you can turn the flag back on with
-    execstack -s LIBRARY_PATH.  Otherwise, if you trust $SOURCE to
-    run correctly, you can change the context of the executable to
-    execmem_exec_t. "chcon -t execmem_exec_t
-    '$SOURCE_PATH'"
-    You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t execmem_exec_t '$FIX_SOURCE_PATH'"
-    
+    execstack -s LIBRARY_PATH.  
     ''')
 
-    fix_cmd = "chcon -t execmem_exec_t '$SOURCE_PATH'"
+    fix_cmd = ""
 
     if_text = _("you do not think $SOURCE_PATH should need to map stack memory that is both writable and executable.")
     then_text = _("you need to report a bug. \nThis is a potentially dangerous access.")
