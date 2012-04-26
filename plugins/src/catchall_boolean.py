@@ -65,22 +65,30 @@ class plugin(Plugin):
     def get_then_text(self, avc, args):
         text = _("You must tell SELinux about this by enabling the '%s' boolean.") % args[0]
         try:
-            if os.path.isfile("/usr/share/man/man8/%s.8.gz" % args[2]):
+            if args[2]:
                 text += _("You can read '%s' man page for more details.") % args[2]
         except IndexError:
             pass
 
         return text
         
+    def check_for_man(self, name):
+        man_page = name.split("_")[0] + "_selinux"
+        if os.path.isfile("/usr/share/man/man8/%s.8.gz" % args[2]):
+            return man_page
+        return None
+
     def analyze(self, avc):
-        man_page = avc.tcontext.type[:-2] + "_selinux"
+        man_page = self.check_for_man(avc.tcontext.type)
         if  len(avc.bools) > 0:            
             reports = []
             fix = self.fix_description
             fix_cmd = ""
             bools = avc.bools
             for b in bools:
+                if not man_page:
+                    man_page = self.check_for_man(b)
                 reports.append(self.report((b[0], b[1], man_page)))
-			
+
             return reports
         return None
