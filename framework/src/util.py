@@ -264,13 +264,13 @@ def get_rpm_nvr_by_name_temporary(name):
 
 
 def get_rpm_nvr_by_file_path_temporary(name):
-    if name is None:
+    if name is None or not os.path.exists(name):
         return None
 
     nvr = None
     try:
         import commands
-        rc, output = commands.getstatusoutput("rpm -qf %s" % name)
+        rc, output = commands.getstatusoutput("rpm -qf '%s'" % name)
         if rc == 0:
             nvr = output
     except:
