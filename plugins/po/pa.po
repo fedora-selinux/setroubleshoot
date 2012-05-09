@@ -4,14 +4,15 @@
 # 
 # Translators:
 # A S Alam <apbrar@gmail.com>, 2006.
+# Jaswinder Singh <j.phulewala@gmail.com>, 2012.
 # Jaswinder Singh <jsingh@redhat.com>, 2007, 2008, 2009, 2010, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-04-30 10:27+0000\n"
+"Last-Translator: Jaswinder Singh <j.phulewala@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) <punjabi-users@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,7 +45,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n   ਜੇ httpd ਸਕਰਿਪਟ ਨੂੰ ਪਬਲਿਕ ਡਾਇਰੈਕਟਰੀਆਂ ਵਿੱਚ ਲਿਖਣ ਦੀ ਮਨਜੂਰੀ ਚਾਹੀਦੀ ਹੈ ਤਾਂ ਤੁਹਾਨੂੰ $BOOLEAN ਬੂਲੀਅਨ ਚਾਲੂ ਕਰਨਾ ਪਵੇਗਾ ਅਤੇ ਪਬਲਿਕ ਫਾਇਲ ਦੇ ਫਾਇਲ ਕੰਟੈਕਸਟ ਨੂੰ public_content_rw_t ਬਣਾਉਣਾ ਪਵੇਗਾ। ਹੋਰ ਜਾਣਕਾਰੀ ਲਈ httpd_selinux\n    man ਪੇਜ਼ ਪੜ੍ਹੋ:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n    ਤੁਹਾਨੂੰ ਮੂਲ ਫਾਇਲ ਕੰਟੈਕਸਟ ਲੇਬਲਿੰਗ ਫਾਇਲਾਂ ਨੂੰ ਵੀ ਤਬਦੀਲ ਕਰਨਾ ਪਵੇਗਾ ਜੋ ਸਿਸਟਮ ਉੱਪਰ ਹਨ ਤਾਂ ਜੋ ਪਬਲਿਕ ਡੈਇਰੈਕਟਰੀ ਲੇਬਲਿੰਗ ਬਰਕਰਾਰ ਰੱਖੀ ਜਾਏ।  \"semanage fcontext -a -t public_content_rw_t <path>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -1653,7 +1654,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਯੂਜ਼ਰਾਂ ਨੂੰ ਲੋਕਲ mysql �
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ polipo ਨੂੰ ਸਭ ਪੋਰਟਾਂ ਤੇ ਜੋੜਨਾ ਚਾਹੁੰਦੇ ਹੋ > 1023"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -2167,7 +2168,7 @@ msgstr "ਜੇ ਤੁਸੀਂ postfix_local ਡੋਮੇਨ ਨੂੰ mail_spoo
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ sge ਨੂੰ nfs ਫਾਇਲ ਸਿਸਟਮ ਵਰਤਣ ਦੇਣਾ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: ../booleans_trans.py:132
 msgid "If you want to allow xguest users to use blue tooth devices"
@@ -2235,7 +2236,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਵਾਧੂ ਅਧਿਕਾਰ ਯੋਗ ਕਰ�
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ httpd ਕਾਰਜਾਂ ਨੂੰ IPA ਸੰਖੇਪ ਪਰਬੰਧਨ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
@@ -2384,7 +2385,7 @@ msgstr "ਜੇ ਤੁਸੀਂ BIND ਨੂੰ ਅਪਾਚੇ ਪੋਰਟ ਨ�
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ gitisis ਡੈਮਨ ਨੂੰ ਮੇਲਾਂ ਭੇਜਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2506,7 +2507,7 @@ msgstr "ਜੇ ਤੁਸੀਂ squid ਨੂੰ ਸਭ ਪੋਰਟਾਂ ਨਾ�
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ syslogd ਨੂੰ ਟਰਮੀਨਲ ਪੜ੍ਹਨ/ਲਿਖਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."

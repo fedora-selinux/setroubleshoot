@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-05-02 12:07+0000\n"
+"Last-Translator: Krishnababu Krothapalli <krisnababu@gmail.com>\n"
 "Language-Team: Telugu (http://www.transifex.net/projects/p/fedora/language/te/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,7 +45,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    httpd స్క్రిప్టులు పబ్లిక్ డైరెక్టరీలకు వ్రాయబడుటకు అనుమతించబడవలెనంటే మీరు $BOOLEAN బూలియన్ ఆన్ చేసి మరియు పబ్లిక్ డైరెక్టరీ యొక్క ఫైల్ సందర్భమును public_content_rw_t కు మార్చాలి. మరింత సమచారం కొరకు httpd_selinux\n    man పేజీ చదవండి:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n    పూర్తి రిలేబుల్ నందు పబ్లిక్ డైరెక్టరీ లేబిలింగ్ నిలిపివుంచుటకు వ్యవస్థపైని అప్రమేయ ఫైల్ సందర్భ లేబిలింగ్ ఫైళ్ళను కూడా మార్చాలి. \"semanage fcontext -a -t public_content_rw_t <path>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -1654,7 +1654,7 @@ msgstr "మీరు వాడుకరులు స్థానిక mysql స
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "అన్ని పోర్ట్స్ > 1023 కు అనుసంధానమగుటకు మీరు polipo ను అనుమతించాలంటే"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -2168,7 +2168,7 @@ msgstr "మీరు postfix_local డొమైన్ పూర్తి వ్�
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
+msgstr "nfs ఫైల్ వ్యవస్థలను యాక్సెస్ చేయుటకు మీరు sge ను అనుమతించాలంటే."
 
 #: ../booleans_trans.py:132
 msgid "If you want to allow xguest users to use blue tooth devices"
@@ -2236,7 +2236,7 @@ msgstr "3ware నియంత్రికలపైని పరికరము�
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "IPA విషయంను నిర్వహించుటకు మీరు httpd ప్రోసెసెస్ అనుమతించాలంటే"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
@@ -2385,7 +2385,7 @@ msgstr "మీరు BIND ను అపాచీ పోర్టును బం
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "మెయిల్ పంపుటకు మీరు gitisis డెమోన్‌ను అనుమతించాలంటే"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2507,7 +2507,7 @@ msgstr "HTTP, FTP, cjf/g Gopher పోర్ట్స్ మాత్రమే �
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "మీరు syslogd కు టెర్మినల్సు చదువ/వ్రాయ గల సామర్థయమును అనుమతించాలంటే"
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."

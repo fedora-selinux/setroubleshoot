@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Andrew Martynov <andrewm@inventa.ru>, 2006.
-# Yulia <ypoyarko@redhat.com>, 2006, 2008, 2009, 2010.
+# Yulia <ypoyarko@redhat.com>, 2006, 2008, 2009, 2010, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-05-08 07:37+0000\n"
+"Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
 "Language-Team: Russian <trans-ru@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -44,18 +44,18 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    Для разрешения сценариям httpd выполнения записи в общие каталоги необходимо установить значение $BOOLEAN и изменить контекст общего\n    каталога на public_content_rw_t. За подробной информацией обратитесь к странице помощи httpd_selinux.\n    «setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <путь>»\n    Также необходимо изменить исходные контексты файлов в системе так, чтобы они не изменялись при повторной разметке. \n    «semanage fcontext -a -t public_content_rw_t <путь>»\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
 "you want to allow $SOURCE_PATH to be able to write to shared public content"
-msgstr ""
+msgstr "рекомендуется разрешить $SOURCE_PATH осуществлять запись в открытый ресурс"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
-msgstr ""
+msgstr "необходимо изменить метку $TARGET_PATH на public_content_rw_t и, возможно, установить переменную allow_httpd_sys_script_anon_write."
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -93,18 +93,18 @@ msgstr "\n    Для продолжения $SOURCE необходимо уст�
 msgid ""
 "you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_PATH не должен создавать соответствие для памяти кучи, если она является записываемой и запускаемой"
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
-msgstr ""
+msgstr "следует создать отчет об ошибке. Это обращение представляет риск безопасности."
 
 #: ../src/allow_execheap.py:52 ../src/allow_execstack.py:89
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
 #: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
 msgid "Contact your security administrator and report this issue."
-msgstr ""
+msgstr "О проблеме сообщите администратору."
 
 #: ../src/allow_execmod.py:29
 msgid ""
@@ -202,13 +202,13 @@ msgstr "\n    Иногда библиотека случайно маркиру�
 msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_PATH не должен создавать соответствие для памяти стека, если она является записываемой и запускаемой."
 
 #: ../src/allow_execstack.py:88
 msgid ""
 "you need to report a bug. \n"
 "This is a potentially dangerous access."
-msgstr ""
+msgstr "следует создать отчет об ошибке. \nЭто обращение представляет риск безопасности."
 
 #: ../src/allow_execstack.py:97
 #, python-format
@@ -216,7 +216,7 @@ msgid ""
 "you believe that \n"
 "%s\n"
 "should not require execstack"
-msgstr ""
+msgstr "вы считаете, что%s\nне должен требовать execstack"
 
 #: ../src/allow_execstack.py:106
 #, python-format
@@ -224,19 +224,19 @@ msgid ""
 "you should clear the execstack flag and see if $SOURCE_PATH works correctly.\n"
 "Report this as a bug on %s.\n"
 "You can clear the exestack flag by executing:"
-msgstr ""
+msgstr "следует очистить флаг execstack и убедиться что $SOURCE_PATH функционирует корректно.\nСообщите об этой ошибке в %s.\nЧтобы очистить флаг exestack выполните:"
 
 #: ../src/allow_execstack.py:116
 #, python-format
 msgid "execstack -c %s"
-msgstr ""
+msgstr "execstack -c %s"
 
 #: ../src/allow_ftpd_use_cifs.py:29
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux запретил доступ $ACCESS демона ftp к файловой системе CIFS.\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:33
 msgid ""
@@ -275,18 +275,18 @@ msgstr " Установка логических значений «$BOOLEAN» �
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "вы хотите разрешить ftpd осуществлять запись в файловые системы cifs"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
-msgstr ""
+msgstr "необходимо сообщить об этом в SELinux"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS filesystem.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux запретил доступ $ACCESS демона ftp к файлам в файловой системе NFS.\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:33
 msgid ""
@@ -326,7 +326,7 @@ msgstr "Установка логических значений «allow_ftpd_us
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "вы хотите разрешить ftpd осуществлять запись в файловые системы nfs"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -351,7 +351,7 @@ msgid ""
 "\n"
 "    If you want to change the file context of $TARGET_PATH so that the automounter can execute it you can execute \"chcon -t bin_t $TARGET_PATH\".  If you want this to survive a relabel, you need to permanently change the file context: execute  \"semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\".\n"
 "    "
-msgstr ""
+msgstr "\n    Если вы хотите изменить контекст файла $TARGET_PATH, чтобы разрешить его исполнение автомонтировщиком, используйте команду «chcon -t bin_t $TARGET_PATH». Также потребуется изменить контекст файлов, чтобы сохранить его при переразметке: «semanage fcontext -a -t bin_t $FIX_TARGET_PATH»\n    "
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -371,7 +371,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to bind to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux запретил $SOURCE подключаться сетевому порту $PORT_NUMBER, которому не присвоен тип SELinux.\n    Если $SOURCE должен иметь возможность подключения к этому порту, можно использовать команду <i>semanage</i> для добавления  $PORT_NUMBER к типу, которому $SOURCE_TYPE может быть сопоставлен (%s). \n\nЕсли $SOURCE не должен\n    соответствовать $PORT_NUMBER, возможно, имеет место попытка вторжения.\n    "
 
 #: ../src/bind_ports.py:38
 #, python-format
@@ -387,14 +387,14 @@ msgid ""
 "\n"
 "If this system is running as an NIS Client, turning on the allow_ypbind boolean may fix the problem.  setsebool -P allow_ypbind=1.\n"
 "    "
-msgstr ""
+msgstr "\nЕсли вы хотите разрешить сопоставление $SOURCE порту $PORT_NUMBER, выполните\n    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    \nгде PORT_TYPE может принимать значения: %s.\n\n    \n\nЕсли система выполняет роль клиента NIS, можно попробовать установить логическое значение allow_ypbind:\n     «setsebool -P allow_ypbind=1».\n  "
 
 #: ../src/bind_ports.py:51 ../src/connect_ports.py:50
 #, python-format
 msgid ""
 "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "    where PORT_TYPE is one of the following: %s."
-msgstr ""
+msgstr "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    где PORT_TYPE может принимать значения: %s."
 
 #: ../src/catchall_boolean.py:32
 msgid ""
@@ -427,24 +427,24 @@ msgstr "\n   Ограничиваемые процессы можно настр
 #: ../src/catchall_boolean.py:60
 #, python-format
 msgid "you want to %s"
-msgstr ""
+msgstr "вы хотите выполнить следующее: %s"
 
 #: ../src/catchall_boolean.py:63
 #, python-format
 msgid "setsebool -P %s %s"
-msgstr ""
+msgstr "setsebool -P %s %s"
 
 #: ../src/catchall_boolean.py:67
 #, python-format
 msgid ""
 "You must tell SELinux about this by enabling the '%s' boolean. You can read "
 "'%s' man page for more details."
-msgstr ""
+msgstr "Установите переменную «%s», чтобы сообщить об этом SELinux. За информацией обратитесь к справочной странице «%s»."
 
 #: ../src/catchall_boolean.py:69
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s'boolean."
-msgstr ""
+msgstr "Установите переменную «%s», чтобы сообщить об этом SELinux."
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -461,7 +461,7 @@ msgstr "\n    SELinux закрыл $SOURCE доступ к потенциаль�
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
-msgstr ""
+msgstr "Необходимо изменить метку на $FIX_TARGET_PATH"
 
 #: ../src/catchall_labels.py:40
 #, python-format
@@ -470,11 +470,11 @@ msgid ""
 "where FILE_TYPE is one of the following: %s. \n"
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
-msgstr ""
+msgstr "# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\nгде FILE_TYPE может принимать значения: %s.\nЗатем выполните: \nrestorecon -v '$FIX_TARGET_PATH'\n"
 
 #: ../src/catchall.py:29
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr ""
+msgstr "SELinux запрещает доступ \"$ACCESS\" для $SOURCE_PATH"
 
 #: ../src/catchall.py:31
 msgid ""
@@ -503,32 +503,32 @@ msgstr "\n    Чтобы разрешить доступ, можно сгене�
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_BASE_PATH следует разрешить доступ $ACCESS к процессам с типом $TARGET_TYPE по умолчанию."
 
 #: ../src/catchall.py:52
 msgid ""
 "you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_BASE_PATH следует разрешить доступ $ACCESS по умолчанию."
 
 #: ../src/catchall.py:53
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_BASE_PATH следует разрешить доступ $ACCESS к $TARGET_BASE_PATH $TARGET_CLASS по умолчанию."
 
 #: ../src/catchall.py:55
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
-msgstr ""
+msgstr "Рекомендуется создать отчет об ошибке.\nЧтобы разрешить доступ, можно создать локальный модуль политики."
 
 #: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
-msgstr ""
+msgstr "Чтобы разрешить доступ, выполните:\n# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27
 msgid ""
@@ -548,7 +548,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux запретил подключение $SOURCE к сетевому порту $PORT_NUMBER, для которого не определен тип SELinux.\n    Если $SOURCE должен иметь возможность подключения к этому порту, можно использовать команду <i>semanage</i> для сопоставления $PORT_NUMBER типу порта, к которому $SOURCE_TYPE может подключаться (%s). \n\nЕсли $SOURCE не должен подключаться этому порту, \nэто может служить индикатором попытки вторжения.\n    "
 
 #: ../src/connect_ports.py:39
 #, python-format
@@ -560,7 +560,7 @@ msgid ""
 "\n"
 "    where PORT_TYPE is one of the following: %s.\n"
 "    "
-msgstr ""
+msgstr "\n    Чтобы разрешить подключение $SOURCE к порту $PORT_NUMBER, выполните\n\n    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n\n    где PORT_TYPE может принимать значения: %s.\n  "
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -590,37 +590,37 @@ msgstr "\n    Можно изменить контекст, выполнив к�
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "Необходимо открыть совместный доступ к $TARGET_BASE_PATH с помощью демона cvs"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
-msgstr ""
+msgstr "Необходимо изменить метку для $TARGET_BASE_PATH'"
 
 #: ../src/dac_override.py:28
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
 "    "
-msgstr ""
+msgstr "\n    SELinux запретил операцию \"$ACCESS\" для $SOURCE_PATH. \n    "
 
 #: ../src/dac_override.py:32
 msgid ""
 "\n"
 "\tdac_override and dac_read_search capabilities usually indicates that the root process does not have access to a file based on the permission flags.  This usually mean you have some file with the wrong ownership/permissions on it.\n"
 "    "
-msgstr ""
+msgstr "\n\tdac_override и dac_read_search служат знаком того, что у корневого процесса нет доступа к файлу, разрешения которого определяются флагами. Обычно это характеризует файл с неверно назначенными разрешениями.\n    "
 
 #: ../src/dac_override.py:38
 msgid ""
 "you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
-msgstr ""
+msgstr "вы хотите помочь определить, требует ли домен такой уровень доступа, или\nв системе присутствует файл с неверно назначенными разрешениями"
 
 #: ../src/dac_override.py:39
 msgid ""
 "turn on full auditing to get path information about the offending file and "
 "generate the error again."
-msgstr ""
+msgstr "включите полный аудит, чтобы определить путь к конфликтному файлу и повторно сгенерировать ошибку."
 
 #: ../src/dac_override.py:40
 msgid ""
@@ -631,7 +631,7 @@ msgid ""
 "# ausearch -m avc -ts recent\n"
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
 "otherwise report as a bugzilla."
-msgstr ""
+msgstr "\nВключите аудит:\n# auditctl -w /etc/shadow -p w\nПопытайтесь заново создать AVC, после чего выполните:\n# ausearch -m avc -ts recent\nЕсли запись PATH осуществляет проверку разрешений файла, исправьте это, \nв противном случае создайте запрос в Bugzilla."
 
 #: ../src/device.py:29
 msgid ""
@@ -676,37 +676,37 @@ msgstr "\n    Попробуйте выполнить «restorecon -v $TARGET_PA
 #: ../src/device.py:60
 msgid ""
 "You need to change the label on $TARGET_PATH to a type of a similar device."
-msgstr ""
+msgstr "Необходимо изменить метку для $FIX_TARGET_PATH на тип аналогичного устройства."
 
 #: ../src/device.py:61
 msgid ""
 "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "# semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/disable_ipv6.py:30
 msgid ""
 "\n"
 "Disable IPV6 properly.\n"
 "    "
-msgstr ""
+msgstr "\nОтключите IPV6.\n    "
 
 #: ../src/disable_ipv6.py:40
 msgid "you want to disable IPV6 on this machine"
-msgstr ""
+msgstr "следует отключить IPV6 для этой машины"
 
 #: ../src/disable_ipv6.py:41
 msgid ""
 "you need to set /proc/sys/net/ipv6/conf/all/disable_ipv6 to 1 and do not "
 "blacklist the module'"
-msgstr ""
+msgstr "измените значение /proc/sys/net/ipv6/conf/all/disable_ipv6 на 1 и не вносите модуль в черный список"
 
 #: ../src/disable_ipv6.py:42
 msgid ""
 "Add \n"
 "net.ipv6.conf.all.disable_ipv6 = 1\n"
 "to /etc/sysctl.conf\n"
-msgstr ""
+msgstr "Добавьте \nnet.ipv6.conf.all.disable_ipv6 = 1\nв /etc/sysctl.conf\n"
 
 #: ../src/file.py:27
 msgid ""
@@ -739,19 +739,19 @@ msgstr "\n    Выполните следующую команду в режим
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr ""
+msgstr "причина заключается в недавно созданной файловой системе."
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
-msgstr ""
+msgstr "вы считаете, что причиной служит неправильное присвоение меток машинам."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
-msgstr ""
+msgstr "необходимо добавить метки."
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
-msgstr ""
+msgstr "необходимо заново осуществить переразметку."
 
 #: ../src/filesystem_associate.py:27
 msgid ""
@@ -783,19 +783,19 @@ msgstr "\n    Используйте команду наподобие «cp -p»
 msgid ""
 "you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
 "files"
-msgstr ""
+msgstr "вы считаете, что следует разрешить $SOURCE_BASE_PATH создавть файлы $TARGET_BASE_PATH"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
 "you need to use a different command. You are not allowed to preserve the "
 "SELinux context on the target file system."
-msgstr ""
+msgstr "необходимо выбрать другую команду. Контекст SELinux целевой файловой системы не может быть сохранен."
 
 #: ../src/filesystem_associate.py:46
 msgid ""
 "use a command like \"cp -p\" to preserve all permissions except SELinux "
 "context."
-msgstr ""
+msgstr "используйте команду наподобие «cp -p» для сохранения постоянства всех разрешений кроме контекста SELinux."
 
 #: ../src/httpd_can_sendmail.py:28
 msgid ""
@@ -825,18 +825,18 @@ msgstr "\n    Для разрешения отправки почты демон
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
-msgstr ""
+msgstr "вы хотите разрешить httpd отправлять почтовые сообщения"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
-msgstr ""
+msgstr "необходимо разрешить SELinux выполнять эти действия."
 
 #: ../src/httpd_unified.py:29
 msgid ""
 "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux запретил доступ httpd ($ACCESS) к файлам http.\n    "
 
 #: ../src/httpd_unified.py:33
 msgid ""
@@ -870,13 +870,13 @@ msgstr "\n    Установка логического значения «$BOOL
 msgid ""
 "you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
 "of all content files."
-msgstr ""
+msgstr "вы хотите разрешить httpd исполнять сценарии cgi и унифицировать обработку файлов содержимого процессом HTTPD."
 
 #: ../src/httpd_unified.py:58
 msgid ""
 "you must tell SELinux about this by enabling the 'httpd_unified' and "
 "'http_enable_cgi' booleans"
-msgstr ""
+msgstr "установите переменные «httpd_unified» и «http_enable_cgi», чтобы сообщить об этом SELinux."
 
 #: ../src/httpd_write_content.py:30
 msgid ""
@@ -892,7 +892,7 @@ msgstr "\n    SELinux запрещает httpd ($SOURCE_PATH) доступ $ACCE
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
 msgid "You need to change the label on '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "Необходимо изменить метку на «$FIX_TARGET_PATH»"
 
 #: ../src/kernel_modules.py:29
 msgid ""
@@ -917,13 +917,13 @@ msgstr "\n    SELinux запретил $SOURCE изменять $TARGET. \n    $
 msgid ""
 "you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_BASE_PATH не должен осуществлять доступ $ACCESS к $TARGET_BASE_PATH."
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
 "you may be under attack by a hacker, since confined applications should not "
 "need this access."
-msgstr ""
+msgstr "возможно, вы подверглись хакерской атаке, так как защищенные приложения не должны запрашивать этот уровень доступа."
 
 #: ../src/leaks.py:27
 msgid ""
@@ -952,19 +952,19 @@ msgid ""
 "you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the "
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this"
 " access."
-msgstr ""
+msgstr "вы хотите игнорировать попытки доступа $SOURCE_BASE_PATH ($ACCESS)  к $TARGET_BASE_PATH $TARGET_CLASS, так как вы считаете, что в таком доступе нет необходимости."
 
 #: ../src/leaks.py:43
 msgid ""
 "You should report this as a bug.  \n"
 "You can generate a local policy module to dontaudit this access."
-msgstr ""
+msgstr "Рекомендуется создать отчет об ошибке.\nЧтобы отменить аудит подобного доступа, можно создать локальный модуль политики."
 
 #: ../src/leaks.py:44
 msgid ""
 "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n"
 "# semodule -i mypol.pp"
-msgstr ""
+msgstr "# grep $SOURCE_PATH /var/log/audit/audit.log | audit2allow -D -M mypol\n# semodule -i mypol.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -990,11 +990,11 @@ msgstr "\n    SELinux запретил $SOURCE создавать соответ
 #: ../src/mmap_zero.py:46
 msgid ""
 "you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_PATH не должен выполнять mmap при недостатке памяти в ядре."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
-msgstr ""
+msgstr "возможно, вы подверглись хакерской атаке. Это обращение представляет риск безопасности."
 
 #: ../src/mounton.py:29
 msgid ""
@@ -1027,11 +1027,11 @@ msgstr "\n    Замена file_context на mnt_t позволит монтир
 
 #: ../src/mounton.py:48
 msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
-msgstr ""
+msgstr "вы хотите разрешить монтирование $SOURCE_BASE_PATH в $TARGET_BASE_PATH."
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
-msgstr ""
+msgstr "необходимо изменить метку для $TARGET_PATH."
 
 #: ../src/openvpn.py:32 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -1049,7 +1049,7 @@ msgid ""
 "    be a mislabeled. openvpn is allowed to read content in home directory if it \n"
 "    is labeled correctly.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux запретил доступ по запросу $SOURCE \nВозможно, разметка $TARGET_PATH некорректна.\nЕсли домашний каталог отмечен верно,  openvpn сможет читать его содержимое.\n    "
 
 #: ../src/openvpn.py:42 ../src/sshd_root.py:42
 msgid ""
@@ -1063,21 +1063,21 @@ msgstr "\n   Исходный контекст можно восстановит
 msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
-msgstr ""
+msgstr "вы хотите переместить  $TARGET_BASE_PATH в другое место, где $SOURCE_BASE_PATH сможет осуществлять доступ $ACCESS."
 
 #: ../src/openvpn.py:51
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
-msgstr ""
+msgstr "вы хотите изменить метку $TARGET_BASE_PATH, чтобы разрешить доступ $ACCESS для $SOURCE_BASE_PATH"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
-msgstr ""
+msgstr "файл сертификата необходимо переместить в каталог ~/.cert"
 
 #: ../src/openvpn.py:57 ../src/sshd_root.py:47
 msgid "you must fix the labels."
-msgstr ""
+msgstr "необходимо исправить метки."
 
 #: ../src/public_content.py:31
 msgid ""
@@ -1100,13 +1100,13 @@ msgstr "\n    Файловый контекст можно изменить, в�
 
 #: ../src/public_content.py:50
 msgid "you want to treat $TARGET_BASE_PATH as public content"
-msgstr ""
+msgstr "вы хотите открыть общий доступ к $TARGET_BASE_PATH"
 
 #: ../src/public_content.py:51
 msgid ""
 "You need to change the label on $TARGET_BASE_PATH to public_content_t or "
 "public_content_rw_t."
-msgstr ""
+msgstr "Необходимо изменить метку $TARGET_BASE_PATH с public_content_t на public_content_rw_t."
 
 #: ../src/qemu_blk_image.py:31
 msgid ""
@@ -1130,7 +1130,7 @@ msgstr "\n    Контекст файла можно изменить, выпо�
 msgid ""
 "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n"
 "# restorecon -v '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n# restorecon -v '$FIX_TARGET_PATH'"
 
 #: ../src/qemu_file_image.py:31
 msgid ""
@@ -1147,7 +1147,7 @@ msgstr "\n    SELinux запретил доступ qemu к $TARGET_PATH.\n    �
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "$TARGET_BASE_PATH выступает в роли получателя при виртуализации"
 
 #: ../src/restorecon.py:38
 msgid ""
@@ -1193,17 +1193,17 @@ msgstr ""
 msgid ""
 "you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
-msgstr ""
+msgstr "необходимо исправить метку.\nСтандартная метка для $TARGET_PATH: %s."
 
 #: ../src/restorecon.py:76
 msgid "you can run restorecon."
-msgstr ""
+msgstr "можно выполнить restorecon."
 
 #: ../src/restorecon.py:84
 msgid ""
 "Restore\n"
 "Context"
-msgstr ""
+msgstr "Восстановить\nконтекст."
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1225,11 +1225,11 @@ msgstr "\n    Файловый контекст можно изменить с �
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr ""
+msgstr "Необходимо открыть совместный доступ к $TARGET_BASE_PATH с помощью rsync."
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
-msgstr ""
+msgstr "Необходимо изменить метку для $TARGET_BASE_PATH"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1262,7 +1262,7 @@ msgstr "\n    Контекст файла можно изменить, выпо�
 msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
-msgstr ""
+msgstr "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n# restorecon %s -v '$FIX_TARGET_PATH'"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -1285,11 +1285,11 @@ msgstr "\n    SELinux запретил $SOURCE модифицировать $TAR
 
 #: ../src/setenforce.py:27
 msgid "you did not directly cause this AVC through testing."
-msgstr ""
+msgstr "AVC это не было вызвано в процессе тестирования."
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
-msgstr ""
+msgstr "вы считаете, что вы стали жертвой взлома."
 
 #: ../src/setenforce.py:32
 msgid ""
@@ -1312,13 +1312,13 @@ msgstr "\n    SELinux запретил $SOURCE записывать в файл,
 
 #: ../src/setenforce.py:48
 msgid "you believe $SOURCE_PATH tried to disable SELinux."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_PATH пытался отключить SELinux."
 
 #: ../src/setenforce.py:49
 msgid ""
 "you may be under attack by a hacker, since confined applications should "
 "never need this access."
-msgstr ""
+msgstr "возможно, вы подверглись хакерской атаке, так как защищенные приложения не должны запрашивать этот уровень доступа."
 
 #: ../src/sshd_root.py:36
 msgid ""
@@ -1363,11 +1363,11 @@ msgstr "\n    Файловый контекст можно изменить, в�
 msgid ""
 "you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
-msgstr ""
+msgstr "вы считаете, что $SOURCE_PATH не должен пытаться изменить ядро посредством загрузки модулей ядра."
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
-msgstr ""
+msgstr "Возможно, вы стали жертвой взлома."
 
 #: ../src/sys_module.py:33
 msgid ""
@@ -1391,11 +1391,11 @@ msgstr "\n    SELinux запретил $SOURCE загружать модуль �
 msgid ""
 "you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
-msgstr ""
+msgstr "вы считаете, что $SOURCE_PATH не должен пытаться изменить ядро посредством загрузки модуля ядра."
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
-msgstr ""
+msgstr "Процесс пытается осуществить несанкционированный доступ к системе."
 
 #: ../src/sys_resource.py:28
 msgid ""
@@ -1416,13 +1416,13 @@ msgstr "\n    Ограниченные домены не должны требо
 msgid ""
 "you do not want to get this AVC any longer. These AVC's are caused by "
 "running out of resources, usually disk space on your / partition."
-msgstr ""
+msgstr "вы не хотите получать это AVC. Подобные исключения вызваны недостатком ресурсов (дискового пространства в разделе /)."
 
 #: ../src/sys_resource.py:40
 msgid ""
 "you must cleanup diskspace or make sure you are not running too many "
 "processes."
-msgstr ""
+msgstr "освободите пространство на диске или убедитесь, что в системе не выполняются лишние процессы."
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -1459,13 +1459,13 @@ msgstr "\nЕсли вы хотите продолжить выполнение �
 msgid ""
 "you want to ignore this AVC because it is dangerous and your machine seems "
 "to be working correctly."
-msgstr ""
+msgstr "вы хотите игнорировать это AVC, так как оно небезопасно и может нарушить работу компьютера."
 
 #: ../src/vbetool.py:56
 msgid ""
 "you must tell SELinux about this by enabling the vbetool_mmap_zero_ignore "
 "boolean."
-msgstr ""
+msgstr "Установите переменную vbetool_mmap_zero_ignore, чтобы сообщить об этом SELinux."
 
 #: ../src/vbetool.py:62 ../src/wine.py:73
 msgid "Turn off memory protection"
@@ -1506,13 +1506,13 @@ msgstr "\nSELinux запретил выполнение операции, зап
 msgid ""
 "you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
-msgstr ""
+msgstr "вы хотите игнорировать это AVC, так как оно небезопасно и может нарушить работу приложений wine."
 
 #: ../src/wine.py:67
 msgid ""
 "you must tell SELinux about this by enabling the wine_mmap_zero_ignore "
 "boolean."
-msgstr ""
+msgstr "установите переменную wine_mmap_zero_ignore, чтобы сообщить об этом SELinux."
 
 #: ../src/xen_image.py:27
 msgid ""
@@ -1546,13 +1546,13 @@ msgstr "\n    Файловый контекст можно изменить, в�
 msgid ""
 "If you want to allow ftp to read and write files in the user home "
 "directories"
-msgstr ""
+msgstr "Если вы хотите разрешить ftp осуществлять чтение и запись файлов в домашних каталогах пользователей."
 
 #: ../booleans_trans.py:2
 msgid ""
 "If you want to allow privoxy to connect to all ports, not just HTTP, FTP, "
 "and Gopher ports."
-msgstr ""
+msgstr "Если вы хотите разрешить privoxy осуществлять подключение ко всем портам, а не только HTTP, FTP, Gopher."
 
 #: ../booleans_trans.py:3
 msgid ""
@@ -1562,38 +1562,38 @@ msgstr ""
 
 #: ../booleans_trans.py:4
 msgid "If you want to allow xen to manage nfs files"
-msgstr ""
+msgstr "Если вы хотите разрешить xen  осуществлять управление файлами nfs."
 
 #: ../booleans_trans.py:5
 msgid ""
 "If you want to allow confined web browsers to read home directory content"
-msgstr ""
+msgstr "Если вы хотите разрешить ограничиваемым веб-браузерам осуществлять чтение содержимого домашнего каталога."
 
 #: ../booleans_trans.py:6
 msgid ""
 "If you want to allow xguest users to configure Network Manager and connect "
 "to apache ports"
-msgstr ""
+msgstr "Если вы хотите разрешить пользователям xguest изменять параметры Network Manager и подключаться к портам apache."
 
 #: ../booleans_trans.py:7
 msgid "If you want to allow database admins to execute DML statement"
-msgstr ""
+msgstr "Если вы хотите разрешить администраторам баз данных осуществлять запуск выражений DML."
 
 #: ../booleans_trans.py:8
 msgid "If you want to allow clamscan to read user content"
-msgstr ""
+msgstr "Если вы хотите разрешить clamscan осуществлять чтение пользовательского содержимого"
 
 #: ../booleans_trans.py:9
 msgid ""
 "If you want to allow tftp to modify public files used for public file "
 "transfer services."
-msgstr ""
+msgstr "Если вы хотите разрешить tftp изменять общие файлы, используемые службами открытой передачи."
 
 #: ../booleans_trans.py:10
 msgid ""
 "If you want to allow ZoneMinder to modify public files used for public file "
 "transfer services."
-msgstr ""
+msgstr "Если вы хотите разрешить ZoneMinder изменять общие файлы, используемые службами открытой передачи."
 
 #: ../booleans_trans.py:11
 msgid ""
@@ -1603,15 +1603,15 @@ msgstr ""
 
 #: ../booleans_trans.py:12
 msgid "If you want to allow user spamassassin clients to use the network."
-msgstr ""
+msgstr "Если вы хотите разрешить клиентам spamassassin обращаться к сети."
 
 #: ../booleans_trans.py:13
 msgid "If you want to allow httpd to act as a relay"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd выступать в роли передатчика."
 
 #: ../booleans_trans.py:14
 msgid "If you want to allow openvpn to read home directories"
-msgstr ""
+msgstr "Если вы хотите разрешить openvpn осуществлять чтение домашних каталогов"
 
 #: ../booleans_trans.py:15
 msgid ""
@@ -1633,37 +1633,37 @@ msgstr ""
 
 #: ../booleans_trans.py:18
 msgid "If you want to allow confined virtual guests to read fuse files"
-msgstr ""
+msgstr "Если вы хотите разрешить ограничиваемым виртуальным гостям  осуществлять чтение файлов fuse"
 
 #: ../booleans_trans.py:19
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to databases over "
 "the network."
-msgstr ""
+msgstr "Если вы хотите разрешить сценариям и модулям HTTPD осуществлять подключение к базам данных по сети."
 
 #: ../booleans_trans.py:20
 msgid ""
 "If you want to allow ssh with chroot env to read and write files in the user"
 " home directories"
-msgstr ""
+msgstr "Если вы хотите разрешить ssh в окружении chroot осуществлять чтение и запись файлов в домашних каталогах пользователей."
 
 #: ../booleans_trans.py:21
 msgid "If you want to allow users to connect to the local mysql server"
-msgstr ""
+msgstr "Если вы хотите разрешить пользователям подключаться к локальному серверу mysql."
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "Если вы хотите разрешить polipo осуществлять подключение к портам > 1023"
 
 #: ../booleans_trans.py:23
 msgid ""
 "If you want to allow ftp servers to login to local users and read/write all "
 "files on the system, governed by DAC."
-msgstr ""
+msgstr "Если вы хотите разрешить ftp-серверам авторизоваться в режиме локальных пользователей и осуществлять чтение и запись файлов в системе под управлением DAC."
 
 #: ../booleans_trans.py:24
 msgid "If you want to allow httpd to run gpg in gpg-web domain"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd выполнять gpg в домене gpg-web."
 
 #: ../booleans_trans.py:25
 msgid ""
@@ -1673,44 +1673,44 @@ msgstr ""
 
 #: ../booleans_trans.py:26
 msgid "If you want to allow httpd to execute cgi scripts"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd исполнять сценарии cgi."
 
 #: ../booleans_trans.py:27
 msgid "If you want to determine whether polipo can access cifs file systems."
-msgstr ""
+msgstr "Если вы хотите определить, может ли Polipo обращаться к файловым системам cifs."
 
 #: ../booleans_trans.py:28 ../booleans_trans.py:142
 msgid "If you want to allow confined virtual guests to manage nfs files"
-msgstr ""
+msgstr "Если вы хотите разрешить ограничиваемым виртуальным гостям  управлять файлами nfs."
 
 #: ../booleans_trans.py:29
 msgid "If you want to allow all daemons the ability to read/write terminals"
-msgstr ""
+msgstr "Если вы хотите разрешить всем службам осуществлять чтение и запись в терминал."
 
 #: ../booleans_trans.py:30
 msgid ""
 "If you want to allow confined virtual guests to use serial/parallel "
 "communication ports"
-msgstr ""
+msgstr "Если вы хотите разрешить защищенным виртуальным гостям использовать последовательные и параллельные порты."
 
 #: ../booleans_trans.py:31
 msgid ""
 "If you want to allow samba to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
+msgstr "Если вы хотите разрешить samba изменять файлы, используемые для открытой передачи. Файлы и каталоги должны быть отмечены как public_content_rw_t."
 
 #: ../booleans_trans.py:32
 msgid "If you want to allow rsync to run as a client"
-msgstr ""
+msgstr "Если вы хотите разрешить выполнение rsync в роли клиента."
 
 #: ../booleans_trans.py:33
 msgid ""
 "If you want to allow rgmanager domain to connect to the network using TCP."
-msgstr ""
+msgstr "Если вы хотите разрешить подключение домена rgmanager к сети с помощью TCP."
 
 #: ../booleans_trans.py:34
 msgid "If you want to allow exim to read unprivileged user files."
-msgstr ""
+msgstr "Если вы хотите разрешить exim осуществлять чтение файлов непривилегированных пользователей."
 
 #: ../booleans_trans.py:35
 msgid "If you want to allow sysadm to debug or ptrace all processes."
@@ -2041,11 +2041,11 @@ msgstr ""
 msgid ""
 "If you want to allow sftp-internal to read and write files in the user home "
 "directories"
-msgstr ""
+msgstr "Если вы хотите разрешить  internal-sftp осуществлять чтение и запись файлов в домашних каталогах пользователей."
 
 #: ../booleans_trans.py:105
 msgid "If you want to support fusefs home directories"
-msgstr ""
+msgstr "Если вы хотите включить поддержку домашних каталогов fusefs."
 
 #: ../booleans_trans.py:106
 msgid ""
@@ -2069,7 +2069,7 @@ msgstr ""
 
 #: ../booleans_trans.py:110
 msgid "If you want to allow fenced domain to execute ssh."
-msgstr ""
+msgstr "Если вы хотите разрешить огражденному домену выполнять ssh."
 
 #: ../booleans_trans.py:111
 msgid ""
@@ -2079,11 +2079,11 @@ msgstr ""
 
 #: ../booleans_trans.py:112
 msgid "If you want to allow user music sharing"
-msgstr ""
+msgstr "Если вы хотите разрешить совместный доступ к музыке."
 
 #: ../booleans_trans.py:113
 msgid "If you want to allow dbadm to read files in users home directories"
-msgstr ""
+msgstr "Если вы хотите разрешить dbadm осуществлять чтение домашних каталогов пользователей."
 
 #: ../booleans_trans.py:114
 msgid "If you want to allow regular users direct dri device access"
@@ -2091,107 +2091,107 @@ msgstr ""
 
 #: ../booleans_trans.py:115
 msgid "If you want to allow the mount command to mount any directory or file."
-msgstr ""
+msgstr "Если вы хотите разрешить выполнение команды mount для всех файлов и каталогов."
 
 #: ../booleans_trans.py:116
 msgid "If you want to allow a user to login as an unconfined domain"
-msgstr ""
+msgstr "Если вы хотите разрешить вход пользователей в домен unconfined."
 
 #: ../booleans_trans.py:117
 msgid ""
 "If you want to disallow programs and users from transitioning to insmod "
 "domain."
-msgstr ""
+msgstr "Если вы хотите запретить переход программ и пользователей в домен insmod."
 
 #: ../booleans_trans.py:118
 msgid ""
 "If you want to allow httpd to act as a FTP client connecting to the ftp port"
 " and ephemeral ports"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd выступать в роли в качестве FTP-клиента при подключении к порту FTP и временным портам."
 
 #: ../booleans_trans.py:119
 msgid "If you want to allow Cobbler to access nfs file systems."
-msgstr ""
+msgstr "Если вы хотите разрешить Cobbler обращаться к файловым системам nfs."
 
 #: ../booleans_trans.py:120
 msgid "If you want to allow nsplugin code to execmem/execstack"
-msgstr ""
+msgstr "Если вы хотите разрешить nsplugin выполнять execmem/execstack."
 
 #: ../booleans_trans.py:121
 msgid ""
 "If you want to allows clients to write to the X server shared memory "
 "segments."
-msgstr ""
+msgstr "Если вы хотите разрешить клиентам осуществлять запись в сегменты общей памяти сервера X."
 
 #: ../booleans_trans.py:122
 msgid ""
 "If you want to allow confined virtual guests to use executable memory and "
 "executable stack"
-msgstr ""
+msgstr "Если вы хотите разрешить ограничиваемым виртуальным гостям использовать исполняемый стек и память."
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow webadm to read files in users home directories"
-msgstr ""
+msgstr "Если вы хотите разрешить  webadm осуществлять чтение домашних каталогов пользователей."
 
 #: ../booleans_trans.py:124
 msgid "If you want to enable polyinstantiated directory support."
-msgstr ""
+msgstr "Если вы хотите включить поддержку множества временных каталогов."
 
 #: ../booleans_trans.py:125
 msgid "If you want to support X userspace object manager"
-msgstr ""
+msgstr "Если вы хотите включить поддержку менеджера объектов пространства X."
 
 #: ../booleans_trans.py:126
 msgid "If you want to ignore vbetool mmap_zero errors."
-msgstr ""
+msgstr "Игнорировать ошибки vbetool mmap_zero."
 
 #: ../booleans_trans.py:127
 msgid "If you want to allow httpd to read user content"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd осуществлять чтение пользовательского содержимого."
 
 #: ../booleans_trans.py:128
 msgid "If you want to allow httpd to access nfs file systems"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd обращаться к файловым системам nfs."
 
 #: ../booleans_trans.py:129
 msgid ""
 "If you want to allow unconfined users to transition to the chrome sandbox "
 "domains when running chrome-sandbox"
-msgstr ""
+msgstr "Если вы хотите разрешить неограничиваемым пользователям осуществлять переход к доменам chrome sandbox при запуске chrome-sandbox."
 
 #: ../booleans_trans.py:130
 msgid ""
 "If you want to allow postfix_local domain full write access to mail_spool "
 "directories"
-msgstr ""
+msgstr "Если вы хотите разрешить домену  postfix_local осуществлять запись в каталоги mail_spool."
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
+msgstr "Если вы хотите разрешить sge обращаться к файловым системам nfs."
 
 #: ../booleans_trans.py:132
 msgid "If you want to allow xguest users to use blue tooth devices"
-msgstr ""
+msgstr "Если вы хотите разрешить пользователям xguest использовать устройства bluetooth."
 
 #: ../booleans_trans.py:133
 msgid "If you want to use lpd server instead of cups"
-msgstr ""
+msgstr "Если вы хотите использовать сервер lpd вместо cups."
 
 #: ../booleans_trans.py:134
 msgid ""
 "If you want to allow any files/directories to be exported read/write via "
 "NFS."
-msgstr ""
+msgstr "Если вы хотите разрешить экспорт файлов и каталогов через NFS с доступом чтения и записи."
 
 #: ../booleans_trans.py:135
 msgid "If you want to allow Apache to execute tmp content."
-msgstr ""
+msgstr "Если вы хотите разрешить Apache исполнять содержимое tmp."
 
 #: ../booleans_trans.py:136
 msgid ""
 "If you want to allow user to r/w files on filesystems that do not have "
 "extended attributes (FAT, CDROM, FLOPPY)"
-msgstr ""
+msgstr "Если вы хотите разрешить пользователю выполнять опреации чтения и записи в файловые системы без дополнительных атрибутов (FAT, CDROM, FLOPPY)"
 
 #: ../booleans_trans.py:137
 msgid ""
@@ -2202,199 +2202,199 @@ msgstr ""
 
 #: ../booleans_trans.py:138
 msgid "If you want to allow mysqld to connect to all ports"
-msgstr ""
+msgstr "Если вы хотите разрешить mysqld осуществлять подключение ко всем портам"
 
 #: ../booleans_trans.py:139
 msgid "If you want to allow regular users direct mouse access"
-msgstr ""
+msgstr "Если вы хотите разрешить обычным пользователям осуществлять обращение с помощью мыши"
 
 #: ../booleans_trans.py:140
 msgid ""
 "If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
 "dedicated logical volumes for disk images."
-msgstr ""
+msgstr "Если вы хотите разрешить xend исполнять blktapctrl/tapdisk. Не требуется при использовании выделенных логических томов для дисковых образов."
 
 #: ../booleans_trans.py:141
 msgid ""
 "If you want to allow confined virtual guests to interact with the sanlock"
-msgstr ""
+msgstr "Если вы хотите разрешить обращение защищенных виртуальных гостей к sanlock"
 
 #: ../booleans_trans.py:143
 msgid "If you want to allow all domains to have the kernel load modules"
-msgstr ""
+msgstr "Если вы хотите разрешить доменам использовать модули загрузки ядра"
 
 #: ../booleans_trans.py:144
 msgid "If you want to allow confined virtual guests to use usb devices"
-msgstr ""
+msgstr "Если вы хотите разрешить защищенным виртуальным гостям использовать устройства usb"
 
 #: ../booleans_trans.py:145
 msgid ""
 "If you want to enable additional permissions needed to support devices on "
 "3ware controllers."
-msgstr ""
+msgstr "Если вы хотите включить дополнительные разрешения для поддержки устройств, подключенных к контроллерам 3ware."
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "Если вы хотите разрешить процессам httpd осуществлять управление содержимым IPA"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
-msgstr ""
+msgstr "Если вы хотите разрешить использование исполняемого стека java"
 
 #: ../booleans_trans.py:148
 msgid "If you want to allow http daemon to send mail"
-msgstr ""
+msgstr "Если вы хотите разрешить http отправлять почтовые сообщения"
 
 #: ../booleans_trans.py:149
 msgid "If you want to allow samba to export ntfs/fusefs volumes."
-msgstr ""
+msgstr "Если вы хотите разрешить samba осуществлять экспорт томов ntfs/fusefs."
 
 #: ../booleans_trans.py:150
 msgid "If you want to enable support for upstart as the init program."
-msgstr ""
+msgstr "Если вы хотите включить поддержку использования upstart как программы init."
 
 #: ../booleans_trans.py:151
 msgid "If you want to allow zebra daemon to write it configuration files"
-msgstr ""
+msgstr "Если вы хотите разрешить демону zebra изменять файлы конфигурации"
 
 #: ../booleans_trans.py:152
 msgid "If you want to allow httpd to use built in scripting (usually php)"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd использовать встроенные сценарии (обычно php)"
 
 #: ../booleans_trans.py:153
 msgid ""
 "If you want to allow exim to create, read, write, and delete unprivileged "
 "user files."
-msgstr ""
+msgstr "Если вы хотите разрешить exim осуществлять запись, чтение, создание и удаление файлов непривилегированных пользователей."
 
 #: ../booleans_trans.py:154
 msgid ""
 "If you want to allow cdrecord to read various content. nfs, samba, removable"
 " devices, user temp and untrusted content files"
-msgstr ""
+msgstr "Если вы хотите разрешить cdrecord осуществлять чтение содержимого nfs, samba, съемных носителей, незащищенных и временных файлов пользователей."
 
 #: ../booleans_trans.py:155
 msgid ""
 "If you want to allow Cobbler to modify public files used for public file "
 "transfer services."
-msgstr ""
+msgstr "Если вы хотите разрешить Cobbler изменять общие файлы, используемые службами открытой передачи."
 
 #: ../booleans_trans.py:156
 msgid "If you want to allow samba to export NFS volumes."
-msgstr ""
+msgstr "Если вы хотите разрешить samba осуществлять экспорт томов NFS."
 
 #: ../booleans_trans.py:157
 msgid ""
 "If you want to control the ability to mmap a low area of the address space, "
 "as configured by /proc/sys/kernel/mmap_min_addr."
-msgstr ""
+msgstr "Если вы хотите управлять mmap-сопоставлением нижнего диапазона адресного пространства в соответствии с параметрами в /proc/sys/kernel/mmap_min_addr."
 
 #: ../booleans_trans.py:158
 msgid "If you want to ignore wine mmap_zero errors."
-msgstr ""
+msgstr "Игнорировать ошибки  wine mmap_zero."
 
 #: ../booleans_trans.py:159
 msgid "If you want to allow collectd to connect to the network using TCP."
-msgstr ""
+msgstr "Если вы хотите разрешить collectd осуществлять подключение к сети с помощью TCP."
 
 #: ../booleans_trans.py:160
 msgid ""
 "If you want to allow logging in and using the system from /dev/console."
-msgstr ""
+msgstr "Если вы хотите разрешить авторизацию и работу в /dev/console."
 
 #: ../booleans_trans.py:161
 msgid "If you want to allow user processes to change their priority"
-msgstr ""
+msgstr "Если вы хотите разрешить пользовательским процессам изменять свой приоритет"
 
 #: ../booleans_trans.py:162
 msgid ""
 "If you want to allow fenced domain to connect to the network using TCP."
-msgstr ""
+msgstr "Если вы хотите разрешить огражденному домену осуществлять подключение к сети с помощью TCP."
 
 #: ../booleans_trans.py:163
 msgid ""
 "If you want to allow dhcpc client applications to execute iptables commands"
-msgstr ""
+msgstr "Если вы хотите разрешить приложениям клиентов dhcpc исполнять команды iptables"
 
 #: ../booleans_trans.py:164
 msgid "If you want to allow users to connect to PostgreSQL"
-msgstr ""
+msgstr "Если вы хотите разрешить пользователям осуществлять подключение к PostgreSQL"
 
 #: ../booleans_trans.py:165
 msgid "If you want to allow cvs daemon to read shadow"
-msgstr ""
+msgstr "Если вы хотите разрешить демону cvs осуществлять чтение shadow"
 
 #: ../booleans_trans.py:166
 msgid "If you want to allow http daemon to check spam"
-msgstr ""
+msgstr "Если вы хотите разрешить демону http проверять спам"
 
 #: ../booleans_trans.py:167
 msgid ""
 "If you want to allow sftp-internal to login to local users and read/write "
 "all files on the system, governed by DAC."
-msgstr ""
+msgstr "Если вы хотите разрешить sftp-internal авторизоваться в режиме локальных пользователей и осуществлять чтение и запись файлов в системе под управлением DAC."
 
 #: ../booleans_trans.py:168
 msgid "If you want to allow xguest users to mount removable media"
-msgstr ""
+msgstr "Если вы хотите разрешить пользователям xguest осуществлять монтирование съемных носителей."
 
 #: ../booleans_trans.py:169
 msgid ""
 "If you want to allow icecast to connect to all ports, not just sound ports."
-msgstr ""
+msgstr "Если вы хотите разрешить icecast осуществлять подключение ко всем портам, а не только аудио."
 
 #: ../booleans_trans.py:170
 msgid "If you want to allow pppd to load kernel modules for certain modems"
-msgstr ""
+msgstr "Если вы хотите разрешить pppd загружать модули ядра для модемов."
 
 #: ../booleans_trans.py:171
 msgid ""
 "If you want to deny user domains applications to map a memory region as both"
 " executable and writable, this is dangerous and the executable should be "
 "reported in bugzilla"
-msgstr ""
+msgstr "Если вы хотите запретить пользовательским приложениям домена изменять статус регионов памяти на запускаемый и записываемый. Это представляет риск безопасности. Рекомендуется сообщить в Bugzilla."
 
 #: ../booleans_trans.py:172
 msgid "If you want to allow syslogd daemon to send mail"
-msgstr ""
+msgstr "Если вы хотите разрешить syslogd отправлять почтовые сообщения"
 
 #: ../booleans_trans.py:173
 msgid "If you want to determine whether Polipo can access nfs file systems."
-msgstr ""
+msgstr "Если вы хотите определить, может ли Polipo обращаться к файловым системам nfs."
 
 #: ../booleans_trans.py:174
 msgid "If you want to allow samba to run unconfined scripts"
-msgstr ""
+msgstr "Если вы хотите разрешить samba исполнять неограничиваемые сценарии"
 
 #: ../booleans_trans.py:175
 msgid "If you want to support NFS home directories"
-msgstr ""
+msgstr "Если вы хотите включить поддержку домашних каталогов NFS"
 
 #: ../booleans_trans.py:176
 msgid "If you want to allow ftp servers to connect to all ports > 1023"
-msgstr ""
+msgstr "Если вы хотите разрешить подключение FTP-серверов к портам с номерами больше 1023."
 
 #: ../booleans_trans.py:177
 msgid "If you want to allow confined applications to run with kerberos."
-msgstr ""
+msgstr "Если вы хотите разрешить выполнение ограничиваемых приложений с использованием kerberos."
 
 #: ../booleans_trans.py:178
 msgid "If you want to allow BIND to bind apache port."
-msgstr ""
+msgstr "Если вы хотите разрешить осуществлять привязку BIND к порту apache."
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "Если вы хотите разрешить демону gitisis отправлять почтовые сообщения"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
-msgstr ""
+msgstr "Если вы хотите разрешить подключение httpd к серверу memcache"
 
 #: ../booleans_trans.py:181
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to cobbler over "
 "the network."
-msgstr ""
+msgstr "Если вы хотите разрешить сценариям и модулям HTTPD осуществлять подключение к Cobbler по сети."
 
 #: ../booleans_trans.py:182
 msgid ""
@@ -2402,137 +2402,137 @@ msgid ""
 "  This should never, ever be necessary. Probably indicates a badly coded "
 "executable, but could indicate an attack. This executable should be reported"
 " in bugzilla"
-msgstr ""
+msgstr "Если вы хотите разрешить неограничиваемым компонентам делать свой стек исполняемым. Обычно в этом нет необходимости. Возможно, служит знаком некорректного кода в исполняемом компоненте или попытки взлома. Рекомендуется создать отчет в Bugzilla."
 
 #: ../booleans_trans.py:183 ../booleans_trans.py:206
 msgid "If you want to allow confined virtual guests to manage cifs files"
-msgstr ""
+msgstr "Если вы хотите разрешить ограничиваемым виртуальным гостям  осуществлять управление файлами cifs"
 
 #: ../booleans_trans.py:184
 msgid "If you want to allow sasl to read shadow"
-msgstr ""
+msgstr "Если вы хотите разрешить sasl осуществлять чтение shadow"
 
 #: ../booleans_trans.py:185
 msgid ""
 "If you want to allow ftp servers to upload files,  used for public file "
 "transfer services. Directories must be labeled public_content_rw_t."
-msgstr ""
+msgstr "Если вы хотите разрешить серверам FTP осуществлять отправку файлов, используемых для открытой передачи. Каталоги должны быть отмечены как public_content_rw_t."
 
 #: ../booleans_trans.py:186
 msgid "If you want to allow video playing tools to run unconfined"
-msgstr ""
+msgstr "Если вы хотите разрешить выполнение инструментов просмотра видео с типом unconfined"
 
 #: ../booleans_trans.py:187
 msgid ""
 "If you want to allow gssd to read temp directory.  For access to kerberos "
 "tgt."
-msgstr ""
+msgstr "Если вы хотите разрешить gssd осуществлять чтение временного каталога (для доступа к цели Kerberos)."
 
 #: ../booleans_trans.py:188
 msgid "If you want to allow webadm to manage files in users home directories"
-msgstr ""
+msgstr "Если вы хотите разрешить webadm осуществлять управление файлами в домашних каталогах пользователей"
 
 #: ../booleans_trans.py:189
 msgid "If you want to allow clamd to use JIT compiler"
-msgstr ""
+msgstr "Если вы хотите разрешить clamd использовать компилятор JIT"
 
 #: ../booleans_trans.py:190
 msgid "If you want to allows XServer to execute writable memory"
-msgstr ""
+msgstr "Если вы хотите разрешить XServer осуществлять запуск из записываемой памяти"
 
 #: ../booleans_trans.py:191
 msgid ""
 "If you want to allow Git daemon session to bind tcp sockets to all "
 "unreserved ports."
-msgstr ""
+msgstr "Если вы хотите разрешить сеансу демона Git осуществлять привязку сокетов tcp к незарезервированным портам."
 
 #: ../booleans_trans.py:192
 msgid ""
 "If you want to allow HTTPD to run SSI executables in the same domain as "
 "system CGI scripts."
-msgstr ""
+msgstr "Если вы хотите разрешить HTTPD запускать компоненты SSI в домене с системными сценариями CGI."
 
 #: ../booleans_trans.py:193
 msgid "If you want to allow samba to share any file/directory read/write."
-msgstr ""
+msgstr "Если вы хотите разрешить samba открыть совместный доступ к любым файлам и каталогам."
 
 #: ../booleans_trans.py:194
 msgid ""
 "If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
 "database"
-msgstr ""
+msgstr "Если вы хотите разрешить Puppetmaster осуществлять подключение к базам данных MySQL и PostgreSQL."
 
 #: ../booleans_trans.py:195
 msgid ""
 "If you want to allow httpd to act as a FTP server by listening on the ftp "
 "port."
-msgstr ""
+msgstr "Если вы хотите разрешить httpd выступать в роли в качестве FTP-сервера при прослушивании порта FTP."
 
 #: ../booleans_trans.py:196
 msgid "If you want to enable extra rules in the cron domain to support fcron."
-msgstr ""
+msgstr "Если вы хотите добавить дополнительные правила для домена cron с целью поддержки fcron."
 
 #: ../booleans_trans.py:197
 msgid ""
 "If you want to allow internal-sftp to read and write files in the user ssh "
 "home directories."
-msgstr ""
+msgstr "Если вы хотите разрешить  internal-sftp осуществлять чтение и запись файлов в домашних каталогах ssh."
 
 #: ../booleans_trans.py:198
 msgid "If you want to allow http daemon to connect to zabbix"
-msgstr ""
+msgstr "Если вы хотите разрешить подключение демона http к zabbix"
 
 #: ../booleans_trans.py:199
 msgid "If you want to allow all domains to use other domains file descriptors"
-msgstr ""
+msgstr "Если вы хотите разрешить всем доменам использовать файловые дескрипторы других доменов"
 
 #: ../booleans_trans.py:200
 msgid "If you want to allow users to login using a radius server"
-msgstr ""
+msgstr "Если вы хотите разрешить пользователям осуществлять вход через сервер radius"
 
 #: ../booleans_trans.py:201
 msgid "If you want to allow Cobbler to access cifs file systems."
-msgstr ""
+msgstr "Если вы хотите разрешить Cobbler обращаться к файловым системам cifs."
 
 #: ../booleans_trans.py:202
 msgid "If you want to allow httpd daemon to change system limits"
-msgstr ""
+msgstr "Если вы хотите разрешить демону httpd изменять ограничения системы"
 
 #: ../booleans_trans.py:203
 msgid ""
 "If you want to allow squid to connect to all ports, not just HTTP, FTP, and "
 "Gopher ports."
-msgstr ""
+msgstr "Если вы хотите разрешить squid осуществлять подключение ко всем портам, а не только HTTP, FTP, Gopher."
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "Если вы хотите разрешить syslogd осуществлять чтение и запись в терминал."
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."
-msgstr ""
+msgstr "Если вы хотите разрешить пользователям осуществлять чтение системных сообщений."
 
 #: ../booleans_trans.py:207
 msgid "If you want to enable support for systemd as the init program."
-msgstr ""
+msgstr "Если вы хотите включить поддержку использования systemd как программы init."
 
 #: ../booleans_trans.py:208
 msgid ""
 "If you want to allow any files/directories to be exported read/only via NFS."
-msgstr ""
+msgstr "Если вы хотите разрешить экспорт файлов и каталогов через NFS с доступом чтения."
 
 #: ../booleans_trans.py:209
 msgid ""
 "If you want to allow system cron jobs to relabel filesystem for restoring "
 "file contexts."
-msgstr ""
+msgstr "Если вы хотите разрешить задачам cron изменять метки файловой системы с целью восстановления файловых контекстов."
 
 #: ../booleans_trans.py:210
 msgid ""
 "If you want to allow anon internal-sftp to upload files, used for public "
 "file transfer services. Directories must be labeled public_content_rw_t."
-msgstr ""
+msgstr "Если вы хотите разрешить анонимному внутреннему sftp осуществлять отправку файлов, используемых для открытой передачи. Каталоги должны быть отмечены как public_content_rw_t."
 
 #: ../booleans_trans.py:211
 msgid "If you want to allow unprivileged users to execute DDL statement"
-msgstr ""
+msgstr "Если вы хотите разрешить непривилегированным пользователям осуществлять запуск выражений DDL."

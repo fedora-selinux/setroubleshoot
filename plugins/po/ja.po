@@ -5,7 +5,7 @@
 # Translators:
 # Hajime Taira <htaira@redhat.com>, 2012.
 # Hyu_gabaru Ryu_ichi <hyu_gabaru@yahoo.co.jp>, 2009.
-# Kiyoto Hashida <khashida@redhat.com>, 2008, 2009, 2010, 2011.
+# Kiyoto Hashida <khashida@redhat.com>, 2008, 2009, 2010, 2011, 2012.
 # Kiyoto James Hashida <khashida@redhat.com>, 2006, 2007.
 # Noriko Mizumoto <noriko@redhat.com>, 2006, 2008.
 # Tomoyuki KATO <tomo@dream.daynight.jp>, 2012.
@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-05-09 07:36+0000\n"
+"Last-Translator: Kiyoto Hashida <khashida@redhat.com>\n"
 "Language-Team: Japanese <trans-ja@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +48,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    httpd スクリプトが公共のディレクトリに書き込みできるようにする場合、 $BOOLEAN ブーリアンをオンにしてその公共ディレクトリのファイルコンテキストを  public_content_rw_t に変更する必要があります。  詳細については httpd_selinux man ページをご覧下さい:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t 　　　　<path>\"\n    また、システム上のデフォルトのファイルコンテキストラベル設定ファイルを変更して、全面的な再ラベル設定に於いても公共ディレクトリのラベル設定を維持するようにしなければなりません。  \"semanage fcontext -a -t public_content_rw_t <path>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -1657,7 +1657,7 @@ msgstr "ユーザが、ローカルの mysql サーバに接続することを�
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "polipo が 1023 以上の全てのポートに接続できるようにしたい場合"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -2171,7 +2171,7 @@ msgstr "postfix_local domain に、 mail_spool ディレクトリへの書込み
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
+msgstr "sge が nfs ファイルシステムにアクセスできるようにしたい場合"
 
 #: ../booleans_trans.py:132
 msgid "If you want to allow xguest users to use blue tooth devices"
@@ -2239,7 +2239,7 @@ msgstr "必要な追加権限を有効にし、3ware controllers のデバイス
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "httpd プロセスが IPA コンテンツを管理できるようにしたい場合"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
@@ -2388,7 +2388,7 @@ msgstr "BIND が Apache のポートをバインドできるようにしたけ�
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "gitisis デーモンがメールを送信できるようにしたい場合"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2510,7 +2510,7 @@ msgstr "squid が、 HTTP, FTP, Gopher port だけでなく、全ての port に
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "syslogd がターミナルで読み込み/書き込みの機能を持つようにしたい場合"
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."

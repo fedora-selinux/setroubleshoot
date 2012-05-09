@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-05-02 06:44+0000\n"
+"Last-Translator: sweta <swkothar@redhat.com>\n"
 "Language-Team: Gujarati <trans-gu@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgid ""
 "    SELinux policy is preventing an httpd script from writing to a public\n"
 "    directory.\n"
 "    "
-msgstr "\n    SELinux પોલિસી એ httpd સ્ક્રિપ્ટને જાહેર ડિરેક્ટરીમાં લખવાથી અટકાવી\n    રહી છે.\n    "
+msgstr "\n    SELinux પોલિસી એ httpd સ્ક્રિપ્ટને જાહેર ડિરેક્ટરીમાં લખવાથી\n    અટકાવી રહી છે.\n    "
 
 #: ../src/allow_anon_write.py:32
 msgid ""
@@ -46,7 +46,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    જો httpd સ્ક્રિપ્ટને સાર્વજનિક ડિરેક્ટરીઓમાં લખવા માટે પરવાનગી આપવી જોઇએ તમારે $BOOLEAN બુલિયનને ચાલુ કરવાની જરૂર છે અને public_content_rw_t માં સાર્વજનિક ડિરેક્ટરીનાં ફાઇલ સંદર્ભને બદલો.  વધારે જાણકારી માટે httpd_selinux\n    મુખ્ય પાનાંને વાંચો:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n    તમારે પણ સંપૂર્ણ પુન:લેબલ પર પણ સાર્વજનિક ડિરેક્ટરીને સાચવવા ક્રમમાં સિસ્ટમ પર ફાઇલોનુ લેબલ કરવા માટે મૂળભૂત ફાઇલ સંદર્ભને બદલવુ જ જોઇએ.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -1655,7 +1655,7 @@ msgstr "જો તમે સ્થાનિય mysql સર્વર સાથ�
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "જો તમે બધા સાથે જોડાવા માટે polipo ને પરવાનગી આપવા માંગો છો > 1023"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -2169,7 +2169,7 @@ msgstr "જો તમે mail_spool ડિરેક્ટરીઓ માટે 
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
+msgstr "જો તમે nfs ફાઇલ સિસ્ટમોને વાપરવા માટે sge ને પરવાનગી આપવા માંગો છો."
 
 #: ../booleans_trans.py:132
 msgid "If you want to allow xguest users to use blue tooth devices"
@@ -2237,7 +2237,7 @@ msgstr "જો તમે 3ware નિયંત્રકો પર ઉપકર�
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "જો તમે IPA સમાવિષ્ટને સંચાલિત કરવા માટે httpd ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
@@ -2386,7 +2386,7 @@ msgstr "જો તમે apache પોર્ટને બાંધવા મા�
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "જો તમે મેઇલને મોકલવા માટે gitisis ડિમનને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2508,7 +2508,7 @@ msgstr "જો તમે બધા પોર્ટો સાથે જોડા�
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "જો તમે ટર્મિનલને વાંચવા/લખવાની ક્ષમતા માટે syslogd ને પરવાનગી આપવા માંગો છો"
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."
