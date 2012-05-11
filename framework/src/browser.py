@@ -25,7 +25,7 @@ from gettext import ngettext as P_
 import sys, os
 from xml.dom import minidom
 from xmlrpclib  import ProtocolError
-import gtk
+import gtk, glib
 import gtk.glade
 from setroubleshoot.errcode import *
 from setroubleshoot.signature import *
@@ -43,9 +43,8 @@ import report.accountmanager
 import gio
 
 GLADE_DIRECTORY = "/usr/share/setroubleshoot/gui/"
-PREF_DIRECTORY = os.environ['HOME'] + "/"
-PREF_FILENAME = ".setroubleshoot"
-PREF_PATH = PREF_DIRECTORY + PREF_FILENAME
+OLD_PATH = os.environ['HOME'] + "/.setroubleshoot"
+PREF_PATH = glib.get_user_config_dir() + "/sealert.conf"
 UPDATE_PROGRAM = "/usr/bin/gpk-update-viewer"
 
 dict = { "file": "text-x-generic",
@@ -538,6 +537,10 @@ class BrowserApplet:
     def read_config(self):
         filename = PREF_PATH 
         self.checkonlogin=1
+        if not os.path.exists(filename):
+            if os.path.exists(OLD_PATH):
+                os.rename(OLD_PATH, filename)
+
         try:
             fd = open(filename, "r")
             for i in fd.readlines():
