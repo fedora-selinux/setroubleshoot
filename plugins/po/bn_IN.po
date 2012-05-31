@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-15 15:17+0000\n"
-"Last-Translator: BIRAJ KARMAKAR <brnet00@gmail.com>\n"
+"PO-Revision-Date: 2012-05-10 05:31+0000\n"
+"Last-Translator: runa <runabh@gmail.com>\n"
 "Language-Team: Bengali (India) <anubad@lists.ankur.org.in>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,7 +46,7 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr ""
+msgstr "\n    httpd স্ক্রিপ্টকে এই ডিরেক্টরিতে লেখার অনুমতি প্রদান করতে হলে\n    $BOOLEAN বুলিয়ান সক্রিয় করুন ও সার্বজনীন ডিরেক্টরির ফাইল\n    কনটেক্সট public_content_rw_t-এ পরিবর্তন করুন।  অধিক জানতে httpd_selinux\n    man পৃষ্ঠা পড়ুন:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n     সিস্টেমের মধ্যে ডিফল্ট ফাইল কনটেক্স লেবেল পরিবর্তন করা আবশ্যক। এর ফলে সম্পূর্ণ রি-লেবল (relabel) করা হলেও কনটেক্সট অপরিবর্তিত থাকবে।  \"semanage fcontext -a -t public_content_rw_t <path>\"\n    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -1655,7 +1655,7 @@ msgstr "ব্যবহারকারীদেরকে স্থানীয় m
 
 #: ../booleans_trans.py:22
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
+msgstr "polipo-কে 1023 থেকে ঊর্ধ্বতন সংখ্যার সকল পোর্টের সাথে সংযোগ করার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -2237,7 +2237,7 @@ msgstr "3ware কনট্রোলারের মধ্যে ডিভাই�
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
+msgstr "httpd প্রসেসগুলি দ্বারা IPA-র তথ্য পরিচালনা করার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:147
 msgid "If you want to allow java executable stack"
@@ -2386,7 +2386,7 @@ msgstr "BIND দ্বারা apache পোর্টের সাথে bind �
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
+msgstr "gitisis ডোমন দ্বারা মােইল পাঠানোর অনুমতি প্রদান করতে হলে"
 
 #: ../booleans_trans.py:180
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2508,7 +2508,7 @@ msgstr "squid দ্বারা শুধুমাত্র HTTP, FTP, এব�
 
 #: ../booleans_trans.py:204
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
+msgstr "syslogd দ্বারা টার্মিন্যালে থেকে পড়ার ও টার্মিন্যালে লেখার অনুমতি প্রদান করতে হলে"
 
 #: ../booleans_trans.py:205
 msgid "If you want to allow users to read system messages."
