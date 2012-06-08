@@ -280,7 +280,10 @@ def get_rpm_nvr_by_file_path_temporary(name):
 ###
 
 import setools
-file_types =  setools.seinfo(setools.ATTRIBUTE,"file_type")[0]["types"]
+try:
+    file_types =  setools.seinfo(setools.ATTRIBUTE,"file_type")[0]["types"]
+except RuntimeError:
+    file_types = []
 
 def get_rpm_nvr_by_name(name):
     return get_rpm_nvr_by_name_temporary(name)
