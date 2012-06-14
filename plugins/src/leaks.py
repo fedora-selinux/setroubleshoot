@@ -49,10 +49,8 @@ class plugin(Plugin):
         self.set_priority(6)
 
     def analyze(self, avc):
-        if avc.syscall == 'execve':
-            if not avc.has_tclass_in(['process', 'capability']) or \
-                    avc.has_any_access_in(['write', 'append']):
+        if avc.syscall == 'execve' and avc.has_any_access_in(['write', 'append']):
             # MATCH
-                return self.report()
+            return self.report()
 
         return None
