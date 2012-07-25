@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-25 11:03-0400\n"
+"POT-Creation-Date: 2012-07-25 11:34-0400\n"
 "PO-Revision-Date: 2011-12-07 07:07+0000\n"
 "Last-Translator: gkoenig <koenig.ulm@googlemail.com>\n"
 "Language-Team: German <trans-de@lists.fedoraproject.org>\n"
@@ -43,7 +43,7 @@ msgstr "Fehler in SELinux-Zugriffsverweigerungen suchen"
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:731 ../src/browser.py:806
+#: ../src/audit_data.py:885 ../src/browser.py:733 ../src/browser.py:808
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Unbekannt"
@@ -132,87 +132,95 @@ msgstr "Nein"
 msgid "Attempted this access:"
 msgstr "Versuchter Zugriff:"
 
-#: ../src/browser.py:196 ../gui/browser.glade.h:14
+#: ../src/browser.py:194 ../gui/browser.glade.h:11
+msgid "SETroubleshoot Details Window"
+msgstr "Detailfenster zur SE Fehlerbehandlung"
+
+#: ../src/browser.py:197 ../gui/browser.glade.h:14
 msgid "Would you like to receive alerts?"
 msgstr "Möchten Sie Meldungen erhalten ?"
 
-#: ../src/browser.py:200 ../gui/browser.glade.h:24
+#: ../src/browser.py:201 ../gui/browser.glade.h:24
 msgid "Notify Admin"
 msgstr "Benachrichtige den Administrator"
 
-#: ../src/browser.py:203 ../src/browser.py:209 ../gui/browser.glade.h:8
+#: ../src/browser.py:204 ../src/browser.py:210 ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "Fehlersuche"
 
-#: ../src/browser.py:206 ../gui/browser.glade.h:26
+#: ../src/browser.py:207 ../gui/browser.glade.h:26
 msgid "Details"
 msgstr "Details"
 
-#: ../src/browser.py:214 ../gui/browser.glade.h:33
+#: ../src/browser.py:214 ../gui/browser.glade.h:7
+msgid "SETroubleshoot Alert List"
+msgstr "SETroubleshoot-Alarmliste"
+
+#: ../src/browser.py:216 ../gui/browser.glade.h:33
 msgid "List All Alerts"
 msgstr "Zeige alle Meldungen"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "Source Process"
 msgstr "Quellprozess"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "Attempted Access"
 msgstr "versuchter Zugang"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "On this"
 msgstr "auf dies"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "Occurred"
 msgstr "aufgetreten"
 
-#: ../src/browser.py:261 ../src/run_cmd.py:406
+#: ../src/browser.py:263 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "Status"
 
-#: ../src/browser.py:333 ../src/browser.py:770 ../src/browser.py:814
+#: ../src/browser.py:335 ../src/browser.py:772 ../src/browser.py:816
 msgid "Notify"
 msgstr "benachrichtigen"
 
-#: ../src/browser.py:334
+#: ../src/browser.py:336
 #, fuzzy
 msgid "Notify alert in the future."
 msgstr "Ignoriere zukünftig diese Meldung"
 
-#: ../src/browser.py:337 ../src/browser.py:772 ../src/browser.py:812
+#: ../src/browser.py:339 ../src/browser.py:774 ../src/browser.py:814
 #: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "ignorieren"
 
-#: ../src/browser.py:338 ../gui/browser.glade.h:28
+#: ../src/browser.py:340 ../gui/browser.glade.h:28
 msgid "Ignore alert in the future."
 msgstr "Ignoriere zukünftig diese Meldung"
 
-#: ../src/browser.py:374
+#: ../src/browser.py:376
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Falls Sie versucht haben...</b>"
 
-#: ../src/browser.py:383
+#: ../src/browser.py:385
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Dann ist dies die Lösung.</b>"
 
-#: ../src/browser.py:402 ../src/browser.py:538
+#: ../src/browser.py:404 ../src/browser.py:540
 msgid "If "
 msgstr "wenn"
 
-#: ../src/browser.py:490
+#: ../src/browser.py:492
 msgid ""
 "Plugin\n"
 "Details"
 msgstr "Details zum Plugin"
 
-#: ../src/browser.py:505
+#: ../src/browser.py:507
 msgid ""
 "Report\n"
 "Bug"
@@ -220,42 +228,42 @@ msgstr ""
 "Bericht\n"
 "Fehler"
 
-#: ../src/browser.py:533
+#: ../src/browser.py:535
 #, python-format
 msgid "Plugin: %s "
 msgstr "Plugin: %s"
 
-#: ../src/browser.py:595
+#: ../src/browser.py:597
 msgid "Unable to grant access."
 msgstr "Zugriff kann nicht genehmigt werden."
 
-#: ../src/browser.py:626 ../src/browser.py:768
+#: ../src/browser.py:628 ../src/browser.py:770
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Fehlermeldung %d von %drme"
 
-#: ../src/browser.py:751
+#: ../src/browser.py:753
 #, python-format
 msgid "On this %s:"
 msgstr "Auf %s:"
 
-#: ../src/browser.py:799 ../src/browser.py:805 ../src/signature.py:388
+#: ../src/browser.py:801 ../src/browser.py:807 ../src/signature.py:388
 msgid "N/A"
 msgstr "nicht verfügbar"
 
-#: ../src/browser.py:846 ../src/browser.py:847 ../gui/browser.glade.h:31
+#: ../src/browser.py:848 ../src/browser.py:849 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "keine Fehler"
 
-#: ../src/browser.py:865
+#: ../src/browser.py:867
 msgid "SELinux has detected a problem."
 msgstr "SELinux hat ein Problem entdeckt."
 
-#: ../src/browser.py:970
+#: ../src/browser.py:972
 msgid "Sealert Error"
 msgstr "Sealert-Fehler"
 
-#: ../src/browser.py:981
+#: ../src/browser.py:983
 msgid "Sealert Message"
 msgstr "Sealert-Meldung"
 
@@ -502,91 +510,121 @@ msgstr ""
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux ist im Toleranzmodus. Dieser Zugriff wurde nicht verwehrt."
 
-#: ../src/signature.py:461
+#: ../src/signature.py:430
+#, python-format
+msgid "SELinux is preventing %s from using the %s access on a process."
+msgstr ""
+
+#: ../src/signature.py:430
+#, python-format
+msgid "SELinux is preventing %s from using the '%s' accesses on a process."
+msgstr ""
+
+#: ../src/signature.py:433
+#, python-format
+msgid "SELinux is preventing %s from using the %s capability."
+msgstr ""
+
+#: ../src/signature.py:433
+#, python-format
+msgid "SELinux is preventing %s from using the '%s' capabilities."
+msgstr ""
+
+#: ../src/signature.py:434
+#, python-format
+msgid "SELinux is preventing %s from %s access on the %s %s."
+msgstr ""
+
+#: ../src/signature.py:434
+#, python-format
+msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
+msgstr ""
+
+#: ../src/signature.py:462
 msgid "Additional Information:\n"
 msgstr "zusätzliche Information:\n"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:463
 msgid "Source Context"
 msgstr "Quellkontext"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:464
 msgid "Target Context"
 msgstr "Zielkontext"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:465
 msgid "Target Objects"
 msgstr "Zielobjekte"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:466
 msgid "Source"
 msgstr "Quelle"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:467
 msgid "Source Path"
 msgstr "Quellpfad"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:468
 msgid "Port"
 msgstr "Port"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
 msgid "Host"
 msgstr "Host"
 
-#: ../src/signature.py:469
+#: ../src/signature.py:470
 msgid "Source RPM Packages"
 msgstr "RPM-Pakete der Quelle"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:471
 msgid "Target RPM Packages"
 msgstr "RPM-Pakete des Ziels"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:472
 msgid "Policy RPM"
 msgstr "Richtlinien-RPM"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:473
 msgid "Selinux Enabled"
 msgstr "SELinux aktiviert"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:474
 msgid "Policy Type"
 msgstr "Richtlinientyp"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:475
 msgid "Enforcing Mode"
 msgstr "Enforcing-Modus"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:476
 msgid "Host Name"
 msgstr "Rechnername"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:477
 msgid "Platform"
 msgstr "Plattform"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:478
 msgid "Alert Count"
 msgstr "Anzahl der Alarme"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:480
 msgid "First Seen"
 msgstr "Zuerst gesehen"
 
-#: ../src/signature.py:480
+#: ../src/signature.py:481
 msgid "Last Seen"
 msgstr "Zuletzt gesehen"
 
-#: ../src/signature.py:481
+#: ../src/signature.py:482
 msgid "Local ID"
 msgstr "Lokale ID"
 
-#: ../src/signature.py:483
+#: ../src/signature.py:484
 msgid "Raw Audit Messages"
 msgstr "Raw-Audit-Meldungen"
 
-#: ../src/signature.py:533
+#: ../src/signature.py:534
 #, python-format
 msgid ""
 "\n"
@@ -597,15 +635,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s Zuverlässigkeit) schlägt vor  "
 
-#: ../src/signature.py:536
+#: ../src/signature.py:537
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:537
+#: ../src/signature.py:538
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:539
+#: ../src/signature.py:540
 msgid ""
 "\n"
 "If "
@@ -613,7 +651,7 @@ msgstr ""
 "\n"
 "Wenn"
 
-#: ../src/signature.py:541
+#: ../src/signature.py:542
 msgid ""
 "\n"
 "Then "
@@ -621,7 +659,7 @@ msgstr ""
 "\n"
 "Dann"
 
-#: ../src/signature.py:544
+#: ../src/signature.py:545
 msgid ""
 "\n"
 "Do\n"
@@ -629,7 +667,7 @@ msgstr ""
 "\n"
 "Ausführen\n"
 
-#: ../src/signature.py:546
+#: ../src/signature.py:547
 msgid ""
 "\n"
 "\n"
@@ -711,10 +749,6 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:7
-msgid "SETroubleshoot Alert List"
-msgstr "SETroubleshoot-Alarmliste"
-
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "Fehlersuche für die ausgewählte Warnung"
@@ -722,10 +756,6 @@ msgstr "Fehlersuche für die ausgewählte Warnung"
 #: ../gui/browser.glade.h:10
 msgid "Delete Selected Alerts"
 msgstr "Lösche die ausgewählten Meldungen"
-
-#: ../gui/browser.glade.h:11
-msgid "SETroubleshoot Details Window"
-msgstr "Detailfenster zur SE Fehlerbehandlung"
 
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"

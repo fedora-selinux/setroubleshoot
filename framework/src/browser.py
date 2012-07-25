@@ -191,6 +191,7 @@ class BrowserApplet:
         self.details_window = builder.get_object("details_window")
         self.details_textview = builder.get_object("details_textview")
         self.details_window.connect("delete-event", self.on_close_details_button_clicked)
+        self.details_window.set_title(_("SETroubleshoot Details Window"))
 
         label1 = builder.get_object("label1")
         label1.set_text(_("Would you like to receive alerts?"))
@@ -210,6 +211,7 @@ class BrowserApplet:
         self.grant_button = builder.get_object("grant_button")
         self.alert_list_window = builder.get_object("alert_list_window") 
         self.alert_list_window.connect("delete-event", self.close_alert_window)
+        self.alert_list_window.set_title(_("SETroubleshoot Alert List"))
         self.list_all_button = builder.get_object("list_all_button")
         self.list_all_button.set_label(_("List All Alerts"))
         self.treeview_window = builder.get_object("treeview_window") 

@@ -426,11 +426,11 @@ class SEFaultSignatureInfo(XmlSerialize):
 
     def summary(self):
         if self.tclass == "process":
-            return P_("SELinux is preventing %s from using the %s access on a process.", "SELinux is preventing %s from using the '%s' accesses on a process.", len(self.sig.access)) % (self.spath, ", ".join(self.sig.access))
+            return P_(_("SELinux is preventing %s from using the %s access on a process."), _("SELinux is preventing %s from using the '%s' accesses on a process."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access))
 
         if self.tclass == "capability":
-            return P_("SELinux is preventing %s from using the %s capability.", "SELinux is preventing %s from using the '%s' capabilities.", len(self.sig.access)) % (self.spath, ", ".join(self.sig.access))
-        return P_("SELinux is preventing %s from %s access on the %s %s.", "SELinux is preventing %s from '%s' accesses on the %s %s.", len(self.sig.access)) % (self.spath, ", ".join(self.sig.access), translate_class(self.tclass), self.tpath)
+            return P_(_("SELinux is preventing %s from using the %s capability."), _("SELinux is preventing %s from using the '%s' capabilities."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access))
+        return P_(_("SELinux is preventing %s from %s access on the %s %s."), _("SELinux is preventing %s from '%s' accesses on the %s %s."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access), translate_class(self.tclass), self.tpath)
 
     def get_plugins(self, all = False):
         self.plugins = load_plugins()

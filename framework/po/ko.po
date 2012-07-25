@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-25 11:03-0400\n"
+"POT-Creation-Date: 2012-07-25 11:34-0400\n"
 "PO-Revision-Date: 2012-02-10 05:43+0000\n"
 "Last-Translator: eukim <eukim@redhat.com>\n"
 "Language-Team: Korean (http://www.transifex.net/projects/p/fedora/language/"
@@ -36,7 +36,7 @@ msgstr "SELinux 액세스 거부 문제 해결 "
 msgid "port %s"
 msgstr "포트 %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:731 ../src/browser.py:806
+#: ../src/audit_data.py:885 ../src/browser.py:733 ../src/browser.py:808
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "알려지지 않음"
@@ -125,81 +125,89 @@ msgstr "아니오"
 msgid "Attempted this access:"
 msgstr "시도한 접근:"
 
-#: ../src/browser.py:196 ../gui/browser.glade.h:14
+#: ../src/browser.py:194 ../gui/browser.glade.h:11
+msgid "SETroubleshoot Details Window"
+msgstr "SETrouble 세부 정보 창"
+
+#: ../src/browser.py:197 ../gui/browser.glade.h:14
 msgid "Would you like to receive alerts?"
 msgstr "이 통지를 받으시겠습니까?"
 
-#: ../src/browser.py:200 ../gui/browser.glade.h:24
+#: ../src/browser.py:201 ../gui/browser.glade.h:24
 msgid "Notify Admin"
 msgstr "관리자에게 알리기"
 
-#: ../src/browser.py:203 ../src/browser.py:209 ../gui/browser.glade.h:8
+#: ../src/browser.py:204 ../src/browser.py:210 ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "문제 해결"
 
-#: ../src/browser.py:206 ../gui/browser.glade.h:26
+#: ../src/browser.py:207 ../gui/browser.glade.h:26
 msgid "Details"
 msgstr "세부 정보"
 
-#: ../src/browser.py:214 ../gui/browser.glade.h:33
+#: ../src/browser.py:214 ../gui/browser.glade.h:7
+msgid "SETroubleshoot Alert List"
+msgstr "SETroubleshoot 통지 목록  "
+
+#: ../src/browser.py:216 ../gui/browser.glade.h:33
 msgid "List All Alerts"
 msgstr "모든 통지 목록"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "Source Process"
 msgstr "문제 발생 프로세스"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "Attempted Access"
 msgstr "시도한 접근"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "On this"
 msgstr "시도한 곳"
 
-#: ../src/browser.py:261
+#: ../src/browser.py:263
 msgid "Occurred"
 msgstr "발생 횟수"
 
-#: ../src/browser.py:261 ../src/run_cmd.py:406
+#: ../src/browser.py:263 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "상태 "
 
-#: ../src/browser.py:333 ../src/browser.py:770 ../src/browser.py:814
+#: ../src/browser.py:335 ../src/browser.py:772 ../src/browser.py:816
 msgid "Notify"
 msgstr "알림"
 
-#: ../src/browser.py:334
+#: ../src/browser.py:336
 #, fuzzy
 msgid "Notify alert in the future."
 msgstr "앞으로 이 통지를 무시합니다."
 
-#: ../src/browser.py:337 ../src/browser.py:772 ../src/browser.py:812
+#: ../src/browser.py:339 ../src/browser.py:774 ../src/browser.py:814
 #: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "무시"
 
-#: ../src/browser.py:338 ../gui/browser.glade.h:28
+#: ../src/browser.py:340 ../gui/browser.glade.h:28
 msgid "Ignore alert in the future."
 msgstr "앞으로 이 통지를 무시합니다."
 
-#: ../src/browser.py:374
+#: ../src/browser.py:376
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>다음을 시도하려고 하였다면...</b>"
 
-#: ../src/browser.py:383
+#: ../src/browser.py:385
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>이 방법이 그 해답일 것입니다.</b>"
 
-#: ../src/browser.py:402 ../src/browser.py:538
+#: ../src/browser.py:404 ../src/browser.py:540
 msgid "If "
 msgstr "가정 "
 
-#: ../src/browser.py:490
+#: ../src/browser.py:492
 msgid ""
 "Plugin\n"
 "Details"
@@ -207,7 +215,7 @@ msgstr ""
 "플러그인\n"
 "세부 정보"
 
-#: ../src/browser.py:505
+#: ../src/browser.py:507
 msgid ""
 "Report\n"
 "Bug"
@@ -215,42 +223,42 @@ msgstr ""
 "버그\n"
 "보고"
 
-#: ../src/browser.py:533
+#: ../src/browser.py:535
 #, python-format
 msgid "Plugin: %s "
 msgstr "플러그인: %s "
 
-#: ../src/browser.py:595
+#: ../src/browser.py:597
 msgid "Unable to grant access."
 msgstr "액세스 권한을 부여할 수 없습니다.   "
 
-#: ../src/browser.py:626 ../src/browser.py:768
+#: ../src/browser.py:628 ../src/browser.py:770
 #, python-format
 msgid "Alert %d of %d"
 msgstr "%d번째 보고/ 총 %d개"
 
-#: ../src/browser.py:751
+#: ../src/browser.py:753
 #, python-format
 msgid "On this %s:"
 msgstr "%s 에서: "
 
-#: ../src/browser.py:799 ../src/browser.py:805 ../src/signature.py:388
+#: ../src/browser.py:801 ../src/browser.py:807 ../src/signature.py:388
 msgid "N/A"
 msgstr "없음"
 
-#: ../src/browser.py:846 ../src/browser.py:847 ../gui/browser.glade.h:31
+#: ../src/browser.py:848 ../src/browser.py:849 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "경고 없음"
 
-#: ../src/browser.py:865
+#: ../src/browser.py:867
 msgid "SELinux has detected a problem."
 msgstr "SELinux가 문제를 발견했습니다."
 
-#: ../src/browser.py:970
+#: ../src/browser.py:972
 msgid "Sealert Error"
 msgstr "Sealert 오류  "
 
-#: ../src/browser.py:981
+#: ../src/browser.py:983
 msgid "Sealert Message"
 msgstr "Sealert 메세지 "
 
@@ -495,91 +503,121 @@ msgstr ""
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux가 허용 모드입니다. 이 접근은 거부되지 않습니다."
 
-#: ../src/signature.py:461
+#: ../src/signature.py:430
+#, python-format
+msgid "SELinux is preventing %s from using the %s access on a process."
+msgstr ""
+
+#: ../src/signature.py:430
+#, python-format
+msgid "SELinux is preventing %s from using the '%s' accesses on a process."
+msgstr ""
+
+#: ../src/signature.py:433
+#, python-format
+msgid "SELinux is preventing %s from using the %s capability."
+msgstr ""
+
+#: ../src/signature.py:433
+#, python-format
+msgid "SELinux is preventing %s from using the '%s' capabilities."
+msgstr ""
+
+#: ../src/signature.py:434
+#, python-format
+msgid "SELinux is preventing %s from %s access on the %s %s."
+msgstr ""
+
+#: ../src/signature.py:434
+#, python-format
+msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
+msgstr ""
+
+#: ../src/signature.py:462
 msgid "Additional Information:\n"
 msgstr "추가 정보:\n"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:463
 msgid "Source Context"
 msgstr "소스 문맥"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:464
 msgid "Target Context"
 msgstr "대상 문맥"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:465
 msgid "Target Objects"
 msgstr "대상 객체"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:466
 msgid "Source"
 msgstr "소스 "
 
-#: ../src/signature.py:466
+#: ../src/signature.py:467
 msgid "Source Path"
 msgstr "소스 경로 "
 
-#: ../src/signature.py:467
+#: ../src/signature.py:468
 msgid "Port"
 msgstr "포트 "
 
-#: ../src/signature.py:468
+#: ../src/signature.py:469
 msgid "Host"
 msgstr "호스트 "
 
-#: ../src/signature.py:469
+#: ../src/signature.py:470
 msgid "Source RPM Packages"
 msgstr "소스 RPM 패키지 "
 
-#: ../src/signature.py:470
+#: ../src/signature.py:471
 msgid "Target RPM Packages"
 msgstr "대상 RPM 패키지 "
 
-#: ../src/signature.py:471
+#: ../src/signature.py:472
 msgid "Policy RPM"
 msgstr "정책 RPM"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:473
 msgid "Selinux Enabled"
 msgstr "Selinux 활성화"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:474
 msgid "Policy Type"
 msgstr "정책 유형"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:475
 msgid "Enforcing Mode"
 msgstr "강제 모드"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:476
 msgid "Host Name"
 msgstr "호스트명"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:477
 msgid "Platform"
 msgstr "플랫폼"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:478
 msgid "Alert Count"
 msgstr "통지 카운트"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:480
 msgid "First Seen"
 msgstr "초기 화면 "
 
-#: ../src/signature.py:480
+#: ../src/signature.py:481
 msgid "Last Seen"
 msgstr "마지막 화면 "
 
-#: ../src/signature.py:481
+#: ../src/signature.py:482
 msgid "Local ID"
 msgstr "로컬 ID "
 
-#: ../src/signature.py:483
+#: ../src/signature.py:484
 msgid "Raw Audit Messages"
 msgstr "원 감사 메세지"
 
-#: ../src/signature.py:533
+#: ../src/signature.py:534
 #, python-format
 msgid ""
 "\n"
@@ -590,15 +628,15 @@ msgstr ""
 "\n"
 "*****  플러그인 %s (%.4s confidence) 제안  "
 
-#: ../src/signature.py:536
+#: ../src/signature.py:537
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:537
+#: ../src/signature.py:538
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:539
+#: ../src/signature.py:540
 msgid ""
 "\n"
 "If "
@@ -606,7 +644,7 @@ msgstr ""
 "\n"
 "If "
 
-#: ../src/signature.py:541
+#: ../src/signature.py:542
 msgid ""
 "\n"
 "Then "
@@ -614,7 +652,7 @@ msgstr ""
 "\n"
 "Then "
 
-#: ../src/signature.py:544
+#: ../src/signature.py:545
 msgid ""
 "\n"
 "Do\n"
@@ -622,7 +660,7 @@ msgstr ""
 "\n"
 "Do\n"
 
-#: ../src/signature.py:546
+#: ../src/signature.py:547
 msgid ""
 "\n"
 "\n"
@@ -703,10 +741,6 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:7
-msgid "SETroubleshoot Alert List"
-msgstr "SETroubleshoot 통지 목록  "
-
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "문제 해결이 경고 선택 "
@@ -714,10 +748,6 @@ msgstr "문제 해결이 경고 선택 "
 #: ../gui/browser.glade.h:10
 msgid "Delete Selected Alerts"
 msgstr "선택된 경고 "
-
-#: ../gui/browser.glade.h:11
-msgid "SETroubleshoot Details Window"
-msgstr "SETrouble 세부 정보 창"
 
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"
