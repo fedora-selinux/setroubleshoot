@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 11:32-0400\n"
+"POT-Creation-Date: 2012-07-25 11:03-0400\n"
 "PO-Revision-Date: 2012-03-10 12:15+0000\n"
 "Last-Translator: Ville-Pekka Vainio <vpvainio@iki.fi>\n"
 "Language-Team: Finnish (http://www.transifex.net/projects/p/fedora/language/"
@@ -34,8 +34,8 @@ msgstr "Ratkaise SELinuxin pääsyesto-ongelmia"
 msgid "port %s"
 msgstr "portti %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:715 ../src/browser.py:790
-#: ../src/rpc.py:532 ../src/util.py:219
+#: ../src/audit_data.py:885 ../src/browser.py:731 ../src/browser.py:806
+#: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Tuntematon"
 
@@ -103,51 +103,101 @@ msgstr ""
 msgid "Error during access vector computation"
 msgstr "Virhe pääsyvektorilaskennassa"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:164 ../gui/browser.glade.h:12
+msgid "SELinux Alert Browser"
+msgstr "SELinux-varoitusselain"
+
+#: ../src/browser.py:168 ../gui/browser.glade.h:19
+msgid "The source process:"
+msgstr "Lähdeprosessi:"
+
+#: ../src/browser.py:173 ../gui/browser.glade.h:15
+msgid "Yes"
+msgstr "Kyllä"
+
+#: ../src/browser.py:175 ../gui/browser.glade.h:17
+msgid "No"
+msgstr "Ei"
+
+#: ../src/browser.py:180 ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr "Yritti tätä käyttöä:"
+
+#: ../src/browser.py:196 ../gui/browser.glade.h:14
+msgid "Would you like to receive alerts?"
+msgstr "Haluatko vastaanottaa varoituksia?"
+
+#: ../src/browser.py:200 ../gui/browser.glade.h:24
+msgid "Notify Admin"
+msgstr "Ilmoita ylläpitäjälle"
+
+#: ../src/browser.py:203 ../src/browser.py:209 ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr "Vianetsintä"
+
+#: ../src/browser.py:206 ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "Lisätietoja"
+
+#: ../src/browser.py:214 ../gui/browser.glade.h:33
+msgid "List All Alerts"
+msgstr "Luettele kaikki varoitukset"
+
+#: ../src/browser.py:261
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Source Process"
 msgstr "Lähdeprosessi"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Attempted Access"
 msgstr "Yritetty käyttö"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "On this"
 msgstr ""
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Occurred"
 msgstr "Tapahtui"
 
-#: ../src/browser.py:249 ../src/run_cmd.py:406
+#: ../src/browser.py:261 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "Tila"
 
-#: ../src/browser.py:321 ../src/browser.py:798
+#: ../src/browser.py:333 ../src/browser.py:770 ../src/browser.py:814
 msgid "Notify"
 msgstr "Ilmoita"
 
-#: ../src/browser.py:325 ../src/browser.py:796 ../gui/browser.glade.h:27
+#: ../src/browser.py:334
+#, fuzzy
+msgid "Notify alert in the future."
+msgstr "Ohita varoitus jatkossa"
+
+#: ../src/browser.py:337 ../src/browser.py:772 ../src/browser.py:812
+#: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Ohita"
 
-#: ../src/browser.py:362
+#: ../src/browser.py:338 ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "Ohita varoitus jatkossa"
+
+#: ../src/browser.py:374
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Jos yritit...</b>"
 
-#: ../src/browser.py:371
+#: ../src/browser.py:383
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>niin tässä on ratkaisu.</b>"
 
-#: ../src/browser.py:390 ../src/browser.py:526
+#: ../src/browser.py:402 ../src/browser.py:538
 msgid "If "
 msgstr "Jos "
 
-#: ../src/browser.py:478
+#: ../src/browser.py:490
 msgid ""
 "Plugin\n"
 "Details"
@@ -155,7 +205,7 @@ msgstr ""
 "Liitännäisen\n"
 "tiedot"
 
-#: ../src/browser.py:493
+#: ../src/browser.py:505
 msgid ""
 "Report\n"
 "Bug"
@@ -163,120 +213,120 @@ msgstr ""
 "Ilmoita\n"
 "ohjelmavirheestä"
 
-#: ../src/browser.py:521
+#: ../src/browser.py:533
 #, python-format
 msgid "Plugin: %s "
 msgstr "Liitännäinen: %s"
 
-#: ../src/browser.py:579
+#: ../src/browser.py:595
 msgid "Unable to grant access."
 msgstr "Käyttöoikeutta ei voida antaa."
 
-#: ../src/browser.py:610 ../src/browser.py:752
+#: ../src/browser.py:626 ../src/browser.py:768
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Varoitus %d/%d"
 
-#: ../src/browser.py:735
+#: ../src/browser.py:751
 #, python-format
 msgid "On this %s:"
 msgstr ""
 
-#: ../src/browser.py:783 ../src/browser.py:789 ../src/signature.py:385
+#: ../src/browser.py:799 ../src/browser.py:805 ../src/signature.py:388
 msgid "N/A"
 msgstr "Ei saatavilla"
 
-#: ../src/browser.py:830 ../src/browser.py:831 ../gui/browser.glade.h:31
+#: ../src/browser.py:846 ../src/browser.py:847 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "Ei varoituksia"
 
-#: ../src/browser.py:849
+#: ../src/browser.py:865
 msgid "SELinux has detected a problem."
 msgstr "SELinux on havainnut ongelman."
 
-#: ../src/browser.py:954
+#: ../src/browser.py:970
 msgid "Sealert Error"
 msgstr "SEalert-virhe"
 
-#: ../src/browser.py:965
+#: ../src/browser.py:981
 msgid "Sealert Message"
 msgstr "Sealertin viesti"
 
 #. -----------------------------------------------------------------------------
-#: ../src/errcode.py:70
+#: ../src/errcode.py:71
 msgid "signature not found"
 msgstr "allekirjoitusta ei löydy"
 
-#: ../src/errcode.py:71
+#: ../src/errcode.py:72
 msgid "multiple signatures matched"
 msgstr "useat allekirjoitukset vastaavat"
 
-#: ../src/errcode.py:72
+#: ../src/errcode.py:73
 msgid "id not found"
 msgstr "tunnistetta ei löydy"
 
-#: ../src/errcode.py:73
+#: ../src/errcode.py:74
 msgid "database not found"
 msgstr "tietokantaa ei löydy"
 
-#: ../src/errcode.py:74
+#: ../src/errcode.py:75
 msgid "item is not a member"
 msgstr "nimike ei ole jäsen"
 
-#: ../src/errcode.py:75
+#: ../src/errcode.py:76
 msgid "illegal to change user"
 msgstr "käyttäjää vaihtaminen ei ole sallittua"
 
-#: ../src/errcode.py:76
+#: ../src/errcode.py:77
 msgid "method not found"
 msgstr "metodia ei löydy"
 
-#: ../src/errcode.py:77
+#: ../src/errcode.py:78
 msgid "cannot create GUI"
 msgstr "graafista käyttöliittymää ei voida luoda"
 
-#: ../src/errcode.py:78
+#: ../src/errcode.py:79
 msgid "value unknown"
 msgstr "tuntematon arvo"
 
-#: ../src/errcode.py:79
+#: ../src/errcode.py:80
 msgid "cannot open file"
 msgstr "tiedostoa ei voida avata"
 
-#: ../src/errcode.py:80
+#: ../src/errcode.py:81
 msgid "invalid email address"
 msgstr "virheellinen sähköpostiosoite"
 
 #. gobject IO Errors
-#: ../src/errcode.py:83
+#: ../src/errcode.py:84
 msgid "socket error"
 msgstr "pistokevirhe"
 
-#: ../src/errcode.py:84
+#: ../src/errcode.py:85
 msgid "connection has been broken"
 msgstr "yhteys katkesi"
 
-#: ../src/errcode.py:85
+#: ../src/errcode.py:86
 msgid "Invalid request. The file descriptor is not open"
 msgstr "Virheellinen pyyntö. Tiedostokuvaaja ei ole avoinna"
 
-#: ../src/errcode.py:87
+#: ../src/errcode.py:88
 msgid "insufficient permission to modify user"
 msgstr "käyttäjän muokkaamiseen ei ole riittävästi oikeuksia"
 
-#: ../src/errcode.py:88
+#: ../src/errcode.py:89
 msgid "authentication failed"
 msgstr "tunnistautuminen epäonnistui"
 
-#: ../src/errcode.py:89
+#: ../src/errcode.py:90
 msgid "user prohibited"
 msgstr "käyttäjällä ei ole käyttöoikeuksia"
 
-#: ../src/errcode.py:90
+#: ../src/errcode.py:91
 msgid "not authenticated"
 msgstr "ei tunnistauduttu"
 
-#: ../src/errcode.py:91
+#: ../src/errcode.py:92
 msgid "user lookup failed"
 msgstr "käyttäjäkysely epäonnistui"
 
@@ -289,7 +339,7 @@ msgstr "%s-virhe"
 msgid "Error"
 msgstr "Virhe"
 
-#: ../src/Plugin.py:78
+#: ../src/Plugin.py:81
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -377,156 +427,156 @@ msgstr "Pääsyvektorivälimuisti"
 msgid "Audit Listener"
 msgstr "Tarkastuskuuntelija"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:74
 msgid "Never Ignore"
 msgstr "Älä ohita koskaan"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:75
 msgid "Ignore Always"
 msgstr "Ohita aina"
 
-#: ../src/signature.py:73
+#: ../src/signature.py:76
 msgid "Ignore After First Alert"
 msgstr "Ohita ensimmäisen varoituksen jälkeen"
 
-#: ../src/signature.py:190
+#: ../src/signature.py:193
 msgid "directory"
 msgstr "hakemisto"
 
-#: ../src/signature.py:191
+#: ../src/signature.py:194
 msgid "semaphore"
 msgstr "semafori"
 
-#: ../src/signature.py:192
+#: ../src/signature.py:195
 msgid "shared memory"
 msgstr "jaettu muisti"
 
-#: ../src/signature.py:193
+#: ../src/signature.py:196
 msgid "message queue"
 msgstr "viestijono"
 
-#: ../src/signature.py:194
+#: ../src/signature.py:197
 msgid "message"
 msgstr "viesti"
 
-#: ../src/signature.py:195
+#: ../src/signature.py:198
 msgid "file"
 msgstr "tiedosto"
 
-#: ../src/signature.py:196
+#: ../src/signature.py:199
 msgid "socket"
 msgstr "pistoke"
 
-#: ../src/signature.py:197
+#: ../src/signature.py:200
 msgid "process"
 msgstr "prosessi"
 
-#: ../src/signature.py:198
+#: ../src/signature.py:201
 msgid "filesystem"
 msgstr "tiedostojärjestelmä"
 
-#: ../src/signature.py:199
+#: ../src/signature.py:202
 msgid "node"
 msgstr "solmu"
 
-#: ../src/signature.py:200
+#: ../src/signature.py:203
 msgid "capability"
 msgstr "ominaisuus"
 
-#: ../src/signature.py:370
+#: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "Lähteellä %s on salliva tyyppi (%s). Tätä käyttöä ei estetty."
 
-#: ../src/signature.py:373
+#: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux on sallivassa tilassa. Tätä käyttöä ei estetty."
 
-#: ../src/signature.py:458
+#: ../src/signature.py:461
 msgid "Additional Information:\n"
 msgstr "Lisätiedot:\n"
 
-#: ../src/signature.py:459
+#: ../src/signature.py:462
 msgid "Source Context"
 msgstr "Lähdekonteksti"
 
-#: ../src/signature.py:460
+#: ../src/signature.py:463
 msgid "Target Context"
 msgstr "Kohdekonteksti"
 
-#: ../src/signature.py:461
+#: ../src/signature.py:464
 msgid "Target Objects"
 msgstr "Kohdeobjektit"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:465
 msgid "Source"
 msgstr "Lähde"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:466
 msgid "Source Path"
 msgstr "Lähteen polku"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:467
 msgid "Port"
 msgstr "Portti"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:468
 msgid "Host"
 msgstr "Kone"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:469
 msgid "Source RPM Packages"
 msgstr "Lähteen RPM-paketit"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:470
 msgid "Target RPM Packages"
 msgstr "Kohteen RPM-paketit"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:471
 msgid "Policy RPM"
 msgstr "Käytännön RPM"
 
-#: ../src/signature.py:469
+#: ../src/signature.py:472
 msgid "Selinux Enabled"
 msgstr "SELinux käytössä"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:473
 msgid "Policy Type"
 msgstr "Käytännön tyyppi"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:474
 msgid "Enforcing Mode"
 msgstr "Toimeenpanotila"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:475
 msgid "Host Name"
 msgstr "Konenimi"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:476
 msgid "Platform"
 msgstr "Alusta"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:477
 msgid "Alert Count"
 msgstr "Varoitusten määrä"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:479
 msgid "First Seen"
 msgstr "Ensimmäinen"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:480
 msgid "Last Seen"
 msgstr "Viimeisin"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:481
 msgid "Local ID"
 msgstr "Paikallinen tunniste"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:483
 msgid "Raw Audit Messages"
 msgstr "Muokkaamattomat tarkastusviestit"
 
-#: ../src/signature.py:529
+#: ../src/signature.py:533
 #, python-format
 msgid ""
 "\n"
@@ -537,15 +587,15 @@ msgstr ""
 "\n"
 "*****  Liitännäinen %s (%.4s luottamusaste) ehdottaa  "
 
-#: ../src/signature.py:532
+#: ../src/signature.py:536
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:533
+#: ../src/signature.py:537
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:535
+#: ../src/signature.py:539
 msgid ""
 "\n"
 "If "
@@ -553,7 +603,7 @@ msgstr ""
 "\n"
 "Jos "
 
-#: ../src/signature.py:537
+#: ../src/signature.py:541
 msgid ""
 "\n"
 "Then "
@@ -561,7 +611,7 @@ msgstr ""
 "\n"
 "Niin "
 
-#: ../src/signature.py:540
+#: ../src/signature.py:544
 msgid ""
 "\n"
 "Do\n"
@@ -569,7 +619,7 @@ msgstr ""
 "\n"
 "Tee\n"
 
-#: ../src/signature.py:542
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "\n"
@@ -653,10 +703,6 @@ msgstr ""
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot-varoitusluettelo"
 
-#: ../gui/browser.glade.h:8
-msgid "Troubleshoot"
-msgstr "Vianetsintä"
-
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "Tee vianetsintä valitusta varoituksesta"
@@ -669,41 +715,17 @@ msgstr "Poista valitut varoitukset"
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshootin lisätietoikkuna"
 
-#: ../gui/browser.glade.h:12
-msgid "SELinux Alert Browser"
-msgstr "SELinux-varoitusselain"
-
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux on havainnut ongelman.</b>"
-
-#: ../gui/browser.glade.h:14
-msgid "Would you like to receive alerts?"
-msgstr "Haluatko vastaanottaa varoituksia?"
-
-#: ../gui/browser.glade.h:15
-msgid "Yes"
-msgstr "Kyllä"
 
 #: ../gui/browser.glade.h:16
 msgid "Turn on alert pop-ups."
 msgstr "Ottaa käyttöön varoitusten ponnahdusikkunat."
 
-#: ../gui/browser.glade.h:17
-msgid "No"
-msgstr "Ei"
-
 #: ../gui/browser.glade.h:18
 msgid "Turn off alert pop-ups."
 msgstr "Poista käytöstä varoitusten ponnahdusikkunat."
-
-#: ../gui/browser.glade.h:19
-msgid "The source process:"
-msgstr "Lähdeprosessi:"
-
-#: ../gui/browser.glade.h:20
-msgid "Attempted this access:"
-msgstr "Yritti tätä käyttöä:"
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
@@ -721,21 +743,9 @@ msgstr ""
 "Lue varoituksen ratkaisutiedot. Ongelman korjaaminen saattaa vaatia "
 "ylläpitäjän oikeuksia."
 
-#: ../gui/browser.glade.h:24
-msgid "Notify Admin"
-msgstr "Ilmoita ylläpitäjälle"
-
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
 msgstr "Lähetä varoitus sähköpostilla järjestelmän ylläpitäjälle."
-
-#: ../gui/browser.glade.h:26
-msgid "Details"
-msgstr "Lisätietoja"
-
-#: ../gui/browser.glade.h:28
-msgid "Ignore alert in the future."
-msgstr "Ohita varoitus jatkossa"
 
 #: ../gui/browser.glade.h:29
 msgid "Delete current alert from the database."
@@ -748,10 +758,6 @@ msgstr "Näytä edellinen varoitus."
 #: ../gui/browser.glade.h:32
 msgid "Show next alert."
 msgstr "Näytä seuraava varoitus."
-
-#: ../gui/browser.glade.h:33
-msgid "List All Alerts"
-msgstr "Luettele kaikki varoitukset"
 
 #: ../gui/browser.glade.h:34
 msgid "List all alerts in the database."

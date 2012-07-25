@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 11:32-0400\n"
+"POT-Creation-Date: 2012-07-25 11:03-0400\n"
 "PO-Revision-Date: 2012-02-11 15:06+0000\n"
 "Last-Translator: Zoltan Hoppár <hopparz@gmail.com>\n"
 "Language-Team: Hungarian <trans-hu@lists.fedoraproject.org>\n"
@@ -34,8 +34,8 @@ msgstr "SELinux hozzáférés elutasítás bajok elintézése"
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:715 ../src/browser.py:790
-#: ../src/rpc.py:532 ../src/util.py:219
+#: ../src/audit_data.py:885 ../src/browser.py:731 ../src/browser.py:806
+#: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Ismeretlen"
 
@@ -103,51 +103,101 @@ msgstr ""
 msgid "Error during access vector computation"
 msgstr "Hiba a hozzáférési vektor kiszámításánál"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:164 ../gui/browser.glade.h:12
+msgid "SELinux Alert Browser"
+msgstr "SElinux riasztási böngésző"
+
+#: ../src/browser.py:168 ../gui/browser.glade.h:19
+msgid "The source process:"
+msgstr "A forrás folyamat:"
+
+#: ../src/browser.py:173 ../gui/browser.glade.h:15
+msgid "Yes"
+msgstr "Igen"
+
+#: ../src/browser.py:175 ../gui/browser.glade.h:17
+msgid "No"
+msgstr "Nem"
+
+#: ../src/browser.py:180 ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr "Ez a hozzáférést próbálta"
+
+#: ../src/browser.py:196 ../gui/browser.glade.h:14
+msgid "Would you like to receive alerts?"
+msgstr "Szeretne kapni riasztási üzeneteket?"
+
+#: ../src/browser.py:200 ../gui/browser.glade.h:24
+msgid "Notify Admin"
+msgstr "Admin értesítése"
+
+#: ../src/browser.py:203 ../src/browser.py:209 ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr "Hibaelhárítás"
+
+#: ../src/browser.py:206 ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "Részletek"
+
+#: ../src/browser.py:214 ../gui/browser.glade.h:33
+msgid "List All Alerts"
+msgstr "Listázd az összes riasztást"
+
+#: ../src/browser.py:261
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Source Process"
 msgstr "Forrás folyamat"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Attempted Access"
 msgstr "Hozzáférési próbálkozás"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "On this"
 msgstr "Ezen"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Occurred"
 msgstr "Történt"
 
-#: ../src/browser.py:249 ../src/run_cmd.py:406
+#: ../src/browser.py:261 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "Állapot"
 
-#: ../src/browser.py:321 ../src/browser.py:798
+#: ../src/browser.py:333 ../src/browser.py:770 ../src/browser.py:814
 msgid "Notify"
 msgstr "Észrevétel"
 
-#: ../src/browser.py:325 ../src/browser.py:796 ../gui/browser.glade.h:27
+#: ../src/browser.py:334
+#, fuzzy
+msgid "Notify alert in the future."
+msgstr "Riaszás figyelmen kívül hagyása a jövőben."
+
+#: ../src/browser.py:337 ../src/browser.py:772 ../src/browser.py:812
+#: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Hagyja ki"
 
-#: ../src/browser.py:362
+#: ../src/browser.py:338 ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "Riaszás figyelmen kívül hagyása a jövőben."
+
+#: ../src/browser.py:374
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Ha szeretné...</b>"
 
-#: ../src/browser.py:371
+#: ../src/browser.py:383
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Akkor ez a megoldás.</b>"
 
-#: ../src/browser.py:390 ../src/browser.py:526
+#: ../src/browser.py:402 ../src/browser.py:538
 msgid "If "
 msgstr "Ha "
 
-#: ../src/browser.py:478
+#: ../src/browser.py:490
 msgid ""
 "Plugin\n"
 "Details"
@@ -155,7 +205,7 @@ msgstr ""
 "Plugin\n"
 "Részletek"
 
-#: ../src/browser.py:493
+#: ../src/browser.py:505
 msgid ""
 "Report\n"
 "Bug"
@@ -163,120 +213,120 @@ msgstr ""
 "Jelentés\n"
 "Hiba"
 
-#: ../src/browser.py:521
+#: ../src/browser.py:533
 #, python-format
 msgid "Plugin: %s "
 msgstr "Plugin: %s "
 
-#: ../src/browser.py:579
+#: ../src/browser.py:595
 msgid "Unable to grant access."
 msgstr "Nem sikerült engedélyezni a hozzáférést."
 
-#: ../src/browser.py:610 ../src/browser.py:752
+#: ../src/browser.py:626 ../src/browser.py:768
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Riasztás %d / %d"
 
-#: ../src/browser.py:735
+#: ../src/browser.py:751
 #, python-format
 msgid "On this %s:"
 msgstr "Ezen %s"
 
-#: ../src/browser.py:783 ../src/browser.py:789 ../src/signature.py:385
+#: ../src/browser.py:799 ../src/browser.py:805 ../src/signature.py:388
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/browser.py:830 ../src/browser.py:831 ../gui/browser.glade.h:31
+#: ../src/browser.py:846 ../src/browser.py:847 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "Nincs riasztás"
 
-#: ../src/browser.py:849
+#: ../src/browser.py:865
 msgid "SELinux has detected a problem."
 msgstr "Az SElinux hibát észlelt."
 
-#: ../src/browser.py:954
+#: ../src/browser.py:970
 msgid "Sealert Error"
 msgstr "Sealert Hiba"
 
-#: ../src/browser.py:965
+#: ../src/browser.py:981
 msgid "Sealert Message"
 msgstr "Sealert Üzenet"
 
 #. -----------------------------------------------------------------------------
-#: ../src/errcode.py:70
+#: ../src/errcode.py:71
 msgid "signature not found"
 msgstr "nincs aláírás"
 
-#: ../src/errcode.py:71
+#: ../src/errcode.py:72
 msgid "multiple signatures matched"
 msgstr "több aláírás illik"
 
-#: ../src/errcode.py:72
+#: ../src/errcode.py:73
 msgid "id not found"
 msgstr "nincs azonosító"
 
-#: ../src/errcode.py:73
+#: ../src/errcode.py:74
 msgid "database not found"
 msgstr "nincs adatbázis"
 
-#: ../src/errcode.py:74
+#: ../src/errcode.py:75
 msgid "item is not a member"
 msgstr "az elem nem tag"
 
-#: ../src/errcode.py:75
+#: ../src/errcode.py:76
 msgid "illegal to change user"
 msgstr "nem változtathat használót"
 
-#: ../src/errcode.py:76
+#: ../src/errcode.py:77
 msgid "method not found"
 msgstr "nincs eljárás"
 
-#: ../src/errcode.py:77
+#: ../src/errcode.py:78
 msgid "cannot create GUI"
 msgstr "nem lehet ablakot csinálni"
 
-#: ../src/errcode.py:78
+#: ../src/errcode.py:79
 msgid "value unknown"
 msgstr "ismeretlen érték"
 
-#: ../src/errcode.py:79
+#: ../src/errcode.py:80
 msgid "cannot open file"
 msgstr "fájl nem nyitható"
 
-#: ../src/errcode.py:80
+#: ../src/errcode.py:81
 msgid "invalid email address"
 msgstr "Érvénytelen levél cím"
 
 #. gobject IO Errors
-#: ../src/errcode.py:83
+#: ../src/errcode.py:84
 msgid "socket error"
 msgstr "foglalat hiba"
 
-#: ../src/errcode.py:84
+#: ../src/errcode.py:85
 msgid "connection has been broken"
 msgstr "kapcsolat megszakadt"
 
-#: ../src/errcode.py:85
+#: ../src/errcode.py:86
 msgid "Invalid request. The file descriptor is not open"
 msgstr "Érvénytelen kérés. A fájl leíró nincs nyitva"
 
-#: ../src/errcode.py:87
+#: ../src/errcode.py:88
 msgid "insufficient permission to modify user"
 msgstr "elégtelen engedély használó változtatására"
 
-#: ../src/errcode.py:88
+#: ../src/errcode.py:89
 msgid "authentication failed"
 msgstr "hitelesítés bukta"
 
-#: ../src/errcode.py:89
+#: ../src/errcode.py:90
 msgid "user prohibited"
 msgstr "használó tiltva"
 
-#: ../src/errcode.py:90
+#: ../src/errcode.py:91
 msgid "not authenticated"
 msgstr "nem azonosított"
 
-#: ../src/errcode.py:91
+#: ../src/errcode.py:92
 msgid "user lookup failed"
 msgstr "használó keresés bukta"
 
@@ -289,7 +339,7 @@ msgstr "Hoppá, %s hibát kapott!"
 msgid "Error"
 msgstr "Hiba"
 
-#: ../src/Plugin.py:78
+#: ../src/Plugin.py:81
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -377,156 +427,156 @@ msgstr "AVC"
 msgid "Audit Listener"
 msgstr "Vizsgáló hallgató"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:74
 msgid "Never Ignore"
 msgstr "Soha ne mellőzze"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:75
 msgid "Ignore Always"
 msgstr "Mindig mellőzze"
 
-#: ../src/signature.py:73
+#: ../src/signature.py:76
 msgid "Ignore After First Alert"
 msgstr "Mellőzze az első riasztás után"
 
-#: ../src/signature.py:190
+#: ../src/signature.py:193
 msgid "directory"
 msgstr "könyvtár"
 
-#: ../src/signature.py:191
+#: ../src/signature.py:194
 msgid "semaphore"
 msgstr "szemafor"
 
-#: ../src/signature.py:192
+#: ../src/signature.py:195
 msgid "shared memory"
 msgstr "osztott memória"
 
-#: ../src/signature.py:193
+#: ../src/signature.py:196
 msgid "message queue"
 msgstr "üzenetsor"
 
-#: ../src/signature.py:194
+#: ../src/signature.py:197
 msgid "message"
 msgstr "üzenet"
 
-#: ../src/signature.py:195
+#: ../src/signature.py:198
 msgid "file"
 msgstr "fájl"
 
-#: ../src/signature.py:196
+#: ../src/signature.py:199
 msgid "socket"
 msgstr "port"
 
-#: ../src/signature.py:197
+#: ../src/signature.py:200
 msgid "process"
 msgstr "folyamat"
 
-#: ../src/signature.py:198
+#: ../src/signature.py:201
 msgid "filesystem"
 msgstr "fájlrendszer"
 
-#: ../src/signature.py:199
+#: ../src/signature.py:202
 msgid "node"
 msgstr "csomópont"
 
-#: ../src/signature.py:200
+#: ../src/signature.py:203
 msgid "capability"
 msgstr "képesség"
 
-#: ../src/signature.py:370
+#: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s egy engedélyező típusú (%s). A hozzáférés nincs megtagadva."
 
-#: ../src/signature.py:373
+#: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SElinux átengedő módban van. Ez a hozzáférés nem volt blokkolva."
 
-#: ../src/signature.py:458
+#: ../src/signature.py:461
 msgid "Additional Information:\n"
 msgstr "További információ:\n"
 
-#: ../src/signature.py:459
+#: ../src/signature.py:462
 msgid "Source Context"
 msgstr "Forrás környezet"
 
-#: ../src/signature.py:460
+#: ../src/signature.py:463
 msgid "Target Context"
 msgstr "Cél környezet"
 
-#: ../src/signature.py:461
+#: ../src/signature.py:464
 msgid "Target Objects"
 msgstr "Cél tárgyak"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:465
 msgid "Source"
 msgstr "Forrás"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:466
 msgid "Source Path"
 msgstr "Forrás ösvény"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:467
 msgid "Port"
 msgstr "Kapu"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:468
 msgid "Host"
 msgstr "Gazda"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:469
 msgid "Source RPM Packages"
 msgstr "Forrás RPM csomagok"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:470
 msgid "Target RPM Packages"
 msgstr "Cél RPM csomagok"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:471
 msgid "Policy RPM"
 msgstr "Szabályzat RPM"
 
-#: ../src/signature.py:469
+#: ../src/signature.py:472
 msgid "Selinux Enabled"
 msgstr "SELinux bekapcsolva"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:473
 msgid "Policy Type"
 msgstr "Szabályzat típus"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:474
 msgid "Enforcing Mode"
 msgstr "Kényszerítő mód"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:475
 msgid "Host Name"
 msgstr "Gazda név"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:476
 msgid "Platform"
 msgstr "Platform"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:477
 msgid "Alert Count"
 msgstr "Riasztás szám"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:479
 msgid "First Seen"
 msgstr "Először"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:480
 msgid "Last Seen"
 msgstr "Utoljára"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:481
 msgid "Local ID"
 msgstr "Helyi azonosító"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:483
 msgid "Raw Audit Messages"
 msgstr "Nyers vizsgálat üzenetek"
 
-#: ../src/signature.py:529
+#: ../src/signature.py:533
 #, python-format
 msgid ""
 "\n"
@@ -537,15 +587,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  FIXME"
 
-#: ../src/signature.py:532
+#: ../src/signature.py:536
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:533
+#: ../src/signature.py:537
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:535
+#: ../src/signature.py:539
 msgid ""
 "\n"
 "If "
@@ -553,7 +603,7 @@ msgstr ""
 "\n"
 "Ha "
 
-#: ../src/signature.py:537
+#: ../src/signature.py:541
 msgid ""
 "\n"
 "Then "
@@ -561,7 +611,7 @@ msgstr ""
 "\n"
 "Akkor "
 
-#: ../src/signature.py:540
+#: ../src/signature.py:544
 msgid ""
 "\n"
 "Do\n"
@@ -569,7 +619,7 @@ msgstr ""
 "\n"
 "Tedd\n"
 
-#: ../src/signature.py:542
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "\n"
@@ -654,10 +704,6 @@ msgstr ""
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot riasztás lista"
 
-#: ../gui/browser.glade.h:8
-msgid "Troubleshoot"
-msgstr "Hibaelhárítás"
-
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "Hibaelhárítás a kiválasztott riasztáson"
@@ -670,41 +716,17 @@ msgstr "Kijelölt riasztások törlése"
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshoot részletező ablak"
 
-#: ../gui/browser.glade.h:12
-msgid "SELinux Alert Browser"
-msgstr "SElinux riasztási böngésző"
-
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux hibát érzékelt.</b>"
-
-#: ../gui/browser.glade.h:14
-msgid "Would you like to receive alerts?"
-msgstr "Szeretne kapni riasztási üzeneteket?"
-
-#: ../gui/browser.glade.h:15
-msgid "Yes"
-msgstr "Igen"
 
 #: ../gui/browser.glade.h:16
 msgid "Turn on alert pop-ups."
 msgstr "Felugró riasztási üzenetek bekapcsolása."
 
-#: ../gui/browser.glade.h:17
-msgid "No"
-msgstr "Nem"
-
 #: ../gui/browser.glade.h:18
 msgid "Turn off alert pop-ups."
 msgstr "Felugró riasztási üzenetek kikapcsolása."
-
-#: ../gui/browser.glade.h:19
-msgid "The source process:"
-msgstr "A forrás folyamat:"
-
-#: ../gui/browser.glade.h:20
-msgid "Attempted this access:"
-msgstr "Ez a hozzáférést próbálta"
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
@@ -722,21 +744,9 @@ msgstr ""
 "Olvassa el a riasztási problémamegoldó információkat.  Lehet hogy "
 "adminisztrációs jogokra lesz szüksége a megoldáshoz."
 
-#: ../gui/browser.glade.h:24
-msgid "Notify Admin"
-msgstr "Admin értesítése"
-
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
 msgstr "Email risztás a rendszer adminisztátorának"
-
-#: ../gui/browser.glade.h:26
-msgid "Details"
-msgstr "Részletek"
-
-#: ../gui/browser.glade.h:28
-msgid "Ignore alert in the future."
-msgstr "Riaszás figyelmen kívül hagyása a jövőben."
 
 #: ../gui/browser.glade.h:29
 msgid "Delete current alert from the database."
@@ -749,10 +759,6 @@ msgstr "Előző riasztás"
 #: ../gui/browser.glade.h:32
 msgid "Show next alert."
 msgstr "Következő riasztás"
-
-#: ../gui/browser.glade.h:33
-msgid "List All Alerts"
-msgstr "Listázd az összes riasztást"
 
 #: ../gui/browser.glade.h:34
 msgid "List all alerts in the database."

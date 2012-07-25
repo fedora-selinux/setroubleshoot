@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 11:32-0400\n"
+"POT-Creation-Date: 2012-07-25 11:03-0400\n"
 "PO-Revision-Date: 2012-03-06 03:52+0000\n"
 "Last-Translator: Tomoyuki KATO <tomo@dream.daynight.jp>\n"
 "Language-Team: Japanese <trans-ja@lists.fedoraproject.org>\n"
@@ -38,8 +38,8 @@ msgstr "SELinux アクセス拒否のトラブルシューティング"
 msgid "port %s"
 msgstr "ポート %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:715 ../src/browser.py:790
-#: ../src/rpc.py:532 ../src/util.py:219
+#: ../src/audit_data.py:885 ../src/browser.py:731 ../src/browser.py:806
+#: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "不明"
 
@@ -107,51 +107,101 @@ msgstr ""
 msgid "Error during access vector computation"
 msgstr "アクセスベクターの演算時にエラーが発生しました"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:164 ../gui/browser.glade.h:12
+msgid "SELinux Alert Browser"
+msgstr "SELinux 通知ブラウザー"
+
+#: ../src/browser.py:168 ../gui/browser.glade.h:19
+msgid "The source process:"
+msgstr "原因プロセス:"
+
+#: ../src/browser.py:173 ../gui/browser.glade.h:15
+msgid "Yes"
+msgstr "はい"
+
+#: ../src/browser.py:175 ../gui/browser.glade.h:17
+msgid "No"
+msgstr "いいえ"
+
+#: ../src/browser.py:180 ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr "試行されたアクセス:"
+
+#: ../src/browser.py:196 ../gui/browser.glade.h:14
+msgid "Would you like to receive alerts?"
+msgstr "通知を受け取りますか？"
+
+#: ../src/browser.py:200 ../gui/browser.glade.h:24
+msgid "Notify Admin"
+msgstr "管理者に通知"
+
+#: ../src/browser.py:203 ../src/browser.py:209 ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr "トラブルシュート"
+
+#: ../src/browser.py:206 ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "詳細"
+
+#: ../src/browser.py:214 ../gui/browser.glade.h:33
+msgid "List All Alerts"
+msgstr "すべての通知の一覧"
+
+#: ../src/browser.py:261
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Source Process"
 msgstr "ソースプロセス"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Attempted Access"
 msgstr "アクセスを試みました。"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "On this"
 msgstr "これにおいて"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Occurred"
 msgstr "発生しました"
 
-#: ../src/browser.py:249 ../src/run_cmd.py:406
+#: ../src/browser.py:261 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "ステータス"
 
-#: ../src/browser.py:321 ../src/browser.py:798
+#: ../src/browser.py:333 ../src/browser.py:770 ../src/browser.py:814
 msgid "Notify"
 msgstr "通知する"
 
-#: ../src/browser.py:325 ../src/browser.py:796 ../gui/browser.glade.h:27
+#: ../src/browser.py:334
+#, fuzzy
+msgid "Notify alert in the future."
+msgstr "次回から警告を無視します。"
+
+#: ../src/browser.py:337 ../src/browser.py:772 ../src/browser.py:812
+#: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "無視する"
 
-#: ../src/browser.py:362
+#: ../src/browser.py:338 ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "次回から警告を無視します。"
+
+#: ../src/browser.py:374
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>次のことをしようとしていたならば...</b>"
 
-#: ../src/browser.py:371
+#: ../src/browser.py:383
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>これが解決策です。</b>"
 
-#: ../src/browser.py:390 ../src/browser.py:526
+#: ../src/browser.py:402 ../src/browser.py:538
 msgid "If "
 msgstr "もし"
 
-#: ../src/browser.py:478
+#: ../src/browser.py:490
 msgid ""
 "Plugin\n"
 "Details"
@@ -159,7 +209,7 @@ msgstr ""
 "プラグイン\n"
 "詳細"
 
-#: ../src/browser.py:493
+#: ../src/browser.py:505
 msgid ""
 "Report\n"
 "Bug"
@@ -167,120 +217,120 @@ msgstr ""
 "報告\n"
 "バグ"
 
-#: ../src/browser.py:521
+#: ../src/browser.py:533
 #, python-format
 msgid "Plugin: %s "
 msgstr "プラグイン: %s "
 
-#: ../src/browser.py:579
+#: ../src/browser.py:595
 msgid "Unable to grant access."
 msgstr "アクセスを認可できません"
 
-#: ../src/browser.py:610 ../src/browser.py:752
+#: ../src/browser.py:626 ../src/browser.py:768
 #, python-format
 msgid "Alert %d of %d"
 msgstr "通知 %d / %d"
 
-#: ../src/browser.py:735
+#: ../src/browser.py:751
 #, python-format
 msgid "On this %s:"
 msgstr "この%sにおいて:"
 
-#: ../src/browser.py:783 ../src/browser.py:789 ../src/signature.py:385
+#: ../src/browser.py:799 ../src/browser.py:805 ../src/signature.py:388
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/browser.py:830 ../src/browser.py:831 ../gui/browser.glade.h:31
+#: ../src/browser.py:846 ../src/browser.py:847 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "通知なし"
 
-#: ../src/browser.py:849
+#: ../src/browser.py:865
 msgid "SELinux has detected a problem."
 msgstr "SELinux は問題を検出しました。"
 
-#: ../src/browser.py:954
+#: ../src/browser.py:970
 msgid "Sealert Error"
 msgstr "Sealert エラー"
 
-#: ../src/browser.py:965
+#: ../src/browser.py:981
 msgid "Sealert Message"
 msgstr "Sealert メッセージ"
 
 #. -----------------------------------------------------------------------------
-#: ../src/errcode.py:70
+#: ../src/errcode.py:71
 msgid "signature not found"
 msgstr "署名が見つかりませんでした"
 
-#: ../src/errcode.py:71
+#: ../src/errcode.py:72
 msgid "multiple signatures matched"
 msgstr "複数の署名が一致しました"
 
-#: ../src/errcode.py:72
+#: ../src/errcode.py:73
 msgid "id not found"
 msgstr "ID が見つかりませんでした"
 
-#: ../src/errcode.py:73
+#: ../src/errcode.py:74
 msgid "database not found"
 msgstr "データベースが見つかりませんでした"
 
-#: ../src/errcode.py:74
+#: ../src/errcode.py:75
 msgid "item is not a member"
 msgstr "アイテムはメンバーではありません"
 
-#: ../src/errcode.py:75
+#: ../src/errcode.py:76
 msgid "illegal to change user"
 msgstr "ユーザーの変更は不正です"
 
-#: ../src/errcode.py:76
+#: ../src/errcode.py:77
 msgid "method not found"
 msgstr "メソッドが見つかりませんでした"
 
-#: ../src/errcode.py:77
+#: ../src/errcode.py:78
 msgid "cannot create GUI"
 msgstr "GUI を作成できません"
 
-#: ../src/errcode.py:78
+#: ../src/errcode.py:79
 msgid "value unknown"
 msgstr "値が不明です"
 
-#: ../src/errcode.py:79
+#: ../src/errcode.py:80
 msgid "cannot open file"
 msgstr "ファイルを開けません"
 
-#: ../src/errcode.py:80
+#: ../src/errcode.py:81
 msgid "invalid email address"
 msgstr "無効な電子メールアドレス"
 
 #. gobject IO Errors
-#: ../src/errcode.py:83
+#: ../src/errcode.py:84
 msgid "socket error"
 msgstr "ソケットエラー"
 
-#: ../src/errcode.py:84
+#: ../src/errcode.py:85
 msgid "connection has been broken"
 msgstr "接続が遮断されました"
 
-#: ../src/errcode.py:85
+#: ../src/errcode.py:86
 msgid "Invalid request. The file descriptor is not open"
 msgstr "無効な要求です。ファイル記述子は開いていません"
 
-#: ../src/errcode.py:87
+#: ../src/errcode.py:88
 msgid "insufficient permission to modify user"
 msgstr "ユーザーを変更するのに十分な権限がありません。"
 
-#: ../src/errcode.py:88
+#: ../src/errcode.py:89
 msgid "authentication failed"
 msgstr "認証は失敗しました"
 
-#: ../src/errcode.py:89
+#: ../src/errcode.py:90
 msgid "user prohibited"
 msgstr "ユーザーは禁止されています。"
 
-#: ../src/errcode.py:90
+#: ../src/errcode.py:91
 msgid "not authenticated"
 msgstr "認証されていません"
 
-#: ../src/errcode.py:91
+#: ../src/errcode.py:92
 msgid "user lookup failed"
 msgstr "ユーザーの検索に失敗しました"
 
@@ -293,7 +343,7 @@ msgstr "%s  がエラーです!"
 msgid "Error"
 msgstr "エラー"
 
-#: ../src/Plugin.py:78
+#: ../src/Plugin.py:81
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -381,156 +431,156 @@ msgstr "AVC"
 msgid "Audit Listener"
 msgstr "リスナーの監査"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:74
 msgid "Never Ignore"
 msgstr "無視しない"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:75
 msgid "Ignore Always"
 msgstr "常に無視する"
 
-#: ../src/signature.py:73
+#: ../src/signature.py:76
 msgid "Ignore After First Alert"
 msgstr "最初の通知以後は無視"
 
-#: ../src/signature.py:190
+#: ../src/signature.py:193
 msgid "directory"
 msgstr "ディレクトリ"
 
-#: ../src/signature.py:191
+#: ../src/signature.py:194
 msgid "semaphore"
 msgstr "セマフォ"
 
-#: ../src/signature.py:192
+#: ../src/signature.py:195
 msgid "shared memory"
 msgstr "共有メモリー"
 
-#: ../src/signature.py:193
+#: ../src/signature.py:196
 msgid "message queue"
 msgstr "メッセージキュー"
 
-#: ../src/signature.py:194
+#: ../src/signature.py:197
 msgid "message"
 msgstr "メッセージ"
 
-#: ../src/signature.py:195
+#: ../src/signature.py:198
 msgid "file"
 msgstr "ファイル"
 
-#: ../src/signature.py:196
+#: ../src/signature.py:199
 msgid "socket"
 msgstr "ソケット"
 
-#: ../src/signature.py:197
+#: ../src/signature.py:200
 msgid "process"
 msgstr "プロセス"
 
-#: ../src/signature.py:198
+#: ../src/signature.py:201
 msgid "filesystem"
 msgstr "ファイルシステム"
 
-#: ../src/signature.py:199
+#: ../src/signature.py:202
 msgid "node"
 msgstr "ノード"
 
-#: ../src/signature.py:200
+#: ../src/signature.py:203
 msgid "capability"
 msgstr "能力"
 
-#: ../src/signature.py:370
+#: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s は許容タイプ (%s) を持ちます。このアクセスは拒否されませんでした。"
 
-#: ../src/signature.py:373
+#: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinuxはpermissiveモードです。このアクセスは拒否されませんでした。"
 
-#: ../src/signature.py:458
+#: ../src/signature.py:461
 msgid "Additional Information:\n"
 msgstr "追加情報:\n"
 
-#: ../src/signature.py:459
+#: ../src/signature.py:462
 msgid "Source Context"
 msgstr "ソースコンテキスト"
 
-#: ../src/signature.py:460
+#: ../src/signature.py:463
 msgid "Target Context"
 msgstr "ターゲットコンテキスト"
 
-#: ../src/signature.py:461
+#: ../src/signature.py:464
 msgid "Target Objects"
 msgstr "ターゲットオブジェクト"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:465
 msgid "Source"
 msgstr "ソース"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:466
 msgid "Source Path"
 msgstr "ソースパス"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:467
 msgid "Port"
 msgstr "ポート"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:468
 msgid "Host"
 msgstr "ホスト"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:469
 msgid "Source RPM Packages"
 msgstr "ソース RPM パッケージ"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:470
 msgid "Target RPM Packages"
 msgstr "ターゲット RPM パッケージ"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:471
 msgid "Policy RPM"
 msgstr "ポリシー RPM"
 
-#: ../src/signature.py:469
+#: ../src/signature.py:472
 msgid "Selinux Enabled"
 msgstr "Selinux 有効化"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:473
 msgid "Policy Type"
 msgstr "ポリシータイプ"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:474
 msgid "Enforcing Mode"
 msgstr "強制モード"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:475
 msgid "Host Name"
 msgstr "ホスト名"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:476
 msgid "Platform"
 msgstr "プラットフォーム"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:477
 msgid "Alert Count"
 msgstr "通知カウント"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:479
 msgid "First Seen"
 msgstr "最初の画面"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:480
 msgid "Last Seen"
 msgstr "最後の画面"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:481
 msgid "Local ID"
 msgstr "ローカル ID"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:483
 msgid "Raw Audit Messages"
 msgstr "生の監査メッセージ"
 
-#: ../src/signature.py:529
+#: ../src/signature.py:533
 #, python-format
 msgid ""
 "\n"
@@ -541,15 +591,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 
-#: ../src/signature.py:532
+#: ../src/signature.py:536
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:533
+#: ../src/signature.py:537
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:535
+#: ../src/signature.py:539
 msgid ""
 "\n"
 "If "
@@ -558,7 +608,7 @@ msgstr ""
 "次のような場合: \n"
 " "
 
-#: ../src/signature.py:537
+#: ../src/signature.py:541
 msgid ""
 "\n"
 "Then "
@@ -567,7 +617,7 @@ msgstr ""
 "このようにします: \n"
 " "
 
-#: ../src/signature.py:540
+#: ../src/signature.py:544
 msgid ""
 "\n"
 "Do\n"
@@ -575,7 +625,7 @@ msgstr ""
 "\n"
 "そして、以下を実行します: \n"
 
-#: ../src/signature.py:542
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "\n"
@@ -661,10 +711,6 @@ msgstr ""
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot 通知リスト"
 
-#: ../gui/browser.glade.h:8
-msgid "Troubleshoot"
-msgstr "トラブルシュート"
-
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "SETroubleshootが選択した警告"
@@ -677,41 +723,17 @@ msgstr "選択されたアラートを削除"
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshootの詳細のウィンドウ"
 
-#: ../gui/browser.glade.h:12
-msgid "SELinux Alert Browser"
-msgstr "SELinux 通知ブラウザー"
-
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux は問題を検出しました。</b>"
-
-#: ../gui/browser.glade.h:14
-msgid "Would you like to receive alerts?"
-msgstr "通知を受け取りますか？"
-
-#: ../gui/browser.glade.h:15
-msgid "Yes"
-msgstr "はい"
 
 #: ../gui/browser.glade.h:16
 msgid "Turn on alert pop-ups."
 msgstr "通知のポップアップを有効化"
 
-#: ../gui/browser.glade.h:17
-msgid "No"
-msgstr "いいえ"
-
 #: ../gui/browser.glade.h:18
 msgid "Turn off alert pop-ups."
 msgstr "通知のポップアップを無効化"
-
-#: ../gui/browser.glade.h:19
-msgid "The source process:"
-msgstr "原因プロセス:"
-
-#: ../gui/browser.glade.h:20
-msgid "Attempted this access:"
-msgstr "試行されたアクセス:"
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
@@ -729,21 +751,9 @@ msgstr ""
 "トラブルシューティングに関する情報をお読みください。多くの場合、トラブルを解"
 "決するには、root権限が必要です。"
 
-#: ../gui/browser.glade.h:24
-msgid "Notify Admin"
-msgstr "管理者に通知"
-
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
 msgstr "Eメールでシステム管理者に通知"
-
-#: ../gui/browser.glade.h:26
-msgid "Details"
-msgstr "詳細"
-
-#: ../gui/browser.glade.h:28
-msgid "Ignore alert in the future."
-msgstr "次回から警告を無視します。"
 
 #: ../gui/browser.glade.h:29
 msgid "Delete current alert from the database."
@@ -756,10 +766,6 @@ msgstr "前の通知を表示"
 #: ../gui/browser.glade.h:32
 msgid "Show next alert."
 msgstr "次の通知を表示"
-
-#: ../gui/browser.glade.h:33
-msgid "List All Alerts"
-msgstr "すべての通知の一覧"
 
 #: ../gui/browser.glade.h:34
 msgid "List all alerts in the database."

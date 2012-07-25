@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 11:32-0400\n"
+"POT-Creation-Date: 2012-07-25 11:03-0400\n"
 "PO-Revision-Date: 2011-12-16 01:57+0000\n"
 "Last-Translator: Miguel Sousa <migueljorgesousa@sapo.pt>\n"
 "Language-Team: Portuguese <trans-pt@lists.fedoraproject.org>\n"
@@ -35,8 +35,8 @@ msgstr "Despiste problemas com acessos negados devido ao SELinux"
 msgid "port %s"
 msgstr "porta %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:715 ../src/browser.py:790
-#: ../src/rpc.py:532 ../src/util.py:219
+#: ../src/audit_data.py:885 ../src/browser.py:731 ../src/browser.py:806
+#: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Desconhecida"
 
@@ -104,51 +104,101 @@ msgstr ""
 msgid "Error during access vector computation"
 msgstr "Erro durante o cálculo do vector de acesso"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:164 ../gui/browser.glade.h:12
+msgid "SELinux Alert Browser"
+msgstr "Alerta de Navegação SELinux"
+
+#: ../src/browser.py:168 ../gui/browser.glade.h:19
+msgid "The source process:"
+msgstr "O processo de origem:"
+
+#: ../src/browser.py:173 ../gui/browser.glade.h:15
+msgid "Yes"
+msgstr "Sim"
+
+#: ../src/browser.py:175 ../gui/browser.glade.h:17
+msgid "No"
+msgstr "Não"
+
+#: ../src/browser.py:180 ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr "Tentativa de acesso a este:"
+
+#: ../src/browser.py:196 ../gui/browser.glade.h:14
+msgid "Would you like to receive alerts?"
+msgstr "Gostaria de receber alertas?"
+
+#: ../src/browser.py:200 ../gui/browser.glade.h:24
+msgid "Notify Admin"
+msgstr "Notificar administrador"
+
+#: ../src/browser.py:203 ../src/browser.py:209 ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr "Resolução de erros"
+
+#: ../src/browser.py:206 ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "Detalhes"
+
+#: ../src/browser.py:214 ../gui/browser.glade.h:33
+msgid "List All Alerts"
+msgstr "Listar todos os alertas"
+
+#: ../src/browser.py:261
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Source Process"
 msgstr "Processo de origem"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Attempted Access"
 msgstr "Tentativa de acesso"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "On this"
 msgstr "Nesta"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Occurred"
 msgstr "Ocorreu"
 
-#: ../src/browser.py:249 ../src/run_cmd.py:406
+#: ../src/browser.py:261 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "Estado"
 
-#: ../src/browser.py:321 ../src/browser.py:798
+#: ../src/browser.py:333 ../src/browser.py:770 ../src/browser.py:814
 msgid "Notify"
 msgstr "Notificar"
 
-#: ../src/browser.py:325 ../src/browser.py:796 ../gui/browser.glade.h:27
+#: ../src/browser.py:334
+#, fuzzy
+msgid "Notify alert in the future."
+msgstr "Ignorar alerta no futuro."
+
+#: ../src/browser.py:337 ../src/browser.py:772 ../src/browser.py:812
+#: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: ../src/browser.py:362
+#: ../src/browser.py:338 ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "Ignorar alerta no futuro."
+
+#: ../src/browser.py:374
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Se está a tentar...</b>"
 
-#: ../src/browser.py:371
+#: ../src/browser.py:383
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Então esta é a solução.</b>"
 
-#: ../src/browser.py:390 ../src/browser.py:526
+#: ../src/browser.py:402 ../src/browser.py:538
 msgid "If "
 msgstr "Se "
 
-#: ../src/browser.py:478
+#: ../src/browser.py:490
 msgid ""
 "Plugin\n"
 "Details"
@@ -156,7 +206,7 @@ msgstr ""
 "Plugin\n"
 "Detalhes"
 
-#: ../src/browser.py:493
+#: ../src/browser.py:505
 msgid ""
 "Report\n"
 "Bug"
@@ -164,120 +214,120 @@ msgstr ""
 "Reportar\n"
 "Erro"
 
-#: ../src/browser.py:521
+#: ../src/browser.py:533
 #, python-format
 msgid "Plugin: %s "
 msgstr "Plugin: %s "
 
-#: ../src/browser.py:579
+#: ../src/browser.py:595
 msgid "Unable to grant access."
 msgstr "Impossível permitir acesso."
 
-#: ../src/browser.py:610 ../src/browser.py:752
+#: ../src/browser.py:626 ../src/browser.py:768
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Alerta %d de %d"
 
-#: ../src/browser.py:735
+#: ../src/browser.py:751
 #, python-format
 msgid "On this %s:"
 msgstr "Nesta %s:"
 
-#: ../src/browser.py:783 ../src/browser.py:789 ../src/signature.py:385
+#: ../src/browser.py:799 ../src/browser.py:805 ../src/signature.py:388
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/browser.py:830 ../src/browser.py:831 ../gui/browser.glade.h:31
+#: ../src/browser.py:846 ../src/browser.py:847 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "Não há alertas"
 
-#: ../src/browser.py:849
+#: ../src/browser.py:865
 msgid "SELinux has detected a problem."
 msgstr "O SELinux detectou um problema."
 
-#: ../src/browser.py:954
+#: ../src/browser.py:970
 msgid "Sealert Error"
 msgstr "Erro Sealert"
 
-#: ../src/browser.py:965
+#: ../src/browser.py:981
 msgid "Sealert Message"
 msgstr "Mensagens do sealert"
 
 #. -----------------------------------------------------------------------------
-#: ../src/errcode.py:70
+#: ../src/errcode.py:71
 msgid "signature not found"
 msgstr "assinatura não encontrada"
 
-#: ../src/errcode.py:71
+#: ../src/errcode.py:72
 msgid "multiple signatures matched"
 msgstr "múltiplas assinaturas correspondem"
 
-#: ../src/errcode.py:72
+#: ../src/errcode.py:73
 msgid "id not found"
 msgstr "id não encontrado"
 
-#: ../src/errcode.py:73
+#: ../src/errcode.py:74
 msgid "database not found"
 msgstr "base de dados não encontrada"
 
-#: ../src/errcode.py:74
+#: ../src/errcode.py:75
 msgid "item is not a member"
 msgstr "o item não é membro"
 
-#: ../src/errcode.py:75
+#: ../src/errcode.py:76
 msgid "illegal to change user"
 msgstr "não é permitido mudar o utilizador"
 
-#: ../src/errcode.py:76
+#: ../src/errcode.py:77
 msgid "method not found"
 msgstr "método não encontrado"
 
-#: ../src/errcode.py:77
+#: ../src/errcode.py:78
 msgid "cannot create GUI"
 msgstr "não é possível criar a GUI"
 
-#: ../src/errcode.py:78
+#: ../src/errcode.py:79
 msgid "value unknown"
 msgstr "valor desconhecido"
 
-#: ../src/errcode.py:79
+#: ../src/errcode.py:80
 msgid "cannot open file"
 msgstr "não é possível abrir o ficheiro"
 
-#: ../src/errcode.py:80
+#: ../src/errcode.py:81
 msgid "invalid email address"
 msgstr "endereço de e-mail inválido"
 
 #. gobject IO Errors
-#: ../src/errcode.py:83
+#: ../src/errcode.py:84
 msgid "socket error"
 msgstr "erro de socket"
 
-#: ../src/errcode.py:84
+#: ../src/errcode.py:85
 msgid "connection has been broken"
 msgstr "a ligação foi interrompida"
 
-#: ../src/errcode.py:85
+#: ../src/errcode.py:86
 msgid "Invalid request. The file descriptor is not open"
 msgstr "Pedido inválido. O descritor do ficheiro não está aberto"
 
-#: ../src/errcode.py:87
+#: ../src/errcode.py:88
 msgid "insufficient permission to modify user"
 msgstr "permissões insuficientes para modificar utilizador"
 
-#: ../src/errcode.py:88
+#: ../src/errcode.py:89
 msgid "authentication failed"
 msgstr "autenticação falhou"
 
-#: ../src/errcode.py:89
+#: ../src/errcode.py:90
 msgid "user prohibited"
 msgstr "utilizador proibido"
 
-#: ../src/errcode.py:90
+#: ../src/errcode.py:91
 msgid "not authenticated"
 msgstr "não autenticado"
 
-#: ../src/errcode.py:91
+#: ../src/errcode.py:92
 msgid "user lookup failed"
 msgstr "utilizador não encontrado"
 
@@ -290,7 +340,7 @@ msgstr "Ups, o %s obteve um erro!"
 msgid "Error"
 msgstr "Erro"
 
-#: ../src/Plugin.py:78
+#: ../src/Plugin.py:81
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -379,156 +429,156 @@ msgstr "AVC"
 msgid "Audit Listener"
 msgstr "À escuta de eventos audit"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:74
 msgid "Never Ignore"
 msgstr "Nunca Ignorar"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:75
 msgid "Ignore Always"
 msgstr "Ignorar Sempre"
 
-#: ../src/signature.py:73
+#: ../src/signature.py:76
 msgid "Ignore After First Alert"
 msgstr "Ignorar Depois do Primeiro Alerta"
 
-#: ../src/signature.py:190
+#: ../src/signature.py:193
 msgid "directory"
 msgstr "directório"
 
-#: ../src/signature.py:191
+#: ../src/signature.py:194
 msgid "semaphore"
 msgstr "semáforo"
 
-#: ../src/signature.py:192
+#: ../src/signature.py:195
 msgid "shared memory"
 msgstr "memória partilhada"
 
-#: ../src/signature.py:193
+#: ../src/signature.py:196
 msgid "message queue"
 msgstr "fila de mensagens"
 
-#: ../src/signature.py:194
+#: ../src/signature.py:197
 msgid "message"
 msgstr "mensagem"
 
-#: ../src/signature.py:195
+#: ../src/signature.py:198
 msgid "file"
 msgstr "ficheiro"
 
-#: ../src/signature.py:196
+#: ../src/signature.py:199
 msgid "socket"
 msgstr "socket"
 
-#: ../src/signature.py:197
+#: ../src/signature.py:200
 msgid "process"
 msgstr "processo"
 
-#: ../src/signature.py:198
+#: ../src/signature.py:201
 msgid "filesystem"
 msgstr "sistema de ficheiros"
 
-#: ../src/signature.py:199
+#: ../src/signature.py:202
 msgid "node"
 msgstr "nó"
 
-#: ../src/signature.py:200
+#: ../src/signature.py:203
 msgid "capability"
 msgstr "capacidade"
 
-#: ../src/signature.py:370
+#: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s tem um tipo de permissão (%s). Este acesso não foi negado."
 
-#: ../src/signature.py:373
+#: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "O SELinux está em modo permissivo. Este acesso não foi negado."
 
-#: ../src/signature.py:458
+#: ../src/signature.py:461
 msgid "Additional Information:\n"
 msgstr "Informações adicionais:\n"
 
-#: ../src/signature.py:459
+#: ../src/signature.py:462
 msgid "Source Context"
 msgstr "Contexto de Origem"
 
-#: ../src/signature.py:460
+#: ../src/signature.py:463
 msgid "Target Context"
 msgstr "Contexto de Destino"
 
-#: ../src/signature.py:461
+#: ../src/signature.py:464
 msgid "Target Objects"
 msgstr "Objectos de Destino"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:465
 msgid "Source"
 msgstr "Fonte"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:466
 msgid "Source Path"
 msgstr "Caminho de Origem"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:467
 msgid "Port"
 msgstr "Porto"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:468
 msgid "Host"
 msgstr "Máquina"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:469
 msgid "Source RPM Packages"
 msgstr "Pacotes RPM Fonte"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:470
 msgid "Target RPM Packages"
 msgstr "Pacotes RPM Destino"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:471
 msgid "Policy RPM"
 msgstr "RPM da Política"
 
-#: ../src/signature.py:469
+#: ../src/signature.py:472
 msgid "Selinux Enabled"
 msgstr "Selinux Activo"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:473
 msgid "Policy Type"
 msgstr "Tipo de Política"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:474
 msgid "Enforcing Mode"
 msgstr "Modo de Execução Forçada"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:475
 msgid "Host Name"
 msgstr "Nome da Máquina"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:476
 msgid "Platform"
 msgstr "Plataforma"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:477
 msgid "Alert Count"
 msgstr "Contador de Alertas"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:479
 msgid "First Seen"
 msgstr "Primeira Vez Visto"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:480
 msgid "Last Seen"
 msgstr "Última Vez Visto"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:481
 msgid "Local ID"
 msgstr "ID Local"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:483
 msgid "Raw Audit Messages"
 msgstr "Mensagens de Auditoria em Bruto"
 
-#: ../src/signature.py:529
+#: ../src/signature.py:533
 #, python-format
 msgid ""
 "\n"
@@ -539,15 +589,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confiança) sugere  "
 
-#: ../src/signature.py:532
+#: ../src/signature.py:536
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:533
+#: ../src/signature.py:537
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:535
+#: ../src/signature.py:539
 msgid ""
 "\n"
 "If "
@@ -555,7 +605,7 @@ msgstr ""
 "\n"
 "Se "
 
-#: ../src/signature.py:537
+#: ../src/signature.py:541
 msgid ""
 "\n"
 "Then "
@@ -563,7 +613,7 @@ msgstr ""
 "\n"
 "Em seguida "
 
-#: ../src/signature.py:540
+#: ../src/signature.py:544
 msgid ""
 "\n"
 "Do\n"
@@ -571,7 +621,7 @@ msgstr ""
 "\n"
 "Fazer\n"
 
-#: ../src/signature.py:542
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "\n"
@@ -657,10 +707,6 @@ msgstr ""
 msgid "SETroubleshoot Alert List"
 msgstr "Lista de Alertas SETroubleshoot"
 
-#: ../gui/browser.glade.h:8
-msgid "Troubleshoot"
-msgstr "Resolução de erros"
-
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "Resolução de erros para o alerta seleccionado"
@@ -673,41 +719,17 @@ msgstr "Apagar os alertas seleccionados"
 msgid "SETroubleshoot Details Window"
 msgstr "Janela de detalhes do SETroubleshoot"
 
-#: ../gui/browser.glade.h:12
-msgid "SELinux Alert Browser"
-msgstr "Alerta de Navegação SELinux"
-
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>O SELinux detectou um problema.</b>"
-
-#: ../gui/browser.glade.h:14
-msgid "Would you like to receive alerts?"
-msgstr "Gostaria de receber alertas?"
-
-#: ../gui/browser.glade.h:15
-msgid "Yes"
-msgstr "Sim"
 
 #: ../gui/browser.glade.h:16
 msgid "Turn on alert pop-ups."
 msgstr "Activar pop-ups de alerta."
 
-#: ../gui/browser.glade.h:17
-msgid "No"
-msgstr "Não"
-
 #: ../gui/browser.glade.h:18
 msgid "Turn off alert pop-ups."
 msgstr "Desactivar pop-ups de alerta."
-
-#: ../gui/browser.glade.h:19
-msgid "The source process:"
-msgstr "O processo de origem:"
-
-#: ../gui/browser.glade.h:20
-msgid "Attempted this access:"
-msgstr "Tentativa de acesso a este:"
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
@@ -725,21 +747,9 @@ msgstr ""
 "Alerta vermelho de despiste de informação.  Pode requerer previlégios "
 "administrativos para solucionar."
 
-#: ../gui/browser.glade.h:24
-msgid "Notify Admin"
-msgstr "Notificar administrador"
-
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
 msgstr "E-mail de alerta para o administrador de sistemas."
-
-#: ../gui/browser.glade.h:26
-msgid "Details"
-msgstr "Detalhes"
-
-#: ../gui/browser.glade.h:28
-msgid "Ignore alert in the future."
-msgstr "Ignorar alerta no futuro."
 
 #: ../gui/browser.glade.h:29
 msgid "Delete current alert from the database."
@@ -752,10 +762,6 @@ msgstr "Mostrar alerta anterior."
 #: ../gui/browser.glade.h:32
 msgid "Show next alert."
 msgstr "Mostrar próximo alerta."
-
-#: ../gui/browser.glade.h:33
-msgid "List All Alerts"
-msgstr "Listar todos os alertas"
 
 #: ../gui/browser.glade.h:34
 msgid "List all alerts in the database."

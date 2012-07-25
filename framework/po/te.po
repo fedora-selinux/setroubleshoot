@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 11:32-0400\n"
+"POT-Creation-Date: 2012-07-25 11:03-0400\n"
 "PO-Revision-Date: 2012-01-31 12:12+0000\n"
 "Last-Translator: Krishnababu Krothapalli <krisnababu@gmail.com>\n"
 "Language-Team: Telugu (http://www.transifex.net/projects/p/fedora/team/te/)\n"
@@ -33,8 +33,8 @@ msgstr "SELinux వాడుక డినైల్స్‍‌ను పరి�
 msgid "port %s"
 msgstr "పోర్ట్ %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:715 ../src/browser.py:790
-#: ../src/rpc.py:532 ../src/util.py:219
+#: ../src/audit_data.py:885 ../src/browser.py:731 ../src/browser.py:806
+#: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "తెలియని"
 
@@ -102,51 +102,101 @@ msgstr ""
 msgid "Error during access vector computation"
 msgstr "వెక్టార్ లెక్కింపును యాక్సెస్ చేయునప్పుడు దోషము"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:164 ../gui/browser.glade.h:12
+msgid "SELinux Alert Browser"
+msgstr "SELinux అప్రమత్తతా విహరిణి"
+
+#: ../src/browser.py:168 ../gui/browser.glade.h:19
+msgid "The source process:"
+msgstr "మూలాధార క్రమణం:"
+
+#: ../src/browser.py:173 ../gui/browser.glade.h:15
+msgid "Yes"
+msgstr "అవును"
+
+#: ../src/browser.py:175 ../gui/browser.glade.h:17
+msgid "No"
+msgstr "ఏదీకాదు"
+
+#: ../src/browser.py:180 ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr "ఈ యాక్సెస్‌ను ప్రయత్నించినది:"
+
+#: ../src/browser.py:196 ../gui/browser.glade.h:14
+msgid "Would you like to receive alerts?"
+msgstr "మీరు అప్రమత్తతసును స్వీకరించుటకు యిష్టపడతారా?"
+
+#: ../src/browser.py:200 ../gui/browser.glade.h:24
+msgid "Notify Admin"
+msgstr "నిర్వహకునికి తెలియజెప్పు"
+
+#: ../src/browser.py:203 ../src/browser.py:209 ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr "సమస్యాపరిష్కారం"
+
+#: ../src/browser.py:206 ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "వివరములు"
+
+#: ../src/browser.py:214 ../gui/browser.glade.h:33
+msgid "List All Alerts"
+msgstr "అన్ని అప్రమత్తతలను జాబితాచేయుము"
+
+#: ../src/browser.py:261
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Source Process"
 msgstr "మూలం క్రమణం"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Attempted Access"
 msgstr "ప్రయత్నించిన యాక్సెస్"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "On this"
 msgstr "దీనిపై"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Occurred"
 msgstr "ఎదురైంది"
 
-#: ../src/browser.py:249 ../src/run_cmd.py:406
+#: ../src/browser.py:261 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "స్థితి"
 
-#: ../src/browser.py:321 ../src/browser.py:798
+#: ../src/browser.py:333 ../src/browser.py:770 ../src/browser.py:814
 msgid "Notify"
 msgstr "తెలియజెప్పు"
 
-#: ../src/browser.py:325 ../src/browser.py:796 ../gui/browser.glade.h:27
+#: ../src/browser.py:334
+#, fuzzy
+msgid "Notify alert in the future."
+msgstr "భవిష్యత్తులో అప్రమత్తతను విస్మరించు."
+
+#: ../src/browser.py:337 ../src/browser.py:772 ../src/browser.py:812
+#: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "విస్మరించు"
 
-#: ../src/browser.py:362
+#: ../src/browser.py:338 ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "భవిష్యత్తులో అప్రమత్తతను విస్మరించు."
+
+#: ../src/browser.py:374
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>మీరు దీని కొరకు ప్రయత్నిస్తుంటే...</b>"
 
-#: ../src/browser.py:371
+#: ../src/browser.py:383
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>అప్పుడు యిదే పరిష్కారము.</b>"
 
-#: ../src/browser.py:390 ../src/browser.py:526
+#: ../src/browser.py:402 ../src/browser.py:538
 msgid "If "
 msgstr "ఒకవేళ "
 
-#: ../src/browser.py:478
+#: ../src/browser.py:490
 msgid ""
 "Plugin\n"
 "Details"
@@ -154,7 +204,7 @@ msgstr ""
 "ప్లగిన్\n"
 "వివరములు"
 
-#: ../src/browser.py:493
+#: ../src/browser.py:505
 msgid ""
 "Report\n"
 "Bug"
@@ -162,120 +212,120 @@ msgstr ""
 "ఫిర్యాదు\n"
 "బగ్"
 
-#: ../src/browser.py:521
+#: ../src/browser.py:533
 #, python-format
 msgid "Plugin: %s "
 msgstr "ప్లగిన్: %s "
 
-#: ../src/browser.py:579
+#: ../src/browser.py:595
 msgid "Unable to grant access."
 msgstr "యాక్సెస్‌ను యివ్వలేక పోయింది."
 
-#: ../src/browser.py:610 ../src/browser.py:752
+#: ../src/browser.py:626 ../src/browser.py:768
 #, python-format
 msgid "Alert %d of %d"
 msgstr "అప్రమత్తత %d మొత్త %d లో"
 
-#: ../src/browser.py:735
+#: ../src/browser.py:751
 #, python-format
 msgid "On this %s:"
 msgstr "దీనిపై %s:"
 
-#: ../src/browser.py:783 ../src/browser.py:789 ../src/signature.py:385
+#: ../src/browser.py:799 ../src/browser.py:805 ../src/signature.py:388
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/browser.py:830 ../src/browser.py:831 ../gui/browser.glade.h:31
+#: ../src/browser.py:846 ../src/browser.py:847 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "ఏ అప్రమత్తతలు లేవు"
 
-#: ../src/browser.py:849
+#: ../src/browser.py:865
 msgid "SELinux has detected a problem."
 msgstr "SELinux వొక సమస్యను గుర్తించినది."
 
-#: ../src/browser.py:954
+#: ../src/browser.py:970
 msgid "Sealert Error"
 msgstr "Sealert దోషము"
 
-#: ../src/browser.py:965
+#: ../src/browser.py:981
 msgid "Sealert Message"
 msgstr "Sealert సందేశము"
 
 #. -----------------------------------------------------------------------------
-#: ../src/errcode.py:70
+#: ../src/errcode.py:71
 msgid "signature not found"
 msgstr "సంతకం కనబడలేదు"
 
-#: ../src/errcode.py:71
+#: ../src/errcode.py:72
 msgid "multiple signatures matched"
 msgstr "బహుళ సంతకాలు సరిపోల్చబడినవి"
 
-#: ../src/errcode.py:72
+#: ../src/errcode.py:73
 msgid "id not found"
 msgstr "id కనబడలేదు"
 
-#: ../src/errcode.py:73
+#: ../src/errcode.py:74
 msgid "database not found"
 msgstr "డాటాబేస్ కనబడలేదు"
 
-#: ../src/errcode.py:74
+#: ../src/errcode.py:75
 msgid "item is not a member"
 msgstr "అంశము సభ్యత్వంకలది కాదు"
 
-#: ../src/errcode.py:75
+#: ../src/errcode.py:76
 msgid "illegal to change user"
 msgstr "వినియోగదారిని మార్చుట చెల్లునదికాదు"
 
-#: ../src/errcode.py:76
+#: ../src/errcode.py:77
 msgid "method not found"
 msgstr "పద్దతి కనబడలేదు"
 
-#: ../src/errcode.py:77
+#: ../src/errcode.py:78
 msgid "cannot create GUI"
 msgstr "GUI ను సృష్టించలేక పోయింది"
 
-#: ../src/errcode.py:78
+#: ../src/errcode.py:79
 msgid "value unknown"
 msgstr "విలువ తెలియనిది"
 
-#: ../src/errcode.py:79
+#: ../src/errcode.py:80
 msgid "cannot open file"
 msgstr "దస్త్రాన్ని తెరువలేదు"
 
-#: ../src/errcode.py:80
+#: ../src/errcode.py:81
 msgid "invalid email address"
 msgstr "సరికాని ఈమెయిల్ చిరునామా"
 
 #. gobject IO Errors
-#: ../src/errcode.py:83
+#: ../src/errcode.py:84
 msgid "socket error"
 msgstr "సాకెట్ దోషము"
 
-#: ../src/errcode.py:84
+#: ../src/errcode.py:85
 msgid "connection has been broken"
 msgstr "అనుసంధానం విరిగినది"
 
-#: ../src/errcode.py:85
+#: ../src/errcode.py:86
 msgid "Invalid request. The file descriptor is not open"
 msgstr "సరికాని అభ్యర్ధన. దస్త్రము వివరణి తెరిచిలేదు"
 
-#: ../src/errcode.py:87
+#: ../src/errcode.py:88
 msgid "insufficient permission to modify user"
 msgstr "వినియోగదారిని సవరించుటకు సరిపోని అనుమతి"
 
-#: ../src/errcode.py:88
+#: ../src/errcode.py:89
 msgid "authentication failed"
 msgstr "దృవీకరణం విఫలమైంది"
 
-#: ../src/errcode.py:89
+#: ../src/errcode.py:90
 msgid "user prohibited"
 msgstr "వినియోగదారి నిషిద్దం"
 
-#: ../src/errcode.py:90
+#: ../src/errcode.py:91
 msgid "not authenticated"
 msgstr "దృవీకరించబడ లేదు"
 
-#: ../src/errcode.py:91
+#: ../src/errcode.py:92
 msgid "user lookup failed"
 msgstr "వినియోగదారి లుక్అప్ విఫలమైంది"
 
@@ -288,7 +338,7 @@ msgstr "అయ్యో, %s దోషాన్ని తాకినది!"
 msgid "Error"
 msgstr "దోషము"
 
-#: ../src/Plugin.py:78
+#: ../src/Plugin.py:81
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -376,156 +426,156 @@ msgstr "AVC"
 msgid "Audit Listener"
 msgstr "ఆలకించుదానిని ఆడిట్‌చేయుము"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:74
 msgid "Never Ignore"
 msgstr "ఎప్పుడు వదిలివేయవద్దు"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:75
 msgid "Ignore Always"
 msgstr "ఎప్పుడు వదిలివేయి"
 
-#: ../src/signature.py:73
+#: ../src/signature.py:76
 msgid "Ignore After First Alert"
 msgstr "మొదటి అప్రమత్తత తర్వాత వదిలివేయి"
 
-#: ../src/signature.py:190
+#: ../src/signature.py:193
 msgid "directory"
 msgstr "డైరెక్టరీ"
 
-#: ../src/signature.py:191
+#: ../src/signature.py:194
 msgid "semaphore"
 msgstr "సెమాఫోర్"
 
-#: ../src/signature.py:192
+#: ../src/signature.py:195
 msgid "shared memory"
 msgstr "భాగస్వామిత మెమొరీ"
 
-#: ../src/signature.py:193
+#: ../src/signature.py:196
 msgid "message queue"
 msgstr "సందేశ క్యూ"
 
-#: ../src/signature.py:194
+#: ../src/signature.py:197
 msgid "message"
 msgstr "సందేశము"
 
-#: ../src/signature.py:195
+#: ../src/signature.py:198
 msgid "file"
 msgstr "ఫైల్"
 
-#: ../src/signature.py:196
+#: ../src/signature.py:199
 msgid "socket"
 msgstr "సాకెట్"
 
-#: ../src/signature.py:197
+#: ../src/signature.py:200
 msgid "process"
 msgstr "క్రమణం"
 
-#: ../src/signature.py:198
+#: ../src/signature.py:201
 msgid "filesystem"
 msgstr "ఫైల్‌సిస్టమ్"
 
-#: ../src/signature.py:199
+#: ../src/signature.py:202
 msgid "node"
 msgstr "నోడ్"
 
-#: ../src/signature.py:200
+#: ../src/signature.py:203
 msgid "capability"
 msgstr "సామర్థ్యం"
 
-#: ../src/signature.py:370
+#: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s అనుమతి రకము (%s) కలిగివుంది. ఈ యాక్సెస్ తిరస్కరించబడలేదు."
 
-#: ../src/signature.py:373
+#: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux ఆనతినిచ్చు రీతినందు వుంది. ఈ యాక్సెస్ తిరస్కరించబడలేదు."
 
-#: ../src/signature.py:458
+#: ../src/signature.py:461
 msgid "Additional Information:\n"
 msgstr "అదనపు సమాచారం:\n"
 
-#: ../src/signature.py:459
+#: ../src/signature.py:462
 msgid "Source Context"
 msgstr "మూలం సందర్భం"
 
-#: ../src/signature.py:460
+#: ../src/signature.py:463
 msgid "Target Context"
 msgstr "లక్ష్యం సందర్బం"
 
-#: ../src/signature.py:461
+#: ../src/signature.py:464
 msgid "Target Objects"
 msgstr "లక్ష్యం ఆబ్జక్ట్స్‍"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:465
 msgid "Source"
 msgstr "మూలం"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:466
 msgid "Source Path"
 msgstr "మూలం పాత్"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:467
 msgid "Port"
 msgstr "పోర్ట్‍"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:468
 msgid "Host"
 msgstr "అతిధేయ"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:469
 msgid "Source RPM Packages"
 msgstr "మూలం RPM సంకలనాలు"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:470
 msgid "Target RPM Packages"
 msgstr "లక్ష్యం RPM సంకలనాలు"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:471
 msgid "Policy RPM"
 msgstr "విధానం RPM"
 
-#: ../src/signature.py:469
+#: ../src/signature.py:472
 msgid "Selinux Enabled"
 msgstr "Selinux చేతనమైంది"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:473
 msgid "Policy Type"
 msgstr "విధానం రకము"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:474
 msgid "Enforcing Mode"
 msgstr "బలవంతపు రీతి"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:475
 msgid "Host Name"
 msgstr "అతిధేయ నామము"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:476
 msgid "Platform"
 msgstr "ప్లాట్‌ఫాం"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:477
 msgid "Alert Count"
 msgstr "అప్రమత్తత లెక్క"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:479
 msgid "First Seen"
 msgstr "మొదటి ఘటన"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:480
 msgid "Last Seen"
 msgstr "చివరి ఘటన"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:481
 msgid "Local ID"
 msgstr "స్థానిక ID"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:483
 msgid "Raw Audit Messages"
 msgstr "రా ఆడిట్ సందేశాలు"
 
-#: ../src/signature.py:529
+#: ../src/signature.py:533
 #, python-format
 msgid ""
 "\n"
@@ -536,15 +586,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 
-#: ../src/signature.py:532
+#: ../src/signature.py:536
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:533
+#: ../src/signature.py:537
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:535
+#: ../src/signature.py:539
 msgid ""
 "\n"
 "If "
@@ -552,7 +602,7 @@ msgstr ""
 "\n"
 "If "
 
-#: ../src/signature.py:537
+#: ../src/signature.py:541
 msgid ""
 "\n"
 "Then "
@@ -560,7 +610,7 @@ msgstr ""
 "\n"
 "Then "
 
-#: ../src/signature.py:540
+#: ../src/signature.py:544
 msgid ""
 "\n"
 "Do\n"
@@ -568,7 +618,7 @@ msgstr ""
 "\n"
 "Do\n"
 
-#: ../src/signature.py:542
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "\n"
@@ -652,10 +702,6 @@ msgstr ""
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot అప్రమత్త జాబితా"
 
-#: ../gui/browser.glade.h:8
-msgid "Troubleshoot"
-msgstr "సమస్యాపరిష్కారం"
-
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "ఎంపికచేసిన అప్రమత్తతను ట్రబుల్‌షూట్ చేయి"
@@ -668,41 +714,17 @@ msgstr "ఎంపికచేసిన అప్రమత్తతలను త�
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshoot వివరాల విండో"
 
-#: ../gui/browser.glade.h:12
-msgid "SELinux Alert Browser"
-msgstr "SELinux అప్రమత్తతా విహరిణి"
-
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux వొక సమస్యను గుర్తించినది.</b>"
-
-#: ../gui/browser.glade.h:14
-msgid "Would you like to receive alerts?"
-msgstr "మీరు అప్రమత్తతసును స్వీకరించుటకు యిష్టపడతారా?"
-
-#: ../gui/browser.glade.h:15
-msgid "Yes"
-msgstr "అవును"
 
 #: ../gui/browser.glade.h:16
 msgid "Turn on alert pop-ups."
 msgstr "అప్రమత్తత పాప్-ఆప్సును ఆన్ చేయుము."
 
-#: ../gui/browser.glade.h:17
-msgid "No"
-msgstr "ఏదీకాదు"
-
 #: ../gui/browser.glade.h:18
 msgid "Turn off alert pop-ups."
 msgstr "అప్రమత్తత పాప్-అప్సును ఆఫ్ చేయుము."
-
-#: ../gui/browser.glade.h:19
-msgid "The source process:"
-msgstr "మూలాధార క్రమణం:"
-
-#: ../gui/browser.glade.h:20
-msgid "Attempted this access:"
-msgstr "ఈ యాక్సెస్‌ను ప్రయత్నించినది:"
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
@@ -719,21 +741,9 @@ msgid ""
 msgstr ""
 "అప్రమత్తత ట్రబుల్‌షూట్ సమాచారమును చదువుము. పరిష్కారమునకు నిర్వాహక అనుమతులు అవసరం కావచ్చు."
 
-#: ../gui/browser.glade.h:24
-msgid "Notify Admin"
-msgstr "నిర్వహకునికి తెలియజెప్పు"
-
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
 msgstr "అప్రమత్తతను సిస్టమ్ నిర్వహణాధికారి యీమెయిల్ చేయుము."
-
-#: ../gui/browser.glade.h:26
-msgid "Details"
-msgstr "వివరములు"
-
-#: ../gui/browser.glade.h:28
-msgid "Ignore alert in the future."
-msgstr "భవిష్యత్తులో అప్రమత్తతను విస్మరించు."
 
 #: ../gui/browser.glade.h:29
 msgid "Delete current alert from the database."
@@ -746,10 +756,6 @@ msgstr "క్రితం అప్రమత్తతను చూపుము.
 #: ../gui/browser.glade.h:32
 msgid "Show next alert."
 msgstr "తరువాత అప్రమత్తతను చూపుము."
-
-#: ../gui/browser.glade.h:33
-msgid "List All Alerts"
-msgstr "అన్ని అప్రమత్తతలను జాబితాచేయుము"
 
 #: ../gui/browser.glade.h:34
 msgid "List all alerts in the database."

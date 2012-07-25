@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 11:32-0400\n"
+"POT-Creation-Date: 2012-07-25 11:03-0400\n"
 "PO-Revision-Date: 2012-01-31 09:36+0000\n"
 "Last-Translator: Jaswinder Singh <j.phulewala@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) <punjabi-users@lists.sf.net>\n"
@@ -33,8 +33,8 @@ msgstr "SELinux ਪਹੁੰਚ ਪਾਬੰਦੀ ਦਾ ਸਮੱਸਿਆ-ਨ
 msgid "port %s"
 msgstr "ਪੋਰਟ %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:715 ../src/browser.py:790
-#: ../src/rpc.py:532 ../src/util.py:219
+#: ../src/audit_data.py:885 ../src/browser.py:731 ../src/browser.py:806
+#: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "ਆਣਜਾਣੀ"
 
@@ -102,51 +102,101 @@ msgstr ""
 msgid "Error during access vector computation"
 msgstr "ਐਕਸੈੱਸ ਵੈਕਟਰ ਕੰਪਿਊਟੇਸ਼ਨ ਦੌਰਾਨ ਗਲਤੀ ਆਈ ਹੈ"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:164 ../gui/browser.glade.h:12
+msgid "SELinux Alert Browser"
+msgstr "SELinux ਚੇਤਾਵਨੀ ਝਲਕਾਰਾ"
+
+#: ../src/browser.py:168 ../gui/browser.glade.h:19
+msgid "The source process:"
+msgstr "ਸਰੋਤ ਕਾਰਜ:"
+
+#: ../src/browser.py:173 ../gui/browser.glade.h:15
+msgid "Yes"
+msgstr "ਹਾਂ"
+
+#: ../src/browser.py:175 ../gui/browser.glade.h:17
+msgid "No"
+msgstr "ਨਹੀਂ"
+
+#: ../src/browser.py:180 ../gui/browser.glade.h:20
+msgid "Attempted this access:"
+msgstr "ਇਹ ਪਹੁੰਚ ਕੀਤੀ ਗਈ ਹੈ:"
+
+#: ../src/browser.py:196 ../gui/browser.glade.h:14
+msgid "Would you like to receive alerts?"
+msgstr "ਕੀ ਤੁਸੀਂ ਚੇਤਾਵਨੀਆਂ ਲੈਣੀਆਂ ਪਸੰਦ ਕਰਦੇ ਹੋ?"
+
+#: ../src/browser.py:200 ../gui/browser.glade.h:24
+msgid "Notify Admin"
+msgstr "ਪਰਬੰਧਕ ਨੂੰ ਸੂਚਿਤ ਕਰੋ"
+
+#: ../src/browser.py:203 ../src/browser.py:209 ../gui/browser.glade.h:8
+msgid "Troubleshoot"
+msgstr "ਸਮੱਸਿਆ-ਨਿਪਟਾਰਾ"
+
+#: ../src/browser.py:206 ../gui/browser.glade.h:26
+msgid "Details"
+msgstr "ਵੇਰਵਾ"
+
+#: ../src/browser.py:214 ../gui/browser.glade.h:33
+msgid "List All Alerts"
+msgstr "ਸਭ ਚੇਤਾਵਨੀਆਂ ਵੇਖਾਓ"
+
+#: ../src/browser.py:261
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Source Process"
 msgstr "ਸਰੋਤ ਕਾਰਜ"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Attempted Access"
 msgstr "ਕੀਤੀ ਗਈ ਪਹੁੰਚ"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "On this"
 msgstr "ਇਸ ਉੱਪਰ"
 
-#: ../src/browser.py:249
+#: ../src/browser.py:261
 msgid "Occurred"
 msgstr "ਵਾਪਰਿਆ ਹੈ"
 
-#: ../src/browser.py:249 ../src/run_cmd.py:406
+#: ../src/browser.py:261 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "ਸਥਿਤੀ"
 
-#: ../src/browser.py:321 ../src/browser.py:798
+#: ../src/browser.py:333 ../src/browser.py:770 ../src/browser.py:814
 msgid "Notify"
 msgstr "ਸੂਚਿਤ ਕਰੋ"
 
-#: ../src/browser.py:325 ../src/browser.py:796 ../gui/browser.glade.h:27
+#: ../src/browser.py:334
+#, fuzzy
+msgid "Notify alert in the future."
+msgstr "ਭਵਿੱਖ ਵਿੱਚ ਚੇਤਾਵਨੀ ਅਣਡਿੱਠੀ ਕਰੋ।"
+
+#: ../src/browser.py:337 ../src/browser.py:772 ../src/browser.py:812
+#: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "ਅਣਡਿੱਠਾ"
 
-#: ../src/browser.py:362
+#: ../src/browser.py:338 ../gui/browser.glade.h:28
+msgid "Ignore alert in the future."
+msgstr "ਭਵਿੱਖ ਵਿੱਚ ਚੇਤਾਵਨੀ ਅਣਡਿੱਠੀ ਕਰੋ।"
+
+#: ../src/browser.py:374
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>ਜੇ ਤੁਸੀਂ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਹੇ ਹੋ ਕਿ...</b>"
 
-#: ../src/browser.py:371
+#: ../src/browser.py:383
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>ਤਾਂ ਇਹ ਹੱਲ ਹੈ।</b>"
 
-#: ../src/browser.py:390 ../src/browser.py:526
+#: ../src/browser.py:402 ../src/browser.py:538
 msgid "If "
 msgstr "ਜੇ"
 
-#: ../src/browser.py:478
+#: ../src/browser.py:490
 msgid ""
 "Plugin\n"
 "Details"
@@ -154,7 +204,7 @@ msgstr ""
 "ਪਲੱਗਇਨ\n"
 "ਵੇਰਵਾ"
 
-#: ../src/browser.py:493
+#: ../src/browser.py:505
 msgid ""
 "Report\n"
 "Bug"
@@ -162,120 +212,120 @@ msgstr ""
 "ਬੱਗ\n"
 "ਰਿਪੋਰਟ"
 
-#: ../src/browser.py:521
+#: ../src/browser.py:533
 #, python-format
 msgid "Plugin: %s "
 msgstr "ਪਲੱਗਇਨ: %s "
 
-#: ../src/browser.py:579
+#: ../src/browser.py:595
 msgid "Unable to grant access."
 msgstr "ਪਹੁੰਚ ਮਨਜੂਰ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।"
 
-#: ../src/browser.py:610 ../src/browser.py:752
+#: ../src/browser.py:626 ../src/browser.py:768
 #, python-format
 msgid "Alert %d of %d"
 msgstr "ਚੇਤਾਵਨੀ %d %d ਦੀ"
 
-#: ../src/browser.py:735
+#: ../src/browser.py:751
 #, python-format
 msgid "On this %s:"
 msgstr "ਇਸ %s ਉੱਪਰ:"
 
-#: ../src/browser.py:783 ../src/browser.py:789 ../src/signature.py:385
+#: ../src/browser.py:799 ../src/browser.py:805 ../src/signature.py:388
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/browser.py:830 ../src/browser.py:831 ../gui/browser.glade.h:31
+#: ../src/browser.py:846 ../src/browser.py:847 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "ਕੋਈ ਚੇਤਾਵਨੀ ਨਹੀਂ"
 
-#: ../src/browser.py:849
+#: ../src/browser.py:865
 msgid "SELinux has detected a problem."
 msgstr "SELinux ਨੂੰ ਇੱਕ ਸਮੱਸਿਆ ਮਿਲੀ ਹੈ।"
 
-#: ../src/browser.py:954
+#: ../src/browser.py:970
 msgid "Sealert Error"
 msgstr "Sealert ਗਲਤੀ"
 
-#: ../src/browser.py:965
+#: ../src/browser.py:981
 msgid "Sealert Message"
 msgstr "Sealert ਸੁਨੇਹੇ"
 
 #. -----------------------------------------------------------------------------
-#: ../src/errcode.py:70
+#: ../src/errcode.py:71
 msgid "signature not found"
 msgstr "ਦਸਤਖਤ ਨਹੀਂ ਲੱਭੇ"
 
-#: ../src/errcode.py:71
+#: ../src/errcode.py:72
 msgid "multiple signatures matched"
 msgstr "ਬਹੁਤੇ ਦਸਤਖਤ ਮੇਲ ਖਾਂਦੇ ਹਨ"
 
-#: ../src/errcode.py:72
+#: ../src/errcode.py:73
 msgid "id not found"
 msgstr "id ਨਹੀਂ ਲੱਭਿਆ"
 
-#: ../src/errcode.py:73
+#: ../src/errcode.py:74
 msgid "database not found"
 msgstr "ਡਾਟਾਬੇਸ ਨਹੀਂ ਲੱਭਿਆ"
 
-#: ../src/errcode.py:74
+#: ../src/errcode.py:75
 msgid "item is not a member"
 msgstr "ਇਕਾਈ ਇੱਕ ਮੈਂਬਰ ਨਹੀਂ ਹੈ"
 
-#: ../src/errcode.py:75
+#: ../src/errcode.py:76
 msgid "illegal to change user"
 msgstr "ਉਪਭੋਗੀ ਤਬਦੀਲ ਕਰਨਾ ਗਲਤ ਹੈ"
 
-#: ../src/errcode.py:76
+#: ../src/errcode.py:77
 msgid "method not found"
 msgstr "ਵਿਧੀ ਨਹੀਂ ਲੱਭੀ"
 
-#: ../src/errcode.py:77
+#: ../src/errcode.py:78
 msgid "cannot create GUI"
 msgstr "GUI ਨਹੀਂ ਬਣ ਸਕਿਆ"
 
-#: ../src/errcode.py:78
+#: ../src/errcode.py:79
 msgid "value unknown"
 msgstr "ਮੁੱਲ ਅਣਜਾਣਾ ਹੈ"
 
-#: ../src/errcode.py:79
+#: ../src/errcode.py:80
 msgid "cannot open file"
 msgstr "ਫਾਇਲ ਨੂੰ ਖੋਲ ਨਹੀਂ ਸਕਦਾ"
 
-#: ../src/errcode.py:80
+#: ../src/errcode.py:81
 msgid "invalid email address"
 msgstr "ਗਲਤ ਈ-ਮੇਲ ਸਿਰਨਾਵਾਂ"
 
 #. gobject IO Errors
-#: ../src/errcode.py:83
+#: ../src/errcode.py:84
 msgid "socket error"
 msgstr "ਸਾਕਟ ਗਲਤੀ"
 
-#: ../src/errcode.py:84
+#: ../src/errcode.py:85
 msgid "connection has been broken"
 msgstr "ਕੁਨੈਕਸ਼ਨ ਟੁੱਟ ਗਿਆ ਹੈ"
 
-#: ../src/errcode.py:85
+#: ../src/errcode.py:86
 msgid "Invalid request. The file descriptor is not open"
 msgstr "ਗਲਤ ਬੇਨਤੀ। ਫਾਇਲ ਵੇਰਵਾ ਖੁੱਲਾ ਨਹੀਂ ਹੈ"
 
-#: ../src/errcode.py:87
+#: ../src/errcode.py:88
 msgid "insufficient permission to modify user"
 msgstr "ਉਪਭੋਗੀ ਤਬਦੀਲ ਕਰਨ ਲਈ ਲੋੜੀਂਦੇ ਅਧਿਕਾਰ ਨਹੀਂ ਹੈ"
 
-#: ../src/errcode.py:88
+#: ../src/errcode.py:89
 msgid "authentication failed"
 msgstr "ਪ੍ਰਮਾਣਿਕਤਾ ਫੇਲ"
 
-#: ../src/errcode.py:89
+#: ../src/errcode.py:90
 msgid "user prohibited"
 msgstr "ਉਪਭੋਗੀ ਪਾਬੰਦ ਹੈ"
 
-#: ../src/errcode.py:90
+#: ../src/errcode.py:91
 msgid "not authenticated"
 msgstr "ਪ੍ਰਮਾਣਿਤ ਨਹੀਂ ਹੈ"
 
-#: ../src/errcode.py:91
+#: ../src/errcode.py:92
 msgid "user lookup failed"
 msgstr "ਉਪਭੋਗੀ ਜਾਂਚ ਫੇਲ ਹੋਈ"
 
@@ -288,7 +338,7 @@ msgstr "Opps, %s ਤੋਂ ਇੱਕ ਗਲਤੀ ਆਈ ਹੈ!"
 msgid "Error"
 msgstr "ਗਲਤੀ"
 
-#: ../src/Plugin.py:78
+#: ../src/Plugin.py:81
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -376,156 +426,156 @@ msgstr "AVC"
 msgid "Audit Listener"
 msgstr "ਆਡਿਟ ਸਰੋਤਾ"
 
-#: ../src/signature.py:71
+#: ../src/signature.py:74
 msgid "Never Ignore"
 msgstr "ਕਦੇ ਅਣਡਿੱਠਾ ਨਹੀਂ"
 
-#: ../src/signature.py:72
+#: ../src/signature.py:75
 msgid "Ignore Always"
 msgstr "ਹਮੇਸ਼ਾ ਅਣਡਿੱਠਾ"
 
-#: ../src/signature.py:73
+#: ../src/signature.py:76
 msgid "Ignore After First Alert"
 msgstr "ਪਹਿਲੀ ਚੇਤਾਵਨੀ ਤੋਂ ਬਾਅਦ ਅਣਡਿੱਠਾ"
 
-#: ../src/signature.py:190
+#: ../src/signature.py:193
 msgid "directory"
 msgstr "ਡਾਇਰੈਕਟਰੀ"
 
-#: ../src/signature.py:191
+#: ../src/signature.py:194
 msgid "semaphore"
 msgstr "semaphore"
 
-#: ../src/signature.py:192
+#: ../src/signature.py:195
 msgid "shared memory"
 msgstr "ਸ਼ੇਅਰ ਕੀਤੀ ਮੈਮੋਰੀ"
 
-#: ../src/signature.py:193
+#: ../src/signature.py:196
 msgid "message queue"
 msgstr "ਸੁਨੇਹਾ ਕਤਾਰ"
 
-#: ../src/signature.py:194
+#: ../src/signature.py:197
 msgid "message"
 msgstr "ਸੁਨੇਹੇ"
 
-#: ../src/signature.py:195
+#: ../src/signature.py:198
 msgid "file"
 msgstr "ਫਾਇਲ"
 
-#: ../src/signature.py:196
+#: ../src/signature.py:199
 msgid "socket"
 msgstr "ਸਾਕਟ"
 
-#: ../src/signature.py:197
+#: ../src/signature.py:200
 msgid "process"
 msgstr "ਤਰੱਕੀ"
 
-#: ../src/signature.py:198
+#: ../src/signature.py:201
 msgid "filesystem"
 msgstr "ਫਾਇਲਸਿਸਟਮ"
 
-#: ../src/signature.py:199
+#: ../src/signature.py:202
 msgid "node"
 msgstr "ਨੋਡ"
 
-#: ../src/signature.py:200
+#: ../src/signature.py:203
 msgid "capability"
 msgstr "ਸਮਰੱਥਾ"
 
-#: ../src/signature.py:370
+#: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s ਦੀ ਇੱਕ ਚੇਤਾਵਨੀ ਕਿਸਮ (%s) ਹੈ। ਇਹ ਪਹੁੰਚ ਰੱਦ ਨਹੀਂ ਕੀਤੀ ਗਈ ਸੀ।"
 
-#: ../src/signature.py:373
+#: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux ਚੇਤਾਵਨੀ ਮੋਡ ਵਿੱਚ ਹੈ। ਇਹ ਪਹੁੰਚ ਰੱਦ ਨਹੀਂ ਕੀਤੀ ਗਈ ਸੀ।"
 
-#: ../src/signature.py:458
+#: ../src/signature.py:461
 msgid "Additional Information:\n"
 msgstr "ਵਾਧੂ ਜਾਣਕਾਰੀ:\n"
 
-#: ../src/signature.py:459
+#: ../src/signature.py:462
 msgid "Source Context"
 msgstr "ਸਰੋਤ ਪ੍ਰਸੰਗ"
 
-#: ../src/signature.py:460
+#: ../src/signature.py:463
 msgid "Target Context"
 msgstr "ਟਾਰਗਿਟ ਪ੍ਰਸੰਗ"
 
-#: ../src/signature.py:461
+#: ../src/signature.py:464
 msgid "Target Objects"
 msgstr "ਟਾਰਗਿਟ ਆਬਜੈਕਟ"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:465
 msgid "Source"
 msgstr "ਸਰੋਤ"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:466
 msgid "Source Path"
 msgstr "ਸਰੋਤ ਮਾਰਗ"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:467
 msgid "Port"
 msgstr "ਪੋਰਟ"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:468
 msgid "Host"
 msgstr "ਮੇਜ਼ਬਾਨ"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:469
 msgid "Source RPM Packages"
 msgstr "ਸਰੋਤ RPM ਪੈਕੇਜ"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:470
 msgid "Target RPM Packages"
 msgstr "ਟਾਰਗਿਟ RPM ਪੈਕੇਜ"
 
-#: ../src/signature.py:468
+#: ../src/signature.py:471
 msgid "Policy RPM"
 msgstr "ਪਾਲਿਸੀ RPM"
 
-#: ../src/signature.py:469
+#: ../src/signature.py:472
 msgid "Selinux Enabled"
 msgstr "Selinux ਯੋਗ ਕੀਤਾ"
 
-#: ../src/signature.py:470
+#: ../src/signature.py:473
 msgid "Policy Type"
 msgstr "ਪਾਲਿਸੀ ਕਿਸਮ"
 
-#: ../src/signature.py:471
+#: ../src/signature.py:474
 msgid "Enforcing Mode"
 msgstr "ਮਜਬੂਰ ਢੰਗ"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:475
 msgid "Host Name"
 msgstr "ਮੇਜ਼ਬਾਨ ਨਾਂ"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:476
 msgid "Platform"
 msgstr "ਪਲੇਟਫਾਰਮ"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:477
 msgid "Alert Count"
 msgstr "ਚੇਤਾਵਨੀ ਗਿਣਤੀ"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:479
 msgid "First Seen"
 msgstr "ਪਹਿਲੀ ਝਲਕ"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:480
 msgid "Last Seen"
 msgstr "ਆਖਰੀ ਝਲਕ"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:481
 msgid "Local ID"
 msgstr "ਲੋਕਲ ID"
 
-#: ../src/signature.py:479
+#: ../src/signature.py:483
 msgid "Raw Audit Messages"
 msgstr "ਕੱਚੇ ਆਡਿਟ ਸੁਨੇਹੇ"
 
-#: ../src/signature.py:529
+#: ../src/signature.py:533
 #, python-format
 msgid ""
 "\n"
@@ -536,15 +586,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 
-#: ../src/signature.py:532
+#: ../src/signature.py:536
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:533
+#: ../src/signature.py:537
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:535
+#: ../src/signature.py:539
 msgid ""
 "\n"
 "If "
@@ -552,7 +602,7 @@ msgstr ""
 "\n"
 "ਜੇ "
 
-#: ../src/signature.py:537
+#: ../src/signature.py:541
 msgid ""
 "\n"
 "Then "
@@ -560,7 +610,7 @@ msgstr ""
 "\n"
 "ਫਿਰ "
 
-#: ../src/signature.py:540
+#: ../src/signature.py:544
 msgid ""
 "\n"
 "Do\n"
@@ -568,7 +618,7 @@ msgstr ""
 "\n"
 "ਕਰੋ\n"
 
-#: ../src/signature.py:542
+#: ../src/signature.py:546
 msgid ""
 "\n"
 "\n"
@@ -652,10 +702,6 @@ msgstr ""
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot ਚੇਤਾਵਨੀ ਸੂਚੀ"
 
-#: ../gui/browser.glade.h:8
-msgid "Troubleshoot"
-msgstr "ਸਮੱਸਿਆ-ਨਿਪਟਾਰਾ"
-
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "ਚੁਣੀ ਚੇਤਾਵਨੀ ਦਾ ਸਮੱਸਿਆ ਨਿਪਟਾਰਾ ਕਰੋ"
@@ -668,41 +714,17 @@ msgstr "ਚੁਣੀਆਂ ਚੇਤਾਵਨੀਆਂ ਹਟਾਓ"
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshoot ਵੇਰਵਾ ਵਿੰਡੋ"
 
-#: ../gui/browser.glade.h:12
-msgid "SELinux Alert Browser"
-msgstr "SELinux ਚੇਤਾਵਨੀ ਝਲਕਾਰਾ"
-
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux ਨੂੰ ਇੱਕ ਸਮੱਸਿਆ ਮਿਲੀ ਹੈ।</b>"
-
-#: ../gui/browser.glade.h:14
-msgid "Would you like to receive alerts?"
-msgstr "ਕੀ ਤੁਸੀਂ ਚੇਤਾਵਨੀਆਂ ਲੈਣੀਆਂ ਪਸੰਦ ਕਰਦੇ ਹੋ?"
-
-#: ../gui/browser.glade.h:15
-msgid "Yes"
-msgstr "ਹਾਂ"
 
 #: ../gui/browser.glade.h:16
 msgid "Turn on alert pop-ups."
 msgstr "ਚੇਤਾਵਨੀ ਪੌਪ-ਅੱਪ ਚਾਲੂ ਕਰੋ।"
 
-#: ../gui/browser.glade.h:17
-msgid "No"
-msgstr "ਨਹੀਂ"
-
 #: ../gui/browser.glade.h:18
 msgid "Turn off alert pop-ups."
 msgstr "ਚੇਤਾਵਨੀ ਪੌਪ-ਅੱਪ ਬੰਦ ਕਰੋ।"
-
-#: ../gui/browser.glade.h:19
-msgid "The source process:"
-msgstr "ਸਰੋਤ ਕਾਰਜ:"
-
-#: ../gui/browser.glade.h:20
-msgid "Attempted this access:"
-msgstr "ਇਹ ਪਹੁੰਚ ਕੀਤੀ ਗਈ ਹੈ:"
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
@@ -718,21 +740,9 @@ msgid ""
 "to remedy."
 msgstr "ਚੇਤਾਵਨੀ ਸਮੱਸਿਆ-ਨਿਪਟਾਰਾ ਜਾਣਕਾਰੀ ਪੜ੍ਹੋ। ਹੱਲ ਲਈ ਪਰਬੰਧਕੀ ਅਧਿਕਾਰਾਂ ਦੀ ਲੋੜ ਪੈ ਸਕਦੀ ਹੈ।"
 
-#: ../gui/browser.glade.h:24
-msgid "Notify Admin"
-msgstr "ਪਰਬੰਧਕ ਨੂੰ ਸੂਚਿਤ ਕਰੋ"
-
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
 msgstr "ਸਿਸਟਮ ਪਰਬੰਧਕ ਨੂੰ ਈਮੇਲ ਚੇਤਾਵਨੀ।"
-
-#: ../gui/browser.glade.h:26
-msgid "Details"
-msgstr "ਵੇਰਵਾ"
-
-#: ../gui/browser.glade.h:28
-msgid "Ignore alert in the future."
-msgstr "ਭਵਿੱਖ ਵਿੱਚ ਚੇਤਾਵਨੀ ਅਣਡਿੱਠੀ ਕਰੋ।"
 
 #: ../gui/browser.glade.h:29
 msgid "Delete current alert from the database."
@@ -745,10 +755,6 @@ msgstr "ਪਿਛਲੀ ਚੇਤਾਵਨੀ ਵੇਖਾਓ।"
 #: ../gui/browser.glade.h:32
 msgid "Show next alert."
 msgstr "ਅਗਲੀ ਚੇਤਾਵਨੀ ਵੇਖਾਓ।"
-
-#: ../gui/browser.glade.h:33
-msgid "List All Alerts"
-msgstr "ਸਭ ਚੇਤਾਵਨੀਆਂ ਵੇਖਾਓ"
 
 #: ../gui/browser.glade.h:34
 msgid "List all alerts in the database."
