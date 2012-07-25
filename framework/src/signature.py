@@ -475,8 +475,9 @@ class SEFaultSignatureInfo(XmlSerialize):
         text += format_2_column_name_value(_("Host Name"),             default_text(env.hostname))
         text += format_2_column_name_value(_("Platform"),              default_text(env.uname))
         text += format_2_column_name_value(_("Alert Count"),           default_text(self.report_count))
-        text += format_2_column_name_value(_("First Seen"),            default_date_text(self.first_seen_date))
-        text += format_2_column_name_value(_("Last Seen"),             default_date_text(self.last_seen_date))
+        date_format = "%Y-%m-%d %H:%M:%S %Z"
+        text += format_2_column_name_value(_("First Seen"),            self.first_seen_date.format(date_format))
+        text += format_2_column_name_value(_("Last Seen"),             self.last_seen_date.format(date_format))
         text += format_2_column_name_value(_("Local ID"),              default_text(self.local_id))
 
         text += '\n' + _("Raw Audit Messages")

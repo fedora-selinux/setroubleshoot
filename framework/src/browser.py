@@ -152,6 +152,7 @@ class BrowserApplet:
 
         self.read_config()
         builder = gtk.Builder()
+#        builder.set_translation_domain("setroubleshoot")
         builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade") 
         self.plugins = load_plugins()
 
@@ -160,18 +161,23 @@ class BrowserApplet:
         self.pane = builder.get_object("solutions_pane")
         self.table = builder.get_object("solutions_table")
         self.window = builder.get_object("window")
+        self.window.set_title(_("SELinux Alert Browser"))
         self.window.connect("destroy", self.quit)
         self.source_label = builder.get_object("source_label")
         self.source_title_label = builder.get_object("source_title_label")
+        self.source_title_label.set_text(_("The source process:"))
 #        self.source_image = builder.get_object("source_image")
         self.target_label = builder.get_object("target_label")
 #        self.target_image = builder.get_object("target_image")
         self.yes_radiobutton = builder.get_object("yes_radiobutton")
+        self.yes_radiobutton.set_label(_("Yes"))
         self.no_radiobutton = builder.get_object("no_radiobutton")
+        self.no_radiobutton.set_label(_("No"))
         self.no_radiobutton.set_active(self.alert_disabled())
         self.class_label = builder.get_object("class_label")
         self.access_label = builder.get_object("access_label")
         self.access_title_label = builder.get_object("access_title_label")
+        self.access_title_label.set_text(_("Attempted this access:"))
         self.severity_label = builder.get_object("severity_label")
         self.likelihood_label = builder.get_object("likelihood_label")
         self.if_label = builder.get_object("if_label")
@@ -186,19 +192,26 @@ class BrowserApplet:
         self.details_textview = builder.get_object("details_textview")
         self.details_window.connect("delete-event", self.on_close_details_button_clicked)
 
+        label1 = builder.get_object("label1")
+        label1.set_text(_("Would you like to receive alerts?"))
         self.next_button = builder.get_object("next_button")
         self.previous_button = builder.get_object("previous_button")
         self.report_button = builder.get_object("report_button")
+        self.report_button.set_label(_("Notify Admin"))
         self.ignore_button = builder.get_object("ignore_button")
         self.troubleshoot_button = builder.get_object("troubleshoot_button")
+        self.troubleshoot_button.set_label(_("Troubleshoot"))
         self.delete_button = builder.get_object("delete_button")
         self.details_button = builder.get_object("details_button")
+        self.details_button.set_label(_("Details"))
         self.delete_list_button = builder.get_object("delete_list_button")
         self.troubleshoot_list_button = builder.get_object("troubleshoot_list_button")
+        self.troubleshoot_list_button.set_label(_("Troubleshoot"))
         self.grant_button = builder.get_object("grant_button")
         self.alert_list_window = builder.get_object("alert_list_window") 
         self.alert_list_window.connect("delete-event", self.close_alert_window)
         self.list_all_button = builder.get_object("list_all_button")
+        self.list_all_button.set_label(_("List All Alerts"))
         self.treeview_window = builder.get_object("treeview_window") 
         self.treeview = builder.get_object("treeview") 
         self.treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
@@ -318,11 +331,11 @@ class BrowserApplet:
     def set_ignore_sig(self, sig, state):
         if state == True:
 	    self.ignore_button.set_label(_("Notify"))
-	    self.ignore_button.set_tooltip_text("Notify alert in the future.")
+	    self.ignore_button.set_tooltip_text(_("Notify alert in the future."))
             self.server.set_filter(sig, self.username, FILTER_ALWAYS, '')
         else:
 	    self.ignore_button.set_label(_("Ignore"))
-	    self.ignore_button.set_tooltip_text("Ignore alert in the future.")
+	    self.ignore_button.set_tooltip_text(_("Ignore alert in the future."))
             self.server.set_filter(sig, self.username, FILTER_NEVER, '')
 
     def on_ignore_button_clicked(self, widget):
@@ -752,11 +765,11 @@ class BrowserApplet:
                
         self.show_date(alert)
 
-        self.alert_count_label.set_label(_("Alert %d of %d" % (self.current_alert + 1, len(self.alert_list))))
+        self.alert_count_label.set_label(_("Alert %d of %d") % (self.current_alert + 1, len(self.alert_list)))
         if alert.evaluate_filter_for_user(self.username) == "ignore":
-		self.ignore_button.set_label("Notify")
+		self.ignore_button.set_label(_("Notify"))
 	else:
-		self.ignore_button.set_label("Ignore")
+		self.ignore_button.set_label(_("Ignore"))
         
     def on_close_button_clicked(self, widget):
         gtk.main_quit()
