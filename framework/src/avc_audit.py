@@ -230,7 +230,7 @@ class AuditRecordReceiver:
         syslog.syslog(syslog.LOG_DEBUG, "%s.feed() got %s'" % (self.__class__.__name__, record))
 
         self.flush_count += 1
-        if record.record_type in ('AVC', 'AVC_PATH', 'SYSCALL', 'CWD', 'PATH', 'EOE'):
+        if record.record_type in ('AVC', 'AVC_PATH', 'SYSCALL', 'CWD', 'PATH', 'EOE', "1400", "1107"):
             self.add_record_to_cache(record)
 
         # If we've seen enough messages then sweep the event cache and flush what we can

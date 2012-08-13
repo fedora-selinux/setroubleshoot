@@ -266,7 +266,7 @@ class AuditRecord(XmlSerialize):
         if getattr(self, 'fields', None) is None:
             self.set_fields_from_text(self.body_text)
 
-        if self.record_type in ['AVC', 'USER_AVC']:
+        if self.record_type in ['AVC', 'USER_AVC', "1400", "1107"]:
             if not self.fields.has_key('seresult'):
                 match = AuditRecord.avc_re.search(self.body_text)
                 if match:
@@ -548,10 +548,10 @@ class AuditEvent(XmlSerialize):
         return self.record_types.get(type, [])
 
     def get_avc_record(self):
-        record = self.get_record_of_type('AVC')
-        if not record:
-            record = self.get_record_of_type('USER_AVC')
-        return record
+        for record_type in ['AVC', 'USER_AVC', "1400", "1107"]:
+            record = self.get_record_of_type(record_type)
+            if (record):
+                return record
 
     def is_avc(self):
         return self.get_avc_record() is not None
