@@ -26,7 +26,7 @@ from setroubleshoot.signature import *
 from setroubleshoot.util import *
 
 #import sys
-#import os.path
+import os.path
 import re
 
 #------------------------------------------------------------------------------
@@ -123,5 +123,9 @@ o
         
     def get_priority(self):
         return self.priority 
-        
-        
+
+    def check_for_man(self, name):
+        man_page = name.split("_")[0] + "_selinux"
+        if os.path.isfile("/usr/share/man/man8/%s.8.gz" % man_page):
+            return man_page
+        return None
