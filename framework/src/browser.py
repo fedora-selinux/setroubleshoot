@@ -293,7 +293,7 @@ class BrowserApplet:
         if run_seapplet:
             os.system("/usr/bin/seapplet &")
         else:
-            os.system("/usr/bin/killall -9 seapplet")
+            os.system("/usr/bin/killall -9 seapplet 2>/dev/null")
         infile = open("/etc/xdg/autostart/sealertauto.desktop", "r")
         buf = infile.readlines()
         infile.close()
@@ -328,7 +328,9 @@ class BrowserApplet:
     def on_report_button_clicked(self, widget):
         alert = self.get_current_alert()
         if alert:
-            Popen(["/usr/bin/xdg-email", "--subject", alert.summary(), "--body", alert.format_text() + alert.format_details()], stdout=PIPE)
+            report = alert.format_text()
+            report += alert.format_details()
+            Popen(["/usr/bin/xdg-email", "--subject", alert.summary(), "--body", report], stdout=PIPE)
 
     def set_ignore_sig(self, sig, state):
         if state == True:
@@ -917,9 +919,9 @@ class BugReport:
         self.widget_tree.signal_autoconnect(dic)
         
         text_buf = gtk.TextBuffer()
-        text = self.alert.untranslated(self.alert.format_text)
-        text += self.alert.untranslated(self.alert.format_details)
-        text_buf.set_text(text.replace(self.hostname, "(removed)"))
+        text = self.alert.untranslated(self.alert.format_text, replace = True)
+        text += self.alert.untranslated(self.alert.format_details, replace = True)
+        text_buf.set_text(text)
         self.error_submit_text.set_buffer(text_buf)
 
     def destroy(self, widget):

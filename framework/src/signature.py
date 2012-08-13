@@ -455,7 +455,7 @@ class SEFaultSignatureInfo(XmlSerialize):
     def substitute(self, txt):
         return Template(txt).safe_substitute(self.template_substitutions)
 
-    def format_details(self):
+    def format_details(self, replace=False):
         env = self.environment
 
         text = _("Additional Information:\n")
@@ -465,15 +465,27 @@ class SEFaultSignatureInfo(XmlSerialize):
         text += format_2_column_name_value(_("Source"),                default_text(self.source))
         text += format_2_column_name_value(_("Source Path"),           default_text(self.spath))
         text += format_2_column_name_value(_("Port"),                  default_text(self.port))
-        text += format_2_column_name_value(_("Host"),                  default_text(self.sig.host))
+        if (replace):
+            text += format_2_column_name_value(_("Host"),              "(removed)")
+        else:
+            text += format_2_column_name_value(_("Host"),                  default_text(self.sig.host))
         text += format_2_column_name_value(_("Source RPM Packages"),   default_text(self.format_rpm_list(self.src_rpm_list)))
         text += format_2_column_name_value(_("Target RPM Packages"),   default_text(self.format_rpm_list(self.tgt_rpm_list)))
         text += format_2_column_name_value(_("Policy RPM"),            default_text(env.policy_rpm))
         text += format_2_column_name_value(_("Selinux Enabled"),       default_text(env.selinux_enabled))
         text += format_2_column_name_value(_("Policy Type"),           default_text(env.policy_type))
         text += format_2_column_name_value(_("Enforcing Mode"),        default_text(env.enforce))
-        text += format_2_column_name_value(_("Host Name"),             default_text(env.hostname))
-        text += format_2_column_name_value(_("Platform"),              default_text(env.uname))
+        if replace:
+            text += format_2_column_name_value(_("Host Name"),"(removed)")
+        else:
+            text += format_2_column_name_value(_("Host Name"),         default_text(env.hostname))
+
+        if replace:
+            uname = env.uname.split()
+            uname[1] = "(removed)"
+            text += format_2_column_name_value(_("Platform"),          default_text(" ".join(uname)))
+        else:
+            text += format_2_column_name_value(_("Platform"),              default_text(env.uname))
         text += format_2_column_name_value(_("Alert Count"),           default_text(self.report_count))
         date_format = "%Y-%m-%d %H:%M:%S %Z"
         text += format_2_column_name_value(_("First Seen"),            self.first_seen_date.format(date_format))
@@ -522,7 +534,7 @@ class SEFaultSignatureInfo(XmlSerialize):
             P_ = saved_translateP_ 
             _ = saved_translate_
 
-    def format_text(self, all = False):
+    def format_text(self, all = False, replace = False):
         self.update_derived_template_substitutions()
 
         text = self.summary()
