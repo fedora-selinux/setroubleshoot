@@ -109,7 +109,7 @@ class AnalyzeStatistics(object):
 
     def called_plugins_to_string(self):
         return '\n'.join([str(x) for x in self.called_plugins])
-                                               
+
     def start(self):
         self.start_time = time.time()
 
@@ -128,13 +128,13 @@ class Analyze(object):
     def __init__(self):
         self.plugins = load_plugins()
         syslog.syslog(syslog.LOG_DEBUG, "Number of Plugins = %d" % len(self.plugins))
-                
+
     def get_environment(self, query_environment):
         environment = SEEnvironment()
         if query_environment:
             environment.update()
         return environment
-    
+
     def get_signature(self, avc, environment):
         sig = SEFaultSignature(
             host        = avc.host,
@@ -177,7 +177,7 @@ class Analyze(object):
             )
 
         for plugin in self.plugins:
-            try:	
+            try:
                 report = plugin.analyze(avc)
                 if report is not None:
                     if plugin.level == "white":
@@ -192,7 +192,7 @@ class Analyze(object):
 
             except Exception, e:
                 print e
-                syslog.syslog(syslog.LOG_ERR, "Plugin Exception %s " % plugin.analysis_id) 
+                syslog.syslog(syslog.LOG_ERR, "Plugin Exception %s " % plugin.analysis_id)
                 self.plugins.remove(plugin)
 
         report_receiver.report_problem(siginfo)
@@ -206,7 +206,7 @@ class AnalyzeThread(Analyze, threading.Thread):
         Analyze.__init__(self)
 
         self.queue=queue
-        
+
     def run(self):
         while True:
             try:
@@ -291,7 +291,7 @@ class SETroubleshootDatabase(object):
                 if siginfo.last_seen_date > min_time_to_survive:
                     break
                 keep += 1
-                
+
             if keep > 0:
                 syslog.syslog(syslog.LOG_DEBUG, "prune by age: max_alert_age=%s min_time_to_survive=%s" % (self.max_alert_age, min_time_to_survive.format()))
                 syslog.syslog(syslog.LOG_DEBUG, "prune by age: pruning [%s - %s]" % (self.sigs.signature_list[0].last_seen_date.format(), self.sigs.signature_list[keep-1].last_seen_date.format()))
@@ -321,7 +321,7 @@ class SETroubleshootDatabase(object):
 
     def load(self):
         self.sigs = SEFaultSignatureSet()
-        
+
         if self.filepath is None:
             return
 
@@ -340,7 +340,7 @@ class SETroubleshootDatabase(object):
 
         syslog.syslog(syslog.LOG_DEBUG, "writing database (%s) modified_count=%s" % (self.filepath, self.modified_count))
 
-        if not prune: 
+        if not prune:
             self.prune()
         self.sigs.write_xml('sigs', self.filepath)
         self.file_exists = True
@@ -348,7 +348,7 @@ class SETroubleshootDatabase(object):
         if self.auto_save_timer is not None:
             gobject.source_remove(self.auto_save_timer)
             self.auto_save_timer = None
-        
+
     def mark_modified(self, prune=False):
         self.modified_count += 1
         if self.filepath is None:
@@ -378,7 +378,7 @@ class SETroubleshootDatabase(object):
 
     def release(self):
         self.lock.release()
-    
+
     def lookup_signature(self, sig):
         siginfo = None
 
@@ -428,7 +428,7 @@ class SETroubleshootDatabase(object):
         if self.notify:
             self.notify.signatures_updated('delete', siginfo.local_id)
         self.mark_modified(prune)
-        
+
     def modify_siginfo(self, siginfo):
         if self.notify:
             self.notify.signatures_updated('modify', siginfo.local_id)
@@ -459,10 +459,10 @@ class SETroubleshootDatabase(object):
     def add_user(self, username):
         self.user = self.sigs.users.add_user(username)
         self.mark_modified()
-        
+
     def get_user(self, username):
         return self.sigs.users.get_user(username)
-        
+
 #------------------------------------------------------------------------------
 
 class SETroubleshootDatabaseLocal(RpcManage,
@@ -471,7 +471,7 @@ class SETroubleshootDatabaseLocal(RpcManage,
                                   gobject.GObject):
 
     __gsignals__ = {
-        'signatures_updated': 
+        'signatures_updated':
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
         'async-error': # callback(method, errno, strerror)
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_STRING, gobject.TYPE_INT, gobject.TYPE_STRING)),
@@ -510,7 +510,7 @@ class SETroubleshootDatabaseLocal(RpcManage,
     def signatures_updated(self, type, item):
         syslog.syslog(syslog.LOG_DEBUG, 'signatures_updated() database local: type=%s item=%s' % (type, item))
         self.emit('signatures_updated', type, item)
-        
+
 gobject.type_register(SETroubleshootDatabaseLocal)
 
 #------------------------------------------------------------------------------
@@ -590,7 +590,8 @@ class LogfileAnalyzer(gobject.GObject):
             self.file = None
             self.fileno = None
 
-        if self.n_bytes_read != self.file_size:
+        if self.n_bytes_read < self.file_size:
+            # ok to read more (meanwhile, new messages got appended)
             import errno as Errno
             strerror = "failed to read complete file, %d bytes read out of total %d bytes (%s)" % \
                        (self.n_bytes_read, self.file_size, self.logfile_path)
@@ -648,7 +649,7 @@ class LogfileAnalyzer(gobject.GObject):
     def new_audit_record_handler(self, record_type, event_id, body_text, fields, line_number):
         'called to enter a new audit record'
         syslog.syslog(syslog.LOG_DEBUG, 'new_audit_record_handler() record_type=%s event_id=%s body_text=%s' % (record_type, event_id, body_text))
-            
+
         self.record_count += 1
 
         audit_record = AuditRecord(record_type, event_id, body_text, fields, line_number)
