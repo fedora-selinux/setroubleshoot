@@ -32,6 +32,8 @@ PLUGIN_FILES =				\
 	leaks.py			\
 	mmap_zero.py			\
 	mounton.py			\
+	mozplugger.py			\
+	mozplugger_remove.py		\
 	openvpn.py			\
 	public_content.py		\
 	qemu_blk_image.py		\
