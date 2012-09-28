@@ -57,8 +57,12 @@ setsebool -P unconfined_mozilla_plugin_transition 0
 
     def analyze(self, avc):
         if avc.matches_source_types(['mozilla_plugin_t']):
+            reports = []
             if get_rpm_nvr_by_name("mozplugger"):                
-                return self.report(("mozplugger", None))
+                reports.append(self.report(("mozplugger", None)))
             if get_rpm_nvr_by_name("spice-xpi"):
-                return self.report(("spice-xpi", None))
+                reports.append(self.report(("spice-xpi", None)))
+            if len(reports) > 0:
+                return reports
+
         return None
