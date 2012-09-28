@@ -8,16 +8,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-04-27 08:59+0000\n"
+"POT-Creation-Date: 2012-09-20 05:43-0400\n"
+"PO-Revision-Date: 2012-08-30 16:53+0000\n"
 "Last-Translator: ngoswami <ngoswami@redhat.com>\n"
-"Language-Team: Assamese (http://www.transifex.net/projects/p/fedora/language/"
+"Language-Team: Assamese (http://www.transifex.com/projects/p/fedora/language/"
 "as/)\n"
 "Language: as\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -61,19 +61,19 @@ msgid ""
 msgstr ""
 "\n"
 "    যদি httpd স্ক্ৰিপ্টসমূহক ৰাজহুৱা ডাইৰেকটৰিসমূহলে লিখাৰ অনুমতি দিব লাগে আপুনি "
-"$BOOLEAN বুলিয়ান অন কৰিব লাগিব আৰু ৰাজহুৱা ডাইৰেকটৰিৰ নথিপত্ৰ পৰিপ্ৰেক্ষতিতক "
+"$BOOLEAN বুলিয়ান অন কৰিব লাগিব আৰু ৰাজহুৱা ডাইৰেকটৰিৰ ফাইল পৰিপ্ৰেক্ষতিতক "
 "public_content_rw_t লে সলনি কৰিব লাগিব। অধিক তথ্যৰ বাবে httpd_selinux\n"
 "    man পৃষ্ঠা পঢ়ক:\n"
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    এটা সম্পূৰ্ণ পুনৰলেবেলত ৰাজহুৱা ডাইৰেকটৰি সংৰক্ষণ কৰিবলে আপুনি চিস্টেমত অবিকল্পিত "
-"নথিপত্ৰ পৰিপ্ৰেক্ষতিত লেবেল থকা নথিপত্ৰসমূহ সলনি কৰিব লাগিব। \"semanage fcontext -"
-"a -t public_content_rw_t <path>\"\n"
+"ফাইল পৰিপ্ৰেক্ষতিত লেবেল থকা ফাইলসমূহ সলনি কৰিব লাগিব। \"semanage fcontext -a -"
+"t public_content_rw_t <path>\"\n"
 "    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
 "you want to allow $SOURCE_PATH to be able to write to shared public content"
-msgstr "আপুনি $SOURCE_PATH ক অংশীদাৰী ৰাজহুৱা বিষয়বস্তুলে লিখাৰ অনুমতি দিব বিচাৰে"
+msgstr "আপুনি $SOURCE_PATH ক অংশীদাৰী ৰাজহুৱা সমললে লিখাৰ অনুমতি দিব বিচাৰে"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
@@ -113,9 +113,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    $SOURCE অনুপ্ৰয়োগে হিপত মেমৰিৰ অভিগম সুৰক্ষা পৰিৱৰ্তন কৰাৰ চেষ্টা কৰিছে\n"
+"    $SOURCE এপ্লিকেচনে হিপত মেমৰিৰ অভিগম সুৰক্ষা পৰিৱৰ্তন কৰাৰ চেষ্টা কৰিছে\n"
 "    (উদাহৰণস্বৰূপ, malloc ব্যৱহাৰ কৰি আবন্টিত)।  ই এটা বিভৱীয় সুৰক্ষা\n"
-"    সমস্যা।  অনুপ্ৰয়োগসমূহে এনে কৰিব নালাগে। অনুপ্ৰয়োগসমূহ\n"
+"    সমস্যা।  এপ্লিকেচনসমূহে এনে কৰিব নালাগে। এপ্লিকেচনসমূহ\n"
 "    কেতিয়াবা ভূলভাৱে ক'ড কৰা থাকে আৰু এই অনুমতি অনুৰোধ কৰে।\n"
 "    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux "
 "মেমৰি সুৰক্ষা পৰিক্ষাসমূহ</a>\n"
@@ -123,7 +123,7 @@ msgstr ""
 "কাৰ্য্য নকৰে আৰু\n"
 "    আপুনি ইয়াক কাৰ্য্যত কৰিব বিচাৰে, আপুনি SELinux ক অস্থায়ীভাৱে এই অভিগমৰ অনুমতি "
 "দিবলে সংৰূপণ কৰিব\n"
-"    পাৰে যেতিয়ালৈকে অনুপ্ৰয়োগ ঠিক হৈ নাযায়। অনুগ্ৰহ কৰি এই পেকেইজৰ বিপৰিতে\n"
+"    পাৰে যেতিয়ালৈকে এপ্লিকেচন ঠিক হৈ নাযায়। অনুগ্ৰহ কৰি এই পেকেইজৰ বিপৰিতে\n"
 "    এটা বাগ সংবাদ জমা দিয়ক।\n"
 "    "
 
@@ -138,7 +138,7 @@ msgstr ""
 "\n"
 "    যদি আপুনি $SOURCE ক চলাব বিচাৰে, আপুনি\n"
 "    $BOOLEAN বুলিয়ান অন কৰিব লাগিব।  মন কৰিব: এই বুলিয়ানে চিস্টেমৰ সকলো "
-"অনুপ্ৰয়োগৰ\n"
+"এপ্লিকেচনৰ\n"
 "    উপৰত প্ৰভাৱ পেলাব।\n"
 "    "
 
@@ -154,7 +154,7 @@ msgstr ""
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr "আপুনি এটা বাগ জমা দিব লাগিব। ই বিভৱীয়ভাৱে বিপদজনক অভিগম।"
 
-#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:89
+#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:84
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
 #: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
@@ -189,7 +189,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    $SOURCE অনুপ্ৰয়োগে $TARGET_PATH ল'ড কৰাৰ চেষ্টা কৰিছিল\n"
+"    $SOURCE এপ্লিকেচনে $TARGET_PATH ল'ড কৰাৰ চেষ্টা কৰিছিল\n"
 "    যাৰ পাঠ আবন্টনৰ প্ৰয়োজন।  ই এটা বিভৱীয় সুৰক্ষা সমস্যা।\n"
 "    বেছিৰভাগ লাইব্ৰেৰীৰ এই অনুমতিৰ প্ৰয়োজন হয়। লাইব্ৰেৰীসমূহক\n"
 "    কেতিয়াবা ভূলভাৱে ক'ড কৰা হয় আৰু এই অনুমতিৰ অনুৰোধ কৰে।\n"
@@ -222,7 +222,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    $SOURCE অনুপ্ৰয়োগে $TARGET_PATH ল'ড কৰাৰ চেষ্টা কৰিছে\n"
+"    $SOURCE এপ্লিকেচনে $TARGET_PATH ল'ড কৰাৰ চেষ্টা কৰিছে\n"
 "    যাৰ পাঠ আবন্টনৰ প্ৰয়োজন। ই এটা বিভৱীয় সুৰক্ষা সমস্যা।\n"
 "   বেছিৰভাগ লাইব্ৰেৰীৰ এই অনুমতিৰ প্ৰয়োজন নহয়।\n"
 "    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">\n"
@@ -231,7 +231,7 @@ msgstr ""
 "উপলব্ধ \n"
 "    হৈছে যে ইয়াক সঠিকভাৱে নিৰ্মাণ কৰা হৈছিল। সেয়েহে setroubleshoot এ নিৰ্ধৰণ "
 "কৰিব নোৱাৰে \n"
-"    এই অনুপ্ৰয়োগ সঠিক হয় নে নহয়।  ই এটা গুৰুতৰ সমস্যা হব পাৰে। আপোনাৰ\n"
+"    এই এপ্লিকেচন সঠিক হয় নে নহয়।  ই এটা গুৰুতৰ সমস্যা হব পাৰে। আপোনাৰ\n"
 "    চিস্টেমত সলসলনি হব পাৰে।\n"
 "\n"
 "    আপোনাৰ সুৰক্ষা প্ৰশাসকক যোগাযোগ কৰক আৰু এই বিষয়ে সূচীত কৰক।\n"
@@ -251,12 +251,12 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    যদি আপুনি $TARGET_PATH  সঠিকভাৱে চলিব বুলি ভৰষা কৰে, আপুনি নথিপত্ৰ\n"
+"    যদি আপুনি $TARGET_PATH  সঠিকভাৱে চলিব বুলি ভৰষা কৰে, আপুনি ফাইল\n"
 "    পৰিপ্ৰেক্ষতিতক textrel_shlib_t. \"chcon -t textrel_shlib_t\n"
 "    '$TARGET_PATH'\" লে সলনি কৰিব পাৰে\n"
-"    আপুনি লগতে চিস্টেমত অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহ সলনি কৰিব পাৰে "
-"সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিবলে  \"semanage fcontext -a -t "
-"textrel_shlib_t '$FIX_TARGET_PATH'\"\n"
+"    আপুনি লগতে চিস্টেমত অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহ সলনি কৰিব পাৰে সিহতক "
+"এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিবলে  \"semanage fcontext -a -t textrel_shlib_t "
+"'$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
 
@@ -292,58 +292,52 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    $SOURCE অনুপ্ৰয়োগে তাৰ স্টেককক এক্সিকিউটেবুল কৰাৰ \n"
+"    $SOURCE এপ্লিকেচনে তাৰ স্টেককক এক্সিকিউটেবুল কৰাৰ \n"
 "    চেষ্টা কৰিলে।  ই এটা বিভৱীয় সুৰক্ষা সমস্যা।  ই কেতিয়াও প্ৰয়োজনীয়ও হব নালাগে।\n"
 "    আজিকালী ক্টেক মেমৰি বহুতো OS ত প্ৰেৰণ কৰিব নোৱাৰি আৰু ই সলনি নহয়।\n"
 "    এক্সিকিউটেবুল স্টেক মেমৰি গুৰুত্বপূৰ্ণ সুৰক্ষা সমস্যাসমূহৰ এটা।\n"
 "    এটা execstack ত্ৰুটি ত্ৰুটিপূৰ্ণ ক'ড দ্বাৰা\n"
-"     উত্থাপন হব পাৰে। অনুপ্ৰয়োগসমূহক কেতিয়াবা ভূলভাৱে ক'ড\n"
+"     উত্থাপন হব পাৰে। এপ্লিকেচনসমূহক কেতিয়াবা ভূলভাৱে ক'ড\n"
 "    কৰা হয় আৰু এই অনুমতি অনুৰোধ কৰে।\n"
 "    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux "
 "মেমৰি সুৰক্ষা পৰিক্ষাসমূহ</a>\n"
 "    ৱেব পৃষ্ঠায় কেনেদৰে এই প্ৰয়োজনীয়তা আতৰাব তাৰ বিৱৰণ দিয়ে।  যদি $SOURCE "
 "কাৰ্য্যত নহয়\n"
 "    আৰু আপোনাৰ ইয়াক কাৰ্য্যত কৰাৰ প্ৰয়োজন হয়, আপুনি SELinux\n"
-"    ক অস্থায়ীভাৱে এই অভিগমৰ অনুমতি দিবলে সংৰূপণ কৰিব পাৰে যেতিয়ালৈকে অনুপ্ৰয়োগ "
+"    ক অস্থায়ীভাৱে এই অভিগমৰ অনুমতি দিবলে সংৰূপণ কৰিব পাৰে যেতিয়ালৈকে এপ্লিকেচন "
 "ঠিক হৈ নাযায়। অনুগ্ৰহ কৰি\n"
 "এটা বাগ সংবাদ জমা দিয়ক।\n"
 "    "
 
 #: ../src/allow_execstack.py:72
+#, fuzzy
 msgid ""
 "\n"
 "    Sometimes a library is accidentally marked with the execstack flag,\n"
 "    if you find a library with this flag you can clear it with the\n"
 "    execstack -c LIBRARY_PATH.  Then retry your application.  If the\n"
 "    app continues to not work, you can turn the flag back on with\n"
-"    execstack -s LIBRARY_PATH.  Otherwise, if you trust $SOURCE to\n"
-"    run correctly, you can change the context of the executable to\n"
-"    execmem_exec_t. \"chcon -t execmem_exec_t\n"
-"    '$SOURCE_PATH'\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"execmem_exec_t '$FIX_SOURCE_PATH'\"\n"
-"    \n"
+"    execstack -s LIBRARY_PATH.  \n"
 "    "
 msgstr ""
 "\n"
 "    কেতিয়াবা এটা লাইব্ৰেৰীক ভূলকৈ execstack ফ্লেগৰ সৈতে চিহ্নিত কৰা হয়,\n"
 "    যদি আপুনি এই ফ্লেগৰ সৈতে এটা লাইব্ৰেৰী পায় আপুনি ইয়াক\n"
 "    execstack -c LIBRARY_PATH ৰ সৈতে পৰিষ্কাৰ কৰিব পাৰিব। তাৰ পিছত আপোনাৰ "
-"অনুপ্ৰয়োগ পুনৰ চেষ্টা কৰক।  যদি\n"
-"    অনুপ্ৰয়োগ তথাপি কাৰ্য্যত নহয়, আপুনি ফ্লেগক\n"
+"এপ্লিকেচন পুনৰ চেষ্টা কৰক।  যদি\n"
+"    এপ্লিকেচন তথাপি কাৰ্য্যত নহয়, আপুনি ফ্লেগক\n"
 "    execstack -s LIBRARY_PATH ৰ সৈতে অন কৰিব পাৰিব।  নহলে, যদি আপুনি $SOURCE "
 "ক\n"
 "    সঠিকভাৱে চলিব বুলি ভৰষা কৰে, আপুনি এক্সিকিউটেবুলৰ পৰিপ্ৰেক্ষতিতক\n"
 "    execmem_exec_t. \"chcon -t execmem_exec_t\n"
 "    '$SOURCE_PATH'\" লে সলনি কৰিব পাৰিব\n"
-"    আপুনি লগতে চিস্টেমৰ অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহক সলনি কৰিব লাগিব "
+"    আপুনি লগতে চিস্টেমৰ অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহক সলনি কৰিব লাগিব "
 "যাতে সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষৰণ কৰিব পাৰি।  \"semanage fcontext -a -t "
 "execmem_exec_t '$FIX_SOURCE_PATH'\"\n"
 "    \n"
 "    "
 
-#: ../src/allow_execstack.py:87
+#: ../src/allow_execstack.py:82
 msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
@@ -351,7 +345,7 @@ msgstr ""
 "আপুনি নাভাৱে $SOURCE_PATH এ স্টেক মেমৰি মেপ কৰিব লাগিব যি দুয়ো লিখিব আৰু প্ৰেৰণ "
 "কৰিব পৰা।"
 
-#: ../src/allow_execstack.py:88
+#: ../src/allow_execstack.py:83
 msgid ""
 "you need to report a bug. \n"
 "This is a potentially dangerous access."
@@ -359,7 +353,7 @@ msgstr ""
 "আপুনি এটা বাগ জমা দিব লাগিব। \n"
 "ই বিভৱীয়ভাৱে বিপদজনক অভিগম।"
 
-#: ../src/allow_execstack.py:97
+#: ../src/allow_execstack.py:92
 #, python-format
 msgid ""
 "you believe that \n"
@@ -370,7 +364,7 @@ msgstr ""
 "%s\n"
 "ৰ execstack ৰ প্ৰয়োজন হব নালাগে"
 
-#: ../src/allow_execstack.py:106
+#: ../src/allow_execstack.py:101
 #, python-format
 msgid ""
 "you should clear the execstack flag and see if $SOURCE_PATH works "
@@ -383,7 +377,7 @@ msgstr ""
 "ইয়াক %s ত এটা বাগ হিচাপে সংবাদ কৰক।\n"
 "আপুনি exestack ফ্লেগক পৰিষ্কাৰ কৰিব পাৰিব প্ৰেৰণ কৰি:"
 
-#: ../src/allow_execstack.py:116
+#: ../src/allow_execstack.py:111
 #, python-format
 msgid "execstack -c %s"
 msgstr "execstack -c %s"
@@ -396,8 +390,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ ftp ডিমনক এটা CIFS নথিপত্ৰপ্ৰণালীত সংৰক্ষিত নথিপত্ৰসমূহ $ACCESS ৰ "
-"পৰা প্ৰতিৰোধ কৰিলে।\n"
+"    SELinux এ ftp ডিমনক এটা CIFS ফাইলচিস্টেমত সংৰক্ষিত ফাইলসমূহ $ACCESS ৰ পৰা "
+"প্ৰতিৰোধ কৰিলে।\n"
 "    "
 
 #: ../src/allow_ftpd_use_cifs.py:33
@@ -419,18 +413,18 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ ftp ডিমনক এটা CIFS নথিপত্ৰপ্ৰণালীত সংৰক্ষিত নথিপত্ৰসমূহ $ACCESS "
-"কৰাৰ পৰা প্ৰতিৰোধ কৰে।\n"
-"    CIFS (মন্তব্য ইন্টাৰনেট নথিপত্ৰ প্ৰণালী)\n"
+"    SELinux এ ftp ডিমনক এটা CIFS ফাইলচিস্টেমত সংৰক্ষিত ফাইলসমূহ $ACCESS কৰাৰ "
+"পৰা প্ৰতিৰোধ কৰে।\n"
+"    CIFS (মন্তব্য ইন্টাৰনেট ফাইল চিস্টেম)\n"
 "    SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www."
 "microsoft.com/mind/1196/cifs.asp</a>)\n"
-"    ৰ সৈতে সদৃশ এটা নথিপত্ৰপ্ৰণালী। ftp ডিমনে এই ধৰণৰ এটা মাউন্ট কৰা "
-"নথিপত্ৰপ্ৰণালীৰ পৰা এটা বা অধিক\n"
-"    নথিপত্ৰ অথবা ডাইৰেকটৰি পৰাৰ চেষ্টা কৰিছিল।  যিহেতু CIFS নথিপত্ৰপ্ৰণালীসমূহে\n"
-"    একদম সঠিক SELinux লেবেলিং সমৰ্থন নকৰে, নথিপত্ৰপ্ৰণালীৰ সকলো\n"
-"    নথিপত্ৰ আৰু ডাইৰেকটৰিৰ একেটা সুৰক্ষা পৰিপ্ৰেক্ষতিত থাকিব।\n"
+"    ৰ সৈতে সদৃশ এটা ফাইলচিস্টেম। ftp ডিমনে এই ধৰণৰ এটা মাউন্ট কৰা ফাইলচিস্টেমৰ "
+"পৰা এটা বা অধিক\n"
+"    ফাইল অথবা ডাইৰেকটৰি পৰাৰ চেষ্টা কৰিছিল।  যিহেতু CIFS ফাইলচিস্টেমসমূহে\n"
+"    একদম সঠিক SELinux লেবেলিং সমৰ্থন নকৰে, ফাইলচিস্টেমৰ সকলো\n"
+"    ফাইল আৰু ডাইৰেকটৰিৰ একেটা সুৰক্ষা পৰিপ্ৰেক্ষতিত থাকিব।\n"
 "    \n"
-"    যদি আপুনি ftp ডিমনক এটা CIFS নথিপত্ৰপ্ৰণালীৰ পৰা নথিপত্ৰসমূহ পঢ়িবলে সংৰূপণ কৰা "
+"    যদি আপুনি ftp ডিমনক এটা CIFS ফাইলচিস্টেমৰ পৰা ফাইলসমূহ পঢ়িবলে সংৰূপণ কৰা "
 "নাই\n"
 "    এই অভিগমৰ চেষ্টায় এটা অনাধিকাৰ প্ৰৱেশৰ ইংগিত দিব পাৰে।\n"
 "    "
@@ -461,13 +455,13 @@ msgstr ""
 "    \"$WRITE_BOOLEAN\" বুলিয়ানসমূহক true লে সলনি কৰিলে অভিগম পোৱা যাব:\n"
 "    \"setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1\".\n"
 "    সতৰ্কবাৰ্তা: \"$WRITE_BOOLEAN\" বুলিয়ানক true লে সংহতি কৰিলে\n"
-"    ftp ডিমনক সকলো ৰাজহুৱা বিষয়বস্তুলে (ধৰণ public_content_t ৰ সৈতে\n"
-"    নথিপত্ৰসমূহ আৰু ডাইৰেকটৰিসমূহ ) লিখাৰ অনুমতি দিয়া হব CIFS নথিপত্ৰপ্ৰণালীসমূহত\n"
-"    নথিপত্ৰসমূহ আৰু ডাইৰেকটৰিসমূহলে লিখাৰ অতিৰিক্তে।  "
+"    ftp ডিমনক সকলো ৰাজহুৱা সমললে (ধৰণ public_content_t ৰ সৈতে\n"
+"    ফাইলসমূহ আৰু ডাইৰেকটৰিসমূহ ) লিখাৰ অনুমতি দিয়া হব CIFS ফাইলচিস্টেমসমূহত\n"
+"    ফাইলসমূহ আৰু ডাইৰেকটৰিসমূহলে লিখাৰ অতিৰিক্তে।  "
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
-msgstr "আপুনি ftpd ক cifs নথিপত্ৰপ্ৰণালীসমূহলে লিখাৰ অনুমতি দিব বিচাৰে"
+msgstr "আপুনি ftpd ক cifs ফাইলচিস্টেমসমূহলে লিখাৰ অনুমতি দিব বিচাৰে"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
@@ -481,8 +475,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ ftp ডিমনক এটা NFS নথিপত্ৰপ্ৰণালীত সংৰক্ষিত নথিপত্ৰসমূহ $ACCESS ৰ "
-"পৰা প্ৰতিৰোধ কৰিলে।\n"
+"    SELinux এ ftp ডিমনক এটা NFS ফাইলচিস্টেমত সংৰক্ষিত ফাইলসমূহ $ACCESS ৰ পৰা "
+"প্ৰতিৰোধ কৰিলে।\n"
 "    "
 
 #: ../src/allow_ftpd_use_nfs.py:33
@@ -505,20 +499,20 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ ftp ডিমনক এটা NFS নথিপত্ৰপ্ৰণালীত সংৰক্ষিত নথিপত্ৰসমূহলে $ACCESS "
+"    SELinux এ ftp ডিমনক এটা NFS ফাইলচিস্টেমত সংৰক্ষিত ফাইলসমূহলে $ACCESS "
 "প্ৰতিৰোধ কৰিলে।\n"
-"    NFS (নেটৱাৰ্ক নথিপত্ৰপ্ৰণালী) এটা নেটৱাৰ্ক নথিপত্ৰপ্ৰণালী যাক সাধাৰণত Unix / "
+"    NFS (নেটৱাৰ্ক ফাইলচিস্টেম) এটা নেটৱাৰ্ক ফাইলচিস্টেম যাক সাধাৰণত Unix / "
 "Linux\n"
 "    চিস্টেমসমূহত ব্যৱহাৰ কৰা হয়।\n"
 "    \n"
-"    ftp ডিমনে এই ধৰণৰ এটা মাউন্ট কৰা নথিপত্ৰপ্ৰণালীৰ পৰা এটা বা অধিক নথিপত্ৰসমূহ "
+"    ftp ডিমনে এই ধৰণৰ এটা মাউন্ট কৰা ফাইলচিস্টেমৰ পৰা এটা বা অধিক ফাইলসমূহ "
 "অথবা\n"
-"    ডাইৰেকটৰিসমূহ পঢ়াৰ চেষ্টা কৰিলে। যিহেতু NFS নথিপত্ৰপ্ৰণালীসমূহে\n"
-"    একদম-সঠিক SELinux লেবেলিং সমৰ্থন নকৰে, নথিপত্ৰপ্ৰণালীৰ সকলো\n"
-"    নথিপত্ৰ আৰু ডাইৰেকটৰিৰ একেটা সুৰক্ষা পৰিপ্ৰেক্ষতিত থাকিব।\n"
+"    ডাইৰেকটৰিসমূহ পঢ়াৰ চেষ্টা কৰিলে। যিহেতু NFS ফাইলচিস্টেমসমূহে\n"
+"    একদম-সঠিক SELinux লেবেলিং সমৰ্থন নকৰে, ফাইলচিস্টেমৰ সকলো\n"
+"    ফাইল আৰু ডাইৰেকটৰিৰ একেটা সুৰক্ষা পৰিপ্ৰেক্ষতিত থাকিব।\n"
 "    \n"
-"    যদি আপুনি ftp ডিমনক এটা NFS নথিপত্ৰপ্ৰণালীৰ পৰা নথিপত্ৰসমূহ পঢ়াৰ বাবে সংৰূপণ "
-"কৰা নাই\n"
+"    যদি আপুনি ftp ডিমনক এটা NFS ফাইলচিস্টেমৰ পৰা ফাইলসমূহ পঢ়াৰ বাবে সংৰূপণ কৰা "
+"নাই\n"
 "    এই অভিগমৰ চেষ্টায় এটা অনাধিকাৰ প্ৰৱোশৰ ইংগিত দিব পাৰে।\n"
 "    "
 
@@ -551,14 +545,51 @@ msgstr ""
 "যাব:\n"
 "    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\"।\n"
 "    সতৰ্কবাৰ্তা: \"$WRITE_BOOLEAN\" বুলিয়ানক true লে সংহতি কৰিলে\n"
-"    ftp ডিমনক সকলো ৰাজহুৱা বিষয়বস্তুলে লিখাৰ অনুমতি দিয়া হব (ধৰণ "
-"public_content_t ৰ\n"
-"    সৈতে নথিপত্ৰসমূহ আৰু ডাইৰেকটৰিসমূহ) NFS নথিপত্ৰপ্ৰণালীসমূহত\n"
-"    নথিপত্ৰ আৰু ডাইৰেকটৰিসমূহলে লিখাৰ অতিৰিক্তে।  "
+"    ftp ডিমনক সকলো ৰাজহুৱা সমললে লিখাৰ অনুমতি দিয়া হব (ধৰণ public_content_t ৰ\n"
+"    সৈতে ফাইলসমূহ আৰু ডাইৰেকটৰিসমূহ) NFS ফাইলচিস্টেমসমূহত\n"
+"    ফাইল আৰু ডাইৰেকটৰিসমূহলে লিখাৰ অতিৰিক্তে।  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
-msgstr "আপুনি ftpd ক nfs নথিপত্ৰপ্ৰণালীসমূহলে লিখাৰ অনুমতি দিব বিচাৰে"
+msgstr "আপুনি ftpd ক nfs ফাইলচিস্টেমসমূহলে লিখাৰ অনুমতি দিব বিচাৰে"
+
+#: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
+msgid ""
+"\n"
+"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
+"    "
+msgstr ""
+"\n"
+"    SELinux এ $TARGET_PATH লে $SOURCE_PATH \"$ACCESS\" অভিগম প্ৰতিৰোধ কৰি "
+"আছে।\n"
+"    "
+
+#: ../src/associate.py:37
+#, python-format
+msgid ""
+"\n"
+"You tried to place a type on a %s that is not a file type.  This is not "
+"allowed, you must assigne a file type.  You can list all file types using "
+"the seinfo command.\n"
+"\n"
+"seinfo -afile_type -x\n"
+"\n"
+"    "
+msgstr ""
+
+#: ../src/associate.py:44
+#, fuzzy, python-format
+msgid ""
+"you want to change the label of $TARGET_PATH to %s, you are not allowed to "
+"since it is not a valid file type."
+msgstr "আপুনি $TARGET_PATH ৰ লেবেলক এটা সদৃশ যন্ত্ৰৰ ধৰণলে সলনি কৰিব লাগিব।"
+
+#: ../src/associate.py:49
+#, fuzzy
+msgid "you must pick a valid file label."
+msgstr "আপুনি লেবেলসমূহ ঠিক কৰিব লাগিব।"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -568,7 +599,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ $SOURCE_PATH ক বিভৱীয়ভাৱে ভুললেবেল নথিপত্ৰ $TARGET_PATH এক্সিকিউট "
+"    SELinux এ $SOURCE_PATH ক বিভৱীয়ভাৱে ভুললেবেল ফাইল $TARGET_PATH এক্সিকিউট "
 "কৰাৰ পৰা প্ৰতিৰোধ কৰি আছে।\n"
 "    "
 
@@ -585,9 +616,9 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $SOURCE_PATH ক বিভৱীয়ভাৱে ভুল ধৰণে লেবেল কৰা\n"
-"    নথিপত্ৰসমূহ $TARGET_PATH এক্সিকিউট কৰা নাকচ কৰিছে। স্বমাউন্টাৰক\n"
-"    সংৰূপ নথিপত্ৰসমূহ এক্সিকিউট কৰিবলে সংস্থাপন কৰিব পাৰি। যদি $TARGET_PATH\n"
-"     এটা স্বমাউন্ট এক্সিকিউটেবুল সংৰূপ নথিপত্ৰ ইয়াৰ bin_t লেবেল থাকিব লাগিব।\n"
+"    ফাইলসমূহ $TARGET_PATH এক্সিকিউট কৰা নাকচ কৰিছে। স্বমাউন্টাৰক\n"
+"    সংৰূপ ফাইলসমূহ এক্সিকিউট কৰিবলে সংস্থাপন কৰিব পাৰি। যদি $TARGET_PATH\n"
+"     এটা স্বমাউন্ট এক্সিকিউটেবুল সংৰূপ ফাইল ইয়াৰ bin_t লেবেল থাকিব লাগিব।\n"
 "    যদি স্বমাউন্টাৰে এক্সিকিউট কৰিব নলগা কিবাক এক্সিকিউট কৰাৰ চেষ্টা কৰি আছে, ই "
 "এটা অনাধিকাৰ প্ৰৱেশৰ ইংগিত দিব পাৰে।\n"
 "    "
@@ -603,10 +634,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    যদি আপুনি $TARGET_PATH ৰ নথিপত্ৰ পৰিপ্ৰেক্ষতিত সলনি কৰিব বিচাৰে যাতে "
+"    যদি আপুনি $TARGET_PATH ৰ ফাইল পৰিপ্ৰেক্ষতিত সলনি কৰিব বিচাৰে যাতে "
 "স্বমাউন্টাৰে ইয়াক এক্সিকিউট কৰিব পাৰে আপুনি \"chcon -t bin_t $TARGET_PATH\" "
 "এক্সিকিউট কৰিব পাৰিব। যদি আপুনি ইয়াক এটা পুনৰলেবেল পৰা বচাব বিচাৰিছে, আপুনি "
-"স্থায়ীভাৱে নথিপত্ৰ পৰিপ্ৰেক্ষতিত: execute  \"semanage fcontext -a -t bin_t "
+"স্থায়ীভাৱে ফাইল পৰিপ্ৰেক্ষতিত: execute  \"semanage fcontext -a -t bin_t "
 "'$FIX_TARGET_PATH'\" সলনি কৰিব লাগিব।\n"
 "    "
 
@@ -747,19 +778,15 @@ msgstr "আপুনি %s কৰিব বিচাৰে"
 msgid "setsebool -P %s %s"
 msgstr "setsebool -P %s %s"
 
-#: ../src/catchall_boolean.py:67
-#, python-format
-msgid ""
-"You must tell SELinux about this by enabling the '%s' boolean. You can read "
-"'%s' man page for more details."
-msgstr ""
-"আপুনি SELinux ক ইয়াৰ বিষয়ে '%s' সামৰ্থবান কৰি কব লাগিব। আপুনি অধিক বিৱৰণৰ বাবে "
-"'%s' man পৃষ্ঠা পঢ়িব পাৰিব।"
+#: ../src/catchall_boolean.py:66
+#, fuzzy, python-format
+msgid "You must tell SELinux about this by enabling the '%s' boolean."
+msgstr "আপুনি '%s' বুলিয়ান সামৰ্থবান কৰি SELinux ক ইয়াৰ বিষয়ে কব লাগিব।"
 
 #: ../src/catchall_boolean.py:69
 #, python-format
-msgid "You must tell SELinux about this by enabling the '%s'boolean."
-msgstr "আপুনি '%s' বুলিয়ান সামৰ্থবান কৰি SELinux ক ইয়াৰ বিষয়ে কব লাগিব।"
+msgid "You can read '%s' man page for more details."
+msgstr ""
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -776,15 +803,14 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ বিভৱীয়ভাৱে ভুল লেবেল কৰা নথিপত্ৰসমূহ $TARGET_PATH লে\n"
+"    SELinux এ বিভৱীয়ভাৱে ভুল লেবেল কৰা ফাইলসমূহ $TARGET_PATH লে\n"
 "    $SOURCE অভিগম নাকচ কৰিছে। ই বুজায় যে SELinux এ\n"
-"    httpd ক এই নথিপত্ৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি নিদিব। যদি httpd ক এই নথিপত্ৰসমূহলে "
-"অভিগম দিব লাগে আপুনি নথিপত্ৰ পৰিপ্ৰেক্ষতিতক নিম্নলিখিত ধৰণসমূহৰ এটালে, %s সলনি "
-"কৰিব লাগিব।\n"
-"    বহুতো তৃতিয় দল অনুপ্ৰয়োগসমূহে ডাইৰেকটৰিসমূহত html নথিপত্ৰসমূহ ইনস্টল কৰে\n"
+"    httpd ক এই ফাইলসমূহ ব্যৱহাৰ কৰাৰ অনুমতি নিদিব। যদি httpd ক এই ফাইলসমূহলে "
+"অভিগম দিব লাগে আপুনি ফাইল পৰিপ্ৰেক্ষতিতক নিম্নলিখিত ধৰণসমূহৰ এটালে, %s সলনি কৰিব "
+"লাগিব।\n"
+"    বহুতো তৃতিয় দল এপ্লিকেচনসমূহে ডাইৰেকটৰিসমূহত html ফাইলসমূহ ইনস্টল কৰে\n"
 "    যাক SELinux নিতিয়ে আগতিয়াকৈ কব নোৱাৰে। এই ডাইৰেকটৰিসমূহক\n"
-"    এটা নথিপত্ৰ পৰিপ্ৰেতিতৰ সহায়ত লেবেল কৰিব লাগিব যাক httpd এ অভিগম কৰিব "
-"পাৰে।\n"
+"    এটা ফাইল পৰিপ্ৰেতিতৰ সহায়ত লেবেল কৰিব লাগিব যাক httpd এ অভিগম কৰিব পাৰে।\n"
 "    "
 
 #: ../src/catchall_labels.py:37
@@ -804,7 +830,8 @@ msgstr ""
 "তাৰ পিছত এক্সিকিউট কৰক: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
 
-#: ../src/catchall.py:29
+#: ../src/catchall.py:29 ../src/mozplugger.py:29
+#: ../src/mozplugger_remove.py:29
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
 msgstr "SELinux এ $SOURCE_PATH \"$ACCESS\" অভিগম প্ৰতিৰোধ কৰি আছে।"
 
@@ -825,7 +852,7 @@ msgstr ""
 "    SELinux এ $SOURCE দ্বাৰা অনুৰোধ কৰা অভিগম নাকচ কৰিলে। এই অভিগম\n"
 "    $SOURCE দ্বাৰা প্ৰয়োজন হব বুলি আশা কৰা হোৱা নাই আৰু এই সংকেতে এটা\n"
 "    অনাধিকাৰ প্ৰৱেশৰ ইংগিত দিব পাৰে। সম্ভব হব পাৰে\n"
-"    যে অনুপ্ৰয়োগৰ বিশেষ সংস্কৰণ অথবা সংৰূপে ইয়াৰ অতিৰিক্ত অভিগমৰ\n"
+"    যে এপ্লিকেচনৰ বিশেষ সংস্কৰণ অথবা সংৰূপে ইয়াৰ অতিৰিক্ত অভিগমৰ\n"
 "    প্ৰয়োজনীয়তা দেখাই আছে।\n"
 "\n"
 "    "
@@ -973,7 +1000,7 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $TARGET_PATH লে cvs অভিগম নাকচ কৰিলে।\n"
-"    যদি ই এটা CVS ভঁৰাল হয় ইয়াৰ এটা নথিপত্ৰ পৰিপ্ৰেক্ষতিত লেবেল\n"
+"    যদি ই এটা CVS ভঁৰাল হয় ইয়াৰ এটা ফাইল পৰিপ্ৰেক্ষতিত লেবেল\n"
 "    cvs_data_t থাকিব লাগিব। যদি আপুনি $TARGET_PATH ক এটা CVS ভঁৰাল হিচাপে\n"
 "    ব্যৱহাৰ কৰিব নিবিচাৰে ই এটা বাগ হব পাৰে অথবা ই এটা অনাধিকাৰ প্ৰৱেশৰ ইংগিত "
 "হব পাৰে।\n"
@@ -991,9 +1018,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    আপুনি নথিপত্ৰ পৰিপ্ৰেক্ষতিতক chcon -R -t cvs_data_t '$TARGET_PATH' এক্সিকিউট "
+"    আপুনি ফাইল পৰিপ্ৰেক্ষতিতক chcon -R -t cvs_data_t '$TARGET_PATH' এক্সিকিউট "
 "কৰি সলনি কৰিব পাৰিব\n"
-"    আপুনি লগতে চিস্টেমত অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহক সলনি কৰিব লাগিব "
+"    আপুনি লগতে চিস্টেমত অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহক সলনি কৰিব লাগিব "
 "যাতে সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলতো সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
 "cvs_data_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
@@ -1028,8 +1055,8 @@ msgid ""
 msgstr ""
 "\n"
 "\tdac_override আৰু dac_read_search ক্ষমতাসমূহে সাধাৰণত ইংগিত দিয়ে যে ৰুট "
-"প্ৰক্ৰিয়াৰ অনুমতি ফ্লেগসমূহৰ উপৰত নিৰ্ভৰ কৰি এটা নথিপত্ৰলে অভিগম নাই।  ই সাধাৰণত "
-"বুজায় আপোনাৰ ভূল অধিকাৰত্ব/অনুমতি থকা কিছুমান নথিপত্ৰ আছে।\n"
+"প্ৰক্ৰিয়াৰ অনুমতি ফ্লেগসমূহৰ উপৰত নিৰ্ভৰ কৰি এটা ফাইললে অভিগম নাই।  ই সাধাৰণত বুজায় "
+"আপোনাৰ ভূল অধিকাৰত্ব/অনুমতি থকা কিছুমান ফাইল আছে।\n"
 "    "
 
 #: ../src/dac_override.py:38
@@ -1038,14 +1065,14 @@ msgid ""
 "with the wrong permissions on your system"
 msgstr ""
 "আপুনি ডমেইনৰ এই অভিগমৰ প্ৰয়োজন আছে নে অথবা আপোনাৰ চিস্টেমত ভুল অনুমতি থকা এটা "
-"নথিপত্ৰ আছে নে সেয়া চিনাক্ত কৰাত সহায় কৰিব বিচাৰে"
+"ফাইল আছে নে সেয়া চিনাক্ত কৰাত সহায় কৰিব বিচাৰে"
 
 #: ../src/dac_override.py:39
 msgid ""
 "turn on full auditing to get path information about the offending file and "
 "generate the error again."
 msgstr ""
-"নিয়ম নমনা নথিপত্ৰৰ পথ তথ্য প্ৰাপ্ত কৰিবলে আৰু ত্ৰুটিক আকৌ সৃজন কৰিবলে সম্পূৰ্ণ সম্পাদন "
+"নিয়ম নমনা ফাইলৰ পথ তথ্য প্ৰাপ্ত কৰিবলে আৰু ত্ৰুটিক আকৌ সৃজন কৰিবলে সম্পূৰ্ণ সম্পাদন "
 "আৰম্ভ কৰক।"
 
 #: ../src/dac_override.py:40
@@ -1063,8 +1090,7 @@ msgstr ""
 "# auditctl -w /etc/shadow -p w\n"
 "AVC পুনৰ সৃষ্টি কৰাৰ চেষ্টা কৰক। তাৰ পিছত এক্সিকিউট কৰক\n"
 "# ausearch -m avc -ts recent\n"
-"যদি আপুনি PATH ৰেকৰ্ড দেখা পায় নথিপত্ৰত অধিকাৰ/অনুমতি নীৰিক্ষণ কৰক, ইয়াক ঠিক "
-"কৰক, \n"
+"যদি আপুনি PATH ৰেকৰ্ড দেখা পায় ফাইলত অধিকাৰ/অনুমতি নীৰিক্ষণ কৰক, ইয়াক ঠিক কৰক, \n"
 "আৰু নহলে bugzilla হিচাপে সংবাদিত কৰক।"
 
 #: ../src/device.py:29
@@ -1117,7 +1143,7 @@ msgstr ""
 "লেবেল আছে, যি সংঘটিত\n"
 "    হব নালাগিব। সকলো বৰ্ণ আৰু/অথবা খণ্ড যন্ত্ৰসমূহৰ এটা লেবেল থাকিব লাগিব।\n"
 "\n"
-"    আপুনি নথিপত্ৰৰ লেবেল সলনি কৰাৰ চেষ্টা কৰিব পাৰিব\n"
+"    আপুনি ফাইলৰ লেবেল সলনি কৰাৰ চেষ্টা কৰিব পাৰিব\n"
 "\n"
 "    restorecon -v '$TARGET_PATH' ব্যৱহাৰ কৰি।\n"
 "\n"
@@ -1131,10 +1157,10 @@ msgstr ""
 "সমস্যাৰ সমাধান কৰে, আপুনি ইয়াক স্থায়ী কৰিব পাৰিব\n"
 "    semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH' এক্সিকিউট কৰি\n"
 "\n"
-"    যদি restorecon এ পৰিপ্ৰেক্ষতিত সলনি কৰে, ই ইংগিত দিয়ে যে অনুপ্ৰয়োগ যি যন্ত্ৰটো "
-"সৃষ্টি কৰিলে, ইয়াক SELinux APIসমূহ\n"
+"    যদি restorecon এ পৰিপ্ৰেক্ষতিত সলনি কৰে, ই ইংগিত দিয়ে যে এপ্লিকেচন যি "
+"যন্ত্ৰটো সৃষ্টি কৰিলে, ইয়াক SELinux APIসমূহ\n"
 "    ব্যৱহাৰ নকৰাকৈ ইয়াক সৃষ্টি কৰিলে। যদি আপুনি বিচাৰি উলিয়াব পাৰে কোনটো "
-"অনুপ্ৰয়োগে যন্ত্ৰটো সৃষ্টি কৰিলে, অনুগ্ৰহ কৰি এই অনুপ্ৰয়োগৰ বাবে এটা বাগ সংবাদ জমা "
+"এপ্লিকেচনে যন্ত্ৰটো সৃষ্টি কৰিলে, অনুগ্ৰহ কৰি এই এপ্লিকেচনৰ বাবে এটা বাগ সংবাদ জমা "
 "দিয়ক।\n"
 "    \n"
 "    "
@@ -1203,10 +1229,11 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ লেবেল, file_t থকা নথিপত্ৰসমূহলে অভিগম প্ৰতিৰোধ কৰি আছে।\n"
+"    SELinux এ লেবেল, file_t থকা ফাইলসমূহলে অভিগম প্ৰতিৰোধ কৰি আছে।\n"
 "    "
 
 #: ../src/file.py:31
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux permission checks on files labeled file_t are being\n"
@@ -1214,24 +1241,23 @@ msgid ""
 "    that do not have a label. This indicates a serious labeling\n"
 "    problem. No files on an SELinux box should ever be labeled file_t.\n"
 "    If you have just added a disk drive to the system you can\n"
-"    relabel it using the restorecon command.  For example if you saved the \n"
+"    relabel it using the restorecon command.  For example if you saved the\n"
 "home directory from a previous installation that did not use SELinux, "
 "'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
 msgstr ""
 "\n"
-"     file_t লেবেল থকা নথিপত্ৰসমূহত SELinux অনুমতি নীৰিক্ষণসমূহ নাকচ কৰা হৈছে।\n"
-"    file_t হল সেই পৰিপ্ৰেক্ষতিত যি SELinux কাৰ্নেলে লেবেল নথকা নথিপত্ৰসমূহলে "
-"দিয়ে।\n"
+"     file_t লেবেল থকা ফাইলসমূহত SELinux অনুমতি নীৰিক্ষণসমূহ নাকচ কৰা হৈছে।\n"
+"    file_t হল সেই পৰিপ্ৰেক্ষতিত যি SELinux কাৰ্নেলে লেবেল নথকা ফাইলসমূহলে দিয়ে।\n"
 "    ই এটা গুৰুত্বপূৰ্ণ লেবেলিং সমস্যাৰ ইংগিত দিয়ে।\n"
-"    SELinux বাকচত কোনো নথিপত্ৰক file_t লেবেল কৰিব নালাগিব।\n"
+"    SELinux বাকচত কোনো ফাইলক file_t লেবেল কৰিব নালাগিব।\n"
 "    যদি আপুনি চিস্টেমত এটা ডিস্ক ড্ৰাইভ এইমাত্ৰ যোগ কৰিছে\n"
 "    আপুনি ইয়াক restorecon কমান্ড ব্যৱহাৰ কৰি পুনৰলেবেল কৰিব পাৰিব। উদাহৰণস্বৰূপ "
 "যদি আপুনি\n"
 "ঘৰ ডাইৰেকটৰিক এটা পূৰ্ব ইনস্টল যি SELinux ব্যৱহাৰ কৰা নাই তাৰ পৰা সঞ্চয় কৰিছে, "
 "'restorecon -R -v /home' এ সকলো লেবেল ঠিক কৰিব। আৰু নহলে\n"
-"    আপুনি সম্পূৰ্ণ নথিপত্ৰ প্ৰণালী পুনৰলেবেল কৰিব লাগিব।\n"
+"    আপুনি সম্পূৰ্ণ ফাইল চিস্টেম পুনৰলেবেল কৰিব লাগিব।\n"
 "    "
 
 #: ../src/file.py:42
@@ -1249,7 +1275,7 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr "এনে অৱস্থা এটা নতুনকে সৃষ্টি কৰা নথিপত্ৰ প্ৰণালীৰ বাবে হয়।"
+msgstr "এনে অৱস্থা এটা নতুনকে সৃষ্টি কৰা ফাইল চিস্টেমৰ বাবে হয়।"
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
@@ -1271,8 +1297,8 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ $SOURCE_PATH ক এটা নথিপত্ৰপ্ৰণালীত $SOURCE_TYPE ৰ এটা "
-"পৰিপ্ৰেক্ষতিতৰ সৈতে এটা নথিপত্ৰ সৃষ্টি কৰাৰ পৰা প্ৰতিৰোধ কৰি আছে।\n"
+"    SELinux এ $SOURCE_PATH ক এটা ফাইলচিস্টেমত $SOURCE_TYPE ৰ এটা পৰিপ্ৰেক্ষতিতৰ "
+"সৈতে এটা ফাইল সৃষ্টি কৰাৰ পৰা প্ৰতিৰোধ কৰি আছে।\n"
 "    "
 
 #: ../src/filesystem_associate.py:31
@@ -1292,16 +1318,16 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ $SOURCE ক এটা নথিপত্ৰপ্ৰণালীত $SOURCE_TYPE ৰ পৰিপ্ৰেক্ষতিতৰ সৈতে "
-"এটা নথিপত্ৰ সৃষ্টি কৰাৰ পৰা প্ৰতিৰোধ কৰি আছে।\n"
-"    সাধাৰণত এনেকুৱা হয় যেতিয়া আপুনি cp কমান্ডক এটা নথিপত্ৰৰ পৰিপ্ৰেক্ষতিত "
-"ব্যৱস্থাপনা কৰিবলে কয়\n"
-"    নথিপত্ৰ প্ৰণালীসমূহৰ মাজত কপি কৰি থাকোতে, \"cp -a\" উদাহৰণস্বৰূপ। নথিপত্ৰ "
-"প্ৰণালীসমূহৰ মাজত সকলো নথিপত্ৰ পৰিপ্ৰেক্ষতিত\n"
-"    ব্যৱস্থাপনা নকৰিলেও হব।  উদাহৰণস্বৰূপ, এটা কেৱল পঢ়িব-পৰা নথিপত্ৰ ধৰণ যেনে "
+"    SELinux এ $SOURCE ক এটা ফাইলচিস্টেমত $SOURCE_TYPE ৰ পৰিপ্ৰেক্ষতিতৰ সৈতে এটা "
+"ফাইল সৃষ্টি কৰাৰ পৰা প্ৰতিৰোধ কৰি আছে।\n"
+"    সাধাৰণত এনেকুৱা হয় যেতিয়া আপুনি cp কমান্ডক এটা ফাইলৰ পৰিপ্ৰেক্ষতিত ব্যৱস্থাপনা "
+"কৰিবলে কয়\n"
+"    ফাইল চিস্টেমসমূহৰ মাজত কপি কৰি থাকোতে, \"cp -a\" উদাহৰণস্বৰূপ। ফাইল "
+"চিস্টেমসমূহৰ মাজত সকলো ফাইল পৰিপ্ৰেক্ষতিত\n"
+"    ব্যৱস্থাপনা নকৰিলেও হব।  উদাহৰণস্বৰূপ, এটা কেৱল পঢ়িব-পৰা ফাইল ধৰণ যেনে "
 "iso9660_t ক এটা\n"
 "    r/w চিস্টেমত স্থাপনা কৰিব নালাগিব।  \"cp -p\" এটা ভাল সমাধান হব পাৰে, "
-"যিহেতু ই গন্তব্যৰ বাবে অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত\n"
+"যিহেতু ই গন্তব্যৰ বাবে অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত\n"
 "    ব্যৱহাৰ কৰিব।\n"
 "    "
 
@@ -1322,7 +1348,7 @@ msgid ""
 "you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
 "files"
 msgstr ""
-"আপুনি ভাৱে $SOURCE_BASE_PATH ক $TARGET_BASE_PATH নথিপত্ৰসমূহ সৃষ্টি কৰাৰ অনুমতি "
+"আপুনি ভাৱে $SOURCE_BASE_PATH ক $TARGET_BASE_PATH ফাইলসমূহ সৃষ্টি কৰাৰ অনুমতি "
 "থাকিব লাগে"
 
 #: ../src/filesystem_associate.py:44
@@ -1330,7 +1356,7 @@ msgid ""
 "you need to use a different command. You are not allowed to preserve the "
 "SELinux context on the target file system."
 msgstr ""
-"আপুনি এটা বেলেগ কমান্ড ব্যৱহাৰ কৰিব লাগিব। আপোনাক লক্ষ্য নথিপত্ৰপ্ৰণালীত SELinux "
+"আপুনি এটা বেলেগ কমান্ড ব্যৱহাৰ কৰিব লাগিব। আপোনাক লক্ষ্য ফাইলচিস্টেমত SELinux "
 "পৰিপ্ৰেক্ষতিত সংৰক্ষণ কৰাৰ অনুমতি নাই।"
 
 #: ../src/filesystem_associate.py:46
@@ -1397,7 +1423,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux http নথিপত্ৰসমূহলে httpd $ACCESS অভিগম প্ৰতিৰোধ কৰিলে।\n"
+"    SELinux http ফাইলসমূহলে httpd $ACCESS অভিগম প্ৰতিৰোধ কৰিলে।\n"
 "    "
 
 #: ../src/httpd_unified.py:33
@@ -1425,15 +1451,15 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ http নথিপত্ৰসমূহলে httpd $ACCESS অভিগম প্ৰতিৰোধ কৰিছে।\n"
+"    SELinux এ http ফাইলসমূহলে httpd $ACCESS অভিগম প্ৰতিৰোধ কৰিছে।\n"
 "\n"
-"    সাধাৰণত httpd ক http নথিপত্ৰ পৰিপ্ৰেক্ষতিত লেবেল কৰা সকলে নথিপত্ৰলে\n"
+"    সাধাৰণত httpd ক http ফাইল পৰিপ্ৰেক্ষতিত লেবেল কৰা সকলে ফাইললে\n"
 "    সম্পূৰ্ণ অভিগমৰ অনুমতি দিয়া হয়। এই মেচিনৰ $BOOLEAN বন্ধ থকাকৈ এটা কঠিন সুৰক্ষা "
 "নীতি আছে,\n"
-"    ইয়াৰ বাবে সকলো নথিপত্ৰৰ এক্সপ্লিচিট লেবেলিংৰ প্ৰয়োজন। যদি এটা নথিপত্ৰ\n"
+"    ইয়াৰ বাবে সকলো ফাইলৰ এক্সপ্লিচিট লেবেলিংৰ প্ৰয়োজন। যদি এটা ফাইল\n"
 "    এটা cgi লিপি ইয়াক httpd_TYPE_script_exec_t ৰ সৈতে লেবেল কৰিব লাগিব\n"
-"    ইয়াক এক্সিকিউট কৰিবলে। যদি ই কেৱল পঢ়িব পৰা বিষয়বস্তু হয়, ইয়াক\n"
-"    httpd_TYPE_content_t লেবেল কৰিব লাগিব, ই লিখিব পৰা বিষয়বস্তু। ইয়াক\n"
+"    ইয়াক এক্সিকিউট কৰিবলে। যদি ই কেৱল পঢ়িব পৰা সমল হয়, ইয়াক\n"
+"    httpd_TYPE_content_t লেবেল কৰিব লাগিব, ই লিখিব পৰা সমল। ইয়াক\n"
 "    httpd_TYPE_script_rw_t or httpd_TYPE_script_ra_t লেবেল কৰিব লাগিব। আপুনি\n"
 "    এই পৰিপ্ৰেক্ষতিত সলনি কৰিবলে chcon কমান্ড ব্যৱহাৰ কৰিব পাৰিব।  অনুগ্ৰহ কৰি man "
 "পৃষ্ঠা\n"
@@ -1461,15 +1487,15 @@ msgid ""
 "you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
 "of all content files."
 msgstr ""
-"আপুনি httpd ক cgi লিপিসমূহ এক্সিকিউট কৰাৰ অনুমতি দিব আৰু সকলো বিষয়বস্তু নথিপত্ৰৰ "
-"HTTPD নিয়ন্ত্ৰণ সংযুক্ত কৰিব বিচাৰে।"
+"আপুনি httpd ক cgi লিপিসমূহ এক্সিকিউট কৰাৰ অনুমতি দিব আৰু সকলো সমল ফাইলৰ HTTPD "
+"নিয়ন্ত্ৰণ সংযুক্ত কৰিব বিচাৰে।"
 
 #: ../src/httpd_unified.py:58
 msgid ""
 "you must tell SELinux about this by enabling the 'httpd_unified' and "
 "'http_enable_cgi' booleans"
 msgstr ""
-"আপুনি SELinux -ৰ ইয়াৰ বিষয়ে  'httpd_unified' আৰু 'http_enable_cgi' বুলিয়ানসমূহ "
+"আপুনি SELinux ৰ ইয়াৰ বিষয়ে  'httpd_unified' আৰু 'http_enable_cgi' বুলিয়ানসমূহ "
 "সামৰ্থবান কৰি কব লাগিব"
 
 #: ../src/httpd_write_content.py:30
@@ -1487,9 +1513,9 @@ msgstr ""
 "\n"
 "    SELinux এ $TARGET_PATH লে httpd $ACCESS অভিগম প্ৰতিৰোধ কৰিলে।\n"
 "\n"
-"    httpd লিপিসমূহক সকলো নথিপত্ৰৰ এক্সপ্লিচিট লেবেলিং নহোৱাকৈ বিষয়বস্তুলে লিখাৰ "
-"অনুমতি নাই।\n"
-"    যদি $TARGET_PATH লিখিব পৰা বিষয়বস্তু হয় ইয়াক \n"
+"    httpd লিপিসমূহক সকলো ফাইলৰ এক্সপ্লিচিট লেবেলিং নহোৱাকৈ সমললে লিখাৰ অনুমতি "
+"নাই।\n"
+"    যদি $TARGET_PATH লিখিব পৰা সমল হয় ইয়াক \n"
 "    httpd_sys_rw_content_t লেবেল কৰিব লাগিব অথবা আপুনি যদি কেৱল সংযোজন কৰিব "
 "বিচাৰে তেন্তে আপুনি ইয়াক httpd_sys_ra_content_t লেবেল কৰিব পাৰিব। httpd আৰু "
 "selinux সংহতি কৰাৰ বিষয়ে অধিক তথ্যৰ বাবে 'man httpd_selinux' চাওক।\n"
@@ -1528,9 +1554,9 @@ msgstr ""
 "\n"
 "    SELinux এ $SOURCE ক $TARGET সলনি কৰাৰ পৰা প্ৰতিৰোধ কৰিছে। এই প্ৰতিৰোধে \n"
 "    ইংগিত দিয়ে যে $SOURCE এ কাৰনেল চলাৰ পদ্ধতি\n"
-"    অথবা কাৰনেল প্ৰকৃততে ক'ড সুমুৱাৰ চেষ্টা কৰি আছিল। সকলো অনুপ্ৰয়োগ যাৰ এই অভিগমৰ "
+"    অথবা কাৰনেল প্ৰকৃততে ক'ড সুমুৱাৰ চেষ্টা কৰি আছিল। সকলো এপ্লিকেচন যাৰ এই অভিগমৰ "
 "প্ৰয়োজন\n"
-"    সিহতৰ বাবে নীতি লিখা থাকিব লাগিব। যদি এটা ভুল অনুপ্ৰয়োগে \n"
+"    সিহতৰ বাবে নীতি লিখা থাকিব লাগিব। যদি এটা ভুল এপ্লিকেচনে \n"
 "    কাৰনেল সলনি কৰাৰ চেষ্টা কৰে AVC সৃজন কৰা হব। ই এটা গুৰত্বপূৰ্ণ সমস্যা।\n"
 "    আপোনাৰ চিস্টেমত ভাল সাল সলনি হব পাৰে।\n"
 "    "
@@ -1548,8 +1574,8 @@ msgid ""
 "you may be under attack by a hacker, since confined applications should not "
 "need this access."
 msgstr ""
-"আপুনি এজন হেকাৰ দ্বাৰা আক্ৰমণৰ সন্মুখিন হব পাৰে, যিহেতু গোপণ অনুপ্ৰয়োগসমূহৰ এই অভিগমৰ "
-"প্ৰয়োজন নহয়।"
+"আপুনি এজন হেকাৰ দ্বাৰা আক্ৰমণৰ সন্মুখিন হব পাৰে, যিহেতু গোপণ এপ্লিকেচনসমূহৰ এই "
+"অভিগমৰ প্ৰয়োজন নহয়।"
 
 #: ../src/leaks.py:27
 msgid ""
@@ -1559,7 +1585,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ এটা $TARGET_PATH নথিপত্ৰ বিৱৰকলে $SOURCE_PATH অভিগম প্ৰতিৰোধ কৰি "
+"    SELinux এ এটা $TARGET_PATH ফাইল বিৱৰকলে $SOURCE_PATH অভিগম প্ৰতিৰোধ কৰি "
 "আছে।\n"
 "    "
 
@@ -1578,12 +1604,12 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $SOURCE কমান্ড দ্বাৰা অনুৰোধ কৰা অভিগম নাকচ কৰিলে। এনে লাগিছে যেন "
-"ই হয় এটা উৰুখ বিৱৰক অথবা $SOURCE আউটপুটক এনে এটা নথিপত্ৰলে পুনৰনিৰ্দেশ কৰা হৈছে "
-"যলৈ তাৰ অভিগমৰ অনুমতি নাই।  উৰুখসমূহ সাধাৰণত উপেক্ষা কৰিব পাৰি যিহেতু SELinux এ "
-"উৰুখ বন্ধ কৰি ত্ৰুটিৰ সংবাদ দি আছে।  অনুপ্ৰয়োগে বিৱৰক ব্যৱহাৰ নকৰে, সেয়েহে ই "
-"সঠিকভাৱে চলিব।  যদি ই এটা পুনৰনিৰ্দেশ হয়, আপুনি $TARGET_PATH ত আউটপুট নাপাব।  "
-"আপুনি selinux-policy ত এটা bugzilla সৃজন কৰিব লাগিব, আৰু ই সঠিক পেকেইজ লৈকে দিশ "
-"পাব। আপুনি avc ক সুৰক্ষিতভাৱে উপেক্ষা কৰিব পাৰিব।\n"
+"ই হয় এটা উৰুখ বিৱৰক অথবা $SOURCE আউটপুটক এনে এটা ফাইললে পুনৰনিৰ্দেশ কৰা হৈছে যলৈ "
+"তাৰ অভিগমৰ অনুমতি নাই।  উৰুখসমূহ সাধাৰণত উপেক্ষা কৰিব পাৰি যিহেতু SELinux এ উৰুখ "
+"বন্ধ কৰি ত্ৰুটিৰ সংবাদ দি আছে।  এপ্লিকেচনে বিৱৰক ব্যৱহাৰ নকৰে, সেয়েহে ই সঠিকভাৱে "
+"চলিব।  যদি ই এটা পুনৰনিৰ্দেশ হয়, আপুনি $TARGET_PATH ত আউটপুট নাপাব।  আপুনি "
+"selinux-policy ত এটা bugzilla সৃজন কৰিব লাগিব, আৰু ই সঠিক পেকেইজ লৈকে দিশ পাব। "
+"আপুনি avc ক সুৰক্ষিতভাৱে উপেক্ষা কৰিব পাৰিব।\n"
 "    "
 
 #: ../src/leaks.py:35
@@ -1662,9 +1688,9 @@ msgstr ""
 "    ঠিকনা স্থানৰ এটা নিম্ন স্থান mmap কৰাৰ ক্ষমতা, /proc/sys/kernel/"
 "mmap_min_addr\n"
 "    সংৰূপণ কৰা ধৰণে। এই ধৰণৰ মেপিং প্ৰতিৰোধ কৰা কাৰনেলত খালি deref বাগসমূহ \n"
-"    লুন্ঠণ কৰা পৰা সুৰক্ষা প্ৰদান কৰে। সকলো অনুপ্ৰয়োগ যাৰ এই অভিগমৰ\n"
+"    লুন্ঠণ কৰা পৰা সুৰক্ষা প্ৰদান কৰে। সকলো এপ্লিকেচন যাৰ এই অভিগমৰ\n"
 "    প্ৰয়োজন সিহতৰ বাবে নীতি লিখা থাকিব লাগিব।\n"
-"    যদি এটা ভুল অনুপ্ৰয়োগে কাৰনেল সলনি কৰাৰ চেষ্টা কৰে এই AVC \n"
+"    যদি এটা ভুল এপ্লিকেচনে কাৰনেল সলনি কৰাৰ চেষ্টা কৰে এই AVC \n"
 "    সৃজন কৰা হব। ই এটা গুৰুতৰ বিষয়। আপোনাৰ চিস্টেমত ভাল সাল\n"
 "    সলনি হব পাৰে।\n"
 "    "
@@ -1686,8 +1712,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ $SOURCE ক নথিপত্ৰ অথবা ডাইৰেকটৰিত মাউন্ট কৰাৰ পৰা প্ৰতিৰোধ "
-"কৰিছিল\n"
+"    SELinux এ $SOURCE ক ফাইল অথবা ডাইৰেকটৰিত মাউন্ট কৰাৰ পৰা প্ৰতিৰোধ কৰিছিল\n"
 "    \"$TARGET_PATH\" (type \"$TARGET_TYPE\")।\n"
 "    "
 
@@ -1703,11 +1728,11 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ $SOURCE ক ধৰণ \"$TARGET_TYPE\" ৰ নথিপত্ৰ\n"
-"    অথবা ডাইৰেকটৰি \"$TARGET_PATH\" ত এটা নথিপত্ৰপ্ৰণালী মাউন্ট কৰাৰ পৰা\n"
-"    প্ৰতিৰোধ কৰিলে। অবিকল্পিতভাৱে SELinux এ নথিপত্ৰপ্ৰণালীসমূহৰ মাউন্টিংক কিছুমান\n"
-"     নথিপত্ৰ অথবা ডাইৰেকটৰি (মাউন্টপোইন্ট বৈশিষ্ট থকা) লে সীমিত কৰে।\n"
-"    ধৰণ \"$TARGET_TYPE\" ৰ এই বৈশিষ্ট নাই। আপুনি নথিপত্ৰ অথবা ডাইৰেকটৰিৰ\n"
+"    SELinux এ $SOURCE ক ধৰণ \"$TARGET_TYPE\" ৰ ফাইল\n"
+"    অথবা ডাইৰেকটৰি \"$TARGET_PATH\" ত এটা ফাইলচিস্টেম মাউন্ট কৰাৰ পৰা\n"
+"    প্ৰতিৰোধ কৰিলে। অবিকল্পিতভাৱে SELinux এ ফাইলচিস্টেমসমূহৰ মাউন্টিংক কিছুমান\n"
+"     ফাইল অথবা ডাইৰেকটৰি (মাউন্টপোইন্ট বৈশিষ্ট থকা) লে সীমিত কৰে।\n"
+"    ধৰণ \"$TARGET_TYPE\" ৰ এই বৈশিষ্ট নাই। আপুনি ফাইল অথবা ডাইৰেকটৰিৰ\n"
 "    লেবেল সলনি কৰিব পাৰিব।\n"
 "    "
 
@@ -1723,11 +1748,11 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    file_context ক mnt_t লে সলনি কৰিলে নথিপত্ৰ প্ৰণালী মাউন্ট কৰিবলে মাউন্টৰ "
-"অনুমতি দিব:\n"
+"    file_context ক mnt_t লে সলনি কৰিলে ফাইল চিস্টেম মাউন্ট কৰিবলে মাউন্টৰ অনুমতি "
+"দিব:\n"
 "    \"chcon -t mnt_t '$TARGET_PATH'।\"\n"
-"    আপুনি লগতে চিস্টেমত অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহ সলনি কৰিব লাগিব "
-"যাতে সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষৰণ কৰিব পাৰি।  \"semanage fcontext -a -t "
+"    আপুনি লগতে চিস্টেমত অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহ সলনি কৰিব লাগিব যাতে "
+"সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষৰণ কৰিব পাৰি।  \"semanage fcontext -a -t "
 "mnt_t '$FIX_TARGET_PATH'\"\n"
 "    "
 
@@ -1740,20 +1765,56 @@ msgstr ""
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr "আপুনি $TARGET_PATH ত লেবেলিং সলনি কৰিব লাগিব।"
 
-#: ../src/openvpn.py:32 ../src/public_content.py:27
-#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
-#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/mozplugger.py:31 ../src/mozplugger_remove.py:31
+#, fuzzy
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
+"    SELinux denied access requested by $SOURCE. It is not\n"
+"    expected that this access is required by $SOURCE and this access\n"
+"    may signal an intrusion attempt. It is also possible that the specific\n"
+"    version or configuration of the application is causing it to require\n"
+"    additional access.\n"
 "    "
 msgstr ""
 "\n"
-"    SELinux এ $TARGET_PATH লে $SOURCE_PATH \"$ACCESS\" অভিগম প্ৰতিৰোধ কৰি "
-"আছে।\n"
+"\n"
+"    SELinux এ $SOURCE দ্বাৰা অনুৰোধ কৰা অভিগম নাকচ কৰিলে। এই অভিগম\n"
+"    $SOURCE দ্বাৰা প্ৰয়োজন হব বুলি আশা কৰা হোৱা নাই আৰু এই সংকেতে এটা\n"
+"    অনাধিকাৰ প্ৰৱেশৰ ইংগিত দিব পাৰে। সম্ভব হব পাৰে\n"
+"    যে এপ্লিকেচনৰ বিশেষ সংস্কৰণ অথবা সংৰূপে ইয়াৰ অতিৰিক্ত অভিগমৰ\n"
+"    প্ৰয়োজনীয়তা দেখাই আছে।\n"
+"\n"
 "    "
 
-#: ../src/openvpn.py:36
+#: ../src/mozplugger.py:39 ../src/mozplugger_remove.py:39
+msgid ""
+"\n"
+"Either remove the mozplluger package by executing 'yum remove mozplugger'\n"
+"Or turn off enforcement of SELinux over the Firefox plugins.\n"
+"setsebool -P unconfined_mozilla_plugin_transition 0\n"
+"    "
+msgstr ""
+
+#: ../src/mozplugger.py:44
+msgid "you want to use mozplugger package"
+msgstr ""
+
+#: ../src/mozplugger.py:45
+#, fuzzy
+msgid "you must turn off SELinux controls on the Firefox plugins."
+msgstr "ইয়াৰ অনুমতি দিবলে আপুনি SELinux সংস্থাপন কৰিব লাগিব"
+
+#: ../src/mozplugger_remove.py:44
+msgid ""
+"you want to to continue using SELinux Firefox plugin containment rather then "
+"using mozplugger package"
+msgstr ""
+
+#: ../src/mozplugger_remove.py:45
+msgid "you must remove the mozplugger package."
+msgstr ""
+
+#: ../src/openvpn.py:35
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1764,12 +1825,12 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $SOURCE দ্বাৰা অনুৰোধ কৰা অভিগম নাকচ কৰিছে। $TARGET_PATH \n"
-"    ভূলভাৱে লেবেল কৰা থাকিব পাৰে। openvpn ক ঘৰ ডাইৰেকটৰিত বিষয়বস্তু পঢ়াৰ অনুমতি "
-"দিয়া হয়\n"
+"    ভূলভাৱে লেবেল কৰা থাকিব পাৰে। openvpn ক ঘৰ ডাইৰেকটৰিত সমল পঢ়াৰ অনুমতি দিয়া "
+"হয়\n"
 "    যদিহে ই সঠিকভাৱে লেবেল কৰা থাকে।\n"
 "    "
 
-#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+#: ../src/openvpn.py:41 ../src/sshd_root.py:42
 msgid ""
 "\n"
 "    You can restore the default system context to this file by executing "
@@ -1778,13 +1839,12 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    আপুনি এই নথিপত্ৰলে অবিকল্পিত চিস্টেম পৰিপ্ৰেক্ষতিত restorecon কমান্ড ব্যৱহাৰ "
-"কৰি\n"
+"    আপুনি এই ফাইললে অবিকল্পিত চিস্টেম পৰিপ্ৰেক্ষতিত restorecon কমান্ড ব্যৱহাৰ কৰি\n"
 "    পুনৰুদ্ধাৰ কৰিব পাৰিব।  restorecon পুনৰুদ্ধাৰ restorecon -R /root/.ssh ব্যৱহাৰ "
 "কৰি।\n"
 "    "
 
-#: ../src/openvpn.py:49
+#: ../src/openvpn.py:48
 msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
@@ -1792,7 +1852,7 @@ msgstr ""
 "আপুনি $TARGET_BASE_PATH ক প্ৰামাণিক অৱস্থানলে mv কৰিব বিচাৰে যাতে "
 "$SOURCE_BASE_PATH ৰ $ACCESS অভিগম থাকে"
 
-#: ../src/openvpn.py:51
+#: ../src/openvpn.py:50
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
@@ -1800,11 +1860,11 @@ msgstr ""
 "আপুনি $TARGET_BASE_PATH ত লেবেল সলনি কৰিব বিচাৰে যাতে $SOURCE_BASE_PATH ৰ "
 "ইয়ালৈ $ACCESS অভিগম থাকে"
 
-#: ../src/openvpn.py:55
+#: ../src/openvpn.py:54
 msgid "you must move the cert file to the ~/.cert directory"
-msgstr "আপুনি cert নথিপত্ৰক ~/.cert ডাইৰেকটৰিলে স্থানান্তৰ কৰিব লাগিব"
+msgstr "আপুনি cert ফাইলক ~/.cert ডাইৰেকটৰিলে স্থানান্তৰ কৰিব লাগিব"
 
-#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+#: ../src/openvpn.py:56 ../src/sshd_root.py:47
 msgid "you must fix the labels."
 msgstr "আপুনি লেবেলসমূহ ঠিক কৰিব লাগিব।"
 
@@ -1824,7 +1884,7 @@ msgstr ""
 "    $TARGET_PATH ৰ এটা পৃথক প্ৰগ্ৰাম দ্বাৰা অংশীদাৰী কৰিবলে ব্যৱহৃত এটা "
 "পৰিপ্ৰেক্ষতিত আছে।\n"
 "    যদি আপুনি $SOURCE ৰ পৰা $TARGET_PATH অংশীদাৰী কৰিব বিচাৰে, আপুনি ইয়াৰ\n"
-"    নথিপত্ৰ পৰিপ্ৰেক্ষতিত public_content_t লে সলনি কৰিব লাগিব।  যদি আপুনি এই "
+"    ফাইল পৰিপ্ৰেক্ষতিত public_content_t লে সলনি কৰিব লাগিব।  যদি আপুনি এই "
 "অভিগমৰ অনুমতি\n"
 "    দিব নিবিচাৰে, ই এটা অনাধিকাৰ প্ৰৱেশৰ ইংগিত দিব পাৰে।\n"
 "    "
@@ -1840,10 +1900,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    আপুনি নথিপত্ৰ পৰিপ্ৰেক্ষতিতক chcon -t public_content_t '$TARGET_PATH' "
-"এক্সিকিউট কৰি সলনি কৰিব পাৰিব\n"
-"    আপুনি লগতে চিস্টেমৰ অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহ সলনি কৰিব লাগিব "
-"যাতে সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
+"    আপুনি ফাইল পৰিপ্ৰেক্ষতিতক chcon -t public_content_t '$TARGET_PATH' এক্সিকিউট "
+"কৰি সলনি কৰিব পাৰিব\n"
+"    আপুনি লগতে চিস্টেমৰ অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহ সলনি কৰিব লাগিব যাতে "
+"সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
 "public_content_t '$FIX_TARGET_PATH'\"\n"
 "    "
 
@@ -1874,7 +1934,7 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $TARGET_PATH প্ৰতিৰোধ কৰিবলে qemu অভিগম নাকচ কৰিলে।\n"
-"    যদি ই এটা ভাৰছুৱেলাইজেষণ ছবি হয়, ইয়াক ভাৰছুৱেলাইজেষণ নথিপত্ৰ পৰিপ্ৰেক্ষতিতৰ "
+"    যদি ই এটা ভাৰছুৱেলাইজেষণ ছবি হয়, ইয়াক ভাৰছুৱেলাইজেষণ ফাইল পৰিপ্ৰেক্ষতিতৰ "
 "সৈতে লেবেল কৰিব লাগিব (virt_image_t)। আপুনি chcon ব্যৱহাৰ কৰি $TARGET_PATH ক "
 "virt_image_t হবলে পুনৰ লেবেল কৰিব পাৰিব।  আপুনি লগতে চিস্টেম অবিকল্পিতসমূহলে এই "
 "নতুন পথ যোগ কৰিবলে semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' "
@@ -1894,10 +1954,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    আপুনি নথিপত্ৰ পৰিপ্ৰেক্ষতিতক chcon -t virt_image_t '$TARGET_PATH' এক্সিকিউট "
-"কৰি সলনি কৰিব পাৰিব\n"
-"    আপুনি লগতে চিস্টেমত অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহ সলনি কৰিব লাগিব "
-"যাতে সিহতক এটা সম্পূৰ্ণ পুনৰ লেবেলত সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
+"    আপুনি ফাইল পৰিপ্ৰেক্ষতিতক chcon -t virt_image_t '$TARGET_PATH' এক্সিকিউট কৰি "
+"সলনি কৰিব পাৰিব\n"
+"    আপুনি লগতে চিস্টেমত অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহ সলনি কৰিব লাগিব যাতে "
+"সিহতক এটা সম্পূৰ্ণ পুনৰ লেবেলত সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
 "virt_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
 
@@ -1930,12 +1990,12 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $TARGET_PATH লে qemu অভিগম নাকচ কৰিলে।\n"
-"    যদি ই এটা ভাৰছুৱেলাইজেষণ ছবি হয়, ইয়াৰ এটা virt_image_t নথিপত্ৰ\n"
+"    যদি ই এটা ভাৰছুৱেলাইজেষণ ছবি হয়, ইয়াৰ এটা virt_image_t ফাইল\n"
 "    পৰিপ্ৰেক্ষতিত লেবেল থাকিব লাগিব। চিস্টেম /var/lib/libvirt/images ডাইৰেকটৰিত "
-"ছবি নথিপত্ৰসমূহ সঠিকভাৱে\n"
-"    লেবেল কৰিবলে সংস্থাপিত।  আমি আপোনাৰ ছবি নথিপত্ৰক /var/lib/libvirt/images "
-"লে কপি কৰাৰ উপদেশ দিও।\n"
-"    যদি আপুনি সঁচাকে আপোনাৰ qemu ছবি নথিপত্ৰসমূহ বৰ্তমান ডাইৰেকটৰিত বিচাৰে, আপুনি "
+"ছবি ফাইলসমূহ সঠিকভাৱে\n"
+"    লেবেল কৰিবলে সংস্থাপিত।  আমি আপোনাৰ ছবি ফাইলক /var/lib/libvirt/images লে "
+"কপি কৰাৰ উপদেশ দিও।\n"
+"    যদি আপুনি সঁচাকে আপোনাৰ qemu ছবি ফাইলসমূহ বৰ্তমান ডাইৰেকটৰিত বিচাৰে, আপুনি "
 "chcon ব্যৱহাৰ কৰি $TARGET_PATH ক virt_image_t হবলে পুনৰ লেবেল কৰিব পাৰিব।  "
 "আপুনি লগতে এই নতুন পথক চিস্টেম অবিকল্পিতসমূহলে যোগ কৰিবলে semanage fcontext -a -t "
 "virt_image_t '$FIX_TARGET_PATH' \n"
@@ -1960,8 +2020,8 @@ msgid ""
 msgstr ""
 "\n"
 "    আপুনি restorecon কমান্ড এক্সিকিউট কৰি অবিকল্পিত চিস্টেম পৰিপ্ৰেক্ষতিতক এই "
-"নথিপত্ৰলে পুনৰউদ্ধাৰ\n"
-"    কৰিব পাৰিব। restorecon '$TARGET_PATH', যদি এই নথিপত্ৰ এটা ডাইৰেকটৰি হয়,\n"
+"ফাইললে পুনৰউদ্ধাৰ\n"
+"    কৰিব পাৰিব। restorecon '$TARGET_PATH', যদি এই ফাইল এটা ডাইৰেকটৰি হয়,\n"
 "    আপুনি restorecon -R '$TARGET_PATH' ব্যৱহাৰ কৰি বাৰংবাৰ পুনৰউদ্ধাৰ কৰিব "
 "পাৰিব।\n"
 "    "
@@ -2009,32 +2069,32 @@ msgstr ""
 "\n"
 "    SELinux এ $SOURCE দ্বাৰা অনুৰোধ কৰা অভিগম নাকচ কৰিলে। $TARGET_PATH \n"
 "    ভুলভাৱে লেবেল কৰা তাকিব পাৰে।  $TARGET_PATH অবিকল্পিত SELinux ধৰণ হল\n"
-"    <B>%s</B>, কিন্তু ইয়াৰ বৰ্তমান ধৰণ হল <B>$TARGET_TYPE</B>। এই নথিপত্ৰক\n"
+"    <B>%s</B>, কিন্তু ইয়াৰ বৰ্তমান ধৰণ হল <B>$TARGET_TYPE</B>। এই ফাইলক\n"
 "    অবিকল্পিত ধৰণলে সলনি কৰিলে, এই সমস্যাৰ সমাধান হব পাৰে।\n"
 "    <p>\n"
-"    নথিপত্ৰ পৰিপ্ৰেক্ষতিতসমূহক এটা নথিপত্ৰলে নিম্নলিখিত ধৰণৰে ধাৰ্য্য কৰিব পৰা যাব।\n"
+"    ফাইল পৰিপ্ৰেক্ষতিতসমূহক এটা ফাইললে নিম্নলিখিত ধৰণৰে ধাৰ্য্য কৰিব পৰা যাব।\n"
 "    <ul>\n"
-"        <li>এটা ডাইৰেকটৰিত সৃষ্টি কৰা নথিপত্ৰসমূহ উপধায়ক ডাইৰেকটৰিৰ নথিপত্ৰ "
+"        <li>এটা ডাইৰেকটৰিত সৃষ্টি কৰা ফাইলসমূহ উপধায়ক ডাইৰেকটৰিৰ ফাইল "
 "পৰিপ্ৰেক্ষতিত অবিকল্পিতভাৱে গ্ৰহণ কৰে।\n"
 "        <li>SELinux নীতিয়ে উপধায়ক ডাইৰেকটৰিৰ পৰা ইনহেৰিট কৰা অবিকল্পিত লেবেল "
 "অভাৰৰাইড কৰিব পাৰে\n"
 "            পৰিপ্ৰেক্ষতিত A ত এটা প্ৰক্ৰিয়া ধাৰ্য্য কৰি যি B লেবেল কৰা ডাইৰেকটৰিত "
-"এটা নথিপত্ৰ সৃষ্টি কৰে\n"
-"            যি পৰৱৰ্তী C লেবেলৰ সৈতে নথিপত্ৰ সৃষ্টি কৰে।  ইয়াৰ এটা উদাহৰণ হব "
+"এটা ফাইল সৃষ্টি কৰে\n"
+"            যি পৰৱৰ্তী C লেবেলৰ সৈতে ফাইল সৃষ্টি কৰে।  ইয়াৰ এটা উদাহৰণ হব "
 "dhclient_t ধৰণৰ সৈতে চলি থকা\n"
-"            dhcp ক্লাএন্ট আৰু ডাইৰেকটৰি /etc ত এটা নথিপত্ৰ সৃষ্টি কৰা। এই ফাইলে "
+"            dhcp ক্লাএন্ট আৰু ডাইৰেকটৰি /etc ত এটা ফাইল সৃষ্টি কৰা। এই ফাইলে "
 "সাধাৰণত\n"
 "            etc_t ধৰণক উপধায়ক ইনহেৰিটেন্চৰ বাবে প্ৰাপ্ত কৰিব কিন্তু ইয়াৰ পৰিৱৰ্তে\n"
-"            নথিপত্ৰ net_conf_t ধৰণৰ সৈতে লেবেল কৰা হয় কাৰণ SELinux নীতিয়ে "
-"ইয়াক ধাৰ্য্য কৰে।\n"
-"        <li>ব্যৱহাৰকাৰীসমূহে এটা নথিপত্ৰত নথিপত্ৰ পৰিপ্ৰেক্ষতিত সঁজুলিসমূহ যেনে "
-"chcon, অথবা restorecon ব্যৱহাৰ কৰি সলনি কৰিব পাৰিব।\n"
+"            ফাইল net_conf_t ধৰণৰ সৈতে লেবেল কৰা হয় কাৰণ SELinux নীতিয়ে ইয়াক "
+"ধাৰ্য্য কৰে।\n"
+"        <li>ব্যৱহাৰকাৰীসমূহে এটা ফাইলত ফাইল পৰিপ্ৰেক্ষতিত সঁজুলিসমূহ যেনে chcon, "
+"অথবা restorecon ব্যৱহাৰ কৰি সলনি কৰিব পাৰিব।\n"
 "    </ul>\n"
-"    এই নথিপত্ৰ হয়তো ব্যৱহাৰকাৰী ত্ৰুটিৰ বাবে ভুলদৰে লেবেল হৈছে, অথবা যদি এটা "
-"সাধাৰণত গোপন অনুপ্ৰয়োগ\n"
+"    এই ফাইল হয়তো ব্যৱহাৰকাৰী ত্ৰুটিৰ বাবে ভুলদৰে লেবেল হৈছে, অথবা যদি এটা "
+"সাধাৰণত গোপন এপ্লিকেচন\n"
 "    এটা ভুল ডমেইনৰ অন্তৰ্গত আছিল।\n"
 "    <p> \n"
-"    যি কি নহওক, ই এটা SELinux ত এটা বাগ হব পাৰে কাৰণ নথিপত্ৰ এই ধৰণে লেবেল\n"
+"    যি কি নহওক, ই এটা SELinux ত এটা বাগ হব পাৰে কাৰণ ফাইল এই ধৰণে লেবেল\n"
 "    থাকিব নালাগিছিল।\n"
 "    <p>\n"
 "    যদি আপুনি ভাৱে ই এটা বাগ, অনুগ্ৰহ কৰি এই পেকেইজৰ বাবে এটা বাগ সংবাদ জমা "
@@ -2074,7 +2134,7 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $TARGET_PATH লে rsync অভিগম নাকচ কৰিলে।\n"
-"    যদি ই এটা RSYNC ভঁৰাল হয় ইয়াৰ এটা rsync_data_t নথিপত্ৰ পৰিপ্ৰেক্ষতিত লেবেল "
+"    যদি ই এটা RSYNC ভঁৰাল হয় ইয়াৰ এটা rsync_data_t ফাইল পৰিপ্ৰেক্ষতিত লেবেল "
 "থাকিব লাগিব। \n"
 "    যদি $TARGET_PATH ক এটা rsync ভঁৰাল হিচাপে ব্যৱহাৰ কৰিব নিবিচাৰে\n"
 "    ই এটা বাগ অথবা এটা অনাধিকাৰ প্ৰৱেশৰ ইংগিত হব পাৰে।\n"
@@ -2091,9 +2151,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    আপুনি chcon -R -t rsync_data_t '$TARGET_PATH' এক্সিকিউট কৰি নথিপত্ৰ "
+"    আপুনি chcon -R -t rsync_data_t '$TARGET_PATH' এক্সিকিউট কৰি ফাইল "
 "পৰিপ্ৰেক্ষতিত সলনি কৰিব পাৰিব\n"
-"    আপুনি লগতে চিস্টেমত অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহ সলনি কৰিব লাগিব "
+"    আপুনি লগতে চিস্টেমত অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহ সলনি কৰিব লাগিব "
 "সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিবলে। \"semanage fcontext -a -t "
 "rsync_data_t '$FIX_TARGET_PATH'\"\n"
 "    "
@@ -2134,8 +2194,8 @@ msgstr ""
 "\n"
 "    SELinux এ $TARGET_PATH লে samba অভিগম নাকচ কৰিলে।\n"
 "    যদি আপুনি এই ডাইৰেকটৰিক samba ৰ সৈতে অংশীদাৰী কৰিব বিচাৰে ইয়াৰ\n"
-"    samba_share_t নথিপত্ৰ পৰিপ্ৰেক্ষতিত লেবেল থাকিব লাগিব। যদি আপুনি "
-"$TARGET_PATH ক এটা samba ভঁৰাল\n"
+"    samba_share_t ফাইল পৰিপ্ৰেক্ষতিত লেবেল থাকিব লাগিব। যদি আপুনি $TARGET_PATH "
+"ক এটা samba ভঁৰাল\n"
 "    হিচাপে ব্যৱহাৰ কৰা কথা ভবা নাই ই এটা বাগ অথবা এটা অনাধিকাৰ প্ৰৱেশৰ ইংগিত "
 "হব পাৰে।\n"
 "    Samba আৰু  SELinux সংস্থাপন কৰাৰ বিষয়ে অধিক তথ্যৰ বাবে 'man samba_selinux' "
@@ -2153,10 +2213,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    আপুনি chcon -R -t samba_share_t '$TARGET_PATH' এক্সিকিউট কৰি নথিপত্ৰ "
+"    আপুনি chcon -R -t samba_share_t '$TARGET_PATH' এক্সিকিউট কৰি ফাইল "
 "পৰিপ্ৰেক্ষতিত সলনি কৰিব পাৰিব\n"
-"    আপুনি লগতে চিস্টেমত অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহ সলনি কৰিব লাগিব "
-"যাতে সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষৰণ কৰিব পাৰি।  \"semanage fcontext -a -t "
+"    আপুনি লগতে চিস্টেমত অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহ সলনি কৰিব লাগিব যাতে "
+"সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষৰণ কৰিব পাৰি।  \"semanage fcontext -a -t "
 "samba_share_t '$FIX_TARGET_PATH'\"\n"
 "    "
 
@@ -2197,8 +2257,8 @@ msgstr ""
 "    SELinux এ $SOURCE ক $TARGET সলনি কৰাৰ পৰা প্ৰতিৰোধ কৰিছে। এই প্ৰতিৰোধে "
 "ইংগিত দিয়ে যে\n"
 "    $SOURCE এ selinux নীতি সংৰূপ সলনি কৰাৰ চেষ্টা কৰি আছিল।\n"
-"    সকলো অনুপ্ৰয়োগ যাৰ এই অভিগমৰ প্ৰয়োজন সিহতৰ বাবে নীতি লিখা থাকিব লাগিব।\n"
-"    যদি এটা ভুল অনুপ্ৰয়োগে SELinux নীতি সলনি কৰাৰ চেষ্টা কৰে\n"
+"    সকলো এপ্লিকেচন যাৰ এই অভিগমৰ প্ৰয়োজন সিহতৰ বাবে নীতি লিখা থাকিব লাগিব।\n"
+"    যদি এটা ভুল এপ্লিকেচনে SELinux নীতি সলনি কৰাৰ চেষ্টা কৰে\n"
 "    এই AVC সৃজন কৰা হব। ই এটা গুৰুতৰ সমস্যা। আপোনাৰ \n"
 "    চিস্টেমত ভাল সাল সলনি হব পাৰে।\n"
 "    "
@@ -2238,11 +2298,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux এ $SOURCE ক /selinux ৰ অন্তৰ্গত এটা নথিপত্ৰ লিখাৰ পৰা প্ৰতিৰোধ "
-"কৰিছে।\n"
-"    /selinux ৰ অন্তৰ্গত নথিপত্ৰসমূহে SELinux সংৰূপণ কৰাৰ পদ্ধতি নিয়ন্ত্ৰণ কৰে।\n"
-"    সকলো প্ৰগ্ৰাম যি /selinux ৰ অন্তৰ্গত নথিপত্ৰসমূহ লিখিব লাগিব সিহতৰ বাবে এটা\n"
-"    নীতি লিখা থাকিব লাগিব। যদি এটা ভুল অনুপ্ৰয়োগে SELinux বন্ধ কৰাৰ চেষ্টা কৰে\n"
+"    SELinux এ $SOURCE ক /selinux ৰ অন্তৰ্গত এটা ফাইল লিখাৰ পৰা প্ৰতিৰোধ কৰিছে।\n"
+"    /selinux ৰ অন্তৰ্গত ফাইলসমূহে SELinux সংৰূপণ কৰাৰ পদ্ধতি নিয়ন্ত্ৰণ কৰে।\n"
+"    সকলো প্ৰগ্ৰাম যি /selinux ৰ অন্তৰ্গত ফাইলসমূহ লিখিব লাগিব সিহতৰ বাবে এটা\n"
+"    নীতি লিখা থাকিব লাগিব। যদি এটা ভুল এপ্লিকেচনে SELinux বন্ধ কৰাৰ চেষ্টা কৰে\n"
 "    এই AVC সৃজন কৰা হব। ই এটা গুৰতৰ সমস্যা। আপোনাৰ চিস্টেমত\n"
 "    বাল সাল সলনি হব পাৰে।\n"
 "    "
@@ -2256,8 +2315,8 @@ msgid ""
 "you may be under attack by a hacker, since confined applications should "
 "never need this access."
 msgstr ""
-"আপুনি এজন হেকাৰ দ্বাৰা আক্ৰমণৰ সন্মুখিন হব পাৰে, যিহেতু গোপণ অনুপ্ৰয়োগসমূহৰ এই অভিগমৰ "
-"কেতিয়াও প্ৰয়োজন নহয়।"
+"আপুনি এজন হেকাৰ দ্বাৰা আক্ৰমণৰ সন্মুখিন হব পাৰে, যিহেতু গোপণ এপ্লিকেচনসমূহৰ এই "
+"অভিগমৰ কেতিয়াও প্ৰয়োজন নহয়।"
 
 #: ../src/sshd_root.py:36
 msgid ""
@@ -2303,9 +2362,9 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $TARGET_PATH লে $SOURCE অভিগম নাকচ কৰিছে।\n"
-"    যদি ই এটা স্বাপনথিপত্ৰ হয় ইয়াৰ এটা swapfile_t নথিপত্ৰ পৰিপ্ৰেক্ষতিত লেবেল "
-"থাকিব লাগিব।\n"
-"    যদি আপুনি $TARGET_PATH ক এটা স্বাপনথিপত্ৰ হিচাপে ব্যৱহাৰ কৰিব নিবিচাৰে\n"
+"    যদি ই এটা স্বাপফাইল হয় ইয়াৰ এটা swapfile_t ফাইল পৰিপ্ৰেক্ষতিত লেবেল থাকিব "
+"লাগিব।\n"
+"    যদি আপুনি $TARGET_PATH ক এটা স্বাপফাইল হিচাপে ব্যৱহাৰ কৰিব নিবিচাৰে\n"
 "    ই এটা বাগৰ ইংগিত দিয়ে, যি কি নহওক\n"
 "    ই এটা অনাধিকাৰ প্ৰৱেশৰ ইংগিত দিব পাৰে।\n"
 "    "
@@ -2321,10 +2380,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    আপুনি chcon -t swapfile_t '$TARGET_PATH' এক্সিকিউট কৰি নথিপত্ৰ পৰিপ্ৰেক্ষতিত "
+"    আপুনি chcon -t swapfile_t '$TARGET_PATH' এক্সিকিউট কৰি ফাইল পৰিপ্ৰেক্ষতিত "
 "সলনি কৰিব পাৰিব\n"
-"    আপুনি লগতে চিস্টেমত অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহ সলনি কৰিব লাগিব "
-"যাতে সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
+"    আপুনি লগতে চিস্টেমত অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহ সলনি কৰিব লাগিব যাতে "
+"সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
 "swapfile_t '$FIX_TARGET_PATH'\"\n"
 "    "
 
@@ -2367,7 +2426,7 @@ msgstr ""
 "\n"
 "    SELinux এ $SOURCE ক এটা কাৰনেল মডিউল ল'ড কৰাৰ পৰা প্ৰতিৰোধ কৰিছে।\n"
 "    সকলো গোপন প্ৰগ্ৰাম যিসমূহৰ কাৰনেল মডিউলসমূহ ল'ড কৰা প্ৰয়োজন সিহতৰ বাবে\n"
-"    নীতি লিখা থাকিব লাগিব। যদি এটা ভুল অনুপ্ৰয়োগে কাৰনেল সলনি কৰাৰ চেষ্টা কৰে "
+"    নীতি লিখা থাকিব লাগিব। যদি এটা ভুল এপ্লিকেচনে কাৰনেল সলনি কৰাৰ চেষ্টা কৰে "
 "এই\n"
 "    AVC সৃজন কৰা হব। ই এটা গুৰতৰ সমস্যা।\n"
 "    আপোনাৰ চিস্টেমত ভাল সাল সলনি হব পাৰে।\n"
@@ -2540,14 +2599,14 @@ msgstr ""
 "\n"
 "SELinux  wine-preloader দ্বাৰা অনুৰোধ কৰা এটা কাৰ্য্য নাকচ কৰিলে, এটা প্ৰগ্ৰাম "
 "যাক\n"
-"Linux ত Windows অনুপ্ৰয়োগসমূহ চলোৱাৰ বাবে ব্যৱহাৰ কৰা হয়। এই প্ৰগ্ৰামক\n"
+"Linux ত Windows এপ্লিকেচনসমূহ চলোৱাৰ বাবে ব্যৱহাৰ কৰা হয়। এই প্ৰগ্ৰামক\n"
 "চিস্টেম মেমৰিত এটা অসুৰক্ষিত কাৰ্য্য চলোৱাৰ বাবে জনাজাত কিন্তু লগতে কেইবাটাও\n"
 "দ্বেষপূৰ্ণ/লুন্ঠণ প্ৰগ্ৰামসমূহ আছে যি wine হিচাপে কাৰ্য্য কৰে। যদি আপুনি\n"
 "এটা Windows প্ৰগ্ৰাম চলোৱাৰ চেষ্টা কৰি আছিল আপোনাৰ একমাত্ৰ বিকল্প হল\n"
 "এই কাৰ্য্যৰ অনুমতি দিয়া আৰু আপোনাৰ চিস্টেমৰ সুৰক্ষাক এনেধৰণৰ দ্বেষপূৰ্ণ প্ৰগ্ৰামৰ "
 "বিপৰিতে\n"
-"ত্ৰাস কৰা অথবা Linux ৰ অন্তৰ্গত Windows অনুপ্ৰয়োগসমূহ নচলাব। যদি আপুনি\n"
-"এটা Windows অনুপ্ৰয়োগ চলোৱাৰ চেষ্টা কৰা নাই ই ইংগিত দিয়ে যে\n"
+"ত্ৰাস কৰা অথবা Linux ৰ অন্তৰ্গত Windows এপ্লিকেচনসমূহ নচলাব। যদি আপুনি\n"
+"এটা Windows এপ্লিকেচন চলোৱাৰ চেষ্টা কৰা নাই ই ইংগিত দিয়ে যে\n"
 "আপুনি কোনোধৰণৰ দ্বৈষপূৰ্ণ প্ৰগ্ৰাম অথবা প্ৰগ্ৰাম যি আপোনাৰ চিস্টেম কিছুমান বেয়া "
 "কাৰ্য্যৰ\n"
 "বাবে ব্যৱহাৰ কৰিব বিচাৰে সেইসমূহৰ দ্বাৰা আক্ৰমণিত।\n"
@@ -2566,7 +2625,7 @@ msgid ""
 "you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
 msgstr ""
-"আপুনি এই AVC ক উপেক্ষা কৰিব বিচাৰে কাৰণ ই বিপদজনক আৰু আপোনাৰ wine অনুপ্ৰয়োগসমূহ "
+"আপুনি এই AVC ক উপেক্ষা কৰিব বিচাৰে কাৰণ ই বিপদজনক আৰু আপোনাৰ wine এপ্লিকেচনসমূহ "
 "সঠিকভাৱে কাৰ্য্য কৰি আছে।"
 
 #: ../src/wine.py:67
@@ -2608,11 +2667,11 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux এ $TARGET_PATH লে xen অভিগম নাকচ কৰিলে।\n"
-"    যদি ই এটা XEN ছবি হয়, ইয়াৰ এটা xen_image_t নথিপত্ৰ পৰিপ্ৰেক্ষতিত\n"
-"    লেবেল থাকিব লাগিব। চিস্টেম ডাইৰেকটৰি /var/lib/xen/images ত ছবি নথিপত্ৰসমূহ\n"
-"    সঠিকভাৱে লেবেল কৰিবলে সংস্থাপিত। আমি উপদেশ দিও যে আপুনি আপোনাৰ ছবি "
-"নথিপত্ৰক /var/lib/xen/images ছবিত কপি কৰক।\n"
-"    যদি আপুনি সঁচাকৈ আপোনাৰ xen ছবি নথিপত্ৰসমূহক বৰ্তমান ডাইৰেকটৰিত বিচাৰে, আপুনি "
+"    যদি ই এটা XEN ছবি হয়, ইয়াৰ এটা xen_image_t ফাইল পৰিপ্ৰেক্ষতিত\n"
+"    লেবেল থাকিব লাগিব। চিস্টেম ডাইৰেকটৰি /var/lib/xen/images ত ছবি ফাইলসমূহ\n"
+"    সঠিকভাৱে লেবেল কৰিবলে সংস্থাপিত। আমি উপদেশ দিও যে আপুনি আপোনাৰ ছবি ফাইলক /"
+"var/lib/xen/images ছবিত কপি কৰক।\n"
+"    যদি আপুনি সঁচাকৈ আপোনাৰ xen ছবি ফাইলসমূহক বৰ্তমান ডাইৰেকটৰিত বিচাৰে, আপুনি "
 "chcon ব্যৱহাৰ কৰি $TARGET_PATH ক xen_image_t হিচাপে পুনৰ লেবেল কৰিব পাৰিব।  "
 "আপুনি লগতে এই নতুন পথক চিস্টেম অবিকল্পিত যোগ কৰিবলে semanage fcontext -a -t "
 "xen_image_t '$FIX_TARGET_PATH' এক্সিকিউট\n"
@@ -2632,10 +2691,10 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    আপুনি chcon -t xen_image_t '$TARGET_PATH' এক্সিকিউট কৰি নথিপত্ৰ পৰিপ্ৰেক্ষতিত "
+"    আপুনি chcon -t xen_image_t '$TARGET_PATH' এক্সিকিউট কৰি ফাইল পৰিপ্ৰেক্ষতিত "
 "সলনি কৰিব পাৰিব\n"
-"    আপুনি লগতে চিস্টেমৰ অবিকল্পিত নথিপত্ৰ পৰিপ্ৰেক্ষতিত নথিপত্ৰসমূহ সলনি কৰিব লাগিব "
-"যাতে সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
+"    আপুনি লগতে চিস্টেমৰ অবিকল্পিত ফাইল পৰিপ্ৰেক্ষতিত ফাইলসমূহ সলনি কৰিব লাগিব যাতে "
+"সিহতক এটা সম্পূৰ্ণ পুনৰলেবেলত সংৰক্ষণ কৰিব পাৰি।  \"semanage fcontext -a -t "
 "xen_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
 
@@ -2643,7 +2702,7 @@ msgstr ""
 msgid ""
 "If you want to allow ftp to read and write files in the user home directories"
 msgstr ""
-"যদি আপুনি ftp ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহত নথিপত্ৰসমূহ পঢ়া আৰু লিখাৰ অনুমতি দিব "
+"যদি আপুনি ftp ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহত ফাইলসমূহ পঢ়া আৰু লিখাৰ অনুমতি দিব "
 "বিচাৰে"
 
 #: ../booleans_trans.py:2
@@ -2664,13 +2723,12 @@ msgstr ""
 
 #: ../booleans_trans.py:4
 msgid "If you want to allow xen to manage nfs files"
-msgstr "যদি আপুনি xen ক nfs নথিপত্ৰসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে"
+msgstr "যদি আপুনি xen ক nfs ফাইলসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে"
 
 #: ../booleans_trans.py:5
 msgid ""
 "If you want to allow confined web browsers to read home directory content"
-msgstr ""
-"যদি আপুনি গোপণ ৱেব ব্ৰাউছাৰসমূহক ঘৰ ডাইৰেকটৰিৰ বিষয়বস্তু পঢ়াৰ অনুমতি দিব বিচাৰে"
+msgstr "যদি আপুনি গোপণ ৱেব ব্ৰাউছাৰসমূহক ঘৰ ডাইৰেকটৰিৰ সমল পঢ়াৰ অনুমতি দিব বিচাৰে"
 
 #: ../booleans_trans.py:6
 msgid ""
@@ -2686,414 +2744,25 @@ msgstr "যদি আপুনি ডাটাবেইচ প্ৰশাসক
 
 #: ../booleans_trans.py:8
 msgid "If you want to allow clamscan to read user content"
-msgstr "যদি আপুনি clamscan ব্যৱহাৰকাৰী বিষয়বস্তুৰ পঢ়াৰ অনুমতি দিব বিচাৰে"
+msgstr "যদি আপুনি clamscan ব্যৱহাৰকাৰী সমলৰ পঢ়াৰ অনুমতি দিব বিচাৰে"
 
 #: ../booleans_trans.py:9
 msgid ""
 "If you want to allow tftp to modify public files used for public file "
 "transfer services."
 msgstr ""
-"যদি আপুনি tftp ক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা নথিপত্ৰসমূহ "
-"সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
+"যদি আপুনি tftp ক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা ফাইলসমূহ সলনি "
+"কৰাৰ অনুমতি দিব বিচাৰে।"
 
 #: ../booleans_trans.py:10
 msgid ""
 "If you want to allow ZoneMinder to modify public files used for public file "
 "transfer services."
 msgstr ""
-"যদি আপুনি ZoneMinder ক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা "
-"নথিপত্ৰসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
+"যদি আপুনি ZoneMinder ক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা "
+"ফাইলসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
 
 #: ../booleans_trans.py:11
-msgid ""
-"If you want to allow direct login to the console device. Required for System "
-"390"
-msgstr ""
-"যদি আপুনি কনচৌল যন্ত্ৰলে প্ৰত্যক্ষ প্ৰৱেশৰ অনুমতি দিব বিচাৰে। চিস্টেম 390 ৰ বাবে "
-"প্ৰয়োজনীয়"
-
-#: ../booleans_trans.py:12
-msgid "If you want to allow user spamassassin clients to use the network."
-msgstr "যদি আপুনি ব্যৱহাৰকাৰী ক্লাএন্টসমূহক নেটৱাৰ্ক ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:13
-msgid "If you want to allow httpd to act as a relay"
-msgstr "যদি আপুনি httpd ক এটা প্ৰেৰক হিচাপে কাৰ্য্য কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:14
-msgid "If you want to allow openvpn to read home directories"
-msgstr "যদি আপুনি openvpn ক ঘৰ ডাইৰেকটৰিসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:15
-msgid ""
-"If you want to allow usage of the gpg-agent --write-env-file option. This "
-"also allows gpg-agent to manage user files."
-msgstr ""
-"যদি আপুনি gpg-agent --write-env-file বিকল্প ব্যৱহাৰৰ অনুমতি দিব বিচাৰে। ই লগতে "
-"gpg-agent ক ব্যৱহাৰকাৰী নথিপত্ৰসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিয়ে।"
-
-#: ../booleans_trans.py:16
-msgid ""
-"If you want to allow the Telepathy connection managers to connect to any "
-"generic TCP port."
-msgstr ""
-"যদি আপুনি টেলিপেথী সংযোগ ব্যৱস্থাপকসমূহক যিকোনো বৰ্গীয় TCP পোৰ্টলে সংযোগ কৰাৰ "
-"অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:17
-msgid ""
-"If you want to allow unconfined users to transition to the Mozilla plugin "
-"domain when running xulrunner plugin-container."
-msgstr ""
-"যদি আপুনি উন্মুক্ত ব্যৱহাৰকাৰীসমূহক xulrunner প্লাগিন-ধাৰক চলাই থাকোতে Mozilla "
-"প্লাগিন ডমেইনলে যোৱাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:18
-msgid "If you want to allow confined virtual guests to read fuse files"
-msgstr "যদি আপুনি গোপণ ভাৰছুৱেল অতিথিসমূহক fuse নথিপত্ৰসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:19
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to databases over "
-"the network."
-msgstr ""
-"যদি আপুনি HTTPD লিপিসমূহ আৰু মডিউলসমূহক নেটৱাৰ্কৰে ডাটাবেইচত সংযোগ কৰাৰ অনুমতি দিব "
-"বিচাৰে।"
-
-#: ../booleans_trans.py:20
-msgid ""
-"If you want to allow ssh with chroot env to read and write files in the user "
-"home directories"
-msgstr ""
-"যদি আপুনি ssh ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহত chroot ৰ সৈতে নথিপত্ৰসমূহ পঢ়া আৰু "
-"লিখাৰ  অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:21
-msgid "If you want to allow users to connect to the local mysql server"
-msgstr ""
-"যদি আপুনি ব্যৱহাৰকাৰীসমূহক স্থানীয় mysql চাৰ্ভাৰলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:22
-msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr "যদি আপুনি polipo ক সকলে পোৰ্টৰ সৈতে সংযোগ কৰাব বিচাৰে > 1023"
-
-#: ../booleans_trans.py:23
-msgid ""
-"If you want to allow ftp servers to login to local users and read/write all "
-"files on the system, governed by DAC."
-msgstr ""
-"যদি আপুনি ftp চাৰ্ভাৰসমূহক স্থানীয় ব্যৱহাৰকাৰীসমূহত প্ৰৱেশ কৰি চিস্টেমত DAC ৰে ৰাজত্ব "
-"কৰা, সকলো নথিপত্ৰ পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:24
-msgid "If you want to allow httpd to run gpg in gpg-web domain"
-msgstr "যদি আপুনি httpd ক gpg-web ডমেইনত gpg চলোৱাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:25
-msgid ""
-"If you want to allow samba to act as the domain controller, add users, "
-"groups and change passwords."
-msgstr ""
-"যদি আপুনি samba ক ডমেইন নিয়ন্ত্ৰক হিচাপে কাৰ্য্য কৰাৰ, ব্যৱহাৰকাৰীসম, দল যোগ কৰাৰ "
-"আৰু পাছৱাৰ্ডসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:26
-msgid "If you want to allow httpd to execute cgi scripts"
-msgstr "যদি আপুনি httpd ক cgi লিপিবোৰ এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:27
-msgid "If you want to determine whether polipo can access cifs file systems."
-msgstr ""
-"যদি আপুনি polipo এ cifs নথিপত্ৰ প্ৰণালীসমূহ অভিগম কৰাটো নিৰ্ধাৰণ কৰিব বিচাৰে।"
-
-#: ../booleans_trans.py:28 ../booleans_trans.py:142
-msgid "If you want to allow confined virtual guests to manage nfs files"
-msgstr ""
-"যদি আপুনি গোপণ ভাৰছুৱেল অতিথিসমূহক nfs নথিপত্ৰসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:29
-msgid "If you want to allow all daemons the ability to read/write terminals"
-msgstr "যদি আপুনি সকলো ডিমনক টাৰ্মিনেলসমূহ পঢ়া/লিখা ক্ষমতাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:30
-msgid ""
-"If you want to allow confined virtual guests to use serial/parallel "
-"communication ports"
-msgstr ""
-"যদি আপুনি গোপণ ভাৰছুৱেল অতিথিসমূহক ক্ৰমিক/সমান্তৰাল সংযোগ পোৰ্টসমূহ ব্যৱহাৰ কৰাৰ "
-"অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:31
-msgid ""
-"If you want to allow samba to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"যদি আপুনি samba ক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা নথিপত্ৰসমূহ "
-"সলনি কৰাৰ অনুমতি দিব বিচাৰে। নথিপত্ৰসমূহ/ডাইৰেকটৰিসমূহ public_content_rw_t লেবেল "
-"কৰা থাকিব লাগিব।"
-
-#: ../booleans_trans.py:32
-msgid "If you want to allow rsync to run as a client"
-msgstr "যদি আপুনি rsync ক ক্লাএন্ট হিচাপে চলাব বিচাৰে"
-
-#: ../booleans_trans.py:33
-msgid ""
-"If you want to allow rgmanager domain to connect to the network using TCP."
-msgstr "যদি আপুনি rgmanager ডমেইনক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাব বিচাৰে।"
-
-#: ../booleans_trans.py:34
-msgid "If you want to allow exim to read unprivileged user files."
-msgstr "যদি exim ক সুবিধাহিন ব্যৱহাৰকাৰী নথিপত্ৰসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:35
-msgid "If you want to allow sysadm to debug or ptrace all processes."
-msgstr ""
-"যদি আপুনি sysadm ক সকলো প্ৰক্ৰিয়া ডিবাগ অথবা ptrace কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:36
-msgid "If you want to allow Puppet client to manage all file types."
-msgstr ""
-"যদি আপুনি Puppet ক্লাএন্টক সকলো নথিপত্ৰ ধৰণ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:37
-msgid ""
-"If you want to allow the use of the audio devices as the source for the "
-"entropy feeds"
-msgstr ""
-"যদি আপুনি এনট্ৰপি ফিডসমূহৰ উৎস হিচাপে অডিঅ' ডিভাইচসমূহৰ ব্যৱহাৰৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:38
-msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
-msgstr "যদি আপুনি ssh প্ৰৱেশসমূহক sysadm_r:sysadm_t হিচাপে অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:39
-msgid ""
-"If you want to determine whether Polipo session daemon can send syslog "
-"messages."
-msgstr ""
-"যদি আপুনি Polipo অধিবেশন ডিমনে syslog বাৰ্তাসমূহ পঠাব পাৰিব নে নিৰ্ধাৰণ কৰিব "
-"বিচাৰে।"
-
-#: ../booleans_trans.py:40
-msgid ""
-"If you want to allow BIND to write the master zone files. Generally this is "
-"used for dynamic DNS or zone transfers."
-msgstr ""
-"যদি আপুনি BIND ক মাস্টাৰ অঞ্চল নথিপত্ৰসমূহ লিখাৰ অনুমতি দিব বিচাৰে। সাধাৰণত ইয়াক "
-"চলমান DNS অথবা অঞ্চল স্থানান্তৰসমূহৰ বাবে ব্যৱহাৰ কৰা হয়।"
-
-#: ../booleans_trans.py:41
-msgid "If you want to allow Git daemon system to access cifs file systems."
-msgstr ""
-"যদি আপুনি Git ডিমন চিস্টেমক cifs নথিপত্ৰ প্ৰণালীলে অভিগমৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:42
-msgid ""
-"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
-msgstr "যদি আপুনি ডিমনক সকলো অসংৰক্ষিত পোৰ্টলে tcp চকেট বন্ধাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:43
-msgid "If you want to allow host key based authentication"
-msgstr "যদি আপুনি হস্ট চাবি ভিত্তিয় প্ৰমাণীকৰণৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:44
-msgid "If you want to allow httpd to access cifs file systems"
-msgstr "যদি আপুনি httpd ক cifs নথিপত্ৰ প্ৰণালীসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:45
-msgid ""
-"If you want to allow piranha-lvs domain to connect to the network using TCP."
-msgstr ""
-"যদি আপুনি piranha-lvs ডিমনক TCP ব্যৱহাৰ কৰি নেটাৱৰ্কলে সংযোগ কৰাৰ অনুমতি দিব "
-"বিচাৰে।"
-
-#: ../booleans_trans.py:46
-msgid ""
-"If you want to disallow programs, such as newrole, from transitioning to "
-"administrative user domains."
-msgstr ""
-"যদি আপুনি প্ৰ্ৰগ্ৰামসমূহ যেনে, newrole ক, প্ৰশাসনীয় ব্যৱহাৰকাৰী ডমেইনসমূহৰ পৰা "
-"স্থানান্তৰ কৰা বিচাৰে।"
-
-#: ../booleans_trans.py:47
-msgid ""
-"If you want to allow ABRT to modify public files used for public file "
-"transfer services."
-msgstr ""
-"যদি আপুনি ABRT ক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা নথিপত্ৰসমূহ "
-"সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:48
-msgid "If you want to allow pppd to be run for a regular user"
-msgstr "যদি আপুনি pppd ক এটা সাধাৰণ ব্যৱহাৰৰ বাবে চলাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:49
-msgid "If you want to allow samba to share any file/directory read only."
-msgstr ""
-"যদি আপুনি samba ক যিকোনো নথিপত্ৰ/ডাইৰেকটৰিক কেৱল পঢ়িব পৰা বুলি অংশীদাৰী কৰিবলে "
-"অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:50
-msgid "If you want to allow ftp servers to connect to mysql database ports"
-msgstr ""
-"যদি আপুনি ftp চাৰ্ভাৰসমূহক mysql ডাটাবেইচ পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:51
-msgid "If you want to allow Git daemon system to search home directories."
-msgstr "যদি আপুনি Git ডিমন চিস্টেমক ঘৰ ডাইৰেকটৰিসমূহ সন্ধান কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:52
-msgid "If you want to support SAMBA home directories"
-msgstr "যদি আপুনি SAMBA ঘৰ ডাইৰেকটৰিসমূহ সমৰ্থন কৰিব বিচাৰে"
-
-#: ../booleans_trans.py:53
-msgid "If you want to allow mock to read files in home directories."
-msgstr "যদি আপুনি mock ক ঘৰ ডাইৰেকটৰিসমূহত নথিপত্ৰসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:54
-msgid "If you want to allow users to login using a sssd server"
-msgstr ""
-"যদি আপুনি ব্যৱহাৰকাৰীসমূহক এটা sssd চাৰ্ভাৰ ব্যৱহাৰ কৰি প্ৰৱেশ কৰাৰ অনুমতি দিব "
-"বিচাৰে"
-
-#: ../booleans_trans.py:55
-msgid ""
-"If you want to allow samba to create new home directories (e.g. via PAM)"
-msgstr ""
-"যদি আপুনি samba ক নতুন ঘৰ ডাইৰেকটৰিসমূহ যেনে (উদাহৰণস্বৰূপ, PAM ৰে) সৃষ্টি কৰাৰ "
-"অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:56
-msgid "If you want to control users use of ping and traceroute"
-msgstr ""
-"যদি আপুনি ব্যৱহাৰকাৰীসমূহৰ ping আৰু traceroute ৰ ব্যৱহাৰ নিয়ন্ত্ৰণ কৰিব বিচাৰে"
-
-#: ../booleans_trans.py:57
-msgid ""
-"If you want to allow ftp servers to use cifs used for public file transfer "
-"services."
-msgstr ""
-"যদি আপুনি ftp চাৰ্ভাৰসমূহক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত cifs "
-"ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:58
-msgid ""
-"If you want to allow the Irssi IRC Client to connect to any port, and to "
-"bind to any unreserved port."
-msgstr ""
-"যদি আপুনি Irssi IRC ক্লাএন্টক যিকোনো পোৰ্টলে সংযোগ কৰাৰ, আৰু যিকোনো অসংৰক্ষিত "
-"পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:59
-msgid "If you want to allow zabbix to connect to unreserved ports"
-msgstr "যদি আপুনি zabbix ক অসংৰক্ষিত পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:60
-msgid "If you want to allow Apache to use mod_auth_pam"
-msgstr "যদি আপুনি Apache ক mod_auth_pam ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:61
-msgid ""
-"If you want to allow ftp servers to use nfs used for public file transfer "
-"services."
-msgstr ""
-"যদি আপুনি ftp চাৰ্ভাৰসমূহক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত nfs "
-"ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:62
-msgid "If you want to allow httpd to read home directories"
-msgstr "যদি আপুনি httpd ক ঘৰ ডাইৰেকটৰি পঢ়াৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:63
-msgid ""
-"If you want to allow gpg web domain to modify public files used for public "
-"file transfer services."
-msgstr ""
-"যদি আপুনি gpg ৱেব ডমেইনক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা "
-"নথিপত্ৰসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:64
-msgid "If you want to allow rsync to export any files/directories read only."
-msgstr ""
-"যদি আপুনি rsync ক যিকোনো নথিপত্ৰ/ডাইৰেকটৰি কেৱল পঢ়িব পৰা হিচাপে এক্সপোৰ্ট কৰাৰ "
-"অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:65
-msgid ""
-"If you want to allow all unconfined executables to use libraries requiring "
-"text relocation that are not labeled textrel_shlib_t"
-msgstr ""
-"যদি আপুনি সকলো উন্মুক্ত এক্সিকিউটেবুল সমূহক লাইব্ৰেৰীসমূহ যাৰ পাঠ পুনঃঅৱস্থানৰ প্ৰয়োজন "
-"যিসমূহক textrel_shlib_t লেবেল কৰা হোৱা নাই ব্যৱহাৰ কৰাৰ অনুমতি দিয়ে"
-
-#: ../booleans_trans.py:66
-msgid ""
-"If you want to allow apache scripts to write to public content.  Directories/"
-"Files must be labeled public_rw_content_t."
-msgstr ""
-"যদি আপুনি apache লিপিসমূহক ৰাজহুৱা বিষয়বস্তুলে লিখাৰ অনুমতি দিব বিচাৰে।  "
-"ডাইৰেকটৰিসমূহ/নথিপত্ৰসমূহ public_rw_content_t লেবেল কৰা থাকিব লাগিব।"
-
-#: ../booleans_trans.py:67
-msgid "If you want to allow qemu to use cifs/Samba file systems"
-msgstr ""
-"যদি আপুনি qemu ক cifs/Samba নথিপত্ৰ প্ৰণালীসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:68
-msgid ""
-"If you want to determine whether Polipo session daemon can bind tcp sockets "
-"to all unreserved ports."
-msgstr ""
-"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে Polipo অধিবেশন ডিমনে সকলো অসংৰক্ষিত পোৰ্টলে tcp "
-"চকেটসমূহ সংযোগ কৰিব পাৰে নে।"
-
-#: ../booleans_trans.py:69
-msgid "If you want to allow qemu to use serial/parallel communication ports"
-msgstr ""
-"যদি আপুনি qemu ক ক্ৰমিক/সমান্তৰাল সংযোগ পোৰ্টসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:70
-msgid "If you want to allow Apache to communicate with avahi service via dbus"
-msgstr "যদি আপুনি Apache ক dbus ৰে avahi সেৱাৰ সৈতে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:71
-msgid "If you want to allow all daemons to use tcp wrappers."
-msgstr "যদি আপুনি সকলো ডিমনক tcp ৰেপাৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:72
-msgid "If you want to allow samba to share users home directories."
-msgstr ""
-"যদি আপুনি samba ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহ অংশীদাৰী কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:73
-msgid "If you want to enable reading of urandom for all domains."
-msgstr "যদি আপুনি সকলো ডমেইনৰ বাবে urandom পঢ়াটো সামৰ্থবান কৰিব বিচাৰে।"
-
-#: ../booleans_trans.py:74
-msgid "If you want to allow racoon to read shadow"
-msgstr "যদি আপুনি racoon ক ছায়া পঢ়াৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:75
-msgid "If you want to allow Cobbler to connect to the network using TCP."
-msgstr ""
-"যদি আপুনি Cobbler ক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:76
-msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
-msgstr ""
-"যদি আপুনি squid ক এটা পাৰদৰ্শী প্ৰক্সি (TPROXY) হিচাপে চলাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:77
-msgid ""
-"If you want to prevent all confined domains from loading policy, setting "
-"enforcing mode, and changing boolean values.  Set this to true and you have "
-"to reboot to set it back"
-msgstr ""
-"যদি আপুনি সকলো গোপণ ডমেইনক নীতি, সংহতি বলৱৎকৰণ অৱস্থা, আৰু বুলিয়ান মানসমূহ "
-"পৰিৱৰ্তন কৰাৰ পৰা প্ৰতিৰোধ কৰিব বিচাৰে। ইয়াক true লে সংহতি কৰক আৰু ইয়াৰ পুনৰ "
-"সংহতি কৰিবলে আপুনিপুনৰাম্ভ কৰিব লাগিব"
-
-#: ../booleans_trans.py:78
 msgid ""
 "If you want to allow unconfined executables to make their heap memory "
 "executable.  Doing this is a really bad idea. Probably indicates a badly "
@@ -3105,294 +2774,226 @@ msgstr ""
 "এক্সিকিউটেবুল বুজায়, কিন্তু এটা আক্ৰমণৰ ইংগিত দিব পাৰে। এই এক্সিকিউটেবুলক bugzilla ত "
 "সংবাদিত কৰিব লাগিব"
 
-#: ../booleans_trans.py:79
-msgid "If you want to allow dbadm to manage files in users home directories"
-msgstr ""
-"যদি আপুনি dbadm ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহত নথিপত্ৰসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি "
-"দিব বিচাৰে"
+#: ../booleans_trans.py:12
+msgid "If you want to allow user spamassassin clients to use the network."
+msgstr "যদি আপুনি ব্যৱহাৰকাৰী ক্লাএন্টসমূহক নেটৱাৰ্ক ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:80
+#: ../booleans_trans.py:13
+msgid "If you want to allow sysadm to debug or ptrace all processes."
+msgstr ""
+"যদি আপুনি sysadm ক সকলো প্ৰক্ৰিয়া ডিবাগ অথবা ptrace কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:14
 msgid ""
-"If you want to allow confined virtual guests to interact with the xserver"
+"If you want to allow all unconfined executables to use libraries requiring "
+"text relocation that are not labeled textrel_shlib_t"
 msgstr ""
-"যদি আপুনি গোপণ ভাৰছুৱেল অতিথিসমূহক xserver ৰ সৈতে ভাৱবিনিময় কৰাৰ অনুমতি দিব "
-"বিচাৰে"
+"যদি আপুনি সকলো উন্মুক্ত এক্সিকিউটেবুল সমূহক লাইব্ৰেৰীসমূহ যাৰ পাঠ পুনঃঅৱস্থানৰ প্ৰয়োজন "
+"যিসমূহক textrel_shlib_t লেবেল কৰা হোৱা নাই ব্যৱহাৰ কৰাৰ অনুমতি দিয়ে"
 
-#: ../booleans_trans.py:81
-msgid "If you want to allow Git daemon system to access nfs file systems."
-msgstr ""
-"যদি আপুনি Git ডিমন চিস্টেমক nfs নথিপত্ৰ প্ৰণালীসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে।"
+#: ../booleans_trans.py:15
+msgid "If you want to allow httpd to act as a relay"
+msgstr "যদি আপুনি httpd ক এটা প্ৰেৰক হিচাপে কাৰ্য্য কৰাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:82
-msgid "If you want to unify HTTPD handling of all content files."
-msgstr "যদি আপুনি সকলো বিষয়বস্তু নথিপত্ৰসমূহৰ HTTPD ব্যৱস্থাপনা সংযুক্ত কৰিব বিচাৰে।"
+#: ../booleans_trans.py:16
+msgid "If you want to allow openvpn to read home directories"
+msgstr "যদি আপুনি openvpn ক ঘৰ ডাইৰেকটৰিসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:83
-msgid "If you want to allow nsplugin code to connect to unreserved ports"
-msgstr "যদি আপুনি nsplugin ক'ডক অসংৰক্ষিত পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:84
+#: ../booleans_trans.py:17
 msgid ""
-"If you want to allow rsync to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
+"If you want to allow usage of the gpg-agent --write-env-file option. This "
+"also allows gpg-agent to manage user files."
 msgstr ""
-"যদি আপুনি rsync ক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা নথিপত্ৰসমূহ "
-"সলনি কৰাৰ অনুমতি দিব বিচাৰে। নথিপত্ৰসমূহ/ডাইৰেকটৰিসমূহ public_content_rw_t লেবেল "
-"কৰা থাকিব লাগিব।"
+"যদি আপুনি gpg-agent --write-env-file বিকল্প ব্যৱহাৰৰ অনুমতি দিব বিচাৰে। ই লগতে "
+"gpg-agent ক ব্যৱহাৰকাৰী ফাইলসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিয়ে।"
 
-#: ../booleans_trans.py:85
-msgid "If you want to allow qemu to use nfs file systems"
-msgstr "যদি আপুনি qemu ক nfs নথিপত্ৰ প্ৰণালীসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:86
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to the network "
-"using any TCP port."
-msgstr ""
-"যদি আপুনি HTTPD লিপিসমূহ আৰু মডিউলসমূহক যিকোনো TCP পোৰ্ট ব্যৱহাৰ কৰি নেটৱাৰ্কলে "
-"সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:87
-msgid "If you want to allow qemu to use usb devices"
-msgstr "যদি আপুনি qemu ক usb যন্ত্ৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:88
-msgid "If you want to allow exim to connect to databases (PostgreSQL, MySQL)"
-msgstr ""
-"যদি আপুনি exim ক ডাটাবেইচসমূহলে (PostgreSQL, MySQL) সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:89
-msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
-msgstr ""
-"যদি আপুনি varnishd ক HTTP ৰ বাহিৰেও অন্য পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:90
-msgid "If you want to allow mplayer executable stack"
-msgstr "যদি আপুনি mplayer এক্সিকিউটেবুল স্টেকৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:91
-msgid "If you want to allow httpd scripts and modules execmem/execstack"
-msgstr "যদি আপুনি httpd লিপিসমূহ আৰু execmem/execstack মডিউলসমূহৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:92
-msgid "If you want to allow all daemons to write corefiles to /"
-msgstr "যদি আপুন৯ি সকলো ডিমনক কেন্দ্ৰীয়নথিপত্ৰসমূহ / লে লিখাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:93
-msgid "If you want to allow httpd to connect to the ldap port"
-msgstr "যদি আপুনি httpd ক ldap পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:94
-msgid ""
-"If you want to allow confined virtual guests to manage device configuration, "
-"(pci)"
-msgstr ""
-"যদি আপুনি গোপন ভাৰছুৱল অতিথিসমূহক যন্ত্ৰ সংৰূপ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে,  "
-"(pci)"
-
-#: ../booleans_trans.py:95
-msgid "If you want to allow spamd to read/write user home directories."
-msgstr ""
-"যদি আপুনি spamd ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহ পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:96
-msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
-msgstr "যদি আপুনি Apache ক mod_auth_ntlm_winbind ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:97
-msgid "If you want to allow the graphical login program to execute bootloader"
-msgstr "যদি আপুনি গ্ৰাফীয় প্ৰৱেশ প্ৰগ্ৰামক বুটল'ডাৰ এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:98
-msgid "If you want to allow system to run with NIS"
-msgstr "যদি আপুনি চিস্টেমক NIS চলোৱাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:99
-msgid "If you want to allow qemu to connect fully to the network"
-msgstr "যদি আপুনি qemu ক সম্পূৰ্ণভাৱে নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:100
-msgid ""
-"If you want to allow nfs servers to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"যদি আপুনি nfs চাৰ্ভাৰসমূহক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা "
-"নথিপত্ৰসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে। নথিপত্ৰসমূহ/ডাইৰেকটৰিসমূহ "
-"public_content_rw_t লেবেল কৰা থাকিব লাগিব।"
-
-#: ../booleans_trans.py:101
-msgid ""
-"If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
-"ABRT event scripts"
-msgstr ""
-"যদি আপুনি ABRT ক ABRT ঘটনা লিপিসমূহ ব্যৱস্থাপনা কৰিবলে abrt_handle_event_t "
-"ডমেইনত চলাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:102
-msgid ""
-"If you want to unify HTTPD to communicate with the terminal. Needed for "
-"entering the passphrase for certificates at the terminal."
-msgstr ""
-"যদি আপুনি টাৰ্মিনেললে সংযোগ কৰিবলে HTTPD ক সংযুক্ত কৰিব বিচাৰে। টাৰ্মিনেলত "
-"প্ৰমাণপত্ৰসমূহৰ বাবে পাছফ্ৰেইচ সুমুওৱাৰ বাবে প্ৰয়োজনীয়।"
-
-#: ../booleans_trans.py:103
-msgid ""
-"If you want to allow xend to run qemu-dm. Not required if using paravirt and "
-"no vfb."
-msgstr ""
-"যদি আপুনি xend ক qemu-dm চলোৱাৰ অনুমতি দিব বিচাৰে। প্ৰয়োজনীয় নহয় যদি paravirt "
-"ব্যৱহাৰ কৰা হৈ আছে আৰু vfb নাই।"
-
-#: ../booleans_trans.py:104
-msgid ""
-"If you want to allow sftp-internal to read and write files in the user home "
-"directories"
-msgstr ""
-"যদি আপুনি sftp-internal ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰসমূহত নথিপত্ৰসমূহ পঢ়া আৰু লিখাৰ "
-"অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:105
-msgid "If you want to support fusefs home directories"
-msgstr "যদি আপুনি fusefs ঘৰ ডাইৰেকটৰিসমূহ সমৰ্থন কৰিব বিচাৰে"
-
-#: ../booleans_trans.py:106
+#: ../booleans_trans.py:18
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
-"network port."
+"generic TCP port."
 msgstr ""
-"যদি আপুনি টেলিপেথী সংযোগ ব্যৱস্থাপকসমূহক যিকোনো নেটৱাৰ্ক পোৰ্টলে সংযোগ কৰাৰ অনুমতি "
-"দিব বিচাৰে।"
+"যদি আপুনি টেলিপেথী সংযোগ ব্যৱস্থাপকসমূহক যিকোনো বৰ্গীয় TCP পোৰ্টলে সংযোগ কৰাৰ "
+"অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:107
+#: ../booleans_trans.py:19
+#, fuzzy
+msgid "If you want to allow sge to connect to the network using any TCP port"
+msgstr ""
+"যদি আপুনি Cobbler ক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:20
 msgid ""
-"If you want to determine whether calling user domains can execute Polipo "
-"daemon in the polipo_session_t domain."
+"If you want to allow unconfined users to transition to the Mozilla plugin "
+"domain when running xulrunner plugin-container."
 msgstr ""
-"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে কল কৰি থকা ব্যৱহাৰকাৰী ডমেইনসমূহে "
-"polipo_session_t domain ত Polipo ডিমন এক্সিকিউট কৰিব পাৰে নে।"
+"যদি আপুনি উন্মুক্ত ব্যৱহাৰকাৰীসমূহক xulrunner প্লাগিন-ধাৰক চলাই থাকোতে Mozilla "
+"প্লাগিন ডমেইনলে যোৱাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:108
-msgid "If you want to allow confined applications to use nscd shared memory."
-msgstr ""
-"যদি আপুনি গোপন অনুপ্ৰয়োগসমূহক nscd অংশীদাৰী মেমৰি ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
+#: ../booleans_trans.py:21
+msgid "If you want to allow sasl to read shadow"
+msgstr "যদি আপুনি sasl ক ছায়া পঢ়াৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:109
-msgid "If you want to allow w to display everyone"
-msgstr "যদি আপুনি সকলোকে প্ৰদৰ্শন কৰিবলে w ক অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:110
-msgid "If you want to allow fenced domain to execute ssh."
-msgstr "যদি আপুনি ফেনস্ড ডমেইনক ssh এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:111
+#: ../booleans_trans.py:22
+#, fuzzy
 msgid ""
-"If you want to allow Apache to modify public files used for public file "
-"transfer services. Directories/Files must be labeled public_content_rw_t."
+"If you want to allow httpd to communicate with oddjob to start up a service"
+msgstr "যদি আপুনি Apache ক dbus ৰে avahi সেৱাৰ সৈতে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:23
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to databases over "
+"the network."
 msgstr ""
-"যদি আপুনি Apache ক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা "
-"নথিপত্ৰসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে। ডাইৰেকটৰিসমূহ/নথিপত্ৰসমূহ "
-"public_content_rw_t লেবেল কৰা থাকিব লাগিব।"
-
-#: ../booleans_trans.py:112
-msgid "If you want to allow user music sharing"
-msgstr "যদি আপুনি ব্যৱহাৰকাৰী সংগীত অংশীদাৰীৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:113
-msgid "If you want to allow dbadm to read files in users home directories"
-msgstr ""
-"যদি আপুনি dbadm ক ব্যৱহাৰকাৰীসমূহৰ ঘৰ ডাইৰেকটৰিসমূহত নথিপত্ৰসমূহ পঢ়াৰ অনুমতি দিব "
-"বিচাৰে"
-
-#: ../booleans_trans.py:114
-msgid "If you want to allow regular users direct dri device access"
-msgstr "যদি আপুনি সাধাৰণ ব্যৱহাৰকাৰীসমূহক প্ৰত্যক্ষ যন্ত্ৰ অভিগমৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:115
-msgid "If you want to allow the mount command to mount any directory or file."
-msgstr ""
-"যদি আপুনি যিকোনো ডাইৰেকটৰি অথবা নথিপত্ৰ মাউন্ট কৰিবলে mount কমান্ডৰ অনুমতি দিব "
+"যদি আপুনি HTTPD লিপিসমূহ আৰু মডিউলসমূহক নেটৱাৰ্কৰে ডাটাবেইচত সংযোগ কৰাৰ অনুমতি দিব "
 "বিচাৰে।"
 
-#: ../booleans_trans.py:116
-msgid "If you want to allow a user to login as an unconfined domain"
-msgstr ""
-"যদি আপুনি এজন ব্যৱহাৰকাৰীক এটা উন্মুক্ত ডমেইন হিচাপে প্ৰৱেশ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:117
+#: ../booleans_trans.py:24
 msgid ""
-"If you want to disallow programs and users from transitioning to insmod "
-"domain."
+"If you want to allow ssh with chroot env to read and write files in the user "
+"home directories"
+msgstr ""
+"যদি আপুনি ssh ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহত chroot ৰ সৈতে ফাইলসমূহ পঢ়া আৰু "
+"লিখাৰ  অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:25
+msgid "If you want to allow the mount command to mount any directory or file."
+msgstr ""
+"যদি আপুনি যিকোনো ডাইৰেকটৰি অথবা ফাইল মাউন্ট কৰিবলে mount কমান্ডৰ অনুমতি দিব "
+"বিচাৰে।"
+
+#: ../booleans_trans.py:26
+msgid "If you want to allow polipo to connect to all ports > 1023"
+msgstr "যদি আপুনি polipo ক সকলে পোৰ্টৰ সৈতে সংযোগ কৰাব বিচাৰে > 1023"
+
+#: ../booleans_trans.py:27
+#, fuzzy
+msgid "If you want to allow httpd to run gpg"
+msgstr "যদি আপুনি httpd ক gpg-web ডমেইনত gpg চলোৱাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:28
+msgid ""
+"If you want to allow samba to act as the domain controller, add users, "
+"groups and change passwords."
+msgstr ""
+"যদি আপুনি samba ক ডমেইন নিয়ন্ত্ৰক হিচাপে কাৰ্য্য কৰাৰ, ব্যৱহাৰকাৰীসম, দল যোগ কৰাৰ "
+"আৰু পাছৱাৰ্ডসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:29
+#, fuzzy
+msgid "If you want to allow httpd cgi support"
+msgstr "যদি আপুনি httpd ক cgi লিপিবোৰ এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:30
+msgid "If you want to determine whether polipo can access cifs file systems."
+msgstr "যদি আপুনি polipo এ cifs ফাইল চিস্টেমসমূহ অভিগম কৰাটো নিৰ্ধাৰণ কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:31
+msgid ""
+"If you want to allow ftp servers to use cifs used for public file transfer "
+"services."
+msgstr ""
+"যদি আপুনি ftp চাৰ্ভাৰসমূহক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত cifs ব্যৱহাৰ "
+"কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:32
+#, fuzzy
+msgid ""
+"If you want to allow staff user to create and transition to svirt domains."
 msgstr ""
 "যদি আপুনি প্ৰগ্ৰামসমূহ আৰু ব্যৱহাৰকাৰীসমূহক insmod ডমেইনলে স্থানান্তৰ কৰাৰ অনুমতি নাকচ "
 "কৰিব বিচাৰে।"
 
-#: ../booleans_trans.py:118
+#: ../booleans_trans.py:33
+msgid "If you want to allow confined virtual guests to manage nfs files"
+msgstr ""
+"যদি আপুনি গোপণ ভাৰছুৱেল অতিথিসমূহক nfs ফাইলসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:34
 msgid ""
-"If you want to allow httpd to act as a FTP client connecting to the ftp port "
-"and ephemeral ports"
+"If you want to allow confined virtual guests to use serial/parallel "
+"communication ports"
 msgstr ""
-"যদি আপুনি httpd ক ftp পোৰ্ট আৰু এফিমেৰেল পোৰ্টসমূহলে সংযোগ কৰা এটা FTP ক্লাএন্ট "
-"হিচাপে কাৰ্য্য কৰাৰ অনুমতি দিব বিচাৰে"
+"যদি আপুনি গোপণ ভাৰছুৱেল অতিথিসমূহক ক্ৰমিক/সমান্তৰাল সংযোগ পোৰ্টসমূহ ব্যৱহাৰ কৰাৰ "
+"অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:119
-msgid "If you want to allow Cobbler to access nfs file systems."
-msgstr "যদি আপুনি Cobbler ক nfs নথিপত্ৰ প্ৰণালীসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে।"
+#: ../booleans_trans.py:35
+msgid "If you want to allow rsync to run as a client"
+msgstr "যদি আপুনি rsync ক ক্লাএন্ট হিচাপে চলাব বিচাৰে"
 
-#: ../booleans_trans.py:120
-msgid "If you want to allow nsplugin code to execmem/execstack"
-msgstr "যদি আপুনি nsplugin ক'ডক execmem/execstack ৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:121
+#: ../booleans_trans.py:36
 msgid ""
-"If you want to allows clients to write to the X server shared memory "
-"segments."
-msgstr ""
-"যদি আপুনি ক্লাএন্টসমূহক X চাৰ্ভাৰ অংশীদাৰী মেমৰি অংশবোৰলে লিখাৰ অনুমতি দিব বিচাৰে"
+"If you want to allow rgmanager domain to connect to the network using TCP."
+msgstr "যদি আপুনি rgmanager ডমেইনক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাব বিচাৰে।"
 
-#: ../booleans_trans.py:122
+#: ../booleans_trans.py:37
+msgid "If you want to allow exim to read unprivileged user files."
+msgstr "যদি exim ক সুবিধাহিন ব্যৱহাৰকাৰী ফাইলসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:38
 msgid ""
-"If you want to allow confined virtual guests to use executable memory and "
-"executable stack"
+"If you want to allow piranha-lvs domain to connect to the network using TCP."
 msgstr ""
-"যদি আপুনি গোপন ভাৰছুৱেল অতিথিসমূহক এক্সিকিউটেবুল মেমৰি আৰু এক্সিকিউটেবুল স্টেক ব্যৱহাৰ "
-"কৰাৰ অনুমতি দিব বিচাৰে"
+"যদি আপুনি piranha-lvs ডিমনক TCP ব্যৱহাৰ কৰি নেটাৱৰ্কলে সংযোগ কৰাৰ অনুমতি দিব "
+"বিচাৰে।"
 
-#: ../booleans_trans.py:123
-msgid "If you want to allow webadm to read files in users home directories"
+#: ../booleans_trans.py:39
+msgid "If you want to allow Puppet client to manage all file types."
+msgstr "যদি আপুনি Puppet ক্লাএন্টক সকলো ফাইল ধৰণ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:40
+msgid ""
+"If you want to allow internal-sftp to read and write files in the user ssh "
+"home directories."
 msgstr ""
-"যদি আপুনি webadm ক ব্যৱহাৰকাৰীসমূহ ঘৰ ডাইৰেকটৰিসমূহত নথিপত্ৰসমূহ পঢ়াৰ অনুমতি দিব "
-"বিচাৰে"
+"যদি আপুনি অভ্যন্তৰীয়-sftp ক ব্যৱহাৰকাৰী ssh ঘৰ ডাইৰেকটৰিসমূহত ফাইলসমূহ পঢ়িব আৰু "
+"লিখিব অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:124
-msgid "If you want to enable polyinstantiated directory support."
-msgstr "যদি আপুনি polyinstantiated ডাইৰেকটৰি সমৰ্থন সামৰ্থবান কৰিব বিচাৰে।"
-
-#: ../booleans_trans.py:125
+#: ../booleans_trans.py:41
 msgid "If you want to support X userspace object manager"
 msgstr "যদি আপুনি X ব্যৱহাৰকাৰীস্থান অবজেক্ট ব্যৱস্থাপক সমৰ্থন কৰিব বিচাৰে"
 
-#: ../booleans_trans.py:126
-msgid "If you want to ignore vbetool mmap_zero errors."
-msgstr "যদি আপুনি vbetool mmap_zero ত্ৰুটিসমূহ উপেক্ষা কৰিব বিচাৰে।"
+#: ../booleans_trans.py:42
+msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
+msgstr "যদি আপুনি ssh প্ৰৱেশসমূহক sysadm_r:sysadm_t হিচাপে অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:127
-msgid "If you want to allow httpd to read user content"
-msgstr "যদি আপুনি httpd ক ব্যৱহাৰকাৰী বিষয়বস্তু পঢ়াৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:128
-msgid "If you want to allow httpd to access nfs file systems"
-msgstr "যদি আপুনি httpd ক nfs নথিপত্ৰ প্ৰণালীসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:129
+#: ../booleans_trans.py:43
 msgid ""
-"If you want to allow unconfined users to transition to the chrome sandbox "
-"domains when running chrome-sandbox"
+"If you want to allow BIND to write the master zone files. Generally this is "
+"used for dynamic DNS or zone transfers."
 msgstr ""
-"যদি আপুনি উন্মুক্ত ব্যৱহাৰকাৰীসমূহক chrome-sandbox চলাই থাকোতে chrome sandbox "
-"ডমেইনসমূহলে স্থানান্তৰৰ অনুমতি দিব বিচাৰে"
+"যদি আপুনি BIND ক মাস্টাৰ অঞ্চল ফাইলসমূহ লিখাৰ অনুমতি দিব বিচাৰে। সাধাৰণত ইয়াক "
+"চলমান DNS অথবা অঞ্চল স্থানান্তৰসমূহৰ বাবে ব্যৱহাৰ কৰা হয়।"
 
-#: ../booleans_trans.py:130
+#: ../booleans_trans.py:44
+#, fuzzy
+msgid ""
+"If you want to determine whether Git system daemon can access cifs file "
+"systems."
+msgstr "যদি আপুনি polipo এ cifs ফাইল চিস্টেমসমূহ অভিগম কৰাটো নিৰ্ধাৰণ কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:45
+msgid ""
+"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
+msgstr "যদি আপুনি ডিমনক সকলো অসংৰক্ষিত পোৰ্টলে tcp চকেট বন্ধাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:46
+msgid "If you want to allow cvs daemon to read shadow"
+msgstr "যদি আপুনি cvs ডিমনক ছায়া পঢ়াৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:47
+msgid "If you want to allow httpd to access cifs file systems"
+msgstr "যদি আপুনি httpd ক cifs ফাইল চিস্টেমসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:48
+#, fuzzy
+msgid "If you want to determine whether Git CGI can search home directories."
+msgstr "যদি আপুনি Git ডিমন চিস্টেমক ঘৰ ডাইৰেকটৰিসমূহ সন্ধান কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:49
+msgid "If you want to allow host key based authentication"
+msgstr "যদি আপুনি হস্ট চাবি ভিত্তিয় প্ৰমাণীকৰণৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:50
 msgid ""
 "If you want to allow postfix_local domain full write access to mail_spool "
 "directories"
@@ -3400,280 +3001,529 @@ msgstr ""
 "যদি আপুনি postfix_local ডমেইনক mail_spool ডাইৰেকটৰিসমূহলে সম্পূৰ্ণ লিখা অভিগমৰ "
 "অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:131
-msgid "If you want to allow sge to access nfs file systems."
-msgstr "যদি আপুনি sge ক nfs নথিপত্ৰ প্ৰণালীসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:132
-msgid "If you want to allow xguest users to use blue tooth devices"
-msgstr ""
-"যদি আপুনি xguest ব্যৱহাৰকাৰীসমূহক ব্লুটুথ যন্ত্ৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:133
-msgid "If you want to use lpd server instead of cups"
-msgstr "যদি আপুনি cups ৰ পৰিৱৰ্তে lpd চাৰ্ভাৰ ব্যৱহাৰ কৰিব বিচাৰে"
-
-#: ../booleans_trans.py:134
+#: ../booleans_trans.py:51
 msgid ""
-"If you want to allow any files/directories to be exported read/write via NFS."
+"If you want to disallow programs, such as newrole, from transitioning to "
+"administrative user domains."
 msgstr ""
-"যদি আপুনি যিকোনো নথিপত্ৰ/ডাইৰেকটৰিক NFS ৰে পঢ়া/লিখা হিচাপে এক্সপোৰ্ট কৰাৰ অনুমতি "
-"দিব বিচাৰে।"
+"যদি আপুনি প্ৰ্ৰগ্ৰামসমূহ যেনে, newrole ক, প্ৰশাসনীয় ব্যৱহাৰকাৰী ডমেইনসমূহৰ পৰা "
+"স্থানান্তৰ কৰা বিচাৰে।"
 
-#: ../booleans_trans.py:135
-msgid "If you want to allow Apache to execute tmp content."
-msgstr "যদি আপুনি Apache ক tmp বিষয়বস্তু এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:136
-msgid ""
-"If you want to allow user to r/w files on filesystems that do not have "
-"extended attributes (FAT, CDROM, FLOPPY)"
-msgstr ""
-"যদি আপুনি ব্যৱহাৰকাৰীক নথিপত্ৰপ্ৰণালী যাৰ প্ৰসাৰিত বৈশিষ্টসমূহ (FAT, CDROM, FLOPPY) "
-"নাই তালৈ নথিপত্ৰসমূহ r/w ৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:137
-msgid ""
-"If you want to allow users to run TCP servers (bind to ports and accept "
-"connection from the same domain and outside users)  disabling this forces "
-"FTP passive mode and may change other protocols."
-msgstr ""
-"যদি আপুনি ব্যৱহাৰকাৰীসমূহক TCP চাৰ্ভাৰসমূহ চলোৱাৰ (পোৰ্টসমূহলে সংযুক্ত হোৱা আৰু একেটা) "
-"ডমেইনৰ আৰু বাহিৰৰ ব্যৱহাৰকাৰীসমূহৰ পৰা সংযোগ গ্ৰহণ কৰা) অনুমতি দিব বিচাৰে। এই "
-"বলসমূহ FTP নিষ্ক্ৰিশ অৱস্থা অসামৰ্থবান কৰিলে অন্য প্ৰটোকলসমূহ সলনি হব পাৰে।"
-
-#: ../booleans_trans.py:138
-msgid "If you want to allow mysqld to connect to all ports"
-msgstr "যদি আপুনি mysqld ক সকলো পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:139
-msgid "If you want to allow regular users direct mouse access"
-msgstr "যদি আপুনি সাধাৰণ ব্যৱহাৰকাৰীসমূহৰ প্ৰত্যক্ষ মাউছ অভিগম ৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:140
-msgid ""
-"If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
-"dedicated logical volumes for disk images."
-msgstr ""
-"যদি আপুনি xend ক blktapctrl/tapdisk চলোৱাৰ অনুমতি দিব বিচাৰে। প্ৰয়োজনীয় নহয় যদি "
-"ডিস্ক ছবিসমূহৰ বাবে উৎসৰ্গিত যৌক্তিক আয়তনসমূহ ব্যৱহাৰ কৰা হৈ আছে।"
-
-#: ../booleans_trans.py:141
-msgid ""
-"If you want to allow confined virtual guests to interact with the sanlock"
-msgstr ""
-"যদি আপুনি sanlock ৰ সৈতে ভাৱবিনিময় কৰিবলে গোপন ভাৰছুৱেল অতিথিসমূহৰ অনুমতি দিব "
-"বিচাৰে"
-
-#: ../booleans_trans.py:143
-msgid "If you want to allow all domains to have the kernel load modules"
-msgstr "যদি আপুনি সকলো ডমেইনৰ কাৰনেল ল'ড মডিউলসমূহ থকাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:144
-msgid "If you want to allow confined virtual guests to use usb devices"
-msgstr ""
-"যদি আপুনি গোপন ভাৰছুৱেল অতিথিসমূহক usb যন্ত্ৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:145
-msgid ""
-"If you want to enable additional permissions needed to support devices on "
-"3ware controllers."
-msgstr ""
-"যদি আপুনি 3ware নিয়ন্ত্ৰকসমূহত যন্ত্ৰসমূহ সমৰ্থন কৰিবলে প্ৰয়োজনীয় অতিৰিক্ত অনুমতিসমূহ "
-"সামৰ্থবান কৰিব বিচাৰে।"
-
-#: ../booleans_trans.py:146
+#: ../booleans_trans.py:52
 msgid "If you want to allow httpd processes to manage IPA content"
 msgstr "যদি আপুনি IPA সমল ব্যৱস্থাপনা কৰিবলে httpd প্ৰক্ৰিয়াসমূহক অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:147
-msgid "If you want to allow java executable stack"
-msgstr "যদি আপুনি java এক্সিকিউটেবুল স্টেকৰ অনুমতি দিব বিচাৰে"
+#: ../booleans_trans.py:53
+msgid "If you want to allow pppd to be run for a regular user"
+msgstr "যদি আপুনি pppd ক এটা সাধাৰণ ব্যৱহাৰৰ বাবে চলাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:148
-msgid "If you want to allow http daemon to send mail"
-msgstr "যদি আপুনি http ডিমনক মেইল প্ৰেৰণৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:149
-msgid "If you want to allow samba to export ntfs/fusefs volumes."
-msgstr "যদি আপুনি samba ক ntfs/fusefs আয়তনসমূহ এক্সপোৰ্ট কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:150
-msgid "If you want to enable support for upstart as the init program."
-msgstr "যদি আপুনি init প্ৰগ্ৰাম হিচাপে upstart ৰ বাবে সমৰ্থন সামৰ্থবান কৰিব বিচাৰে।"
-
-#: ../booleans_trans.py:151
-msgid "If you want to allow zebra daemon to write it configuration files"
-msgstr "যদি আপুনি zebra ডিমনক তাৰ সংৰূপ নথিপত্ৰসমূহ লিখাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:152
-msgid "If you want to allow httpd to use built in scripting (usually php)"
+#: ../booleans_trans.py:54
+msgid "If you want to allow samba to share any file/directory read only."
 msgstr ""
-"যদি আপুনি httpd ক পুৰ্বনিৰ্মিত স্ক্ৰিপ্টিং (সাধাৰণত php) ব্যৱহাৰ কৰাৰ অনুমতি দিব "
-"বিচাৰে"
-
-#: ../booleans_trans.py:153
-msgid ""
-"If you want to allow exim to create, read, write, and delete unprivileged "
-"user files."
-msgstr ""
-"যদি আপুনি exim ক সুবিধাবিহিন ব্যৱহাৰকাৰী নথিপত্ৰসমূহ সৃষ্টি, পঢ়া, লিখা আৰু মচাৰ "
+"যদি আপুনি samba ক যিকোনো ফাইল/ডাইৰেকটৰিক কেৱল পঢ়িব পৰা বুলি অংশীদাৰী কৰিবলে "
 "অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:154
+#: ../booleans_trans.py:55
+msgid "If you want to allow ftp servers to connect to mysql database ports"
+msgstr ""
+"যদি আপুনি ftp চাৰ্ভাৰসমূহক mysql ডাটাবেইচ পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:56
+#, fuzzy
 msgid ""
-"If you want to allow cdrecord to read various content. nfs, samba, removable "
-"devices, user temp and untrusted content files"
-msgstr ""
-"যদি আপুনি cdrecord বিভিন্ন বিষয়বস্তু পঢ়াৰ অনুমতি দিব বিচাৰে। nfs, samba, আতৰাব "
-"পৰা যন্ত্ৰসমূহ, ব্যৱহাৰকাৰী অস্থায়ী আৰু ভৰষাহিন বিষয়বস্তু নথিপত্ৰসমূহ"
+"If you want to determine whether Git system daemon can search home "
+"directories."
+msgstr "যদি আপুনি Git ডিমন চিস্টেমক ঘৰ ডাইৰেকটৰিসমূহ সন্ধান কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:155
+#: ../booleans_trans.py:57
+msgid "If you want to support SAMBA home directories"
+msgstr "যদি আপুনি SAMBA ঘৰ ডাইৰেকটৰিসমূহ সমৰ্থন কৰিব বিচাৰে"
+
+#: ../booleans_trans.py:58
+msgid "If you want to allow mock to read files in home directories."
+msgstr "যদি আপুনি mock ক ঘৰ ডাইৰেকটৰিসমূহত ফাইলসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:59
+#, fuzzy
 msgid ""
-"If you want to allow Cobbler to modify public files used for public file "
-"transfer services."
-msgstr ""
-"যদি আপুনি Cobbler ক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা "
-"নথিপত্ৰসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
+"If you want to allow Apache to run in stickshift mode, not transition to "
+"passenger"
+msgstr "যদি আপুনি Apache ক mod_auth_pam ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:156
-msgid "If you want to allow samba to export NFS volumes."
-msgstr "যদি আপুনি samba ক NFS আয়তনসমূহ এক্সপোৰ্ট কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:157
+#: ../booleans_trans.py:60
 msgid ""
-"If you want to control the ability to mmap a low area of the address space, "
-"as configured by /proc/sys/kernel/mmap_min_addr."
+"If you want to allow samba to create new home directories (e.g. via PAM)"
 msgstr ""
-"যদি আপুনি /proc/sys/kernel/mmap_min_addr দ্বাৰা সংৰূপণ কৰা ধৰণেঠিকনা স্থানৰ নিম্ন "
-"স্থান mmap কৰাৰ ক্ষমতা নিযন্ত্ৰণ কৰিব বিচাৰে।"
+"যদি আপুনি samba ক নতুন ঘৰ ডাইৰেকটৰিসমূহ যেনে (উদাহৰণস্বৰূপ, PAM ৰে) সৃষ্টি কৰাৰ "
+"অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:158
-msgid "If you want to ignore wine mmap_zero errors."
-msgstr "যদি আপুনি wine mmap_zero ত্ৰুটিসমূহ উপেক্ষা কৰিব বিচাৰে।"
-
-#: ../booleans_trans.py:159
-msgid "If you want to allow collectd to connect to the network using TCP."
+#: ../booleans_trans.py:61
+msgid "If you want to control users use of ping and traceroute"
 msgstr ""
-"যদি আপুনি collectd ক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
+"যদি আপুনি ব্যৱহাৰকাৰীসমূহৰ ping আৰু traceroute ৰ ব্যৱহাৰ নিয়ন্ত্ৰণ কৰিব বিচাৰে"
 
-#: ../booleans_trans.py:160
-msgid "If you want to allow logging in and using the system from /dev/console."
+#: ../booleans_trans.py:62
+#, fuzzy
+msgid ""
+"If you want to determine whether calling user domains can execute Git daemon "
+"in the git_session_t domain."
 msgstr ""
-"যদি আপুনি /dev/console ৰ পৰা প্ৰৱেশ আৰু চিস্টেম ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
+"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে কল কৰি থকা ব্যৱহাৰকাৰী ডমেইনসমূহে "
+"polipo_session_t domain ত Polipo ডিমন এক্সিকিউট কৰিব পাৰে নে।"
 
-#: ../booleans_trans.py:161
-msgid "If you want to allow user processes to change their priority"
+#: ../booleans_trans.py:63
+msgid "If you want to allow zabbix to connect to unreserved ports"
+msgstr "যদি আপুনি zabbix ক অসংৰক্ষিত পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:64
+msgid "If you want to allow fenced domain to execute ssh."
+msgstr "যদি আপুনি ফেনস্ড ডমেইনক ssh এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:65
+msgid "If you want to allow httpd to read home directories"
+msgstr "যদি আপুনি httpd ক ঘৰ ডাইৰেকটৰি পঢ়াৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:66
+msgid ""
+"If you want to allow gpg web domain to modify public files used for public "
+"file transfer services."
 msgstr ""
-"যদি আপুনি ব্যৱহাৰকাৰী প্ৰক্ৰিয়াসমূহক সিহতৰ প্ৰাথমিকতা সলনি কৰাৰ অনুমতি দিব বিচাৰে"
+"যদি আপুনি gpg ৱেব ডমেইনক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা "
+"ফাইলসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:162
-msgid "If you want to allow fenced domain to connect to the network using TCP."
+#: ../booleans_trans.py:67
+msgid "If you want to allow rsync to export any files/directories read only."
 msgstr ""
-"যদি আপুনি ফেনস্ড ডমেইনক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
+"যদি আপুনি rsync ক যিকোনো ফাইল/ডাইৰেকটৰি কেৱল পঢ়িব পৰা হিচাপে এক্সপোৰ্ট কৰাৰ "
+"অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:163
+#: ../booleans_trans.py:68
+msgid ""
+"If you want to allow nfs servers to modify public files used for public file "
+"transfer services.  Files/Directories must be labeled public_content_rw_t."
+msgstr ""
+"যদি আপুনি nfs চাৰ্ভাৰসমূহক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা "
+"ফাইলসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে। ফাইলসমূহ/ডাইৰেকটৰিসমূহ public_content_rw_t "
+"লেবেল কৰা থাকিব লাগিব।"
+
+#: ../booleans_trans.py:69
+msgid "If you want to allow mysqld to connect to all ports"
+msgstr "যদি আপুনি mysqld ক সকলো পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:70
+msgid ""
+"If you want to determine whether Polipo session daemon can bind tcp sockets "
+"to all unreserved ports."
+msgstr ""
+"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে Polipo অধিবেশন ডিমনে সকলো অসংৰক্ষিত পোৰ্টলে tcp "
+"চকেটসমূহ সংযোগ কৰিব পাৰে নে।"
+
+#: ../booleans_trans.py:71
+msgid "If you want to allow qemu to use serial/parallel communication ports"
+msgstr ""
+"যদি আপুনি qemu ক ক্ৰমিক/সমান্তৰাল সংযোগ পোৰ্টসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:72
+msgid "If you want to allow Apache to communicate with avahi service via dbus"
+msgstr "যদি আপুনি Apache ক dbus ৰে avahi সেৱাৰ সৈতে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:73
 msgid ""
 "If you want to allow dhcpc client applications to execute iptables commands"
 msgstr ""
-"যদি আপুনি dhcpc ক্লাএন্ট অনুপ্ৰয়োগসমূহক iptables কমান্ডসমূহ এক্সিকিউট কৰাৰ অনুমতি দিব "
+"যদি আপুনি dhcpc ক্লাএন্ট এপ্লিকেচনসমূহক iptables কমান্ডসমূহ এক্সিকিউট কৰাৰ অনুমতি দিব "
 "বিচাৰে"
 
-#: ../booleans_trans.py:164
-msgid "If you want to allow users to connect to PostgreSQL"
-msgstr "যদি আপুনি ব্যৱহাৰকাৰীসমূহক PostgreSQL লে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:165
-msgid "If you want to allow cvs daemon to read shadow"
-msgstr "যদি আপুনি cvs ডিমনক ছায়া পঢ়াৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:166
-msgid "If you want to allow http daemon to check spam"
-msgstr "যদি আপুনি http ডিমনক স্পাম নীৰিক্ষণ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:167
-msgid ""
-"If you want to allow sftp-internal to login to local users and read/write "
-"all files on the system, governed by DAC."
+#: ../booleans_trans.py:74
+#, fuzzy
+msgid "If you want to allow sanlock to read/write fuse files"
 msgstr ""
-"যদি আপুনি sftp-internal ক স্থানীয় ব্যৱহাৰকাৰীসমূহত প্ৰৱেশ কৰি চিস্টেমত DAC ৰে "
-"ৰাজত্ব কৰা, সকলো নথিপত্ৰ পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে।"
+"যদি আপুনি spamd ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহ পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:168
-msgid "If you want to allow xguest users to mount removable media"
+#: ../booleans_trans.py:75
+msgid "If you want to allow samba to share users home directories."
 msgstr ""
-"যদি আপুনি xguest ব্যৱহাৰকাৰীসমূহক আতৰাব পৰা মাধ্যম মাউন্ট কৰাৰ অনুমতি দিব বিচাৰে"
+"যদি আপুনি samba ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহ অংশীদাৰী কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:169
-msgid ""
-"If you want to allow icecast to connect to all ports, not just sound ports."
+#: ../booleans_trans.py:76
+msgid "If you want to enable reading of urandom for all domains."
+msgstr "যদি আপুনি সকলো ডমেইনৰ বাবে urandom পঢ়াটো সামৰ্থবান কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:77
+msgid "If you want to allow racoon to read shadow"
+msgstr "যদি আপুনি racoon ক ছায়া পঢ়াৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:78
+msgid "If you want to allow Cobbler to connect to the network using TCP."
 msgstr ""
-"যদি আপুনি icecast ক শব্দ পোৰ্টসমূহৰ বাহিৰেও, সকলো পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব "
-"বিচাৰে।"
+"যদি আপুনি Cobbler ক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:170
-msgid "If you want to allow pppd to load kernel modules for certain modems"
-msgstr ""
-"যদি আপুনি pppd ক কিছুমান মডেমৰ বাবে কাৰনেল মডিউলসমূহ ল'ড কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:171
+#: ../booleans_trans.py:79
 msgid ""
 "If you want to deny user domains applications to map a memory region as both "
 "executable and writable, this is dangerous and the executable should be "
 "reported in bugzilla"
 msgstr ""
-"যদি আপুনি ব্যৱহাৰকাৰী ডমেইন অনুপ্ৰয়োগসমূহক এটা মেমৰি অঞ্চলক দুয়ো এক্সিকিউটেবুল আৰু "
+"যদি আপুনি ব্যৱহাৰকাৰী ডমেইন এপ্লিকেচনসমূহক এটা মেমৰি অঞ্চলক দুয়ো এক্সিকিউটেবুল আৰু "
 "লিখিব পৰা হিচাপে মেপ কৰা নকাচ কৰিব বিচাৰে, ই বিপদজনক আৰু এক্সিকিউটেবুলক "
 "bugzilla ত সংবাদিত কৰিব লাগিব"
 
-#: ../booleans_trans.py:172
-msgid "If you want to allow syslogd daemon to send mail"
-msgstr "যদি আপুনি syslogd ডিমনক মেইল পঠোৱাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:173
-msgid "If you want to determine whether Polipo can access nfs file systems."
+#: ../booleans_trans.py:80
+msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
 msgstr ""
-"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে Polipo এ nfs নথিপত্ৰ প্ৰণালীসমূহ অভিগম কৰিব পাৰিব "
-"নে।"
+"যদি আপুনি squid ক এটা পাৰদৰ্শী প্ৰক্সি (TPROXY) হিচাপে চলাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:174
-msgid "If you want to allow samba to run unconfined scripts"
-msgstr "যদি আপুনি samba ক উন্মুক্ত লিপিসমূহ চলোৱাৰ অনুমতি দিব বিচাৰে"
+#: ../booleans_trans.py:81
+msgid ""
+"If you want to allow ftp servers to login to local users and read/write all "
+"files on the system, governed by DAC."
+msgstr ""
+"যদি আপুনি ftp চাৰ্ভাৰসমূহক স্থানীয় ব্যৱহাৰকাৰীসমূহত প্ৰৱেশ কৰি চিস্টেমত DAC ৰে ৰাজত্ব "
+"কৰা, সকলো ফাইল পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:175
+#: ../booleans_trans.py:82
+msgid "If you want to allows XServer to execute writable memory"
+msgstr "যদি আপুনি XServer ক লিখিব পৰা মেমৰি এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:83
+#, fuzzy
+msgid ""
+"If you want to boolean to determine whether the system permits loading "
+"policy, setting enforcing mode, and changing boolean values.  Set this to "
+"true and you have to reboot to set it back."
+msgstr ""
+"যদি আপুনি সকলো গোপণ ডমেইনক নীতি, সংহতি বলৱৎকৰণ অৱস্থা, আৰু বুলিয়ান মানসমূহ "
+"পৰিৱৰ্তন কৰাৰ পৰা প্ৰতিৰোধ কৰিব বিচাৰে। ইয়াক true লে সংহতি কৰক আৰু ইয়াৰ পুনৰ "
+"সংহতি কৰিবলে আপুনিপুনৰাম্ভ কৰিব লাগিব"
+
+#: ../booleans_trans.py:84
+msgid "If you want to allow dbadm to manage files in users home directories"
+msgstr ""
+"যদি আপুনি dbadm ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহত ফাইলসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি "
+"দিব বিচাৰে"
+
+#: ../booleans_trans.py:85
+msgid ""
+"If you want to allow confined virtual guests to interact with the xserver"
+msgstr ""
+"যদি আপুনি গোপণ ভাৰছুৱেল অতিথিসমূহক xserver ৰ সৈতে ভাৱবিনিময় কৰাৰ অনুমতি দিব "
+"বিচাৰে"
+
+#: ../booleans_trans.py:86
+#, fuzzy
+msgid ""
+"If you want to determine whether Git system daemon can access nfs file "
+"systems."
+msgstr ""
+"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে Polipo এ nfs ফাইল চিস্টেমসমূহ অভিগম কৰিব পাৰিব নে।"
+
+#: ../booleans_trans.py:87
+msgid "If you want to unify HTTPD handling of all content files."
+msgstr "যদি আপুনি সকলো সমল ফাইলসমূহৰ HTTPD ব্যৱস্থাপনা সংযুক্ত কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:88
+msgid "If you want to allow nsplugin code to connect to unreserved ports"
+msgstr "যদি আপুনি nsplugin ক'ডক অসংৰক্ষিত পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:89
+#, fuzzy
+msgid "If you want to allow amavis to use JIT compiler"
+msgstr "যদি আপুনি clamd ক JIT কমপাইলাৰ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:90
+msgid "If you want to allow java executable stack"
+msgstr "যদি আপুনি java এক্সিকিউটেবুল স্টেকৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:91
+msgid ""
+"If you want to allows clients to write to the X server shared memory "
+"segments."
+msgstr ""
+"যদি আপুনি ক্লাএন্টসমূহক X চাৰ্ভাৰ অংশীদাৰী মেমৰি অংশবোৰলে লিখাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:92
+msgid "If you want to allow qemu to use nfs file systems"
+msgstr "যদি আপুনি qemu ক nfs ফাইল চিস্টেমসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:93
+msgid "If you want to allow Apache to use mod_auth_pam"
+msgstr "যদি আপুনি Apache ক mod_auth_pam ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:94
+#, fuzzy
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to the network "
+"using TCP."
+msgstr ""
+"যদি আপুনি HTTPD লিপিসমূহ আৰু মডিউলসমূহক যিকোনো TCP পোৰ্ট ব্যৱহাৰ কৰি নেটৱাৰ্কলে "
+"সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:95
+msgid "If you want to allow qemu to use usb devices"
+msgstr "যদি আপুনি qemu ক usb যন্ত্ৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:96
+#, fuzzy
+msgid "If you want to allow exim to connect to databases (postgres, mysql)"
+msgstr ""
+"যদি আপুনি exim ক ডাটাবেইচসমূহলে (PostgreSQL, MySQL) সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:97
+#, fuzzy
+msgid "If you want to determine whether Git CGI can access nfs file systems."
+msgstr ""
+"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে Polipo এ nfs ফাইল চিস্টেমসমূহ অভিগম কৰিব পাৰিব নে।"
+
+#: ../booleans_trans.py:98
+msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
+msgstr ""
+"যদি আপুনি varnishd ক HTTP ৰ বাহিৰেও অন্য পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:99
+#, fuzzy
+msgid "If you want to support ecryptfs home directories"
+msgstr "যদি আপুনি fusefs ঘৰ ডাইৰেকটৰিসমূহ সমৰ্থন কৰিব বিচাৰে"
+
+#: ../booleans_trans.py:100
+#, fuzzy
+msgid "If you want to allow samba to act as a portmapper"
+msgstr "যদি আপুনি httpd ক এটা প্ৰেৰক হিচাপে কাৰ্য্য কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:101
+msgid "If you want to allow httpd scripts and modules execmem/execstack"
+msgstr "যদি আপুনি httpd লিপিসমূহ আৰু execmem/execstack মডিউলসমূহৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:102
+#, fuzzy
+msgid "If you want to allow rsync servers to share nfs files systems"
+msgstr "যদি আপুনি qemu ক nfs ফাইল চিস্টেমসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:103
+#, fuzzy
+msgid "If you want to allow httpd to access FUSE file systems"
+msgstr "যদি আপুনি httpd ক nfs ফাইল চিস্টেমসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:104
+msgid ""
+"If you want to allow cdrecord to read various content. nfs, samba, removable "
+"devices, user temp and untrusted content files"
+msgstr ""
+"যদি আপুনি cdrecord বিভিন্ন সমল পঢ়াৰ অনুমতি দিব বিচাৰে। nfs, samba, আতৰাব পৰা "
+"যন্ত্ৰসমূহ, ব্যৱহাৰকাৰী অস্থায়ী আৰু ভৰষাহিন সমল ফাইলসমূহ"
+
+#: ../booleans_trans.py:105
 msgid "If you want to support NFS home directories"
 msgstr "যদি আপুনি NFS ঘৰ ডাইৰেকটৰিসমূহ সমৰ্থন কৰিব বিচাৰে"
 
-#: ../booleans_trans.py:176
-msgid "If you want to allow ftp servers to connect to all ports > 1023"
+#: ../booleans_trans.py:106
+msgid ""
+"If you want to allow confined virtual guests to manage device configuration, "
+"(pci)"
+msgstr ""
+"যদি আপুনি গোপন ভাৰছুৱল অতিথিসমূহক যন্ত্ৰ সংৰূপ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে,  "
+"(pci)"
+
+#: ../booleans_trans.py:107
+msgid "If you want to allow spamd to read/write user home directories."
+msgstr ""
+"যদি আপুনি spamd ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহ পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:108
+msgid "If you want to allow logging in and using the system from /dev/console."
+msgstr ""
+"যদি আপুনি /dev/console ৰ পৰা প্ৰৱেশ আৰু চিস্টেম ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:109
+msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
+msgstr "যদি আপুনি Apache ক mod_auth_ntlm_winbind ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:110
+msgid "If you want to allow the graphical login program to execute bootloader"
+msgstr "যদি আপুনি গ্ৰাফীয় প্ৰৱেশ প্ৰগ্ৰামক বুটল'ডাৰ এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:111
+msgid "If you want to allow qemu to connect fully to the network"
+msgstr "যদি আপুনি qemu ক সম্পূৰ্ণভাৱে নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:112
+msgid ""
+"If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
+"ABRT event scripts"
+msgstr ""
+"যদি আপুনি ABRT ক ABRT ঘটনা লিপিসমূহ ব্যৱস্থাপনা কৰিবলে abrt_handle_event_t "
+"ডমেইনত চলাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:113
+msgid ""
+"If you want to unify HTTPD to communicate with the terminal. Needed for "
+"entering the passphrase for certificates at the terminal."
+msgstr ""
+"যদি আপুনি টাৰ্মিনেললে সংযোগ কৰিবলে HTTPD ক সংযুক্ত কৰিব বিচাৰে। টাৰ্মিনেলত "
+"প্ৰমাণপত্ৰসমূহৰ বাবে পাছফ্ৰেইচ সুমুওৱাৰ বাবে প্ৰয়োজনীয়।"
+
+#: ../booleans_trans.py:114
+#, fuzzy
+msgid ""
+"If you want to allow apache scripts to write to public content, directories/"
+"files must be labeled public_rw_content_t."
+msgstr ""
+"যদি আপুনি apache লিপিসমূহক ৰাজহুৱা সমললে লিখাৰ অনুমতি দিব বিচাৰে।  ডাইৰেকটৰিসমূহ/"
+"ফাইলসমূহ public_rw_content_t লেবেল কৰা থাকিব লাগিব।"
+
+#: ../booleans_trans.py:115
+msgid ""
+"If you want to allow rsync to modify public files used for public file "
+"transfer services.  Files/Directories must be labeled public_content_rw_t."
+msgstr ""
+"যদি আপুনি rsync ক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা ফাইলসমূহ "
+"সলনি কৰাৰ অনুমতি দিব বিচাৰে। ফাইলসমূহ/ডাইৰেকটৰিসমূহ public_content_rw_t লেবেল "
+"কৰা থাকিব লাগিব।"
+
+#: ../booleans_trans.py:116
+msgid "If you want to allow mplayer executable stack"
+msgstr "যদি আপুনি mplayer এক্সিকিউটেবুল স্টেকৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:117
+msgid ""
+"If you want to allow xend to run qemu-dm. Not required if using paravirt and "
+"no vfb."
+msgstr ""
+"যদি আপুনি xend ক qemu-dm চলোৱাৰ অনুমতি দিব বিচাৰে। প্ৰয়োজনীয় নহয় যদি paravirt "
+"ব্যৱহাৰ কৰা হৈ আছে আৰু vfb নাই।"
+
+#: ../booleans_trans.py:118
+msgid ""
+"If you want to allow sftp-internal to read and write files in the user home "
+"directories"
+msgstr ""
+"যদি আপুনি sftp-internal ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰসমূহত ফাইলসমূহ পঢ়া আৰু লিখাৰ "
+"অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:119
+msgid "If you want to support fusefs home directories"
+msgstr "যদি আপুনি fusefs ঘৰ ডাইৰেকটৰিসমূহ সমৰ্থন কৰিব বিচাৰে"
+
+#: ../booleans_trans.py:120
+msgid ""
+"If you want to allow the Telepathy connection managers to connect to any "
+"network port."
+msgstr ""
+"যদি আপুনি টেলিপেথী সংযোগ ব্যৱস্থাপকসমূহক যিকোনো নেটৱাৰ্ক পোৰ্টলে সংযোগ কৰাৰ অনুমতি "
+"দিব বিচাৰে।"
+
+#: ../booleans_trans.py:121
+#, fuzzy
+msgid "If you want to allow rsync servers to share cifs files systems"
+msgstr "যদি আপুনি qemu ক nfs ফাইল চিস্টেমসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:122
+msgid ""
+"If you want to allow the Irssi IRC Client to connect to any port, and to "
+"bind to any unreserved port."
+msgstr ""
+"যদি আপুনি Irssi IRC ক্লাএন্টক যিকোনো পোৰ্টলে সংযোগ কৰাৰ, আৰু যিকোনো অসংৰক্ষিত "
+"পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:123
+#, fuzzy
+msgid "If you want to allow transmit client label to foreign database"
+msgstr ""
+"যদি আপুনি ftp চাৰ্ভাৰসমূহক mysql ডাটাবেইচ পোৰ্টসমূহলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:124
+msgid "If you want to allow confined applications to use nscd shared memory."
+msgstr ""
+"যদি আপুনি গোপন এপ্লিকেচনসমূহক nscd অংশীদাৰী মেমৰি ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:125
+msgid "If you want to allow w to display everyone"
+msgstr "যদি আপুনি সকলোকে প্ৰদৰ্শন কৰিবলে w ক অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:126
+msgid "If you want to allow user music sharing"
+msgstr "যদি আপুনি ব্যৱহাৰকাৰী সংগীত অংশীদাৰীৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:127
+msgid "If you want to ignore wine mmap_zero errors."
+msgstr "যদি আপুনি wine mmap_zero ত্ৰুটিসমূহ উপেক্ষা কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:128
+msgid "If you want to allow regular users direct dri device access"
+msgstr "যদি আপুনি সাধাৰণ ব্যৱহাৰকাৰীসমূহক প্ৰত্যক্ষ যন্ত্ৰ অভিগমৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:129
+msgid ""
+"If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
+"database"
+msgstr ""
+"যদি আপুনি MySQL আৰু PostgreSQL ডাটাবেইচ লে সংযোগ কৰিবলে Puppet মাস্টাৰ ব্যৱহাৰ "
+"কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:130
+#, fuzzy
+msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
+msgstr "যদি আপুনি mysqld ক সকলো পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:131
+msgid "If you want to allow system to run with NIS"
+msgstr "যদি আপুনি চিস্টেমক NIS চলোৱাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:132
+#, fuzzy
+msgid ""
+"If you want to allow unprivledged user to create and transition to svirt "
+"domains."
+msgstr ""
+"যদি আপুনি সুবিধাবিহিন ব্যৱহাৰকাৰীসমূহক DDL বিবৃতি এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:133
+msgid "If you want to allow a user to login as an unconfined domain"
+msgstr ""
+"যদি আপুনি এজন ব্যৱহাৰকাৰীক এটা উন্মুক্ত ডমেইন হিচাপে প্ৰৱেশ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:134
+#, fuzzy
+msgid "If you want to disable kernel module loading."
+msgstr "যদি আপুনি ব্যৱহাৰকাৰী সংগীত অংশীদাৰীৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:135
+msgid ""
+"If you want to allow httpd to act as a FTP client connecting to the ftp port "
+"and ephemeral ports"
+msgstr ""
+"যদি আপুনি httpd ক ftp পোৰ্ট আৰু এফিমেৰেল পোৰ্টসমূহলে সংযোগ কৰা এটা FTP ক্লাএন্ট "
+"হিচাপে কাৰ্য্য কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:136
+#, fuzzy
+msgid ""
+"If you want to allow ftp servers to use bind to all unreserved ports for "
+"passive mode"
 msgstr ""
 "যদি আপুনি ftp চাৰ্ভাৰসমূহক 1023 কে ডাঙৰ সকলো পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:177
-msgid "If you want to allow confined applications to run with kerberos."
-msgstr "যদি আপুনি গোপন অনুপ্ৰয়োগসমূহ kerberos ৰ সৈতে চলাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:178
-msgid "If you want to allow BIND to bind apache port."
-msgstr "যদি আপুনি BIND ক apache পোৰ্টৰ সৈতে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
-
-#: ../booleans_trans.py:179
-msgid "If you want to allow gitisis daemon to send mail"
-msgstr "যদি আপুনি gitisis ডিমনক মেইল প্ৰেৰণ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:180
-msgid "If you want to allow httpd to connect to memcache server"
-msgstr "যদি আপুনি httpd ক memcache চাৰ্ভাৰলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:181
+#: ../booleans_trans.py:137
 msgid ""
-"If you want to allow HTTPD scripts and modules to connect to cobbler over "
-"the network."
+"If you want to allow samba to modify public files used for public file "
+"transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr ""
-"যদি আপুনি HTTPD লিপিসমূহ আৰু মডিউলসমূহক নেটৱাৰ্কৰে cobbler ৰ সৈতে সংযোগ কৰাৰ "
-"অনুমতি দিব বিচাৰে।"
+"যদি আপুনি samba ক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা ফাইলসমূহ "
+"সলনি কৰাৰ অনুমতি দিব বিচাৰে। ফাইলসমূহ/ডাইৰেকটৰিসমূহ public_content_rw_t লেবেল "
+"কৰা থাকিব লাগিব।"
 
-#: ../booleans_trans.py:182
+#: ../booleans_trans.py:138
+msgid ""
+"If you want to allow gssd to read temp directory.  For access to kerberos "
+"tgt."
+msgstr ""
+"যদি আপুনি gssd ক অস্থায়ী ডাইৰেকটৰি পঢ়াৰ অনুমতি দিব বিচাৰে। kerberos tgt লে "
+"অভিগমৰ বাবে।"
+
+#: ../booleans_trans.py:139
+msgid "If you want to allow Cobbler to access nfs file systems."
+msgstr "যদি আপুনি Cobbler ক nfs ফাইল চিস্টেমসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:140
 msgid ""
 "If you want to allow unconfined executables to make their stack executable.  "
 "This should never, ever be necessary. Probably indicates a badly coded "
@@ -3685,60 +3535,432 @@ msgstr ""
 "এক্সিকিউটেবুল বুজায়, কিন্তু এটা আক্ৰমণৰ ইংগিত দিব পাৰে। এই এক্সিকিউটেবুলক bugzilla ত "
 "সংবাদিত কৰিব লাগিব"
 
-#: ../booleans_trans.py:183 ../booleans_trans.py:206
-msgid "If you want to allow confined virtual guests to manage cifs files"
+#: ../booleans_trans.py:141
+msgid ""
+"If you want to allow confined virtual guests to interact with the sanlock"
 msgstr ""
-"যদি আপুনি গোপন ভাৰছুৱেল অতিথিসমূহক cifs নথিপত্ৰসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব "
+"যদি আপুনি sanlock ৰ সৈতে ভাৱবিনিময় কৰিবলে গোপন ভাৰছুৱেল অতিথিসমূহৰ অনুমতি দিব "
+"বিচাৰে"
+
+#: ../booleans_trans.py:142
+msgid "If you want to allow all daemons to use tcp wrappers."
+msgstr "যদি আপুনি সকলো ডিমনক tcp ৰেপাৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:143
+msgid ""
+"If you want to allow confined virtual guests to use executable memory and "
+"executable stack"
+msgstr ""
+"যদি আপুনি গোপন ভাৰছুৱেল অতিথিসমূহক এক্সিকিউটেবুল মেমৰি আৰু এক্সিকিউটেবুল স্টেক ব্যৱহাৰ "
+"কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:144
+msgid "If you want to allow webadm to read files in users home directories"
+msgstr ""
+"যদি আপুনি webadm ক ব্যৱহাৰকাৰীসমূহ ঘৰ ডাইৰেকটৰিসমূহত ফাইলসমূহ পঢ়াৰ অনুমতি দিব "
+"বিচাৰে"
+
+#: ../booleans_trans.py:145
+msgid ""
+"If you want to allow users to run TCP servers (bind to ports and accept "
+"connection from the same domain and outside users)  disabling this forces "
+"FTP passive mode and may change other protocols."
+msgstr ""
+"যদি আপুনি ব্যৱহাৰকাৰীসমূহক TCP চাৰ্ভাৰসমূহ চলোৱাৰ (পোৰ্টসমূহলে সংযুক্ত হোৱা আৰু একেটা) "
+"ডমেইনৰ আৰু বাহিৰৰ ব্যৱহাৰকাৰীসমূহৰ পৰা সংযোগ গ্ৰহণ কৰা) অনুমতি দিব বিচাৰে। এই "
+"বলসমূহ FTP নিষ্ক্ৰিশ অৱস্থা অসামৰ্থবান কৰিলে অন্য প্ৰটোকলসমূহ সলনি হব পাৰে।"
+
+#: ../booleans_trans.py:146
+#, fuzzy
+msgid "If you want to allow clamscan to non security files on a system"
+msgstr "যদি আপুনি clamscan ব্যৱহাৰকাৰী সমলৰ পঢ়াৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:147
+msgid "If you want to ignore vbetool mmap_zero errors."
+msgstr "যদি আপুনি vbetool mmap_zero ত্ৰুটিসমূহ উপেক্ষা কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:148
+msgid "If you want to allow httpd to read user content"
+msgstr "যদি আপুনি httpd ক ব্যৱহাৰকাৰী সমল পঢ়াৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:149
+msgid "If you want to allow httpd to access nfs file systems"
+msgstr "যদি আপুনি httpd ক nfs ফাইল চিস্টেমসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:150
+msgid ""
+"If you want to allow unconfined users to transition to the chrome sandbox "
+"domains when running chrome-sandbox"
+msgstr ""
+"যদি আপুনি উন্মুক্ত ব্যৱহাৰকাৰীসমূহক chrome-sandbox চলাই থাকোতে chrome sandbox "
+"ডমেইনসমূহলে স্থানান্তৰৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:151
+msgid "If you want to allow pppd to load kernel modules for certain modems"
+msgstr ""
+"যদি আপুনি pppd ক কিছুমান মডেমৰ বাবে কাৰনেল মডিউলসমূহ ল'ড কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:152
+msgid "If you want to allow sge to access nfs file systems."
+msgstr "যদি আপুনি sge ক nfs ফাইল চিস্টেমসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:153
+msgid "If you want to allow confined virtual guests to read fuse files"
+msgstr "যদি আপুনি গোপণ ভাৰছুৱেল অতিথিসমূহক fuse ফাইলসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:154
+#, fuzzy
+msgid "If you want to allow DHCP daemon to use LDAP backends"
+msgstr "যদি আপুনি সকলো ডিমনক tcp ৰেপাৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:155
+#, fuzzy
+msgid "If you want to determine whether Git CGI can access cifs file systems."
+msgstr "যদি আপুনি polipo এ cifs ফাইল চিস্টেমসমূহ অভিগম কৰাটো নিৰ্ধাৰণ কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:156
+msgid ""
+"If you want to allow any files/directories to be exported read/write via NFS."
+msgstr ""
+"যদি আপুনি যিকোনো ফাইল/ডাইৰেকটৰিক NFS ৰে পঢ়া/লিখা হিচাপে এক্সপোৰ্ট কৰাৰ অনুমতি "
+"দিব বিচাৰে।"
+
+#: ../booleans_trans.py:157
+#, fuzzy
+msgid ""
+"If you want to allow mozilla_plugins to create random content in the users "
+"home directory"
+msgstr ""
+"যদি আপুনি ftp ক ব্যৱহাৰকাৰী ঘৰ ডাইৰেকটৰিসমূহত ফাইলসমূহ পঢ়া আৰু লিখাৰ অনুমতি দিব "
+"বিচাৰে"
+
+#: ../booleans_trans.py:158
+msgid "If you want to allow Apache to execute tmp content."
+msgstr "যদি আপুনি Apache ক tmp সমল এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:159
+msgid ""
+"If you want to allow user to r/w files on filesystems that do not have "
+"extended attributes (FAT, CDROM, FLOPPY)"
+msgstr ""
+"যদি আপুনি ব্যৱহাৰকাৰীক ফাইলচিস্টেম যাৰ প্ৰসাৰিত বৈশিষ্টসমূহ (FAT, CDROM, FLOPPY) "
+"নাই তালৈ ফাইলসমূহ r/w ৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:160
+msgid "If you want to allow zebra daemon to write it configuration files"
+msgstr "যদি আপুনি zebra ডিমনক তাৰ সংৰূপ ফাইলসমূহ লিখাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:161
+msgid "If you want to allow qemu to use cifs/Samba file systems"
+msgstr "যদি আপুনি qemu ক cifs/Samba ফাইল চিস্টেমসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:162
+msgid "If you want to allow regular users direct mouse access"
+msgstr "যদি আপুনি সাধাৰণ ব্যৱহাৰকাৰীসমূহৰ প্ৰত্যক্ষ মাউছ অভিগম ৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:163
+msgid ""
+"If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
+"dedicated logical volumes for disk images."
+msgstr ""
+"যদি আপুনি xend ক blktapctrl/tapdisk চলোৱাৰ অনুমতি দিব বিচাৰে। প্ৰয়োজনীয় নহয় যদি "
+"ডিস্ক ছবিসমূহৰ বাবে উৎসৰ্গিত যৌক্তিক আয়তনসমূহ ব্যৱহাৰ কৰা হৈ আছে।"
+
+#: ../booleans_trans.py:164
+msgid "If you want to allow fenced domain to connect to the network using TCP."
+msgstr ""
+"যদি আপুনি ফেনস্ড ডমেইনক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:165
+#, fuzzy
+msgid "If you want to allow sanlock to manage nfs files"
+msgstr "যদি আপুনি xen ক nfs ফাইলসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:166
+msgid "If you want to allow all domains to have the kernel load modules"
+msgstr "যদি আপুনি সকলো ডমেইনৰ কাৰনেল ল'ড মডিউলসমূহ থকাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:167
+msgid "If you want to allow confined virtual guests to use usb devices"
+msgstr ""
+"যদি আপুনি গোপন ভাৰছুৱেল অতিথিসমূহক usb যন্ত্ৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:168
+msgid ""
+"If you want to enable additional permissions needed to support devices on "
+"3ware controllers."
+msgstr ""
+"যদি আপুনি 3ware নিয়ন্ত্ৰকসমূহত যন্ত্ৰসমূহ সমৰ্থন কৰিবলে প্ৰয়োজনীয় অতিৰিক্ত অনুমতিসমূহ "
+"সামৰ্থবান কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:169
+msgid ""
+"If you want to allow ABRT to modify public files used for public file "
+"transfer services."
+msgstr ""
+"যদি আপুনি ABRT ক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা ফাইলসমূহ সলনি "
+"কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:170
+msgid "If you want to allow users to connect to PostgreSQL"
+msgstr "যদি আপুনি ব্যৱহাৰকাৰীসমূহক PostgreSQL লে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:171
+msgid "If you want to allow http daemon to send mail"
+msgstr "যদি আপুনি http ডিমনক মেইল প্ৰেৰণৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:172
+msgid "If you want to allow samba to export ntfs/fusefs volumes."
+msgstr "যদি আপুনি samba ক ntfs/fusefs আয়তনসমূহ এক্সপোৰ্ট কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:173
+msgid "If you want to enable support for upstart as the init program."
+msgstr "যদি আপুনি init প্ৰগ্ৰাম হিচাপে upstart ৰ বাবে সমৰ্থন সামৰ্থবান কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:174
+msgid "If you want to enable polyinstantiated directory support."
+msgstr "যদি আপুনি polyinstantiated ডাইৰেকটৰি সমৰ্থন সামৰ্থবান কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:175
+#, fuzzy
+msgid ""
+"If you want to allow mozilla plugin domain to connect to the network using "
+"TCP."
+msgstr "যদি আপুনি rgmanager ডমেইনক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাব বিচাৰে।"
+
+#: ../booleans_trans.py:176
+msgid ""
+"If you want to allow the use of the audio devices as the source for the "
+"entropy feeds"
+msgstr ""
+"যদি আপুনি এনট্ৰপি ফিডসমূহৰ উৎস হিচাপে অডিঅ' ডিভাইচসমূহৰ ব্যৱহাৰৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:177
+msgid "If you want to allow httpd to use built in scripting (usually php)"
+msgstr ""
+"যদি আপুনি httpd ক পুৰ্বনিৰ্মিত স্ক্ৰিপ্টিং (সাধাৰণত php) ব্যৱহাৰ কৰাৰ অনুমতি দিব "
+"বিচাৰে"
+
+#: ../booleans_trans.py:178
+msgid ""
+"If you want to allow exim to create, read, write, and delete unprivileged "
+"user files."
+msgstr ""
+"যদি আপুনি exim ক সুবিধাবিহিন ব্যৱহাৰকাৰী ফাইলসমূহ সৃষ্টি, পঢ়া, লিখা আৰু মচাৰ অনুমতি "
+"দিব বিচাৰে।"
+
+#: ../booleans_trans.py:179
+msgid "If you want to allow httpd to connect to the ldap port"
+msgstr "যদি আপুনি httpd ক ldap পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:180
+msgid ""
+"If you want to allow Cobbler to modify public files used for public file "
+"transfer services."
+msgstr ""
+"যদি আপুনি Cobbler ক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা ফাইলসমূহ "
+"সলনি কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:181
+msgid "If you want to allow samba to export NFS volumes."
+msgstr "যদি আপুনি samba ক NFS আয়তনসমূহ এক্সপোৰ্ট কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:182
+msgid ""
+"If you want to control the ability to mmap a low area of the address space, "
+"as configured by /proc/sys/kernel/mmap_min_addr."
+msgstr ""
+"যদি আপুনি /proc/sys/kernel/mmap_min_addr দ্বাৰা সংৰূপণ কৰা ধৰণেঠিকনা স্থানৰ নিম্ন "
+"স্থান mmap কৰাৰ ক্ষমতা নিযন্ত্ৰণ কৰিব বিচাৰে।"
+
+#: ../booleans_trans.py:183
+msgid "If you want to allow dbadm to read files in users home directories"
+msgstr ""
+"যদি আপুনি dbadm ক ব্যৱহাৰকাৰীসমূহৰ ঘৰ ডাইৰেকটৰিসমূহত ফাইলসমূহ পঢ়াৰ অনুমতি দিব "
 "বিচাৰে"
 
 #: ../booleans_trans.py:184
-msgid "If you want to allow sasl to read shadow"
-msgstr "যদি আপুনি sasl ক ছায়া পঢ়াৰ অনুমতি দিব বিচাৰে"
+msgid "If you want to allow collectd to connect to the network using TCP."
+msgstr ""
+"যদি আপুনি collectd ক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
 
 #: ../booleans_trans.py:185
+msgid "If you want to allow user processes to change their priority"
+msgstr ""
+"যদি আপুনি ব্যৱহাৰকাৰী প্ৰক্ৰিয়াসমূহক সিহতৰ প্ৰাথমিকতা সলনি কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:186
+msgid ""
+"If you want to allow ftp servers to use nfs used for public file transfer "
+"services."
+msgstr ""
+"যদি আপুনি ftp চাৰ্ভাৰসমূহক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত nfs ব্যৱহাৰ "
+"কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:187
+msgid ""
+"If you want to determine whether calling user domains can execute Polipo "
+"daemon in the polipo_session_t domain."
+msgstr ""
+"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে কল কৰি থকা ব্যৱহাৰকাৰী ডমেইনসমূহে "
+"polipo_session_t domain ত Polipo ডিমন এক্সিকিউট কৰিব পাৰে নে।"
+
+#: ../booleans_trans.py:188
+msgid "If you want to allow confined applications to run with kerberos."
+msgstr "যদি আপুনি গোপন এপ্লিকেচনসমূহ kerberos ৰ সৈতে চলাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:189
+msgid "If you want to allow http daemon to check spam"
+msgstr "যদি আপুনি http ডিমনক স্পাম নীৰিক্ষণ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:190
+msgid "If you want to allow xguest users to mount removable media"
+msgstr ""
+"যদি আপুনি xguest ব্যৱহাৰকাৰীসমূহক আতৰাব পৰা মাধ্যম মাউন্ট কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:191
+msgid ""
+"If you want to allow sftp-internal to login to local users and read/write "
+"all files on the system, governed by DAC."
+msgstr ""
+"যদি আপুনি sftp-internal ক স্থানীয় ব্যৱহাৰকাৰীসমূহত প্ৰৱেশ কৰি চিস্টেমত DAC ৰে "
+"ৰাজত্ব কৰা, সকলো ফাইল পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:192
+msgid ""
+"If you want to allow icecast to connect to all ports, not just sound ports."
+msgstr ""
+"যদি আপুনি icecast ক শব্দ পোৰ্টসমূহৰ বাহিৰেও, সকলো পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব "
+"বিচাৰে।"
+
+#: ../booleans_trans.py:193
+msgid "If you want to allow syslogd the ability to read/write terminals"
+msgstr "যদি আপুনি syslogd ক টাৰমিনেলসমূহক পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:194
+msgid "If you want to allow users to connect to the local mysql server"
+msgstr ""
+"যদি আপুনি ব্যৱহাৰকাৰীসমূহক স্থানীয় mysql চাৰ্ভাৰলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:195
+msgid "If you want to allow syslogd daemon to send mail"
+msgstr "যদি আপুনি syslogd ডিমনক মেইল পঠোৱাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:196
+msgid "If you want to determine whether Polipo can access nfs file systems."
+msgstr ""
+"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে Polipo এ nfs ফাইল চিস্টেমসমূহ অভিগম কৰিব পাৰিব নে।"
+
+#: ../booleans_trans.py:197
+msgid "If you want to allow samba to run unconfined scripts"
+msgstr "যদি আপুনি samba ক উন্মুক্ত লিপিসমূহ চলোৱাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:198
+msgid "If you want to allow nsplugin code to execmem/execstack"
+msgstr "যদি আপুনি nsplugin ক'ডক execmem/execstack ৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:199
+#, fuzzy
+msgid "If you want to allow xguest to use blue tooth devices"
+msgstr ""
+"যদি আপুনি xguest ব্যৱহাৰকাৰীসমূহক ব্লুটুথ যন্ত্ৰসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:200
+msgid "If you want to allow ftp servers to connect to all ports > 1023"
+msgstr ""
+"যদি আপুনি ftp চাৰ্ভাৰসমূহক 1023 কে ডাঙৰ সকলো পোৰ্টলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:201
+msgid "If you want to allow BIND to bind apache port."
+msgstr "যদি আপুনি BIND ক apache পোৰ্টৰ সৈতে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:202
+msgid "If you want to allow gitisis daemon to send mail"
+msgstr "যদি আপুনি gitisis ডিমনক মেইল প্ৰেৰণ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:203
+msgid "If you want to allow httpd to connect to memcache server"
+msgstr "যদি আপুনি httpd ক memcache চাৰ্ভাৰলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:204
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to cobbler over "
+"the network."
+msgstr ""
+"যদি আপুনি HTTPD লিপিসমূহ আৰু মডিউলসমূহক নেটৱাৰ্কৰে cobbler ৰ সৈতে সংযোগ কৰাৰ "
+"অনুমতি দিব বিচাৰে।"
+
+#: ../booleans_trans.py:205
+msgid ""
+"If you want to allow Apache to modify public files used for public file "
+"transfer services. Directories/Files must be labeled public_content_rw_t."
+msgstr ""
+"যদি আপুনি Apache ক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত ৰাজহুৱা ফাইলসমূহ "
+"সলনি কৰাৰ অনুমতি দিব বিচাৰে। ডাইৰেকটৰিসমূহ/ফাইলসমূহ public_content_rw_t লেবেল "
+"কৰা থাকিব লাগিব।"
+
+#: ../booleans_trans.py:206
+msgid "If you want to allow all daemons the ability to read/write terminals"
+msgstr "যদি আপুনি সকলো ডিমনক টাৰ্মিনেলসমূহ পঢ়া/লিখা ক্ষমতাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:207
+#, fuzzy
+msgid ""
+"If you want to allow users to resolve user passwd entries directly from ldap "
+"rather then using a sssd server"
+msgstr ""
+"যদি আপুনি ব্যৱহাৰকাৰীসমূহক এটা sssd চাৰ্ভাৰ ব্যৱহাৰ কৰি প্ৰৱেশ কৰাৰ অনুমতি দিব "
+"বিচাৰে"
+
+#: ../booleans_trans.py:208
 msgid ""
 "If you want to allow ftp servers to upload files,  used for public file "
 "transfer services. Directories must be labeled public_content_rw_t."
 msgstr ""
-"যদি আপুনি ftp চাৰ্ভাৰসমূহক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত, ৰাজহুৱা "
-"নথিপত্ৰসমূহ আপল'ড কৰাৰ অণুমতি দিব বিচাৰে। ডাইৰেকটৰিসমূহ public_content_rw_t "
-"লেবেল কৰা থাকিব লাগিব।"
+"যদি আপুনি ftp চাৰ্ভাৰসমূহক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত, ৰাজহুৱা "
+"ফাইলসমূহ আপল'ড কৰাৰ অণুমতি দিব বিচাৰে। ডাইৰেকটৰিসমূহ public_content_rw_t লেবেল "
+"কৰা থাকিব লাগিব।"
 
-#: ../booleans_trans.py:186
+#: ../booleans_trans.py:209
+#, fuzzy
+msgid "If you want to allow sanlock to manage cifs files"
+msgstr "যদি আপুনি xen ক nfs ফাইলসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:210
+#, fuzzy
+msgid ""
+"If you want to allow the portage domains to use NFS mounts (regular nfs_t)"
+msgstr ""
+"যদি আপুনি সকলো ডমেইনক অন্য ডমেইন ফাইল বিৱৰকসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:211
 msgid "If you want to allow video playing tools to run unconfined"
 msgstr "যদি আপুনি ভিডিঅ' চলোৱা সঁজুলিসমূহক উন্মুক্তভাৱে চলাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:187
-msgid ""
-"If you want to allow gssd to read temp directory.  For access to kerberos "
-"tgt."
-msgstr ""
-"যদি আপুনি gssd ক অস্থায়ী ডাইৰেকটৰি পঢ়াৰ অনুমতি দিব বিচাৰে। kerberos tgt লে "
-"অভিগমৰ বাবে।"
+#: ../booleans_trans.py:212
+msgid "If you want to use lpd server instead of cups"
+msgstr "যদি আপুনি cups ৰ পৰিৱৰ্তে lpd চাৰ্ভাৰ ব্যৱহাৰ কৰিব বিচাৰে"
 
-#: ../booleans_trans.py:188
+#: ../booleans_trans.py:213
 msgid "If you want to allow webadm to manage files in users home directories"
 msgstr ""
-"যদি আপুনি webadm ক ব্যৱহাৰকাৰীসমূহৰ ঘৰ ডাইৰেকটৰিসমূহত নথিপত্ৰসমূহ ব্যৱস্থাপনা কৰাৰ "
+"যদি আপুনি webadm ক ব্যৱহাৰকাৰীসমূহৰ ঘৰ ডাইৰেকটৰিসমূহত ফাইলসমূহ ব্যৱস্থাপনা কৰাৰ "
 "অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:189
+#: ../booleans_trans.py:214
 msgid "If you want to allow clamd to use JIT compiler"
 msgstr "যদি আপুনি clamd ক JIT কমপাইলাৰ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:190
-msgid "If you want to allows XServer to execute writable memory"
-msgstr "যদি আপুনি XServer ক লিখিব পৰা মেমৰি এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:191
+#: ../booleans_trans.py:215
+#, fuzzy
 msgid ""
-"If you want to allow Git daemon session to bind tcp sockets to all "
-"unreserved ports."
+"If you want to determine whether Git session daemon can bind TCP sockets to "
+"all unreserved ports."
 msgstr ""
-"যদি আপুনি Git ডিমন অধিবেশনক সকলো অসংৰক্ষিত পোৰ্টলে tcp চকেটসমূহ বন্ধাৰ অনুমতি দিব "
-"বিচাৰে।"
+"যদি আপুনি নিৰ্ধাৰণ কৰিব বিচাৰে Polipo অধিবেশন ডিমনে সকলো অসংৰক্ষিত পোৰ্টলে tcp "
+"চকেটসমূহ সংযোগ কৰিব পাৰে নে।"
 
-#: ../booleans_trans.py:192
+#: ../booleans_trans.py:216
 msgid ""
 "If you want to allow HTTPD to run SSI executables in the same domain as "
 "system CGI scripts."
@@ -3746,21 +3968,18 @@ msgstr ""
 "যদি আপুনি HTTPD ক চিস্টেম CGI লিপিসমূহ দৰে একেটা ডমেইনত SSI এক্সিকিউটেবুলসমূহ "
 "চলোৱাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:193
+#: ../booleans_trans.py:217
 msgid "If you want to allow samba to share any file/directory read/write."
 msgstr ""
-"যদি আপুনি samba ক যিকোনো নথিপত্ৰ/ডাইৰেকটৰি পঢ়া/লিখা হিচাপে অংশীদাৰী কৰাৰ অনুমতি "
+"যদি আপুনি samba ক যিকোনো ফাইল/ডাইৰেকটৰি পঢ়া/লিখা হিচাপে অংশীদাৰী কৰাৰ অনুমতি "
 "দিব বিচাৰে।"
 
-#: ../booleans_trans.py:194
-msgid ""
-"If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
-"database"
-msgstr ""
-"যদি আপুনি MySQL আৰু PostgreSQL ডাটাবেইচ লে সংযোগ কৰিবলে Puppet মাস্টাৰ ব্যৱহাৰ "
-"কৰাৰ অনুমতি দিব বিচাৰে"
+#: ../booleans_trans.py:218
+#, fuzzy
+msgid "If you want to allow httpd to access openstack ports"
+msgstr "যদি আপুনি httpd ক nfs ফাইল চিস্টেমসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:195
+#: ../booleans_trans.py:219
 msgid ""
 "If you want to allow httpd to act as a FTP server by listening on the ftp "
 "port."
@@ -3768,44 +3987,42 @@ msgstr ""
 "যদি আপুনি httpd ক ftp পোৰ্টত শুনি এটা FTP চাৰ্ভাৰ হিচাপে কাৰ্য্য কৰাৰ অনুমতি দিব "
 "বিচাৰে।"
 
-#: ../booleans_trans.py:196
+#: ../booleans_trans.py:220
+msgid "If you want to allow all daemons to write corefiles to /"
+msgstr "যদি আপুন৯ি সকলো ডিমনক কেন্দ্ৰীয়ফাইলসমূহ / লে লিখাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:221
 msgid "If you want to enable extra rules in the cron domain to support fcron."
 msgstr ""
 "যদি আপুনি fcron ক সমৰ্থন দিবলে cron ডমেইনত অতিৰিক্ত নিয়মসমূহ সামৰ্থবান কৰিব "
 "বিচাৰে।"
 
-#: ../booleans_trans.py:197
-msgid ""
-"If you want to allow internal-sftp to read and write files in the user ssh "
-"home directories."
+#: ../booleans_trans.py:222
+#, fuzzy
+msgid "If you want to allow codnor domain to connect to the network using TCP."
 msgstr ""
-"যদি আপুনি অভ্যন্তৰীয়-sftp ক ব্যৱহাৰকাৰী ssh ঘৰ ডাইৰেকটৰিসমূহত নথিপত্ৰসমূহ পঢ়িব আৰু "
-"লিখিব অনুমতি দিব বিচাৰে।"
+"যদি আপুনি ফেনস্ড ডমেইনক TCP ব্যৱহাৰ কৰি নেটৱাৰ্কলে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:198
+#: ../booleans_trans.py:223
 msgid "If you want to allow http daemon to connect to zabbix"
 msgstr "যদি আপুনি http ডিমনক zabbix লে সংযোগ কৰাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:199
-msgid "If you want to allow all domains to use other domains file descriptors"
-msgstr ""
-"যদি আপুনি সকলো ডমেইনক অন্য ডমেইন নথিপত্ৰ বিৱৰকসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
-
-#: ../booleans_trans.py:200
+#: ../booleans_trans.py:224
 msgid "If you want to allow users to login using a radius server"
 msgstr ""
 "যদি আপুনি ব্যৱহাৰকাৰীসমূহক এটা ব্যাসাৰ্দ্ধ চাৰ্ভাৰ ব্যৱহাৰ কৰি প্ৰৱেশ কৰাৰ অনুমতি দিব "
 "বিচাৰে"
 
-#: ../booleans_trans.py:201
+#: ../booleans_trans.py:225
 msgid "If you want to allow Cobbler to access cifs file systems."
-msgstr "যদি আপুনি Cobbler ক cifs নথিপত্ৰ প্ৰণালীসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে।"
+msgstr "যদি আপুনি Cobbler ক cifs ফাইল চিস্টেমসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:202
-msgid "If you want to allow httpd daemon to change system limits"
+#: ../booleans_trans.py:226
+#, fuzzy
+msgid "If you want to allow httpd daemon to change its resource limits"
 msgstr "যদি আপুনি httpd ডিমনক চিস্টেম সীমাসমূহ সলনি কৰাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:203
+#: ../booleans_trans.py:227
 msgid ""
 "If you want to allow squid to connect to all ports, not just HTTP, FTP, and "
 "Gopher ports."
@@ -3813,43 +4030,85 @@ msgstr ""
 "যদি আপুনি squid ক কেৱল HTTP, FTP, আৰু Gopher পোৰ্টসমূহৰ বাহিৰেও সকলো পোৰ্টসমূহলে "
 "সংযোগ কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:204
-msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr "যদি আপুনি syslogd ক টাৰমিনেলসমূহক পঢ়া/লিখাৰ অনুমতি দিব বিচাৰে"
+#: ../booleans_trans.py:228
+msgid "If you want to allow all domains to use other domains file descriptors"
+msgstr ""
+"যদি আপুনি সকলো ডমেইনক অন্য ডমেইন ফাইল বিৱৰকসমূহ ব্যৱহাৰ কৰাৰ অনুমতি দিব বিচাৰে"
 
-#: ../booleans_trans.py:205
+#: ../booleans_trans.py:229
 msgid "If you want to allow users to read system messages."
 msgstr "যদি আপুনি ব্যৱহাৰকাৰীসমূহক চিস্টেম বাৰ্তাসমূহ পঢ়াৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:207
+#: ../booleans_trans.py:230
+msgid "If you want to allow confined virtual guests to manage cifs files"
+msgstr ""
+"যদি আপুনি গোপন ভাৰছুৱেল অতিথিসমূহক cifs ফাইলসমূহ ব্যৱস্থাপনা কৰাৰ অনুমতি দিব বিচাৰে"
+
+#: ../booleans_trans.py:231
 msgid "If you want to enable support for systemd as the init program."
 msgstr "যদি আপুনি init প্ৰগ্ৰাম হিচাপে systemd ৰ বাবে সমৰ্থন সামৰ্থবান কৰিব বিচাৰে।"
 
-#: ../booleans_trans.py:208
+#: ../booleans_trans.py:232
 msgid ""
 "If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
-"যদি আপুনি যিকোনো নথিপত্ৰ/ডাইৰেকটৰিক NFS ৰে কেৱল/পঢ়িব পৰা হিচাপে ৰপ্তানি কৰাৰ "
+"যদি আপুনি যিকোনো ফাইল/ডাইৰেকটৰিক NFS ৰে কেৱল/পঢ়িব পৰা হিচাপে ৰপ্তানি কৰাৰ "
 "অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:209
+#: ../booleans_trans.py:233
 msgid ""
 "If you want to allow system cron jobs to relabel filesystem for restoring "
 "file contexts."
 msgstr ""
-"যদি আপুনি চিস্টেম cron কাৰ্য্যসমূহক নথিপত্ৰ পৰিপ্ৰেক্ষতিতসমূহ পুনৰউদ্ধাৰ কৰিবলে "
-"নথিপত্ৰপ্ৰণালী পুনৰলেবেল কৰাৰ অনুমতি দিব বিচাৰে।"
+"যদি আপুনি চিস্টেম cron কাৰ্য্যসমূহক ফাইল পৰিপ্ৰেক্ষতিতসমূহ পুনৰউদ্ধাৰ কৰিবলে "
+"ফাইলচিস্টেম পুনৰলেবেল কৰাৰ অনুমতি দিব বিচাৰে।"
 
-#: ../booleans_trans.py:210
+#: ../booleans_trans.py:234
 msgid ""
 "If you want to allow anon internal-sftp to upload files, used for public "
 "file transfer services. Directories must be labeled public_content_rw_t."
 msgstr ""
-"যদি আপুনি anon internal-sftp ক ৰাজহুৱা নথিপত্ৰ স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত, "
-"নথিপত্ৰসমূহ আপল'ড কৰাৰ অনুমতি দিব বিচাৰে। ডাইৰেকটৰিসমূহ public_content_rw_t "
-"লেবেল কৰা থাকিব লাগিব।"
+"যদি আপুনি anon internal-sftp ক ৰাজহুৱা ফাইল স্থানান্তৰ সেৱাসমূহৰ বাবে ব্যৱহৃত, "
+"ফাইলসমূহ আপল'ড কৰাৰ অনুমতি দিব বিচাৰে। ডাইৰেকটৰিসমূহ public_content_rw_t লেবেল "
+"কৰা থাকিব লাগিব।"
 
-#: ../booleans_trans.py:211
+#: ../booleans_trans.py:235
 msgid "If you want to allow unprivileged users to execute DDL statement"
 msgstr ""
 "যদি আপুনি সুবিধাবিহিন ব্যৱহাৰকাৰীসমূহক DDL বিবৃতি এক্সিকিউট কৰাৰ অনুমতি দিব বিচাৰে"
+
+#~ msgid ""
+#~ "You must tell SELinux about this by enabling the '%s' boolean. You can "
+#~ "read '%s' man page for more details."
+#~ msgstr ""
+#~ "আপুনি SELinux ক ইয়াৰ বিষয়ে '%s' সামৰ্থবান কৰি কব লাগিব। আপুনি অধিক বিৱৰণৰ "
+#~ "বাবে '%s' man পৃষ্ঠা পঢ়িব পাৰিব।"
+
+#~ msgid ""
+#~ "If you want to allow direct login to the console device. Required for "
+#~ "System 390"
+#~ msgstr ""
+#~ "যদি আপুনি কনচৌল যন্ত্ৰলে প্ৰত্যক্ষ প্ৰৱেশৰ অনুমতি দিব বিচাৰে। চিস্টেম 390 ৰ বাবে "
+#~ "প্ৰয়োজনীয়"
+
+#~ msgid ""
+#~ "If you want to determine whether Polipo session daemon can send syslog "
+#~ "messages."
+#~ msgstr ""
+#~ "যদি আপুনি Polipo অধিবেশন ডিমনে syslog বাৰ্তাসমূহ পঠাব পাৰিব নে নিৰ্ধাৰণ কৰিব "
+#~ "বিচাৰে।"
+
+#~ msgid "If you want to allow Git daemon system to access cifs file systems."
+#~ msgstr ""
+#~ "যদি আপুনি Git ডিমন চিস্টেমক cifs ফাইল চিস্টেমলে অভিগমৰ অনুমতি দিব বিচাৰে।"
+
+#~ msgid "If you want to allow Git daemon system to access nfs file systems."
+#~ msgstr ""
+#~ "যদি আপুনি Git ডিমন চিস্টেমক nfs ফাইল চিস্টেমসমূহ অভিগম কৰাৰ অনুমতি দিব বিচাৰে।"
+
+#~ msgid ""
+#~ "If you want to allow Git daemon session to bind tcp sockets to all "
+#~ "unreserved ports."
+#~ msgstr ""
+#~ "যদি আপুনি Git ডিমন অধিবেশনক সকলো অসংৰক্ষিত পোৰ্টলে tcp চকেটসমূহ বন্ধাৰ অনুমতি "
+#~ "দিব বিচাৰে।"

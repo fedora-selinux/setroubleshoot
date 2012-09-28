@@ -10,19 +10,20 @@
 # I felix <ifelix@redhat.com>, 2007.
 # I Felix <ifelix@redhat.com>, 2010, 2012.
 # I. Felix <ifelix@redhat.com>, 2009, 2010.
+#   <shkumar@redhat.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 09:24-0400\n"
-"PO-Revision-Date: 2012-03-13 13:25+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"POT-Creation-Date: 2012-09-20 05:43-0400\n"
+"PO-Revision-Date: 2012-08-28 06:34+0000\n"
+"Last-Translator: shkumar <shkumar@redhat.com>\n"
 "Language-Team: Tamil <tamil-users@lists.fedoraproject.org>\n"
 "Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -64,6 +65,16 @@ msgid ""
 "relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
 msgstr ""
+"\n"
+"    httpd ஸ்கிரிப்ட்டுகள் பொது கோப்பகங்களில் எழுத அனுமதிக்கப்பட வேண்டும் எனில், நீங்கள் "
+"$BOOLEAN பூலியனை ஆன் செய்து பொது கோப்பகத்தின் கோப்புச் சூழலை public_content_rw_t என "
+"மாற்ற வேண்டும்.  மேலும் தகவலுக்கு httpd_selinux\n"
+"    உதவிப் பக்கத்தைப் படிக்கவும்\n"
+"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
+"    முழு மறு அடையாளமிடலின் போதும் பொது கோப்பக அடையாளமிடலைத் தக்கவைத்துக்கொள்ள "
+"வேண்டுமானால் நீங்கள் கணினியில் உள்ள முன்னிருப்பு கோப்புச் சூழல் அடையாளமிடல் கோப்புகளையும் "
+"மாற்றியாக வேண்டும்.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
+"    "
 
 #: ../src/allow_anon_write.py:44
 msgid ""
@@ -150,7 +161,7 @@ msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr ""
 "ஒரு பிழையை நீங்கள் அறிக்கையிட வேண்டும். இது ஒரு சாத்தியமுள்ள ஆபத்தான அணுகலாகும். "
 
-#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:89
+#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:84
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
 #: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
@@ -304,20 +315,14 @@ msgstr ""
 "    "
 
 #: ../src/allow_execstack.py:72
+#, fuzzy
 msgid ""
 "\n"
 "    Sometimes a library is accidentally marked with the execstack flag,\n"
 "    if you find a library with this flag you can clear it with the\n"
 "    execstack -c LIBRARY_PATH.  Then retry your application.  If the\n"
 "    app continues to not work, you can turn the flag back on with\n"
-"    execstack -s LIBRARY_PATH.  Otherwise, if you trust $SOURCE to\n"
-"    run correctly, you can change the context of the executable to\n"
-"    execmem_exec_t. \"chcon -t execmem_exec_t\n"
-"    '$SOURCE_PATH'\"\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"execmem_exec_t '$FIX_SOURCE_PATH'\"\n"
-"    \n"
+"    execstack -s LIBRARY_PATH.  \n"
 "    "
 msgstr ""
 "\n"
@@ -335,7 +340,7 @@ msgstr ""
 "    \n"
 "    "
 
-#: ../src/allow_execstack.py:87
+#: ../src/allow_execstack.py:82
 msgid ""
 "you do not think $SOURCE_PATH should need to map stack memory that is both "
 "writable and executable."
@@ -343,7 +348,7 @@ msgstr ""
 "$SOURCE_PATH ஆனது வரைபட நினைவகத்தில் எழுதக்கூடிய மற்றும் செயலாற்றக்கூடிய ஸ்டாக்கில் "
 "தேவைப்படுவதை நீங்கள் நினைக்கவில்லை."
 
-#: ../src/allow_execstack.py:88
+#: ../src/allow_execstack.py:83
 msgid ""
 "you need to report a bug. \n"
 "This is a potentially dangerous access."
@@ -351,7 +356,7 @@ msgstr ""
 "ஒரு பிழையை அறிக்கையிட வேண்டும். \n"
 "இது ஒரு திறனுள்ள ஆபத்தான அணுகலாகும். "
 
-#: ../src/allow_execstack.py:97
+#: ../src/allow_execstack.py:92
 #, python-format
 msgid ""
 "you believe that \n"
@@ -362,7 +367,7 @@ msgstr ""
 "%s\n"
 "execstack தேவைப்படாது என"
 
-#: ../src/allow_execstack.py:106
+#: ../src/allow_execstack.py:101
 #, python-format
 msgid ""
 "you should clear the execstack flag and see if $SOURCE_PATH works "
@@ -374,7 +379,7 @@ msgstr ""
 "%s-இல் ஒரு பிழையாக அறிக்கையிடவும்.\n"
 "exestack கொடியை செயல்படுத்துவதால் நீங்கள் சரிபடுத்தலாம்:"
 
-#: ../src/allow_execstack.py:116
+#: ../src/allow_execstack.py:111
 #, python-format
 msgid "execstack -c %s"
 msgstr "execstack -c %s"
@@ -548,6 +553,44 @@ msgstr ""
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
 msgstr "ftpd-ஐ nfs கோப்பு முறைமைகளை எழுதுவதற்கு நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
+#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
+#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
+msgid ""
+"\n"
+"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
+"    "
+msgstr ""
+"\n"
+"    SELinuxஐ $SOURCE_PATH \"$ACCESS\" சாதனத்துடன் $TARGET_PATH அணுகுவதைத் "
+"தடுக்கிறது. \n"
+"    "
+
+#: ../src/associate.py:37
+#, python-format
+msgid ""
+"\n"
+"You tried to place a type on a %s that is not a file type.  This is not "
+"allowed, you must assigne a file type.  You can list all file types using "
+"the seinfo command.\n"
+"\n"
+"seinfo -afile_type -x\n"
+"\n"
+"    "
+msgstr ""
+
+#: ../src/associate.py:44
+#, fuzzy, python-format
+msgid ""
+"you want to change the label of $TARGET_PATH to %s, you are not allowed to "
+"since it is not a valid file type."
+msgstr "$TARGET_PATH-க்கு அதே போன்ற சாதன வகைக்கு லேபிளை மாற்ற வேண்டும்."
+
+#: ../src/associate.py:49
+#, fuzzy
+msgid "you must pick a valid file label."
+msgstr "அடையாளங்களை நிர்ணயிக்க வேண்டும்."
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -733,19 +776,15 @@ msgstr "%s உங்களுக்கு வேண்டுமா"
 msgid "setsebool -P %s %s"
 msgstr "setsebool -P %s %s"
 
-#: ../src/catchall_boolean.py:67
-#, python-format
-msgid ""
-"You must tell SELinux about this by enabling the '%s' boolean. You can read "
-"'%s' man page for more details."
-msgstr ""
-"SELinux-க்கு  '%s' boolean-ஐ செயல்படுத்துவதை பற்றி நீங்கள் இதை சொல்ல வேண்டும். மேலும் "
-"விவரங்களுக்கு '%s' கையேடு பக்கத்தைப் பார்க்கவும்."
+#: ../src/catchall_boolean.py:66
+#, fuzzy, python-format
+msgid "You must tell SELinux about this by enabling the '%s' boolean."
+msgstr "SELinux-க்கு  '%s' boolean-ஐ செயல்படுத்துவதை பற்றி நீங்கள் இதை சொல்ல வேண்டும்."
 
 #: ../src/catchall_boolean.py:69
 #, python-format
-msgid "You must tell SELinux about this by enabling the '%s'boolean."
-msgstr "SELinux-க்கு  '%s' boolean-ஐ செயல்படுத்துவதை பற்றி நீங்கள் இதை சொல்ல வேண்டும்."
+msgid "You can read '%s' man page for more details."
+msgstr ""
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -788,7 +827,8 @@ msgstr ""
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
 
-#: ../src/catchall.py:29
+#: ../src/catchall.py:29 ../src/mozplugger.py:29
+#: ../src/mozplugger_remove.py:29
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
 msgstr "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
 
@@ -1189,6 +1229,7 @@ msgstr ""
 "    "
 
 #: ../src/file.py:31
+#, fuzzy
 msgid ""
 "\n"
 "    SELinux permission checks on files labeled file_t are being\n"
@@ -1196,7 +1237,7 @@ msgid ""
 "    that do not have a label. This indicates a serious labeling\n"
 "    problem. No files on an SELinux box should ever be labeled file_t.\n"
 "    If you have just added a disk drive to the system you can\n"
-"    relabel it using the restorecon command.  For example if you saved the \n"
+"    relabel it using the restorecon command.  For example if you saved the\n"
 "home directory from a previous installation that did not use SELinux, "
 "'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
@@ -1722,20 +1763,56 @@ msgstr "$SOURCE_BASE_PATH-ஐ $TARGET_BASE_PATH-இல் ஏற அனுமத
 msgid "you must change the labeling on $TARGET_PATH."
 msgstr "$TARGET_PATH இல் லேபிளை மாற்ற வேண்டும்."
 
-#: ../src/openvpn.py:32 ../src/public_content.py:27
-#: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
-#: ../src/restorecon.py:32 ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/mozplugger.py:31 ../src/mozplugger_remove.py:31
+#, fuzzy
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
+"    SELinux denied access requested by $SOURCE. It is not\n"
+"    expected that this access is required by $SOURCE and this access\n"
+"    may signal an intrusion attempt. It is also possible that the specific\n"
+"    version or configuration of the application is causing it to require\n"
+"    additional access.\n"
 "    "
 msgstr ""
 "\n"
-"    SELinuxஐ $SOURCE_PATH \"$ACCESS\" சாதனத்துடன் $TARGET_PATH அணுகுவதைத் "
-"தடுக்கிறது. \n"
+"\n"
+"    SELinux ஆனது இந்த $SOURCEன் படி கோரப்படுகிறது. இந்த\n"
+"    அணுகலானது எதிர்பார்த்தின் படி $SOURCE தேவைப்படுகிறது மற்றும் இந்த அணுகல்\n"
+"    ஒரு நிர்வாக முயற்சியின் சிக்னலாகும். இந்த\n"
+"    பதிப்பு அல்லது கட்டமைப்பிற்கான பயன்பாடு ஒரு\n"
+"    கூடுதல் அணுகலை குறிப்பிடுகிறது.\n"
+"\n"
 "    "
 
-#: ../src/openvpn.py:36
+#: ../src/mozplugger.py:39 ../src/mozplugger_remove.py:39
+msgid ""
+"\n"
+"Either remove the mozplluger package by executing 'yum remove mozplugger'\n"
+"Or turn off enforcement of SELinux over the Firefox plugins.\n"
+"setsebool -P unconfined_mozilla_plugin_transition 0\n"
+"    "
+msgstr ""
+
+#: ../src/mozplugger.py:44
+msgid "you want to use mozplugger package"
+msgstr ""
+
+#: ../src/mozplugger.py:45
+#, fuzzy
+msgid "you must turn off SELinux controls on the Firefox plugins."
+msgstr "SELinux-ஐ இதை அனுமதிக்குமாறு நீங்கள் அமைக்க வேண்டும்"
+
+#: ../src/mozplugger_remove.py:44
+msgid ""
+"you want to to continue using SELinux Firefox plugin containment rather then "
+"using mozplugger package"
+msgstr ""
+
+#: ../src/mozplugger_remove.py:45
+msgid "you must remove the mozplugger package."
+msgstr ""
+
+#: ../src/openvpn.py:35
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
@@ -1751,7 +1828,7 @@ msgstr ""
 "    is labeled correctly.\n"
 "    "
 
-#: ../src/openvpn.py:42 ../src/sshd_root.py:42
+#: ../src/openvpn.py:41 ../src/sshd_root.py:42
 msgid ""
 "\n"
 "    You can restore the default system context to this file by executing "
@@ -1765,7 +1842,7 @@ msgstr ""
 "    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
 "    "
 
-#: ../src/openvpn.py:49
+#: ../src/openvpn.py:48
 msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
@@ -1773,7 +1850,7 @@ msgstr ""
 "mv $TARGET_BASE_PATH-ஐ நிலையாக இடத்திற்கு நகர்த்தவும் எனவே $SOURCE_BASE_PATH-ஆனது "
 "$ACCESS அணுகலை கொண்டிருக்கலாம்"
 
-#: ../src/openvpn.py:51
+#: ../src/openvpn.py:50
 msgid ""
 "you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
 "can have $ACCESS access on it"
@@ -1781,11 +1858,11 @@ msgstr ""
 "$TARGET_BASE_PATH-இல் லேபிளை மாற்ற வேண்டும் எனவே $SOURCE_BASE_PATH-ஆனது $ACCESS "
 "அணுகலை இதில் கொண்டிருக்கலாம்"
 
-#: ../src/openvpn.py:55
+#: ../src/openvpn.py:54
 msgid "you must move the cert file to the ~/.cert directory"
 msgstr "cert கோப்பை the ~/.cert அடைவிற்கு நகர்த்த வேண்டும்"
 
-#: ../src/openvpn.py:57 ../src/sshd_root.py:47
+#: ../src/openvpn.py:56 ../src/sshd_root.py:47
 msgid "you must fix the labels."
 msgstr "அடையாளங்களை நிர்ணயிக்க வேண்டும்."
 
@@ -2678,383 +2755,6 @@ msgstr ""
 
 #: ../booleans_trans.py:11
 msgid ""
-"If you want to allow direct login to the console device. Required for System "
-"390"
-msgstr ""
-"நேரடி உட்புகுவை பணியக சாதனத்தில் உட்புக அனுமதிக்க விரும்பினால். கணினி 390-க்காக "
-"தேவைப்படுகிறது"
-
-#: ../booleans_trans.py:12
-msgid "If you want to allow user spamassassin clients to use the network."
-msgstr ""
-"பயனர் spamassassin வாடிக்கையாளர்களை பிணையத்தை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:13
-msgid "If you want to allow httpd to act as a relay"
-msgstr "ஒரு தொடராக httpd-ஐ செயல்படுத்துவதை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:14
-msgid "If you want to allow openvpn to read home directories"
-msgstr "முகப்பு அடைவுகளை வாசிக்க openvpn-ஐ விரும்பினால்"
-
-#: ../booleans_trans.py:15
-msgid ""
-"If you want to allow usage of the gpg-agent --write-env-file option. This "
-"also allows gpg-agent to manage user files."
-msgstr ""
-"gpg-agent --write-env-file விருப்பத்தில் பயன்பாட்டை அனுமதிக்க விரும்பினால். இது "
-"உங்களை gpg-agent பயனர் கோப்புகளை நிர்வகிக்க அனுமதிக்கிறது."
-
-#: ../booleans_trans.py:16
-msgid ""
-"If you want to allow the Telepathy connection managers to connect to any "
-"generic TCP port."
-msgstr ""
-"ஏதாவது பொது TCP துறைக்கு இணைக்க டெலிபதி இணைப்பு நிர்வாகிகளை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:17
-msgid ""
-"If you want to allow unconfined users to transition to the Mozilla plugin "
-"domain when running xulrunner plugin-container."
-msgstr ""
-"வரையறுக்கப்படாத பயனர்கள் மொஸில்லா செருகி செயற்களமானது xulrunner செருகி கொள்கலன் "
-"இயக்கப்படுகையில் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:18
-msgid "If you want to allow confined virtual guests to read fuse files"
-msgstr ""
-"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்கள் ஃப்யூஸ் கோப்புகளை வாசிப்பதை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:19
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to databases over "
-"the network."
-msgstr ""
-"HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகளை தரவுத்தளங்களின் மேல் பிணைத்திற்கு இணைப்பதை "
-"அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:20
-msgid ""
-"If you want to allow ssh with chroot env to read and write files in the user "
-"home directories"
-msgstr ""
-"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை எழுத chroot env-ஐ நீங்கள் அனுமதிக்க "
-"விரும்பினால்"
-
-#: ../booleans_trans.py:21
-msgid "If you want to allow users to connect to the local mysql server"
-msgstr "உள்ளமை mysql சேவையகத்தை பயனர்களுக்கு இணைப்பதை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:22
-msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
-
-#: ../booleans_trans.py:23
-msgid ""
-"If you want to allow ftp servers to login to local users and read/write all "
-"files on the system, governed by DAC."
-msgstr ""
-"உள்ளமை பயனர்கள் அனைத்து கோப்புகளையும் கணினியில் வாசித்து/எழுதுவதற்கு ftp சேவையகங்களை "
-"உட்புகுவதை அனுமதிக்க விரும்பினால், DAC ஆல் அங்கீகரிக்கப்பட்டது."
-
-#: ../booleans_trans.py:24
-msgid "If you want to allow httpd to run gpg in gpg-web domain"
-msgstr "httpd-ஐ gpg இன் gpg-web domain இல் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:25
-msgid ""
-"If you want to allow samba to act as the domain controller, add users, "
-"groups and change passwords."
-msgstr ""
-"samba-ஐ செயற்கள கட்டுப்படுத்தி, பயனர்களை சேர்த்தல், குழுக்கள் மற்றும் கடவுச்சொற்களை "
-"மாற்றுதலாக நடத்த அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:26
-msgid "If you want to allow httpd to execute cgi scripts"
-msgstr ""
-"If you want to allow httpd-ஐ cgi ஸ்கிரிப்ட்டுகளை செயல்படுத்துவதை அனுமதிக்க "
-"விரும்பினால்"
-
-#: ../booleans_trans.py:27
-msgid "If you want to determine whether polipo can access cifs file systems."
-msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:28 ../booleans_trans.py:142
-msgid "If you want to allow confined virtual guests to manage nfs files"
-msgstr ""
-"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை nfs கோப்புகள் நிர்வகிப்பதை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:29
-msgid "If you want to allow all daemons the ability to read/write terminals"
-msgstr "அனைத்து டொமைன்களின் வாசித்தல்/எழுதுதல் முனைகளுக்கு திறனை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:30
-msgid ""
-"If you want to allow confined virtual guests to use serial/parallel "
-"communication ports"
-msgstr ""
-"வரிசை/இணையான தொடர்பு துறைகளை பயன்படுத்த மெய்நிகர் விருந்தினர்களை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:31
-msgid ""
-"If you want to allow samba to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க samba-"
-"ஐ அனுமதிக்க விரும்பினால். கோப்புகள்/அடைவுகள் public_content_rw_t இல் லேபிளிடப்பட "
-"வேண்டும். "
-
-#: ../booleans_trans.py:32
-msgid "If you want to allow rsync to run as a client"
-msgstr "ஒரு வாடிக்கையாளராக இயக்குவதற்கு rsync-ஐ அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:33
-msgid ""
-"If you want to allow rgmanager domain to connect to the network using TCP."
-msgstr ""
-"rgmanager செயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்தை இணைப்பதற்கு அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:34
-msgid "If you want to allow exim to read unprivileged user files."
-msgstr "சிறப்புரிமை அளிக்கப்படாத பயனர் கோப்புகளை வாசிக்க exim-ஐ அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:35
-msgid "If you want to allow sysadm to debug or ptrace all processes."
-msgstr ""
-"sysadmக்கு பிழைதிருத்த அல்லது  அனைத்து செயல்முறைகளையும் ptrace செய்ய அனுமதிக்க "
-"விரும்பினால்."
-
-#: ../booleans_trans.py:36
-msgid "If you want to allow Puppet client to manage all file types."
-msgstr "பப்பெட் வாடிக்கையாளரை அனைத்து கோப்பு வகைகளை நிர்வகிக்க அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:37
-msgid ""
-"If you want to allow the use of the audio devices as the source for the "
-"entropy feeds"
-msgstr "entropy பயனர்களை ஆடியோ சாதனங்களை பயன்படுத்த அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:38
-msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
-msgstr "ssh உட்புகுகளை sysadm_r:sysadm_t-ஆக அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:39
-msgid ""
-"If you want to determine whether Polipo session daemon can send syslog "
-"messages."
-msgstr "syslog கோப்பு முறைமைகளை அணுகுவதற்கு Polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:40
-msgid ""
-"If you want to allow BIND to write the master zone files. Generally this is "
-"used for dynamic DNS or zone transfers."
-msgstr ""
-"முதன்மை மண்டல கோப்புகளை எழுத பைண்டை நீங்கள் அனுமதிக்க விரும்பினால். பொதுவாக இது டைனமிக் "
-"DNS அல்லது மண்டல பரிமாற்றங்களுக்காகபயன்படுத்தப்படுகிறது."
-
-#: ../booleans_trans.py:41
-msgid "If you want to allow Git daemon system to access cifs file systems."
-msgstr "Git டொமைன் கணினி cifs கோப்பு முறைமைகளை அணுகுவதற்கு அடுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:42
-msgid ""
-"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
-msgstr ""
-"tor டொமைன் tcp சாக்கெட்டுகளை முன்பதிவு செய்யப்பட்டதாத துறைகளுக்கு பிணைப்பதை அனுமதிக்க "
-"விரும்பினால்"
-
-#: ../booleans_trans.py:43
-msgid "If you want to allow host key based authentication"
-msgstr "புரவல விசை சார்ந்த அங்கீகாரத்தை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:44
-msgid "If you want to allow httpd to access cifs file systems"
-msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு httpd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:45
-msgid ""
-"If you want to allow piranha-lvs domain to connect to the network using TCP."
-msgstr ""
-"piranha-lvs சேயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்தை இணைப்பதற்கு அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:46
-msgid ""
-"If you want to disallow programs, such as newrole, from transitioning to "
-"administrative user domains."
-msgstr ""
-"நிரல்கள், newrole போன்றவற்றிலிருந்து, நிர்வாக பயனர் செயற்களங்களுக்கு மாற்ற அனுமதிக்க "
-"விரும்பாவிடில்."
-
-#: ../booleans_trans.py:47
-msgid ""
-"If you want to allow ABRT to modify public files used for public file "
-"transfer services."
-msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க ABRT-"
-"ஐ அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:48
-msgid "If you want to allow pppd to be run for a regular user"
-msgstr "ஒரு வழக்கமான பயனருக்காக pppd-ஐ இயக்குவதற்கு அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:49
-msgid "If you want to allow samba to share any file/directory read only."
-msgstr ""
-"ஏதாவது கோப்பு/அடைவு வாசிக்க மட்டும் என்பதை பகிர சாம்பாவை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:50
-msgid "If you want to allow ftp servers to connect to mysql database ports"
-msgstr "mysqlதரவுத்தளத்தில் இணைப்பதை பயன்படுத்துவதற்கு ftp-ஐ அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:51
-msgid "If you want to allow Git daemon system to search home directories."
-msgstr "முகப்பு அடைவுகளை Git டொமைன் கணினி தேடுவதை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:52
-msgid "If you want to support SAMBA home directories"
-msgstr "SAMBA முகப்பு அடைவுகளுக்கு துணைபுரிய விரும்பினால்"
-
-#: ../booleans_trans.py:53
-msgid "If you want to allow mock to read files in home directories."
-msgstr "பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசிக்க நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:54
-msgid "If you want to allow users to login using a sssd server"
-msgstr "ஒரு sssd சேவையகத்தை பயன்படுத்தி பயனர்களை உட்புகுவதை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:55
-msgid ""
-"If you want to allow samba to create new home directories (e.g. via PAM)"
-msgstr ""
-"புதிய முகப்பு அடைவுகளை உருவாக்க சாம்பாவை அனுமதிக்க விரும்பினால் (எ.கா. PAM வழியாக)"
-
-#: ../booleans_trans.py:56
-msgid "If you want to control users use of ping and traceroute"
-msgstr "ping மற்றும் traceroute-ஐ பயன்படுத்த பயனர்களை கட்டுப்படுத்த விரும்பினால்"
-
-#: ../booleans_trans.py:57
-msgid ""
-"If you want to allow ftp servers to use cifs used for public file transfer "
-"services."
-msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக cifs பயன்படுத்துவதற்கு ftp சேவையகங்களை அனுமதிக்க "
-"விரும்பினால்."
-
-#: ../booleans_trans.py:58
-msgid ""
-"If you want to allow the Irssi IRC Client to connect to any port, and to "
-"bind to any unreserved port."
-msgstr ""
-"Irssi IRC வாடிக்கையாளரை  ஏதாவது துறைக்கு இணைத்து, ஏதாவது முன்பதியாத துறையில் "
-"பிணைப்பதை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:59
-msgid "If you want to allow zabbix to connect to unreserved ports"
-msgstr "முன்பதியப்படாத துறைகளை இணைப்பதற்கு zabbix-ஐ அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:60
-msgid "If you want to allow Apache to use mod_auth_pam"
-msgstr "mod_auth_pam-ஐ பயன்படுத்துவதற்கு Apache-ஐ அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:61
-msgid ""
-"If you want to allow ftp servers to use nfs used for public file transfer "
-"services."
-msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக nfs பயன்படுத்துவதற்கு ftp சேவையகங்களை அனுமதிக்க "
-"விரும்பினால்."
-
-#: ../booleans_trans.py:62
-msgid "If you want to allow httpd to read home directories"
-msgstr "முகப்பு அடைவுகளை வாசிக்க httpd-ஐ விரும்பினால்"
-
-#: ../booleans_trans.py:63
-msgid ""
-"If you want to allow gpg web domain to modify public files used for public "
-"file transfer services."
-msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க gpg "
-"web domain-ஐ அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:64
-msgid "If you want to allow rsync to export any files/directories read only."
-msgstr ""
-"ஏதாவது கோப்புகள்/அடைவுகளை வாசிக்க மட்டும் ஏற்றுமதி செய்ய rsync-ஐ அனுமதிக்க "
-"விரும்பினால்."
-
-#: ../booleans_trans.py:65
-msgid ""
-"If you want to allow all unconfined executables to use libraries requiring "
-"text relocation that are not labeled textrel_shlib_t"
-msgstr ""
-"அனைத்து நிறைவேற்றக்கூடியவற்றை நூலகங்களுக்கு தேவையான உரை மறுஇடத்தில் textrel_shlib_t "
-"லேபிளிடப்படாததை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:66
-msgid ""
-"If you want to allow apache scripts to write to public content.  Directories/"
-"Files must be labeled public_rw_content_t."
-msgstr ""
-"apache ஸ்கிரிப்ட்டுகளை பொது உள்ளடக்கத்தை எழுதுவதற்கு அனுமதிக்க விரும்பினால். அடைவுகள்/"
-"கோப்புகள் public_content_rw_t இல் லேபிளிடப்பட வேண்டும் "
-
-#: ../booleans_trans.py:67
-msgid "If you want to allow qemu to use cifs/Samba file systems"
-msgstr "qemu-ஐ cifs/Samba கோப்பு முறைமைகளை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:68
-msgid ""
-"If you want to determine whether Polipo session daemon can bind tcp sockets "
-"to all unreserved ports."
-msgstr ""
-"Polipo டொமைன் tcp சாக்கெட்டுகளை முன்பதிவு செய்யப்பட்டதாத துறைகளுக்கு பிணைப்பதை "
-"அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:69
-msgid "If you want to allow qemu to use serial/parallel communication ports"
-msgstr "வரிசை/இணையான தொடர்பு துறைகளை பயன்படுத்த qemu-ஐ அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:70
-msgid "If you want to allow Apache to communicate with avahi service via dbus"
-msgstr "avahi சேவை dbus வழியாக இதனுடன் தொடர்புகொள்ள Apache-ஐ அனுமதிக்கவிரும்பினால்"
-
-#: ../booleans_trans.py:71
-msgid "If you want to allow all daemons to use tcp wrappers."
-msgstr "அனைத்து டொமைன்களின் வாசித்தல் tcp முனைகளுக்கு திறனை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:72
-msgid "If you want to allow samba to share users home directories."
-msgstr "பயனர்களின் முகப்பு அடைவுகளை பகிர்வதற்கு சாம்பாவை நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:73
-msgid "If you want to enable reading of urandom for all domains."
-msgstr "urando-க்கான அனைத்து செயற்களங்களை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:74
-msgid "If you want to allow racoon to read shadow"
-msgstr "racoon-ஐ நிழலை வாசிப்பதை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:75
-msgid "If you want to allow Cobbler to connect to the network using TCP."
-msgstr "TCP-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை காப்ளரை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:76
-msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
-msgstr ""
-"squid-ஐ ஒரு ஊடுருவக்கூடிய ப்ராக்ஸியாக (TPROXY) இயக்குவதற்கு அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:77
-msgid ""
-"If you want to prevent all confined domains from loading policy, setting "
-"enforcing mode, and changing boolean values.  Set this to true and you have "
-"to reboot to set it back"
-msgstr ""
-"அனைத்து வரையறுக்கப்பட்ட செயற்களங்களை ஏற்றும் கொள்கையிலிருந்து தடுக்க விரும்பினால், "
-"வலியுறுத்தல் முறைமை அமைத்தல், மற்றும் பூலியன் மதிப்புகளை மாற்றுதல். இதை சரி என அமைத்து "
-"அமைத்த பின் மீண்டும் துவக்க வேண்டும்"
-
-#: ../booleans_trans.py:78
-msgid ""
 "If you want to allow unconfined executables to make their heap memory "
 "executable.  Doing this is a really bad idea. Probably indicates a badly "
 "coded executable, but could indicate an attack. This executable should be "
@@ -3065,111 +2765,327 @@ msgstr ""
 "குறியிடப்பட்டுசெயல்படுத்தக்கூடியதை காட்டும், ஆனால் ஒரு தாக்குதலை காட்டும். இந்த "
 "செயல்படுத்தக்கூடியது bugzilla-இல் அறிவிக்கப்படும்"
 
-#: ../booleans_trans.py:79
-msgid "If you want to allow dbadm to manage files in users home directories"
+#: ../booleans_trans.py:12
+msgid "If you want to allow user spamassassin clients to use the network."
 msgstr ""
-"dbadm-ஐ கோப்புகளை பயனர் முகப்பு அடைவுகளில் நிர்வகிக்க நீங்கள் அனுமதிக்க விரும்பினால்"
+"பயனர் spamassassin வாடிக்கையாளர்களை பிணையத்தை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:80
+#: ../booleans_trans.py:13
+msgid "If you want to allow sysadm to debug or ptrace all processes."
+msgstr ""
+"sysadmக்கு பிழைதிருத்த அல்லது  அனைத்து செயல்முறைகளையும் ptrace செய்ய அனுமதிக்க "
+"விரும்பினால்."
+
+#: ../booleans_trans.py:14
 msgid ""
-"If you want to allow confined virtual guests to interact with the xserver"
+"If you want to allow all unconfined executables to use libraries requiring "
+"text relocation that are not labeled textrel_shlib_t"
 msgstr ""
-"xserver உடன் தொடர்புகொள்ள வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை அனுமதிக்க விரும்பினால்"
+"அனைத்து நிறைவேற்றக்கூடியவற்றை நூலகங்களுக்கு தேவையான உரை மறுஇடத்தில் textrel_shlib_t "
+"லேபிளிடப்படாததை அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:81
-msgid "If you want to allow Git daemon system to access nfs file systems."
+#: ../booleans_trans.py:15
+msgid "If you want to allow httpd to act as a relay"
+msgstr "ஒரு தொடராக httpd-ஐ செயல்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:16
+msgid "If you want to allow openvpn to read home directories"
+msgstr "முகப்பு அடைவுகளை வாசிக்க openvpn-ஐ விரும்பினால்"
+
+#: ../booleans_trans.py:17
+msgid ""
+"If you want to allow usage of the gpg-agent --write-env-file option. This "
+"also allows gpg-agent to manage user files."
 msgstr ""
-"If you want to allow Git டொமைனை கணினிக்கு nfs கோப்பு முறைமைகளை அணுகுவதற்கு "
+"gpg-agent --write-env-file விருப்பத்தில் பயன்பாட்டை அனுமதிக்க விரும்பினால். இது "
+"உங்களை gpg-agent பயனர் கோப்புகளை நிர்வகிக்க அனுமதிக்கிறது."
+
+#: ../booleans_trans.py:18
+msgid ""
+"If you want to allow the Telepathy connection managers to connect to any "
+"generic TCP port."
+msgstr ""
+"ஏதாவது பொது TCP துறைக்கு இணைக்க டெலிபதி இணைப்பு நிர்வாகிகளை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:19
+#, fuzzy
+msgid "If you want to allow sge to connect to the network using any TCP port"
+msgstr "TCP-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை காப்ளரை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:20
+msgid ""
+"If you want to allow unconfined users to transition to the Mozilla plugin "
+"domain when running xulrunner plugin-container."
+msgstr ""
+"வரையறுக்கப்படாத பயனர்கள் மொஸில்லா செருகி செயற்களமானது xulrunner செருகி கொள்கலன் "
+"இயக்கப்படுகையில் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:21
+msgid "If you want to allow sasl to read shadow"
+msgstr "sasl-ஐ நிழலை வாசிக்க நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:22
+#, fuzzy
+msgid ""
+"If you want to allow httpd to communicate with oddjob to start up a service"
+msgstr "avahi சேவை dbus வழியாக இதனுடன் தொடர்புகொள்ள Apache-ஐ அனுமதிக்கவிரும்பினால்"
+
+#: ../booleans_trans.py:23
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to databases over "
+"the network."
+msgstr ""
+"HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகளை தரவுத்தளங்களின் மேல் பிணைத்திற்கு இணைப்பதை "
 "அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:82
-msgid "If you want to unify HTTPD handling of all content files."
-msgstr "இனைத்து உள்ளடக்க கோப்புகளை கையாளுவதற்காக  HTTPD-ஐ சேர்க்க விரும்பினால்."
-
-#: ../booleans_trans.py:83
-msgid "If you want to allow nsplugin code to connect to unreserved ports"
-msgstr "முன்பதியப்படாத துறைகளை இணைப்பதற்கு nsplugin குறியீட்டை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:84
+#: ../booleans_trans.py:24
 msgid ""
-"If you want to allow rsync to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
+"If you want to allow ssh with chroot env to read and write files in the user "
+"home directories"
 msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க rsync-"
-"ஐ அனுமதிக்க விரும்பினால். கோப்புகள்/அடைவுகள் public_content_rw_t இல் லேபிளிடப்பட "
-"வேண்டும். "
+"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை எழுத chroot env-ஐ நீங்கள் அனுமதிக்க "
+"விரும்பினால்"
 
-#: ../booleans_trans.py:85
-msgid "If you want to allow qemu to use nfs file systems"
-msgstr "qemu-ஐ nfs கோப்பு முறைமைகளை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:25
+msgid "If you want to allow the mount command to mount any directory or file."
+msgstr ""
+"ஏற்றுதல் கட்டளை ஏதாவது அடைவு அல்லது கோப்பில் ஏற்றுவதற்கு நீங்கள் அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:86
+#: ../booleans_trans.py:26
+msgid "If you want to allow polipo to connect to all ports > 1023"
+msgstr "polipo எல்லா முனையங்களுக்கும் இணைக்கப்பட வேண்டும் என நீங்கள் விரும்பினால் > 1023"
+
+#: ../booleans_trans.py:27
+#, fuzzy
+msgid "If you want to allow httpd to run gpg"
+msgstr "httpd-ஐ gpg இன் gpg-web domain இல் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:28
 msgid ""
-"If you want to allow HTTPD scripts and modules to connect to the network "
-"using any TCP port."
+"If you want to allow samba to act as the domain controller, add users, "
+"groups and change passwords."
 msgstr ""
-"HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகள் பிணையத்தை இணைப்பதற்குஏதாவது TCP துறையில் "
+"samba-ஐ செயற்கள கட்டுப்படுத்தி, பயனர்களை சேர்த்தல், குழுக்கள் மற்றும் கடவுச்சொற்களை "
+"மாற்றுதலாக நடத்த அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:29
+#, fuzzy
+msgid "If you want to allow httpd cgi support"
+msgstr ""
+"If you want to allow httpd-ஐ cgi ஸ்கிரிப்ட்டுகளை செயல்படுத்துவதை அனுமதிக்க "
+"விரும்பினால்"
+
+#: ../booleans_trans.py:30
+msgid "If you want to determine whether polipo can access cifs file systems."
+msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:31
+msgid ""
+"If you want to allow ftp servers to use cifs used for public file transfer "
+"services."
+msgstr ""
+"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக cifs பயன்படுத்துவதற்கு ftp சேவையகங்களை அனுமதிக்க "
+"விரும்பினால்."
+
+#: ../booleans_trans.py:32
+#, fuzzy
+msgid ""
+"If you want to allow staff user to create and transition to svirt domains."
+msgstr ""
+"பரிமாற்றத்திலிருந்து insmod செயற்களத்தில் நிரல்கள் மற்றும் பயனர்களை நீங்கள் அனுமதிக்க "
+"விரும்பாவிடில்."
+
+#: ../booleans_trans.py:33
+msgid "If you want to allow confined virtual guests to manage nfs files"
+msgstr ""
+"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை nfs கோப்புகள் நிர்வகிப்பதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:34
+msgid ""
+"If you want to allow confined virtual guests to use serial/parallel "
+"communication ports"
+msgstr ""
+"வரிசை/இணையான தொடர்பு துறைகளை பயன்படுத்த மெய்நிகர் விருந்தினர்களை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:35
+msgid "If you want to allow rsync to run as a client"
+msgstr "ஒரு வாடிக்கையாளராக இயக்குவதற்கு rsync-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:36
+msgid ""
+"If you want to allow rgmanager domain to connect to the network using TCP."
+msgstr ""
+"rgmanager செயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்தை இணைப்பதற்கு அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:37
+msgid "If you want to allow exim to read unprivileged user files."
+msgstr "சிறப்புரிமை அளிக்கப்படாத பயனர் கோப்புகளை வாசிக்க exim-ஐ அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:38
+msgid ""
+"If you want to allow piranha-lvs domain to connect to the network using TCP."
+msgstr ""
+"piranha-lvs சேயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்தை இணைப்பதற்கு அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:39
+msgid "If you want to allow Puppet client to manage all file types."
+msgstr "பப்பெட் வாடிக்கையாளரை அனைத்து கோப்பு வகைகளை நிர்வகிக்க அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:40
+msgid ""
+"If you want to allow internal-sftp to read and write files in the user ssh "
+"home directories."
+msgstr ""
+"பயனர் ssh முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசித்து எழுத sftp-உட்புறத்தை நீங்கள் "
 "அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:87
-msgid "If you want to allow qemu to use usb devices"
-msgstr "qemu-ஐ usb சாதனங்களை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:41
+msgid "If you want to support X userspace object manager"
+msgstr "X பயனர்இடைவெளி பொருள் மேலாளருக்கு துணைபுரிய விரும்பினால்"
 
-#: ../booleans_trans.py:88
-msgid "If you want to allow exim to connect to databases (PostgreSQL, MySQL)"
-msgstr "exim-ஐ இணைப்பதற்கு தரவுத்தளங்களை அனுமதிக்க விரும்பினால  (PostgreSQL, MySQL)"
+#: ../booleans_trans.py:42
+msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
+msgstr "ssh உட்புகுகளை sysadm_r:sysadm_t-ஆக அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:89
-msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
-msgstr "HTTP இல்லையெனில், varnishd-ஐ அனைத்து துறைகளுக்கு அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:90
-msgid "If you want to allow mplayer executable stack"
-msgstr "mplayer நிறைவேற்றக்கூடிய ஸ்டாக்கை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:91
-msgid "If you want to allow httpd scripts and modules execmem/execstack"
-msgstr ""
-"httpd ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகள் execmem/execstack-க்கு அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:92
-msgid "If you want to allow all daemons to write corefiles to /"
-msgstr "அனைத்து டொமைன்களை கோர்கோப்புகளுக்கு எழுதுவதற்கு நீங்கள் அனுமதிக்க விரும்பினால் /"
-
-#: ../booleans_trans.py:93
-msgid "If you want to allow httpd to connect to the ldap port"
-msgstr "httpd மற்றும் ldap இணைப்பதற்கு ஏதாவது  துறையில் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:94
+#: ../booleans_trans.py:43
 msgid ""
-"If you want to allow confined virtual guests to manage device configuration, "
-"(pci)"
+"If you want to allow BIND to write the master zone files. Generally this is "
+"used for dynamic DNS or zone transfers."
 msgstr ""
-"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களுக்கு சாதன கட்டமைப்பை நிர்வகிப்பத்தை நீங்கள் அனுமதிக்க "
-"விரும்பினால், (pci)"
+"முதன்மை மண்டல கோப்புகளை எழுத பைண்டை நீங்கள் அனுமதிக்க விரும்பினால். பொதுவாக இது டைனமிக் "
+"DNS அல்லது மண்டல பரிமாற்றங்களுக்காகபயன்படுத்தப்படுகிறது."
 
-#: ../booleans_trans.py:95
-msgid "If you want to allow spamd to read/write user home directories."
+#: ../booleans_trans.py:44
+#, fuzzy
+msgid ""
+"If you want to determine whether Git system daemon can access cifs file "
+"systems."
+msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:45
+msgid ""
+"If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
 msgstr ""
-"பயனர்களின் முகப்பு அடைவுகளை வாசித்து/எழுத spamd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
+"tor டொமைன் tcp சாக்கெட்டுகளை முன்பதிவு செய்யப்பட்டதாத துறைகளுக்கு பிணைப்பதை அனுமதிக்க "
+"விரும்பினால்"
 
-#: ../booleans_trans.py:96
-msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
-msgstr "mod_auth_ntlm_winbind-ஐ பயன்படுத்த அப்பாச்சியை அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:46
+msgid "If you want to allow cvs daemon to read shadow"
+msgstr "cvs டொமைனை நிழலை வாசிக்க நீங்கள் அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:97
-msgid "If you want to allow the graphical login program to execute bootloader"
-msgstr "வரைகலை உட்புகு நிரலை துவக்கேற்றியில் நிறைவேற்ற அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:47
+msgid "If you want to allow httpd to access cifs file systems"
+msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு httpd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:98
-msgid "If you want to allow system to run with NIS"
-msgstr "கணினியை NIS உடன் இயக்குவதை அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:48
+#, fuzzy
+msgid "If you want to determine whether Git CGI can search home directories."
+msgstr "முகப்பு அடைவுகளை Git டொமைன் கணினி தேடுவதை அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:99
-msgid "If you want to allow qemu to connect fully to the network"
-msgstr "qemu-ஐ பிணையத்துடன் முழுமையாக இணைப்பதற்கு அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:49
+msgid "If you want to allow host key based authentication"
+msgstr "புரவல விசை சார்ந்த அங்கீகாரத்தை அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:100
+#: ../booleans_trans.py:50
+msgid ""
+"If you want to allow postfix_local domain full write access to mail_spool "
+"directories"
+msgstr ""
+"postfix_local செயற்களத்தில் முழு எழுதும் அணுகலுக்கு mail_spool அடைவுகளை நீங்கள் "
+"அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:51
+msgid ""
+"If you want to disallow programs, such as newrole, from transitioning to "
+"administrative user domains."
+msgstr ""
+"நிரல்கள், newrole போன்றவற்றிலிருந்து, நிர்வாக பயனர் செயற்களங்களுக்கு மாற்ற அனுமதிக்க "
+"விரும்பாவிடில்."
+
+#: ../booleans_trans.py:52
+msgid "If you want to allow httpd processes to manage IPA content"
+msgstr "நீங்கள் httpd செயலாக்கங்களை IPA உள்ளடக்கத்தை நிர்வகிக்க அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:53
+msgid "If you want to allow pppd to be run for a regular user"
+msgstr "ஒரு வழக்கமான பயனருக்காக pppd-ஐ இயக்குவதற்கு அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:54
+msgid "If you want to allow samba to share any file/directory read only."
+msgstr ""
+"ஏதாவது கோப்பு/அடைவு வாசிக்க மட்டும் என்பதை பகிர சாம்பாவை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:55
+msgid "If you want to allow ftp servers to connect to mysql database ports"
+msgstr "mysqlதரவுத்தளத்தில் இணைப்பதை பயன்படுத்துவதற்கு ftp-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:56
+#, fuzzy
+msgid ""
+"If you want to determine whether Git system daemon can search home "
+"directories."
+msgstr "முகப்பு அடைவுகளை Git டொமைன் கணினி தேடுவதை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:57
+msgid "If you want to support SAMBA home directories"
+msgstr "SAMBA முகப்பு அடைவுகளுக்கு துணைபுரிய விரும்பினால்"
+
+#: ../booleans_trans.py:58
+msgid "If you want to allow mock to read files in home directories."
+msgstr "பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசிக்க நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:59
+#, fuzzy
+msgid ""
+"If you want to allow Apache to run in stickshift mode, not transition to "
+"passenger"
+msgstr "mod_auth_pam-ஐ பயன்படுத்துவதற்கு Apache-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:60
+msgid ""
+"If you want to allow samba to create new home directories (e.g. via PAM)"
+msgstr ""
+"புதிய முகப்பு அடைவுகளை உருவாக்க சாம்பாவை அனுமதிக்க விரும்பினால் (எ.கா. PAM வழியாக)"
+
+#: ../booleans_trans.py:61
+msgid "If you want to control users use of ping and traceroute"
+msgstr "ping மற்றும் traceroute-ஐ பயன்படுத்த பயனர்களை கட்டுப்படுத்த விரும்பினால்"
+
+#: ../booleans_trans.py:62
+#, fuzzy
+msgid ""
+"If you want to determine whether calling user domains can execute Git daemon "
+"in the git_session_t domain."
+msgstr ""
+"polipo_session_t டொமைனை அணுகுவதற்கு Polipo-ஐ இயக்க நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:63
+msgid "If you want to allow zabbix to connect to unreserved ports"
+msgstr "முன்பதியப்படாத துறைகளை இணைப்பதற்கு zabbix-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:64
+msgid "If you want to allow fenced domain to execute ssh."
+msgstr "ssh-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:65
+msgid "If you want to allow httpd to read home directories"
+msgstr "முகப்பு அடைவுகளை வாசிக்க httpd-ஐ விரும்பினால்"
+
+#: ../booleans_trans.py:66
+msgid ""
+"If you want to allow gpg web domain to modify public files used for public "
+"file transfer services."
+msgstr ""
+"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க gpg "
+"web domain-ஐ அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:67
+msgid "If you want to allow rsync to export any files/directories read only."
+msgstr ""
+"ஏதாவது கோப்புகள்/அடைவுகளை வாசிக்க மட்டும் ஏற்றுமதி செய்ய rsync-ஐ அனுமதிக்க "
+"விரும்பினால்."
+
+#: ../booleans_trans.py:68
 msgid ""
 "If you want to allow nfs servers to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
@@ -3178,391 +3094,55 @@ msgstr ""
 "அனுமதிக்க விரும்பினால்.  கோப்புகள்/அடைவுகள் public_content_rw_t இல் லேபிளிடப்பட "
 "வேண்டும். "
 
-#: ../booleans_trans.py:101
-msgid ""
-"If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
-"ABRT event scripts"
-msgstr ""
-"ABRT-ஐ gpg இன் abrt_handle_event_t டொமைனில் அனுமதிக்க விரும்பினால் ABRT நிகழ்வு "
-"ஸ்கிரிப்டுகள்"
-
-#: ../booleans_trans.py:102
-msgid ""
-"If you want to unify HTTPD to communicate with the terminal. Needed for "
-"entering the passphrase for certificates at the terminal."
-msgstr ""
-"HTTPD-ஐ முனையுடன் இணைப்பதை இணைக்க விரும்பினால். முனையில் சான்றிதழிற்காக கடவுச்சொல்லை "
-"உள்ளிட வேண்டும்."
-
-#: ../booleans_trans.py:103
-msgid ""
-"If you want to allow xend to run qemu-dm. Not required if using paravirt and "
-"no vfb."
-msgstr ""
-"ஒரு வாடிக்கையாளராக இயக்குவதற்கு xend இலிருந்து run qemu-dm-க்கு அனுமதிக்க "
-"விரும்பினால். paravirt-ஐ பயன்படுத்தினால் மற்றும் vfb தேவையில்லை."
-
-#: ../booleans_trans.py:104
-msgid ""
-"If you want to allow sftp-internal to read and write files in the user home "
-"directories"
-msgstr ""
-"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை எழுத sftp-உட்புறத்தை நீங்கள் அனுமதிக்க "
-"விரும்பினால்"
-
-#: ../booleans_trans.py:105
-msgid "If you want to support fusefs home directories"
-msgstr "fusefs முகப்பு அடைவுகளுக்கு துணைபுரிய விரும்பினால்"
-
-#: ../booleans_trans.py:106
-msgid ""
-"If you want to allow the Telepathy connection managers to connect to any "
-"network port."
-msgstr ""
-"ஏதாவது பொது  துறைக்கு இணைக்க டெலிபதி இணைப்பு நிர்வாகிகளை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:107
-msgid ""
-"If you want to determine whether calling user domains can execute Polipo "
-"daemon in the polipo_session_t domain."
-msgstr ""
-"polipo_session_t டொமைனை அணுகுவதற்கு Polipo-ஐ இயக்க நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:108
-msgid "If you want to allow confined applications to use nscd shared memory."
-msgstr ""
-"வரையறுக்கப்பட்ட பயன்பாடுகளை nscd பகிரப்பட்ட நினைவகத்தை பயன்படுத்தி நீங்கள் அனுமதிக்க "
-"விரும்பினால்."
-
-#: ../booleans_trans.py:109
-msgid "If you want to allow w to display everyone"
-msgstr "w-ஐ ஒவ்வொருவருக்கும் காட்டுவதை நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:110
-msgid "If you want to allow fenced domain to execute ssh."
-msgstr "ssh-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:111
-msgid ""
-"If you want to allow Apache to modify public files used for public file "
-"transfer services. Directories/Files must be labeled public_content_rw_t."
-msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க "
-"Apache-ஐ அனுமதிக்க விரும்பினால்.  அடைவுகள்/கோப்புகள் public_content_rw_t இல் "
-"லேபிளிடப்பட வேண்டும். "
-
-#: ../booleans_trans.py:112
-msgid "If you want to allow user music sharing"
-msgstr "பயனர் இசை பகிர்தலை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:113
-msgid "If you want to allow dbadm to read files in users home directories"
-msgstr ""
-"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசிக்க dbadm-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:114
-msgid "If you want to allow regular users direct dri device access"
-msgstr "வழக்கமான பயனர்களை நேரடி dri சாதன அணுகலை நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:115
-msgid "If you want to allow the mount command to mount any directory or file."
-msgstr ""
-"ஏற்றுதல் கட்டளை ஏதாவது அடைவு அல்லது கோப்பில் ஏற்றுவதற்கு நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:116
-msgid "If you want to allow a user to login as an unconfined domain"
-msgstr "ஒரு வழையறுக்கப்படாத செயற்களமாக ஒரு பயனரை உட்புக நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:117
-msgid ""
-"If you want to disallow programs and users from transitioning to insmod "
-"domain."
-msgstr ""
-"பரிமாற்றத்திலிருந்து insmod செயற்களத்தில் நிரல்கள் மற்றும் பயனர்களை நீங்கள் அனுமதிக்க "
-"விரும்பாவிடில்."
-
-#: ../booleans_trans.py:118
-msgid ""
-"If you want to allow httpd to act as a FTP client connecting to the ftp port "
-"and ephemeral ports"
-msgstr "httpd-ஐ ஒரு FTP சேவையகமாக ftp துறையில் கவனிக்க அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:119
-msgid "If you want to allow Cobbler to access nfs file systems."
-msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு காப்பளரை நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:120
-msgid "If you want to allow nsplugin code to execmem/execstack"
-msgstr "nsplugin குறையீட்டை execmem/execstack-க்கு அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:121
-msgid ""
-"If you want to allows clients to write to the X server shared memory "
-"segments."
-msgstr ""
-"X சேவையக பகிரப்பட்ட நினைவக பிரிவுகளுக்கு வாடிக்கையாளர்களை எழுத அனுமதிப்பதை "
-"விரும்பினால்."
-
-#: ../booleans_trans.py:122
-msgid ""
-"If you want to allow confined virtual guests to use executable memory and "
-"executable stack"
-msgstr ""
-"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை இயங்கக்கூடிய ஸ்டேக்கை பயன்படுத்துவதை அனுமதிக்க "
-"விரும்பினால்"
-
-#: ../booleans_trans.py:123
-msgid "If you want to allow webadm to read files in users home directories"
-msgstr ""
-"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசிக்க webadm-ஐ நீங்கள் அனுமதிக்க "
-"விரும்பினால்"
-
-#: ../booleans_trans.py:124
-msgid "If you want to enable polyinstantiated directory support."
-msgstr "polyinstantiated அடைவு துணையை செயல்படுத்த விரும்பினால்."
-
-#: ../booleans_trans.py:125
-msgid "If you want to support X userspace object manager"
-msgstr "X பயனர்இடைவெளி பொருள் மேலாளருக்கு துணைபுரிய விரும்பினால்"
-
-#: ../booleans_trans.py:126
-msgid "If you want to ignore vbetool mmap_zero errors."
-msgstr "vbetool mmap_zero பிழைகளை நீங்கள் புறக்கணிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:127
-msgid "If you want to allow httpd to read user content"
-msgstr "பயனர் உள்ளடக்கத்தை வாசிக்க httpd-ஐ அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:128
-msgid "If you want to allow httpd to access nfs file systems"
-msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு httpd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:129
-msgid ""
-"If you want to allow unconfined users to transition to the chrome sandbox "
-"domains when running chrome-sandbox"
-msgstr ""
-"வரையறுக்கப்படாத பயனர்கள் chrome sandbox  செயற்களமானது chrome sandbox   "
-"இயக்கப்படும்போது அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:130
-msgid ""
-"If you want to allow postfix_local domain full write access to mail_spool "
-"directories"
-msgstr ""
-"postfix_local செயற்களத்தில் முழு எழுதும் அணுகலுக்கு mail_spool அடைவுகளை நீங்கள் "
-"அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:131
-msgid "If you want to allow sge to access nfs file systems."
-msgstr ""
-
-#: ../booleans_trans.py:132
-msgid "If you want to allow xguest users to use blue tooth devices"
-msgstr "xguest பயனர்களை ப்ளூடூத் சாதனங்களை பயன்படுத்த அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:133
-msgid "If you want to use lpd server instead of cups"
-msgstr "lpd சேவையகத்தை கப்புகளுக்கு பதிலாக பயன்படுத்த விரும்பினால்"
-
-#: ../booleans_trans.py:134
-msgid ""
-"If you want to allow any files/directories to be exported read/write via NFS."
-msgstr ""
-"ஏதாவது கோப்புகள்/அடைவுகளை NFS வழியாக வாசித்து/எழுதி ஏற்றுமதி செய்ய அனுமதிக்க "
-"விரும்பினால்."
-
-#: ../booleans_trans.py:135
-msgid "If you want to allow Apache to execute tmp content."
-msgstr "tmp உள்ளடக்கத்தை வாசிக்க Apache-ஐ அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:136
-msgid ""
-"If you want to allow user to r/w files on filesystems that do not have "
-"extended attributes (FAT, CDROM, FLOPPY)"
-msgstr ""
-"பயனரை r/w கோப்புகள் அல்லது கோப்புமுறைகளை விரிவான பண்புகளில் கொண்டிராவிடில் நீங்கள் "
-"இனுமதிக்க விரும்பினால் (FAT, CDROM, FLOPPY)"
-
-#: ../booleans_trans.py:137
-msgid ""
-"If you want to allow users to run TCP servers (bind to ports and accept "
-"connection from the same domain and outside users)  disabling this forces "
-"FTP passive mode and may change other protocols."
-msgstr ""
-"TCP சேவையகங்களை இயக்குவதற்கு (துறைகளை பிணைத்து அதே செயற்களத்தை வெளிப்புற "
-"பயனர்களிலிருந்து இணைப்பதை ஏற்கவும்) இந்த வலிமைகளை FTP பாஸிவ் முறைமையை செயல்நீக்கி மற்ற "
-"நெறிமுறைகளை மாற்றுவதை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:138
+#: ../booleans_trans.py:69
 msgid "If you want to allow mysqld to connect to all ports"
 msgstr "அனைத்து துறைகளையும் இணைக்க mysqld-ஐ அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:139
-msgid "If you want to allow regular users direct mouse access"
-msgstr "நீங்கள் வழக்கமான பயனர் நேரடி சுட்டி அணுகலை அனுமதிக்க வேண்டும் என்றால்,"
-
-#: ../booleans_trans.py:140
+#: ../booleans_trans.py:70
 msgid ""
-"If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
-"dedicated logical volumes for disk images."
+"If you want to determine whether Polipo session daemon can bind tcp sockets "
+"to all unreserved ports."
 msgstr ""
-" xend இலிருந்து blktapctrl/tapdisk-ஐ இயக்க அனுமதிக்க விரும்பினால். தருக்க தொகுதிகள் "
-"வட்டு உருக்களுக்கு தேவையில்லை."
-
-#: ../booleans_trans.py:141
-msgid ""
-"If you want to allow confined virtual guests to interact with the sanlock"
-msgstr ""
-"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை sanlock பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:143
-msgid "If you want to allow all domains to have the kernel load modules"
-msgstr ""
-"கர்னல் ஏற்ற தொகுதிகளை கொண்டிருக்க அனைத்து செயற்களங்களை நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:144
-msgid "If you want to allow confined virtual guests to use usb devices"
-msgstr ""
-"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை usb சாதனங்களை பயன்படுத்துவதை அனுமதிக்க "
-"விரும்பினால்"
-
-#: ../booleans_trans.py:145
-msgid ""
-"If you want to enable additional permissions needed to support devices on "
-"3ware controllers."
-msgstr ""
-"கூடுதல் அனுமதிகள் 3ware கட்டுப்படுத்திகளில் சாதனங்களை துணைபுரிவதற்கு செயல்படுத்தினால்."
-
-#: ../booleans_trans.py:146
-msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
-
-#: ../booleans_trans.py:147
-msgid "If you want to allow java executable stack"
-msgstr "ஜாவா நிறைவேற்றக்கூடிய ஸ்டாக்கை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:148
-msgid "If you want to allow http daemon to send mail"
-msgstr "http டொமைனை அஞ்சலை அனுப்புவதற்கு நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:149
-msgid "If you want to allow samba to export ntfs/fusefs volumes."
-msgstr ""
-"ntfs/fusefs தொகுதிகளை ஏற்றுமதி செய்வதற்கு சாம்பாவை நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:150
-msgid "If you want to enable support for upstart as the init program."
-msgstr "init நிரலாக துவக்க துணையை செயற்படுத்த விரும்பினால்."
-
-#: ../booleans_trans.py:151
-msgid "If you want to allow zebra daemon to write it configuration files"
-msgstr "செப்ரா டொமைனை அதனுடைய கட்டமைப்பு கோப்புகளை எழுதுவதற்கு அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:152
-msgid "If you want to allow httpd to use built in scripting (usually php)"
-msgstr ""
-"ஸ்கிரிப்டிங்கில் கட்டுவதை பயன்படுத்துவதற்கு httpd-ஐ அனுமதிக்க விரும்பினால் (வழக்கமாக php)"
-
-#: ../booleans_trans.py:153
-msgid ""
-"If you want to allow exim to create, read, write, and delete unprivileged "
-"user files."
-msgstr ""
-"உருவாக்க, வாசிக்க, எழுத, மற்றும் சலுகையற்ற பயனர் கோப்புகளை அழிப்பதற்கு exim-ஐ நீங்கள் "
+"Polipo டொமைன் tcp சாக்கெட்டுகளை முன்பதிவு செய்யப்பட்டதாத துறைகளுக்கு பிணைப்பதை "
 "அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:154
-msgid ""
-"If you want to allow cdrecord to read various content. nfs, samba, removable "
-"devices, user temp and untrusted content files"
-msgstr ""
-"cdrecord-ஐ பல்வேறு உள்ளடக்கமான. nfs, samba, நீக்கக்கூடிய சாதனங்கள், பயனர் தற்காலிகம் "
-"மற்றும் நம்பாத உள்ளடக்க கோப்புகளை அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:71
+msgid "If you want to allow qemu to use serial/parallel communication ports"
+msgstr "வரிசை/இணையான தொடர்பு துறைகளை பயன்படுத்த qemu-ஐ அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:155
-msgid ""
-"If you want to allow Cobbler to modify public files used for public file "
-"transfer services."
-msgstr ""
-"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்தப்பட்ட பொது கோப்புகளை மாற்றியமைக்க நீங்கள் "
-"Cobbler-ஐ அனுமதிக்க விரும்பினால்."
+#: ../booleans_trans.py:72
+msgid "If you want to allow Apache to communicate with avahi service via dbus"
+msgstr "avahi சேவை dbus வழியாக இதனுடன் தொடர்புகொள்ள Apache-ஐ அனுமதிக்கவிரும்பினால்"
 
-#: ../booleans_trans.py:156
-msgid "If you want to allow samba to export NFS volumes."
-msgstr "NFS தொகுதிகளை ஏற்றுமதிசெய்ய சாம்பாவை நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:157
-msgid ""
-"If you want to control the ability to mmap a low area of the address space, "
-"as configured by /proc/sys/kernel/mmap_min_addr."
-msgstr ""
-"/proc/sys/kernel/mmap_min_addr ஆல் கட்டமைப்பட்டதாக, mmap-ஐ முகவரி இடத்தில் ஒரு "
-"குறைந்த பகுதியை செயல்படுத்துவதை கட்டுப்படுத்த விரும்பினால்."
-
-#: ../booleans_trans.py:158
-msgid "If you want to ignore wine mmap_zero errors."
-msgstr "wine mmap_zero பிழைகளை நீங்கள் புறக்கணிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:159
-msgid "If you want to allow collectd to connect to the network using TCP."
-msgstr "TCP-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை collectd-ஐ அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:160
-msgid "If you want to allow logging in and using the system from /dev/console."
-msgstr ""
-"/dev/console-இலிருந்து கணினியை பயன்படுத்தி உட்புகுவதற்கு அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:161
-msgid "If you want to allow user processes to change their priority"
-msgstr "பயனர் செயல்முறைகள் அவைகளுடைய முன்னுரிமையை அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:162
-msgid "If you want to allow fenced domain to connect to the network using TCP."
-msgstr ""
-"அரணான செயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:163
+#: ../booleans_trans.py:73
 msgid ""
 "If you want to allow dhcpc client applications to execute iptables commands"
 msgstr ""
 "dhcpc வாடிக்கையாளர் பயன்பாடுகள் iptables கட்டளைகளை நிறைவைற்ற அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:164
-msgid "If you want to allow users to connect to PostgreSQL"
-msgstr "பயனர்களை PostgreSQL-க்கு இணைப்பதை நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:165
-msgid "If you want to allow cvs daemon to read shadow"
-msgstr "cvs டொமைனை நிழலை வாசிக்க நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:166
-msgid "If you want to allow http daemon to check spam"
-msgstr "http டொமைன் பழுதானவற்றை சரிபார்ப்பதை நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:167
-msgid ""
-"If you want to allow sftp-internal to login to local users and read/write "
-"all files on the system, governed by DAC."
+#: ../booleans_trans.py:74
+#, fuzzy
+msgid "If you want to allow sanlock to read/write fuse files"
 msgstr ""
-"sftp-உட்புறத்தை உள்ளமை பயனர்களை அனைத்து கோப்புகளில் வாசித்து/எழுதுவதற்கு அனுமதிக்க "
-"விரும்பினால், DAC ஆல் அங்கீகரிக்கப்பட்டது."
+"பயனர்களின் முகப்பு அடைவுகளை வாசித்து/எழுத spamd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:168
-msgid "If you want to allow xguest users to mount removable media"
-msgstr "நீக்கக்கூடிய ஊடகத்தில் ஏற்றுவதற்கு xguest பயனர்களை நீங்கள் அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:75
+msgid "If you want to allow samba to share users home directories."
+msgstr "பயனர்களின் முகப்பு அடைவுகளை பகிர்வதற்கு சாம்பாவை நீங்கள் அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:169
-msgid ""
-"If you want to allow icecast to connect to all ports, not just sound ports."
-msgstr "ஒலி துறைகள் இல்லாமல், அனைத்து துறைகளை இணைக்க icecast-ஐ அனுமதிக்க விரும்பினால்."
+#: ../booleans_trans.py:76
+msgid "If you want to enable reading of urandom for all domains."
+msgstr "urando-க்கான அனைத்து செயற்களங்களை அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:170
-msgid "If you want to allow pppd to load kernel modules for certain modems"
-msgstr ""
-"குறிப்பிட்ட மோடம்களுக்காக கர்னல் தொகுதிகளை ஏற்றுவதற்கு pppd-ஐ அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:77
+msgid "If you want to allow racoon to read shadow"
+msgstr "racoon-ஐ நிழலை வாசிப்பதை அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:171
+#: ../booleans_trans.py:78
+msgid "If you want to allow Cobbler to connect to the network using TCP."
+msgstr "TCP-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை காப்ளரை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:79
 msgid ""
 "If you want to deny user domains applications to map a memory region as both "
 "executable and writable, this is dangerous and the executable should be "
@@ -3571,54 +3151,353 @@ msgstr ""
 "வரையறுக்கப்படாத செயல்படுத்தக்கூடியதை ஒரு நினைவக மண்டலத்தில் செயல்படுத்தக்கூடிய மற்றும் "
 "எழுதக்கூடியதில் அனுமதிக்க விரும்பினால், இது ஆபத்தானாதாக bugzilla-இல் அறிவிக்கப்படும்"
 
-#: ../booleans_trans.py:172
-msgid "If you want to allow syslogd daemon to send mail"
+#: ../booleans_trans.py:80
+msgid "If you want to allow squid to run as a transparent proxy (TPROXY)"
 msgstr ""
-"syslogd டொமைனை அதனுடைய கட்டமைப்பு கோப்புகளை எழுதுவதற்கு அனுமதிக்க விரும்பினால்"
+"squid-ஐ ஒரு ஊடுருவக்கூடிய ப்ராக்ஸியாக (TPROXY) இயக்குவதற்கு அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:173
-msgid "If you want to determine whether Polipo can access nfs file systems."
+#: ../booleans_trans.py:81
+msgid ""
+"If you want to allow ftp servers to login to local users and read/write all "
+"files on the system, governed by DAC."
+msgstr ""
+"உள்ளமை பயனர்கள் அனைத்து கோப்புகளையும் கணினியில் வாசித்து/எழுதுவதற்கு ftp சேவையகங்களை "
+"உட்புகுவதை அனுமதிக்க விரும்பினால், DAC ஆல் அங்கீகரிக்கப்பட்டது."
+
+#: ../booleans_trans.py:82
+msgid "If you want to allows XServer to execute writable memory"
+msgstr "எழுதக்கூடிய நினைவகத்தை நிறைவேற்ற XServer-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:83
+#, fuzzy
+msgid ""
+"If you want to boolean to determine whether the system permits loading "
+"policy, setting enforcing mode, and changing boolean values.  Set this to "
+"true and you have to reboot to set it back."
+msgstr ""
+"அனைத்து வரையறுக்கப்பட்ட செயற்களங்களை ஏற்றும் கொள்கையிலிருந்து தடுக்க விரும்பினால், "
+"வலியுறுத்தல் முறைமை அமைத்தல், மற்றும் பூலியன் மதிப்புகளை மாற்றுதல். இதை சரி என அமைத்து "
+"அமைத்த பின் மீண்டும் துவக்க வேண்டும்"
+
+#: ../booleans_trans.py:84
+msgid "If you want to allow dbadm to manage files in users home directories"
+msgstr ""
+"dbadm-ஐ கோப்புகளை பயனர் முகப்பு அடைவுகளில் நிர்வகிக்க நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:85
+msgid ""
+"If you want to allow confined virtual guests to interact with the xserver"
+msgstr ""
+"xserver உடன் தொடர்புகொள்ள வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:86
+#, fuzzy
+msgid ""
+"If you want to determine whether Git system daemon can access nfs file "
+"systems."
 msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு Polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:174
-msgid "If you want to allow samba to run unconfined scripts"
-msgstr "வரையறுப்படாத ஸ்கிரிப்டுகளை இயக்க நீங்கள் சம்பா அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:87
+msgid "If you want to unify HTTPD handling of all content files."
+msgstr "இனைத்து உள்ளடக்க கோப்புகளை கையாளுவதற்காக  HTTPD-ஐ சேர்க்க விரும்பினால்."
 
-#: ../booleans_trans.py:175
+#: ../booleans_trans.py:88
+msgid "If you want to allow nsplugin code to connect to unreserved ports"
+msgstr "முன்பதியப்படாத துறைகளை இணைப்பதற்கு nsplugin குறியீட்டை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:89
+#, fuzzy
+msgid "If you want to allow amavis to use JIT compiler"
+msgstr "clamd JIT தொகுப்பியை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:90
+msgid "If you want to allow java executable stack"
+msgstr "ஜாவா நிறைவேற்றக்கூடிய ஸ்டாக்கை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:91
+msgid ""
+"If you want to allows clients to write to the X server shared memory "
+"segments."
+msgstr ""
+"X சேவையக பகிரப்பட்ட நினைவக பிரிவுகளுக்கு வாடிக்கையாளர்களை எழுத அனுமதிப்பதை "
+"விரும்பினால்."
+
+#: ../booleans_trans.py:92
+msgid "If you want to allow qemu to use nfs file systems"
+msgstr "qemu-ஐ nfs கோப்பு முறைமைகளை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:93
+msgid "If you want to allow Apache to use mod_auth_pam"
+msgstr "mod_auth_pam-ஐ பயன்படுத்துவதற்கு Apache-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:94
+#, fuzzy
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to the network "
+"using TCP."
+msgstr ""
+"HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகள் பிணையத்தை இணைப்பதற்குஏதாவது TCP துறையில் "
+"அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:95
+msgid "If you want to allow qemu to use usb devices"
+msgstr "qemu-ஐ usb சாதனங்களை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:96
+#, fuzzy
+msgid "If you want to allow exim to connect to databases (postgres, mysql)"
+msgstr "exim-ஐ இணைப்பதற்கு தரவுத்தளங்களை அனுமதிக்க விரும்பினால  (PostgreSQL, MySQL)"
+
+#: ../booleans_trans.py:97
+#, fuzzy
+msgid "If you want to determine whether Git CGI can access nfs file systems."
+msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு Polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:98
+msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
+msgstr "HTTP இல்லையெனில், varnishd-ஐ அனைத்து துறைகளுக்கு அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:99
+#, fuzzy
+msgid "If you want to support ecryptfs home directories"
+msgstr "fusefs முகப்பு அடைவுகளுக்கு துணைபுரிய விரும்பினால்"
+
+#: ../booleans_trans.py:100
+#, fuzzy
+msgid "If you want to allow samba to act as a portmapper"
+msgstr "ஒரு தொடராக httpd-ஐ செயல்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:101
+msgid "If you want to allow httpd scripts and modules execmem/execstack"
+msgstr ""
+"httpd ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகள் execmem/execstack-க்கு அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:102
+#, fuzzy
+msgid "If you want to allow rsync servers to share nfs files systems"
+msgstr "qemu-ஐ nfs கோப்பு முறைமைகளை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:103
+#, fuzzy
+msgid "If you want to allow httpd to access FUSE file systems"
+msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு httpd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:104
+msgid ""
+"If you want to allow cdrecord to read various content. nfs, samba, removable "
+"devices, user temp and untrusted content files"
+msgstr ""
+"cdrecord-ஐ பல்வேறு உள்ளடக்கமான. nfs, samba, நீக்கக்கூடிய சாதனங்கள், பயனர் தற்காலிகம் "
+"மற்றும் நம்பாத உள்ளடக்க கோப்புகளை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:105
 msgid "If you want to support NFS home directories"
 msgstr "NFS முகப்பு அடைவுகளுக்கு துணைபுரிய விரும்பினால்"
 
-#: ../booleans_trans.py:176
-msgid "If you want to allow ftp servers to connect to all ports > 1023"
+#: ../booleans_trans.py:106
+msgid ""
+"If you want to allow confined virtual guests to manage device configuration, "
+"(pci)"
+msgstr ""
+"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களுக்கு சாதன கட்டமைப்பை நிர்வகிப்பத்தை நீங்கள் அனுமதிக்க "
+"விரும்பினால், (pci)"
+
+#: ../booleans_trans.py:107
+msgid "If you want to allow spamd to read/write user home directories."
+msgstr ""
+"பயனர்களின் முகப்பு அடைவுகளை வாசித்து/எழுத spamd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:108
+msgid "If you want to allow logging in and using the system from /dev/console."
+msgstr ""
+"/dev/console-இலிருந்து கணினியை பயன்படுத்தி உட்புகுவதற்கு அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:109
+msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
+msgstr "mod_auth_ntlm_winbind-ஐ பயன்படுத்த அப்பாச்சியை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:110
+msgid "If you want to allow the graphical login program to execute bootloader"
+msgstr "வரைகலை உட்புகு நிரலை துவக்கேற்றியில் நிறைவேற்ற அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:111
+msgid "If you want to allow qemu to connect fully to the network"
+msgstr "qemu-ஐ பிணையத்துடன் முழுமையாக இணைப்பதற்கு அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:112
+msgid ""
+"If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
+"ABRT event scripts"
+msgstr ""
+"ABRT-ஐ gpg இன் abrt_handle_event_t டொமைனில் அனுமதிக்க விரும்பினால் ABRT நிகழ்வு "
+"ஸ்கிரிப்டுகள்"
+
+#: ../booleans_trans.py:113
+msgid ""
+"If you want to unify HTTPD to communicate with the terminal. Needed for "
+"entering the passphrase for certificates at the terminal."
+msgstr ""
+"HTTPD-ஐ முனையுடன் இணைப்பதை இணைக்க விரும்பினால். முனையில் சான்றிதழிற்காக கடவுச்சொல்லை "
+"உள்ளிட வேண்டும்."
+
+#: ../booleans_trans.py:114
+#, fuzzy
+msgid ""
+"If you want to allow apache scripts to write to public content, directories/"
+"files must be labeled public_rw_content_t."
+msgstr ""
+"apache ஸ்கிரிப்ட்டுகளை பொது உள்ளடக்கத்தை எழுதுவதற்கு அனுமதிக்க விரும்பினால். அடைவுகள்/"
+"கோப்புகள் public_content_rw_t இல் லேபிளிடப்பட வேண்டும் "
+
+#: ../booleans_trans.py:115
+msgid ""
+"If you want to allow rsync to modify public files used for public file "
+"transfer services.  Files/Directories must be labeled public_content_rw_t."
+msgstr ""
+"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க rsync-"
+"ஐ அனுமதிக்க விரும்பினால். கோப்புகள்/அடைவுகள் public_content_rw_t இல் லேபிளிடப்பட "
+"வேண்டும். "
+
+#: ../booleans_trans.py:116
+msgid "If you want to allow mplayer executable stack"
+msgstr "mplayer நிறைவேற்றக்கூடிய ஸ்டாக்கை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:117
+msgid ""
+"If you want to allow xend to run qemu-dm. Not required if using paravirt and "
+"no vfb."
+msgstr ""
+"ஒரு வாடிக்கையாளராக இயக்குவதற்கு xend இலிருந்து run qemu-dm-க்கு அனுமதிக்க "
+"விரும்பினால். paravirt-ஐ பயன்படுத்தினால் மற்றும் vfb தேவையில்லை."
+
+#: ../booleans_trans.py:118
+msgid ""
+"If you want to allow sftp-internal to read and write files in the user home "
+"directories"
+msgstr ""
+"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை எழுத sftp-உட்புறத்தை நீங்கள் அனுமதிக்க "
+"விரும்பினால்"
+
+#: ../booleans_trans.py:119
+msgid "If you want to support fusefs home directories"
+msgstr "fusefs முகப்பு அடைவுகளுக்கு துணைபுரிய விரும்பினால்"
+
+#: ../booleans_trans.py:120
+msgid ""
+"If you want to allow the Telepathy connection managers to connect to any "
+"network port."
+msgstr ""
+"ஏதாவது பொது  துறைக்கு இணைக்க டெலிபதி இணைப்பு நிர்வாகிகளை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:121
+#, fuzzy
+msgid "If you want to allow rsync servers to share cifs files systems"
+msgstr "qemu-ஐ nfs கோப்பு முறைமைகளை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:122
+msgid ""
+"If you want to allow the Irssi IRC Client to connect to any port, and to "
+"bind to any unreserved port."
+msgstr ""
+"Irssi IRC வாடிக்கையாளரை  ஏதாவது துறைக்கு இணைத்து, ஏதாவது முன்பதியாத துறையில் "
+"பிணைப்பதை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:123
+#, fuzzy
+msgid "If you want to allow transmit client label to foreign database"
+msgstr "mysqlதரவுத்தளத்தில் இணைப்பதை பயன்படுத்துவதற்கு ftp-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:124
+msgid "If you want to allow confined applications to use nscd shared memory."
+msgstr ""
+"வரையறுக்கப்பட்ட பயன்பாடுகளை nscd பகிரப்பட்ட நினைவகத்தை பயன்படுத்தி நீங்கள் அனுமதிக்க "
+"விரும்பினால்."
+
+#: ../booleans_trans.py:125
+msgid "If you want to allow w to display everyone"
+msgstr "w-ஐ ஒவ்வொருவருக்கும் காட்டுவதை நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:126
+msgid "If you want to allow user music sharing"
+msgstr "பயனர் இசை பகிர்தலை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:127
+msgid "If you want to ignore wine mmap_zero errors."
+msgstr "wine mmap_zero பிழைகளை நீங்கள் புறக்கணிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:128
+msgid "If you want to allow regular users direct dri device access"
+msgstr "வழக்கமான பயனர்களை நேரடி dri சாதன அணுகலை நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:129
+msgid ""
+"If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
+"database"
+msgstr ""
+"MySQL மற்றும் PostgreSQL தரவுத்தளத்தில் இணைப்பதை பயன்படுத்துவதற்கு பப்பெட் முதன்மையை "
+"அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:130
+#, fuzzy
+msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
+msgstr "அனைத்து துறைகளையும் இணைக்க mysqld-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:131
+msgid "If you want to allow system to run with NIS"
+msgstr "கணினியை NIS உடன் இயக்குவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:132
+#, fuzzy
+msgid ""
+"If you want to allow unprivledged user to create and transition to svirt "
+"domains."
+msgstr "DDL நிலையை நிறைவேற்ற ப்ரைவ் செய்யப்படாத பயனர்களை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:133
+msgid "If you want to allow a user to login as an unconfined domain"
+msgstr "ஒரு வழையறுக்கப்படாத செயற்களமாக ஒரு பயனரை உட்புக நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:134
+#, fuzzy
+msgid "If you want to disable kernel module loading."
+msgstr "பயனர் இசை பகிர்தலை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:135
+msgid ""
+"If you want to allow httpd to act as a FTP client connecting to the ftp port "
+"and ephemeral ports"
+msgstr "httpd-ஐ ஒரு FTP சேவையகமாக ftp துறையில் கவனிக்க அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:136
+#, fuzzy
+msgid ""
+"If you want to allow ftp servers to use bind to all unreserved ports for "
+"passive mode"
 msgstr ""
 "அனைத்து துறைகளையும் இணைப்பதை பயன்படுத்துவதற்கு ftp-ஐ அனுமதிக்க விரும்பினால் > 1023"
 
-#: ../booleans_trans.py:177
-msgid "If you want to allow confined applications to run with kerberos."
-msgstr ""
-"வரையறுக்கப்பட்ட பயன்பாடுகளை kerberos உடன் இயக்குவதற்கு நீங்கள் அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:178
-msgid "If you want to allow BIND to bind apache port."
-msgstr "BIND-ஐ பயன்படுத்துவதற்கு apache துறையை அனுமதிக்க விரும்பினால்."
-
-#: ../booleans_trans.py:179
-msgid "If you want to allow gitisis daemon to send mail"
-msgstr ""
-
-#: ../booleans_trans.py:180
-msgid "If you want to allow httpd to connect to memcache server"
-msgstr "memcache சேவையகத்திற்கு இணைக்க நீங்கள் httpd-ஐ அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:181
+#: ../booleans_trans.py:137
 msgid ""
-"If you want to allow HTTPD scripts and modules to connect to cobbler over "
-"the network."
+"If you want to allow samba to modify public files used for public file "
+"transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr ""
-"HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகளை காப்பளரில் பிணைத்திற்கு இணைப்பதை அனுமதிக்க "
-"விரும்பினால்."
+"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க samba-"
+"ஐ அனுமதிக்க விரும்பினால். கோப்புகள்/அடைவுகள் public_content_rw_t இல் லேபிளிடப்பட "
+"வேண்டும். "
 
-#: ../booleans_trans.py:182
+#: ../booleans_trans.py:138
+msgid ""
+"If you want to allow gssd to read temp directory.  For access to kerberos "
+"tgt."
+msgstr ""
+"If you want to allow gssd-ஐ தற்காலிக அடைவை வாசிப்பதை நீங்கள் அனுமதிக்க "
+"விரும்பினால்.  kerberos இலக்கை அணுகுவதற்கு."
+
+#: ../booleans_trans.py:139
+msgid "If you want to allow Cobbler to access nfs file systems."
+msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு காப்பளரை நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:140
 msgid ""
 "If you want to allow unconfined executables to make their stack executable.  "
 "This should never, ever be necessary. Probably indicates a badly coded "
@@ -3630,15 +3509,374 @@ msgstr ""
 "செயல்படுத்தக்கூடியதை காட்டும், ஆனால் ஒரு தாக்குதலை காட்டும். இந்த செயல்படுத்தக்கூடியது "
 "bugzilla-இல் அறிவிக்கப்படும்"
 
-#: ../booleans_trans.py:183 ../booleans_trans.py:206
-msgid "If you want to allow confined virtual guests to manage cifs files"
-msgstr "cifs கோப்புகளை வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:141
+msgid ""
+"If you want to allow confined virtual guests to interact with the sanlock"
+msgstr ""
+"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை sanlock பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:142
+msgid "If you want to allow all daemons to use tcp wrappers."
+msgstr "அனைத்து டொமைன்களின் வாசித்தல் tcp முனைகளுக்கு திறனை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:143
+msgid ""
+"If you want to allow confined virtual guests to use executable memory and "
+"executable stack"
+msgstr ""
+"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை இயங்கக்கூடிய ஸ்டேக்கை பயன்படுத்துவதை அனுமதிக்க "
+"விரும்பினால்"
+
+#: ../booleans_trans.py:144
+msgid "If you want to allow webadm to read files in users home directories"
+msgstr ""
+"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசிக்க webadm-ஐ நீங்கள் அனுமதிக்க "
+"விரும்பினால்"
+
+#: ../booleans_trans.py:145
+msgid ""
+"If you want to allow users to run TCP servers (bind to ports and accept "
+"connection from the same domain and outside users)  disabling this forces "
+"FTP passive mode and may change other protocols."
+msgstr ""
+"TCP சேவையகங்களை இயக்குவதற்கு (துறைகளை பிணைத்து அதே செயற்களத்தை வெளிப்புற "
+"பயனர்களிலிருந்து இணைப்பதை ஏற்கவும்) இந்த வலிமைகளை FTP பாஸிவ் முறைமையை செயல்நீக்கி மற்ற "
+"நெறிமுறைகளை மாற்றுவதை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:146
+#, fuzzy
+msgid "If you want to allow clamscan to non security files on a system"
+msgstr "பயனர் உள்ளடக்கத்தை வாசிக்க clamscan-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:147
+msgid "If you want to ignore vbetool mmap_zero errors."
+msgstr "vbetool mmap_zero பிழைகளை நீங்கள் புறக்கணிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:148
+msgid "If you want to allow httpd to read user content"
+msgstr "பயனர் உள்ளடக்கத்தை வாசிக்க httpd-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:149
+msgid "If you want to allow httpd to access nfs file systems"
+msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு httpd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:150
+msgid ""
+"If you want to allow unconfined users to transition to the chrome sandbox "
+"domains when running chrome-sandbox"
+msgstr ""
+"வரையறுக்கப்படாத பயனர்கள் chrome sandbox  செயற்களமானது chrome sandbox   "
+"இயக்கப்படும்போது அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:151
+msgid "If you want to allow pppd to load kernel modules for certain modems"
+msgstr ""
+"குறிப்பிட்ட மோடம்களுக்காக கர்னல் தொகுதிகளை ஏற்றுவதற்கு pppd-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:152
+msgid "If you want to allow sge to access nfs file systems."
+msgstr "நீங்கள் sge ஐ nfs கோப்பு முறைமைகளை அணுக அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:153
+msgid "If you want to allow confined virtual guests to read fuse files"
+msgstr ""
+"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்கள் ஃப்யூஸ் கோப்புகளை வாசிப்பதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:154
+#, fuzzy
+msgid "If you want to allow DHCP daemon to use LDAP backends"
+msgstr "அனைத்து டொமைன்களின் வாசித்தல் tcp முனைகளுக்கு திறனை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:155
+#, fuzzy
+msgid "If you want to determine whether Git CGI can access cifs file systems."
+msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:156
+msgid ""
+"If you want to allow any files/directories to be exported read/write via NFS."
+msgstr ""
+"ஏதாவது கோப்புகள்/அடைவுகளை NFS வழியாக வாசித்து/எழுதி ஏற்றுமதி செய்ய அனுமதிக்க "
+"விரும்பினால்."
+
+#: ../booleans_trans.py:157
+#, fuzzy
+msgid ""
+"If you want to allow mozilla_plugins to create random content in the users "
+"home directory"
+msgstr ""
+"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை எழுத ftp-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:158
+msgid "If you want to allow Apache to execute tmp content."
+msgstr "tmp உள்ளடக்கத்தை வாசிக்க Apache-ஐ அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:159
+msgid ""
+"If you want to allow user to r/w files on filesystems that do not have "
+"extended attributes (FAT, CDROM, FLOPPY)"
+msgstr ""
+"பயனரை r/w கோப்புகள் அல்லது கோப்புமுறைகளை விரிவான பண்புகளில் கொண்டிராவிடில் நீங்கள் "
+"இனுமதிக்க விரும்பினால் (FAT, CDROM, FLOPPY)"
+
+#: ../booleans_trans.py:160
+msgid "If you want to allow zebra daemon to write it configuration files"
+msgstr "செப்ரா டொமைனை அதனுடைய கட்டமைப்பு கோப்புகளை எழுதுவதற்கு அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:161
+msgid "If you want to allow qemu to use cifs/Samba file systems"
+msgstr "qemu-ஐ cifs/Samba கோப்பு முறைமைகளை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:162
+msgid "If you want to allow regular users direct mouse access"
+msgstr "நீங்கள் வழக்கமான பயனர் நேரடி சுட்டி அணுகலை அனுமதிக்க வேண்டும் என்றால்,"
+
+#: ../booleans_trans.py:163
+msgid ""
+"If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
+"dedicated logical volumes for disk images."
+msgstr ""
+" xend இலிருந்து blktapctrl/tapdisk-ஐ இயக்க அனுமதிக்க விரும்பினால். தருக்க தொகுதிகள் "
+"வட்டு உருக்களுக்கு தேவையில்லை."
+
+#: ../booleans_trans.py:164
+msgid "If you want to allow fenced domain to connect to the network using TCP."
+msgstr ""
+"அரணான செயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:165
+#, fuzzy
+msgid "If you want to allow sanlock to manage nfs files"
+msgstr "nfs கோப்புகளை நிர்வகிக்க xen-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:166
+msgid "If you want to allow all domains to have the kernel load modules"
+msgstr ""
+"கர்னல் ஏற்ற தொகுதிகளை கொண்டிருக்க அனைத்து செயற்களங்களை நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:167
+msgid "If you want to allow confined virtual guests to use usb devices"
+msgstr ""
+"வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை usb சாதனங்களை பயன்படுத்துவதை அனுமதிக்க "
+"விரும்பினால்"
+
+#: ../booleans_trans.py:168
+msgid ""
+"If you want to enable additional permissions needed to support devices on "
+"3ware controllers."
+msgstr ""
+"கூடுதல் அனுமதிகள் 3ware கட்டுப்படுத்திகளில் சாதனங்களை துணைபுரிவதற்கு செயல்படுத்தினால்."
+
+#: ../booleans_trans.py:169
+msgid ""
+"If you want to allow ABRT to modify public files used for public file "
+"transfer services."
+msgstr ""
+"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க ABRT-"
+"ஐ அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:170
+msgid "If you want to allow users to connect to PostgreSQL"
+msgstr "பயனர்களை PostgreSQL-க்கு இணைப்பதை நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:171
+msgid "If you want to allow http daemon to send mail"
+msgstr "http டொமைனை அஞ்சலை அனுப்புவதற்கு நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:172
+msgid "If you want to allow samba to export ntfs/fusefs volumes."
+msgstr ""
+"ntfs/fusefs தொகுதிகளை ஏற்றுமதி செய்வதற்கு சாம்பாவை நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:173
+msgid "If you want to enable support for upstart as the init program."
+msgstr "init நிரலாக துவக்க துணையை செயற்படுத்த விரும்பினால்."
+
+#: ../booleans_trans.py:174
+msgid "If you want to enable polyinstantiated directory support."
+msgstr "polyinstantiated அடைவு துணையை செயல்படுத்த விரும்பினால்."
+
+#: ../booleans_trans.py:175
+#, fuzzy
+msgid ""
+"If you want to allow mozilla plugin domain to connect to the network using "
+"TCP."
+msgstr ""
+"rgmanager செயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்தை இணைப்பதற்கு அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:176
+msgid ""
+"If you want to allow the use of the audio devices as the source for the "
+"entropy feeds"
+msgstr "entropy பயனர்களை ஆடியோ சாதனங்களை பயன்படுத்த அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:177
+msgid "If you want to allow httpd to use built in scripting (usually php)"
+msgstr ""
+"ஸ்கிரிப்டிங்கில் கட்டுவதை பயன்படுத்துவதற்கு httpd-ஐ அனுமதிக்க விரும்பினால் (வழக்கமாக php)"
+
+#: ../booleans_trans.py:178
+msgid ""
+"If you want to allow exim to create, read, write, and delete unprivileged "
+"user files."
+msgstr ""
+"உருவாக்க, வாசிக்க, எழுத, மற்றும் சலுகையற்ற பயனர் கோப்புகளை அழிப்பதற்கு exim-ஐ நீங்கள் "
+"அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:179
+msgid "If you want to allow httpd to connect to the ldap port"
+msgstr "httpd மற்றும் ldap இணைப்பதற்கு ஏதாவது  துறையில் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:180
+msgid ""
+"If you want to allow Cobbler to modify public files used for public file "
+"transfer services."
+msgstr ""
+"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்தப்பட்ட பொது கோப்புகளை மாற்றியமைக்க நீங்கள் "
+"Cobbler-ஐ அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:181
+msgid "If you want to allow samba to export NFS volumes."
+msgstr "NFS தொகுதிகளை ஏற்றுமதிசெய்ய சாம்பாவை நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:182
+msgid ""
+"If you want to control the ability to mmap a low area of the address space, "
+"as configured by /proc/sys/kernel/mmap_min_addr."
+msgstr ""
+"/proc/sys/kernel/mmap_min_addr ஆல் கட்டமைப்பட்டதாக, mmap-ஐ முகவரி இடத்தில் ஒரு "
+"குறைந்த பகுதியை செயல்படுத்துவதை கட்டுப்படுத்த விரும்பினால்."
+
+#: ../booleans_trans.py:183
+msgid "If you want to allow dbadm to read files in users home directories"
+msgstr ""
+"பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசிக்க dbadm-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
 
 #: ../booleans_trans.py:184
-msgid "If you want to allow sasl to read shadow"
-msgstr "sasl-ஐ நிழலை வாசிக்க நீங்கள் அனுமதிக்க விரும்பினால்"
+msgid "If you want to allow collectd to connect to the network using TCP."
+msgstr "TCP-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை collectd-ஐ அனுமதிக்க விரும்பினால்."
 
 #: ../booleans_trans.py:185
+msgid "If you want to allow user processes to change their priority"
+msgstr "பயனர் செயல்முறைகள் அவைகளுடைய முன்னுரிமையை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:186
+msgid ""
+"If you want to allow ftp servers to use nfs used for public file transfer "
+"services."
+msgstr ""
+"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக nfs பயன்படுத்துவதற்கு ftp சேவையகங்களை அனுமதிக்க "
+"விரும்பினால்."
+
+#: ../booleans_trans.py:187
+msgid ""
+"If you want to determine whether calling user domains can execute Polipo "
+"daemon in the polipo_session_t domain."
+msgstr ""
+"polipo_session_t டொமைனை அணுகுவதற்கு Polipo-ஐ இயக்க நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:188
+msgid "If you want to allow confined applications to run with kerberos."
+msgstr ""
+"வரையறுக்கப்பட்ட பயன்பாடுகளை kerberos உடன் இயக்குவதற்கு நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:189
+msgid "If you want to allow http daemon to check spam"
+msgstr "http டொமைன் பழுதானவற்றை சரிபார்ப்பதை நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:190
+msgid "If you want to allow xguest users to mount removable media"
+msgstr "நீக்கக்கூடிய ஊடகத்தில் ஏற்றுவதற்கு xguest பயனர்களை நீங்கள் அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:191
+msgid ""
+"If you want to allow sftp-internal to login to local users and read/write "
+"all files on the system, governed by DAC."
+msgstr ""
+"sftp-உட்புறத்தை உள்ளமை பயனர்களை அனைத்து கோப்புகளில் வாசித்து/எழுதுவதற்கு அனுமதிக்க "
+"விரும்பினால், DAC ஆல் அங்கீகரிக்கப்பட்டது."
+
+#: ../booleans_trans.py:192
+msgid ""
+"If you want to allow icecast to connect to all ports, not just sound ports."
+msgstr "ஒலி துறைகள் இல்லாமல், அனைத்து துறைகளை இணைக்க icecast-ஐ அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:193
+msgid "If you want to allow syslogd the ability to read/write terminals"
+msgstr "நீங்கள் syslogd சாதன முனைகளில் வாசிக்க/எழுத அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:194
+msgid "If you want to allow users to connect to the local mysql server"
+msgstr "உள்ளமை mysql சேவையகத்தை பயனர்களுக்கு இணைப்பதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:195
+msgid "If you want to allow syslogd daemon to send mail"
+msgstr ""
+"syslogd டொமைனை அதனுடைய கட்டமைப்பு கோப்புகளை எழுதுவதற்கு அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:196
+msgid "If you want to determine whether Polipo can access nfs file systems."
+msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு Polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:197
+msgid "If you want to allow samba to run unconfined scripts"
+msgstr "வரையறுப்படாத ஸ்கிரிப்டுகளை இயக்க நீங்கள் சம்பா அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:198
+msgid "If you want to allow nsplugin code to execmem/execstack"
+msgstr "nsplugin குறையீட்டை execmem/execstack-க்கு அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:199
+#, fuzzy
+msgid "If you want to allow xguest to use blue tooth devices"
+msgstr "xguest பயனர்களை ப்ளூடூத் சாதனங்களை பயன்படுத்த அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:200
+msgid "If you want to allow ftp servers to connect to all ports > 1023"
+msgstr ""
+"அனைத்து துறைகளையும் இணைப்பதை பயன்படுத்துவதற்கு ftp-ஐ அனுமதிக்க விரும்பினால் > 1023"
+
+#: ../booleans_trans.py:201
+msgid "If you want to allow BIND to bind apache port."
+msgstr "BIND-ஐ பயன்படுத்துவதற்கு apache துறையை அனுமதிக்க விரும்பினால்."
+
+#: ../booleans_trans.py:202
+msgid "If you want to allow gitisis daemon to send mail"
+msgstr "நீங்கள் gitisis daemon ஐ அஞ்சல் அனுப்ப அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:203
+msgid "If you want to allow httpd to connect to memcache server"
+msgstr "memcache சேவையகத்திற்கு இணைக்க நீங்கள் httpd-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:204
+msgid ""
+"If you want to allow HTTPD scripts and modules to connect to cobbler over "
+"the network."
+msgstr ""
+"HTTPD ஸ்கிரிப்ட்டுகள் மற்றும் தொகுதிகளை காப்பளரில் பிணைத்திற்கு இணைப்பதை அனுமதிக்க "
+"விரும்பினால்."
+
+#: ../booleans_trans.py:205
+msgid ""
+"If you want to allow Apache to modify public files used for public file "
+"transfer services. Directories/Files must be labeled public_content_rw_t."
+msgstr ""
+"பொது கோப்பு பரிமாற்ற சேவைகளுக்காக பயன்படுத்துவதற்கு பொது கோப்புகளை மாற்றியமைக்க "
+"Apache-ஐ அனுமதிக்க விரும்பினால்.  அடைவுகள்/கோப்புகள் public_content_rw_t இல் "
+"லேபிளிடப்பட வேண்டும். "
+
+#: ../booleans_trans.py:206
+msgid "If you want to allow all daemons the ability to read/write terminals"
+msgstr "அனைத்து டொமைன்களின் வாசித்தல்/எழுதுதல் முனைகளுக்கு திறனை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:207
+#, fuzzy
+msgid ""
+"If you want to allow users to resolve user passwd entries directly from ldap "
+"rather then using a sssd server"
+msgstr "ஒரு sssd சேவையகத்தை பயன்படுத்தி பயனர்களை உட்புகுவதை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:208
 msgid ""
 "If you want to allow ftp servers to upload files,  used for public file "
 "transfer services. Directories must be labeled public_content_rw_t."
@@ -3646,41 +3884,47 @@ msgstr ""
 "கோப்புகளை பதிவேற்ற ftp சேவையகங்களை அனுமதிக்க விரும்பினால்.பொது கோப்பு பரிமாற்ற "
 "சேவைகளுக்காக பயன்படுதப்பட்டது. public_content_rw_t அணைவுகள் லேபிளிடப்பட வேண்டும்."
 
-#: ../booleans_trans.py:186
+#: ../booleans_trans.py:209
+#, fuzzy
+msgid "If you want to allow sanlock to manage cifs files"
+msgstr "nfs கோப்புகளை நிர்வகிக்க xen-ஐ அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:210
+#, fuzzy
+msgid ""
+"If you want to allow the portage domains to use NFS mounts (regular nfs_t)"
+msgstr ""
+"அனைத்து செயற்களங்களையும் மற்ற செயற்களங்களின் கோப்பு விளக்கிகளில் பயன்படுத்த அனுமதிக்க "
+"விரும்பினால்"
+
+#: ../booleans_trans.py:211
 msgid "If you want to allow video playing tools to run unconfined"
 msgstr "வீடியோ இயங்கும் கருவிகளை unconfined-ஐ இயக்க அனுமதிக்க வேண்டுமென்றால்"
 
-#: ../booleans_trans.py:187
-msgid ""
-"If you want to allow gssd to read temp directory.  For access to kerberos "
-"tgt."
-msgstr ""
-"If you want to allow gssd-ஐ தற்காலிக அடைவை வாசிப்பதை நீங்கள் அனுமதிக்க "
-"விரும்பினால்.  kerberos இலக்கை அணுகுவதற்கு."
+#: ../booleans_trans.py:212
+msgid "If you want to use lpd server instead of cups"
+msgstr "lpd சேவையகத்தை கப்புகளுக்கு பதிலாக பயன்படுத்த விரும்பினால்"
 
-#: ../booleans_trans.py:188
+#: ../booleans_trans.py:213
 msgid "If you want to allow webadm to manage files in users home directories"
 msgstr ""
 "பயனர்களின் முகப்பு அடைவுகளிலுள்ள கோப்புகளை நிர்வகிக்க webadm-ஐ நீங்கள் அனுமதிக்க "
 "விரும்பினால்"
 
-#: ../booleans_trans.py:189
+#: ../booleans_trans.py:214
 msgid "If you want to allow clamd to use JIT compiler"
 msgstr "clamd JIT தொகுப்பியை பயன்படுத்துவதை அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:190
-msgid "If you want to allows XServer to execute writable memory"
-msgstr "எழுதக்கூடிய நினைவகத்தை நிறைவேற்ற XServer-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
-
-#: ../booleans_trans.py:191
+#: ../booleans_trans.py:215
+#, fuzzy
 msgid ""
-"If you want to allow Git daemon session to bind tcp sockets to all "
-"unreserved ports."
+"If you want to determine whether Git session daemon can bind TCP sockets to "
+"all unreserved ports."
 msgstr ""
-"அனைத்து முன்பதிவு செய்யப்பட்டதாத துறைகளுக்கு tcp சாக்கெட்டுகளை பிணைக்க கிட் டொமைன் "
-"அமர்வை அனுமதிக்க விரும்பினால்."
+"Polipo டொமைன் tcp சாக்கெட்டுகளை முன்பதிவு செய்யப்பட்டதாத துறைகளுக்கு பிணைப்பதை "
+"அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:192
+#: ../booleans_trans.py:216
 msgid ""
 "If you want to allow HTTPD to run SSI executables in the same domain as "
 "system CGI scripts."
@@ -3688,60 +3932,54 @@ msgstr ""
 "CGI ஸ்கிரிப்ட்டுகளில் SSI நிறைவேற்றக்கூடியதை இதே செய்றகள கணினியாக இயக்குவதற்கு HTTPD-"
 "ஐ அனுமதிக்க விரும்பினால் ."
 
-#: ../booleans_trans.py:193
+#: ../booleans_trans.py:217
 msgid "If you want to allow samba to share any file/directory read/write."
 msgstr "ஏதாவது கோப்பு/அடைவு வாசித்தல்/எழுதுதலை பகிர samba-ஐ அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:194
-msgid ""
-"If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
-"database"
-msgstr ""
-"MySQL மற்றும் PostgreSQL தரவுத்தளத்தில் இணைப்பதை பயன்படுத்துவதற்கு பப்பெட் முதன்மையை "
-"அனுமதிக்க விரும்பினால்"
+#: ../booleans_trans.py:218
+#, fuzzy
+msgid "If you want to allow httpd to access openstack ports"
+msgstr "nfs கோப்பு முறைமைகளை அணுகுவதற்கு httpd-ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:195
+#: ../booleans_trans.py:219
 msgid ""
 "If you want to allow httpd to act as a FTP server by listening on the ftp "
 "port."
 msgstr "httpd-ஐ ஒரு FTP சேவையகமாக ftp துறையில் கவனிக்க அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:196
+#: ../booleans_trans.py:220
+msgid "If you want to allow all daemons to write corefiles to /"
+msgstr "அனைத்து டொமைன்களை கோர்கோப்புகளுக்கு எழுதுவதற்கு நீங்கள் அனுமதிக்க விரும்பினால் /"
+
+#: ../booleans_trans.py:221
 msgid "If you want to enable extra rules in the cron domain to support fcron."
 msgstr ""
 "fcron-ஐ துணைப்புரிய கார்ன் செயற்களத்தில் கூடுதல் விதிகளை செயற்படுத்த விரும்பினால்."
 
-#: ../booleans_trans.py:197
-msgid ""
-"If you want to allow internal-sftp to read and write files in the user ssh "
-"home directories."
+#: ../booleans_trans.py:222
+#, fuzzy
+msgid "If you want to allow codnor domain to connect to the network using TCP."
 msgstr ""
-"பயனர் ssh முகப்பு அடைவுகளிலுள்ள கோப்புகளை வாசித்து எழுத sftp-உட்புறத்தை நீங்கள் "
-"அனுமதிக்க விரும்பினால்."
+"அரணான செயற்களத்தை TCP-ஐ பயன்படுத்தி பிணையத்திற்கு இணைப்பதை அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:198
+#: ../booleans_trans.py:223
 msgid "If you want to allow http daemon to connect to zabbix"
 msgstr "zabbix இணைக்க http டீமானை அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:199
-msgid "If you want to allow all domains to use other domains file descriptors"
-msgstr ""
-"அனைத்து செயற்களங்களையும் மற்ற செயற்களங்களின் கோப்பு விளக்கிகளில் பயன்படுத்த அனுமதிக்க "
-"விரும்பினால்"
-
-#: ../booleans_trans.py:200
+#: ../booleans_trans.py:224
 msgid "If you want to allow users to login using a radius server"
 msgstr "ஒரு ஆர சேவையகத்தை பயன்படுத்தி பயனர்கள் உள்நுழைவதை நீங்கள் அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:201
+#: ../booleans_trans.py:225
 msgid "If you want to allow Cobbler to access cifs file systems."
 msgstr "cifs கோப்பு முறைமைகளை அணுகுவதற்கு  காப்ளரை நீங்கள் அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:202
-msgid "If you want to allow httpd daemon to change system limits"
+#: ../booleans_trans.py:226
+#, fuzzy
+msgid "If you want to allow httpd daemon to change its resource limits"
 msgstr "httpd டொமைனை கணினி வரம்புகளை மாற்றுவதை அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:203
+#: ../booleans_trans.py:227
 msgid ""
 "If you want to allow squid to connect to all ports, not just HTTP, FTP, and "
 "Gopher ports."
@@ -3749,26 +3987,32 @@ msgstr ""
 "அனைத்து துறைகள், HTTP இல்லாத, FTP, மற்றும் Gopher துறைகளை இணைப்பதற்கு  squid-ஐ "
 "அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:204
-msgid "If you want to allow syslogd the ability to read/write terminals"
+#: ../booleans_trans.py:228
+msgid "If you want to allow all domains to use other domains file descriptors"
 msgstr ""
+"அனைத்து செயற்களங்களையும் மற்ற செயற்களங்களின் கோப்பு விளக்கிகளில் பயன்படுத்த அனுமதிக்க "
+"விரும்பினால்"
 
-#: ../booleans_trans.py:205
+#: ../booleans_trans.py:229
 msgid "If you want to allow users to read system messages."
 msgstr "கணினி செய்திகளை வாசிக்க பயனர்களை நீங்கள் அனுமதிக்க விரும்பினால்"
 
-#: ../booleans_trans.py:207
+#: ../booleans_trans.py:230
+msgid "If you want to allow confined virtual guests to manage cifs files"
+msgstr "cifs கோப்புகளை வரையறுக்கப்பட்ட மெய்நிகர் விருந்தினர்களை அனுமதிக்க விரும்பினால்"
+
+#: ../booleans_trans.py:231
 msgid "If you want to enable support for systemd as the init program."
 msgstr "init நிரலாக systemd-க்கு துணைபுரியவை நீங்கள் செயல்படுத்த விரும்பினால் ."
 
-#: ../booleans_trans.py:208
+#: ../booleans_trans.py:232
 msgid ""
 "If you want to allow any files/directories to be exported read/only via NFS."
 msgstr ""
 "ஏதாவது கோப்புகள்/அடைவுகளை NFS வழியாக வாசிக்க/மட்டும் ஏற்றுமதி செய்ய அனுமதிக்க "
 "விரும்பினால்."
 
-#: ../booleans_trans.py:209
+#: ../booleans_trans.py:233
 msgid ""
 "If you want to allow system cron jobs to relabel filesystem for restoring "
 "file contexts."
@@ -3776,7 +4020,7 @@ msgstr ""
 "கார்ன் பணிகளை மீட்டமைக்கும் கோப்பு உரைகளுக்காக கோப்புமுறைமை மறுலேபிளிட கணினியை "
 "அனுமதிக்க விரும்பினால்."
 
-#: ../booleans_trans.py:210
+#: ../booleans_trans.py:234
 msgid ""
 "If you want to allow anon internal-sftp to upload files, used for public "
 "file transfer services. Directories must be labeled public_content_rw_t."
@@ -3784,6 +4028,41 @@ msgstr ""
 "உட்புற-sftp-ஐ உடனே கோப்புகளை பதிவேற்ற அனுமதிக்க விரும்பினால், பொது கோப்பு பரிமாற்ற "
 "சேவைகளுக்காக பயன்படுத்தப்பட்டது. public_content_rw_t அடைவுகள் லேபிளிடப்பட வேண்டும்."
 
-#: ../booleans_trans.py:211
+#: ../booleans_trans.py:235
 msgid "If you want to allow unprivileged users to execute DDL statement"
 msgstr "DDL நிலையை நிறைவேற்ற ப்ரைவ் செய்யப்படாத பயனர்களை அனுமதிக்க விரும்பினால்"
+
+#~ msgid ""
+#~ "You must tell SELinux about this by enabling the '%s' boolean. You can "
+#~ "read '%s' man page for more details."
+#~ msgstr ""
+#~ "SELinux-க்கு  '%s' boolean-ஐ செயல்படுத்துவதை பற்றி நீங்கள் இதை சொல்ல வேண்டும். "
+#~ "மேலும் விவரங்களுக்கு '%s' கையேடு பக்கத்தைப் பார்க்கவும்."
+
+#~ msgid ""
+#~ "If you want to allow direct login to the console device. Required for "
+#~ "System 390"
+#~ msgstr ""
+#~ "நேரடி உட்புகுவை பணியக சாதனத்தில் உட்புக அனுமதிக்க விரும்பினால். கணினி 390-க்காக "
+#~ "தேவைப்படுகிறது"
+
+#~ msgid ""
+#~ "If you want to determine whether Polipo session daemon can send syslog "
+#~ "messages."
+#~ msgstr ""
+#~ "syslog கோப்பு முறைமைகளை அணுகுவதற்கு Polipo-ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
+
+#~ msgid "If you want to allow Git daemon system to access cifs file systems."
+#~ msgstr "Git டொமைன் கணினி cifs கோப்பு முறைமைகளை அணுகுவதற்கு அடுமதிக்க விரும்பினால்"
+
+#~ msgid "If you want to allow Git daemon system to access nfs file systems."
+#~ msgstr ""
+#~ "If you want to allow Git டொமைனை கணினிக்கு nfs கோப்பு முறைமைகளை அணுகுவதற்கு "
+#~ "அனுமதிக்க விரும்பினால்."
+
+#~ msgid ""
+#~ "If you want to allow Git daemon session to bind tcp sockets to all "
+#~ "unreserved ports."
+#~ msgstr ""
+#~ "அனைத்து முன்பதிவு செய்யப்பட்டதாத துறைகளுக்கு tcp சாக்கெட்டுகளை பிணைக்க கிட் டொமைன் "
+#~ "அமர்வை அனுமதிக்க விரும்பினால்."
