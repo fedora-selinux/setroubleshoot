@@ -5,14 +5,14 @@
 # Translators:
 # A S Alam <apbrar@gmail.com>, 2006.
 # Jaswinder Singh <j.phulewala@gmail.com>, 2012.
-# Jaswinder Singh <jsingh@redhat.com>, 2007, 2008, 2009, 2010, 2011, 2012.
+# Jaswinder Singh <jsingh@redhat.com>, 2007-2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-20 05:43-0400\n"
-"PO-Revision-Date: 2012-09-20 09:49+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-10-01 11:35+0000\n"
+"Last-Translator: Jaswinder Singh <j.phulewala@gmail.com>\n"
 "Language-Team: Panjabi (Punjabi) <punjabi-users@lists.sf.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -192,7 +192,7 @@ msgid ""
 "    app continues to not work, you can turn the flag back on with\n"
 "    execstack -s LIBRARY_PATH.  \n"
 "    "
-msgstr ""
+msgstr "\n    Sometimes a library is accidentally marked with the execstack flag,\n    if you find a library with this flag you can clear it with the\n    execstack -c LIBRARY_PATH.  Then retry your application.  If the\n    app continues to not work, you can turn the flag back on with\n    execstack -s LIBRARY_PATH.  \n    "
 
 #: ../src/allow_execstack.py:82
 msgid ""
@@ -342,18 +342,18 @@ msgid ""
 "seinfo -afile_type -x\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\nYou tried to place a type on a %s that is not a file type.  This is not allowed, you must assigne a file type.  You can list all file types using the seinfo command.\n\nseinfo -afile_type -x\n\n    "
 
 #: ../src/associate.py:44
 #, python-format
 msgid ""
 "you want to change the label of $TARGET_PATH to %s, you are not allowed to "
 "since it is not a valid file type."
-msgstr ""
+msgstr "ਤੁਸੀਂ $TARGET_PATH ਦੇ ਲੇਬਲ ਨੂੰ %s ਨਾਲ ਤਬਦੀਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ, ਤੁਹਾਨੂੰ ਮਨਜੂਰੀ ਨਹੀਂ ਹੈ ਕਿਉਂਕਿ ਯੋਗ ਫਾਇਲ ਕਿਸਮ ਨਹੀਂ ਹੈ।"
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
-msgstr ""
+msgstr "ਤੁਹਾਨੂੰ ਯੋਗ ਫਾਇਲ ਲੇਬਲ ਚੁਣਨਾ ਚਾਹੀਦਾ ਹੈ"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -464,12 +464,12 @@ msgstr "setsebool -P %s %s"
 #: ../src/catchall_boolean.py:66
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean."
-msgstr ""
+msgstr "ਤੁਹਾਨੂੰ ਇਸ ਬਾਰੇ SELinux ਨੂੰ '%s' ਬੂਲੀਅਨ ਯੋਗ ਕਰਕੇ ਦੱਸਣਾ ਚਾਹੀਦਾ ਹੈ।"
 
 #: ../src/catchall_boolean.py:69
 #, python-format
 msgid "You can read '%s' man page for more details."
-msgstr ""
+msgstr "ਤੁਸੀਂ ਵੇਰਵੇ ਲਈ '%s' man ਪੇਜ਼ ਪੜ ਸਕਦੇ ਹੋ।"
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -753,7 +753,7 @@ msgid ""
 "home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux permission checks on files labeled file_t are being\n    denied.  file_t is the context the SELinux kernel gives to files\n    that do not have a label. This indicates a serious labeling\n    problem. No files on an SELinux box should ever be labeled file_t.\n    If you have just added a disk drive to the system you can\n    relabel it using the restorecon command.  For example if you saved the\nhome directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n    relabel the entire file system.\n    "
 
 #: ../src/file.py:42
 msgid ""
@@ -1068,7 +1068,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux denied access requested by $SOURCE. It is not\n    expected that this access is required by $SOURCE and this access\n    may signal an intrusion attempt. It is also possible that the specific\n    version or configuration of the application is causing it to require\n    additional access.\n    "
 
 #: ../src/mozplugger.py:39 ../src/mozplugger_remove.py:39
 msgid ""
@@ -1077,25 +1077,25 @@ msgid ""
 "Or turn off enforcement of SELinux over the Firefox plugins.\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
-msgstr ""
+msgstr "\nEither remove the mozplluger package by executing 'yum remove mozplugger'\nOr turn off enforcement of SELinux over the Firefox plugins.\nsetsebool -P unconfined_mozilla_plugin_transition 0\n    "
 
 #: ../src/mozplugger.py:44
 msgid "you want to use mozplugger package"
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਇਹ ਪੈਕੇਜ ਹੁਣੇ ਇੰਸਟਾਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../src/mozplugger.py:45
 msgid "you must turn off SELinux controls on the Firefox plugins."
-msgstr ""
+msgstr "ਤੁਹਾਨੂੰ ਫਾਇਰਫਾਕਸ ਪਲੱਗਇਨ ਉੱਪਰ SELinux ਕੰਟਰੋਲ ਬੰਦ ਕਰਨਾ ਚਾਹੀਦਾ ਹੈ।"
 
 #: ../src/mozplugger_remove.py:44
 msgid ""
 "you want to to continue using SELinux Firefox plugin containment rather then"
 " using mozplugger package"
-msgstr ""
+msgstr "ਤੁਸੀਂ SELinux ਫਾਇਰਫਾਕਸ ਪਲੱਗਇਨ ਬੰਦ ਵਰਤਣਾ ਜਾਰੀ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
-msgstr ""
+msgstr "ਕੀ ਤੁਸੀਂ ਇਹ ਪੈਕੇਜ ਹੁਣੇ ਇੰਸਟਾਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ."
 
 #: ../src/openvpn.py:35
 msgid ""
@@ -1694,7 +1694,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਟੈਲੀਪਾਥੀ ਕੁਨੈਕਸ਼ਨ �
 
 #: ../booleans_trans.py:19
 msgid "If you want to allow sge to connect to the network using any TCP port"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ sge ਨੂੰ ਨੈੱਟਵਰਕ ਨਾਲ ਕੋਈ ਵੀ TCP ਪੋਰਟ ਵਰਤ ਕੇ ਜੋੜਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:20
 msgid ""
@@ -1709,7 +1709,7 @@ msgstr "ਜੇ ਤੁਸੀਂ sasl ਦੁਆਰਾ shadow ਪੜ੍ਹਨ ਨ�
 #: ../booleans_trans.py:22
 msgid ""
 "If you want to allow httpd to communicate with oddjob to start up a service"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ httpd ਨੂੰ oddjob ਨਾਲ ਸਰਵਿਸ ਚਾਲੂ ਕਰਨ ਦੇਣਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -1733,7 +1733,7 @@ msgstr "ਜੇ ਤੁਸੀਂ polipo ਨੂੰ ਸਭ ਪੋਰਟਾਂ ਤੇ
 
 #: ../booleans_trans.py:27
 msgid "If you want to allow httpd to run gpg"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ httpd ਦੁਆਰਾ gpg ਚਲਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:28
 msgid ""
@@ -1743,7 +1743,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਸਾਂਬਾ ਨੂੰ ਡੋਮੇਨ ਕੰ�
 
 #: ../booleans_trans.py:29
 msgid "If you want to allow httpd cgi support"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ httpd cgi ਸਹਿਯੋਗ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:30
 msgid "If you want to determine whether polipo can access cifs file systems."
@@ -1758,7 +1758,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ftp ਸਰਵਰਾਂ ਨੂੰ ਪਬਲਿਕ 
 #: ../booleans_trans.py:32
 msgid ""
 "If you want to allow staff user to create and transition to svirt domains."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ staff ਯੂਜ਼ਰ ਨੂੰ svirt ਡੋਮੇਨ ਬਣਾਉਣਾ ਅਤੇ ਤਬਦੀਲੀ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: ../booleans_trans.py:33
 msgid "If you want to allow confined virtual guests to manage nfs files"
@@ -1816,7 +1816,7 @@ msgstr "ਜੇ ਤੁਸੀਂ BIND ਨੂੰ master zone ਫਾਇਲਾਂ ਲ
 msgid ""
 "If you want to determine whether Git system daemon can access cifs file "
 "systems."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਪਤਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਕਿ Git ਸਿਸਟਮ ਡੈਮਨ cifs ਫਾਇਲ ਸਿਸਟਮਾਂ ਨੂੰ ਵਰਤ ਸਕਦਾ ਹੈ ਜਾਂ ਨਹੀਂ।"
 
 #: ../booleans_trans.py:45
 msgid ""
@@ -1833,7 +1833,7 @@ msgstr "ਜੇ ਤੁਸੀਂ httpd ਦੁਆਰਾ cifs ਫਾਇਲ ਸਿਸ
 
 #: ../booleans_trans.py:48
 msgid "If you want to determine whether Git CGI can search home directories."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਪਤਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਕੀ Git CGI ਘਰੇਲੂ ਡਾਇਰੈਕਟਰੀਆਂ ਨੂੰ ਖੋਜ ਸਕਦਾ ਹੈ ਜਾਂ ਨਹੀਂ।"
 
 #: ../booleans_trans.py:49
 msgid "If you want to allow host key based authentication"
@@ -1871,7 +1871,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ftp ਸਰਵਰ ਨੂੰ mysql ਡਾਟਬੇ�
 msgid ""
 "If you want to determine whether Git system daemon can search home "
 "directories."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਪਤਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਕੀ Git ਸਿਸਟਮ ਡੈਮਨ ਘਰੇਲੂ ਡਾਇਰੈਕਟਰੀਆਂ ਨੂੰ ਖੋਜ ਸਕਦਾ ਹੈ ਜਾਂ ਨਹੀਂ।"
 
 #: ../booleans_trans.py:57
 msgid "If you want to support SAMBA home directories"
@@ -1885,7 +1885,7 @@ msgstr "ਜੇ ਤੁਸੀਂ mock ਨੂੰ ਘਰੇਲੂ ਡਾਇਰੈਕ
 msgid ""
 "If you want to allow Apache to run in stickshift mode, not transition to "
 "passenger"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਅਪਾਚੇ ਨੂੰ stickshift ਚਲਾਉਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁਦੇ ਹੋ।"
 
 #: ../booleans_trans.py:60
 msgid ""
@@ -1900,7 +1900,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਯੂਜ਼ਰਾਂ ਨੂੰ ping ਅਤੇ trace
 msgid ""
 "If you want to determine whether calling user domains can execute Git daemon"
 " in the git_session_t domain."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਪਤਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਕੀ ਯੂਜ਼ਰ ਡੋਮਨ ਕਾਲ ਕਰਨ ਨਾਲ Git ਡੈਮਨ git_session_t ਡੋਮੇਨ ਵਿੱਚ ਚੱਲ ਸਕਦਾ ਹੈ ਜਾਂ ਨਹੀਂ।"
 
 #: ../booleans_trans.py:63
 msgid "If you want to allow zabbix to connect to unreserved ports"
@@ -1955,7 +1955,7 @@ msgstr "ਜੇ ਤੁਸੀਂ dhcpc ਕਲਾਂਈਟ ਐਪਲੀਕੇਸ਼ਨ
 
 #: ../booleans_trans.py:74
 msgid "If you want to allow sanlock to read/write fuse files"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ sanlock ਨੂੰ fuse ਫਾਇਲਾਂ ਪੜਨ/ਲਿਖਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਹੈ"
 
 #: ../booleans_trans.py:75
 msgid "If you want to allow samba to share users home directories."
@@ -1999,7 +1999,7 @@ msgid ""
 "If you want to boolean to determine whether the system permits loading "
 "policy, setting enforcing mode, and changing boolean values.  Set this to "
 "true and you have to reboot to set it back."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਮਜਬੂਰ ਮੋਡ ਸੈੱਟ ਕਰਨ ਨਾਲ, ਅਤੇ ਬੂਲੀਅਨ ਮੁੱਲ ਤਬਦੀਲ ਕਰਨ ਨਾਲ ਸਭ ਕਨਫਾਈਂਡ ਡੋਮੇਨਾਂ ਨੂੰ ਪਾਲਿਸੀ ਲੋਡ ਕਰਨ ਤੋਂ ਰੋਕਣਾ ਚਾਹੁੰਦੇ ਹੋ। ਇਸ ਨੂੰ true ਸੈੱਟ ਕਰੋ ਅਤੇ ਤੁਹਾਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰਕੇ ਇਸਨੂੰ ਵਾਪਸ ਸੈੱਟ ਕਰਨਾ ਪਵੇਗਾ."
 
 #: ../booleans_trans.py:84
 msgid "If you want to allow dbadm to manage files in users home directories"
@@ -2014,7 +2014,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਕਨਫਾਈਂਡ ਵਰਚੁਅਲ ਗਿ�
 msgid ""
 "If you want to determine whether Git system daemon can access nfs file "
 "systems."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਪਤਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਕਿ Git ਸਿਸਟਮ ਡੈਮਨ nfs ਫਾਇਲ ਸਿਸਟਮ ਨੂੰ ਵਰਤ ਸਕਦਾ ਹੈ"
 
 #: ../booleans_trans.py:87
 msgid "If you want to unify HTTPD handling of all content files."
@@ -2026,7 +2026,7 @@ msgstr "ਜੇ ਤੁਸੀਂ nsplugin ਕੋਡ ਨੂੰ ਨਾ-ਰਾਖਵ�
 
 #: ../booleans_trans.py:89
 msgid "If you want to allow amavis to use JIT compiler"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ amavis ਨੂੰ JIT ਕੰਪਾਈਲਰ ਵਰਤਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:90
 msgid "If you want to allow java executable stack"
@@ -2050,7 +2050,7 @@ msgstr "ਜੇ ਤੁਸੀਂ Apache ਨੂੰ mod_auth_pam ਵਰਤਣ ਦੀ
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to the network "
 "using TCP."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ HTTPD ਸਕਰਿਪਟਾਂ ਅਤੇ ਮੈਡਿਊਲਾਂ ਨੂੰ TCP ਵਰਤ ਕੇ ਨੈੱਟਵਰਕ ਨਾਲ ਜੁੜਨ ਨੂੰ ਮਨਜੂਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: ../booleans_trans.py:95
 msgid "If you want to allow qemu to use usb devices"
@@ -2058,11 +2058,11 @@ msgstr "ਜੇ ਤੁਸੀਂ qemu ਨੂੰ usb ਜੰਤਰ ਵਰਤਣ ਦ�
 
 #: ../booleans_trans.py:96
 msgid "If you want to allow exim to connect to databases (postgres, mysql)"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ exim ਨੂੰ ਡਾਟਾਬੇਸ (postgres, mysql) ਨਾਲ ਜੁੜਨ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:97
 msgid "If you want to determine whether Git CGI can access nfs file systems."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਪਤਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਕਿ Git CGI nfs ਫਾਇਲ ਸਿਸਟਮ ਨੂੰ ਵਰਤ ਸਕਦਾ ਹੈ"
 
 #: ../booleans_trans.py:98
 msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
@@ -2070,11 +2070,11 @@ msgstr "ਜੇ ਤੁਸੀਂ varnishd ਨੂੰ ਸਭ ਪੋਰਟਾਂ ਨ�
 
 #: ../booleans_trans.py:99
 msgid "If you want to support ecryptfs home directories"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ecryptfs ਘਰੇਲੂ ਡਾਇਰੈਕਟਰੀਆਂ ਨੂੰ ਸਹਿਯੋਗ ਦੇਣਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:100
 msgid "If you want to allow samba to act as a portmapper"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਸਾਂਬਾ ਨੂੰ ਪੈਰਟਮੈਪਰ ਦੇ ਤੌਰ ਤੇ ਮਨਜੂਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:101
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
@@ -2082,11 +2082,11 @@ msgstr "ਜੇ ਤੁਸੀਂ httpd ਸਕਰਿਪਟਾਂ ਅਤੇ ਮੈ�
 
 #: ../booleans_trans.py:102
 msgid "If you want to allow rsync servers to share nfs files systems"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ rsync ਸਰਵਰਾਂ ਨੂੰ nfs ਫਾਇਲ ਸਿਸਟਮ ਸ਼ੇਅਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:103
 msgid "If you want to allow httpd to access FUSE file systems"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ httpd ਨੂੰ FUSE ਫਾਇਲ ਸਿਸਟਮ ਵਰਤਣ ਲਈ ਮਨਜੂਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:104
 msgid ""
@@ -2141,7 +2141,7 @@ msgstr "ਜੇ ਤੁਸੀਂ HTTPD ਨੂੰ ਟਰਮੀਨਲ ਨਾਲ ਸ�
 msgid ""
 "If you want to allow apache scripts to write to public content, "
 "directories/files must be labeled public_rw_content_t."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਅਪਾਚੇ ਸਕਰਿਪਟਾਂ ਨੂੰ ਪਬਲਿਕ ਸੰਖੇਪਾਂ ਵਿੱਚ ਲਿਖਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਹੈ। ਡਾਇਰੈਕਟਰੀਆਂ/ਫਾਇਲਾਂ ਦਾ ਲੇਬਲ public_rw_content_t ਹੋਣਾ ਜਰੂਰੀ ਹੈ।"
 
 #: ../booleans_trans.py:115
 msgid ""
@@ -2177,7 +2177,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਟੈਲੀਪਾਥੀ ਕੁਨੈਕਸ਼ਨ �
 
 #: ../booleans_trans.py:121
 msgid "If you want to allow rsync servers to share cifs files systems"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ rsync ਸਰਵਰਾਂ ਨੂੰ cifs ਫਾਇਲ ਸਿਸਟਮ ਸ਼ੇਅਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:122
 msgid ""
@@ -2187,7 +2187,7 @@ msgstr "ਜੇ ਤੁਸੀਂ Irssi IRC ਕਲਾਂਈਟ ਨੂੰ ਕਿਸ�
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow transmit client label to foreign database"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਕਲਾਂਈਟ ਲੇਬਲ ਨੂੰ ਫੌਰਨ ਡਾਟਾਬੇਸ ਵਿੱਚ ਤਬਦੀਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:124
 msgid "If you want to allow confined applications to use nscd shared memory."
@@ -2217,7 +2217,7 @@ msgstr "ਜੇ ਤੁਸੀਂ Puppet ਮਾਸਟਰ ਨੂੰ MySQL ਅਤੇ 
 
 #: ../booleans_trans.py:130
 msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ HTTPD ਨੂੰ ਪੋਰਟ 80 ਨਾਲ ਗਰੇਸਫੁੱਲ ਸ਼ੱਟਡਾਊਨ ਲਊ ਜੋੜਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow system to run with NIS"
@@ -2227,7 +2227,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਸਿਸਟਮ ਨੂੰ NIS ਨਾਲ ਚੱਲ
 msgid ""
 "If you want to allow unprivledged user to create and transition to svirt "
 "domains."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਨਾ-ਅਧਿਕਾਰਤ ਯੂਜ਼ਰ ਨੂੰ svirt ਡੋਮੇਨ ਬਣਾਉਣ ਅਤੇ ਤਬਦੀਲ ਕਰਨ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਹੈ"
 
 #: ../booleans_trans.py:133
 msgid "If you want to allow a user to login as an unconfined domain"
@@ -2235,7 +2235,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਯੂਜ਼ਰ ਨੂੰ ਅਨਕਨਫਾਈਂ�
 
 #: ../booleans_trans.py:134
 msgid "If you want to disable kernel module loading."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਕਰਨਲ ਮੋਡੀਊਲ ਲੋਡਿੰਗ ਅਯੋਗ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: ../booleans_trans.py:135
 msgid ""
@@ -2247,7 +2247,7 @@ msgstr "ਜੇ ਤੁਸੀਨ httpd ਨੂੰ FTP ਕਲਾਂਈਟ ਤੌਰ 
 msgid ""
 "If you want to allow ftp servers to use bind to all unreserved ports for "
 "passive mode"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ftp ਸਰਵਰਾਂ ਨੂੰ ਪੈਸਿਵ ਮੋਡ ਲਈ ਸਭ ਨਾ-ਅਧਿਕਾਰਤ ਪੋਰਟਾਂ ਨਾਲ ਬਾਈਡ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:137
 msgid ""
@@ -2301,7 +2301,7 @@ msgstr "ਉਪਭੋਗੀਆਂ ਨੂੰ TCP ਸਰਵਰ ਚਲਾਉਣ ਦ�
 
 #: ../booleans_trans.py:146
 msgid "If you want to allow clamscan to non security files on a system"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ clamscan ਨੂੰ ਸਿਸਟਮ ਉੱਪਰ ਨਾਨ ਸਕਿਊਰਿਟੀ ਫਾਇਲਾਂ ਨੂੰ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:147
 msgid "If you want to ignore vbetool mmap_zero errors."
@@ -2335,11 +2335,11 @@ msgstr "If you want to allow confined virtual guests to read fuse files"
 
 #: ../booleans_trans.py:154
 msgid "If you want to allow DHCP daemon to use LDAP backends"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ DHCP ਡੈਮਨ ਨੂੰ LDAP ਬੈਕਐਂਡ ਵਰਤਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:155
 msgid "If you want to determine whether Git CGI can access cifs file systems."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਪਤਾ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ ਕਿ Git CGI nfs ਫਾਇਲ ਸਿਸਟਮ ਨੂੰ ਵਰਤ ਸਕਦਾ ਹੈ।"
 
 #: ../booleans_trans.py:156
 msgid ""
@@ -2351,7 +2351,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਕਿਸੇ ਫਾਇਲ/ਡਾਇਰੈਕਟ�
 msgid ""
 "If you want to allow mozilla_plugins to create random content in the users "
 "home directory"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਕਨਫਾਈਂਡ ਵੈੱਬ ਬਰਾਊਜ਼ਰਾਂ ਨੂੰ ਘਰੇਲੂ ਡਾਇਰੈਕਟਰੀ ਸੰਖੇਪ ਪੜ੍ਹਨ ਲਈ ਮਨਜੂਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:158
 msgid "If you want to allow Apache to execute tmp content."
@@ -2388,7 +2388,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਫੈਂਸਡ ਡੋਮੇਨ ਨੂੰ TCP ਵ
 
 #: ../booleans_trans.py:165
 msgid "If you want to allow sanlock to manage nfs files"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ xen ਨੂੰ nfs ਫਾਇਲਾਂ ਦੇ ਪਰਬੰਧਨ ਮਨਜੂਰ ਕਰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:166
 msgid "If you want to allow all domains to have the kernel load modules"
@@ -2434,7 +2434,7 @@ msgstr "ਜੇ ਤੁਸੀਂ polyinstantiated ਡਾਇਰੈਕਟਰੀ ਸ�
 msgid ""
 "If you want to allow mozilla plugin domain to connect to the network using "
 "TCP."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਫੈਂਸਡ ਡੋਮੇਨ ਨੂੰ TCP ਵਰਤ ਕੇ ਨੈੱਟਵਰਕ ਤੇ ਲਾਗਇਨ ਕਰਨ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: ../booleans_trans.py:176
 msgid ""
@@ -2545,7 +2545,7 @@ msgstr "ਜੇ ਤੁਸੀਂ nsplugin ਕੋਡ ਨੂੰ execmem/execstack �
 
 #: ../booleans_trans.py:199
 msgid "If you want to allow xguest to use blue tooth devices"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ xguest ਯੂਜ਼ਰ ਨੂੰ ਬਲਿਊ ਟੁੱਥ ਜੰਤਰ ਵਰਤਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:200
 msgid "If you want to allow ftp servers to connect to all ports > 1023"
@@ -2583,7 +2583,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਸਾਰੇ ਡੋਮੇਨਾਂ ਨੂੰ ਟ�
 msgid ""
 "If you want to allow users to resolve user passwd entries directly from ldap"
 " rather then using a sssd server"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਯੂਜ਼ਰਾਂ ਨੂੰ sssd ਸਰਵਰ ਵਰਤ ਕੇ ਲਾਗਇਨ ਕਰਨ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:208
 msgid ""
@@ -2593,12 +2593,12 @@ msgstr "ਜੇ ਤੁਸੀਂ ਸਾਂਬਾ ਨੂੰ ਪਬਲਿਕ ਫਾ�
 
 #: ../booleans_trans.py:209
 msgid "If you want to allow sanlock to manage cifs files"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ xen ਨੂੰ nfs ਫਾਇਲਾਂ ਦੇ ਪਰਬੰਧਨ ਮਨਜੂਰ ਕਰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:210
 msgid ""
 "If you want to allow the portage domains to use NFS mounts (regular nfs_t)"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ qemu ਨੂੰ nfs ਫਾਇਲ ਸਿਸਟਮ ਵਰਤਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ)"
 
 #: ../booleans_trans.py:211
 msgid "If you want to allow video playing tools to run unconfined"
@@ -2620,7 +2620,7 @@ msgstr "ਜੇ ਤੁਸੀਂ clamd ਨੂੰ JIT ਕੰਪਾਈਲਰ ਵਰ�
 msgid ""
 "If you want to determine whether Git session daemon can bind TCP sockets to "
 "all unreserved ports."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਪਤਾ ਕਨਰਾ ਚਾਹੁੰਦੇ ਹੋ ਕਿ ਕੀ Polipo ਸ਼ੈਸ਼ਨ ਡੈਮਨ tcp ਸਾਕਟਾਂ ਨੂੰ ਸਭ ਨਾ-ਰਾਖਵੀਆਂ ਪੋਰਟਾਂ ਨਾਲ ਬਾਈਂਡ ਕਰ ਸਕਦਾ ਹੈ।"
 
 #: ../booleans_trans.py:216
 msgid ""
@@ -2634,7 +2634,7 @@ msgstr "ਜੇ ਤੁਸੀਂ ਸਾਂਬਾ ਨੂੰ ਕਿਸੇ ਫਾਇ�
 
 #: ../booleans_trans.py:218
 msgid "If you want to allow httpd to access openstack ports"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ httpd ਨੂੰ nfs ਫਾਇਲ ਸਿਸਟਮ ਵਰਤਣ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:219
 msgid ""
@@ -2653,7 +2653,7 @@ msgstr "ਜੇ ਤੁਸੀਂ cron ਡੋਮੇਨ ਵਿੱਚ ਵਾਧੂ �
 #: ../booleans_trans.py:222
 msgid ""
 "If you want to allow codnor domain to connect to the network using TCP."
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ ਫੈਂਸਡ ਡੋਮੇਨ ਨੂੰ TCP ਵਰਤ ਕੇ ਨੈੱਟਵਰਕ ਤੇ ਲਾਗਇਨ ਕਰਨ ਦੀ ਮਨਜੂਰੀ ਦੇਣੀ ਚਾਹੁੰਦੇ ਹੋ।"
 
 #: ../booleans_trans.py:223
 msgid "If you want to allow http daemon to connect to zabbix"
@@ -2669,7 +2669,7 @@ msgstr "ਜੇ ਤੁਸੀਂ Cobbler ਦੁਆਰਾ cifs ਫਾਇਲ ਸਿ�
 
 #: ../booleans_trans.py:226
 msgid "If you want to allow httpd daemon to change its resource limits"
-msgstr ""
+msgstr "ਜੇ ਤੁਸੀਂ httpd ਡੈਮਨ ਦੁਆਰਾ ਸਿਸਟਮ ਸੀਮਾਵਾਂ ਤਬਦੀਲ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../booleans_trans.py:227
 msgid ""

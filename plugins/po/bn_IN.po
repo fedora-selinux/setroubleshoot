@@ -4,16 +4,16 @@
 # 
 # Translators:
 # BIRAJ KARMAKAR <brnet00@gmail.com>, 2012.
-# Runa Bhattacharjee <runab@fedoraproject.org>, 2008, 2009, 2011.
-# Runa Bhattacharjee <runab@redhat.com>, 2006, 2007, 2009, 2010.
+# Runa Bhattacharjee <runab@fedoraproject.org>, 2008-2009,2011.
+# Runa Bhattacharjee <runab@redhat.com>, 2006-2007,2009-2010,2012.
 #   <runabh@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-20 05:43-0400\n"
-"PO-Revision-Date: 2012-09-20 09:49+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2012-10-09 07:23+0000\n"
+"Last-Translator: runa <runabh@gmail.com>\n"
 "Language-Team: Bengali (India) <anubad@lists.ankur.org.in>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -193,7 +193,7 @@ msgid ""
 "    app continues to not work, you can turn the flag back on with\n"
 "    execstack -s LIBRARY_PATH.  \n"
 "    "
-msgstr ""
+msgstr "\n    কিছু পরিস্থিতিতে কোনো লাইব্রেরির ক্ষেত্রে execstack ফ্ল্যাগ ব্যবহার করা হয়,\n    এই ফ্ল্যাগ সহ কোনো লাইব্রেরি সনাক্ত করা হলে\n    execstack -c LIBRARY_PATH সহযোগে এই ফ্ল্যাগ সরিয়ে নেওয়া যাবে। এর পরে অ্যাপ্লিকেশন পুনরায়\n    ব্যবহারের প্রচেষ্টা করুন। যদি অ্যাপ্লিকেশনটি সঞ্চালিত না হয় তাহলে ফ্ল্যাগটি পুনরায় স্থাপন করার জন্য\n    execstack -s LIBRARY_PATH ব্যবহার করুন।  \n    "
 
 #: ../src/allow_execstack.py:82
 msgid ""
@@ -343,18 +343,18 @@ msgid ""
 "seinfo -afile_type -x\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n%s-র ক্ষেত্রে file type ভিন্ন অন্য কোনো type নির্ধারণের প্রচেষ্টা করা হয়েছিল।  এটি অনুমোদিত নয় ও একটি file type ধার্য করা আবশ্যক। seinfo কমান্ড সহযোগে সর্বধরনের file type-র তালিকা জানা যাবে।\n\nseinfo -afile_type -x\n\n    "
 
 #: ../src/associate.py:44
 #, python-format
 msgid ""
 "you want to change the label of $TARGET_PATH to %s, you are not allowed to "
 "since it is not a valid file type."
-msgstr ""
+msgstr "$TARGET_PATH-র লেবেল আপনি to %s-এ পরিবর্তন করতে ইচ্ছুক হলেও, এটি বৈধ file type না হওয়ার কারণে এটি অনুমোদিত নয়।"
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
-msgstr ""
+msgstr "একটি বৈধ file লেবেল নির্বাচন করা আবশ্যক।"
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -465,12 +465,12 @@ msgstr "setsebool -P %s %s"
 #: ../src/catchall_boolean.py:66
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean."
-msgstr ""
+msgstr "'%s' বুলিয়ান সক্রিয় করে SELinux-কে এই সম্বন্ধে সূচিত করা আবশ্যক।"
 
 #: ../src/catchall_boolean.py:69
 #, python-format
 msgid "You can read '%s' man page for more details."
-msgstr ""
+msgstr "অধিক বিবরণের জন্য '%s' man পৃষ্ঠা পড়তে পারেন।"
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -754,7 +754,7 @@ msgid ""
 "home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
-msgstr ""
+msgstr "\n    file_t লেবেল সহ ফাইলগুলির ক্ষেত্রে SELinux অনুমতির পরীক্ষা প্রত্যাখ্যান\n    করা হচ্ছে।  লেবেল বিহীন ফাইলের ক্ষেত্রে SELinux কার্নেল দ্বারা file_t\n    কনটেক্সট স্থাপন করা হয়। এটি লেবেল সম্পর্কিত গুরুতর সমস্যার ইঙ্গিত।\n    SELinux মেশিনের মধ্যে উপস্থিত কোনো ফাইলের ক্ষেত্রে file_t লেবেল ব্যবহার\n    করা উচিত নয়। যদি সিস্টেমের মধ্যে সদ্য একটি ডিস্ক ড্রাইভ যোগ করা হয়ে থাকে, তাহলে\n    restorecon কমান্ড প্রয়োগ করে সেটি পুনরায় লেবেল করা যাবে। উদাহরণস্বরূপ,\n পূর্ববর্তী ইনস্টলেশনে SELinux বিহীন ব্যক্তিগত ডিরেক্টরি সংরক্ষণ করা হলে'restorecon -R -v /home' কমান্ডের সাহায্যে লেবেল সঠিকভাবে নির্ধারণ করা যাবে। অন্যথা\n    সম্পূর্ণ ফাইল-সিস্টেম পুনরায় লেবেল করা প্রয়োজন।\n    "
 
 #: ../src/file.py:42
 msgid ""
@@ -1069,7 +1069,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.\n"
 "    "
-msgstr ""
+msgstr "\n    $SOURCE দ্বারা অনুরোধ করা অনুমতি SELinux দ্বারা প্রত্যাখ্যান করা হয়েছে। $SOURCE-র\n    ক্ষেত্রে এই অনুমতির প্রয়োজন প্রত্যাশিত নয় ও এটি অনুপ্রবেশের সংকেত হতে পারে।\n    অ্যাপ্লিকেশনের সুনির্দিষ্ট কোনো সংস্করণ অথবা কনফিগারেশনের ক্ষেত্রেও\n    অতিরিক্ত এই অনুমতির প্রয়োজন দেখা দিতে\n    পারে।\n    "
 
 #: ../src/mozplugger.py:39 ../src/mozplugger_remove.py:39
 msgid ""
@@ -1078,25 +1078,25 @@ msgid ""
 "Or turn off enforcement of SELinux over the Firefox plugins.\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
-msgstr ""
+msgstr "\n'yum remove mozplugger' সহযোগে mozplluger প্যাকেজটি সরিয়ে ফেলুন\nঅথবা Firefox প্লাগ-ইনের জন্য SELinux-র সক্রিয় মোড (enforcement) বন্ধ করুন।\nsetsebool -P unconfined_mozilla_plugin_transition 0\n    "
 
 #: ../src/mozplugger.py:44
 msgid "you want to use mozplugger package"
-msgstr ""
+msgstr "আপনি mozplugger প্যাকেজ ব্যবহার করতে ইচ্ছুক"
 
 #: ../src/mozplugger.py:45
 msgid "you must turn off SELinux controls on the Firefox plugins."
-msgstr ""
+msgstr "Firefox প্লাগ-ইনের ক্ষেত্রে SELinux নিয়ন্ত্রণ বন্ধ করা আবশ্যক।"
 
 #: ../src/mozplugger_remove.py:44
 msgid ""
 "you want to to continue using SELinux Firefox plugin containment rather then"
 " using mozplugger package"
-msgstr ""
+msgstr "mozplugger প্যাকেজের পরিবর্তে SELinux Firefox প্লাগ-ইন কনটেইনমেন্ট-র ব্যবহার অব্যহত রাখতে ইচ্ছুক হলে"
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
-msgstr ""
+msgstr "mozplugger প্যাকেজ সরিয়ে ফেলা আবশ্যক।"
 
 #: ../src/openvpn.py:35
 msgid ""
@@ -1695,7 +1695,7 @@ msgstr "Telepathy সংযোগ পরিচালন ব্যবস্থা
 
 #: ../booleans_trans.py:19
 msgid "If you want to allow sge to connect to the network using any TCP port"
-msgstr ""
+msgstr "sge-কে যে কোনো TCP পোর্ট প্রয়োগ করে নেটওয়ার্কের সাথে সংযোগ করার অনুমতি প্রদান করতে হলে"
 
 #: ../booleans_trans.py:20
 msgid ""
@@ -1710,7 +1710,7 @@ msgstr "sasl দ্বারা shadow পড়ার অনুমতি প্র
 #: ../booleans_trans.py:22
 msgid ""
 "If you want to allow httpd to communicate with oddjob to start up a service"
-msgstr ""
+msgstr "কোনো পরিসেবা আরম্ভ করার জন্য oddjob-র সাথে httpd-কে যোগযোগ করার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -1734,7 +1734,7 @@ msgstr "polipo-কে 1023 থেকে ঊর্ধ্বতন সংখ্য
 
 #: ../booleans_trans.py:27
 msgid "If you want to allow httpd to run gpg"
-msgstr ""
+msgstr "httpd-কে gpg সঞ্চালনার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:28
 msgid ""
@@ -1744,7 +1744,7 @@ msgstr "samba-কে ডোমেইন কনট্রোলার রূপে
 
 #: ../booleans_trans.py:29
 msgid "If you want to allow httpd cgi support"
-msgstr ""
+msgstr "httpd-কে cgi সমর্থের অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:30
 msgid "If you want to determine whether polipo can access cifs file systems."
@@ -1759,7 +1759,7 @@ msgstr " ftp সার্ভারকে সার্বজনীন ফাই�
 #: ../booleans_trans.py:32
 msgid ""
 "If you want to allow staff user to create and transition to svirt domains."
-msgstr ""
+msgstr "staff ব্যবহারকারীকে svirt ডোমেইন প্রস্তুত ও পরিবর্তন করার অনুমতি প্রদান করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:33
 msgid "If you want to allow confined virtual guests to manage nfs files"
@@ -1817,12 +1817,12 @@ msgstr "BIND-কে মাস্টার zone ফাইল লেখার অ�
 msgid ""
 "If you want to determine whether Git system daemon can access cifs file "
 "systems."
-msgstr ""
+msgstr "Git সিস্টেম ডেমন দ্বারা cifs ফাইল সিস্টেম ব্যবহার করা হবে কি না তা নির্ধারণ করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:45
 msgid ""
 "If you want to allow tor daemon to bind tcp sockets to all unreserved ports."
-msgstr "tor ডেমন দ্বারা সকল অসংরক্ষিত পোর্টের সাথে to bind tcp সকেট bind করার অনুমতি প্রদান করতে ইচ্ছুক হলে।"
+msgstr "tor ডেমন দ্বারা সকল অসংরক্ষিত পোর্টের সাথে tcp সকেট bind করার অনুমতি প্রদান করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:46
 msgid "If you want to allow cvs daemon to read shadow"
@@ -1834,7 +1834,7 @@ msgstr "httpd দ্বারা cifs ফাইল-সিস্টেম ব্�
 
 #: ../booleans_trans.py:48
 msgid "If you want to determine whether Git CGI can search home directories."
-msgstr ""
+msgstr "Git CGI দ্বারা ব্যবহারকারীদের ব্যক্তিগত ডিরেক্টরি অনুসন্ধান করা যাবে কি না তা নির্ধারণ করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:49
 msgid "If you want to allow host key based authentication"
@@ -1872,7 +1872,7 @@ msgstr "ftp সার্ভার দ্বারা mysql ডাটাবেস
 msgid ""
 "If you want to determine whether Git system daemon can search home "
 "directories."
-msgstr ""
+msgstr "Git system daemon দ্বারা ব্যবহারকারীদের ব্যক্তিগত ডিরেক্টরি অনুসন্ধান করা যাবে কি না তা নির্ধারণ করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:57
 msgid "If you want to support SAMBA home directories"
@@ -1886,7 +1886,7 @@ msgstr "mock-কে ব্যবহারকারীদের ব্যক্�
 msgid ""
 "If you want to allow Apache to run in stickshift mode, not transition to "
 "passenger"
-msgstr ""
+msgstr "প্যাসেঞ্জারে পরিবর্তন না করে, Apache-কে stickshift মোডে ব্যবহারের অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:60
 msgid ""
@@ -1901,7 +1901,7 @@ msgstr "ব্যবহারকারীদের দ্বারা ping ও t
 msgid ""
 "If you want to determine whether calling user domains can execute Git daemon"
 " in the git_session_t domain."
-msgstr ""
+msgstr "git_session_t ডোমেইনের মধ্যে কল সৃষ্ঠিকারী ব্যবহারকারী ডোমেইন দ্বারা Git ডেমন সঞ্চালন করা যাবে কি না।"
 
 #: ../booleans_trans.py:63
 msgid "If you want to allow zabbix to connect to unreserved ports"
@@ -1956,7 +1956,7 @@ msgstr "dhcpc ক্লায়েন্ট অ্যাপ্লিকেশন �
 
 #: ../booleans_trans.py:74
 msgid "If you want to allow sanlock to read/write fuse files"
-msgstr ""
+msgstr "sanlock দ্বারা fuse ফাইল পড়া/লেখার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:75
 msgid "If you want to allow samba to share users home directories."
@@ -2015,7 +2015,7 @@ msgstr "কনফাইন করা ভার্চুয়াল গেস্ট
 msgid ""
 "If you want to determine whether Git system daemon can access nfs file "
 "systems."
-msgstr ""
+msgstr "Git সিস্টেম ডেমন দ্বারা nfs ফাইল সিস্টেম ব্যবহার করা হবে কি না তা নির্ধারণ করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:87
 msgid "If you want to unify HTTPD handling of all content files."
@@ -2027,7 +2027,7 @@ msgstr "nsplugin কোড দ্বারা অসংরক্ষিত পো
 
 #: ../booleans_trans.py:89
 msgid "If you want to allow amavis to use JIT compiler"
-msgstr ""
+msgstr "amavis দ্বারা JIT কম্পাইলার ব্যবহার করার অনুমতি প্রদান করতে ইচ্ছুক হলে "
 
 #: ../booleans_trans.py:90
 msgid "If you want to allow java executable stack"
@@ -2051,7 +2051,7 @@ msgstr "Apache দ্বারা mod_auth_pam ব্যবহারের অ�
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to the network "
 "using TCP."
-msgstr ""
+msgstr "HTTPD স্ক্রিপ্ট ও মডিউলের ক্ষেত্রেTCP-র মাধ্যমে নেটওয়ার্ক ব্যবহারের অনুমতি প্রদান করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:95
 msgid "If you want to allow qemu to use usb devices"
@@ -2059,11 +2059,11 @@ msgstr "qemu দ্বারা usb ডিভাইস ব্যবহার ক
 
 #: ../booleans_trans.py:96
 msgid "If you want to allow exim to connect to databases (postgres, mysql)"
-msgstr ""
+msgstr "exim দ্বারা ডাটাবেসের (postgres, mysql) সাথে সংযোগ স্থাপনের অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:97
 msgid "If you want to determine whether Git CGI can access nfs file systems."
-msgstr ""
+msgstr "Git CGI দ্বারা nfs ফাইল-সিস্টেম ব্যবহার করা যাবে কি না তা নির্ধারণ করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:98
 msgid "If you want to allow varnishd to connect to all ports, not just HTTP."
@@ -2071,11 +2071,11 @@ msgstr "varnishd দ্বারা HTTP ছাড়াও অন্যান্�
 
 #: ../booleans_trans.py:99
 msgid "If you want to support ecryptfs home directories"
-msgstr ""
+msgstr "ecryptfs ব্যক্তিগত ডিরেক্টরি সমর্থন করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:100
 msgid "If you want to allow samba to act as a portmapper"
-msgstr ""
+msgstr "samba-কে portmapper রূপে ব্যবহার করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:101
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
@@ -2083,11 +2083,11 @@ msgstr "httpd স্ক্রিপ্ট ও মডিউলের জন্য
 
 #: ../booleans_trans.py:102
 msgid "If you want to allow rsync servers to share nfs files systems"
-msgstr ""
+msgstr "rsync সার্ভার দ্বারা nfs ফাইল-সিস্টেম শেয়ার করার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:103
 msgid "If you want to allow httpd to access FUSE file systems"
-msgstr ""
+msgstr "httpd-কে FUSE ফাইল-সিস্টেম ব্যবহারের অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:104
 msgid ""
@@ -2142,7 +2142,7 @@ msgstr "টার্মিন্যালের সাথে যোগাযো�
 msgid ""
 "If you want to allow apache scripts to write to public content, "
 "directories/files must be labeled public_rw_content_t."
-msgstr ""
+msgstr "apache স্ক্রিপ্ট দ্বারা সার্বজনীন তথ্য লেখার অনুমতি প্রদান করতে হলে, ডিরেক্টরি/ফাইলের ক্ষেত্রে public_rw_content_t লেবেল  ব্যবহার করা আবশ্যক।"
 
 #: ../booleans_trans.py:115
 msgid ""
@@ -2178,7 +2178,7 @@ msgstr "Telepathy সংযোগ পরিচালন ব্যবস্থা
 
 #: ../booleans_trans.py:121
 msgid "If you want to allow rsync servers to share cifs files systems"
-msgstr ""
+msgstr "rsync সার্ভার দ্বারা cifs ফাইল-সিস্টেম শেয়ার করার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:122
 msgid ""
@@ -2188,7 +2188,7 @@ msgstr "Irssi IRC ক্লায়েন্ট দ্বারা যে কো�
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow transmit client label to foreign database"
-msgstr ""
+msgstr "ফোরেন ডাটাবেসের ক্ষেত্রে transmit ক্লায়েন্ট লেবেল ব্যবহারের অনুমতি প্রদান করা হবে কি না"
 
 #: ../booleans_trans.py:124
 msgid "If you want to allow confined applications to use nscd shared memory."
@@ -2218,7 +2218,7 @@ msgstr "Puppet master-কে MySQL ও PostgreSQL ডাটাবেসের �
 
 #: ../booleans_trans.py:130
 msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
-msgstr ""
+msgstr "ত্রুটিবিনা বন্ধ করার জন্য HTTPD-কে পোর্ট ৮০-র সাথে সংযোগের অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow system to run with NIS"
@@ -2228,7 +2228,7 @@ msgstr "সিস্টেমটি NIS-র সাথে সঞ্চালন �
 msgid ""
 "If you want to allow unprivledged user to create and transition to svirt "
 "domains."
-msgstr ""
+msgstr "অধিকারবিহীন ব্যবহারকারীকে svirt ডোমেইন প্রস্তুত ও পরিবর্তন করার অনুমতি প্রদান করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:133
 msgid "If you want to allow a user to login as an unconfined domain"
@@ -2236,7 +2236,7 @@ msgstr "কোনো ব্যবহারকারীকে আন-কনফা
 
 #: ../booleans_trans.py:134
 msgid "If you want to disable kernel module loading."
-msgstr ""
+msgstr "কার্নেল মডিউল লোড করার প্রণালী নিষ্ক্রিয় করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:135
 msgid ""
@@ -2248,7 +2248,7 @@ msgstr "ftp পোর্ট ও এফিমেরাল পোর্টের �
 msgid ""
 "If you want to allow ftp servers to use bind to all unreserved ports for "
 "passive mode"
-msgstr ""
+msgstr "প্যাসিভ মোডের ক্ষেত্রে ftp সার্ভার দ্বারা সকল অসংরক্ষিত পোর্টের সাথে bind ব্যবহার করার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:137
 msgid ""
@@ -2336,11 +2336,11 @@ msgstr "কনফাইন করা ভার্চুয়াল গেস্ট
 
 #: ../booleans_trans.py:154
 msgid "If you want to allow DHCP daemon to use LDAP backends"
-msgstr ""
+msgstr "DHCP ডেমন দ্বারা LDAP ব্যাক-এন্ড ব্যবহার করার অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:155
 msgid "If you want to determine whether Git CGI can access cifs file systems."
-msgstr ""
+msgstr "Git CGI দ্বারা cifs ফাইল-সিস্টেম ব্যবহার করা যাবে কি না তা নির্ধারণ করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:156
 msgid ""
@@ -2352,7 +2352,7 @@ msgstr "ফাইল/ডিরেক্টরিগুলিকে পড়া/ল
 msgid ""
 "If you want to allow mozilla_plugins to create random content in the users "
 "home directory"
-msgstr ""
+msgstr "ব্যবহারকারীদের ব্যক্তিগত ডিরেক্টরির মধ্যে mozilla_plugins দ্বারা যথেচ্ছ তথ্য প্রস্তুত করার অনুমতি প্রদান করা হবে কি না"
 
 #: ../booleans_trans.py:158
 msgid "If you want to allow Apache to execute tmp content."
@@ -2389,7 +2389,7 @@ msgstr "fenced ডোমেইনকে TCP সহযোগে নেটওয়�
 
 #: ../booleans_trans.py:165
 msgid "If you want to allow sanlock to manage nfs files"
-msgstr ""
+msgstr "sanlock দ্বারা nfs ফাইল পরিচালনার অনুমতি প্রদান করা হলে"
 
 #: ../booleans_trans.py:166
 msgid "If you want to allow all domains to have the kernel load modules"
@@ -2435,7 +2435,7 @@ msgstr "polyinstantiated ডিরেক্টরি সমর্থন ব্�
 msgid ""
 "If you want to allow mozilla plugin domain to connect to the network using "
 "TCP."
-msgstr ""
+msgstr "mozilla plugin ডোমেইনকে TCP সহযোগে নেটওয়ার্কের সাথে সংযোগ স্থাপনের অনুমতি প্রদান করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:176
 msgid ""
@@ -2546,7 +2546,7 @@ msgstr "nsplugin কোড দ্বারা execmem/execstack করার অ
 
 #: ../booleans_trans.py:199
 msgid "If you want to allow xguest to use blue tooth devices"
-msgstr ""
+msgstr "xguest দ্বারা ব্লু-টুথ ডিভাইস ব্যবহারের অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:200
 msgid "If you want to allow ftp servers to connect to all ports > 1023"
@@ -2584,7 +2584,7 @@ msgstr "সকল ডেমন দ্বারা টার্মিন্যা
 msgid ""
 "If you want to allow users to resolve user passwd entries directly from ldap"
 " rather then using a sssd server"
-msgstr ""
+msgstr "sssd সার্ভারের পরিবর্তে ব্যবহারকারীদেরকে সরাসরি ldap থেকে ব্যবহারকারী passwd মীমাংসা করার অনুমতি দিতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:208
 msgid ""
@@ -2594,12 +2594,12 @@ msgstr "ftp সার্ভারগুলি দ্বারা সার্ব
 
 #: ../booleans_trans.py:209
 msgid "If you want to allow sanlock to manage cifs files"
-msgstr ""
+msgstr "sanlock দ্বারা cifs ফাইল পরিচালনার অনুমতি প্রদান করা হলে"
 
 #: ../booleans_trans.py:210
 msgid ""
 "If you want to allow the portage domains to use NFS mounts (regular nfs_t)"
-msgstr ""
+msgstr "portage ডোমেইন দ্বারা NFS মাউন্ট (সাধারণ nfs_t) ব্যবহারের অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:211
 msgid "If you want to allow video playing tools to run unconfined"
@@ -2621,7 +2621,7 @@ msgstr "clamd দ্বারা JIT কম্পাইলার ব্যবহ
 msgid ""
 "If you want to determine whether Git session daemon can bind TCP sockets to "
 "all unreserved ports."
-msgstr ""
+msgstr "Git সেশান ডেমন দ্বারা সকল অসংরক্ষিত পোর্টের সাথে TCP সকেট bind করা হবে কি না তা নির্ধারণ করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:216
 msgid ""
@@ -2635,7 +2635,7 @@ msgstr "লেখা/পড়ার অধিকার সহ samba দ্বা�
 
 #: ../booleans_trans.py:218
 msgid "If you want to allow httpd to access openstack ports"
-msgstr ""
+msgstr "httpd-কে ওপেন-স্ট্যাক পোর্ট ব্যবহারের অনুমতি প্রদান করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:219
 msgid ""
@@ -2654,7 +2654,7 @@ msgstr "fcron সমর্থনের জন্য cron ডোমেইনে�
 #: ../booleans_trans.py:222
 msgid ""
 "If you want to allow codnor domain to connect to the network using TCP."
-msgstr ""
+msgstr "condor ডোমেইনকে TCP সহযোগে নেটওয়ার্কের সাথে সংযোগ স্থাপনের অনুমতি প্রদান করতে ইচ্ছুক হলে।"
 
 #: ../booleans_trans.py:223
 msgid "If you want to allow http daemon to connect to zabbix"
@@ -2670,7 +2670,7 @@ msgstr "Cobbler দ্বারা cifs ফাইল-সিস্টেম ব�
 
 #: ../booleans_trans.py:226
 msgid "If you want to allow httpd daemon to change its resource limits"
-msgstr ""
+msgstr "httpd ডেমন দ্বারা রিসোর্সের সীমা পরিবর্তন করতে ইচ্ছুক হলে"
 
 #: ../booleans_trans.py:227
 msgid ""

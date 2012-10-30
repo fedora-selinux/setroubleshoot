@@ -63,7 +63,7 @@ class plugin(Plugin):
         return _("setsebool -P %s %s") % (args[0], args[1])
 
     def get_then_text(self, avc, args):
-        text = _("You must tell SELinux about this by enabling the '%s' boolean.") % args[0]
+        text = _("You must tell SELinux about this by enabling the '%s' boolean.\n") % args[0]
         try:
             if args[2]:
                 text += _("You can read '%s' man page for more details.") % args[2]
@@ -81,7 +81,7 @@ class plugin(Plugin):
             bools = avc.bools
             for b in bools:
                 if not man_page:
-                    man_page = self.check_for_man(b)
+                    man_page = self.check_for_man(b[0])
                 reports.append(self.report((b[0], b[1], man_page)))
 
             return reports
