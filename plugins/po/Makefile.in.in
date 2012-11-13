@@ -177,6 +177,7 @@ dist distdir: $(DISTFILES)
 	done
 
 update-po: Makefile
+	python ../booleans.py > ../booleans_trans.py
 	$(MAKE) $(GETTEXT_PACKAGE).pot
 	tmpdir=`pwd`; \
 	linguas="$(USE_LINGUAS)"; \

@@ -29,8 +29,6 @@ autostartdir = $(sysconfdir)/xdg/autostart
 autostart_DATA = sealertauto.desktop
 
 EXTRA_DIST = 				\
-	setroubleshoot.logrotate	\
-	setroubleshoot.logrotate.in	\
 	intltool-extract.in		\
 	intltool-merge.in		\
 	intltool-update.in		\
@@ -66,14 +64,7 @@ srpm: dist
 setroubleshoot:
 	$(LN_S) src setroubleshoot
 
-setroubleshoot.logrotate: setroubleshoot.logrotate.in Makefile
-	sed \
-	-e s!\@PACKAGE_NAME\@!$(PACKAGE_NAME)!		\
-	-e s!\@daemon_name\@!$(daemon_name)!		\
-	-e s!\@pkglogdir\@!$(pkglogdir)!		\
-	< $< > $@
-
 VERSION_FILE = configure.ac
 
-DISTCLEANFILES = setroubleshoot.logrotate setroubleshoot
-BUILT_SOURCES  = setroubleshoot.logrotate setroubleshoot
+DISTCLEANFILES = setroubleshoot
+BUILT_SOURCES  = setroubleshoot
