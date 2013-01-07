@@ -30,15 +30,52 @@ class plugin(Plugin):
     ''')
 
     problem_description = _('''
-    Confined domains should not require "sys_resource". This usually means that     your system is running out of disk space. Please clear up the disk and this
+    Confined domains should not require "sys_resource". This usually means that     your system is running out some system resource like disk space, memory, quota etc. Please clear up the disk and this
     AVC message should go away. If this AVC continues after you clear up the disk space, please report this as a bug. 
     ''')
 
-    fix_description = "Clear up your disk." 
-    fix_cmd = ""
-    if_text = _("you do not want to get this AVC any longer. These AVC's are caused by running out of resources, usually disk space on your / partition.")
-    then_text = _("you must cleanup diskspace or make sure you are not running too many processes.")
-    do_text = "Clear up your disk." 
+    fix_description = "Fix the cause of the SYS_RESOURCE on your system." 
+
+    if_text = _("you do not want processes to require capabilities to use up all the system resources on your system;") 
+    then_text = _("""you need to diagnose why your system is running out of system resources and fix the problem.  
+
+According to /usr/include/linux/capability.h, sys_resource is required to:
+
+/* Override resource limits. Set resource limits. */
+/* Override quota limits. */
+/* Override reserved space on ext2 filesystem */
+/* Modify data journaling mode on ext3 filesystem (uses journaling
+   resources) */
+/* NOTE: ext2 honors fsuid when checking for resource overrides, so
+   you can override using fsuid too */
+/* Override size restrictions on IPC message queues */
+/* Allow more than 64hz interrupts from the real-time clock */
+/* Override max number of consoles on console allocation */
+/* Override max number of keymaps */
+/* Override resource limits. Set resource limits. */
+/* Override quota limits. */
+/* Override reserved space on ext2 filesystem */
+/* Modify data journaling mode on ext3 filesystem (uses journaling
+   resources) */
+/* NOTE: ext2 honors fsuid when checking for resource overrides, so
+   you can override using fsuid too */
+/* Override size restrictions on IPC message queues */
+/* Allow more than 64hz interrupts from the real-time clock */
+/* Override max number of consoles on console allocation */
+/* Override max number of keymaps */
+/* Override resource limits. Set resource limits. */
+/* Override quota limits. */
+/* Override reserved space on ext2 filesystem */
+/* Modify data journaling mode on ext3 filesystem (uses journaling
+   resources) */
+/* NOTE: ext2 honors fsuid when checking for resource overrides, so
+   you can override using fsuid too */
+/* Override size restrictions on IPC message queues */
+/* Allow more than 64hz interrupts from the real-time clock */
+/* Override max number of consoles on console allocation */
+/* Override max number of keymaps */
+""")
+    do_text = "Fix the cause of the SYS_RESOURCE on your system." 
 
     def __init__(self):
         Plugin.__init__(self, __name__)
