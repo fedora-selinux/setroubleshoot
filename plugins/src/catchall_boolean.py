@@ -57,7 +57,7 @@ class plugin(Plugin):
 
     def get_if_text(self, avc, args):
         txt=unicode(seobject.boolean_desc(args[0]), encoding="utf8")
-        return _("you want to %s") % txt[0].lower() + txt[1:]
+        return _("you want to %s") % (txt[0].lower() + txt[1:])
         
     def get_do_text(self, avc, args):
         return _("setsebool -P %s %s") % (args[0], args[1])
