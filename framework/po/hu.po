@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-20 05:47-0400\n"
-"PO-Revision-Date: 2012-09-30 09:11+0000\n"
-"Last-Translator: mtomi <tamasm78@invitel.hu>\n"
+"PO-Revision-Date: 2012-12-15 11:55+0000\n"
+"Last-Translator: Zoltan Hoppár <hopparz@gmail.com>\n"
 "Language-Team: Hungarian <trans-hu@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,11 +23,11 @@ msgstr ""
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
-msgstr "SELinux bajmentesítő"
+msgstr "SELinux hibakezelő"
 
 #: ../setroubleshoot.desktop.in.h:2
 msgid "Troubleshoot SELinux access denials"
-msgstr "SELinux hozzáférés elutasítás bajok elintézése"
+msgstr "SELinux hozzáférés elutasítások kezelése"
 
 #: ../src/audit_data.py:883
 #, python-format
@@ -51,7 +51,7 @@ msgstr "%s \n**** Hibás AVC engedélyezett a jelenglegi szabályzatban ***\n"
 msgid ""
 "%s \n"
 "**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
-msgstr "%s \n**** Hibás AVC dontaudit-os a jelenlegi szabályzatban.  'semodule -B' opció bekapcsolja a donaudit szabályzatot. ***\n"
+msgstr "%s \n**** Hibás AVC dontaudit-os a jelenlegi szabályzatban.  Az 'semodule -B' opció bekapcsolja a dontaudit szabályzatot. ***\n"
 
 #: ../src/audit_data.py:979
 msgid "Must call policy_init first"
@@ -107,7 +107,7 @@ msgstr "Nem"
 
 #: ../src/browser.py:180 ../gui/browser.glade.h:20
 msgid "Attempted this access:"
-msgstr "Ez a hozzáférést próbálta"
+msgstr "Ez a hozzáférést próbálta:"
 
 #: ../src/browser.py:194 ../gui/browser.glade.h:11
 msgid "SETroubleshoot Details Window"
@@ -131,7 +131,7 @@ msgstr "Részletek"
 
 #: ../src/browser.py:214 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
-msgstr "SETroubleshoot riasztás lista"
+msgstr "SETroubleshoot riasztási lista"
 
 #: ../src/browser.py:216 ../gui/browser.glade.h:33
 msgid "List All Alerts"
@@ -167,7 +167,7 @@ msgstr "Észrevétel"
 
 #: ../src/browser.py:338
 msgid "Notify alert in the future."
-msgstr "Jövőbeni riasztás értesítés"
+msgstr "Riasszon a jövőben  is."
 
 #: ../src/browser.py:341 ../src/browser.py:776 ../src/browser.py:816
 #: ../gui/browser.glade.h:27
@@ -194,7 +194,7 @@ msgstr "Ha "
 msgid ""
 "Plugin\n"
 "Details"
-msgstr "Plugin\nRészletek"
+msgstr "Plugin\nrészletei"
 
 #: ../src/browser.py:509
 msgid ""
@@ -235,11 +235,11 @@ msgstr "Az SElinux hibát észlelt."
 
 #: ../src/browser.py:974
 msgid "Sealert Error"
-msgstr "Sealert Hiba"
+msgstr "Sealert hiba"
 
 #: ../src/browser.py:985
 msgid "Sealert Message"
-msgstr "Sealert Üzenet"
+msgstr "Sealert üzenet"
 
 #. -----------------------------------------------------------------------------
 #: ../src/errcode.py:71
@@ -248,15 +248,15 @@ msgstr "nincs aláírás"
 
 #: ../src/errcode.py:72
 msgid "multiple signatures matched"
-msgstr "több aláírás illik"
+msgstr "több aláírás egyezik"
 
 #: ../src/errcode.py:73
 msgid "id not found"
-msgstr "nincs azonosító"
+msgstr "azonosító nem található"
 
 #: ../src/errcode.py:74
 msgid "database not found"
-msgstr "nincs adatbázis"
+msgstr "adatbázis nem található"
 
 #: ../src/errcode.py:75
 msgid "item is not a member"
@@ -264,15 +264,15 @@ msgstr "az elem nem tag"
 
 #: ../src/errcode.py:76
 msgid "illegal to change user"
-msgstr "nem változtathat használót"
+msgstr "nem változtathat felhasználót"
 
 #: ../src/errcode.py:77
 msgid "method not found"
-msgstr "nincs eljárás"
+msgstr "eljárás nem található"
 
 #: ../src/errcode.py:78
 msgid "cannot create GUI"
-msgstr "nem lehet ablakot csinálni"
+msgstr "GUI indítása sikertelen"
 
 #: ../src/errcode.py:79
 msgid "value unknown"
@@ -280,16 +280,16 @@ msgstr "ismeretlen érték"
 
 #: ../src/errcode.py:80
 msgid "cannot open file"
-msgstr "fájl nem nyitható"
+msgstr "fájl nem megnyitható "
 
 #: ../src/errcode.py:81
 msgid "invalid email address"
-msgstr "Érvénytelen levél cím"
+msgstr "Érvénytelen email cím"
 
 #. gobject IO Errors
 #: ../src/errcode.py:84
 msgid "socket error"
-msgstr "foglalat hiba"
+msgstr "socket hiba"
 
 #: ../src/errcode.py:85
 msgid "connection has been broken"
@@ -301,28 +301,28 @@ msgstr "Érvénytelen kérés. A fájl leíró nincs nyitva"
 
 #: ../src/errcode.py:88
 msgid "insufficient permission to modify user"
-msgstr "elégtelen engedély használó változtatására"
+msgstr "elégtelen jogosultság a felhasználó megváltoztatására"
 
 #: ../src/errcode.py:89
 msgid "authentication failed"
-msgstr "hitelesítés bukta"
+msgstr "hitelesítés sikertelen"
 
 #: ../src/errcode.py:90
 msgid "user prohibited"
-msgstr "használó tiltva"
+msgstr "felhasználó letiltva"
 
 #: ../src/errcode.py:91
 msgid "not authenticated"
-msgstr "nem azonosított"
+msgstr "nincs azonosítva"
 
 #: ../src/errcode.py:92
 msgid "user lookup failed"
-msgstr "használó keresés bukta"
+msgstr "felhasználó keresés eredménytelen"
 
 #: ../src/gui_utils.py:53 ../src/sealert:527
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
-msgstr "Hoppá, %s hibát kapott!"
+msgstr "Upsz, %s hibaüzenetet kapott!"
 
 #: ../src/gui_utils.py:55 ../gui/fail_dialog.glade.h:1
 msgid "Error"
@@ -340,7 +340,7 @@ msgstr "Bemenet:"
 
 #: ../src/run_cmd.py:255
 msgid "Enter Password"
-msgstr "Adjon meg jelszót"
+msgstr "Adja meg jelszavát"
 
 #: ../src/run_cmd.py:268
 msgid "Password: "
@@ -364,20 +364,20 @@ msgstr "Parancs leállítása"
 
 #: ../src/run_cmd.py:413
 msgid "Warning: You are responsible for verifying this command is correct"
-msgstr "Figyelem: Az ön felelőssége ellenőrizni, hogy e parancs helyes"
+msgstr "Figyelem: Az Ön felelőssége, hogy a kiadott parancs pontos és helyes legyen"
 
 #: ../src/run_cmd.py:455
 msgid "Not Run Yet"
-msgstr "Még nem futtat"
+msgstr "Még nem futott"
 
 #: ../src/run_cmd.py:466
 msgid "Running..."
-msgstr "Fut…"
+msgstr "Működésben…"
 
 #: ../src/run_cmd.py:481
 #, python-format
 msgid "Interrupted, exit on signal %d"
-msgstr "Megszakítva %d jelzéssel"
+msgstr "Megszakítva, kilépett %d jelzéssel"
 
 #: ../src/run_cmd.py:483
 msgid "Success"
@@ -386,7 +386,7 @@ msgstr "Siker"
 #: ../src/run_cmd.py:485
 #, python-format
 msgid "Failed, exit status = %d"
-msgstr "Bukta, hibakód = %d"
+msgstr "Hiba, hibakód = %d"
 
 #: ../src/run_cmd.py:487
 msgid "Done: "
@@ -400,7 +400,7 @@ msgstr " Teljes SELinux üzenetekért futtassa: sealert -l %s"
 #: ../src/server.py:372
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
-msgstr "A (%s) használó nem módosíthatja (%s) adatait"
+msgstr "A (%s) felhasználó nem módosíthatja (%s) adatait"
 
 #: ../src/server.py:435 ../src/sealert:291
 msgid "Started"
@@ -412,7 +412,7 @@ msgstr "AVC"
 
 #: ../src/server.py:548
 msgid "Audit Listener"
-msgstr "Vizsgáló hallgató"
+msgstr "Audit figyelő"
 
 #: ../src/signature.py:74
 msgid "Never Ignore"
@@ -468,12 +468,12 @@ msgstr "csomópont"
 
 #: ../src/signature.py:203
 msgid "capability"
-msgstr "képesség"
+msgstr "funkció"
 
 #: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
-msgstr "%s egy engedélyező típusú (%s). A hozzáférés nincs megtagadva."
+msgstr "%s egy engedélyező típussal rendelkezik (%s). Ez a hozzáférés nem volt megtagadva."
 
 #: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
@@ -482,32 +482,32 @@ msgstr "SElinux átengedő módban van. Ez a hozzáférés nem volt blokkolva."
 #: ../src/signature.py:429
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
-msgstr "SELinux prevenció %s használatból %s elérhető folyamatnál."
+msgstr "SELinux megakadályozta %s számára %s elérhető hozzáférést a folyamaton."
 
 #: ../src/signature.py:429
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
-msgstr "SELinux prevenció %s használatból '%s' elérhető folyamatoknál."
+msgstr "SELinux megakadályozta %s számára %s elérhető hozzáféréseket a folyamaton."
 
 #: ../src/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
-msgstr "SELinux prevenció %s használatnál %s képezség."
+msgstr "SELinux megakadályozta %s számára %s funkció használatát."
 
 #: ../src/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
-msgstr "SELinux prevenció %s használatnál '%s' képezségek."
+msgstr "SELinux megakadályozta %s számára '%s' funkciók használatát."
 
 #: ../src/signature.py:433
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
-msgstr "SELinux prevenció %s miatt %s elérhető %s %s."
+msgstr "SELinux megakadályozta %s számára %s hozzáférését itt: %s %s."
 
 #: ../src/signature.py:433
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
-msgstr "SELinux prevenció %s miatt '%s' elérhetők %s %s."
+msgstr "SELinux megakadályozta %s számára '%s' hozzáféréseit itt: %s %s."
 
 #: ../src/signature.py:461
 msgid "Additional Information:\n"
@@ -515,15 +515,15 @@ msgstr "További információ:\n"
 
 #: ../src/signature.py:462
 msgid "Source Context"
-msgstr "Forrás környezet"
+msgstr "Forrás kontextus"
 
 #: ../src/signature.py:463
 msgid "Target Context"
-msgstr "Cél környezet"
+msgstr "Cél kontextus"
 
 #: ../src/signature.py:464
 msgid "Target Objects"
-msgstr "Cél tárgyak"
+msgstr "Cél objektumok"
 
 #: ../src/signature.py:465
 msgid "Source"
@@ -531,15 +531,15 @@ msgstr "Forrás"
 
 #: ../src/signature.py:466
 msgid "Source Path"
-msgstr "Forrás ösvény"
+msgstr "Forrás elérési útja"
 
 #: ../src/signature.py:467
 msgid "Port"
-msgstr "Kapu"
+msgstr "Port"
 
 #: ../src/signature.py:469 ../src/signature.py:471
 msgid "Host"
-msgstr "Gazda"
+msgstr "Kiszolgáló"
 
 #: ../src/signature.py:472
 msgid "Source RPM Packages"
@@ -567,7 +567,7 @@ msgstr "Kényszerítő mód"
 
 #: ../src/signature.py:479 ../src/signature.py:481
 msgid "Host Name"
-msgstr "Gazda név"
+msgstr "Kiszolgáló neve"
 
 #: ../src/signature.py:486 ../src/signature.py:488
 msgid "Platform"
@@ -575,15 +575,15 @@ msgstr "Platform"
 
 #: ../src/signature.py:489
 msgid "Alert Count"
-msgstr "Riasztás szám"
+msgstr "Riasztás mennyisége"
 
 #: ../src/signature.py:491
 msgid "First Seen"
-msgstr "Először"
+msgstr "Először megjelent"
 
 #: ../src/signature.py:492
 msgid "Last Seen"
-msgstr "Utoljára"
+msgstr "Utoljára megjelent"
 
 #: ../src/signature.py:493
 msgid "Local ID"
@@ -591,7 +591,7 @@ msgstr "Helyi azonosító"
 
 #: ../src/signature.py:495
 msgid "Raw Audit Messages"
-msgstr "Nyers vizsgálat üzenetek"
+msgstr "Nyers auditálási üzenetek"
 
 #: ../src/signature.py:545
 #, python-format
@@ -599,7 +599,7 @@ msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr "\n\n*****  Plugin %s (%.4s confidence) suggests  FIXME"
+msgstr "\n\n*****  Plugin %s (%.4s tűrés) javasolja"
 
 #: ../src/signature.py:548
 msgid "*"
@@ -649,24 +649,24 @@ msgstr "Új SELinux biztonsági riasztás"
 
 #: ../src/seapplet.c:188
 msgid "AVC denial, click icon to view"
-msgstr "AVC megtagadva. Kattintson az ikonra, hogy lássa"
+msgstr "AVC tiltás. Kattintson az ikonra, hogy megtekinthesse"
 
 #: ../src/seapplet.c:194 ../src/seapplet.c:245
 msgid "Dismiss"
-msgstr "Elbocsát"
+msgstr "Eldobás"
 
 #: ../src/seapplet.c:204 ../src/seapplet.c:255
 msgid "Show"
-msgstr "Mutat"
+msgstr "Megjelenítés"
 
 #. set tooltip
 #: ../src/seapplet.c:439 ../src/sealert:64
 msgid "SELinux AVC denial, click to view"
-msgstr "SELinux AVC megtagadva. Kattintson, hogy lássa"
+msgstr "SELinux AVC megtagadás. Kattintson, hogy megtekinthesse"
 
 #: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SElinux nincs engedélyezve, sealert nem fogműködni nem SElinux rendszereken"
+msgstr "SElinux nincs engedélyezve, sealert nem fog működni nem SElinux rendszereken"
 
 #: ../src/sealert:150
 msgid "Not fixable."
@@ -680,7 +680,7 @@ msgstr "%s sikeresen lefutott"
 #: ../src/sealert:162
 #, c-format
 msgid "Plugin %s not valid for %s id"
-msgstr "Plugin %s nem érvényes a %s id-hez"
+msgstr "Plugin %s nem érvényes a %s ID-hez"
 
 #: ../src/setroubleshootd:69
 msgid "SELinux not enabled, setroubleshootd exiting..."
@@ -756,17 +756,17 @@ msgstr "Az összes riasztás listázása az azdatbázisból."
 
 #: ../gui/bug_report.glade.h:1
 msgid "Review and Submit Bug Report"
-msgstr "Felülvizsgálja és beküldi a hiba tudósítást"
+msgstr "Felülvizsgálja és beküldi a hibajelentést"
 
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr "<span size='large' weight='bold'>Felülvizsgálja és beküldi a hiba tudósítást</span>"
+msgstr "<span size='large' weight='bold'>Felülvizsgálja és beküldi a hiba jelentést</span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr "Felülvizsgálhatja a hiba kimenetet, amit a hiba tudósításba foglalunk, és változtathat rajta, hogy eltávolítson érzékeny adatokat. Alább ezt teheti."
+msgstr "Előfordulhat, hogy szeretné felülvizsgálni a hiba kimenetét amit a hibajelentésbe fogunk foglalni, és változtatni kíván rajta, azzal, hogy eltávolít érzékeny adatokat. Alább ezt megteheti."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
@@ -774,17 +774,17 @@ msgstr "Benne foglalt hiba kimenet:"
 
 #: ../gui/bug_report.glade.h:5
 msgid "Submit Report"
-msgstr "Tudósítást beküld"
+msgstr "Jelentés beküldése"
 
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr "E művelet befejeződött.  A fürge vörösesbarna róka átugrotta a lusta kutyát."
+msgstr "Ez a művelet befejeződött.  A fürge vörösesbarna róka átugrotta a lusta kutyát."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"
-msgstr "Siker!"
+msgstr "Sikerült!"
 
 #: ../gui/success_dialog.glade.h:3
 msgid "button"
-msgstr "button"
+msgstr "gomb"

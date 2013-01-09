@@ -39,6 +39,7 @@ import signal
 import atexit
 #from stat import *
 import syslog
+import systemd.journal
 #import threading
 #from types import *
 
@@ -186,9 +187,9 @@ class AlertPluginReportReceiver(PluginReportReceiver):
         
         syslog.syslog(syslog.LOG_DEBUG,"sending alert to all clients")
 
-        # FIXME: should this be using our logging objects in log.py?
         from setroubleshoot.html_util import html_to_text
         syslog.syslog(syslog.LOG_ERR, siginfo.summary() + _(" For complete SELinux messages. run sealert -l %s") % siginfo.local_id )
+        systemd.journal.send(siginfo.format_text())
 
         for u in siginfo.users:
                 action = siginfo.evaluate_filter_for_user(u.username)
