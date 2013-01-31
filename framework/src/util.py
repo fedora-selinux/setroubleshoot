@@ -279,9 +279,9 @@ def get_rpm_nvr_by_file_path_temporary(name):
 
 ###
 
-import setools
+from sepolicy import get_all_file_types
 try:
-    file_types =  setools.seinfo(setools.ATTRIBUTE,"file_type")[0]["types"]
+    file_types =  get_all_file_types()
 except RuntimeError:
     file_types = []
 

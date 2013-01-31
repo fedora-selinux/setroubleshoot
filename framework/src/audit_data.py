@@ -41,7 +41,7 @@ import selinux.audit2why as audit2why
 from setroubleshoot.util import *
 from setroubleshoot.html_util import *
 from setroubleshoot.xml_serialize import *
-from setroubleshoot.sesearch import *
+from sepolicy import *
 
 O_ACCMODE = 00000003
 
@@ -672,8 +672,22 @@ class AVC:
         return True
     
     def allowed_target_types(self):
-        return map(lambda x: x[TCONTEXT], sesearch([ALLOW], {SCONTEXT: self.scontext.type, CLASS: self.tclass, PERMS: self.access}))
-        
+        all_file_types = get_all_file_types()
+        all_file_types.sort()
+        all_attributes = get_all_attributes()
+        all_attributes.sort()
+        allowed_types = []
+        wtypes = map(lambda x: x[TARGET], search([ALLOW], {SOURCE: scontext, CLASS: tclass, PERMS: access}))
+        types = wtypes
+        for t in types:
+            if t in all_attributes:
+                wtypes.extend(info(ATTRIBUTE, t)[0]["types"])
+        for t in wtypes:
+            if t in all_file_types:
+                if t not in allowed_types:
+                    allowed_types.append(t)
+        allowed_types.sort()
+        return allowed_types
 
     def open_with_write(self):
         if self.has_any_access_in(['open']):

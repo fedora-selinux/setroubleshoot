@@ -1,4 +1,4 @@
-SUBDIRS = sesearch default_encoding
+SUBDIRS = default_encoding
 
 PYTHON_FILES =			\
 	__init__.py			\
