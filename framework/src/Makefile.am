@@ -46,7 +46,7 @@ sbin_PROGRAMS = 			\
 	sedispatch			\
 	$(NULL)
 
-INCLUDES =  $(SEAPPLET_CFLAGS)
+AM_CPPFLAGS =  $(SEAPPLET_CFLAGS)
 
 DEFS = @DEFS@ -DLOCALEDIR=\"$(localedir)\"
 

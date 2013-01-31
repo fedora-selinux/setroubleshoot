@@ -76,7 +76,6 @@ doc/Makefile
 gui/Makefile
 po/Makefile.in
 src/Makefile
-src/sesearch/Makefile
 src/default_encoding/Makefile
 test/Makefile
 ])
