@@ -672,18 +672,19 @@ class AVC:
         return True
     
     def allowed_target_types(self):
-        all_file_types = get_all_file_types()
-        all_file_types.sort()
+        all_types = get_all_file_types() + get_all_port_types()
+        all_types.sort()
         all_attributes = get_all_attributes()
         all_attributes.sort()
         allowed_types = []
-        wtypes = map(lambda x: x[TARGET], search([ALLOW], {SOURCE: scontext, CLASS: tclass, PERMS: access}))
+        wtypes = map(lambda x: x[TARGET], filter(lambda y: y["enabled"], search([ALLOW], {SOURCE: self.scontext.type, CLASS: self.tclass, PERMS: self.access})))
         types = wtypes
         for t in types:
             if t in all_attributes:
                 wtypes.extend(info(ATTRIBUTE, t)[0]["types"])
+                
         for t in wtypes:
-            if t in all_file_types:
+            if t in all_types:
                 if t not in allowed_types:
                     allowed_types.append(t)
         allowed_types.sort()
