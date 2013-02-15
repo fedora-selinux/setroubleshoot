@@ -46,10 +46,14 @@ class plugin(Plugin):
     if_text = 'you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER'
     then_text = 'you need to modify the port type.'
     
-    def get_do_text(self, avc, option):
-        return _("""# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER
-    where PORT_TYPE is one of the following: %s.""") % option
-    
+    def get_do_text(self, avc, options):
+        ports = options[1].split(",")
+        if len(ports) > 1:
+            return _("""# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER
+    where PORT_TYPE is one of the following: %s.""") % options
+        else:
+            return _("# semanage port -a -t %s -p %s $PORT_NUMBER") % (options[1], options[0])
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(100)
@@ -62,6 +66,3 @@ class plugin(Plugin):
             return self.report( (avc.tclass.split("_")[0], target_types))
 
         return None
-
-
-

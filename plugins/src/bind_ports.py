@@ -48,8 +48,12 @@ class plugin(Plugin):
     then_text = 'you need to modify the port type.'
     
     def get_do_text(self, avc, options):
-        return _("""# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER
+        ports = options[1].split(",")
+        if len(ports) > 1:
+            return _("""# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER
     where PORT_TYPE is one of the following: %s.""") % options
+        else:
+            return _("# semanage port -a -t %s -p %s $PORT_NUMBER") % (options[1], options[0])
     
     def __init__(self):
         Plugin.__init__(self, __name__)
