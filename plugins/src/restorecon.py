@@ -1,7 +1,7 @@
 #
 # Authors: Dan Walsh <dwalsh@redhat.com>
 #
-# Copyright (C) 2007-2010 Red Hat, Inc.
+# Copyright (C) 2007-2013 Red Hat, Inc.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -26,6 +26,17 @@ from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
 import os 
 from stat import *
+import selinux
+
+customizable_types = None
+def customizable(target):
+    global customizable_types
+
+    if not customizable_types:
+        fd = open(selinux.selinux_customizable_types_path())
+        customizable_types = fd.read()
+        fd.close()
+    return target in customizable_types
 
 import selinux
 class plugin(Plugin):
@@ -97,6 +108,8 @@ class plugin(Plugin):
             if avc.tpath is None: return None
             if avc.tpath == "/": return None
             if avc.tpath[0] != '/': return None
+            if customizable(avc.tcontext.type):
+                return None
             try:
                 mcon = selinux.matchpathcon(avc.tpath.strip('"'), restorecon_files[avc.tclass])[1]
                 mcon_type=mcon.split(":")[2]
