@@ -504,12 +504,13 @@ class SEFaultSignatureInfo(XmlSerialize):
         avcbuf += "\nHash: " + self.get_hash_str() 
 
         try:
-            avcbuf += "\n\naudit2allow"
+            newbuf = "\n\naudit2allow"
             p =  Popen(["audit2allow"], shell=True,stdin=PIPE, stdout=PIPE)
-            avcbuf += p.communicate(avcbuf)[0]
-            p =  Popen(["audit2allow ", "-R"], shell=True,stdin=PIPE, stdout=PIPE)
-            avcbuf += "\naudit2allow -R"
-            avcbuf += p.communicate(avcbuf)[0]
+            newbuf += p.communicate(avcbuf)[0]
+            newbuf += "\naudit2allow -R"
+            p =  Popen(["audit2allow -R"], shell=True,stdin=PIPE, stdout=PIPE)
+            newbuf += p.communicate(avcbuf)[0]
+            avcbuf += newbuf
         except:
             pass
 
