@@ -65,6 +65,5 @@ class plugin(Plugin):
                 # MATCH
             target_types = ", ".join(avc.allowed_target_types())
             return self.report((avc.tclass.split("_")[0], target_types))
-        
 
         return None
