@@ -41,7 +41,7 @@ Either remove the mozplugger or spice-xpi package by executing 'yum remove mozpl
 Or turn off enforcement of SELinux over the Firefox plugins.
 setsebool -P unconfined_mozilla_plugin_transition 0
     ''')
-    if_text = _("you want to use %s package")
+    if_text = _("you want to use the %s package")
 
     def get_if_text(self, avc, args):
         return self.if_text % args[0]
@@ -53,7 +53,7 @@ setsebool -P unconfined_mozilla_plugin_transition 0
     
     def __init__(self):
         Plugin.__init__(self, __name__)
-        self.set_priority(100)
+        self.set_priority(75)
 
     def analyze(self, avc):
         if avc.matches_source_types(['mozilla_plugin_t']):
@@ -63,6 +63,9 @@ setsebool -P unconfined_mozilla_plugin_transition 0
             if get_rpm_nvr_by_name("spice-xpi"):
                 reports.append(self.report(("spice-xpi", None)))
             if len(reports) > 0:
+                return reports
+            else:
+                reports.append(self.report(("plugin", None)))
                 return reports
 
         return None
