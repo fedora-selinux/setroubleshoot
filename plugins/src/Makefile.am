@@ -19,6 +19,7 @@ PLUGIN_FILES =				\
 	catchall_labels.py		\
 	catchall.py			\
 	connect_ports.py		\
+	chrome.py			\
 	cvs_data.py			\
 	dac_override.py			\
 	device.py			\
