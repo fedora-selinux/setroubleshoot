@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 05:47-0400\n"
+"POT-Creation-Date: 2013-03-06 11:35-0500\n"
 "PO-Revision-Date: 2012-09-14 21:12+0000\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/fedora/language/"
@@ -29,17 +29,21 @@ msgstr "SELinux felsökare"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Lokalisering av fel när SELinux nekat åtkomst"
 
-#: ../src/audit_data.py:883
+#: ../setroubleshoot.desktop.in.h:3
+msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
+msgstr ""
+
+#: ../src/audit_data.py:898
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Okänd"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:990
 #, python-format
 msgid ""
 "%s \n"
@@ -48,7 +52,7 @@ msgstr ""
 "%s \n"
 "**** Ogiltig AVC tillåten i aktuell policy ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
@@ -59,11 +63,11 @@ msgstr ""
 "**** Ogiltig AVC ej loggad i aktuell policy. ”semodule-B” slår på regler som "
 "inte loggas. ***\n"
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:994
 msgid "Must call policy_init first"
 msgstr "Måste anropa policy_init först"
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:996
 #, python-format
 msgid ""
 "%s \n"
@@ -72,7 +76,7 @@ msgstr ""
 "%s \n"
 "**** Ogiltig AVC felaktigt målsammanhang. ***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
@@ -81,7 +85,7 @@ msgstr ""
 "%s \n"
 "**** Ogiltig AVC felaktigt källasammanhang. ***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
@@ -90,7 +94,7 @@ msgstr ""
 "%s \n"
 "**** Ogiltig AVC felaktig typklass ***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
@@ -99,7 +103,7 @@ msgstr ""
 "%s \n"
 "**** Ogiltig AVC felaktigt tillstånd ***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "Fel under beräkning av åtkomstvektor"
 
@@ -418,20 +422,20 @@ msgstr "Klart: "
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " För fullständiga SELinuxmeddelanden, kör sealert -l %s"
 
-#: ../src/server.py:372
+#: ../src/server.py:373
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Användaren (%s) får inte modifiera data för (%s)"
 
-#: ../src/server.py:435 ../src/sealert:291
+#: ../src/server.py:436 ../src/sealert:291
 msgid "Started"
 msgstr "Startad"
 
-#: ../src/server.py:482
+#: ../src/server.py:483
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:548
+#: ../src/server.py:549
 msgid "Audit Listener"
 msgstr "Granskningslyssnare"
 
@@ -614,7 +618,7 @@ msgstr "Lokalt ID"
 msgid "Raw Audit Messages"
 msgstr "Råa granskningsmeddelanden"
 
-#: ../src/signature.py:545
+#: ../src/signature.py:546
 #, python-format
 msgid ""
 "\n"
@@ -625,15 +629,15 @@ msgstr ""
 "\n"
 "***** Insticksmodul %s (%.4s tillit) föreslår  "
 
-#: ../src/signature.py:548
+#: ../src/signature.py:549
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:549
+#: ../src/signature.py:550
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:551
+#: ../src/signature.py:552
 msgid ""
 "\n"
 "If "
@@ -641,7 +645,7 @@ msgstr ""
 "\n"
 "Om "
 
-#: ../src/signature.py:553
+#: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
@@ -649,7 +653,7 @@ msgstr ""
 "\n"
 "I så fall "
 
-#: ../src/signature.py:556
+#: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
@@ -657,7 +661,7 @@ msgstr ""
 "\n"
 "Gör\n"
 
-#: ../src/signature.py:558
+#: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"

@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Ani Peter <apeter@redhat.com>, 2006-2007,2012.
 # Dimitris Glezos <glezos@indifex.com>, 2011.
@@ -9,14 +9,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 05:47-0400\n"
+"POT-Creation-Date: 2013-03-06 11:35-0500\n"
 "PO-Revision-Date: 2012-09-25 05:40+0000\n"
 "Last-Translator: Ani Peter <apeter@redhat.com>\n"
 "Language-Team: Malayalam <discuss@lists.smc.org.in>\n"
+"Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ml\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -27,63 +27,81 @@ msgstr "SELinux ട്രബിള്‍ഷൂട്ടര്‍"
 msgid "Troubleshoot SELinux access denials"
 msgstr "ട്രബിള്‍ഷൂട്ട് SELinux ആക്സസ്സ് എതിര്‍പ്പുകള്‍"
 
-#: ../src/audit_data.py:883
+#: ../setroubleshoot.desktop.in.h:3
+msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
+msgstr ""
+
+#: ../src/audit_data.py:898
 #, python-format
 msgid "port %s"
 msgstr "പോര്‍ട്ട് %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "അപരിചിതം"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:990
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr "%s \n**** നിലവിലുള്ള പോളിസിയില്‍ തെറ്റായ എവിസി അനുവദിച്ചിരിയ്ക്കുന്നു ***\n"
+msgstr ""
+"%s \n"
+"**** നിലവിലുള്ള പോളിസിയില്‍ തെറ്റായ എവിസി അനുവദിച്ചിരിയ്ക്കുന്നു ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
-msgstr "%s \n**** നിലവിലുള്ള പോളിസിയില്‍ തെറ്റായ എവിസി ഓഡിറ്റ് ചെയ്തിട്ടില്ല.  dontaudit നിയമങ്ങളില്‍ 'semodule -B' ഓണ്‍ ആകുന്നു. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
+"%s \n"
+"**** നിലവിലുള്ള പോളിസിയില്‍ തെറ്റായ എവിസി ഓഡിറ്റ് ചെയ്തിട്ടില്ല.  dontaudit നിയമങ്ങളില്‍ "
+"'semodule -B' ഓണ്‍ ആകുന്നു. ***\n"
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:994
 msgid "Must call policy_init first"
 msgstr "ആദ്യം policy_init വിളിയ്ക്കേണ്ടതുണ്ടു്"
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:996
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr "%s \n**** തെറ്റായ എവിസി ലക്ഷ്യ കണ്ടക്സ്റ്റ് ***\n"
+msgstr ""
+"%s \n"
+"**** തെറ്റായ എവിസി ലക്ഷ്യ കണ്ടക്സ്റ്റ് ***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr "%s \n**** തെറ്റായ എവിസി സോഴ്സ് കണ്ടക്സ്റ്റ് ***\n"
+msgstr ""
+"%s \n"
+"**** തെറ്റായ എവിസി സോഴ്സ് കണ്ടക്സ്റ്റ് ***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr "%s \n**** തെറ്റായ എവിസി തരത്തിലുള്ള ക്ലാസ്സ് ***\n"
+msgstr ""
+"%s \n"
+"**** തെറ്റായ എവിസി തരത്തിലുള്ള ക്ലാസ്സ് ***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr "%s \n**** തെറ്റായ എവിസി അനുമതി ***\n"
+msgstr ""
+"%s \n"
+"**** തെറ്റായ എവിസി അനുമതി ***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "ആക്സസ് വെക്ടര്‍ കമ്പ്യൂട്ടേഷന്‍ സമയത്തുള്ള പിശക്"
 
@@ -192,13 +210,17 @@ msgstr "ആണെങ്കില്‍"
 msgid ""
 "Plugin\n"
 "Details"
-msgstr "പ്ലഗിന്‍\nവിശദാംശങ്ങള്‍"
+msgstr ""
+"പ്ലഗിന്‍\n"
+"വിശദാംശങ്ങള്‍"
 
 #: ../src/browser.py:509
 msgid ""
 "Report\n"
 "Bug"
-msgstr "ബഗ്\nരേഖപ്പെടുത്തുക"
+msgstr ""
+"ബഗ്\n"
+"രേഖപ്പെടുത്തുക"
 
 #: ../src/browser.py:537
 #, python-format
@@ -330,7 +352,9 @@ msgstr "പിശക്"
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr "$TARGET_BASE_PATH $TARGET_CLASS-ല്‍ $ACCESS പ്രവേശനത്തിനായി നിങ്ങള്‍ $SOURCE_BASE_PATH അനുവദിയ്ക്കണം"
+msgstr ""
+"$TARGET_BASE_PATH $TARGET_CLASS-ല്‍ $ACCESS പ്രവേശനത്തിനായി നിങ്ങള്‍ "
+"$SOURCE_BASE_PATH അനുവദിയ്ക്കണം"
 
 #: ../src/run_cmd.py:172
 msgid "Input: "
@@ -395,20 +419,20 @@ msgstr "പൂര്‍ത്തിയായി:"
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " പൂര്‍ണ്ണ SELinux സന്ദേശങ്ങള്‍ക്ക്. sealert -l %s പ്രവര്‍ത്തിപ്പിക്കുക"
 
-#: ../src/server.py:372
+#: ../src/server.py:373
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "ഉപയോക്താവിന് (%s) (%s)-നുള്ള ഡേറ്റായില്‍ മാറ്റം വരുത്തുവാന്‍ സാധ്യമല്ല"
 
-#: ../src/server.py:435 ../src/sealert:291
+#: ../src/server.py:436 ../src/sealert:291
 msgid "Started"
 msgstr "ആരംഭിച്ചു"
 
-#: ../src/server.py:482
+#: ../src/server.py:483
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:548
+#: ../src/server.py:549
 msgid "Audit Listener"
 msgstr "ഓഡിറ്റ് ലിസണര്‍"
 
@@ -591,45 +615,56 @@ msgstr "ലോക്കല്‍ ഐഡി"
 msgid "Raw Audit Messages"
 msgstr "റോ ഓഡിറ്റ് സന്ദേശങ്ങള്‍"
 
-#: ../src/signature.py:545
+#: ../src/signature.py:546
 #, python-format
 msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr "\n\n*****  പ്ലഗിന്‍ %s (%.4s confidence) നിര്‍ദ്ദേശിയ്ക്കുന്നതു്  "
+msgstr ""
+"\n"
+"\n"
+"*****  പ്ലഗിന്‍ %s (%.4s confidence) നിര്‍ദ്ദേശിയ്ക്കുന്നതു്  "
 
-#: ../src/signature.py:548
+#: ../src/signature.py:549
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:549
+#: ../src/signature.py:550
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:551
+#: ../src/signature.py:552
 msgid ""
 "\n"
 "If "
-msgstr "\nഎങ്കില്‍ "
+msgstr ""
+"\n"
+"എങ്കില്‍ "
 
-#: ../src/signature.py:553
+#: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
-msgstr "\nഅങ്ങനെയെങ്കില്‍ "
+msgstr ""
+"\n"
+"അങ്ങനെയെങ്കില്‍ "
 
-#: ../src/signature.py:556
+#: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
-msgstr "\nചെയ്യേണ്ടതു്\n"
+msgstr ""
+"\n"
+"ചെയ്യേണ്ടതു്\n"
 
-#: ../src/signature.py:558
+#: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"
-msgstr "\n\n"
+msgstr ""
+"\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -664,7 +699,8 @@ msgstr "SELinux AVC നിഷേധം, കാണുന്നതിനായി 
 
 #: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SELinux പ്രവര്‍ത്തന സജ്ജമല്ല, SELinux അല്ലാത്ത സിസ്റ്റങ്ങള്‍ക്കു് sealert പ്രവര്‍ത്തിയ്ക്കുന്നതല്ല"
+msgstr ""
+"SELinux പ്രവര്‍ത്തന സജ്ജമല്ല, SELinux അല്ലാത്ത സിസ്റ്റങ്ങള്‍ക്കു് sealert പ്രവര്‍ത്തിയ്ക്കുന്നതല്ല"
 
 #: ../src/sealert:150
 msgid "Not fixable."
@@ -696,7 +732,12 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr "പകര്‍പ്പവകാശം (c) 2010 \nതോമസ് ലിയൂ <tliu@redhat.com>\nമിര്‍ലിന്‍ ഡഫി <duffy@redhat.com>\nഡാനിയല്‍ വാല്‍ഷ് <dwalsh@redhat.com>\nജോണ്‍ ഡെന്നിസ് <jdennis@redhat.com>\n"
+msgstr ""
+"പകര്‍പ്പവകാശം (c) 2010 \n"
+"തോമസ് ലിയൂ <tliu@redhat.com>\n"
+"മിര്‍ലിന്‍ ഡഫി <duffy@redhat.com>\n"
+"ഡാനിയല്‍ വാല്‍ഷ് <dwalsh@redhat.com>\n"
+"ജോണ്‍ ഡെന്നിസ് <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -730,7 +771,9 @@ msgstr "ലേബല്‍"
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr "അറിയിപ്പിനുള്ള ട്രബിള്‍ഷൂട്ട് വിവരം ലഭ്യമാക്കുക. പരിഹാരത്തിനായി നിങ്ങള്‍ക്കു് അഡിമിനിസ്ട്രേറ്റീവ് അനുമതികള്‍ ആവശ്യമുണ്ടു്."
+msgstr ""
+"അറിയിപ്പിനുള്ള ട്രബിള്‍ഷൂട്ട് വിവരം ലഭ്യമാക്കുക. പരിഹാരത്തിനായി നിങ്ങള്‍ക്കു് അഡിമിനിസ്ട്രേറ്റീവ് "
+"അനുമതികള്‍ ആവശ്യമുണ്ടു്."
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
@@ -764,7 +807,9 @@ msgstr "<span size='large' weight='bold'>പരിശോധിച്ചു് �
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr "ഈ ബഗില്‍ ഉള്‍പ്പെടുത്തിയിട്ടുള്ള ഔട്ട്പുട്ട് പിശക് പരിശോധിച്ചു് ഏതെങ്കിലും സെന്‍സിറ്റീവ് ഡേറ്റാ ഉള്‍പ്പെടുത്താതിരിക്കുന്നതിനായി മാറ്റങ്ങള്‍ വരുത്തുവാന്‍ സാധിക്കുന്നു."
+msgstr ""
+"ഈ ബഗില്‍ ഉള്‍പ്പെടുത്തിയിട്ടുള്ള ഔട്ട്പുട്ട് പിശക് പരിശോധിച്ചു് ഏതെങ്കിലും സെന്‍സിറ്റീവ് ഡേറ്റാ "
+"ഉള്‍പ്പെടുത്താതിരിക്കുന്നതിനായി മാറ്റങ്ങള്‍ വരുത്തുവാന്‍ സാധിക്കുന്നു."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"

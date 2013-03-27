@@ -6,13 +6,13 @@
 # Arpad Biro <biro_arpad@yahoo.com>, 2006-2007.
 # Dimitris Glezos <glezos@indifex.com>, 2011.
 # Nikolas Slivka <snicore@gmail.com>, 2010.
-# Zoltan Hoppár <hopparz@gmail.com>, 2012.
+# Zoltan Hoppár <hopparz@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 05:47-0400\n"
-"PO-Revision-Date: 2012-12-15 11:55+0000\n"
+"POT-Creation-Date: 2013-03-06 11:35-0500\n"
+"PO-Revision-Date: 2013-03-14 22:48+0000\n"
 "Last-Translator: Zoltan Hoppár <hopparz@gmail.com>\n"
 "Language-Team: Hungarian <trans-hu@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
@@ -29,63 +29,67 @@ msgstr "SELinux hibakezelő"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux hozzáférés elutasítások kezelése"
 
-#: ../src/audit_data.py:883
+#: ../setroubleshoot.desktop.in.h:3
+msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
+msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
+
+#: ../src/audit_data.py:898
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:990
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n**** Hibás AVC engedélyezett a jelenglegi szabályzatban ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
 msgstr "%s \n**** Hibás AVC dontaudit-os a jelenlegi szabályzatban.  Az 'semodule -B' opció bekapcsolja a dontaudit szabályzatot. ***\n"
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:994
 msgid "Must call policy_init first"
 msgstr "A policy_init-et kell elsőként hívni"
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:996
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n**** Hibás AVC rossz cél kontextus. ***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n**** Hibás AVC rossz forrás kontextus. ***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n**** Hibás AVC rossz típusosztály ***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n**** Hibás AVC hibás engedéllyel ***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "Hiba a hozzáférési vektor kiszámításánál"
 
@@ -397,20 +401,20 @@ msgstr "Kész:"
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " Teljes SELinux üzenetekért futtassa: sealert -l %s"
 
-#: ../src/server.py:372
+#: ../src/server.py:373
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "A (%s) felhasználó nem módosíthatja (%s) adatait"
 
-#: ../src/server.py:435 ../src/sealert:291
+#: ../src/server.py:436 ../src/sealert:291
 msgid "Started"
 msgstr "Elindítva"
 
-#: ../src/server.py:482
+#: ../src/server.py:483
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:548
+#: ../src/server.py:549
 msgid "Audit Listener"
 msgstr "Audit figyelő"
 
@@ -593,7 +597,7 @@ msgstr "Helyi azonosító"
 msgid "Raw Audit Messages"
 msgstr "Nyers auditálási üzenetek"
 
-#: ../src/signature.py:545
+#: ../src/signature.py:546
 #, python-format
 msgid ""
 "\n"
@@ -601,33 +605,33 @@ msgid ""
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr "\n\n*****  Plugin %s (%.4s tűrés) javasolja"
 
-#: ../src/signature.py:548
+#: ../src/signature.py:549
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:549
+#: ../src/signature.py:550
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:551
+#: ../src/signature.py:552
 msgid ""
 "\n"
 "If "
 msgstr "\nHa "
 
-#: ../src/signature.py:553
+#: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
 msgstr "\nAkkor "
 
-#: ../src/signature.py:556
+#: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
 msgstr "\nTedd\n"
 
-#: ../src/signature.py:558
+#: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"

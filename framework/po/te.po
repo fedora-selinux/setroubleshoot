@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 05:47-0400\n"
+"POT-Creation-Date: 2013-03-06 11:35-0500\n"
 "PO-Revision-Date: 2012-08-28 12:50+0000\n"
 "Last-Translator: Krishnababu Krothapalli <krisnababu@gmail.com>\n"
 "Language-Team: Telugu (http://www.transifex.com/projects/p/fedora/language/"
@@ -30,17 +30,21 @@ msgstr "SELinux పరిష్కారిణి"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux వాడుక డినైల్స్‍‌ను పరిష్కరించుము"
 
-#: ../src/audit_data.py:883
+#: ../setroubleshoot.desktop.in.h:3
+msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
+msgstr ""
+
+#: ../src/audit_data.py:898
 #, python-format
 msgid "port %s"
 msgstr "పోర్ట్ %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "తెలియని"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:990
 #, python-format
 msgid ""
 "%s \n"
@@ -49,7 +53,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC ప్రస్తుత పాలసీనందు అనుమతించబడెను ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
@@ -60,11 +64,11 @@ msgstr ""
 "**** ప్రస్తుత పాలసీనందు చెల్లని AVC dontaudit.  'semodule -B' అనునదిdontaudit నియమాలను "
 "ఆన్ చేయును. ***\n"
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:994
 msgid "Must call policy_init first"
 msgstr "ముందుగా policy_init తప్పక కాల్ చేయాలి"
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:996
 #, python-format
 msgid ""
 "%s \n"
@@ -73,7 +77,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC చెడ్డ లక్ష్యపు సందర్భము. ***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
@@ -82,7 +86,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC చెడ్డ మూలపు సందర్భము. ***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
@@ -91,7 +95,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC చెడ్డ రకము క్లాస్ ***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
@@ -100,7 +104,7 @@ msgstr ""
 "%s \n"
 "**** చెల్లని AVC చెడ్డ అనుమతి ***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "వెక్టార్ లెక్కింపును యాక్సెస్ చేయునప్పుడు దోషము"
 
@@ -418,20 +422,20 @@ msgstr "అయినది: "
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr "పూర్తి SELinux సందేశాల కొరకు. sealert -l %s ను నడుపుము"
 
-#: ../src/server.py:372
+#: ../src/server.py:373
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "వినియోగదారి (%s) డాటాను (%s) కొరకు సవరించలేడు"
 
-#: ../src/server.py:435 ../src/sealert:291
+#: ../src/server.py:436 ../src/sealert:291
 msgid "Started"
 msgstr "ప్రారంభమైంది"
 
-#: ../src/server.py:482
+#: ../src/server.py:483
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:548
+#: ../src/server.py:549
 msgid "Audit Listener"
 msgstr "ఆలకించుదానిని ఆడిట్‌చేయుము"
 
@@ -614,7 +618,7 @@ msgstr "స్థానిక ID"
 msgid "Raw Audit Messages"
 msgstr "రా ఆడిట్ సందేశాలు"
 
-#: ../src/signature.py:545
+#: ../src/signature.py:546
 #, python-format
 msgid ""
 "\n"
@@ -625,15 +629,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
 
-#: ../src/signature.py:548
+#: ../src/signature.py:549
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:549
+#: ../src/signature.py:550
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:551
+#: ../src/signature.py:552
 msgid ""
 "\n"
 "If "
@@ -641,7 +645,7 @@ msgstr ""
 "\n"
 "If "
 
-#: ../src/signature.py:553
+#: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
@@ -649,7 +653,7 @@ msgstr ""
 "\n"
 "Then "
 
-#: ../src/signature.py:556
+#: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
@@ -657,7 +661,7 @@ msgstr ""
 "\n"
 "Do\n"
 
-#: ../src/signature.py:558
+#: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"

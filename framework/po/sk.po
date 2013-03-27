@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 05:47-0400\n"
+"POT-Creation-Date: 2013-03-06 11:35-0500\n"
 "PO-Revision-Date: 2012-07-25 15:37+0000\n"
 "Last-Translator: dwalsh <dwalsh@redhat.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/"
@@ -27,17 +27,21 @@ msgstr "SELinux vyhľadávač porúch"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Vyhľadanie SELinux porúch zamietnutých prístupov"
 
-#: ../src/audit_data.py:883
+#: ../setroubleshoot.desktop.in.h:3
+msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
+msgstr ""
+
+#: ../src/audit_data.py:898
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:990
 #, python-format
 msgid ""
 "%s \n"
@@ -46,7 +50,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC povolené v aktuálnej politike ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
@@ -54,11 +58,11 @@ msgid ""
 "dontaudit rules. ***\n"
 msgstr ""
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:994
 msgid "Must call policy_init first"
 msgstr ""
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:996
 #, python-format
 msgid ""
 "%s \n"
@@ -67,7 +71,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC zlý cieľový kontext. ***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
@@ -76,7 +80,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC zlá zdrojový kontext. ***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
@@ -85,7 +89,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC zlá typová trieda ***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
@@ -94,7 +98,7 @@ msgstr ""
 "%s \n"
 "**** Neplatné AVC zlé oprávnenie ***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "Chyba počas prístupu k vektorovému výpočtu"
 
@@ -410,20 +414,20 @@ msgstr "Hotovo: "
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " Pre úplné SELinux správy spustite sealert -l %s"
 
-#: ../src/server.py:372
+#: ../src/server.py:373
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Užívateľ (%s) nemôže meniť údaje pre (%s)"
 
-#: ../src/server.py:435 ../src/sealert:291
+#: ../src/server.py:436 ../src/sealert:291
 msgid "Started"
 msgstr "Spustené"
 
-#: ../src/server.py:482
+#: ../src/server.py:483
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:548
+#: ../src/server.py:549
 msgid "Audit Listener"
 msgstr ""
 
@@ -606,7 +610,7 @@ msgstr "Lokálne ID"
 msgid "Raw Audit Messages"
 msgstr ""
 
-#: ../src/signature.py:545
+#: ../src/signature.py:546
 #, python-format
 msgid ""
 "\n"
@@ -614,15 +618,15 @@ msgid ""
 "*****  Plugin %s (%.4s confidence) suggests  "
 msgstr ""
 
-#: ../src/signature.py:548
+#: ../src/signature.py:549
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:549
+#: ../src/signature.py:550
 msgid "\n"
 msgstr ""
 
-#: ../src/signature.py:551
+#: ../src/signature.py:552
 msgid ""
 "\n"
 "If "
@@ -630,7 +634,7 @@ msgstr ""
 "\n"
 "Ak "
 
-#: ../src/signature.py:553
+#: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
@@ -638,7 +642,7 @@ msgstr ""
 "\n"
 "Potom "
 
-#: ../src/signature.py:556
+#: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
@@ -646,7 +650,7 @@ msgstr ""
 "\n"
 "Urob\n"
 
-#: ../src/signature.py:558
+#: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"

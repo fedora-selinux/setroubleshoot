@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 05:47-0400\n"
+"POT-Creation-Date: 2013-03-06 11:35-0500\n"
 "PO-Revision-Date: 2012-07-27 22:18+0000\n"
 "Last-Translator: Igor <igorsoares@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <trans-pt_br@lists.fedoraproject.org>\n"
@@ -35,17 +35,21 @@ msgstr "Solução de problemas do SELinux"
 msgid "Troubleshoot SELinux access denials"
 msgstr "Solucione problemas das negações de acesso do SELinux"
 
-#: ../src/audit_data.py:883
+#: ../setroubleshoot.desktop.in.h:3
+msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
+msgstr ""
+
+#: ../src/audit_data.py:898
 #, python-format
 msgid "port %s"
 msgstr "porta %s"
 
-#: ../src/audit_data.py:885 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Desconhecido"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:990
 #, python-format
 msgid ""
 "%s \n"
@@ -54,7 +58,7 @@ msgstr ""
 "%s \n"
 "**** Permissão AVC inválida na política atual ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
@@ -65,11 +69,11 @@ msgstr ""
 "****AVC dontaudited inválido na política atual. 'semodule -B' habilitará as "
 "regras dontaudit***\n"
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:994
 msgid "Must call policy_init first"
 msgstr "É necessário chamar a policy_init primeiro"
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:996
 #, python-format
 msgid ""
 "%s \n"
@@ -78,7 +82,7 @@ msgstr ""
 "%s \n"
 "**** AVC inválido contexto do alvo com problemas. ***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
@@ -87,7 +91,7 @@ msgstr ""
 "%s \n"
 "**** AVC inválido contexto da fonte com problemas. ***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
@@ -96,7 +100,7 @@ msgstr ""
 "%s \n"
 "**** AVC inválido tipo de classe errado  ***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
@@ -105,7 +109,7 @@ msgstr ""
 "%s \n"
 "**** AVC inválido permissão com problemas ***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "Erro durante a computação do vetor de acesso."
 
@@ -423,20 +427,20 @@ msgstr "Concluído: "
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " Para obter mensagens completas do SELinux, execute um sealert -I%s"
 
-#: ../src/server.py:372
+#: ../src/server.py:373
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "O usuário (%s) não pode modificar dados para (%s)"
 
-#: ../src/server.py:435 ../src/sealert:291
+#: ../src/server.py:436 ../src/sealert:291
 msgid "Started"
 msgstr "Iniciado"
 
-#: ../src/server.py:482
+#: ../src/server.py:483
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:548
+#: ../src/server.py:549
 msgid "Audit Listener"
 msgstr "Auditor Audit"
 
@@ -620,7 +624,7 @@ msgstr "ID local"
 msgid "Raw Audit Messages"
 msgstr "Mensagens de auditoria não processadas"
 
-#: ../src/signature.py:545
+#: ../src/signature.py:546
 #, python-format
 msgid ""
 "\n"
@@ -631,15 +635,15 @@ msgstr ""
 "\n"
 "*****  Plugin %s (confiança %.4s ) sugere  "
 
-#: ../src/signature.py:548
+#: ../src/signature.py:549
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:549
+#: ../src/signature.py:550
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:551
+#: ../src/signature.py:552
 msgid ""
 "\n"
 "If "
@@ -647,7 +651,7 @@ msgstr ""
 "\n"
 "Se"
 
-#: ../src/signature.py:553
+#: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
@@ -655,7 +659,7 @@ msgstr ""
 "\n"
 "Então"
 
-#: ../src/signature.py:556
+#: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
@@ -663,7 +667,7 @@ msgstr ""
 "\n"
 "Faça\n"
 
-#: ../src/signature.py:558
+#: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-20 05:47-0400\n"
+"POT-Creation-Date: 2013-03-06 11:35-0500\n"
 "PO-Revision-Date: 2012-08-27 09:54+0000\n"
 "Last-Translator: sandeeps <sshedmak@redhat.com>\n"
 "Language-Team: Marathi (http://www.transifex.com/projects/p/fedora/language/"
@@ -31,17 +31,21 @@ msgstr "SELinux त्रुटीनिवारक"
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux प्रवेश नकाराचे त्रुटी निर्धारण करा"
 
-#: ../src/audit_data.py:883
+#: ../setroubleshoot.desktop.in.h:3
+msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
+msgstr ""
+
+#: ../src/audit_data.py:898
 #, python-format
 msgid "port %s"
 msgstr "%s पोर्ट करा"
 
-#: ../src/audit_data.py:885 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "अपरिचित"
 
-#: ../src/audit_data.py:975
+#: ../src/audit_data.py:990
 #, python-format
 msgid ""
 "%s \n"
@@ -50,7 +54,7 @@ msgstr ""
 "%s \n"
 "**** सध्याच्या धोरणामध्ये अवैध AVC स्वीकारले ***\n"
 
-#: ../src/audit_data.py:977
+#: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
@@ -61,11 +65,11 @@ msgstr ""
 "**** सध्याच्या धोरणात अवैध AVC dontaudited आढळले.  'semodule -B' dontaudit नियम "
 "सक्रिय करेल. ***\n"
 
-#: ../src/audit_data.py:979
+#: ../src/audit_data.py:994
 msgid "Must call policy_init first"
 msgstr "पहिले policy_init कॉल करणे आवश्यक"
 
-#: ../src/audit_data.py:981
+#: ../src/audit_data.py:996
 #, python-format
 msgid ""
 "%s \n"
@@ -74,7 +78,7 @@ msgstr ""
 "%s \n"
 "**** अवैध AVC अयोग्य लक्ष्य संदर्भ. ***\n"
 
-#: ../src/audit_data.py:983
+#: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
@@ -83,7 +87,7 @@ msgstr ""
 "%s \n"
 "**** अवैध AVC अयोग्य स्रोत संदर्भ. ***\n"
 
-#: ../src/audit_data.py:985
+#: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
@@ -92,7 +96,7 @@ msgstr ""
 "%s \n"
 "**** अवैध AVC अयोग्य टाइप क्लास् ***\n"
 
-#: ../src/audit_data.py:987
+#: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
@@ -101,7 +105,7 @@ msgstr ""
 "%s \n"
 "**** अवैध AVC अयोग्य परवानगी ***\n"
 
-#: ../src/audit_data.py:989
+#: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "ॲकसेस् वेक्टर कम्प्यूटेशनकरीता प्रवेशवेळी त्रुटी"
 
@@ -419,20 +423,20 @@ msgstr "पूर्ण झाले: "
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " पूर्णतया SELinux संदेश करीता. sealert -l %s चालवा"
 
-#: ../src/server.py:372
+#: ../src/server.py:373
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "(%s) करीता वापरकर्ता (%s) माहिती संपादीत करू शकत नाही"
 
-#: ../src/server.py:435 ../src/sealert:291
+#: ../src/server.py:436 ../src/sealert:291
 msgid "Started"
 msgstr "सुरू झाले"
 
-#: ../src/server.py:482
+#: ../src/server.py:483
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:548
+#: ../src/server.py:549
 msgid "Audit Listener"
 msgstr "ऑडिट श्रोता"
 
@@ -615,7 +619,7 @@ msgstr "स्थानीक ID"
 msgid "Raw Audit Messages"
 msgstr "मुळ ऑडीट संदेश"
 
-#: ../src/signature.py:545
+#: ../src/signature.py:546
 #, python-format
 msgid ""
 "\n"
@@ -626,15 +630,15 @@ msgstr ""
 "\n"
 "*****  प्लगइन %s (%.4s काँफिडंस्) सूचवतो  "
 
-#: ../src/signature.py:548
+#: ../src/signature.py:549
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:549
+#: ../src/signature.py:550
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:551
+#: ../src/signature.py:552
 msgid ""
 "\n"
 "If "
@@ -642,7 +646,7 @@ msgstr ""
 "\n"
 "असे असते "
 
-#: ../src/signature.py:553
+#: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
@@ -650,7 +654,7 @@ msgstr ""
 "\n"
 "तर मग "
 
-#: ../src/signature.py:556
+#: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
@@ -658,7 +662,7 @@ msgstr ""
 "\n"
 "करा\n"
 
-#: ../src/signature.py:558
+#: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"
