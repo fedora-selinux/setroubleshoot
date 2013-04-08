@@ -1,10 +1,11 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Dimitris Glezos <glezos@indifex.com>, 2011.
 # Francesco Tombolini <tombo@adamantio.net>, 2006, 2007, 2008, 2009, 2011.
+#  <fvalen@redhat.com>, 2013.
 # Gianluca Busiello <busiello@ceinge.unina.it>, 2008.
 # Luca Manlio De Lisi <lukefiltroman@gmail.com>, 2011.
 #   <lukefiltroman@gmail.com>, 2011.
@@ -16,14 +17,14 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-06 11:35-0500\n"
-"PO-Revision-Date: 2012-07-25 15:37+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2013-04-04 02:47+0000\n"
+"Last-Translator: fvalen <fvalen@redhat.com>\n"
 "Language-Team: Italian <trans-it@lists.fedoraproject.org>\n"
-"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -35,7 +36,7 @@ msgstr "Risoluzione problemi SELinux accessi rifiutati"
 
 #: ../setroubleshoot.desktop.in.h:3
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
-msgstr ""
+msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
 #: ../src/audit_data.py:898
 #, python-format
@@ -52,20 +53,14 @@ msgstr "Sconosciuto"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr ""
-"%s \n"
-"**** AVC non valido consentito nella politica attuale ***\n"
+msgstr "%s \n**** AVC non valido consentito nella politica attuale ***\n"
 
 #: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
-msgstr ""
-"%s \n"
-"**** AVC non valido nell'attuale politica di dontaudit.  'semodule -B' "
-"abilita le regole dontaudit. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+msgstr "%s \n**** AVC non valido nell'attuale politica di dontaudit.  'semodule -B' abilita le regole dontaudit. ***\n"
 
 #: ../src/audit_data.py:994
 msgid "Must call policy_init first"
@@ -76,36 +71,28 @@ msgstr "Evocare prima policy_init"
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr ""
-"%s \n"
-"**** AVC non valido in cattivo contesto target. ***\n"
+msgstr "%s \n**** AVC non valido in cattivo contesto target. ***\n"
 
 #: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr ""
-"%s \n"
-"**** AVC non valido in cattivo contesto sorgente. ***\n"
+msgstr "%s \n**** AVC non valido in cattivo contesto sorgente. ***\n"
 
 #: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr ""
-"%s \n"
-"**** AVC non valido in cattivo tipo di classe ***\n"
+msgstr "%s \n**** AVC non valido in cattivo tipo di classe ***\n"
 
 #: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr ""
-"%s \n"
-"**** AVC non valido in cattivo permesso ***\n"
+msgstr "%s \n**** AVC non valido in cattivo permesso ***\n"
 
 #: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
@@ -189,7 +176,7 @@ msgstr "Notifica"
 
 #: ../src/browser.py:338
 msgid "Notify alert in the future."
-msgstr ""
+msgstr "Notifica avviso in futuro."
 
 #: ../src/browser.py:341 ../src/browser.py:776 ../src/browser.py:816
 #: ../gui/browser.glade.h:27
@@ -216,17 +203,13 @@ msgstr "Se "
 msgid ""
 "Plugin\n"
 "Details"
-msgstr ""
-"Plugin\n"
-"Dettagli"
+msgstr "Plugin\nDettagli"
 
 #: ../src/browser.py:509
 msgid ""
 "Report\n"
 "Bug"
-msgstr ""
-"Segnala\n"
-"Bug"
+msgstr "Segnala\nBug\n"
 
 #: ../src/browser.py:537
 #, python-format
@@ -358,9 +341,7 @@ msgstr "Errore"
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr ""
-"vuoi abilitare $SOURCE_BASE_PATH ad avere $ACCESS accesso al "
-"$TARGET_BASE_PATH $TARGET_CLASS"
+msgstr "vuoi abilitare $SOURCE_BASE_PATH ad avere $ACCESS accesso al $TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:172
 msgid "Input: "
@@ -392,8 +373,7 @@ msgstr "Ferma comando"
 
 #: ../src/run_cmd.py:413
 msgid "Warning: You are responsible for verifying this command is correct"
-msgstr ""
-"Attenzione: Si è responsabili della verifica di correttezza di questo comando"
+msgstr "Attenzione: Si è responsabili della verifica di correttezza di questo comando"
 
 #: ../src/run_cmd.py:455
 msgid "Not Run Yet"
@@ -502,8 +482,7 @@ msgstr "capacità"
 #: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
-msgstr ""
-"%s presenta una tipologia permissiva (%s). Questo accesso non è stato negato."
+msgstr "%s presenta una tipologia permissiva (%s). Questo accesso non è stato negato."
 
 #: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
@@ -512,32 +491,32 @@ msgstr "SELinux è in modalità permissiva. L'accesso non è stato negato."
 #: ../src/signature.py:429
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
-msgstr ""
+msgstr "SELinux impedisce a %s un accesso %s su un processo."
 
 #: ../src/signature.py:429
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
-msgstr ""
+msgstr "SELinux impedisce a %s accessi '%s' su un processo."
 
 #: ../src/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
-msgstr ""
+msgstr "SELinux impedisce a %s di utilizzare la capacità %s."
 
 #: ../src/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
-msgstr ""
+msgstr "SELinux impedisce a %s di utilizzare le capacità '%s'."
 
 #: ../src/signature.py:433
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
-msgstr ""
+msgstr "SELinux impedisce a %s un accesso %s su %s %s."
 
 #: ../src/signature.py:433
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
-msgstr ""
+msgstr "SELinux impedisce a %s accessi '%s' su %s %s."
 
 #: ../src/signature.py:461
 msgid "Additional Information:\n"
@@ -629,10 +608,7 @@ msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr ""
-"\n"
-"\n"
-"***** Plugin %s (%.4s confidence) suggerisce  "
+msgstr "\n\n***** Plugin %s (%.4s confidence) suggerisce  "
 
 #: ../src/signature.py:549
 msgid "*"
@@ -646,33 +622,25 @@ msgstr "\n"
 msgid ""
 "\n"
 "If "
-msgstr ""
-"\n"
-"Se "
+msgstr "\nSe "
 
 #: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
-msgstr ""
-"\n"
-"Quindi "
+msgstr "\nQuindi "
 
 #: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
-msgstr ""
-"\n"
-"Fai\n"
+msgstr "\nFai\n"
 
 #: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"
-msgstr ""
-"\n"
-"\n"
+msgstr "\n\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -739,12 +707,7 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr ""
-"Copyright (c) 2010 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"Máirín Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+msgstr "Copyright (c) 2010 \nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -778,9 +741,7 @@ msgstr "etichetta"
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr ""
-"Leggi informazioni sulla risoluzione dei problemi. Potrebbe richiedere "
-"privilegi di amministratore per rimediare."
+msgstr "Leggi informazioni sulla risoluzione dei problemi. Potrebbe richiedere privilegi di amministratore per rimediare."
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
@@ -808,16 +769,13 @@ msgstr "Rivedi e sottometti il rapporto bug "
 
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr ""
-"<span size='large' weight='bold'>Rivedi e Sottometti il Bug Report</span>"
+msgstr "<span size='large' weight='bold'>Rivedi e Sottometti il Bug Report</span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr ""
-"È possibile controllare l'output dell'errore che sarà incluso in questo bug "
-"report e modificarlo per escludere qualsiasi dato sensibile."
+msgstr "È possibile controllare l'output dell'errore che sarà incluso in questo bug report e modificarlo per escludere qualsiasi dato sensibile."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
@@ -830,9 +788,7 @@ msgstr "Sottometti rapporto"
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr ""
-"Questa operazione è stata completata.  La veloce volpe marrone ha saltato il "
-"cane pigro."
+msgstr "Questa operazione è stata completata.  La veloce volpe marrone ha saltato il cane pigro."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"

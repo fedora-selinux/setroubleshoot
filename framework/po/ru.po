@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Aleksandr Brezhnev <abrezhnev@gmail.com>, 2012.
 # Andrew Martynov <andrewm@inventa.ru>, 2006.
@@ -12,6 +12,7 @@
 # Stanislav Darchinov <darchinov@gmail.com>, 2011.
 # Stanislav Hanzhin <hanzhin.stas@gmail.com>, 2011.
 # Yulia <ypoyarko@redhat.com>, 2006, 2008, 2009, 2010.
+# Yulia <yulia.poyarkova@redhat.com>, 2013.
 # Yulia  <yulia.poyarkova@redhat.com>, 2012.
 # Игорь Горбунов <igor.gorbounov@gmail.com>, 2011.
 msgid ""
@@ -19,19 +20,18 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-06 11:35-0500\n"
-"PO-Revision-Date: 2012-10-01 05:02+0000\n"
+"PO-Revision-Date: 2013-04-03 23:09+0000\n"
 "Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
 "Language-Team: Russian <trans-ru@lists.fedoraproject.org>\n"
-"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
-msgstr "Диагностика проблем SELinux"
+msgstr "Диагностика SELinux"
 
 #: ../setroubleshoot.desktop.in.h:2
 msgid "Troubleshoot SELinux access denials"
@@ -39,7 +39,7 @@ msgstr "Диагностика проблем отказа доступа SELinu
 
 #: ../setroubleshoot.desktop.in.h:3
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
-msgstr ""
+msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
 #: ../src/audit_data.py:898
 #, python-format
@@ -56,20 +56,14 @@ msgstr "Неизвестно"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr ""
-"%s \n"
-"**** Неверный AVC разрешён текущим регламентом ***\n"
+msgstr "%s \n**** Неверный AVC разрешён текущим регламентом ***\n"
 
 #: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
-msgstr ""
-"%s \n"
-"**** Неверный AVC пропускается текущим регламентом. Команда «semodule -B» "
-"включает аудит правил с флагом «dontaudit». ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+msgstr "%s \n**** Неверный AVC пропускается текущим регламентом. Команда «semodule -B» включает аудит правил с флагом «dontaudit». ***\n"
 
 #: ../src/audit_data.py:994
 msgid "Must call policy_init first"
@@ -80,36 +74,28 @@ msgstr "Сначала требуется вызвать policy_init"
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr ""
-"%s \n"
-"**** Неверный AVC плохой целевой контекст. ***\n"
+msgstr "%s \n**** Неверный AVC плохой целевой контекст. ***\n"
 
 #: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr ""
-"%s \n"
-"**** Неверный AVC плохой исходный контекст. ***\n"
+msgstr "%s \n**** Неверный AVC плохой исходный контекст. ***\n"
 
 #: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr ""
-"%s \n"
-"**** Неверный AVC плохой тип класса ***\n"
+msgstr "%s \n**** Неверный AVC плохой тип класса ***\n"
 
 #: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr ""
-"%s \n"
-"**** Неверный AVC плохие права доступа ***\n"
+msgstr "%s \n**** Неверный AVC плохие права доступа ***\n"
 
 #: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
@@ -173,7 +159,7 @@ msgstr "Исходный процесс"
 
 #: ../src/browser.py:263
 msgid "Attempted Access"
-msgstr "Попытка доступа"
+msgstr "\nПопытка доступа\n"
 
 #: ../src/browser.py:263
 msgid "On this"
@@ -220,17 +206,13 @@ msgstr "Если "
 msgid ""
 "Plugin\n"
 "Details"
-msgstr ""
-"Сведения о\n"
-"модуле"
+msgstr "Сведения о\nмодуле"
 
 #: ../src/browser.py:509
 msgid ""
 "Report\n"
 "Bug"
-msgstr ""
-"Сообщить\n"
-"об ошибке"
+msgstr "Сообщить\nоб ошибке\n"
 
 #: ../src/browser.py:537
 #, python-format
@@ -362,9 +344,7 @@ msgstr "Ошибка"
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr ""
-"вы хотите предоставить $SOURCE_BASE_PATH доступ $ACCESS к $TARGET_BASE_PATH "
-"$TARGET_CLASS"
+msgstr "вы хотите предоставить $SOURCE_BASE_PATH доступ $ACCESS к $TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:172
 msgid "Input: "
@@ -427,8 +407,7 @@ msgstr "Готово:"
 #: ../src/server.py:191
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
-msgstr ""
-"Чтобы показать полный список сообщений SELinux, выполните sealert -l %s"
+msgstr "Чтобы показать полный список сообщений SELinux, выполните sealert -l %s"
 
 #: ../src/server.py:373
 #, python-format
@@ -632,10 +611,7 @@ msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr ""
-"\n"
-"\n"
-"*****  Модуль %s (%.4s ) предлагает  "
+msgstr "\n\n*****  Модуль %s (%.4s ) предлагает  "
 
 #: ../src/signature.py:549
 msgid "*"
@@ -649,33 +625,25 @@ msgstr "\n"
 msgid ""
 "\n"
 "If "
-msgstr ""
-"\n"
-"Если "
+msgstr "\nЕсли "
 
 #: ../src/signature.py:554
 msgid ""
 "\n"
 "Then "
-msgstr ""
-"\n"
-"То "
+msgstr "\nТо "
 
 #: ../src/signature.py:557
 msgid ""
 "\n"
 "Do\n"
-msgstr ""
-"\n"
-"Сделать\n"
+msgstr "\nСделать\n"
 
 #: ../src/signature.py:559
 msgid ""
 "\n"
 "\n"
-msgstr ""
-"\n"
-"\n"
+msgstr "\n\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -710,8 +678,7 @@ msgstr "Отказ AVC SELinix. Нажмите для просмотра"
 
 #: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr ""
-"SELinux не активирован, sealert не будет работать на системах без SELinux"
+msgstr "SELinux не активирован, sealert не будет работать на системах без SELinux"
 
 #: ../src/sealert:150
 msgid "Not fixable."
@@ -743,12 +710,7 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr ""
-"Copyright (c) 2010 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"Máirín Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+msgstr "Copyright (c) 2010 \nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -782,9 +744,7 @@ msgstr "метка"
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr ""
-"Прочтите информацию о проблеме.  Для решения могут потребоваться права "
-"администратора."
+msgstr "Прочтите информацию о проблеме.  Для решения могут потребоваться права администратора."
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
@@ -812,17 +772,13 @@ msgstr "Просмотр отчёта"
 
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr ""
-"<span size='large' weight='bold'>Просмотреть и отправить отчёт об ошибке</"
-"span>"
+msgstr "<span size='large' weight='bold'>Просмотреть и отправить отчёт об ошибке</span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr ""
-"Если вы хотите просмотреть или изменить отчёт, например, удалить "
-"конфиденциальные данные, это можно сделать ниже."
+msgstr "Если вы хотите просмотреть или изменить отчёт, например, удалить конфиденциальные данные, это можно сделать ниже."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
