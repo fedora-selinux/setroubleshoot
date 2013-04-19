@@ -37,6 +37,7 @@ syslog.openlog(pkg_name)
 def usage():
     print '''
 -f --nofork				no fork
+-d --debug				debug
 -c --config section.option=value	set a configuration value
 -h --help				display help info
 '''
@@ -45,7 +46,7 @@ fork = True
 timeout = 10
 
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "fc:h", ["nofork","config=","help"])
+    opts, args = getopt.getopt(sys.argv[1:], "dfc:h", ["debug", "nofork","config=","help"])
 except getopt.GetoptError:
     # print help information and exit:
     usage()
@@ -58,6 +59,8 @@ for o, a in opts:
 
     if o in ("-f", "--nofork"):
         fork = False
+
+    if o in ("-d", "--debug"):
 	timeout = 0 
 
     if o in ("-c", "--config"):
@@ -93,6 +96,8 @@ try:
         f.close()
     
     from setroubleshoot.server import RunFaultServer
+    syslog.syslog(syslog.LOG_DEBUG, "RunFaultServer(%d)" % timeout)
+
     RunFaultServer(timeout)
     
 except OSError, e: 

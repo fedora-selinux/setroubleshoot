@@ -435,9 +435,7 @@ def load_plugins(filter_glob=None):
     # load the parent (e.g. the package containing the submodules), required for python 2.5 and above
     module_name = plugin_base
     plugin_name = '__init__'
-    if module_name in sys.modules:
-        syslog.syslog(syslog.LOG_DEBUG, "load_plugins() %s previously imported" % module_name)
-    else:
+    if module_name not in sys.modules:
         syslog.syslog(syslog.LOG_DEBUG, "importing %s as %s" % (os.path.join(plugin_dir, plugin_name), module_name))
         try:
             import imp
