@@ -22,6 +22,12 @@ import gettext
 from math import pi
 from subprocess import *
 from gettext import ngettext as P_
+from setroubleshoot.config import parse_config_setting, get_config
+domain = get_config('general', 'i18n_text_domain')
+gettext.install(domain    = domain,
+                unicode = True,
+                localedir = get_config('general', 'i18n_locale_dir'))
+
 import sys, os
 from xml.dom import minidom
 from xmlrpclib  import ProtocolError

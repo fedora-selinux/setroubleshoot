@@ -3,20 +3,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Hajime Taira <htaira@redhat.com>, 2012.
-# Hyu_gabaru Ryu_ichi <hyu_gabaru@yahoo.co.jp>, 2009.
-# Kiyoto Hashida <khashida@redhat.com>, 2008-2012.
-# Kiyoto James Hashida <khashida@redhat.com>, 2006, 2007.
-#  <noriko@fedoraproject.org>, 2013.
-#   <noriko@fedoraproject.org>, 2012.
-# Noriko Mizumoto <noriko@redhat.com>, 2006, 2008.
-# Tomoyuki KATO <tomo@dream.daynight.jp>, 2012-2013.
+# Hajime Taira <htaira@redhat.com>, 2012
+# hyuugabaru <hyu_gabaru@yahoo.co.jp>, 2009
+# Kiyoto Hashida <khashida@redhat.com>, 2008-2012
+# Kiyoto Hashida <khashida@redhat.com>, 2006, 2007
+# noriko <noriko@fedoraproject.org>, 2013
+# noriko <noriko@fedoraproject.org>, 2012
+# Noriko Mizumoto <noriko@redhat.com>, 2006, 2008
+# Tomoyuki KATO <tomo@dream.daynight.jp>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-06 11:34-0500\n"
-"PO-Revision-Date: 2013-04-04 09:17+0000\n"
+"PO-Revision-Date: 2013-04-09 07:25+0000\n"
 "Last-Translator: noriko <noriko@fedoraproject.org>\n"
 "Language-Team: Japanese <trans-ja@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgid ""
 "    SELinux policy is preventing an httpd script from writing to a public\n"
 "    directory.\n"
 "    "
-msgstr "\n     SELinux ポリシーは httpd スクリプトが公共ディレクトリーに書き込むのを阻止 \n     しています。\n     "
+msgstr "\nSELinux ポリシーにより httpd スクリプトのパブリックディレクトリへの書き込むが\n阻止されています。\n     "
 
 #: ../src/allow_anon_write.py:32
 msgid ""
@@ -40,7 +40,7 @@ msgid ""
 "    directory.  If httpd is not setup to write to public directories, this\n"
 "    could signal an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux ポリシーは httpd スクリプトが公共ディレクトリーに書き込むのを \n    阻止しています。httpd が公共ディレクトリーに書き込むように設定されていない場合は、\n     これは侵入の試みを示す可能性があります。\n    "
+msgstr "\nSELinux ポリシーにより httpd スクリプトのパブリックディレクトリへの書き込みが\n阻止されています。 httpd でパブリックディレクトリへの書き込み設定を行なって\nいない場合、 セキュリティ侵害が行なわれた可能性があります。\n    "
 
 #: ../src/allow_anon_write.py:38
 msgid ""
@@ -50,18 +50,18 @@ msgid ""
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the system in order to preserve public directory labeling even on a full relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
-msgstr "\n    httpd スクリプトが公共のディレクトリに書き込みできるようにする場合、 $BOOLEAN ブーリアンをオンにしてその公共ディレクトリのファイルコンテキストを  public_content_rw_t に変更する必要があります。  詳細については httpd_selinux man ページをご覧下さい:\n    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t 　　　　<path>\"\n    また、システム上のデフォルトのファイルコンテキストラベル設定ファイルを変更して、全面的な再ラベル設定に於いても公共ディレクトリのラベル設定を維持するようにしなければなりません。  \"semanage fcontext -a -t public_content_rw_t <path>\"\n    "
+msgstr "\nhttpd スクリプトによるパブリックディレクトリへの書き込みを許可する場合、 $BOOLEAN boolean をオンにしてパブリックディレクトリのファイルコンテキストを public_content_rw_t に変更する必要があります。 詳細については httpd_selinux の man ページをご覧ください:\n\"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t<path>\"\nまた、 完全な再ラベル付けを行なった後もパブリックディレクトリのラベルを維持させたい場合は、 システム上のデフォルトのファイルコンテキストラベル設定ファイルも変更する必要があります。 \"semanage fcontext -a -t public_content_rw_t <path>\""
 
 #: ../src/allow_anon_write.py:44
 msgid ""
 "you want to allow $SOURCE_PATH to be able to write to shared public content"
-msgstr "$SOURCE_PATH が、共有パブリックコンテンツに書込み可能になることを、許可したい"
+msgstr "$SOURCE_PATH による共有の公開コンテンツへの書き込みを許可します"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
-msgstr "$TARGET_PATH のラベルを public_content_rw_t に変更する必要があります。また、 allow_httpd_sys_script_anon_write boolean を同時に有効にする必要があります。"
+msgstr "$TARGET_PATH のラベルを public_content_rw_t に変更する必要があります。 また、 allow_httpd_sys_script_anon_write boolean を有効にする必要があるかもしれません。"
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -93,7 +93,7 @@ msgid ""
 "    $BOOLEAN boolean.  Note: This boolean will affect all applications\n"
 "    on the system.\n"
 "    "
-msgstr "\n    $SOURCE を継続したい場合は、$BOOLEAN ブーリアンをオンにする必要があり\n    ます。 注記: このブーリアンはシステム上の全てのアプリケーションに影響\n    します。\n    "
+msgstr "\n    $SOURCE を継続したい場合は、$BOOLEAN boolean をオンにする必要があり\n    ます。 注記: この boolean はシステム上の全てのアプリケーションに影響\n    します。\n    "
 
 #: ../src/allow_execheap.py:50
 msgid ""
@@ -253,7 +253,7 @@ msgid ""
 "    If you have not configured the ftp daemon to read files from a CIFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux は CIFS ファイルシステムに格納されているファイルが ftp デーモンによって $ACCESS されるのを阻止しました。\n    CIFS (Comment Internet File System) は SMB と同様のネットワークファイルシステムです、\n    (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www.microsoft.com/mind/1196/cifs.asp</a>)。\n    ftp デーモンはマウントされているこのタイプのファイルシステムから 1 つまたは複数の\nファイルかディレクトリーを読み込もうとしました。 CIFS ファイルシステムは SELinux の\n詳細なラベル機能はサポートしていません。ファイルシステム内のファイル及びディレクトリーはすべて\n同じセキュリティーコンテキストを有することになります。\n    \n    ftp デーモンが CIFS ファイルシステムからファイルを読み込むよう設定してない場合、\n    このアクセス試行は不正侵入の試行を示している可能性があります。\n    "
+msgstr "\nSELinux により CIFS ファイルシステムに格納されているファイルへの ftp デーモンの $ACCESS が阻止されました。\nCIFS (Comment Internet File System) は SMB  \n(<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www.microsoft.com/mind/1196/cifs.asp</a>) と同様のネットワークファイルシステムになります。\nマウントされているこのタイプのファイルシステムから 1 つまたは複数のファイルまたは\nディレクトリの読み込みが ftp デーモンにより試行されました。 CIFS ファイルシステムで\nは SELinux の詳細なラベル設定機能に対応していないため、 ファイルシステム内のファイルやディレクトリはすべて同じセキュリティコンテキストを有することになります。\n\nftp デーモンで CIFS ファイルシステムからのファイルの読み込みを設定していなかった場合、 \nこのアクセスは不正侵入の試行を示している可能性があります。\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:46
 msgid ""
@@ -261,7 +261,7 @@ msgid ""
 "    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
 "    \"setsebool -P $BOOLEAN=1.\"\n"
 "    "
-msgstr "\n    \"$BOOLEAN\" ブーリアンを 「true」に変更するとこのアクセスを許可します:\n    \"setsebool -P $BOOLEAN=1.\"\n    "
+msgstr "\n    \"$BOOLEAN\" boolean を 「true」に変更するとこのアクセスを許可します:\n    \"setsebool -P $BOOLEAN=1.\"\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:53
 msgid ""
@@ -272,7 +272,7 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on CIFS filesystems.  "
-msgstr " \"$BOOLEAN\" 及び \"$WRITE_BOOLEAN\"     のブーリアンを true に変更するとこのアクセスが許可されます:\n    \"setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1\"\n    警告: \"$WRITE_BOOLEAN\" ブーリアンを true に設定すると、 CIFS \n    ファイルシステム上のファイルやディレクトリーへの書き込みに加えてすべて\n    のパブリックコンテント(タイプ public_content_t のファイル及びディレクトリー)\n    への書き込みを ftp デーモンに許可することになります。  "
+msgstr "\"$BOOLEAN\" 及び \"$WRITE_BOOLEAN\" の boolean を true に変更すると、 \nこのアクセスが許可されます:\n\"setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1\"\n警告: \"$WRITE_BOOLEAN\" の boolean を true に設定すると、 CIFS \nファイルシステム上のファイルやディレクトリへの書き込みに加えて、 \nすべての公開コンテンツ (タイプが public_content_t のファイルと\nディレクトリ) への書き込みも ftp デーモンに許可することになります。"
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "you want to allow ftpd to write to cifs file systems"
@@ -304,7 +304,7 @@ msgid ""
 "    If you have not configured the ftp daemon to read files from a NFS filesystem\n"
 "    this access attempt could signal an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux は NFS ファイルシステムに格納されているファイルに ftp が $ACCESS するのを阻止しました。\n    NFS (Network Filesystem) は Unix システム/ Linux システムで一般的に使用されるネットワーク\n    ファイルシステムです。\n    \n    ftp デーモンはマウントされているこのタイプのファイルシステムから 1 つまたは複数の\nファイルかディレクトリーを読み込もうとしました。 NFS ファイルシステムは SELinux の詳細な\nラベル機能はサポートしていないため、 ファイルシステム内のファイル及びディレクトリーはすべて\n同じセキュリティーコンテキストを有することになります。\n    \n    ftp デーモンが NFS ファイルシステムからファイルを読み込むよう設定してない場合、\n    このアクセス試行は不正侵入の試行を示している可能性があります。\n    "
+msgstr "\nSELinux により NFS ファイルシステムに格納されているファイルへの ftp デーモンの\n$ACCESS が阻止されました。 NFS (Network Filesystem) は Unix や Linux のシステム\nで一般的に使用されるネットワークファイルシステムです。\n \nマウントされているこのタイプのファイルシステムから 1 つまたは複数の\nファイルまたはディレクトリの読み込みが ftp デーモンにより試行されました。 \nNFS ファイルシステムでは SELinux の詳細なラベル設定機能に対応していないため、 \nファイルシステム内のファイル及びディレクトリはすべて同じセキュリティ\nコンテキストを有することになります。\n\nNFS ファイルシステムのファイルの読み込みを ftp デーモンに設定していなかった場合、 \nアクセス試行は不正侵入の試行を示している可能性があります。"
 
 #: ../src/allow_ftpd_use_nfs.py:47
 msgid ""
@@ -312,7 +312,7 @@ msgid ""
 "    Changing the \"allow_ftpd_use_nfs\" boolean to true will allow this access:\n"
 "    \"setsebool -P allow_ftpd_use_nfs=1.\"\n"
 "    "
-msgstr "\n      \"allow_ftpd_use_nfs\"ブーリアンを「true」に変更するとこのアクセスを 許可します:\n    \"setsebool -P allow_ftpd_use_nfs=1.\"\n    "
+msgstr "\n      \"allow_ftpd_use_nfs\" boolean を「true」に変更するとこのアクセスを 許可します:\n    \"setsebool -P allow_ftpd_use_nfs=1.\"\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:54
 msgid ""
@@ -323,7 +323,7 @@ msgid ""
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
-msgstr " \"allow_ftpd_use_nfs\" ブーリアンと\n    \"$WRITE_BOOLEAN\" ブーリアンを true に変更するとこのアクセスを許可します:\n    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\"。\n    警告: \"$WRITE_BOOLEAN\" ブーリアンを true に設定すると、 NFS \n    ファイルシステム上のファイルやディレクトリーへの書き込みに加えてすべて\n    のパブリックコンテント(タイプ public_content_t のファイル及びディレクトリー)\n    への書き込みを ftp デーモンに許可することになります。  "
+msgstr "\"allow_ftpd_use_nfs\" と \"$WRITE_BOOLEAN\" の boolean を\ntrue に変更すると、 このアクセスが許可されます:\n\"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\"\n警告: \"$WRITE_BOOLEAN\" の boolean を true に設定すると、 \nNFS ファイルシステム上のファイルやディレクトリへの\n書き込みに加えて、 すべてのパブリックコンテント (タイプが \npublic_content_t のファイルとディレクトリ) への書き込みも \nftp デーモンに許可することになります。"
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "you want to allow ftpd to write to nfs file systems"
@@ -450,7 +450,7 @@ msgid ""
 "    this access you need to change the booleans on this system to allow \n"
 "    the access.\n"
 "    "
-msgstr "\n\n    SELinux は $SOURCE により要求されたアクセスを拒否しました。 \n    現在のブーリアン設定はこのアクセスを許可しません。このアクセスを\n    要求するように $SOURCE を設定していない場合、不正侵入の試行を示している\n     可能性があります。 アクセスの意志があれば、このシステム上でブーリアン値を\n     変更してアクセスを許可するようにしなければなりません。\n\n    "
+msgstr "\n\n    SELinux は $SOURCE により要求されたアクセスを拒否しました。 \n    現在の boolean 設定はこのアクセスを許可しません。このアクセスを\n    要求するように $SOURCE を設定していない場合、不正侵入の試行を示している\n     可能性があります。 アクセスの意志があれば、このシステム上で boolean 値を\n     変更してアクセスを許可するようにしなければなりません。\n\n    "
 
 #: ../src/catchall_boolean.py:45
 msgid ""
@@ -459,7 +459,7 @@ msgid ""
 "    access as needed.\n"
 "\n"
 "    "
-msgstr "\n    別のアクセスを必要とする、限定されたプロセスを実行するように設定できます。 SELInux は必要に応じて、ユーザーがアクセスをオン/オフに切り替えできる \n    ブーリアン値を提供します。\n\n    "
+msgstr "\n    別のアクセスを必要とする、限定されたプロセスを実行するように設定できます。 SELInux は必要に応じて、ユーザーがアクセスをオン/オフに切り替えできる \n    boolean 値を提供します。\n\n    "
 
 #: ../src/catchall_boolean.py:60
 #, python-format
@@ -492,7 +492,7 @@ msgid ""
 "    in directories that SELinux policy cannot predict.  These directories\n"
 "    have to be labeled with a file context which httpd can access.\n"
 "    "
-msgstr "\n    SELinux は $SOURCE よる誤ったラベル付けの可能性のあるファイル \n    $TARGET_PATH へのアクセスを拒否しました。 SELinux は httpd による\n    これらのファイルの使用を許可しないという意味です。httpd がこれらのファイルに アクセスを許可されるべきである場合は、ファイルコンテキストを次のタイプに 変更する必要があります。%s \n’   多くのサード パーティーのアプリケーションは SELinux ポリシーが予期できない \n   ディレクトリーに html ファイルをインストールします。これらのディレクトリーは \n   httpd がアクセスができるファイルコンテキストでラベル付けされなければなりません。\n    "
+msgstr "\nSELinux により誤ったラベル付けの可能性のある $TARGET_PATH ファイル\nへの $SOURCE のアクセスが拒否されています。 これは、 SELinux では httpd \nによるこれらのファイルの使用が許可されないということになります。 \nhttpd にこうしたファイルへの同様の アクセスを許可する場合は、 \nファイルコンテキストを次のいずれかのタイプに変更する必要があります、 %s。\n多くのサードパーティーのアプリケーションでは、 SELinux ポリシーでは\n予期できないディレクトリ内に html ファイルがインストールされます。\nこれらのディレクトリには httpd によるアクセスが可能なファイルコンテキスト\nでラベル付けを行なう必要があります。"
 
 #: ../src/catchall_labels.py:37
 msgid "You need to change the label on $FIX_TARGET_PATH"
@@ -729,7 +729,7 @@ msgid ""
 "    using SELinux APIs.  If you can figure out which application created the device, please file a bug report against this application.\n"
 "    \n"
 "    "
-msgstr "\n\n    SELinux はデバイス $TARGET_PATH への $SOURCE による \"$ACCESS\" アクセスを拒否しています。\n    $TARGET_PATH は誤ったラベルが付けられており、このデバイスは /dev ディレクトリーのデフォルトラベルを持っています。\n     これは起こるべきではありません。すべてのキャラクタデバイス\nまたはブロックデバイスはラベルを有しているべきです。\n\n    次を使用してファイルのラベル変更を試行することができます。\n\n    restorecon -v $TARGET_PATH\n\n    このデバイスのラベルが変らず device_t のままなら、 SELinux ポリシーのバグということになります。\n\n    バグレポートを提出してください。\n\n    他の同様のデバイスラベルを見るのに、 ls -lZ /dev/SIMILAR を実行して $TARGET_PATH に対して動作するであろうタイプを見つけたら\n    chcon -t SIMILAR_TYPE $TARGET_PATH を使用します。これで問題が解決するようなら次を実行して永続的に変更します。\n    semanage fcontext -a -t SIMILAR_TYPE $FIX_TARGET_PATH\n\n    restorecon がコンテキストを変更する場合、 デバイスを作成したアプリケーションが SELinux API を使用せずに作成したということを示しています。\n    デバイスを作成したアプリケーションを判別できる場合は、そのアプリケーションに関してバグレポートを提出してください。\n    \n    "
+msgstr "\n\nSELinux によりデバイス $TARGET_PATH への $SOURCE の \"$ACCESS\" アクセスが拒否されてています。\n$TARGET_PATH には誤ったラベルが付けられ、 このデバイスには /dev ディレクトリのデフォルトのラベル\nがあります。 これは起こるべきではありません。 キャラクタデバイス、 ブロックデバイスに持たせる\nラベルはすべてひとつにしなければなりません。\n\n次を使用して、 ファイルのラベル変更を試行することができます。\n\nrestorecon -v '$TARGET_PATH'\n\nこのデバイスのラベルが変らず device_t のままなら、 SELinux ポリシーのバグということになります。\n\nバグレポートを提出してください。\n\n同様のデバイスラベルが他にもあるか確認する場合は、 ls -lZ /dev/SIMILAR を実行して $TARGET_PATH に対して動作する\nであろうタイプを見つけ、 chcon -t SIMILAR_TYPE $TARGET_PATH を使用します。 これで問題が解決するようなら、 次を\n実行して変更を永続的にします。\nsemanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n\nrestorecon でコンテキストが変更される場合、 デバイスを作成したアプリケーションが SELinux API を使用せずに作成を\n行なったということになります。 デバイスを作成したアプリケーションを判別できる場合は、 そのアプリケーションに\n対してバグレポートを提出してください。"
 
 #: ../src/device.py:56
 msgid ""
@@ -886,7 +886,7 @@ msgid ""
 "    $BOOLEAN boolean: \"setsebool -P\n"
 "    $BOOLEAN=1\"\n"
 "    "
-msgstr "\n    httpd にメール送信をさせる場合は、 $BOOLEAN ブーリアン\n    をオンにする必要があります: \"setsebool -P\n    $BOOLEAN=1\"\n    "
+msgstr "\n    httpd にメール送信をさせる場合は、 $BOOLEAN boolean\n    をオンにする必要があります: \"setsebool -P\n    $BOOLEAN=1\"\n    "
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
@@ -921,7 +921,7 @@ msgid ""
 "    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially other\n"
 "    script types.\n"
 "    "
-msgstr "\n    SELinux は httpd $ACCESS が http ファイルにアクセスすることを許可していません。\n\n    昔ながらの httpd は http ファイルコンテンツのラベルが付けられているファイルに\n    フルアクセスが許可されています。このマシンはこの $BOOLEAN を無効にすることで、\n    セキュリティポリシーを制限しています。これより、全てのファイルのラベルを明確にする\n    必要があります。もしあるファイルがcgiスクリプトである場合、実行するにはそれに\n    httpd_TYPE_script_exec_t とラベルする必要があります。もし読み取り専用コンテンツ\n    の場合、それには　httpd_TYPE_content_t を、書込み可能なコンテンツの場合、\n    それには httpd_TYPE_script_rw_t もしくは httpd_TYPE_script_ra_t とラベルします。\n    chcon コマンドを使って、これらのコンテキストを変更できます。 man page の\n    \"man httpd_selinux\" または \n    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n    \"TYPE\" で \"sys\" 、 \"user\" 、 \"staff\" または他のスクリプトタイプを\n    参照してください。\n    "
+msgstr "\nSELinux により http ファイルへの  httpd の $ACCESS アクセスが阻止されました。\n\n通常の httpd の場合、 http ファイルコンテキストのラベルが付けらたファイルには\n完全アクセスが許可されます。 このマシンでは、 $BOOLEAN がオフに設定され、 \nセキュリティポリシーが強化されています。 このため、 全てのファイルに明示的に\nラベル付けを行なう必要があります。 ファイルが cgi スクリプトの場合は、 スクリプト\nを実行するために httpd_TYPE_script_exec_t のラベルを付ける必要があります。\n読み取り専用のコンテンツの場合は、 httpd_TYPE_content_t のラベルを\n付けます。 書込み可能なコンテンツなら、 httpd_TYPE_script_rw_t または \nhttpd_TYPE_script_ra_t のラベルを付ける必要があります。 コンテキストの変更は \nchcon コマンドを使用して行なうことができます。 \"man httpd_selinux\" で man \nページを参照するか、 <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a> \nをご覧ください。 \"TYPE\" は \"sys\"、 \"user\"、 \"staff\" または他のスクリプトタイプを\n参照している場合があります。\n    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -929,13 +929,13 @@ msgid ""
 "    Changing the \"$BOOLEAN\" boolean to true will allow this access:\n"
 "    \"setsebool -P $BOOLEAN=1\"\n"
 "    "
-msgstr "\n     \"$BOOLEAN\"ブーリアン値を「true」に変更すると、このアクセスを許可します：\n     \"setsebool -P $BOOLEAN=1\"\n     "
+msgstr "\n     \"$BOOLEAN\" boolean 値を「true」に変更すると、このアクセスを許可します：\n     \"setsebool -P $BOOLEAN=1\"\n     "
 
 #: ../src/httpd_unified.py:57
 msgid ""
 "you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
 "of all content files."
-msgstr "httpdが、cgiスクリプトを実行し、全てのコンテンツファイルのHTTPDを管理することを、許可したい。"
+msgstr "httpd による cgi スクリプトの実行、 および全コンテンツファイルの HTTPD 処理の統一を許可します。"
 
 #: ../src/httpd_unified.py:58
 msgid ""
@@ -952,7 +952,7 @@ msgid ""
 "    labeling of all files.  If $TARGET_PATH is writable content. it needs \n"
 "    to be labeled httpd_sys_rw_content_t or if all you need is append you can label it httpd_sys_ra_content_t.   Please refer to 'man httpd_selinux' for more information on setting up httpd and selinux.\n"
 "    "
-msgstr "\n    SELinux は httpd の $TARGET_PATH への $ACCESS アクセスを阻止しました。\n\n    httpd スクリプトは、全てのファイルの明示的なラベル無しではコンテンツに \n    書き込む許可を持ちません。$TARGET_PATH が書き込み可能なコンテンツである \n    場合、httpd_sys_rw_content_t のラベルが必要となり、追記が必要なだけの場合は、 httpd_sys_ra_content_t のラベルを付けます。httpd と selinux のセットアップに関する 詳細には、'man httpd_selinux' を参照して下さい。\n    "
+msgstr "\nSELinux により $TARGET_PATH への httpd の $ACCESS アクセスが阻止されました。\n\n全ファイルに明示的にラベル付けを行なわない限り、 httpd スクリプトによる\nコンテンツへの書き込みは許可されません。 $TARGET_PATH が書き込み可能な\nコンテンツの場合は、 httpd_sys_rw_content_t のラベルを付ける必要があります。\nまた、 追記が必要なだけの場合は httpd_sys_ra_content_t のラベルを付けることもできます。\nhttpd および selinux の設定方法については、 'man httpd_selinux' を参照してください。\n    "
 
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
@@ -1067,7 +1067,7 @@ msgid ""
 "    SELinux prevented $SOURCE from mounting on the file or directory\n"
 "    \"$TARGET_PATH\" (type \"$TARGET_TYPE\").\n"
 "    "
-msgstr "\n    SELinux は $SOURCE がファイル又はディレクトリー\"$TARGET_PATH\" \n    (タイプ \"$TARGET_TYPE\") にマウントすることを阻止しました。\n     "
+msgstr "\nSELinux により \"$TARGET_PATH\" という名前のファイルまたはディレクトリ \n(タイプ \"$TARGET_TYPE\") での $SOURCE によるマウントが阻止されました。\n     "
 
 #: ../src/mounton.py:34
 msgid ""
@@ -1079,7 +1079,7 @@ msgid ""
 "    type \"$TARGET_TYPE\" does not have this attribute. You can change the \n"
 "    label of the file or directory.\n"
 "    "
-msgstr "\n    SELinux は $SOURCE がタイプ \"$TARGET_TYPE\"の \"$TARGET_PATH\" のファイル、又は\n    ディレクトリー上にファイルシステムをマウントすることを阻止しました。デフォルトでは、\n     SELinux は、一部のファイルやディレクトリー(マウントポイント属性を持つタイプがあるもの)のみへ \n    ファイルシステムのマウントを制限します。タイプ \"$TARGET_TYPE\" は、この属性を持ちません。\n    そのファイル又はディレクトリーのラベルは変更することができます。\n     "
+msgstr "\nタイプが \"$TARGET_TYPE\"、 名前が \"$TARGET_PATH\" のファイルまたはディレクトリ\nでの $SOURCE によるファイルシステムのマウントが SELinux で阻止されました。 \nデフォルトでは、 SELinux はファイルシステムのマウントを特定のファイルや\nディレクトリに限定します (マウントポイント属性を持つタイプのファイルやディレクトリ)。\n\"$TARGET_TYPE\" のタイプにはこの属性がありません。 ファイルやディレクトリの\nラベルを変更することができます。"
 
 #: ../src/mounton.py:43
 msgid ""
@@ -1198,7 +1198,7 @@ msgid ""
 "    change its file context to public_content_t.  If you did not intend to\n"
 "    allow this access, this could signal an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux は $SOURCE に要求された $TARGET_PATH へのアクセスを拒否しました。\n     $TARGET_PATH は別のプログラムによる共有に使用されるコンテキストを持っています。\n     $SOURCE からも $TARGET_PATH を共有したい場合、そのファイルコンテキストを \n    public_content_t に変更する必要があります。このアクセス許可を意図していなかった \n    場合は、これは不正侵入の試みの形跡と言えます。\n    "
+msgstr "\nSELinux で $SOURCE が要求した $TARGET_PATH へのアクセスが拒否されました。\n$TARGET_PATH には、 別のプログラムで共有に使用されるコンテキストがあります。\n$SOURCE からも $TARGET_PATH を共有したい場合、 そのファイルコンテキストを \npublic_content_t に変更する必要があります。 このアクセスを意図的に許可して\nいなかった場合、 不正侵入が行なわれた可能性があります。\n    "
 
 #: ../src/public_content.py:39
 msgid ""
@@ -1206,17 +1206,17 @@ msgid ""
 "    You can alter the file context by executing chcon -t public_content_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr "\n     chcon -t public_content_t '$TARGET_PATH' を実行すると、ファイルコンテキストを 変更することができます。\n    また、完全な再ラベルの後でもそれらを保持するためには、システム上でデフォルトの ファイルコンテキストファイルも変更しなければなりません。 \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n    "
+msgstr "\nchcon -t public_content_t '$TARGET_PATH' を実行すると、 ファイルのコンテキストを\n変更することができます。 また、 完全な再ラベル付けが行なわれた後も変更した\nファイルコンテキストを維持させたい場合には、 システム上でデフォルトのファイル\nコンテキストのファイルも変更する必要があります。 \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"    "
 
 #: ../src/public_content.py:50
 msgid "you want to treat $TARGET_BASE_PATH as public content"
-msgstr "$TARGET_BASE_PATH を公開コンテンツとして取り扱いたいです"
+msgstr "$TARGET_BASE_PATH を公開コンテンツとして処理します"
 
 #: ../src/public_content.py:51
 msgid ""
 "You need to change the label on $TARGET_BASE_PATH to public_content_t or "
 "public_content_rw_t."
-msgstr " $TARGET_BASE_PATH のラベルを public_content_t or public_content_rw_t に変更する必要があります。"
+msgstr "$TARGET_BASE_PATH のラベルを public_content_t または public_content_rw_t に変更する必要があります。"
 
 #: ../src/qemu_blk_image.py:31
 msgid ""
@@ -1253,7 +1253,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux は qemu による $TARGET_PATH へのアクセスを拒否しました。\n    これが 仮想化イメージの場合は、virt_image_t のファイルコンテキストラベルを持つ必要があります。\n    システムは /var/lib/libvirt/images ディレクトリー内で正しくイメージファイルをラベル付けするようにセットアップされています。\nユーザーのイメージファイルを var/lib/libvirt/images にコピーすることをお薦めします。\n     qemu イメージファイルを本当に現在のディレクトリー内に置きたい場合は、chcon を使用して $TARGET_PATH を virt_image_t  に再ラベル付けすることができます。\n    また、semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' も実行して、\n     この新しいパスをシステムデフォルトに追加する必要があります。$TARGET_PATH を qemu イメージとして使用するつもりでなかった場合は、\n     それは、バグを示すか、又は不正侵入の試みを示すことになります。\n    "
+msgstr "\n SELinux により $TARGET_PATH への qemu のアクセスが拒否されました。\nこれが仮想化イメージの場合は、 virt_image_t のファイルコンテキストラベルを持たせる\n必要があります。 システムは /var/lib/libvirt/images ディレクトリ内でイメージファイル\nのラベル付けを行なうよう正しく設定されています。 使用するイメージファイルを \nvar/lib/libvirt/images にコピーすることをお勧めします。 qemu イメージファイルを\nどうしても現在のディレクトリ内に配置する必要がある場合は、 chcon を使用して \n$TARGET_PATH に virt_image_t  のラベルを付け直してください。 また、\nsemanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' を実行して、 この新しいパスを\nシステムのデフォルト設定に追加する必要があります。 $TARGET_PATH を qemu イメージ\nとして使用する意図がなかった場合は、 バグまたは不正侵入の試行を示している可能性があります。"
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
@@ -1266,7 +1266,7 @@ msgid ""
 "    restorecon command.  restorecon '$TARGET_PATH', if this file is a directory,\n"
 "    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
 "    "
-msgstr "\n    restorecon コマンドを実行することにより、このファイルへデフォルトのシステムコンテキストを\n    復元することが出来ます。  restorecon '$TARGET_PATH' もし、このファイルが ディレクトリーであれば、\n    restorecon -R '$TARGET_PATH' を使用して再帰的に復元することが出来ます。\n    "
+msgstr "\nrestorecon コマンドを実行することにより、 このファイルにデフォルトの\nシステムコンテキストを復元することができます (restorecon '$TARGET_PATH')。\nこのファイルがディレクトリの場合には、 restorecon -R '$TARGET_PATH' を\n使用して再帰的に復元することができます。\n    "
 
 #: ../src/restorecon.py:56
 #, python-format
@@ -1296,7 +1296,7 @@ msgid ""
 "    <p>\n"
 "    If you believe this is a bug, please file a bug report against this package.\n"
 "    "
-msgstr "\n    SELinux は $SOURCE により要求されたアクセスを拒否しました。$TARGET_PATH が \n    間違ったラベルを持つ可能性があります。 $TARGET_PATH のデフォルト SELinux タイプは\n    <B>%s</B> ですが、その現在のタイプは <B>$TARGET_TYPE</B> です。 このファイルを\n    デフォルトのタイプに戻すことにより、問題が解決するかも知れません。\n    <p>\n    ファイルコンテキストは以下の方法で １つのファイルに割り当てることが出来ます。\n    <ul>\n        <li>１つのディレクトリー内で作成されたファイルは、デフォルトで親ディレクトリのファイルコンテキストを受け取ります。\n        <li>SELinux ポリシーは、ラベル B と言うディレクトリー内にファイルを 作成するコンテキスト A 内で実行しているプロセスを指定することにより、\n            親ディレクトリーから継承したデフォルトのラベルを上書きして その代わりに、ラベル C を持つファイルを作成するようになります。\n            この例として、dhclient_t タイプで実行していて、ディレクトリー /etc 内に ファイルを作成するような dhcp クライアントがあります。このファイルは、\n            通常、親からの継承の為に etc_t  タイプを受け取りますが、SELinux ポリシーが指定することにより、代わりに net_conf_t タイプでラベルが付けられます。\n        <li>ユーザーは、chcon や restorecon などのツールを使用することで、 ファイル上のファイルコンテキストを変更することができます。\n    </ul>\n    このファイルは、ユーザーエラーか、又は正常に制約されたアプリケーションが 間違ったドメインで実行されたことにより、\n     間違ったラベルが付けられた可能性があります。\n    <p> \n    しかし、ファイルがこのタイプのラベルが付くはずがない為、これは、SELinux 内のバグである\n    可能性があります。\n     <p>\n    これがバグだと思われる場合は、このパッケージに対してバグレポートを作成して下さい。\n    "
+msgstr "\nSELinux により $SOURCE で要求されたアクセスが拒否されました。 $TARGET_PATH \nに誤ったラベルが付けられている可能性があります。 $TARGET_PATH のデフォルトの \nSELinux タイプは <B>%s</B> ですが、 現在のタイプは <B>$TARGET_TYPE</B> になって\nます。 このファイルをデフォルトのタイプに戻すと問題が解決する場合があります。\n<p>\n以下のような方法でファイルコンテキストをファイルに割り当てることができます。\n<ul>\n<li>１つのディレクトリ内で作成された複数のファイルは、 デフォルトで親ディレクトリのファイルコンテキストを受け取ります。\n<li>B のラベルが付いたディレクト内にファイルを作成するコンテキスト A 内で実行しているプロセスを指定することに\nより、 SELinux ポリシーは親ディレクトリから継承したデフォルトのラベルを無効して、 ラベル C を付けてファイルを\n作成するようになります。 この例として、 dhclient_t タイプで実行し、 /etc ディレクトリ内にファイルを作成するような \ndhcp クライアントがあります。 このファイルは、 通常、 親からの継承で etc_t  タイプを受け取りますが、 SELinux \nポリシーによる指定のため net_conf_t タイプのラベルが付けられます。\n<li>ファイルのファイルコンテキストは、 chcon や restorecon などのツールを使用することでユーザーによる変更が\n可能です。</ul>\nこのファイルは、 ユーザーのミス、 または通常は限定されるアプリケーションが間違ったドメインで実行されたことに\nより、 誤ったラベルが付けられた可能性があります。\n<p>\nただし、 このタイプのラベルがこのファイルに付けられることはないため、 SELinux のバグの可能性もあります。\n<p>\nこれがバグだと思われる場合は、 このパッケージに対してバグレポートを作成してください。\n    "
 
 #: ../src/restorecon.py:82
 #, python-format
@@ -1677,7 +1677,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a xen\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux は xen の $TARGET_PATH へのアクセスを拒否しました。\n    これが XEN イメージの場合は、xen_image_t のファイルコンテキストラベルが必要です。\n    システムは /var/lib/xen/image ディレクトリー内で正しくイメージファイルをラベル付けするようにセットアップされています。\n    ユーザーのイメージファイルをこの /var/lib/xen/image ディレクトリーへコピーすることを推奨します。  xen イメージファイルを本当に現在のディレクトリー内に置きたい場合は、chcon  を使用して $TARGET_PATH を xen_image_t  にラベル付け替えをすることができます。\n    また、semanage fcontext -a -t xen_image_t $FIX_TATGET_PATH も実行して、\n     この新しいパスをシステムデフォルトに追加する必要があります。$TARGET_PATH を xen イメージとして使用するつもりでなかった場合は、\n     それは、バグを示すか、又は不正侵入の試みの示す可能性があります。\n    "
+msgstr "\nSELinux により $TARGET_PATH への xen のアクセスが拒否されました。\nこれが XEN イメージの場合は、 xen_image_t のファイルコンテキストラベルを持たせる\n必要があります。 システムは /var/lib/xen/images ディレクトリ内でイメージファイル\nにラベル付けを行なうよう正しく設定されています。 使用するイメージファイルを \n/var/lib/xen/images ディレクトリにコピーすることをお勧めします。 どうしても xen イメージ\nファイルを現在のディレクトリに配置する必要がある場合は、 chcon  を使用して \n$TARGET_PATH に xen_image_t のラベルを付け直してください。 \nまた、 semanage fcontext -a -t xen_image_t '$FIX_TATGET_PATH' を実行して、 この新しい\nパスをシステムのデフォルト設定に追加する必要があります。 $TARGET_PATH を xen イメージ\nとして使用する意図がなかった場合は、 バグまたは不正侵入の試行を示している可能性があります。"
 
 #: ../src/xen_image.py:41
 msgid ""
@@ -1715,13 +1715,13 @@ msgstr "xen が、 nfs ファイルを管理することを、もし許可した
 #: ../booleans_trans.py:11
 msgid ""
 "If you want to allow confined web browsers to read home directory content"
-msgstr "特定のWebブラウザーが、 ホームディレクトリーのコンテンツを読むことを、もし許可したい場合"
+msgstr "ホームディレクトリのコンテンツの読み取りのため限定された web ブラウザを許可する場合"
 
 #: ../booleans_trans.py:13
 msgid ""
 "If you want to allow xguest users to configure Network Manager and connect "
 "to apache ports"
-msgstr "xguest ユーザが、 Network Manager を調整し、apache ポートに接続することを、もし許可したい場合"
+msgstr "xguest ユーザーが、 Network Manager を調整し、apache ポートに接続することを、もし許可したい場合"
 
 #: ../booleans_trans.py:15
 msgid ""
@@ -1731,19 +1731,19 @@ msgstr "ポイントインタイムのリカバリを行なうため postgresql 
 
 #: ../booleans_trans.py:17
 msgid "If you want to allow users to login using a radius server"
-msgstr "ユーザが、 radius サーバを使用してログインすることを、もし許可したい場合"
+msgstr "radius サーバーを使用したログインをユーザーに許可する場合"
 
 #: ../booleans_trans.py:19
 msgid ""
 "If you want to allow tftp to modify public files used for public file "
 "transfer services."
-msgstr "tftp が、共有ファイル転送サービスに使われる共有ファイルを編集することを、もし許可したい場合。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルへの編集を tftp に許可する場合"
 
 #: ../booleans_trans.py:21
 msgid ""
 "If you want to allow ZoneMinder to modify public files used for public file "
 "transfer services."
-msgstr "ZoneMinder が公開ファイル転送サービスのために使用される公開ファイルを変更できるようにしたいならば。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルの変更を ZoneMinder に許可する場合"
 
 #: ../booleans_trans.py:23
 msgid ""
@@ -1761,7 +1761,7 @@ msgstr "ユーザー spamassassin クライアントが、このネットワー�
 msgid ""
 "If you want to allow glusterfsd to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr "パブリックファイル転送サービスに使用するパブリックファイルの変更を glusterfsd に許可する場合、 Files/Directories に public_content_rw_t のラベルを付ける必要があります。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルの変更を glusterfsd に許可する場合、 ファイルおよびディレクトリには public_content_rw_t のラベルを付ける必要があります。"
 
 #: ../booleans_trans.py:29
 msgid "If you want to allow sysadm to debug or ptrace all processes."
@@ -1787,7 +1787,7 @@ msgstr "ユーザーのホームコンテンツの全体的なファイル群に
 msgid ""
 "If you want to allow usage of the gpg-agent --write-env-file option. This "
 "also allows gpg-agent to manage user files."
-msgstr "gpg-agent の --write-env-file オプションを、もし許可したい場合。これは同時に gpg-agent がユーザファイルを管理することを許可します。"
+msgstr "gpg-agent --write-env-file オプションの使用を許可する場合、 同時に gpg-agent によるユーザーファイルの管理も許可することになります。"
 
 #: ../booleans_trans.py:39
 msgid ""
@@ -1803,7 +1803,7 @@ msgstr "TCP ポートのどれかを使用してネットワークへの接続�
 msgid ""
 "If you want to allow unconfined users to transition to the Mozilla plugin "
 "domain when running xulrunner plugin-container."
-msgstr "不特定のユーザが、 xulrunner plugin-container を実行したとき Mozilla プラグインドメインに移行することを、もし許可したい場合。"
+msgstr "不特定のユーザーが、 xulrunner plugin-container を実行したとき Mozilla プラグインドメインに移行することを、もし許可したい場合。"
 
 #: ../booleans_trans.py:45
 msgid "If you want to allow sasl to read shadow"
@@ -1824,7 +1824,7 @@ msgstr "HTTPD スクリプトとモジュールが、ネットワーク経由で
 msgid ""
 "If you want to allow ssh with chroot env to read and write files in the user"
 " home directories"
-msgstr "chroot 環境の SSH がユーザーのホームディレクトリにあるファイルを書き込めるようにしたければ、"
+msgstr "ユーザーのホームディレクトリにあるファイルの読み取りおよび書き込みを chroot 環境による SSH にする場合"
 
 #: ../booleans_trans.py:53
 msgid "If you want to allow the mount command to mount any directory or file."
@@ -1842,7 +1842,7 @@ msgstr "gpg の実行を httpd に許可したい場合"
 msgid ""
 "If you want to allow samba to act as the domain controller, add users, "
 "groups and change passwords."
-msgstr "sambaが、ドメインコントローラとして振る舞い、ユーザや、グループ、パスワードの変更を追加することを許可したい場合、"
+msgstr "ドメインコントローラとしての動作、 ユーザーやグループの追加、 パスワードの変更を samba に許可する場合"
 
 #: ../booleans_trans.py:61
 msgid "If you want to allow ksmtuned to use nfs file systems"
@@ -1907,7 +1907,7 @@ msgstr "クライアントが、 X server 共有メモリセグメントに書�
 
 #: ../booleans_trans.py:87
 msgid "If you want to allow user music sharing"
-msgstr "ユーザーが音楽を共有できるようにしたい場合"
+msgstr "ユーザーに音楽の共有を許可する場合"
 
 #: ../booleans_trans.py:89
 msgid "If you want to allow Puppet client to manage all file types."
@@ -1988,7 +1988,7 @@ msgstr "JIT コンパイラーの使用をウィルス対策プログラムに�
 msgid ""
 "If you want to disallow programs, such as newrole, from transitioning to "
 "administrative user domains."
-msgstr "newrole などのプログラムが、 管理者権限のユーザドメインに移行することを、もし許可にしたくない場合。"
+msgstr "newrole などのプログラムが管理者権限のユーザードメインに移行することを許可しない場合"
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow glusterfsd to share any file/directory read only."
@@ -1996,7 +1996,7 @@ msgstr "いずれのファイルやディレクトリもすべて読み取り専
 
 #: ../booleans_trans.py:125
 msgid "If you want to allow httpd processes to manage IPA content"
-msgstr "httpd プロセスが IPA コンテンツを管理できるようにしたい場合"
+msgstr "httpd プロセスによる IPA コンテンツの管理を許可する場合"
 
 #: ../booleans_trans.py:127
 msgid "If you want to determine whether clamscan can read user content files."
@@ -2009,7 +2009,7 @@ msgstr "セキュリティファイル以外のファイルすべての読み取
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow pppd to be run for a regular user"
-msgstr "pppd が、 通常ユーザのために動作することを、もし許可したい場合"
+msgstr "通常ユーザーに対する pppd の実行を許可する場合"
 
 #: ../booleans_trans.py:133
 msgid "If you want to allow samba to share any file/directory read only."
@@ -2039,7 +2039,7 @@ msgstr "mock がホームディレクトリにあるファイルを読み込め�
 msgid ""
 "If you want to allow user to r/w files on filesystems that do not have "
 "extended attributes (FAT, CDROM, FLOPPY)"
-msgstr "ユーザが、ファイルシステムにファイルを読み書きすることを、もし許可したい場合。これは拡張した属性 (FAT, CDROM, FLOPPY) を含みません。"
+msgstr "拡張属性 (FAT、 CDROM、 FLOPPY) を持たないファイルシステム上にあるファイルの読み取りと書き込みをユーザーに許可する場合"
 
 #: ../booleans_trans.py:145
 msgid ""
@@ -2074,7 +2074,7 @@ msgstr "httpd が、ホームディレクトリを読むことを、もし許可
 msgid ""
 "If you want to allow gpg web domain to modify public files used for public "
 "file transfer services."
-msgstr "gpg web ドメインが、 共有ファイルを編集して、共有ファイル転送サービスを使うことを、もし許可したい場合。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルの編集をgpg web ドメインに許可する場合"
 
 #: ../booleans_trans.py:159
 msgid "If you want to allow rsync to export any files/directories read only."
@@ -2082,13 +2082,13 @@ msgstr "rsync が、 全てのファイルやディレクトリを読み取り�
 
 #: ../booleans_trans.py:161
 msgid "If you want to allow regular users direct dri device access"
-msgstr "通常ユーザが、 dri デバイスに直接アクセスすることを、もし許可したい場合"
+msgstr "dri デバイスへの直接アクセスを通常のユーザーに許可する場合"
 
 #: ../booleans_trans.py:163
 msgid ""
 "If you want to allow nfs servers to modify public files used for public file"
 " transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr "nfs サーバが、共有コンテンツを編集し、共有コンテンツ転送サービスを使用することを、もし許可したい場合。ファイルやディレクトリは public_content_rw_t にラベルされていなければいけません。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルの編集を nfs サーバーに許可する場合、 ファイルやディレクトリには public_content_rw_t のラベルを付ける必要があります。"
 
 #: ../booleans_trans.py:165
 msgid "If you want to allow mysqld to connect to all ports"
@@ -2146,7 +2146,7 @@ msgstr "透過的なプロキシとしての実行を squid に許可するか�
 
 #: ../booleans_trans.py:187
 msgid "If you want to allow users to connect to the local mysql server"
-msgstr "ユーザが、ローカルの mysql サーバに接続することを、もし許可したい場合"
+msgstr "ローカルの mysql サーバーへの接続をユーザーに許可する場合"
 
 #: ../booleans_trans.py:189
 msgid ""
@@ -2196,7 +2196,7 @@ msgstr "Git システムが nfs ファイルシステムにアクセス可能で
 
 #: ../booleans_trans.py:207
 msgid "If you want to unify HTTPD handling of all content files."
-msgstr "HTTPD の全てのコンテンツファイル管理を、もし集約したい場合"
+msgstr "全コンテンツファイルの HTTPD 処理を統一する場合"
 
 #: ../booleans_trans.py:209
 msgid "If you want to allow nsplugin code to connect to unreserved ports"
@@ -2302,7 +2302,7 @@ msgstr "グラフィカルログインプログラムが、 bootloader を実行
 
 #: ../booleans_trans.py:255
 msgid "If you want to allow samba to share users home directories."
-msgstr "samba が、ユーザのホームディレクトリを共有することを、もし許可したい場合。"
+msgstr "samba によるユーザーのホームディレクトリの共有を許可する場合"
 
 #: ../booleans_trans.py:257
 msgid "If you want to allow qemu to connect fully to the network"
@@ -2310,7 +2310,7 @@ msgstr "qemu が、ネットワークに完全に接続することを、もし�
 
 #: ../booleans_trans.py:259
 msgid "If you want to allow users to connect to PostgreSQL"
-msgstr "ユーザが、 PostgreSQL に接続することを、もし許可したい場合。"
+msgstr "PostgreSQL への接続をユーザーに許可する場合"
 
 #: ../booleans_trans.py:261
 msgid ""
@@ -2328,13 +2328,13 @@ msgstr "HTTPD が、 terminal と交信することを、もし許可したい�
 msgid ""
 "If you want to allow apache scripts to write to public content, "
 "directories/files must be labeled public_rw_content_t."
-msgstr "apache スクリプトに公共コンテンツへの書き込みを許可したい場合、ディレクトリ/ファイルは public_rw_content_t のラベルを持つ必要があります。"
+msgstr "apache スクリプトによる公開コンテンツへの書き込みを許可する場合、 ディレクトリおよびファイルんは public_rw_content_t のラベルを付ける必要があります。"
 
 #: ../booleans_trans.py:267
 msgid ""
 "If you want to allow rsync to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr "rsync が、 共有ファイルを編集し、共通ファイル転送サービスを使用することを、もし許可したい場合。ファイルやディレクトリは、 public_contnt_rw_t にラベルされていなければいけません。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルの編集を rsync に許可する場合、 ファイルやディレクトリには public_contnt_rw_t のラベルを付ける必要があります。"
 
 #: ../booleans_trans.py:269
 msgid ""
@@ -2346,7 +2346,7 @@ msgid ""
 "If you want to allow users to run TCP servers (bind to ports and accept "
 "connection from the same domain and outside users)  disabling this forces "
 "FTP passive mode and may change other protocols."
-msgstr "ユーザが、 TCP サーバを実行すること (port を関連付け、同じドメインの外部ユーザの通信を許可すること) を、もし許可したい場合。これを無効にすると、 FTP は強制的に passive モードになります。他のプロトコルも変えてしまうかもしれません。"
+msgstr "ユーザーによる TCP サーバーの実行を許可する場合 (port へのバインドを行い、 同じドメインの外部ユーザーからの通信を許可する)、 これを無効にすると FTP が強制的に passive モードになるため、 他のプロトコルも変更してしまう場合があります。"
 
 #: ../booleans_trans.py:273
 msgid ""
@@ -2416,11 +2416,11 @@ msgstr "特権の無いユーザーに svirt ドメインの作成とそこへ�
 
 #: ../booleans_trans.py:299
 msgid "If you want to allow users to login using a yubikey  server"
-msgstr "yubikeyサーバーを使用したログインをユーザーに許可する場合"
+msgstr "yubikey サーバーを使用したログインをユーザーに許可する場合"
 
 #: ../booleans_trans.py:301
 msgid "If you want to allow a user to login as an unconfined domain"
-msgstr "ユーザが、不特定のドメインとしてログインすることを、もし許可したい場合。"
+msgstr "不特定のドメインとしてのログインをユーザーに許可する場合"
 
 #: ../booleans_trans.py:303
 msgid "If you want to disable kernel module loading."
@@ -2447,7 +2447,7 @@ msgstr "パッシブモード用に未予約の全ポートへのバインドを
 msgid ""
 "If you want to allow samba to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr "samba が、共通ファイルを編集し、共通ファイル転送サービスを使用することを、もし許可したい場合。 ファイル/ディレクトリは public_content_rw_t にラベルされていなければいけません。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルへの編集を samba に許可する場合、 ファイルおよびディレクトリには public_content_rw_t のラベルを付ける必要があります。"
 
 #: ../booleans_trans.py:313
 msgid ""
@@ -2502,7 +2502,7 @@ msgstr "vbetool による低領域の mmap 試行を警告なしにブロック�
 
 #: ../booleans_trans.py:333
 msgid "If you want to allow httpd to read user content"
-msgstr "httpd が、ユーザコンテンツを読むことを、もし許可したい場合。"
+msgstr "ユーザーのコンテンツの読み取りを httpd に許可する場合"
 
 #: ../booleans_trans.py:335
 msgid "If you want to allow httpd to access nfs file systems"
@@ -2528,7 +2528,7 @@ msgstr "特定の仮想ゲストが、 fuse ファイルを読むことを、も
 
 #: ../booleans_trans.py:345
 msgid "If you want to allow spamd to read/write user home directories."
-msgstr "spamd が、ユーザのホームディレクトリを読み書きすることを、もし許可したい場合。"
+msgstr "spamd によるユーザーのホームディレクトリの読み取りおよび書き込みを許可する場合"
 
 #: ../booleans_trans.py:347
 msgid "If you want to determine whether DHCP daemon can use LDAP backends."
@@ -2552,7 +2552,7 @@ msgstr "TCP ポートでのリッスンおよび接続を icecast に許可す�
 
 #: ../booleans_trans.py:355
 msgid "If you want to allow Apache to execute tmp content."
-msgstr "Apache が、 tmp コンテンツを実行することを、もし許可したい場合。"
+msgstr "tmp コンテンツの実行を Apache に許可する場合"
 
 #: ../booleans_trans.py:357
 msgid "If you want to allow zebra daemon to write it configuration files"
@@ -2599,7 +2599,7 @@ msgstr "3ware コントローラでのデバイスのサポートを smartmon �
 msgid ""
 "If you want to allow ABRT to modify public files used for public file "
 "transfer services."
-msgstr "ABRT が、 共有ファイルを編集し、共有ファイル転送サービスを使用することを、もし許可したい場合。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルの編集を ABRT に許可する場合"
 
 #: ../booleans_trans.py:377
 msgid ""
@@ -2690,7 +2690,7 @@ msgstr "システムのセキュリティファイル以外のファイルの読
 msgid ""
 "If you want to determine whether calling user domains can execute Polipo "
 "daemon in the polipo_session_t domain."
-msgstr "ユーザードメインが polipo_session_t ドメインの中で Polipo デーモンを実行できるか判断したい場合、"
+msgstr "ユーザードメインを呼び出したときに polipo_session_t ドメイン内での Polipo デーモンの実行を行なうかどうかを指定する場合"
 
 #: ../booleans_trans.py:411
 msgid "If you want to allow confined applications to run with kerberos."
@@ -2702,7 +2702,7 @@ msgstr "http デーモンが、 spam をチェックすることを、もし許�
 
 #: ../booleans_trans.py:415
 msgid "If you want to allow xguest users to mount removable media"
-msgstr "xguest ユーザが、リムーバブルメディアをマウントすることを、もし許可したい場合。"
+msgstr "xguest ユーザーにリムーバブルメディアのマウントを許可する場合"
 
 #: ../booleans_trans.py:417
 msgid ""
@@ -2758,7 +2758,7 @@ msgstr "メールの送信を Gitosis に許可するかどうかを指定する
 
 #: ../booleans_trans.py:441
 msgid "If you want to allow httpd to connect to memcache server"
-msgstr "https が、 memcache サーバに接続することを、もし許可したい場合。"
+msgstr "memcache サーバーへの接続を httpd に許可する場合"
 
 #: ../booleans_trans.py:443
 msgid ""
@@ -2770,7 +2770,7 @@ msgstr "HTTPD スクリプトとモジュールが、ネットワーク経由で
 msgid ""
 "If you want to allow Apache to modify public files used for public file "
 "transfer services. Directories/Files must be labeled public_content_rw_t."
-msgstr "Apache が、共有ファイルを編集し、共有ファイル転送サービスを使用することを、もし許可したい場合。ディレクトリやフォルダは public_content_rw_t にラベルされていなければいけません。"
+msgstr "パブリックファイル転送サービスに使用するパブリックファイルの編集を Apache に許可する場合、 ディレクトリやフォルダには public_content_rw_t のラベルを付ける必要があります。"
 
 #: ../booleans_trans.py:447
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2786,7 +2786,7 @@ msgstr "TCP を使用したネットワークへの接続を Condor に許可す
 msgid ""
 "If you want to allow users to resolve user passwd entries directly from ldap"
 " rather then using a sssd server"
-msgstr "sssd サーバーの使用ではなく、ldap から直接にユーザーパスワードのエントリの解決をユーザーに許可したい場合"
+msgstr "sssd サーバーを使用しないで ldap から直接、 ユーザーパスワードのエントリの解決をユーザーに許可する場合"
 
 #: ../booleans_trans.py:453
 msgid ""
@@ -2813,7 +2813,7 @@ msgstr "ビデオ再生ツールが制限されずに実行できるようにし
 
 #: ../booleans_trans.py:463
 msgid "If you want to determine whether to support lpd server."
-msgstr "lpd サーバーをサポートするかどうかを指定する場合"
+msgstr "lpd サーバーに対応させるかどうかを指定する場合"
 
 #: ../booleans_trans.py:465
 msgid "If you want to determine whether webadm can manage generic user files."
@@ -2847,7 +2847,7 @@ msgstr "openstack ポートへのアクセスを httpd に許可したい場合"
 msgid ""
 "If you want to allow httpd to act as a FTP server by listening on the ftp "
 "port."
-msgstr "httpd が、 ftp ポートをリッスンし、FTP サーバーとして振る舞うことを、もし許可したい場合。"
+msgstr "ftp ポートをリッスンすることで httpd を FTP サーバーとして動作させることを許可する場合"
 
 #: ../booleans_trans.py:479
 msgid "If you want to allow all daemons to write corefiles to /"
@@ -2910,7 +2910,7 @@ msgstr "全てのファイルやディレクトリが、 NFS 経由で読み取�
 msgid ""
 "If you want to allow system cron jobs to relabel filesystem for restoring "
 "file contexts."
-msgstr "システム cron ジョブが、ファイルシステムを再ラベルし、ファイルコンテンツをリストアすることを、もし許可したい場合"
+msgstr "ファイルのコンテキストを復元するため、 システム cron ジョブによるファイルシステムの再ラベル付けを許可する場合"
 
 #: ../booleans_trans.py:507
 msgid ""

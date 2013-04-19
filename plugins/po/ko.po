@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Eunju Kim <eukim@redhat.com>, 2006, 2007, 2009.
-# Eun-Ju Kim <eukim@redhat.com>, 2012.
-# Hyunsok Oh <hoh@redhat.com>, 2010.
+# eukim <eukim@redhat.com>, 2006-2007,2009
+# eukim <eukim@redhat.com>, 2012
+# Hyunsok Oh <hoh@redhat.com>, 2010,2013
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-06 11:34-0500\n"
-"PO-Revision-Date: 2013-03-06 16:36+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2013-04-12 05:19+0000\n"
+"Last-Translator: eukim <eukim@redhat.com>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/fedora/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -192,7 +192,7 @@ msgid ""
 "    app continues to not work, you can turn the flag back on with\n"
 "    execstack -s LIBRARY_PATH.  \n"
 "    "
-msgstr ""
+msgstr "\n     일부 경우 라이브러리가 실수로 execstack 플래그로 표시될 수 있습니다,\n    이 플래그로 표시된 라이브러리를 발견한 경우 execstack -c LIBRARY_PATH를\n    사용하여 이를 삭제할 수 있습니다.  그 후 애플리케이션을 다시 시도합니다. 애플리케이션이\n    계속하여 작동하지 않을 경우, execstack -s LIBRARY_PATH를 사용하여\n    플래그를 되돌릴 수 있습니다.  \n    "
 
 #: ../src/allow_execstack.py:82
 msgid ""
@@ -342,18 +342,18 @@ msgid ""
 "seinfo -afile_type -x\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\n%s에 파일 유형이 아닌 유형을 배치 시도했습니다.  이는 허용되지 않으므로, 파일 유형을 지정해야 합니다. seinfo 명령을 사용하여 모든 파일 유형을 나열할 수 있습니다.\n\nseinfo -afile_type -x\n\n    "
 
 #: ../src/associate.py:44
 #, python-format
 msgid ""
 "you want to change the label of $TARGET_PATH to %s, you are not allowed to "
 "since it is not a valid file type."
-msgstr ""
+msgstr "$TARGET_PATH to %s 레이블을 변경하고자 해도 이는 유효한 파일 유형이 아니므로 허용되지 않습니다."
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
-msgstr ""
+msgstr "유효한 파일 레이블을 선택해야 합니다."
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -426,7 +426,7 @@ msgstr "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    여기서 PORT_T
 #: ../src/bind_ports.py:56 ../src/connect_ports.py:55
 #, python-format
 msgid "# semanage port -a -t %s -p %s $PORT_NUMBER"
-msgstr ""
+msgstr "# semanage port -a -t %s -p %s $PORT_NUMBER"
 
 #: ../src/catchall_boolean.py:32
 msgid ""
@@ -469,12 +469,12 @@ msgstr "setsebool -P %s %s"
 #: ../src/catchall_boolean.py:66
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean.\n"
-msgstr ""
+msgstr "'%s' 부울을 활성화하여 이에 대해 SELinux에 알려야 합니다.\n"
 
 #: ../src/catchall_boolean.py:69
 #, python-format
 msgid "You can read '%s' man page for more details."
-msgstr ""
+msgstr "보다 자세한 내용은 '%s' man 페이지를 읽어보십시오."
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -602,7 +602,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.  spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux는 $SOURCE에 의해 요청된 액세스를 거부했습니다. 이러한 액세스는\n    $SOURCE에 의해 필요하지 않기 때문에 침입을 시도했다는\n    표시가 나타날 수 있습니다. 애플리케이션의 특정 버전 또는 설정이\n    추가 액세스를 필요로 할 수 있습니다. spice-xpi는 데스크톱에 대한 액세스를\n    필요로 하는 mozilla-plugins에서 애플리케이션을 실행하지만 mozilla_plugin 잠금에서는 이것이 허용되지 않으므로 mozilla_plugin 잠금을 해제하거나 이 패키지 자체를 사용하지 않아야 합니다.\n    "
 
 #: ../src/chrome.py:39
 msgid ""
@@ -611,16 +611,16 @@ msgid ""
 "Or turn off enforcement of SELinux over the Chrome plugins.\n"
 "setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
-msgstr ""
+msgstr "\n'yum remove mozplugger spice-xpi'를 실행하여 mozplugger 또는 spice-xpi 패키지를 제거하거나\nChrome 플러그인을 통해 SELinux의 강제를 비활성화합니다.\nsetsebool -P unconfined_chrome_sandbox_transition 0\n    "
 
 #: ../src/chrome.py:44 ../src/mozplugger.py:44
 #, python-format
 msgid "you want to use the %s package"
-msgstr ""
+msgstr "%s 패키지를 사용하고자 합니다 "
 
 #: ../src/chrome.py:49
 msgid "you must turn off SELinux controls on the Chrome plugins."
-msgstr ""
+msgstr "Chrome 플러그인에서 SELinux 제어를 비활성화해야 합니다."
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -787,7 +787,7 @@ msgid ""
 "home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
-msgstr ""
+msgstr "\n    file_t로 레이블된 파일에서 SELinux 권한 검사는 거부되어 있습니다.\n    file_t는 SELinux 커널이 레이블되지 않는 파일에 부여하는 문맥입니다.\n    이는 심각한 레이블 문제를 표시합니다. SELinux 상자에 있는 파일에서\n    file_t로 레이블된 파일은 없습니다.\n    시스템에 디스크 드라이브를 추가한 경우 restorecon 명령을 사용하여 레이블을 변경할 수 있습니다.\n    예를 들어, SELinux를 사용하지 않는 이전 설치에서 홈 디렉토리를 저장하면 \n'restorecon -R -v /home'는 레이브를 수정할 수 있습니다. 그 외에는 전체 시스템\n    레이블을 변경해야 합니다.\n    "
 
 #: ../src/file.py:42
 msgid ""
@@ -1102,7 +1102,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.  mozplugger and spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux는 $SOURCE에 의해 요청된 액세스를 거부했습니다. 이 액세스는\n    $SOURCE에 의해 필요하지 않으므로 침입을 시도했다는 신호가 나타날 수\n    있습니다. 또한 애플리케이션의 특정 버전이나 설정이 추가 액세스를 필요로\n    할 수 있습니다. mozplugger 및 spice-xpi는 데스크톱으로의 액세스를 필요로\n    하는 mozilla-plugins에서 애플리케이션을 실행하지만 mozilla_plugin 잠금에서는 이를 허용하지 않기 때문에 mozilla_plugin 잠금을 해제하거나 패키지 자체를 사용하지 않도록 해야 합니다.\n    "
 
 #: ../src/mozplugger.py:39
 msgid ""
@@ -1111,11 +1111,11 @@ msgid ""
 "Or turn off enforcement of SELinux over the Firefox plugins.\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
-msgstr ""
+msgstr "\n'yum remove mozplugger spice-xpi'를 실행하여 mozplugger 또는 spice-xpi 패키지를 제거하거나\nFirefox 플러그인을 통해 SELinux 강제를 해제합니다.\nsetsebool -P unconfined_mozilla_plugin_transition 0\n    "
 
 #: ../src/mozplugger.py:49
 msgid "you must turn off SELinux controls on the Firefox plugins."
-msgstr ""
+msgstr "Firefox 플러그인에서 SELinux 제어를 비활성화해야 합니다."
 
 #: ../src/mozplugger_remove.py:31
 msgid ""
@@ -1126,7 +1126,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux는 $SOURCE에 의해 요청된 액세스를 거부했습니다. 이 액세스는\n    $SOURCE에서 필요한 액세스가 아니기 때문에 침입을 시도했다는 신호가\n    표시될 수 있습니다. 애플리케이션의 특정 버전 또는 설정이 추가 액세스를\n    필요로 하는 원인이 될 가능성이 있습니다.\n       "
 
 #: ../src/mozplugger_remove.py:39
 msgid ""
@@ -1135,17 +1135,17 @@ msgid ""
 "Or turn off enforcement of SELinux over the Firefox plugins.\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
-msgstr ""
+msgstr "\n'yum remove mozplugger'를 실행하여 mozplluger 패키지를 제거하거나\nFirefox 플러그인을 통해 SELinux 강제를 비활성화합니다.\nsetsebool -P unconfined_mozilla_plugin_transition 0\n    "
 
 #: ../src/mozplugger_remove.py:44
 msgid ""
 "you want to to continue using SELinux Firefox plugin containment rather then"
 " using mozplugger package"
-msgstr ""
+msgstr "mozplugger 패키지를 사용하지 않고 SELinux Firefox 플러그인의 내용을 계속 사용하고자 합니다 "
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
-msgstr ""
+msgstr "mozplugger 패키지를 제거해야 합니다 "
 
 #: ../src/openvpn.py:35
 msgid ""
@@ -1515,13 +1515,13 @@ msgid ""
 "    Confined domains should not require \"sys_resource\". This usually means that     your system is running out some system resource like disk space, memory, quota etc. Please clear up the disk and this\n"
 "    AVC message should go away. If this AVC continues after you clear up the disk space, please report this as a bug. \n"
 "    "
-msgstr ""
+msgstr "\n    한정된 도메인에는 \"sys_resource\"를 필요로 하지 않습니다. 이는 일반적으로 디스크 공간, 메모리, 쿼터 등과 같은 시스템 리소스가 부족하다는 것을 의미합니다. 디스크 공간을 확보하면\n    AVC 메세지가 표시되지 않을 것입니다. 디스크 공간을 확보하고도 AVC 메세지가 계속하여 표시되는 경우 버그로 보고하십시오. \n    "
 
 #: ../src/sys_resource.py:39
 msgid ""
 "you do not want processes to require capabilities to use up all the system "
 "resources on your system;"
-msgstr ""
+msgstr "시스템의 모든 시스템 리소스를 사용할 수 있는 기능을 필요로 하는 프로세스를 원하지 않습니다:"
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -1562,7 +1562,7 @@ msgid ""
 "/* Allow more than 64hz interrupts from the real-time clock */\n"
 "/* Override max number of consoles on console allocation */\n"
 "/* Override max number of keymaps */\n"
-msgstr ""
+msgstr "시스템에 시스템 리소스가 부족한 이유를 확인하고 문제를 확인해야 합니다. \n\n/usr/include/linux/capability.h에 따르면, 다음과 같은 경우에 sys_resource가 필요합니다:\n\n/* 리소스 제한을 덮어쓰기합니다. 리소스 제한을 설정합니다. */\n/* 쿼터 제한을 덮어쓰기합니다. */\n/* ext2 파일 시스템에 있는 예약된 공간을 덮어쓰기합니다 */\n/* ext3 파일 시스템에서 데이터 저널링 모드를 수정합니다 (저널링 리소스\n   사용) */\n/* 알림: ext2는 리소스를 덮어쓰기 확인할 때 fsuid를 받기때문에 \n   fsuid를 사용해서 덮어쓰기할 수 있습니다 */\n/* IPC 메세지 큐에서 크기 제한을 덮어쓰기합니다 */\n/* 실시간 클럭에서 64hz 인터럽트 이상을 허용합니다 */\n/* 콘솔 할당에서 최대 콘솔 수를 덮어쓰기합니다 */\n/* 최대 키맵 수를 덮어쓰기합니다 */\n/* 리소스 제한을 덮어쓰기합니다. 리소스 제한을 설정합니다. */\n/* 쿼터 제한을 덮어쓰기합니다. */\n/* ext2 파일 시스템에서 예약된 공간을 덮어쓰기합니다 */\n/* ext3 파일 시스템에서 데이터 저널링 모드를 수정합니다 (저널링 리소스\n   사용) */\n/* 알림: ext2는 리소스를 덮어쓰기 확인할 때 fsuid를 받기때문에\n   fsuid를 사용해서 덮어쓰기할 수 있습니다 */\n/* IPC 메세지 큐에서 크기 제한을 덮어쓰기합니다 */\n/* 실시간 클럭에서 64hz 인터럽트 이상을 허용합니다 */\n/* 콘솔 할당에서 최대 콘솔 수를 덮어쓰기합니다  */\n/* 최대 키맵 수를 덮어쓰기합니다 */\n/* 리소스 제한을 덮어쓰기합니다. 리소스 제한을 설정합니다. */\n/* 쿼터 제한을 덮어쓰기합니다.  */\n/* ext2 파일 시스템에서 예약된 공간을 덮어쓰기합니다  */\n/* ext3 파일 시스템에서 데이터 저널링 모드를 수정합니다 (저널링 리소스\n   사용) */\n/* 알림: ext2는 리소스를 덮어쓰기 확인할 때 fsuid를 받기때문에\n   fsuid를 사용해서 덮어쓰기할 수 있습니다*/\n/* IPC 메세지 큐에서 크기 제한을 덮어쓰기합니다  */\n/* 실시간 클럭에서 64hz 인터럽트 이상을 허용합니다 */\n/* 콘솔 할당에서 최대 콘솔 수를 덮어쓰기합니다 */\n/* 최대 키맵 수를 덮어쓰기합니다 */\n"
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -1686,16 +1686,16 @@ msgstr "\n    chcon -t xen_image_t '$TARGET_PATH'를 실행하여 파일 문맥�
 msgid ""
 "If you want to determine whether ftpd can read and write files in user home "
 "directories."
-msgstr ""
+msgstr "ftpd가 사용자 홈 디렉토리에 있는 파일을 읽기 및 쓰기할 수 있는지 여부에 대해 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:3
 msgid "If you want to determine whether privoxy can connect to all tcp ports."
-msgstr ""
+msgstr "privoxy가 모든 tcp 포트에 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:5
 msgid ""
 "If you want to determine whether mpd can traverse user home directories."
-msgstr ""
+msgstr "mpd가 사용자 홈 디렉토리를 통과할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:7
 msgid ""
@@ -1722,7 +1722,7 @@ msgstr "xguest 사용자가 네트워크 관리자를 설정하고 apache 포트
 msgid ""
 "If you want to allow postgresql to use ssh and rsync for point-in-time "
 "recovery"
-msgstr ""
+msgstr "postgresql이 지정 시간 복구를 위해 ssh 및 rsync 사용을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:17
 msgid "If you want to allow users to login using a radius server"
@@ -1756,7 +1756,7 @@ msgstr "사용자 spamassassin 클라이언트가 네트워크를 사용하는 �
 msgid ""
 "If you want to allow glusterfsd to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
+msgstr "glusterfsd가 공용 파일 전송 서비스에 사용되는 공용 파일을 수정하는 것을 허용하고자 하는 경우입니다. 파일/디렉토리는 public_content_rw_t로 레이블해야 합니다."
 
 #: ../booleans_trans.py:29
 msgid "If you want to allow sysadm to debug or ptrace all processes."
@@ -1776,7 +1776,7 @@ msgstr "httpd가 relay로 동작하는 것을 허용하고자 할 경우 "
 msgid ""
 "If you want to determine whether openvpn can read generic user home content "
 "files."
-msgstr ""
+msgstr "openvpn이 일반적인 사용자 홈 컨텐츠 파일을 읽을 수 있을지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:37
 msgid ""
@@ -1792,7 +1792,7 @@ msgstr "Telepathy 연결 관리자가 일반 TCP 포트에 연결하는 것을 �
 
 #: ../booleans_trans.py:41
 msgid "If you want to allow sge to connect to the network using any TCP port"
-msgstr ""
+msgstr "sge가 TCP 포트를 사용하여 네트워크에 연결하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:43
 msgid ""
@@ -1807,7 +1807,7 @@ msgstr "sasl이 shadow를 읽는 것을 허용하고자 할 경우 "
 #: ../booleans_trans.py:47
 msgid ""
 "If you want to allow httpd to communicate with oddjob to start up a service"
-msgstr ""
+msgstr "httpd가 서비스를 시작하기 위해 oddjob와 통신하는 것을 허용하고자 할 경우입니다 "
 
 #: ../booleans_trans.py:49
 msgid ""
@@ -1831,7 +1831,7 @@ msgstr "polipo가 1023 이상의 모든 포트에 연결하는 것을 허용하�
 
 #: ../booleans_trans.py:57
 msgid "If you want to allow httpd to run gpg"
-msgstr ""
+msgstr "gpg를 실행하기 위해 httpd를 허용하고자 하는 경우 "
 
 #: ../booleans_trans.py:59
 msgid ""
@@ -1841,11 +1841,11 @@ msgstr "samba가 도메인 컨트롤러로 동작하고 사용자와 그룹 추�
 
 #: ../booleans_trans.py:61
 msgid "If you want to allow ksmtuned to use nfs file systems"
-msgstr ""
+msgstr "ksmtuned가 nfs 파일 시스템을 사용하는 것을 허용하고자 하는 경우입니다"
 
 #: ../booleans_trans.py:63
 msgid "If you want to allow httpd cgi support"
-msgstr ""
+msgstr "httpd cgi 지원을 허용하고하 하는 경우 "
 
 #: ../booleans_trans.py:65
 msgid "If you want to determine whether polipo can access cifs file systems."
@@ -1853,17 +1853,17 @@ msgstr "polipo가 cifs 파일 시스템을 액세스할 수 있는지 여부를 
 
 #: ../booleans_trans.py:67
 msgid "If you want to allow Apache to query NS records"
-msgstr ""
+msgstr "Apache가 NS 기록을 쿼리하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:69
 msgid ""
 "If you want to determine whether ftpd can use CIFS used for public file "
 "transfer services."
-msgstr ""
+msgstr "ftpd가 공용 파일 전송 서비스에 사용되는 CIFS를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:71
 msgid "If you want to determine whether mcelog can use all the user ttys."
-msgstr ""
+msgstr "mcelog가 모든 사용자 ttys를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:73
 msgid "If you want to allow confined virtual guests to manage nfs files"
@@ -1887,7 +1887,7 @@ msgstr "rgmanager 도메인이 TCP를 사용하여 네트워크에 연결하는 
 #: ../booleans_trans.py:81
 msgid ""
 "If you want to determine whether exim can read generic user content files."
-msgstr ""
+msgstr "exim이 일반적인 사용자 컨텐츠 파일을 읽을 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:83
 msgid ""
@@ -1912,7 +1912,7 @@ msgstr "Puppet 클라이언트가 모든 파일 형식을 관리하는 것을 �
 msgid ""
 "If you want to determine whether entropyd can use audio devices as the "
 "source for the entropy feeds."
-msgstr ""
+msgstr "entropyd가 엔트로피 피드의 소스로서 오디오 장치를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:93
 msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
@@ -1922,13 +1922,13 @@ msgstr "ssh 로그인을 sysadm_r:sysadm_t로 하는 것을 허용하고자 할 
 msgid ""
 "If you want to determine whether Bind can write to master zone files. "
 "Generally this is used for dynamic DNS or zone transfers."
-msgstr ""
+msgstr "Bind가 마스터 영역 파일에 작성할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. 이는 일반적으로 동적 DNS 또는 영역 전송에 사용됩니다."
 
 #: ../booleans_trans.py:97
 msgid ""
 "If you want to determine whether Git system daemon can access cifs file "
 "systems."
-msgstr ""
+msgstr "Git 시스템 데몬이 cifs 파일 시스템을 액세스할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:99
 msgid "If you want to allow unprivileged users to execute DDL statement"
@@ -1938,19 +1938,19 @@ msgstr "권한이 없는 사용자가 DDL 문을 실행할 수 있도록 허용�
 msgid ""
 "If you want to determine whether tor can bind tcp sockets to all unreserved "
 "ports."
-msgstr ""
+msgstr "tor가 예약되지 않은 모든 포트에 tcp 소켓을 바인딩할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:103
 msgid "If you want to determine whether mpd can use nfs file systems."
-msgstr ""
+msgstr "mpd가 nfs 파일 시스템을 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:105
 msgid "If you want to determine whether mcelog can execute scripts."
-msgstr ""
+msgstr "mcelog가 스크립트를 실행할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:107
 msgid "If you want to determine whether cvs can read shadow password files."
-msgstr ""
+msgstr "cvs가 shadow 암호 파일을 읽을 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:109
 msgid "If you want to allow httpd to access cifs file systems"
@@ -1958,7 +1958,7 @@ msgstr "httpd가 cifs 파일 시스템에 액세스하는 것을 허용하고자
 
 #: ../booleans_trans.py:111
 msgid "If you want to determine whether Git CGI can search home directories."
-msgstr ""
+msgstr "Git CGI가 홈디렉토리를 검색할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:113
 msgid "If you want to allow host key based authentication"
@@ -1977,7 +1977,7 @@ msgstr "mail_spool 디렉토리로 postfix_local 도메인의 완전 쓰기 액�
 #: ../booleans_trans.py:119
 msgid ""
 "If you want to determine whether can antivirus programs use JIT compiler."
-msgstr ""
+msgstr "바이러스 백신 프로그램이 JIT 컴파일러를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:121
 msgid ""
@@ -1987,7 +1987,7 @@ msgstr "관리자 권한의 사용자 도메인으로 마이그레이션하는 �
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow glusterfsd to share any file/directory read only."
-msgstr ""
+msgstr "glusterfsd가 모든 파일/디렉토리를 읽기 전용으로 공유하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:125
 msgid "If you want to allow httpd processes to manage IPA content"
@@ -1995,12 +1995,12 @@ msgstr "httpd 프로세스가 IPA 컨텐츠를 관리하는 것을 허용하고�
 
 #: ../booleans_trans.py:127
 msgid "If you want to determine whether clamscan can read user content files."
-msgstr ""
+msgstr "clamscan이 사용자 컨텐트 파일을 읽을 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:129
 msgid ""
 "If you want to determine whether clamscan can read all non-security files."
-msgstr ""
+msgstr "clamscan이 모든 비보안 파일을 읽을 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow pppd to be run for a regular user"
@@ -2014,13 +2014,13 @@ msgstr "samba가 모든 파일/디렉토리를 읽기 전용으로 공유하는 
 msgid ""
 "If you want to determine whether ftpd can connect to databases over the TCP "
 "network."
-msgstr ""
+msgstr "ftpd가 TCP 네트워크를 통해 데이터베이스를 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:137
 msgid ""
 "If you want to determine whether Git system daemon can search home "
 "directories."
-msgstr ""
+msgstr "Git 시스템 데몬이 홈 디렉토리를 검색할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:139
 msgid "If you want to support SAMBA home directories"
@@ -2040,7 +2040,7 @@ msgstr "사용자가 파일 시스템에 있는 확장 속성 (FAT, CDROM, FLOPP
 msgid ""
 "If you want to allow Apache to run in stickshift mode, not transition to "
 "passenger"
-msgstr ""
+msgstr "Apache가 passenger로 전환하지 않고 stickshift 모드에서 실행하는 것을 허용하고자 할 경우입니다 "
 
 #: ../booleans_trans.py:147
 msgid ""
@@ -2051,15 +2051,15 @@ msgstr "samba가 새 홈 디렉토리를 생성하는 것을 허용하고자 할
 msgid ""
 "If you want to determine whether calling user domains can execute Git daemon"
 " in the git_session_t domain."
-msgstr ""
+msgstr "사용자 도메인 호출이 git_session_t 도메인에서 Git 데몬을 실행할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:151
 msgid "If you want to determine whether zabbix can connect to all TCP ports"
-msgstr ""
+msgstr "zabbix가 모든 TCP 포트에 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:153
 msgid "If you want to determine whether fenced can use ssh."
-msgstr ""
+msgstr "fenced가 ssh를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:155
 msgid "If you want to allow httpd to read home directories"
@@ -2110,23 +2110,23 @@ msgstr "dhcpc 클라이언트 애플리케이션이 iptables 명령을 실행하
 
 #: ../booleans_trans.py:175
 msgid "If you want to allow sanlock to read/write fuse files"
-msgstr ""
+msgstr "sanlock이 fuse 파일의 읽기/쓰기를 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:177
 msgid ""
 "If you want to allow rsync server to manage all files/directories on the "
 "system."
-msgstr ""
+msgstr "rsync 서버가 시스템에 있는 모든 파일/디렉토리를 관리하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow user  to use ssh chroot environment."
-msgstr ""
+msgstr "사용자가 ssh chroot 환경을 사용하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:181
 msgid ""
 "If you want to determine whether Cobbler can connect to the network using "
 "TCP."
-msgstr ""
+msgstr "Cobbler가 TCP를 사용하여 네트워크에 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:183
 msgid ""
@@ -2137,7 +2137,7 @@ msgstr "메모리 영역을 실행 및 쓰기 가능하도록 매핑하기 위�
 
 #: ../booleans_trans.py:185
 msgid "If you want to determine whether squid can run as a transparent proxy."
-msgstr ""
+msgstr "squid가 투명 프록시로 실행할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:187
 msgid "If you want to allow users to connect to the local mysql server"
@@ -2147,7 +2147,7 @@ msgstr "사용자가 로컬 mysql 서버로 연결하는 것을 허용하고자 
 msgid ""
 "If you want to determine whether ftpd can login to local users and can read "
 "and write all files on the system, governed by DAC."
-msgstr ""
+msgstr "ftpd가 로컬 사용자로 로그인하여 DAC에 의해 관리되는 시스템의 모든 파일을 읽기 및 쓰기할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:191
 msgid "If you want to allows XServer to execute writable memory"
@@ -2156,23 +2156,23 @@ msgstr "XServer가 쓰기 가능한 메모리를 실행하는 것을 허용하�
 #: ../booleans_trans.py:193
 msgid ""
 "If you want to allow glusterfsd to share any file/directory read/write."
-msgstr ""
+msgstr "glusterfsd가 모든 파일/디렉토리의 읽기/쓰기를 공유하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:195
 msgid ""
 "If you want to boolean to determine whether the system permits loading "
 "policy, setting enforcing mode, and changing boolean values.  Set this to "
 "true and you have to reboot to set it back."
-msgstr ""
+msgstr "시스템 정책 로딩, 강제 모드 설정, 부울 값 변경을 허용할 지에 대한 여부를 지정하기 위해 부울값을 지정하고자 하는 경우입니다. 이를 true로 설정하고 다시 되돌리려면 재부팅해야 합니다."
 
 #: ../booleans_trans.py:197
 msgid ""
 "If you want to allow confined virtual guests to interact with rawip sockets"
-msgstr ""
+msgstr "제한된 가상 게스트가 rawip 소켓과 상호 작용하는 것을 허용하고자 하는 경우입니다"
 
 #: ../booleans_trans.py:199
 msgid "If you want to determine whether dbadm can manage generic user files."
-msgstr ""
+msgstr "dbadm이 일반적인 사용자 파일을 관리할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:201
 msgid ""
@@ -2181,13 +2181,13 @@ msgstr "지정된 가상 게스트가 xserver와 통신하는 것을 허용하�
 
 #: ../booleans_trans.py:203
 msgid "If you want to allow all domains to execute in fips_mode"
-msgstr ""
+msgstr "모든 도메인이 fips_mode에서 실행하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:205
 msgid ""
 "If you want to determine whether Git system daemon can access nfs file "
 "systems."
-msgstr ""
+msgstr "Git 시스템 데몬이 nfs 파일 시스템을 액세스할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:207
 msgid "If you want to unify HTTPD handling of all content files."
@@ -2199,17 +2199,17 @@ msgstr "nsplugin 코드가 예약되지 않은 포트에 연결하는 것을 허
 
 #: ../booleans_trans.py:211
 msgid "If you want to determine whether amavis can use JIT compiler."
-msgstr ""
+msgstr "amavis가 JIT 컴파일러를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:213
 msgid "If you want to determine whether java can make its stack executable."
-msgstr ""
+msgstr "java가 스택을 실행할 수 있게 할 지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:215
 msgid ""
 "If you want to determine whether irc clients can listen on and connect to "
 "any unreserved TCP ports."
-msgstr ""
+msgstr "irc 클라이언트가 모든 예약되지 않은 TCP 포트로 연결 및 청취할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:217
 msgid "If you want to allow database admins to execute DML statement"
@@ -2227,7 +2227,7 @@ msgstr "Apache가 mod_auth_pam을 사용하는 것을 허용하고자 할 경우
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to the network "
 "using TCP."
-msgstr ""
+msgstr "HTTPD 스크립트 및 모듈이 TCP를 사용하여 네트워크에 연결하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:225
 msgid "If you want to allow qemu to use usb devices"
@@ -2235,30 +2235,30 @@ msgstr "qemu가 usb 장치를 사용하는 것을 허용하고자 할 경우 "
 
 #: ../booleans_trans.py:227
 msgid "If you want to determine whether exim can connect to databases."
-msgstr ""
+msgstr "exim이 데이터베이스에 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:229
 msgid "If you want to determine whether Git CGI can access nfs file systems."
-msgstr ""
+msgstr "Git CGI가 nfs 파일 시스템을 액세스할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:231
 msgid ""
 "If you want to determine whether varnishd can use the full TCP network."
-msgstr ""
+msgstr "varnishd가 전체 TCP 네트워크를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:233
 msgid ""
 "If you want to allow tftp to read and write files in the user home "
 "directories"
-msgstr ""
+msgstr "tftp가 사용자 홈 디렉토리에 있는 파일을 읽기 및 쓰기 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:235
 msgid "If you want to support ecryptfs home directories"
-msgstr ""
+msgstr "ecryptfs 홈 디렉토리를 지원하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:237
 msgid "If you want to allow samba to act as a portmapper"
-msgstr ""
+msgstr "samba가 portmapper로 작동하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:239
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
@@ -2266,7 +2266,7 @@ msgstr "httpd 스크립트와 모듈에 execmem/execstack을 허용하고자 할
 
 #: ../booleans_trans.py:241
 msgid "If you want to allow httpd to access FUSE file systems"
-msgstr ""
+msgstr "httpd가 FUSE 파일 시스템을 액세스하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:243
 msgid "If you want to allow httpd to connect to the ldap port"
@@ -2280,7 +2280,7 @@ msgstr "polyinstantiated 디렉토리 지원을 활성화하고자 하는 경우
 msgid ""
 "If you want to allow cluster administrative cluster domains memcheck-amd64- "
 "to use executable memory"
-msgstr ""
+msgstr "실행 가능한 메모리를 사용하기 위해 클러스터 관리 클러스터 도메인 memcheck-amd64-를 허용하고자 하는 경우 "
 
 #: ../booleans_trans.py:249
 msgid ""
@@ -2323,7 +2323,7 @@ msgstr "터미널과 통신하기 위해 HTTPD를 통합하고자 할 경우. �
 msgid ""
 "If you want to allow apache scripts to write to public content, "
 "directories/files must be labeled public_rw_content_t."
-msgstr ""
+msgstr "apache 스크립트가 공용 컨텐츠에 쓰기하는 것을 허용하고자 하는 경우입니다, 디렉토리/파일은 public_rw_content_t로 레이블해야 합니다."
 
 #: ../booleans_trans.py:267
 msgid ""
@@ -2334,7 +2334,7 @@ msgstr "rsync가 공유 파일 전송 서비스에 사용된 공류 파일을 �
 #: ../booleans_trans.py:269
 msgid ""
 "If you want to determine whether mplayer can make its stack executable."
-msgstr ""
+msgstr "mplayer가 스택을 실행가능하게 할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:271
 msgid ""
@@ -2353,7 +2353,7 @@ msgstr "xend가 qemu-dm을 실행할 수 있도록 허용하고자 할 경우. v
 msgid ""
 "If you want to determine whether sftpd-can read and write files in user home"
 " directories."
-msgstr ""
+msgstr "sftpd-can가 사용자 홈 디렉토리에 있는 파일을 읽기 및 쓰기할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:277
 msgid "If you want to support fusefs home directories"
@@ -2383,7 +2383,7 @@ msgstr "지정된 애플리케이션이 nscd 공유 메모리를 사용할 수 �
 msgid ""
 "If you want to determine whether attempts by wine to mmap low regions should"
 " be silently blocked."
-msgstr ""
+msgstr "낮은 영역을 mmap하기 위해 wine 시도를 경고없이 차단할지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:289
 msgid "If you want to allow racoon to read shadow"
@@ -2397,7 +2397,7 @@ msgstr "Puppet 마스터가 MySQL 및 PostgreSQL 데이터베이스로의 연결
 
 #: ../booleans_trans.py:293
 msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
-msgstr ""
+msgstr "HTTPD가 안전하게 종료하기 위해 포트 80으로의 연결을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:295
 msgid "If you want to allow system to run with NIS"
@@ -2407,11 +2407,11 @@ msgstr "시스템이 NIS로 실행하는 것을 허용하고자 할 경우 "
 msgid ""
 "If you want to allow unprivledged user to create and transition to svirt "
 "domains."
-msgstr ""
+msgstr "권한이 없는 사용자가 svirt 도메인으로 전환 및 생성하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:299
 msgid "If you want to allow users to login using a yubikey  server"
-msgstr ""
+msgstr "사용자가 yubikey 서버를 사용하여 로그인하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:301
 msgid "If you want to allow a user to login as an unconfined domain"
@@ -2419,12 +2419,12 @@ msgstr "사용자가 지정되지 않은 도메인으로 로그인하는 것을 
 
 #: ../booleans_trans.py:303
 msgid "If you want to disable kernel module loading."
-msgstr ""
+msgstr "커널 모듈 로딩을 비활성화하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:305
 msgid ""
 "If you want to allow pacemaker memcheck-amd64- to use executable memory"
-msgstr ""
+msgstr "pacemaker memcheck-amd64-가 실행 가능한 메모리를 사용하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:307
 msgid ""
@@ -2436,7 +2436,7 @@ msgstr "httpd가 ftp 포트와 임시 포트에 연결하여 FTP 클라이언트
 msgid ""
 "If you want to determine whether ftpd can bind to all unreserved ports for "
 "passive mode."
-msgstr ""
+msgstr "ftpd가 수동 모드의 예약되지 않은 모든 포트를 바인딩할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:311
 msgid ""
@@ -2452,11 +2452,11 @@ msgstr "gssd가 temp 디렉토리 읽는 것을 허용하고자 할 경우. kerb
 
 #: ../booleans_trans.py:315
 msgid "If you want to determine whether Cobbler can access nfs file systems."
-msgstr ""
+msgstr "Cobbler가 nfs 파일 시스템을 액세스할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:317
 msgid "If you want to allow tor to act as a relay"
-msgstr ""
+msgstr "tor가 릴레이로 작동하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:319
 msgid ""
@@ -2483,7 +2483,7 @@ msgstr "지정된 가상 게스트가 실행 가능한 메모리와 실행 스�
 
 #: ../booleans_trans.py:327
 msgid "If you want to determine whether webadm can read generic user files."
-msgstr ""
+msgstr "webadm이 일반적인 사용자 파일을 읽을 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:329
 msgid "If you want to support X userspace object manager"
@@ -2493,7 +2493,7 @@ msgstr "X 사용자 공간 객체 관리자를 지원하고자 할 경우 "
 msgid ""
 "If you want to determine whether attempts by vbetool to mmap low regions "
 "should be silently blocked."
-msgstr ""
+msgstr "낮은 영역을 mmap하기 위해 vbetool 시도를 경고없이 차단할 지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:333
 msgid "If you want to allow httpd to read user content"
@@ -2527,11 +2527,11 @@ msgstr "spamd가 사용자 홈 디렉토리를 읽기/쓰기할 수 있도록 �
 
 #: ../booleans_trans.py:347
 msgid "If you want to determine whether DHCP daemon can use LDAP backends."
-msgstr ""
+msgstr "DHCP 데몬이 LDAP 백엔드를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:349
 msgid "If you want to determine whether Git CGI can access cifs file systems."
-msgstr ""
+msgstr "Git CGI가 cifs 파일 시스템을 액세스할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:351
 msgid ""
@@ -2543,7 +2543,7 @@ msgstr "파일/디렉토리가 NFS를 통해 읽기/쓰기하는 것을 허용�
 msgid ""
 "If you want to determine whether icecast can listen on and connect to any "
 "TCP port."
-msgstr ""
+msgstr "icecast가 모든 TCP 포트에 연결하여 청취할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:355
 msgid "If you want to allow Apache to execute tmp content."
@@ -2559,7 +2559,7 @@ msgstr "qemu가 cifs/Samba 파일 시스템을 사용하는 것을 허용하고�
 
 #: ../booleans_trans.py:361
 msgid "If you want to allow ksmtuned to use cifs/Samba file systems"
-msgstr ""
+msgstr "ksmtuned가 cifs/Samba 파일 시스템을 사용하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:363
 msgid ""
@@ -2570,11 +2570,11 @@ msgstr "xend가 blktapctrl/tapdisk를 실행하는 것을 허용하고자 하는
 #: ../booleans_trans.py:365
 msgid ""
 "If you want to determine whether fenced can connect to the TCP network."
-msgstr ""
+msgstr "fenced가 TCP 네트워크에 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:367
 msgid "If you want to allow sanlock to manage nfs files"
-msgstr ""
+msgstr "sanlock이 nfs 파일을 관리하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:369
 msgid "If you want to allow all domains to have the kernel load modules"
@@ -2588,7 +2588,7 @@ msgstr "지정된 가상 게스트가 usb 장치를 사용하는 것을 허용�
 msgid ""
 "If you want to determine whether smartmon can support devices on 3ware "
 "controllers."
-msgstr ""
+msgstr "smartmon이 3ware 컨트롤러에 있는 장치를 지원할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:375
 msgid ""
@@ -2600,7 +2600,7 @@ msgstr "ABRT가 공유 파일 전송 서비스에 사용될 공유 파일을 수
 msgid ""
 "If you want to allow cluster administrative domains to connect to the "
 "network using TCP."
-msgstr ""
+msgstr "클러스터 관리 도메인이 TCP를 사용하여 네트워크에 연결하는 것을 허용하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:379
 msgid "If you want to allow http daemon to send mail"
@@ -2613,13 +2613,13 @@ msgstr "samba가 ntfs/fusefs 볼륨을 내보내기하는 것을 허용하고자
 #: ../booleans_trans.py:383
 msgid ""
 "If you want to allow staff user to create and transition to svirt domains."
-msgstr ""
+msgstr "staff 사용자에게 svirt 도메인을 생성하고 전환하는 것을 허용하고자 할 경우입니다."
 
 #: ../booleans_trans.py:385
 msgid ""
 "If you want to allow mozilla plugin domain to connect to the network using "
 "TCP."
-msgstr ""
+msgstr "mozilla 플러그인 도메인이 TCP를 사용하여 네트워크에 연결하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:387
 msgid "If you want to allow httpd to use built in scripting (usually php)"
@@ -2629,31 +2629,31 @@ msgstr "httpd가 내장된 스크립트 (일반적으로 php)를 사용하는 �
 msgid ""
 "If you want to allow confined users the ability to execute the ping and "
 "traceroute commands."
-msgstr ""
+msgstr "제한된 사용자에게 ping 및 traceroute 명령을 실행하기 위한 기능을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:391
 msgid ""
 "If you want to determine whether exim can create, read, write, and delete "
 "generic user content files."
-msgstr ""
+msgstr "exim이 일반적인 사용자 컨텐츠 파일을 생성, 읽기, 쓰기, 삭제할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:393
 msgid ""
 "If you want to allow cluster administrative domains to manage all files on a"
 " system."
-msgstr ""
+msgstr "클러스터 관리 도메인이 시스템에 있는 모든 파일을 관리 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:395
 msgid ""
 "If you want to determine whether cdrecord can read various content. nfs, "
 "samba, removable devices, user temp and untrusted content files"
-msgstr ""
+msgstr "cdrecord가  nfs, samba, 이동식 장치, 사용자 temp 및 신뢰할 수 없는 컨텐츠 파일과 같은 다양한 컨텐츠를 읽을 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:397
 msgid ""
 "If you want to determine whether Cobbler can modify public files used for "
 "public file transfer services."
-msgstr ""
+msgstr "Cobbler가 공용 파일 전송 서비스에 사용되는 공용 파일을 변경할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:399
 msgid "If you want to allow samba to export NFS volumes."
@@ -2667,19 +2667,19 @@ msgstr "주소 공간의 낮은 영역을 mmap하려는 기능을 제어하려�
 
 #: ../booleans_trans.py:403
 msgid "If you want to determine whether dbadm can read generic user files."
-msgstr ""
+msgstr "dbadm이 일반적인 사용자 파일을 읽을 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:405
 msgid ""
 "If you want to determine whether ftpd can use NFS used for public file "
 "transfer services."
-msgstr ""
+msgstr "ftpd가 공용 파일 전송 서비스에 사용되는 NFS를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:407
 msgid ""
 "If you want to allow antivirus programs to read non security files on a "
 "system"
-msgstr ""
+msgstr "바이러스 백신 프로그램이 시스템 상의 비보안 파일을 읽는 것을 허용하고자 하는 경우입니다"
 
 #: ../booleans_trans.py:409
 msgid ""
@@ -2703,12 +2703,12 @@ msgstr "xguest 사용자가 이동식 매체를 마운트하는 것을 허용하
 msgid ""
 "If you want to determine whether sftpd-can login to local users and read and"
 " write all files on the system, governed by DAC."
-msgstr ""
+msgstr "sftpd가 로컬 사용자에게 로그인하여 DAC에 의해 관리되는 시스템에 있는 모든 파일을 읽기 및 쓰기할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:419
 msgid ""
 "If you want to determine whether Bind can bind tcp socket to http ports."
-msgstr ""
+msgstr "Bind가 http 포트에 tcp 소켓을 바인딩할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:421
 msgid "If you want to allow syslogd the ability to read/write terminals"
@@ -2736,20 +2736,20 @@ msgstr "모든 도메인의 urandom을 읽는 것을 활성화하고자 할 경�
 
 #: ../booleans_trans.py:433
 msgid "If you want to allow xguest to use blue tooth devices"
-msgstr ""
+msgstr "xguest가 Bluetooth 장치를 사용하는 것을 허용하고자 하는 경우입니다 "
 
 #: ../booleans_trans.py:435
 msgid "If you want to determine whether mpd can use cifs file systems."
-msgstr ""
+msgstr "mpd가 cifs 파일 시스템을 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:437
 msgid ""
 "If you want to determine whether ftpd can connect to all unreserved ports."
-msgstr ""
+msgstr "ftpd가 모든 예약되지 않은 포트에 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:439
 msgid "If you want to determine whether Gitosis can send mail."
-msgstr ""
+msgstr "Gitosis가 메일을 전송할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:441
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2775,32 +2775,32 @@ msgstr "모든 데문이 터미널을 읽고 쓰기할 수 있는 기능을 허�
 msgid ""
 "If you want to determine whether Condor can connect to the network using "
 "TCP."
-msgstr ""
+msgstr "Condor가 TCP를 사용하여 네트워크에 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:451
 msgid ""
 "If you want to allow users to resolve user passwd entries directly from ldap"
 " rather then using a sssd server"
-msgstr ""
+msgstr "sssd 서버를 사용하는 대신 사용자가 ldap에서 직접 사용자 암호 항목을 해결하는 것을 허용하고자 하는 경우 "
 
 #: ../booleans_trans.py:453
 msgid ""
 "If you want to determine whether ftpd can modify public files used for "
 "public file transfer services. Directories/Files must be labeled "
 "public_content_rw_t."
-msgstr ""
+msgstr "ftpd가 공용 파일 전송 서비스에 사용되는 공용 파일을 변경할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다. 디렉토리/파일은 public_content_rw_t로 레이블해야 합니다."
 
 #: ../booleans_trans.py:455
 msgid "If you want to allow sanlock to manage cifs files"
-msgstr ""
+msgstr "sanlock이 cifs 파일을 관리 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:457
 msgid "If you want to determine whether awstats can purge httpd log files."
-msgstr ""
+msgstr "awstats가 httpd 로그 파일을 제거할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:459
 msgid "If you want to determine whether portage can use nfs filesystems."
-msgstr ""
+msgstr "portage가 nfs 파일 시스템을 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:461
 msgid "If you want to allow video playing tools to run unconfined"
@@ -2808,21 +2808,21 @@ msgstr "비디오 재생 도구가 제한없이 실행할 수 있도록 허용�
 
 #: ../booleans_trans.py:463
 msgid "If you want to determine whether to support lpd server."
-msgstr ""
+msgstr "lpd 서버를 지원할 지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:465
 msgid "If you want to determine whether webadm can manage generic user files."
-msgstr ""
+msgstr "webadm이 일반적인 사용자 파일을 관리할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:467
 msgid "If you want to determine whether can clamd use JIT compiler."
-msgstr ""
+msgstr "clamd JIT 컴파일러를 사용할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:469
 msgid ""
 "If you want to determine whether Git session daemon can bind TCP sockets to "
 "all unreserved ports."
-msgstr ""
+msgstr "Git 세션 데몬이 예약되지 않은 모든 포트로 TCP 소켓을 바인딩할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:471
 msgid ""
@@ -2836,7 +2836,7 @@ msgstr "samba가 모든 쓰기/읽기 가능한 파일/디렉토리를 공유하
 
 #: ../booleans_trans.py:475
 msgid "If you want to allow httpd to access openstack ports"
-msgstr ""
+msgstr "httpd가 openstack 포트에 액세스를 허용하고자 하는 경우입ㄴ다."
 
 #: ../booleans_trans.py:477
 msgid ""
@@ -2856,7 +2856,7 @@ msgstr "fcron을 지원하기 위해 cron 데몬에 있는 추가 규칙을 활�
 msgid ""
 "If you want to determine whether sftpd can read and write files in user ssh "
 "home directories."
-msgstr ""
+msgstr "sftpd가 사용자 ssh 홈 디렉토리에 있는 파일을 읽기 및 쓰기할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:485
 msgid "If you want to allow http daemon to connect to zabbix"
@@ -2864,29 +2864,29 @@ msgstr "http 데몬이 zabbix로의 연결을 허용하고자 할 경우  "
 
 #: ../booleans_trans.py:487
 msgid "If you want to allow transmit client label to foreign database"
-msgstr ""
+msgstr "외부 데이터에 클라이언트 레이블 전송을 허용하고자 하는 경우 "
 
 #: ../booleans_trans.py:489
 msgid ""
 "If you want to determine whether collectd can connect to the network using "
 "TCP."
-msgstr ""
+msgstr "collectd가 TCP를 사용하여 네트워크를 연결할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:491
 msgid "If you want to determine whether Cobbler can access cifs file systems."
-msgstr ""
+msgstr "Cobbler가 cifs 파일 시스템을 액세스할 수 있는지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:493
 msgid "If you want to determine whether mcelog supports server mode."
-msgstr ""
+msgstr "mcelog가 서버 모드를 지원하는지에 대한 여부를 지정하고자 하는 경우입니다. "
 
 #: ../booleans_trans.py:495
 msgid "If you want to allow httpd daemon to change its resource limits"
-msgstr ""
+msgstr "httpd 데몬이 리소스 제한을 변경하는 것을 허용하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:497
 msgid "If you want to determine whether squid can connect to all TCP ports."
-msgstr ""
+msgstr "squid가 모든 TCP 포트에 연결할 수 있을지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:499
 msgid "If you want to allow all domains to use other domains file descriptors"
@@ -2894,7 +2894,7 @@ msgstr "모든 도메인이 다른 도메인 파일 서술자 사용을 허용�
 
 #: ../booleans_trans.py:501
 msgid "If you want to determine whether mcelog supports client mode."
-msgstr ""
+msgstr "mcelog가 클라이언트 모드를 지원할 지에 대한 여부를 지정하고자 하는 경우입니다."
 
 #: ../booleans_trans.py:503
 msgid ""
@@ -2912,4 +2912,4 @@ msgid ""
 "If you want to determine whether sftpd can modify public files used for "
 "public file transfer services. Directories/Files must be labeled "
 "public_content_rw_t."
-msgstr ""
+msgstr "sftpd가 공용 파일 전송 서비스에 사용되는 공용 파일을 변경할 수 있을 지에 대한 여부를 지정하고자 하는 경우입니다. 디렉토리/파일은 public_content_rw_t로 레이블해야 합니다."

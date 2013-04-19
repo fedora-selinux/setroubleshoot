@@ -3,18 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Francesco Tombolini <tombo@adamantio.net>, 2006, 2007, 2008, 2009.
-# Gianluca Busiello <busiello@ceinge.unina.it>, 2008.
-# Mario Santagiuliana <fedora at marionline.it>, 2012.
-# silvio pierro <perplesso82@gmail.com>, 2012.
-# Silvio Pierro <perplesso82@gmail.com>, 2012.
+# Francesco Tombolini <tombo@adamantio.net>, 2006, 2007, 2008, 2009
+# fvalen <fvalen@redhat.com>, 2013
+# Gianluca Busiello <busiello@ceinge.unina.it>, 2008
+# Mario Santagiuliana <fedora at marionline.it>, 2012
+# Silvio Pierro <perplesso82@gmail.com>, 2012
+# Silvio Pierro <perplesso82@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-06 11:34-0500\n"
-"PO-Revision-Date: 2013-03-06 16:36+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2013-04-10 05:09+0000\n"
+"Last-Translator: fvalen <fvalen@redhat.com>\n"
 "Language-Team: Italian <trans-it@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -194,7 +195,7 @@ msgid ""
 "    app continues to not work, you can turn the flag back on with\n"
 "    execstack -s LIBRARY_PATH.  \n"
 "    "
-msgstr ""
+msgstr "\n    Talvolta una libreria è accidentalmente contrassegnata con il flag\n    execstack, in presenza di una libreria con il suddetto flag\n    usare execstack -c LIBRARY_PATH per la sua rimozione.  Quindi riavviare l'applicazione.\n    Se l'applicazione continua a non funzionare è possibile ripristinare il\n    flag con execstack -s LIBRARY_PATH. ⏎\n    \n    "
 
 #: ../src/allow_execstack.py:82
 msgid ""
@@ -344,18 +345,18 @@ msgid ""
 "seinfo -afile_type -x\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\nHai provato ad usare su %s una tipologia che non corrisponde ad un file. Questa operazione non è permessa, assegnare un tipo di file valido. Elencare tutti i tipi di file usando il comando seinfo.⏎\n⏎\nseinfo -afile_type -x⏎\n⏎\n\n    "
 
 #: ../src/associate.py:44
 #, python-format
 msgid ""
 "you want to change the label of $TARGET_PATH to %s, you are not allowed to "
 "since it is not a valid file type."
-msgstr ""
+msgstr "desideri modificare l'etichetta di $TARGET_PATH in %s; non è possibile eseguire questa operazione perchè non è un tipo di file valido."
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
-msgstr ""
+msgstr "selezionare una etichetta del file valida."
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -428,7 +429,7 @@ msgstr "# semanage port -a -t TIPO_PORTA -p %s $PORT_NUMBER\n    dove TIPO_PORTA
 #: ../src/bind_ports.py:56 ../src/connect_ports.py:55
 #, python-format
 msgid "# semanage port -a -t %s -p %s $PORT_NUMBER"
-msgstr ""
+msgstr "# semanage port -a -t %s -p %s $PORT_NUMBER"
 
 #: ../src/catchall_boolean.py:32
 msgid ""
@@ -471,12 +472,12 @@ msgstr "setsebool -P %s %s"
 #: ../src/catchall_boolean.py:66
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean.\n"
-msgstr ""
+msgstr "È necessario informare SELinux abilitando il booleano '%s' .\n"
 
 #: ../src/catchall_boolean.py:69
 #, python-format
 msgid "You can read '%s' man page for more details."
-msgstr ""
+msgstr "Per maggiori informazioni consultare le pagina man di '%s'."
 
 #: ../src/catchall_labels.py:28
 #, python-format
@@ -604,7 +605,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.  spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
-msgstr ""
+msgstr "\n    \n    "
 
 #: ../src/chrome.py:39
 msgid ""
@@ -613,12 +614,12 @@ msgid ""
 "Or turn off enforcement of SELinux over the Chrome plugins.\n"
 "setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
-msgstr ""
+msgstr "\nRimuovere il pacchetto mozplluger o spice-xpi eseguendo 'yum remove mozplugger spice-xpi'⏎\nOppure disabilitare l'implementazione di SELinux sui plugin di Chrome.\nsetsebool -P unconfined_chrome_sandbox_transition 0⏎\n    "
 
 #: ../src/chrome.py:44 ../src/mozplugger.py:44
 #, python-format
 msgid "you want to use the %s package"
-msgstr ""
+msgstr "usare il pacchetto %s"
 
 #: ../src/chrome.py:49
 msgid "you must turn off SELinux controls on the Chrome plugins."
@@ -789,7 +790,7 @@ msgid ""
 "home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
-msgstr ""
+msgstr "\n    I controlli dei permessi di SELinux sui file etichettati file_t sono stati negati. file_t è il contesto che il kernel SELinux conferisce ai file che non possiedono un'etichetta. Ciò potrebbe indicare un serio problema riguardo l'etichettatura. Nessun file di SELinux dovrebbe essere etichettato file_t. Se è stata appena aggiunta una unità disco al sistema, è possibile rietichettarla utilizzando il comando restorecon. Per esempio se la home directory è stata salvata da una installazione precedente la quale non utilizzava SELinux, 'restorecon -R -v /home' correggerà le etichette. In caso contrario si può rietichettare l'intero file system. \n    "
 
 #: ../src/file.py:42
 msgid ""
@@ -1117,7 +1118,7 @@ msgstr ""
 
 #: ../src/mozplugger.py:49
 msgid "you must turn off SELinux controls on the Firefox plugins."
-msgstr ""
+msgstr "disabilitare i controlli SELinux sui plugin di Firefox."
 
 #: ../src/mozplugger_remove.py:31
 msgid ""
@@ -1128,7 +1129,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux ha negato l'accesso richiesto da $SOURCE. Non è previsto\n    che questo accesso venga richiesto da $SOURCE e tale operazione può\n    segnalare un tentativo di intrusione.  È anche possibile che questo sia\n    provocato dalla specifica versione o dalla configurazione dell'applicazione\n    per richiedere un ulteriore accesso.\n\n    "
 
 #: ../src/mozplugger_remove.py:39
 msgid ""
@@ -1137,17 +1138,17 @@ msgid ""
 "Or turn off enforcement of SELinux over the Firefox plugins.\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
-msgstr ""
+msgstr "\nRimuovere il pacchetto mozplluger eseguendo 'yum remove mozplugger'\nOppure disabilitare l'implementazione di SELinux sui plugin di Firefox.\nsetsebool -P unconfined_mozilla_plugin_transition 0\n    "
 
 #: ../src/mozplugger_remove.py:44
 msgid ""
 "you want to to continue using SELinux Firefox plugin containment rather then"
 " using mozplugger package"
-msgstr ""
+msgstr "continuare ad usare un plugin containment Firefox SELinux al posto del pacchetto mozplugger"
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
-msgstr ""
+msgstr "rimuovere il pacchettp mozplugger."
 
 #: ../src/openvpn.py:35
 msgid ""
@@ -1794,7 +1795,7 @@ msgstr "Se si desidera consentire ai gestori di connessioni Telepathy di connett
 
 #: ../booleans_trans.py:41
 msgid "If you want to allow sge to connect to the network using any TCP port"
-msgstr ""
+msgstr "Se si desidera permettere a sge di collegarsi alla rete usando qualsiasi porta TCP"
 
 #: ../booleans_trans.py:43
 msgid ""
@@ -1809,7 +1810,7 @@ msgstr "Se si desidera consentire a sasl la lettura shadow"
 #: ../booleans_trans.py:47
 msgid ""
 "If you want to allow httpd to communicate with oddjob to start up a service"
-msgstr ""
+msgstr "Se si desidera permettere a httpd di comunicare con oddjob per avviare un servizio"
 
 #: ../booleans_trans.py:49
 msgid ""
@@ -1833,7 +1834,7 @@ msgstr "Se si desidera consentire a polipo di connettersi a tutte le porte > 102
 
 #: ../booleans_trans.py:57
 msgid "If you want to allow httpd to run gpg"
-msgstr ""
+msgstr "Se si desidera permettere a http di eseguire gpg"
 
 #: ../booleans_trans.py:59
 msgid ""
@@ -1930,7 +1931,7 @@ msgstr ""
 msgid ""
 "If you want to determine whether Git system daemon can access cifs file "
 "systems."
-msgstr ""
+msgstr "Se si desidera determinare se il demone del sistema Git può accedere ai file system cifs."
 
 #: ../booleans_trans.py:99
 msgid "If you want to allow unprivileged users to execute DDL statement"
@@ -1960,7 +1961,7 @@ msgstr "Se si desidera consentire ad httpd di accedere ai file system cifs."
 
 #: ../booleans_trans.py:111
 msgid "If you want to determine whether Git CGI can search home directories."
-msgstr ""
+msgstr "Se si desidera determinare se Git CGI può eseguire una ricerca delle directory home."
 
 #: ../booleans_trans.py:113
 msgid "If you want to allow host key based authentication"
@@ -2022,7 +2023,7 @@ msgstr ""
 msgid ""
 "If you want to determine whether Git system daemon can search home "
 "directories."
-msgstr ""
+msgstr "Se si desidera determinare se il demone del sistema Git può eseguire una ricerca delle directory home."
 
 #: ../booleans_trans.py:139
 msgid "If you want to support SAMBA home directories"
@@ -2053,7 +2054,7 @@ msgstr "Se si desidera consentire a samba di creare nuove cartelle home (es. tra
 msgid ""
 "If you want to determine whether calling user domains can execute Git daemon"
 " in the git_session_t domain."
-msgstr ""
+msgstr "Se si desidera determinare se i domini utente chiamanti possono eseguire il demone Git nel dominio git_session_t."
 
 #: ../booleans_trans.py:151
 msgid "If you want to determine whether zabbix can connect to all TCP ports"
@@ -2112,7 +2113,7 @@ msgstr "Se si desidera consentire alle applicazioni client dhcpc di eseguire com
 
 #: ../booleans_trans.py:175
 msgid "If you want to allow sanlock to read/write fuse files"
-msgstr ""
+msgstr "Se si desidera permettere a sanlock di leggere/scrivere i file fuse"
 
 #: ../booleans_trans.py:177
 msgid ""
@@ -2189,7 +2190,7 @@ msgstr ""
 msgid ""
 "If you want to determine whether Git system daemon can access nfs file "
 "systems."
-msgstr ""
+msgstr "Se si desidera determinare se il demone del sistema Git può accedere ai file system nfs."
 
 #: ../booleans_trans.py:207
 msgid "If you want to unify HTTPD handling of all content files."
@@ -2229,7 +2230,7 @@ msgstr "Se si desidera consentire ad Apache di usare mod_auth_pam"
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to the network "
 "using TCP."
-msgstr ""
+msgstr "Se si desidera permettere agli script e ai moduli HTTPD di connettersi alla rete usando TCP."
 
 #: ../booleans_trans.py:225
 msgid "If you want to allow qemu to use usb devices"
@@ -2241,7 +2242,7 @@ msgstr ""
 
 #: ../booleans_trans.py:229
 msgid "If you want to determine whether Git CGI can access nfs file systems."
-msgstr ""
+msgstr "Se si desidera determinare se Git CGI può accedere ai file system nfs."
 
 #: ../booleans_trans.py:231
 msgid ""
@@ -2256,11 +2257,11 @@ msgstr ""
 
 #: ../booleans_trans.py:235
 msgid "If you want to support ecryptfs home directories"
-msgstr ""
+msgstr "Se si desidera il supporto delle home directory ecryptfs"
 
 #: ../booleans_trans.py:237
 msgid "If you want to allow samba to act as a portmapper"
-msgstr ""
+msgstr "Se si desidera permettere a samba di agire come un portmapper"
 
 #: ../booleans_trans.py:239
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
@@ -2268,7 +2269,7 @@ msgstr "Se si desidera consentire agli script e ai moduli httpd di execmem/execs
 
 #: ../booleans_trans.py:241
 msgid "If you want to allow httpd to access FUSE file systems"
-msgstr ""
+msgstr "Se si desidera permettere a httpd di accedere ai file system FUSE"
 
 #: ../booleans_trans.py:243
 msgid "If you want to allow httpd to connect to the ldap port"
@@ -2325,7 +2326,7 @@ msgstr "Se si desidera unificare HTTPD per comunicare con il terminale. Necessar
 msgid ""
 "If you want to allow apache scripts to write to public content, "
 "directories/files must be labeled public_rw_content_t."
-msgstr ""
+msgstr "Se si desidera permettere agli script apache di scrivere contenuti pubblici.  Directory/file devono essere etichettati public_rw_content_t."
 
 #: ../booleans_trans.py:267
 msgid ""
@@ -2399,7 +2400,7 @@ msgstr "Se si desidera consentire a Puppet master di usare la connessione ai dat
 
 #: ../booleans_trans.py:293
 msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
-msgstr ""
+msgstr "Se si desidera permettere a HTTPD di collegarsi alla porta 80 per un arresto corretto"
 
 #: ../booleans_trans.py:295
 msgid "If you want to allow system to run with NIS"
@@ -2409,7 +2410,7 @@ msgstr "Se si desidera consentire al sistema l'esecuzione con NIS"
 msgid ""
 "If you want to allow unprivledged user to create and transition to svirt "
 "domains."
-msgstr ""
+msgstr "Se si desidera permettere agli utente non privilegiati di creare e transitare sui domini svirt."
 
 #: ../booleans_trans.py:299
 msgid "If you want to allow users to login using a yubikey  server"
@@ -2421,7 +2422,7 @@ msgstr "Se si desidera consentire agli utenti di effettuare il login come domini
 
 #: ../booleans_trans.py:303
 msgid "If you want to disable kernel module loading."
-msgstr ""
+msgstr "Se si desidera disabiliare il caricamento dei moduli del kernel."
 
 #: ../booleans_trans.py:305
 msgid ""
@@ -2533,7 +2534,7 @@ msgstr ""
 
 #: ../booleans_trans.py:349
 msgid "If you want to determine whether Git CGI can access cifs file systems."
-msgstr ""
+msgstr "Se si desidera determinare se Git CGI può accedere ai file system cifs."
 
 #: ../booleans_trans.py:351
 msgid ""
@@ -2576,7 +2577,7 @@ msgstr ""
 
 #: ../booleans_trans.py:367
 msgid "If you want to allow sanlock to manage nfs files"
-msgstr ""
+msgstr "Se si desidera permettere a sanlock di gestire file nfs"
 
 #: ../booleans_trans.py:369
 msgid "If you want to allow all domains to have the kernel load modules"
@@ -2621,7 +2622,7 @@ msgstr ""
 msgid ""
 "If you want to allow mozilla plugin domain to connect to the network using "
 "TCP."
-msgstr ""
+msgstr "Se si desidera permettere al dominio del plugin di mozilla di collegarsi alla rete usando TCP."
 
 #: ../booleans_trans.py:387
 msgid "If you want to allow httpd to use built in scripting (usually php)"
@@ -2738,7 +2739,7 @@ msgstr "Se si desidera consentire la lettura di urandom da tutti i domini."
 
 #: ../booleans_trans.py:433
 msgid "If you want to allow xguest to use blue tooth devices"
-msgstr ""
+msgstr "Se si desidera permettere agli utenti xguest di usare i dispositivi bluetooth"
 
 #: ../booleans_trans.py:435
 msgid "If you want to determine whether mpd can use cifs file systems."
@@ -2783,7 +2784,7 @@ msgstr ""
 msgid ""
 "If you want to allow users to resolve user passwd entries directly from ldap"
 " rather then using a sssd server"
-msgstr ""
+msgstr "Se si desidera permettere agli utente di risolvere le voci user passwd direttamente da ldap senza usare un server sssd"
 
 #: ../booleans_trans.py:453
 msgid ""
@@ -2794,7 +2795,7 @@ msgstr ""
 
 #: ../booleans_trans.py:455
 msgid "If you want to allow sanlock to manage cifs files"
-msgstr ""
+msgstr "Se si desidera permettere a sanlock di gestire i file cifs"
 
 #: ../booleans_trans.py:457
 msgid "If you want to determine whether awstats can purge httpd log files."
@@ -2824,7 +2825,7 @@ msgstr ""
 msgid ""
 "If you want to determine whether Git session daemon can bind TCP sockets to "
 "all unreserved ports."
-msgstr ""
+msgstr "Se si desidera determinare se il demone di sessione Git può associarsi ai socket TCP di tutte le porte non usate."
 
 #: ../booleans_trans.py:471
 msgid ""
@@ -2838,7 +2839,7 @@ msgstr "Se si desidera consentire a samba di condividere un qualsiasi file/carte
 
 #: ../booleans_trans.py:475
 msgid "If you want to allow httpd to access openstack ports"
-msgstr ""
+msgstr "Se si desidera permettere a httpd un accesso alle porte openstack"
 
 #: ../booleans_trans.py:477
 msgid ""
@@ -2884,7 +2885,7 @@ msgstr ""
 
 #: ../booleans_trans.py:495
 msgid "If you want to allow httpd daemon to change its resource limits"
-msgstr ""
+msgstr "Se si desidera consentire al demone httpd di modificare i limiti delle risorse"
 
 #: ../booleans_trans.py:497
 msgid "If you want to determine whether squid can connect to all TCP ports."
