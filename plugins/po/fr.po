@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Charles-Antoine Couret <cacouret@wanadoo.fr>, 2009.
-# Corina Roe <croe@redhat.com>, 2008.
-# Damien Durand <splinux@fedoraproject.org>, 2006.
-# Decroux Fabien <fdecroux@redhat.com>, 2006.
-# Jérôme Fenal <jfenal@gmail.com>, 2013.
-# Mathieu Schopfer <mat.schopfer@bluewin.ch>, 2008.
-# ratal <aymeric.rateau@gmail.com>, 2009.
-# Sam Friedmann <sam.friedmann@redhat.com>, 2010, 2012.
-# Thomas Canniot <mrtom@fedoraproject.org>, 2010.
-# Thomas Canniot <thomas.canniot@laposte.net>, 2007.
+# Charles-Antoine Couret <cacouret@wanadoo.fr>, 2009
+# croe <croe@redhat.com>, 2008
+# Damien Durand <splinux@fedoraproject.org>, 2006
+# Decroux Fabien <fdecroux@redhat.com>, 2006
+# Jérôme Fenal <jfenal@gmail.com>, 2013
+# Mathieu Schopfer <mat.schopfer@bluewin.ch>, 2008
+# ratal <aymeric.rateau@gmail.com>, 2009
+# Sam Friedmann <sam.friedmann@redhat.com>, 2010, 2012
+# Thomas Canniot <mrtom@fedoraproject.org>, 2010
+# Thomas Canniot <thomas.canniot@laposte.net>, 2007
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-06 11:34-0500\n"
-"PO-Revision-Date: 2013-04-02 11:38+0000\n"
+"PO-Revision-Date: 2013-04-28 08:41+0000\n"
 "Last-Translator: Jérôme Fenal <jfenal@gmail.com>\n"
 "Language-Team: French <trans-fr@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
@@ -199,7 +199,7 @@ msgid ""
 "    app continues to not work, you can turn the flag back on with\n"
 "    execstack -s LIBRARY_PATH.  \n"
 "    "
-msgstr ""
+msgstr "\n    Parfois une bibliothèque est accidentellement marquée avec l'indicateur execstack.\n    Si vous trouvez une bibliothèque avec cet indicateur, vous pouvez la nettoyer avec\n    execstack -c LIBRARY_PATH. Ensuite réessayez votre application. Si l'application\n    continue de ne pas fonctionner, vous pouvez restaurer l'indicateur avec\n    execstac -s LIBRARY_PATH."
 
 #: ../src/allow_execstack.py:82
 msgid ""
@@ -349,14 +349,14 @@ msgid ""
 "seinfo -afile_type -x\n"
 "\n"
 "    "
-msgstr ""
+msgstr "\nVous avez tenté de mettre un type sur un %s qui n'est pas un type de fichier.  Ceci est interdit, vous devez assigner un type de fichier. Vous pouvez obtenir la liste des types de fichiers en utilisant la commande seinfo.\n\nseinfo -afile_type -x\n\n    "
 
 #: ../src/associate.py:44
 #, python-format
 msgid ""
 "you want to change the label of $TARGET_PATH to %s, you are not allowed to "
 "since it is not a valid file type."
-msgstr ""
+msgstr "vous souhaitez modifier l'étiquette de $TARGET_PATH en %s,  ce qui est interdit car pas un type de fichier valide."
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -433,7 +433,7 @@ msgstr "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    où PORT_TYPE es
 #: ../src/bind_ports.py:56 ../src/connect_ports.py:55
 #, python-format
 msgid "# semanage port -a -t %s -p %s $PORT_NUMBER"
-msgstr ""
+msgstr "# semanage port -a -t %s -p %s $PORT_NUMBER"
 
 #: ../src/catchall_boolean.py:32
 msgid ""
@@ -476,7 +476,7 @@ msgstr "setsebool -P %s %s"
 #: ../src/catchall_boolean.py:66
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean.\n"
-msgstr ""
+msgstr "Vous devez en informer SELinux en activant le booléen « %s ».\n"
 
 #: ../src/catchall_boolean.py:69
 #, python-format
@@ -609,7 +609,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.  spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux a refusé l'accès demandé par $SOURCE. Il n'est pas\n    prévu que cet accès soit requis par $SOURCE et cet accès\n    peut signaler une tentative d'intrusion. Il est également possible\n    que cette version ou cette configuration spécifique de l'application\n    provoque cette demande d'accès supplémentaire.  spice-xpi lance\n    des applications dans mozilla-plugins qui requièrent l'accès au bureau,\n    accès que le confinement du mozilla_plugin ne permet pas. Vous devez\n    donc soit ne plus confiner mozilla_plugin, soit ne pas utiliser ces\n    paquets.\n    "
 
 #: ../src/chrome.py:39
 msgid ""
@@ -618,16 +618,16 @@ msgid ""
 "Or turn off enforcement of SELinux over the Chrome plugins.\n"
 "setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
-msgstr ""
+msgstr "\nSoit vous retirez les paquet mozplugger ou spice-xpi en utilisant « yum remove mozplugger spice-xpi ».\nOu arrêtez l'application de SELinux sur les greffons Chrome.\n setsebool -P unconfined_chrome_sandbox_transition 0\n    "
 
 #: ../src/chrome.py:44 ../src/mozplugger.py:44
 #, python-format
 msgid "you want to use the %s package"
-msgstr ""
+msgstr "vous voulez utiliser le paquet %s"
 
 #: ../src/chrome.py:49
 msgid "you must turn off SELinux controls on the Chrome plugins."
-msgstr ""
+msgstr "vous devrez désactiver les contrôles SELinux sur les greffons Chrome."
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -794,7 +794,7 @@ msgid ""
 "home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
 "    "
-msgstr ""
+msgstr "\n    Les vérifications de permissions SELinux sur les fichiers file_t\n    ont été refusées. file_t est le contexte donné par le noyau SELinux\n    aux fichiers qui ne sont pas étiquetés. Ceci indique un problème\n    d'étiquetage important. Aucun fichier sur une machine SELinux\n    ne devrait avoir l'étiquette file_t. Si vous venez juste d'ajouter un\n    nouveau lecteur de disque au système, vous pouvez le réétiqueter\n    en utilisant la commande restorecon. Par exemple, si vous avez\n    sauvegardé le dossier persobnel d'une installation antérieure qui\n    n'utilisait pas SELinux, «  restorecon -R -v /home » corrigera l'étiquetage.\n    Autrement vous devriez réétiqueter tout le système de fichiers.\n    "
 
 #: ../src/file.py:42
 msgid ""
@@ -1109,7 +1109,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.  mozplugger and spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux a refusé l'accès demandé par $SOURCE. Il n'est pas\n    prévu que cet accès soit requis par $SOURCE et cet accès\n    peut signaler une tentative d'intrusion. Il est également possible que\n    cette version ou cette configuration spécifique de l'application \n    provoque cette demande d'accès supplémentaire.  mozplugger et\n    spice-xpi lancent des applications depuis mozilla-plugins qui requièrent\n    l'accès au bureau, ce que le confinement de mozilla_plugin ne permet\n    pas. Vous devez donc soit ne plus confiner mozilla_plugin, soit ne pas\n    utiliser ces paquets.\n    "
 
 #: ../src/mozplugger.py:39
 msgid ""
@@ -1118,7 +1118,7 @@ msgid ""
 "Or turn off enforcement of SELinux over the Firefox plugins.\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
-msgstr ""
+msgstr "\nSoit vous retirez les paquets mozplugger et spice-xpi en utilisant\n « yum remove mozplugger spice-xpi ».\nSoit arrêtez l'application de SELinux sur les greffons Firefox.\nsetsebool -P unconfined_mozilla_plugin_transition 0\n    "
 
 #: ../src/mozplugger.py:49
 msgid "you must turn off SELinux controls on the Firefox plugins."
@@ -1133,7 +1133,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.\n"
 "    "
-msgstr ""
+msgstr "\n\n    SELinux a refusé l'accès demandé par $SOURCE. Il n'est pas\n    prévu que cet accès soit requis par $SOURCE et cet accès\n    peut signaler une tentative d'intrusion. Il est également possible que cette\n    version ou cette configuration spécifique de l'application provoque cette demande\nd'accès supplémentaire.\n\n    "
 
 #: ../src/mozplugger_remove.py:39
 msgid ""
@@ -1142,13 +1142,13 @@ msgid ""
 "Or turn off enforcement of SELinux over the Firefox plugins.\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
-msgstr ""
+msgstr "\nSoit vous retirez le paquet mozplugger en utilisant « yum remove mozplugger ».\nOu arrêtez l'application de SELinux sur les greffons Firefox.\nsetsebool -P unconfined_mozilla_plugin_transition 0\n    "
 
 #: ../src/mozplugger_remove.py:44
 msgid ""
 "you want to to continue using SELinux Firefox plugin containment rather then"
 " using mozplugger package"
-msgstr ""
+msgstr "vous pouvez souhaiter continuer à utiliser le confinement de greffons Firefox de SELinux plutôt que d'utiliser le paquet mozplugger"
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
@@ -1522,13 +1522,13 @@ msgid ""
 "    Confined domains should not require \"sys_resource\". This usually means that     your system is running out some system resource like disk space, memory, quota etc. Please clear up the disk and this\n"
 "    AVC message should go away. If this AVC continues after you clear up the disk space, please report this as a bug. \n"
 "    "
-msgstr ""
+msgstr "\n    Les domaines confinés ne doivent pas nécessiter « sys_resource ». Ceci\n    signifie habituellement que votre système est à court de ressources\n    systèmes comme l'espace disque, la mémoire, les quota, etc.. Merci de\n    faire de la place sur le disque et ce message AVC disparaîtra. Si ce\n    message AVC continue après avoir fait de la place sur le disque, veuillez\n    le rapporter en tant qu'anomalie.\n    "
 
 #: ../src/sys_resource.py:39
 msgid ""
 "you do not want processes to require capabilities to use up all the system "
 "resources on your system;"
-msgstr ""
+msgstr "vous ne voulez pas que les processus requièrent des capacités à utiliser toutes les ressources du système sur votre système ;"
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -1569,7 +1569,7 @@ msgid ""
 "/* Allow more than 64hz interrupts from the real-time clock */\n"
 "/* Override max number of consoles on console allocation */\n"
 "/* Override max number of keymaps */\n"
-msgstr ""
+msgstr "vous devez diagnostiquer pourquoi votre système est à court de ressources système et corriger le problème.\n\nSelon /usr/include/linux/capability.h, sys_resource est nécessaire pour :\n\nFIXME\n/* Override resource limits. Set resource limits. */\n/* Override quota limits. */\n/* Override reserved space on ext2 filesystem */\n/* Modify data journaling mode on ext3 filesystem (uses journaling\n   resources) */\n/* NOTE: ext2 honors fsuid when checking for resource overrides, so\n   you can override using fsuid too */\n/* Override size restrictions on IPC message queues */\n/* Allow more than 64hz interrupts from the real-time clock */\n/* Override max number of consoles on console allocation */\n/* Override max number of keymaps */\n/* Override resource limits. Set resource limits. */\n/* Override quota limits. */\n/* Override reserved space on ext2 filesystem */\n/* Modify data journaling mode on ext3 filesystem (uses journaling\n   resources) */\n/* NOTE: ext2 honors fsuid when checking for resource overrides, so\n   you can override using fsuid too */\n/* Override size restrictions on IPC message queues */\n/* Allow more than 64hz interrupts from the real-time clock */\n/* Override max number of consoles on console allocation */\n/* Override max number of keymaps */\n/* Override resource limits. Set resource limits. */\n/* Override quota limits. */\n/* Override reserved space on ext2 filesystem */\n/* Modify data journaling mode on ext3 filesystem (uses journaling\n   resources) */\n/* NOTE: ext2 honors fsuid when checking for resource overrides, so\n   you can override using fsuid too */\n/* Override size restrictions on IPC message queues */\n/* Allow more than 64hz interrupts from the real-time clock */\n/* Override max number of consoles on console allocation */\n/* Override max number of keymaps */\n"
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -1697,7 +1697,7 @@ msgstr "Si vous souhaitez déterminer si ftp peut accéder à des fichiers en le
 
 #: ../booleans_trans.py:3
 msgid "If you want to determine whether privoxy can connect to all tcp ports."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si privoxy peut se connecter sur tous les ports TCP."
 
 #: ../booleans_trans.py:5
 msgid ""
@@ -1729,7 +1729,7 @@ msgstr "Si vous souhaitez autoriser les utilisateurs xguest à configurer Networ
 msgid ""
 "If you want to allow postgresql to use ssh and rsync for point-in-time "
 "recovery"
-msgstr ""
+msgstr "Si vous souhaitez autoriser postgresql à utiliser ssh et rsync pour la récupération à pointage dans le temps"
 
 #: ../booleans_trans.py:17
 msgid "If you want to allow users to login using a radius server"
@@ -1763,7 +1763,7 @@ msgstr "Si vous souhaitez autoriser les clients spamassassin à utiliser le rés
 msgid ""
 "If you want to allow glusterfsd to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
+msgstr "Si vous souhaitez autoriser glusterd à modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: ../booleans_trans.py:29
 msgid "If you want to allow sysadm to debug or ptrace all processes."
@@ -1773,7 +1773,7 @@ msgstr "Si vous souhaitez autoriser sysadm à effectuer le débogage ou le ptrac
 msgid ""
 "If you want to allow all unconfined executables to use libraries requiring "
 "text relocation that are not labeled textrel_shlib_t"
-msgstr "Si vous souhaitez autoriser tous les exécutables non-confinés à utiliser des bibliothèques requérant un transfert de texte qui ne sont pas étiquetées textrel_shlib_t"
+msgstr "Si vous souhaitez autoriser tous les exécutables non-confinés à utiliser des bibliothèques requérant une relocalisation de segment  texte qui ne sont pas étiquetées textrel_shlib_t"
 
 #: ../booleans_trans.py:33
 msgid "If you want to allow httpd to act as a relay"
@@ -1783,7 +1783,7 @@ msgstr "Si vous souhaitez autoriser à httpd d'agir en tant que relais"
 msgid ""
 "If you want to determine whether openvpn can read generic user home content "
 "files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si openvpn peut accéder à des fichiers en lecture et en écriture dans les contenus génériques des répertoires utilisateurs."
 
 #: ../booleans_trans.py:37
 msgid ""
@@ -1799,7 +1799,7 @@ msgstr "Si vous souhaitez autoriser les gestionnaires de connexion Telepathy à 
 
 #: ../booleans_trans.py:41
 msgid "If you want to allow sge to connect to the network using any TCP port"
-msgstr "Si vous souhaitez autoriser sge à se connecter au réseau en utilisant TCP."
+msgstr "Si vous souhaitez autoriser sge à se connecter au réseau en utilisant tout port TCP."
 
 #: ../booleans_trans.py:43
 msgid ""
@@ -1826,7 +1826,7 @@ msgstr "Si vous souhaitez autoriser les scripts et modules HTTPD à se connecter
 msgid ""
 "If you want to allow ssh with chroot env to read and write files in the user"
 " home directories"
-msgstr "Si vous souhaitez autoriser ssh avec l'environnement chroot à accéder au fichiers en lecture et écriture dans les répertoires utilisateurs"
+msgstr "Si vous souhaitez autoriser ssh avec l'environnement chroot à accéder aux fichiers en lecture et écriture dans les répertoires utilisateurs"
 
 #: ../booleans_trans.py:53
 msgid "If you want to allow the mount command to mount any directory or file."
@@ -1834,7 +1834,7 @@ msgstr "Si vous souhaitez autoriser la commande mount à monter tout répertoire
 
 #: ../booleans_trans.py:55
 msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr "Si vous souhaitez autoriser polipo à se conntecter à tous les ports > 1023"
+msgstr "Si vous souhaitez autoriser polipo à se connecter à tous les ports > 1023"
 
 #: ../booleans_trans.py:57
 msgid "If you want to allow httpd to run gpg"
@@ -1848,7 +1848,7 @@ msgstr "Si vous souhaitez autoriser samba à agir en tant que contrôleur de dom
 
 #: ../booleans_trans.py:61
 msgid "If you want to allow ksmtuned to use nfs file systems"
-msgstr ""
+msgstr "Si vous souhaitez autoriser ksmtuned à utiliser les systèmes de fichiers nfs"
 
 #: ../booleans_trans.py:63
 msgid "If you want to allow httpd cgi support"
@@ -1860,17 +1860,17 @@ msgstr "Si vous souhaitez déterminer si polipo peut accéder aux systèmes de f
 
 #: ../booleans_trans.py:67
 msgid "If you want to allow Apache to query NS records"
-msgstr ""
+msgstr "Si vous souhaitez autoriser Apache à interroger les enregistrements NS"
 
 #: ../booleans_trans.py:69
 msgid ""
 "If you want to determine whether ftpd can use CIFS used for public file "
 "transfer services."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si ftp peut utiliser CIFS pour des services de transferts de fichiers publics."
 
 #: ../booleans_trans.py:71
 msgid "If you want to determine whether mcelog can use all the user ttys."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si mcelog peut utiliser tous les ttys de l'utilisateur."
 
 #: ../booleans_trans.py:73
 msgid "If you want to allow confined virtual guests to manage nfs files"
@@ -1880,7 +1880,7 @@ msgstr "Si vous souhaitez autoriser les invités virtuels confinés à gérer de
 msgid ""
 "If you want to allow confined virtual guests to use serial/parallel "
 "communication ports"
-msgstr "Si vous souhaitez autoriser les invités virtuels confinés à utiliser des ports de communication sériels/parallèles"
+msgstr "Si vous souhaitez autoriser les invités virtuels confinés à utiliser des ports de communication série/parallèles"
 
 #: ../booleans_trans.py:77
 msgid "If you want to allow rsync to run as a client"
@@ -1894,7 +1894,7 @@ msgstr "Si vous souhaitez autoriser le domaine rgmanager à se connecter au rés
 #: ../booleans_trans.py:81
 msgid ""
 "If you want to determine whether exim can read generic user content files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si exim peut lire les fichiers utilisateurs génériques."
 
 #: ../booleans_trans.py:83
 msgid ""
@@ -1919,17 +1919,17 @@ msgstr "Si vous souhaitez autoriser le client Puppet à gérer tous les types de
 msgid ""
 "If you want to determine whether entropyd can use audio devices as the "
 "source for the entropy feeds."
-msgstr ""
+msgstr "Si vous souhaitez autoriser si entropyd peut utiliser les périphériques audio comme source d'entropie."
 
 #: ../booleans_trans.py:93
 msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
-msgstr "Si vous souhaitez autoriser les connexions ssh comme sysadm_r:sysadm_t"
+msgstr "Si vous souhaitez autoriser les connexions ssh en tant que sysadm_r:sysadm_t"
 
 #: ../booleans_trans.py:95
 msgid ""
 "If you want to determine whether Bind can write to master zone files. "
 "Generally this is used for dynamic DNS or zone transfers."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si BIND peut accéder en écriture aux fichiers de la zone principale. Ceci est habituellement utilisé pour le DNS dynamique ou les transferts de zone."
 
 #: ../booleans_trans.py:97
 msgid ""
@@ -1945,19 +1945,19 @@ msgstr "Si vous souhaitez autoriser les utilisateurs non-privilégiés à exécu
 msgid ""
 "If you want to determine whether tor can bind tcp sockets to all unreserved "
 "ports."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si tor peut lier les sockets tcp sur tout port non-réservé."
 
 #: ../booleans_trans.py:103
 msgid "If you want to determine whether mpd can use nfs file systems."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si mpd peut utiliser les systèmes de fichiers nfs."
 
 #: ../booleans_trans.py:105
 msgid "If you want to determine whether mcelog can execute scripts."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si mcelog peut exécuter des scripts."
 
 #: ../booleans_trans.py:107
 msgid "If you want to determine whether cvs can read shadow password files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si clamscan peut lire les fichiers shadow de mots de passe."
 
 #: ../booleans_trans.py:109
 msgid "If you want to allow httpd to access cifs file systems"
@@ -1984,17 +1984,17 @@ msgstr "Si vous souhaitez autoriser le domaine postfix_local à accéder en écr
 #: ../booleans_trans.py:119
 msgid ""
 "If you want to determine whether can antivirus programs use JIT compiler."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si les programmes antivirus peuvent utiliser le compilateur JIT."
 
 #: ../booleans_trans.py:121
 msgid ""
 "If you want to disallow programs, such as newrole, from transitioning to "
 "administrative user domains."
-msgstr "Si vous souhaitez interdire à des programmes, comme newrole, de transitionner vers des domaines d'utilisateur administratif."
+msgstr "Si vous souhaitez interdire à des programmes, comme newrole, de transitionner vers des domaines utilisateurs administratifs."
 
 #: ../booleans_trans.py:123
 msgid "If you want to allow glusterfsd to share any file/directory read only."
-msgstr ""
+msgstr "Si vous souhaitez autoriser glusterfsd à partager n'importe quel fichier/répertoire accessible en lecture seule."
 
 #: ../booleans_trans.py:125
 msgid "If you want to allow httpd processes to manage IPA content"
@@ -2002,12 +2002,12 @@ msgstr "Si vous souhaitez autoriser les processus httpd à gérer le contenu IPA
 
 #: ../booleans_trans.py:127
 msgid "If you want to determine whether clamscan can read user content files."
-msgstr ""
+msgstr "Si vous souhaitez autoriser clamscan à lire le contenu des fichiers utilisateur"
 
 #: ../booleans_trans.py:129
 msgid ""
 "If you want to determine whether clamscan can read all non-security files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si clamscan peut lire tous les fichiers non relatifs à la sécurité."
 
 #: ../booleans_trans.py:131
 msgid "If you want to allow pppd to be run for a regular user"
@@ -2021,7 +2021,7 @@ msgstr "Si vous souhaitez autoriser samba à partager tout fichier/répertoire e
 msgid ""
 "If you want to determine whether ftpd can connect to databases over the TCP "
 "network."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si ftpd peut se connecter à des bases de données sur le réseau TCP."
 
 #: ../booleans_trans.py:137
 msgid ""
@@ -2047,7 +2047,7 @@ msgstr "Si vous souhaitez autoriser l'utilisateur à accéder en lecture/écritu
 msgid ""
 "If you want to allow Apache to run in stickshift mode, not transition to "
 "passenger"
-msgstr ""
+msgstr "si vous voulez autoriser Apache à fonctionner en mode évolutif, ne pas transitionner vers passager"
 
 #: ../booleans_trans.py:147
 msgid ""
@@ -2058,15 +2058,15 @@ msgstr "Si vous souhaitez autoriser samba à créer de nouveaux répertoires uti
 msgid ""
 "If you want to determine whether calling user domains can execute Git daemon"
 " in the git_session_t domain."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si les domaines utilisateurs appelants peuvent exécuter le démon Git dans le domaine git_session_t."
 
 #: ../booleans_trans.py:151
 msgid "If you want to determine whether zabbix can connect to all TCP ports"
-msgstr ""
+msgstr "Si vous souhaitez déterminer si zabbix peut se connecter sur tous les ports TCP."
 
 #: ../booleans_trans.py:153
 msgid "If you want to determine whether fenced can use ssh."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si fenced peut utiliser ssh."
 
 #: ../booleans_trans.py:155
 msgid "If you want to allow httpd to read home directories"
@@ -2104,7 +2104,7 @@ msgstr "Si vous souhaitez déterminer si le démon de session Polipo peut lier l
 
 #: ../booleans_trans.py:169
 msgid "If you want to allow qemu to use serial/parallel communication ports"
-msgstr "Si vous souhaitez autoriser qemu à utiliser les ports de communication sériels/parallèles"
+msgstr "Si vous souhaitez autoriser qemu à utiliser les ports de communication série/parallèles"
 
 #: ../booleans_trans.py:171
 msgid "If you want to allow Apache to communicate with avahi service via dbus"
@@ -2117,23 +2117,23 @@ msgstr "Si vous souhaitez autoriser les applications clientes dhcpc à exécuter
 
 #: ../booleans_trans.py:175
 msgid "If you want to allow sanlock to read/write fuse files"
-msgstr ""
+msgstr "Si vous souhaitez autoriser sanlock à accéder en lecture/écriture aux fichiers fuse"
 
 #: ../booleans_trans.py:177
 msgid ""
 "If you want to allow rsync server to manage all files/directories on the "
 "system."
-msgstr ""
+msgstr "Si vous souhaitez autoriser rsync à gérer tous les fichiers ou répertoires sur le système."
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow user  to use ssh chroot environment."
-msgstr ""
+msgstr "Si vous souhaitez autoriser les utilisateurs à utiliser les environnements chroot de ssh."
 
 #: ../booleans_trans.py:181
 msgid ""
 "If you want to determine whether Cobbler can connect to the network using "
 "TCP."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si Cobbler peut se connecter au réseau en utilisant TCP."
 
 #: ../booleans_trans.py:183
 msgid ""
@@ -2144,7 +2144,7 @@ msgstr "Si vous souhaitez interdire aux applications des domaines d'utilisateurs
 
 #: ../booleans_trans.py:185
 msgid "If you want to determine whether squid can run as a transparent proxy."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si squid peut fonctionner comme un mandataire transparent."
 
 #: ../booleans_trans.py:187
 msgid "If you want to allow users to connect to the local mysql server"
@@ -2154,7 +2154,7 @@ msgstr "Si vous souhaitez autoriser les utilisateurs à se connecter au serveur 
 msgid ""
 "If you want to determine whether ftpd can login to local users and can read "
 "and write all files on the system, governed by DAC."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si sftpd peut se connecter aux utilisateurs locaux et lire ou écrire tous les fichiers du système, gouverné par le contrôle d'accès discrétionnaire."
 
 #: ../booleans_trans.py:191
 msgid "If you want to allows XServer to execute writable memory"
@@ -2163,38 +2163,38 @@ msgstr "Si vous souhaitez autoriser XServer à exécuter la mémoire accessible 
 #: ../booleans_trans.py:193
 msgid ""
 "If you want to allow glusterfsd to share any file/directory read/write."
-msgstr ""
+msgstr "Si vous souhaitez autoriser glusterfsd à partager n'importe quel fichier/répertoire accessible en lecture/écriture."
 
 #: ../booleans_trans.py:195
 msgid ""
 "If you want to boolean to determine whether the system permits loading "
 "policy, setting enforcing mode, and changing boolean values.  Set this to "
 "true and you have to reboot to set it back."
-msgstr ""
+msgstr "Si vous souhaitez permettre le choix via un booléen de déterminer si les domaines confinés peuvent charger une stratégie, d'activer le mode « application », et de modifier les valeurs booléennes. Après activation, vous devrez redémarrer pour le remodifier."
 
 #: ../booleans_trans.py:197
 msgid ""
 "If you want to allow confined virtual guests to interact with rawip sockets"
-msgstr ""
+msgstr "Si vous souhaitez autoriser les invités virtuels confinés à interagir avec des sockets IP brutes"
 
 #: ../booleans_trans.py:199
 msgid "If you want to determine whether dbadm can manage generic user files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si dbadm peut gérer les fichiers utilisateurs génériques."
 
 #: ../booleans_trans.py:201
 msgid ""
 "If you want to allow confined virtual guests to interact with the xserver"
-msgstr "Si vous souhaitez autoriser les invités virtuels confinés à interagir avec xserver"
+msgstr "Si vous souhaitez autoriser les invités virtuels confinés à interagir avec le serveur X"
 
 #: ../booleans_trans.py:203
 msgid "If you want to allow all domains to execute in fips_mode"
-msgstr ""
+msgstr "Si vous souhaitez autoriser tous les domaines à s'exécuter dans le mode fips_mode"
 
 #: ../booleans_trans.py:205
 msgid ""
 "If you want to determine whether Git system daemon can access nfs file "
 "systems."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si le démon système Git peut accéder aux systèmes de fichiers nfs."
 
 #: ../booleans_trans.py:207
 msgid "If you want to unify HTTPD handling of all content files."
@@ -2206,17 +2206,17 @@ msgstr "Si vous souhaitez autoriser le code nsplugin à se connecter aux ports n
 
 #: ../booleans_trans.py:211
 msgid "If you want to determine whether amavis can use JIT compiler."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si amavis peut utiliser le compilateur JIT."
 
 #: ../booleans_trans.py:213
 msgid "If you want to determine whether java can make its stack executable."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si java peut rendre sa pile exécutable."
 
 #: ../booleans_trans.py:215
 msgid ""
 "If you want to determine whether irc clients can listen on and connect to "
 "any unreserved TCP ports."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si les clients IRC peuvent écouter ou se connecteur à tout port non-réservé."
 
 #: ../booleans_trans.py:217
 msgid "If you want to allow database admins to execute DML statement"
@@ -2234,7 +2234,7 @@ msgstr "Si vous souhaitez autoriser Apache à utiliser mod_auth_pam"
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to the network "
 "using TCP."
-msgstr ""
+msgstr "Si vous souhaitez autoriser les scripts et modules HTTPD à se connecter au réseau à l'aide de TCP."
 
 #: ../booleans_trans.py:225
 msgid "If you want to allow qemu to use usb devices"
@@ -2242,16 +2242,16 @@ msgstr "Si vous souhaitez autoriser qemu à utiliser des périphériques USB"
 
 #: ../booleans_trans.py:227
 msgid "If you want to determine whether exim can connect to databases."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si exim peut se connecter à des bases de données."
 
 #: ../booleans_trans.py:229
 msgid "If you want to determine whether Git CGI can access nfs file systems."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si le CGI Git peut accéder aux systèmes de fichiers nfs."
 
 #: ../booleans_trans.py:231
 msgid ""
 "If you want to determine whether varnishd can use the full TCP network."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si varnishd peut utiliser le réseau TCP complet."
 
 #: ../booleans_trans.py:233
 msgid ""
@@ -2265,7 +2265,7 @@ msgstr "Si vous souhaitez prendre en charge les répertoires utilisateurs ecrypt
 
 #: ../booleans_trans.py:237
 msgid "If you want to allow samba to act as a portmapper"
-msgstr ""
+msgstr "Si vous souhaitez autoriser samba à agir en tant que portmapper"
 
 #: ../booleans_trans.py:239
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
@@ -2273,7 +2273,7 @@ msgstr "Si vous souhaitez autoriser les scripts et modules httpd execmem/execsta
 
 #: ../booleans_trans.py:241
 msgid "If you want to allow httpd to access FUSE file systems"
-msgstr ""
+msgstr "Si vous souhaitez autoriser httpd à accéder aux systèmes de fichiers FUSE"
 
 #: ../booleans_trans.py:243
 msgid "If you want to allow httpd to connect to the ldap port"
@@ -2287,7 +2287,7 @@ msgstr "Si vous souhaitez activer la prise en charge de répertoires multi-insta
 msgid ""
 "If you want to allow cluster administrative cluster domains memcheck-amd64- "
 "to use executable memory"
-msgstr ""
+msgstr "Si vous souhaitez autoriser les domaines administratifs de cluster memcheck-amd64- à utiliser la mémoire exécutable"
 
 #: ../booleans_trans.py:249
 msgid ""
@@ -2330,7 +2330,7 @@ msgstr "Si vous souhaitez unifier HTTPD pour communiquer avec le terminal. Ceci 
 msgid ""
 "If you want to allow apache scripts to write to public content, "
 "directories/files must be labeled public_rw_content_t."
-msgstr ""
+msgstr "Si vous souhaitez autoriser les scripts apache à écrire sur des contenus publics. Les fichiers ou répertoires doivent être étiquetés public_rw_content_t."
 
 #: ../booleans_trans.py:267
 msgid ""
@@ -2341,20 +2341,20 @@ msgstr "Si vous souhaitez autoriser rsync à modifier les fichiers publics utili
 #: ../booleans_trans.py:269
 msgid ""
 "If you want to determine whether mplayer can make its stack executable."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si mplayer peut rendre sa pile exécutable."
 
 #: ../booleans_trans.py:271
 msgid ""
 "If you want to allow users to run TCP servers (bind to ports and accept "
 "connection from the same domain and outside users)  disabling this forces "
 "FTP passive mode and may change other protocols."
-msgstr "Si vous souhaitez autoriser les utilisateurs à exécuter des serveurs TCP (lier aux ports et accepter la connexion depuis le même domaine et les utilisateurs externes). Désactiver ceci force le mode FTP passif et peut modifier d'autres protocoles."
+msgstr "Si vous souhaitez autoriser les utilisateurs à exécuter des serveurs TCP (lier aux ports et accepter la connexion depuis le même domaine et des utilisateurs externes). Désactiver ceci force le mode FTP passif et peut modifier d'autres protocoles."
 
 #: ../booleans_trans.py:273
 msgid ""
 "If you want to allow xend to run qemu-dm. Not required if using paravirt and"
 " no vfb."
-msgstr "Si vous souhaitez autoriser xend à exécuter qemu-dm. Ceci n'est pas requis si vous utilisez paravirt et no vfb."
+msgstr "Si vous souhaitez autoriser xend à exécuter qemu-dm. Ceci n'est pas requis si vous utilisez la paravirtualisation et pas de vfb."
 
 #: ../booleans_trans.py:275
 msgid ""
@@ -2370,7 +2370,7 @@ msgstr "Si vous souhaitez prendre en charge les répertoires utilisateurs fusefs
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
 "network port."
-msgstr "Si vous souhaitez autoriser les gestionnaires de connexion Telepathy à se connecter directement à n'importe quel port réseau."
+msgstr "Si vous souhaitez autoriser les gestionnaires de connexion Telepathy à se connecter à n'importe quel port réseau."
 
 #: ../booleans_trans.py:281
 msgid "If you want to allow confined virtual guests to manage cifs files"
@@ -2384,13 +2384,13 @@ msgstr "Si vous souhaitez autoriser  le client IRC Irssi à se connecter à tous
 
 #: ../booleans_trans.py:285
 msgid "If you want to allow confined applications to use nscd shared memory."
-msgstr "Si vous souhaitez autoriser les applications confinées à utiliser la mémoire partagée nscd."
+msgstr "Si vous souhaitez autoriser les applications confinées à utiliser la mémoire partagée de nscd."
 
 #: ../booleans_trans.py:287
 msgid ""
 "If you want to determine whether attempts by wine to mmap low regions should"
 " be silently blocked."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si les tentatives de wine d'utiliser mmap sur les régions de mémoire basse doivent être ignorées en silence."
 
 #: ../booleans_trans.py:289
 msgid "If you want to allow racoon to read shadow"
@@ -2404,7 +2404,7 @@ msgstr "Si vous souhaitez autoriser Puppet master à se connecter aux bases de d
 
 #: ../booleans_trans.py:293
 msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
-msgstr ""
+msgstr "Si vous souhaitez autoriser HTTPD à se connecter au port 80 pour un arrêt propre"
 
 #: ../booleans_trans.py:295
 msgid "If you want to allow system to run with NIS"
@@ -2414,11 +2414,11 @@ msgstr "Si vous souhaitez autoriser le système à être exécuté avec NIS"
 msgid ""
 "If you want to allow unprivledged user to create and transition to svirt "
 "domains."
-msgstr ""
+msgstr "Si vous souhaitez autoriser un utilisateur non privilégié à créer puis transitionner vers des domaines svirt."
 
 #: ../booleans_trans.py:299
 msgid "If you want to allow users to login using a yubikey  server"
-msgstr ""
+msgstr "Si vous souhaitez autoriser les utilisateurs à se connecter en utilisant un serveur yubikey"
 
 #: ../booleans_trans.py:301
 msgid "If you want to allow a user to login as an unconfined domain"
@@ -2426,12 +2426,12 @@ msgstr "Si vous souhaitez autoriser un utilisateur à se connecter en tant que d
 
 #: ../booleans_trans.py:303
 msgid "If you want to disable kernel module loading."
-msgstr ""
+msgstr "Si vous interdire le chargement de modules noyau."
 
 #: ../booleans_trans.py:305
 msgid ""
 "If you want to allow pacemaker memcheck-amd64- to use executable memory"
-msgstr ""
+msgstr "Si vous souhaitez autoriser pacemaker memcheck-amd64- à utiliser la mémoire exécutable"
 
 #: ../booleans_trans.py:307
 msgid ""
@@ -2443,7 +2443,7 @@ msgstr "Si vous souhaitez autoriser httpd à agir en tant que client FTP se conn
 msgid ""
 "If you want to determine whether ftpd can bind to all unreserved ports for "
 "passive mode."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si ftpd peut lier tous les ports non-réservés pour le mode passif."
 
 #: ../booleans_trans.py:311
 msgid ""
@@ -2455,15 +2455,15 @@ msgstr "Si vous souhaitez autoriser samba à modifier des fichiers publics utili
 msgid ""
 "If you want to allow gssd to read temp directory.  For access to kerberos "
 "tgt."
-msgstr "Si vous souhaitez autoriser gssd à lire le répertoire temp. Pour accéder à tgt kerberos."
+msgstr "Si vous souhaitez autoriser gssd à lire le répertoire temporaire. Pour accès aux tgt kerberos."
 
 #: ../booleans_trans.py:315
 msgid "If you want to determine whether Cobbler can access nfs file systems."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si Cobbler peut accéder aux systèmes de fichiers nfs."
 
 #: ../booleans_trans.py:317
 msgid "If you want to allow tor to act as a relay"
-msgstr ""
+msgstr "Si vous souhaitez autoriser tor à agir en tant que relais"
 
 #: ../booleans_trans.py:319
 msgid ""
@@ -2471,12 +2471,12 @@ msgid ""
 "  This should never, ever be necessary. Probably indicates a badly coded "
 "executable, but could indicate an attack. This executable should be reported"
 " in bugzilla"
-msgstr "Si vous souhaitez autoriser des exécutables non-confinés à rendre leur pile exécutable. Ceci ne devrait jamais être nécessaire et indique probablement un exécutable mal codé, mais il pourrait aussi s'agir d'une attaque. Cet exécutable devrait être reporté sur Bugzilla"
+msgstr "Si vous souhaitez autoriser des exécutables non-confinés à rendre leur pile exécutable. Ceci ne devrait jamais être nécessaire et indique probablement un exécutable mal codé, mais il pourrait aussi s'agir d'une attaque. Cet exécutable devrait être rapporté sur Bugzilla"
 
 #: ../booleans_trans.py:321
 msgid ""
 "If you want to allow confined virtual guests to interact with the sanlock"
-msgstr "Si vous souhaitez autoriser les invités virtuels confinés à interagir avec le sanlock"
+msgstr "Si vous souhaitez autoriser les invités virtuels confinés à interagir avec sanlock"
 
 #: ../booleans_trans.py:323
 msgid "If you want to allow all daemons to use tcp wrappers."
@@ -2486,11 +2486,11 @@ msgstr "Si vous souhaitez autoriser tous les démons à utiliser les wrappers tc
 msgid ""
 "If you want to allow confined virtual guests to use executable memory and "
 "executable stack"
-msgstr "Si vous souhaitez autoriser les invités virtuels à utiliser la mémoire exécutable et la pile exécutable"
+msgstr "Si vous souhaitez autoriser les invités virtuels confinés à utiliser la mémoire exécutable et la pile exécutable"
 
 #: ../booleans_trans.py:327
 msgid "If you want to determine whether webadm can read generic user files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si webadm peut lire les fichiers utilisateurs génériques."
 
 #: ../booleans_trans.py:329
 msgid "If you want to support X userspace object manager"
@@ -2500,7 +2500,7 @@ msgstr "Si vous souhaitez prendre en charge le gestionnaire d'objets de l'espace
 msgid ""
 "If you want to determine whether attempts by vbetool to mmap low regions "
 "should be silently blocked."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si les tentatives de vbetool d'utiliser mmap sur les régions de mémoire basse doivent être ignorées en silence."
 
 #: ../booleans_trans.py:333
 msgid "If you want to allow httpd to read user content"
@@ -2534,11 +2534,11 @@ msgstr "Si vous souhaitez autoriser spamd à accéder en lecture/écriture aux r
 
 #: ../booleans_trans.py:347
 msgid "If you want to determine whether DHCP daemon can use LDAP backends."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si le démon DHCP peut utiliser des moteurs LDAP."
 
 #: ../booleans_trans.py:349
 msgid "If you want to determine whether Git CGI can access cifs file systems."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si le CGI Git peut accéder aux systèmes de fichiers cifs."
 
 #: ../booleans_trans.py:351
 msgid ""
@@ -2550,7 +2550,7 @@ msgstr "Si vous souhaitez autoriser tous les fichiers ou répertoires à être e
 msgid ""
 "If you want to determine whether icecast can listen on and connect to any "
 "TCP port."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si icecast peut écouter ou se connecteur à tout port TCP."
 
 #: ../booleans_trans.py:355
 msgid "If you want to allow Apache to execute tmp content."
@@ -2566,7 +2566,7 @@ msgstr "Si vous souhaitez autoriser qemu à utiliser des systèmes de fichiers c
 
 #: ../booleans_trans.py:361
 msgid "If you want to allow ksmtuned to use cifs/Samba file systems"
-msgstr ""
+msgstr "Si vous souhaitez autoriser ksmtuned à utiliser des systèmes de fichiers cifs/Samba"
 
 #: ../booleans_trans.py:363
 msgid ""
@@ -2577,15 +2577,15 @@ msgstr "Si vous souhaitez autoriser xend à exécuter blktapctrl/tapdisk. Ceci n
 #: ../booleans_trans.py:365
 msgid ""
 "If you want to determine whether fenced can connect to the TCP network."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si fenced peut se connecter sur le réseau TCP."
 
 #: ../booleans_trans.py:367
 msgid "If you want to allow sanlock to manage nfs files"
-msgstr ""
+msgstr "Si vous souhaitez autoriser sanlock à gérer les fichiers nfs"
 
 #: ../booleans_trans.py:369
 msgid "If you want to allow all domains to have the kernel load modules"
-msgstr "Si vous souhaitez autoriser tous les domaines à posséder les modules de chargement du noyau"
+msgstr "Si vous souhaitez autoriser tous les domaines à posséder les modules chargeables du noyau"
 
 #: ../booleans_trans.py:371
 msgid "If you want to allow confined virtual guests to use usb devices"
@@ -2595,7 +2595,7 @@ msgstr "Si vous souhaitez autoriser les invités virtuels confinés à utiliser 
 msgid ""
 "If you want to determine whether smartmon can support devices on 3ware "
 "controllers."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si smartmon peut prendre en charge les périphériques sur des contrôleurs 3ware."
 
 #: ../booleans_trans.py:375
 msgid ""
@@ -2607,7 +2607,7 @@ msgstr "Si vous souhaitez autoriser ABRT à modifier les fichiers publics utilis
 msgid ""
 "If you want to allow cluster administrative domains to connect to the "
 "network using TCP."
-msgstr ""
+msgstr "Si vous souhaitez autoriser les domaines administratifs de cluster à se connecter au réseau en utilisant TCP."
 
 #: ../booleans_trans.py:379
 msgid "If you want to allow http daemon to send mail"
@@ -2626,7 +2626,7 @@ msgstr "Si vous souhaitez autoriser un utilisateur staff à créer puis transiti
 msgid ""
 "If you want to allow mozilla plugin domain to connect to the network using "
 "TCP."
-msgstr ""
+msgstr "Si vous souhaitez autoriser le domaine des greffons mozilla à se connecter au réseau à l'aide de TCP."
 
 #: ../booleans_trans.py:387
 msgid "If you want to allow httpd to use built in scripting (usually php)"
@@ -2636,31 +2636,31 @@ msgstr "Si vous souhaitez autoriser httpd à utiliser le script intégré (habit
 msgid ""
 "If you want to allow confined users the ability to execute the ping and "
 "traceroute commands."
-msgstr ""
+msgstr "Si vous souhaitez autoriser les utilisateurs confinés à utiliser les commandes ping et traceroute."
 
 #: ../booleans_trans.py:391
 msgid ""
 "If you want to determine whether exim can create, read, write, and delete "
 "generic user content files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si exim peut créer, lire, écrire et supprimer des fichiers utilisateurs génériques."
 
 #: ../booleans_trans.py:393
 msgid ""
 "If you want to allow cluster administrative domains to manage all files on a"
 " system."
-msgstr ""
+msgstr "Si vous souhaitez autoriser les domaines administratifs de cluster à gérer tous les fichiers sur un système."
 
 #: ../booleans_trans.py:395
 msgid ""
 "If you want to determine whether cdrecord can read various content. nfs, "
 "samba, removable devices, user temp and untrusted content files"
-msgstr ""
+msgstr "Si vous souhaitez déterminer si cdrecord  à lire divers contenus, tels que nfs, samba, des périphériques amovibles, des fichiers temporaires d'utilisateur et des fichiers de contenus non-approuvés."
 
 #: ../booleans_trans.py:397
 msgid ""
 "If you want to determine whether Cobbler can modify public files used for "
 "public file transfer services."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si Cobbler peut modifier des fichiers publics utilisés pour des services de transferts de fichiers publics."
 
 #: ../booleans_trans.py:399
 msgid "If you want to allow samba to export NFS volumes."
@@ -2674,25 +2674,25 @@ msgstr "Si vous souhaitez contrôler la capacité d'allouer de l'espace dans la 
 
 #: ../booleans_trans.py:403
 msgid "If you want to determine whether dbadm can read generic user files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si dbadm peut lire les fichiers utilisateurs génériques."
 
 #: ../booleans_trans.py:405
 msgid ""
 "If you want to determine whether ftpd can use NFS used for public file "
 "transfer services."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si ftp peut utiliser NFS pour des services de transferts de fichiers publics."
 
 #: ../booleans_trans.py:407
 msgid ""
 "If you want to allow antivirus programs to read non security files on a "
 "system"
-msgstr ""
+msgstr "Si vous souhaitez autoriser les antivirus à lire tous les fichiers non relatifs à la sécurité sur un système."
 
 #: ../booleans_trans.py:409
 msgid ""
 "If you want to determine whether calling user domains can execute Polipo "
 "daemon in the polipo_session_t domain."
-msgstr "Si vous souhaitez déterminer si appeler les domaines utilisateurs peut exécuter le démon Polipo dans le domaine polipo_session_t."
+msgstr "Si vous souhaitez déterminer si les domaines utilisateurs appelants peuvent exécuter le démon Polipo dans le domaine polipo_session_t."
 
 #: ../booleans_trans.py:411
 msgid "If you want to allow confined applications to run with kerberos."
@@ -2710,16 +2710,16 @@ msgstr "Si vous souhaitez autoriser les utilisateurs xguest à monter des suppor
 msgid ""
 "If you want to determine whether sftpd-can login to local users and read and"
 " write all files on the system, governed by DAC."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si sftpd peut se connecter aux utilisateurs locaux et lire ou écrire tous les fichiers du système, gouverné par le contrôle d'accès discrétionnaire."
 
 #: ../booleans_trans.py:419
 msgid ""
 "If you want to determine whether Bind can bind tcp socket to http ports."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si Bind peut lier les sockets tcp aux ports http."
 
 #: ../booleans_trans.py:421
 msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr "Si vous souhaitez permettre à syslogd d'accéder aux terminaux en lecture/écriture"
+msgstr "Si vous souhaitez autoriser syslogd à accéder aux terminaux en lecture/écriture"
 
 #: ../booleans_trans.py:423
 msgid "If you want to allow syslogd daemon to send mail"
@@ -2743,20 +2743,20 @@ msgstr "Si vous souhaitez activer la lecture de urandom pour tous les domaines."
 
 #: ../booleans_trans.py:433
 msgid "If you want to allow xguest to use blue tooth devices"
-msgstr ""
+msgstr "Si vous souhaitez autoriser les utilisateurs xguest à utiliser des périphériques bluetooth"
 
 #: ../booleans_trans.py:435
 msgid "If you want to determine whether mpd can use cifs file systems."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si mpd peut utiliser les systèmes de fichiers cifs."
 
 #: ../booleans_trans.py:437
 msgid ""
 "If you want to determine whether ftpd can connect to all unreserved ports."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si ftpd peut se connecter sur tout port non-réservé."
 
 #: ../booleans_trans.py:439
 msgid "If you want to determine whether Gitosis can send mail."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si Gitosis peut envoyer des courriels."
 
 #: ../booleans_trans.py:441
 msgid "If you want to allow httpd to connect to memcache server"
@@ -2782,32 +2782,32 @@ msgstr "Si vous souhaitez autoriser tous les démons à accéder aux terminaux e
 msgid ""
 "If you want to determine whether Condor can connect to the network using "
 "TCP."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si Condor peut se connecter au réseau en utilisant TCP."
 
 #: ../booleans_trans.py:451
 msgid ""
 "If you want to allow users to resolve user passwd entries directly from ldap"
 " rather then using a sssd server"
-msgstr ""
+msgstr "Si vous souhaitez autoriser les utilisateurs à résoudre les entrées passwd utilisateur directement depuis LDAP plutôt que d'utiliser un serveur sssd"
 
 #: ../booleans_trans.py:453
 msgid ""
 "If you want to determine whether ftpd can modify public files used for "
 "public file transfer services. Directories/Files must be labeled "
 "public_content_rw_t."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si ftpd peut modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
 
 #: ../booleans_trans.py:455
 msgid "If you want to allow sanlock to manage cifs files"
-msgstr ""
+msgstr "Si vous souhaitez autoriser sanlock à gérer les fichiers cifs"
 
 #: ../booleans_trans.py:457
 msgid "If you want to determine whether awstats can purge httpd log files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si awstats peut purger les fichiers journaux de httpd."
 
 #: ../booleans_trans.py:459
 msgid "If you want to determine whether portage can use nfs filesystems."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si portage peut utiliser les systèmes de fichiers nfs."
 
 #: ../booleans_trans.py:461
 msgid "If you want to allow video playing tools to run unconfined"
@@ -2815,21 +2815,21 @@ msgstr "Si vous souhaitez autoriser les outils de lecture vidéo à être exécu
 
 #: ../booleans_trans.py:463
 msgid "If you want to determine whether to support lpd server."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si l'on doit prendre en charge le serveur lpd."
 
 #: ../booleans_trans.py:465
 msgid "If you want to determine whether webadm can manage generic user files."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si webadm peut gérer les fichiers utilisateurs génériques."
 
 #: ../booleans_trans.py:467
 msgid "If you want to determine whether can clamd use JIT compiler."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si clamd peut utiliser le compilateur JIT."
 
 #: ../booleans_trans.py:469
 msgid ""
 "If you want to determine whether Git session daemon can bind TCP sockets to "
 "all unreserved ports."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si le démon de session Git peut lier les sockets TCP à tous les ports non-réservés."
 
 #: ../booleans_trans.py:471
 msgid ""
@@ -2843,7 +2843,7 @@ msgstr "Si vous souhaitez autoriser samba à partager n'importe quel fichier/ré
 
 #: ../booleans_trans.py:475
 msgid "If you want to allow httpd to access openstack ports"
-msgstr ""
+msgstr "Si vous souhaitez autoriser httpd à accéder aux ports openstack"
 
 #: ../booleans_trans.py:477
 msgid ""
@@ -2853,7 +2853,7 @@ msgstr "Si vous souhaitez autoriser httpd à agir en tant que serveur FTP en éc
 
 #: ../booleans_trans.py:479
 msgid "If you want to allow all daemons to write corefiles to /"
-msgstr "Si vous souhaitez autoriser tous les démons à écrire les corefiles sur /"
+msgstr "Si vous souhaitez autoriser tous les démons à écrire les fichiers core sur /"
 
 #: ../booleans_trans.py:481
 msgid "If you want to enable extra rules in the cron domain to support fcron."
@@ -2871,29 +2871,29 @@ msgstr "Si vous souhaitez autoriser le démon http à se connecter à zabbix"
 
 #: ../booleans_trans.py:487
 msgid "If you want to allow transmit client label to foreign database"
-msgstr ""
+msgstr "Si vous souhaitez autoriser à transmettre l'étiquette du client à une base de données externe"
 
 #: ../booleans_trans.py:489
 msgid ""
 "If you want to determine whether collectd can connect to the network using "
 "TCP."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si collectd peut se connecter au réseau en utilisant TCP."
 
 #: ../booleans_trans.py:491
 msgid "If you want to determine whether Cobbler can access cifs file systems."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si Cobbler peut accéder aux systèmes de fichiers cifs."
 
 #: ../booleans_trans.py:493
 msgid "If you want to determine whether mcelog supports server mode."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si mcelog prend en charge le mode serveur."
 
 #: ../booleans_trans.py:495
 msgid "If you want to allow httpd daemon to change its resource limits"
-msgstr ""
+msgstr "Si vous souhaitez autoriser le démon httpd à modifier ses limites de ressources"
 
 #: ../booleans_trans.py:497
 msgid "If you want to determine whether squid can connect to all TCP ports."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si squid peut se connecter sur tous les ports TCP."
 
 #: ../booleans_trans.py:499
 msgid "If you want to allow all domains to use other domains file descriptors"
@@ -2901,7 +2901,7 @@ msgstr "Si vous souhaitez autoriser tous les domaines à utiliser les descripteu
 
 #: ../booleans_trans.py:501
 msgid "If you want to determine whether mcelog supports client mode."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si mcelog prend en charge le mode client."
 
 #: ../booleans_trans.py:503
 msgid ""
@@ -2919,4 +2919,4 @@ msgid ""
 "If you want to determine whether sftpd can modify public files used for "
 "public file transfer services. Directories/Files must be labeled "
 "public_content_rw_t."
-msgstr ""
+msgstr "Si vous souhaitez déterminer si sftpd peut modifier les fichiers publics utilisés pour les services de transfert de fichiers publics. Les fichiers ou répertoires doivent être étiquetés public_content_rw_t."
