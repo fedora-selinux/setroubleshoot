@@ -562,8 +562,13 @@ class BrowserApplet:
         self.checkonlogin=1
         if not os.path.exists(filename):
             if os.path.exists(OLD_PATH):
-                os.rename(OLD_PATH, filename)
-
+                fd = open(OLD_PATH, "r")
+                buf = fd.read()
+                fd.close()
+                fd = open(filename, "w")
+                fd.write(buf)
+                fd.close()
+                os.unlink(OLD_PATH)
         try:
             fd = open(filename, "r")
             for i in fd.readlines():

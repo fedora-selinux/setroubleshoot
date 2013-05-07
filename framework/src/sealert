@@ -553,8 +553,6 @@ if __name__ == '__main__':
 
         parser.add_option("-b", "--browser", action="store_true", dest="browser", default=False,
                             help="Launch the browser")
-        parser.add_option("-q", "--quit", action="store_true", dest="quit", default=False,
-                            help="Exit")
         parser.add_option("-s", "--service", action="store_true", dest="service", default=False,
                             help="Start sealert as a dbus service")
         parser.add_option("-S", "--noservice", action="store_true", dest="noservice", default=False,
@@ -565,14 +563,14 @@ if __name__ == '__main__':
                             help="Scan a log file, analyze it's AVC's", metavar="FILE")
         parser.add_option("-u", "--user",  dest="user", default=False,
                             help="logon user name")
-        parser.add_option("-p", "--pasword", dest="password", default=False,
+        parser.add_option("-p", "--password", dest="password", default=False,
                             help="logon user password")
         parser.add_option("-P", "--plugin", dest="plugin", default=False,
                             help="Plugin Name Required for -f")
         parser.add_option("-f", "--fix", dest="fix", default=False,
                             help="fix avc with the given uuid, requires plugin")
 
-        conflict_opts = ["analyze", "browser", "fix", "quit", "lookupid", "noservice", "service"]
+        conflict_opts = ["analyze", "browser", "fix", "lookupid", "noservice", "service"]
         username = None
         password = None
         plugin_name = None
@@ -592,9 +590,6 @@ if __name__ == '__main__':
         if options.browser:
             validate_invocation_style("browser", options, conflict_opts)
       
-        if options.quit:
-            validate_invocation_style("quit", options, conflict_opts)
-
         if options.service:
             validate_invocation_style("service", options, conflict_opts)
 
@@ -687,11 +682,6 @@ if __name__ == '__main__':
                 print >> sys.stderr, e.strerror
                 sys.exit(3)
                 
-        elif invocation_style == 'quit':
-            if not ask_dbus_to_quit_app():
-                print >> sys.stderr, "could not attach to desktop process"
-                sys.exit(3)
-            sys.exit()
         elif invocation_style == 'fix':
             use_terminal = True
 
