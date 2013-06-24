@@ -42,6 +42,7 @@ PLUGIN_FILES =				\
 	restorecon.py			\
 	rsync_data.py			\
 	samba_share.py			\
+	sandbox_connect.py		\
 	selinuxpolicy.py		\
 	setenforce.py			\
 	sshd_root.py			\

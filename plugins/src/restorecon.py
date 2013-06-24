@@ -104,6 +104,7 @@ class plugin(Plugin):
         restorecon_files['lnk_file'] = S_IFLNK
         restorecon_files['chr_file'] = S_IFCHR
         restorecon_files['blk_file'] = S_IFBLK
+
         if avc.has_tclass_in(restorecon_files.keys()):               
             if avc.tpath is None: return None
             if avc.tpath == "/": return None
