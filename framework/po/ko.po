@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Dimitris Glezos <glezos@indifex.com>, 2011.
 # Eunju Kim <eukim@redhat.com>, 2006-2007,2009.
@@ -12,14 +12,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-06 11:35-0500\n"
+"POT-Creation-Date: 2013-06-24 12:00-0400\n"
 "PO-Revision-Date: 2013-04-05 12:38+0000\n"
 "Last-Translator: eukim <eukim@redhat.com>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/fedora/language/ko/)\n"
+"Language-Team: Korean (http://www.transifex.com/projects/p/fedora/language/"
+"ko/)\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -39,7 +40,7 @@ msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgid "port %s"
 msgstr "포트 %s"
 
-#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:746 ../src/browser.py:821
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "알려지지 않음"
@@ -49,14 +50,20 @@ msgstr "알려지지 않음"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr "%s \n**** 잘못된 AVC가 현재 정책에서 허용되어 있습니다 ***\n"
+msgstr ""
+"%s \n"
+"**** 잘못된 AVC가 현재 정책에서 허용되어 있습니다 ***\n"
 
 #: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
-msgstr "%s \n**** 잘못된 AVC가 현재 정책에서 dontaudit되었습니다. 'semodule -B'는 dontaudit 규칙을 활성화하게 됩니다. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
+"%s \n"
+"**** 잘못된 AVC가 현재 정책에서 dontaudit되었습니다. 'semodule -B'는 "
+"dontaudit 규칙을 활성화하게 됩니다. ***\n"
 
 #: ../src/audit_data.py:994
 msgid "Must call policy_init first"
@@ -67,182 +74,194 @@ msgstr "반드시 policy_init이 먼저 호출돼야합니다."
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr "%s \n**** 잘못된 AVC 잘못된 대상 문맥. ***\n"
+msgstr ""
+"%s \n"
+"**** 잘못된 AVC 잘못된 대상 문맥. ***\n"
 
 #: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr "%s \n**** 잘못된 AVC 잘못된 소스 문맥  ***\n"
+msgstr ""
+"%s \n"
+"**** 잘못된 AVC 잘못된 소스 문맥  ***\n"
 
 #: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr "%s \n**** 잘못된 AVC 잘못된 유형 클래스 ***\n"
+msgstr ""
+"%s \n"
+"**** 잘못된 AVC 잘못된 유형 클래스 ***\n"
 
 #: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr "%s \n**** 잘못된 AVC 잘못된 권한 ***\n"
+msgstr ""
+"%s \n"
+"**** 잘못된 AVC 잘못된 권한 ***\n"
 
 #: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "액세스 벡터 연산시 오류 발생 "
 
-#: ../src/browser.py:164 ../gui/browser.glade.h:12
+#: ../src/browser.py:170 ../gui/browser.glade.h:12
 msgid "SELinux Alert Browser"
 msgstr "SELinux 보안 통지 브라우저"
 
-#: ../src/browser.py:168 ../gui/browser.glade.h:19
+#: ../src/browser.py:174 ../gui/browser.glade.h:19
 msgid "The source process:"
 msgstr "문제가 발생한 프로세스:"
 
-#: ../src/browser.py:173 ../gui/browser.glade.h:15
+#: ../src/browser.py:179 ../gui/browser.glade.h:15
 msgid "Yes"
 msgstr "예"
 
-#: ../src/browser.py:175 ../gui/browser.glade.h:17
+#: ../src/browser.py:181 ../gui/browser.glade.h:17
 msgid "No"
 msgstr "아니오"
 
-#: ../src/browser.py:180 ../gui/browser.glade.h:20
+#: ../src/browser.py:186 ../gui/browser.glade.h:20
 msgid "Attempted this access:"
 msgstr "시도한 접근:"
 
-#: ../src/browser.py:194 ../gui/browser.glade.h:11
+#: ../src/browser.py:200 ../gui/browser.glade.h:11
 msgid "SETroubleshoot Details Window"
 msgstr "SETrouble 세부 정보 창"
 
-#: ../src/browser.py:197 ../gui/browser.glade.h:14
+#: ../src/browser.py:203 ../gui/browser.glade.h:14
 msgid "Would you like to receive alerts?"
 msgstr "이 통지를 받으시겠습니까?"
 
-#: ../src/browser.py:201 ../gui/browser.glade.h:24
+#: ../src/browser.py:207 ../gui/browser.glade.h:24
 msgid "Notify Admin"
 msgstr "관리자에게 알리기"
 
-#: ../src/browser.py:204 ../src/browser.py:210 ../gui/browser.glade.h:8
+#: ../src/browser.py:210 ../src/browser.py:216 ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "문제 해결"
 
-#: ../src/browser.py:207 ../gui/browser.glade.h:26
+#: ../src/browser.py:213 ../gui/browser.glade.h:26
 msgid "Details"
 msgstr "세부 정보"
 
-#: ../src/browser.py:214 ../gui/browser.glade.h:7
+#: ../src/browser.py:220 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot 통지 목록  "
 
-#: ../src/browser.py:216 ../gui/browser.glade.h:33
+#: ../src/browser.py:222 ../gui/browser.glade.h:33
 msgid "List All Alerts"
 msgstr "모든 통지 목록"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Source Process"
 msgstr "문제 발생 프로세스"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Attempted Access"
 msgstr "시도한 접근"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "On this"
 msgstr "시도한 곳"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Occurred"
 msgstr "발생 횟수"
 
-#: ../src/browser.py:263 ../src/run_cmd.py:406
+#: ../src/browser.py:269 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "상태 "
 
-#: ../src/browser.py:337 ../src/browser.py:774 ../src/browser.py:818
+#: ../src/browser.py:343 ../src/browser.py:785 ../src/browser.py:829
 msgid "Notify"
 msgstr "알림"
 
-#: ../src/browser.py:338
+#: ../src/browser.py:344
 msgid "Notify alert in the future."
 msgstr "나중에 통지를 표시합니다."
 
-#: ../src/browser.py:341 ../src/browser.py:776 ../src/browser.py:816
+#: ../src/browser.py:347 ../src/browser.py:787 ../src/browser.py:827
 #: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "무시"
 
-#: ../src/browser.py:342 ../gui/browser.glade.h:28
+#: ../src/browser.py:348 ../gui/browser.glade.h:28
 msgid "Ignore alert in the future."
 msgstr "앞으로 이 통지를 무시합니다."
 
-#: ../src/browser.py:378
+#: ../src/browser.py:384
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>다음을 시도하려고 하였다면...</b>"
 
-#: ../src/browser.py:387
+#: ../src/browser.py:393
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>이 방법이 그 해답일 것입니다.</b>"
 
-#: ../src/browser.py:406 ../src/browser.py:542
+#: ../src/browser.py:412 ../src/browser.py:548
 msgid "If "
 msgstr "가정 "
 
-#: ../src/browser.py:494
+#: ../src/browser.py:500
 msgid ""
 "Plugin\n"
 "Details"
-msgstr "플러그인\n세부 정보"
+msgstr ""
+"플러그인\n"
+"세부 정보"
 
-#: ../src/browser.py:509
+#: ../src/browser.py:515
 msgid ""
 "Report\n"
 "Bug"
-msgstr "버그\n보고"
+msgstr ""
+"버그\n"
+"보고"
 
-#: ../src/browser.py:537
+#: ../src/browser.py:543
 #, python-format
 msgid "Plugin: %s "
 msgstr "플러그인: %s "
 
-#: ../src/browser.py:599
+#: ../src/browser.py:610
 msgid "Unable to grant access."
 msgstr "액세스 권한을 부여할 수 없습니다.   "
 
-#: ../src/browser.py:630 ../src/browser.py:772
+#: ../src/browser.py:641 ../src/browser.py:783
 #, python-format
 msgid "Alert %d of %d"
 msgstr "%d번째 보고/ 총 %d개"
 
-#: ../src/browser.py:755
+#: ../src/browser.py:766
 #, python-format
 msgid "On this %s:"
 msgstr "%s 에서: "
 
-#: ../src/browser.py:803 ../src/browser.py:809 ../src/signature.py:388
+#: ../src/browser.py:814 ../src/browser.py:820 ../src/signature.py:388
 msgid "N/A"
 msgstr "없음"
 
-#: ../src/browser.py:850 ../src/browser.py:851 ../gui/browser.glade.h:31
+#: ../src/browser.py:861 ../src/browser.py:862 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "경고 없음"
 
-#: ../src/browser.py:869
+#: ../src/browser.py:880
 msgid "SELinux has detected a problem."
 msgstr "SELinux가 문제를 발견했습니다."
 
-#: ../src/browser.py:974
+#: ../src/browser.py:985
 msgid "Sealert Error"
 msgstr "Sealert 오류  "
 
-#: ../src/browser.py:985
+#: ../src/browser.py:996
 msgid "Sealert Message"
 msgstr "Sealert 메세지 "
 
@@ -324,7 +343,7 @@ msgstr "인증되지 않음 "
 msgid "user lookup failed"
 msgstr "사용자 검색 실패 "
 
-#: ../src/gui_utils.py:53 ../src/sealert:527
+#: ../src/gui_utils.py:53 ../src/sealert:531
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "%s이(가) 오류를 발생시켰습니다!  "
@@ -337,7 +356,9 @@ msgstr "오류 "
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr "$ACCESS 접근 권한을 위해 $TARGET_BASE_PATH의 $TARGET_CLASS에 접근하여 $SOURCE_BASE를 허가하고자 합니다."
+msgstr ""
+"$ACCESS 접근 권한을 위해 $TARGET_BASE_PATH의 $TARGET_CLASS에 접근하여 "
+"$SOURCE_BASE를 허가하고자 합니다."
 
 #: ../src/run_cmd.py:172
 msgid "Input: "
@@ -478,7 +499,8 @@ msgstr "기능 "
 #: ../src/signature.py:373
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
-msgstr "%s은(는) 허용 유형 (%s)이 있습니다. 이 액세스는 거부되지 않습니다.       "
+msgstr ""
+"%s은(는) 허용 유형 (%s)이 있습니다. 이 액세스는 거부되지 않습니다.       "
 
 #: ../src/signature.py:376
 msgid "SELinux is in permissive mode. This access was not denied."
@@ -504,139 +526,160 @@ msgstr "SELinux는 %s가 %s 기능을 사용하지 못하게 합니다."
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux는 %s가 '%s' 기능을 사용하지 못하게 합니다."
 
-#: ../src/signature.py:433
+#: ../src/signature.py:434
+#, fuzzy, python-format
+msgid "SELinux is preventing %s from %s access on the %s labeled %s."
+msgstr "SELinux는 %s %s에서 %s가 %s 액세스하지 못하게 합니다."
+
+#: ../src/signature.py:434
+#, fuzzy, python-format
+msgid "SELinux is preventing %s from '%s' accesses on the the %s labeled %s."
+msgstr "SELinux는 %s %s에서 %s가 '%s' 액세스하지 못하게 합니다."
+
+#: ../src/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux는 %s %s에서 %s가 %s 액세스하지 못하게 합니다."
 
-#: ../src/signature.py:433
+#: ../src/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux는 %s %s에서 %s가 '%s' 액세스하지 못하게 합니다."
 
-#: ../src/signature.py:461
+#: ../src/signature.py:463
 msgid "Additional Information:\n"
 msgstr "추가 정보:\n"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:464
 msgid "Source Context"
 msgstr "소스 문맥"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:465
 msgid "Target Context"
 msgstr "대상 문맥"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:466
 msgid "Target Objects"
 msgstr "대상 객체"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:467
 msgid "Source"
 msgstr "소스 "
 
-#: ../src/signature.py:466
+#: ../src/signature.py:468
 msgid "Source Path"
 msgstr "소스 경로 "
 
-#: ../src/signature.py:467
+#: ../src/signature.py:469
 msgid "Port"
 msgstr "포트 "
 
-#: ../src/signature.py:469 ../src/signature.py:471
+#: ../src/signature.py:471 ../src/signature.py:473
 msgid "Host"
 msgstr "호스트 "
 
-#: ../src/signature.py:472
+#: ../src/signature.py:474
 msgid "Source RPM Packages"
 msgstr "소스 RPM 패키지 "
 
-#: ../src/signature.py:473
+#: ../src/signature.py:475
 msgid "Target RPM Packages"
 msgstr "대상 RPM 패키지 "
 
-#: ../src/signature.py:474
+#: ../src/signature.py:476
 msgid "Policy RPM"
 msgstr "정책 RPM"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:477
 msgid "Selinux Enabled"
 msgstr "Selinux 활성화"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:478
 msgid "Policy Type"
 msgstr "정책 유형"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:479
 msgid "Enforcing Mode"
 msgstr "강제 모드"
 
-#: ../src/signature.py:479 ../src/signature.py:481
+#: ../src/signature.py:481 ../src/signature.py:483
 msgid "Host Name"
 msgstr "호스트명"
 
-#: ../src/signature.py:486 ../src/signature.py:488
+#: ../src/signature.py:488 ../src/signature.py:490
 msgid "Platform"
 msgstr "플랫폼"
 
-#: ../src/signature.py:489
+#: ../src/signature.py:491
 msgid "Alert Count"
 msgstr "통지 카운트"
 
-#: ../src/signature.py:491
+#: ../src/signature.py:493
 msgid "First Seen"
 msgstr "초기 화면 "
 
-#: ../src/signature.py:492
+#: ../src/signature.py:494
 msgid "Last Seen"
 msgstr "마지막 화면 "
 
-#: ../src/signature.py:493
+#: ../src/signature.py:495
 msgid "Local ID"
 msgstr "로컬 ID "
 
-#: ../src/signature.py:495
+#: ../src/signature.py:497
 msgid "Raw Audit Messages"
 msgstr "원 감사 메세지"
 
-#: ../src/signature.py:546
+#: ../src/signature.py:551
 #, python-format
 msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr "\n\n*****  플러그인 %s (%.4s confidence) 제안  "
+msgstr ""
+"\n"
+"\n"
+"*****  플러그인 %s (%.4s confidence) 제안  "
 
-#: ../src/signature.py:549
+#: ../src/signature.py:554
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:550
+#: ../src/signature.py:555
 msgid "\n"
 msgstr "\n"
-
-#: ../src/signature.py:552
-msgid ""
-"\n"
-"If "
-msgstr "\nIf "
-
-#: ../src/signature.py:554
-msgid ""
-"\n"
-"Then "
-msgstr "\nThen "
 
 #: ../src/signature.py:557
 msgid ""
 "\n"
-"Do\n"
-msgstr "\nDo\n"
+"If "
+msgstr ""
+"\n"
+"If "
 
 #: ../src/signature.py:559
 msgid ""
 "\n"
+"Then "
+msgstr ""
 "\n"
-msgstr "\n\n"
+"Then "
+
+#: ../src/signature.py:562
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
+"\n"
+"Do\n"
+
+#: ../src/signature.py:564
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -671,7 +714,8 @@ msgstr "SELinux AVC 거부, 클릭하여 보기 "
 
 #: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SELinux가 활성화되어있지 않습니다. sealert는 SELinux 시스템에서만 작동합니다."
+msgstr ""
+"SELinux가 활성화되어있지 않습니다. sealert는 SELinux 시스템에서만 작동합니다."
 
 #: ../src/sealert:150
 msgid "Not fixable."
@@ -687,11 +731,11 @@ msgstr "성공적으로 %s 실행  "
 msgid "Plugin %s not valid for %s id"
 msgstr "플러그인 %s가 플러그인 %s에 유효하지 않습니다."
 
-#: ../src/setroubleshootd:69
+#: ../src/setroubleshootd:72
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux가 활성화되어 있지 않습니다. setroubleshootd를 종료합니다..."
 
-#: ../src/setroubleshootd:101
+#: ../src/setroubleshootd:104
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork #1 실패: %d (%s)"
@@ -703,7 +747,12 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr "Copyright (c) 2010 \nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
+msgstr ""
+"Copyright (c) 2010 \n"
+"Thomas Liu <tliu@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -737,7 +786,8 @@ msgstr "레이블"
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr "문제 해결 정보를 읽어보십시오.  관리자 권한 회복이 필요할 수도 있습니다."
+msgstr ""
+"문제 해결 정보를 읽어보십시오.  관리자 권한 회복이 필요할 수도 있습니다."
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
@@ -771,7 +821,9 @@ msgstr "<span size='large' weight='bold'>버그 보고 검색 및 제출</span> 
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr "이 버그 보고에 포함된 오류 출력 결과를 다시 확인하여 기밀 데이터를 제외시키실 수도 있습니다."
+msgstr ""
+"이 버그 보고에 포함된 오류 출력 결과를 다시 확인하여 기밀 데이터를 제외시키"
+"실 수도 있습니다."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
@@ -784,7 +836,8 @@ msgstr "보고서 제출  "
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr "이 작업이 완료되었습니다.  The quick brown fox jumped over the lazy dog."
+msgstr ""
+"이 작업이 완료되었습니다.  The quick brown fox jumped over the lazy dog."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"

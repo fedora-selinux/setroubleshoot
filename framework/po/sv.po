@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Dimitris Glezos <glezos@transifex.com>, 2011
 # Göran Uddeborg <goeran@uddeborg.se>, 2011-2013
@@ -10,14 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-06 11:35-0500\n"
+"POT-Creation-Date: 2013-06-24 12:00-0400\n"
 "PO-Revision-Date: 2013-04-29 08:23+0000\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/fedora/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/fedora/language/"
+"sv/)\n"
+"Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -37,7 +38,7 @@ msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:746 ../src/browser.py:821
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Okänd"
@@ -47,14 +48,20 @@ msgstr "Okänd"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr "%s \n**** Ogiltig AVC tillåten i aktuell policy ***\n"
+msgstr ""
+"%s \n"
+"**** Ogiltig AVC tillåten i aktuell policy ***\n"
 
 #: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
-msgstr "%s \n**** Ogiltig AVC ej loggad i aktuell policy. ”semodule-B” slår på regler som inte loggas. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
+"%s \n"
+"**** Ogiltig AVC ej loggad i aktuell policy. ”semodule-B” slår på regler som "
+"inte loggas. ***\n"
 
 #: ../src/audit_data.py:994
 msgid "Must call policy_init first"
@@ -65,182 +72,194 @@ msgstr "Måste anropa policy_init först"
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr "%s \n**** Ogiltig AVC felaktigt målsammanhang. ***\n"
+msgstr ""
+"%s \n"
+"**** Ogiltig AVC felaktigt målsammanhang. ***\n"
 
 #: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr "%s \n**** Ogiltig AVC felaktigt källasammanhang. ***\n"
+msgstr ""
+"%s \n"
+"**** Ogiltig AVC felaktigt källasammanhang. ***\n"
 
 #: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr "%s \n**** Ogiltig AVC felaktig typklass ***\n"
+msgstr ""
+"%s \n"
+"**** Ogiltig AVC felaktig typklass ***\n"
 
 #: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr "%s \n**** Ogiltig AVC felaktigt tillstånd ***\n"
+msgstr ""
+"%s \n"
+"**** Ogiltig AVC felaktigt tillstånd ***\n"
 
 #: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "Fel under beräkning av åtkomstvektor"
 
-#: ../src/browser.py:164 ../gui/browser.glade.h:12
+#: ../src/browser.py:170 ../gui/browser.glade.h:12
 msgid "SELinux Alert Browser"
 msgstr "SELinux larmvisare"
 
-#: ../src/browser.py:168 ../gui/browser.glade.h:19
+#: ../src/browser.py:174 ../gui/browser.glade.h:19
 msgid "The source process:"
 msgstr "Källprocessen:"
 
-#: ../src/browser.py:173 ../gui/browser.glade.h:15
+#: ../src/browser.py:179 ../gui/browser.glade.h:15
 msgid "Yes"
 msgstr "Ja"
 
-#: ../src/browser.py:175 ../gui/browser.glade.h:17
+#: ../src/browser.py:181 ../gui/browser.glade.h:17
 msgid "No"
 msgstr "Nej"
 
-#: ../src/browser.py:180 ../gui/browser.glade.h:20
+#: ../src/browser.py:186 ../gui/browser.glade.h:20
 msgid "Attempted this access:"
 msgstr "Försökte komma åt:"
 
-#: ../src/browser.py:194 ../gui/browser.glade.h:11
+#: ../src/browser.py:200 ../gui/browser.glade.h:11
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshoot detaljfönster"
 
-#: ../src/browser.py:197 ../gui/browser.glade.h:14
+#: ../src/browser.py:203 ../gui/browser.glade.h:14
 msgid "Would you like to receive alerts?"
 msgstr "Vill du få larm?"
 
-#: ../src/browser.py:201 ../gui/browser.glade.h:24
+#: ../src/browser.py:207 ../gui/browser.glade.h:24
 msgid "Notify Admin"
 msgstr "Meddela administratör"
 
-#: ../src/browser.py:204 ../src/browser.py:210 ../gui/browser.glade.h:8
+#: ../src/browser.py:210 ../src/browser.py:216 ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "Felsök"
 
-#: ../src/browser.py:207 ../gui/browser.glade.h:26
+#: ../src/browser.py:213 ../gui/browser.glade.h:26
 msgid "Details"
 msgstr "Detaljer"
 
-#: ../src/browser.py:214 ../gui/browser.glade.h:7
+#: ../src/browser.py:220 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot larmlista"
 
-#: ../src/browser.py:216 ../gui/browser.glade.h:33
+#: ../src/browser.py:222 ../gui/browser.glade.h:33
 msgid "List All Alerts"
 msgstr "Lista alla larm"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Source Process"
 msgstr "Källprocess"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Attempted Access"
 msgstr "Åtkomstförsök"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "On this"
 msgstr "På denna"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Occurred"
 msgstr "Inträffade"
 
-#: ../src/browser.py:263 ../src/run_cmd.py:406
+#: ../src/browser.py:269 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "Status"
 
-#: ../src/browser.py:337 ../src/browser.py:774 ../src/browser.py:818
+#: ../src/browser.py:343 ../src/browser.py:785 ../src/browser.py:829
 msgid "Notify"
 msgstr "Meddela"
 
-#: ../src/browser.py:338
+#: ../src/browser.py:344
 msgid "Notify alert in the future."
 msgstr "Meddela om larmet i framtiden."
 
-#: ../src/browser.py:341 ../src/browser.py:776 ../src/browser.py:816
+#: ../src/browser.py:347 ../src/browser.py:787 ../src/browser.py:827
 #: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Ignorera"
 
-#: ../src/browser.py:342 ../gui/browser.glade.h:28
+#: ../src/browser.py:348 ../gui/browser.glade.h:28
 msgid "Ignore alert in the future."
 msgstr "Ignorera larmet i framtiden."
 
-#: ../src/browser.py:378
+#: ../src/browser.py:384
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Om du försökte …</b>"
 
-#: ../src/browser.py:387
+#: ../src/browser.py:393
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Då är detta lösningen.</b>"
 
-#: ../src/browser.py:406 ../src/browser.py:542
+#: ../src/browser.py:412 ../src/browser.py:548
 msgid "If "
 msgstr "Om "
 
-#: ../src/browser.py:494
+#: ../src/browser.py:500
 msgid ""
 "Plugin\n"
 "Details"
-msgstr "Insticksmodul\nDetaljer"
+msgstr ""
+"Insticksmodul\n"
+"Detaljer"
 
-#: ../src/browser.py:509
+#: ../src/browser.py:515
 msgid ""
 "Report\n"
 "Bug"
-msgstr "Rapportera\nfel"
+msgstr ""
+"Rapportera\n"
+"fel"
 
-#: ../src/browser.py:537
+#: ../src/browser.py:543
 #, python-format
 msgid "Plugin: %s "
 msgstr "Insticksmodul: %s "
 
-#: ../src/browser.py:599
+#: ../src/browser.py:610
 msgid "Unable to grant access."
 msgstr "Kan inte bevilja åtkomst."
 
-#: ../src/browser.py:630 ../src/browser.py:772
+#: ../src/browser.py:641 ../src/browser.py:783
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Larm %d av %d"
 
-#: ../src/browser.py:755
+#: ../src/browser.py:766
 #, python-format
 msgid "On this %s:"
 msgstr "På denna %s:"
 
-#: ../src/browser.py:803 ../src/browser.py:809 ../src/signature.py:388
+#: ../src/browser.py:814 ../src/browser.py:820 ../src/signature.py:388
 msgid "N/A"
 msgstr "Ej tillämpligt"
 
-#: ../src/browser.py:850 ../src/browser.py:851 ../gui/browser.glade.h:31
+#: ../src/browser.py:861 ../src/browser.py:862 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "Inga larm"
 
-#: ../src/browser.py:869
+#: ../src/browser.py:880
 msgid "SELinux has detected a problem."
 msgstr "SELinux har upptäckt ett problem."
 
-#: ../src/browser.py:974
+#: ../src/browser.py:985
 msgid "Sealert Error"
 msgstr "Sealertfel"
 
-#: ../src/browser.py:985
+#: ../src/browser.py:996
 msgid "Sealert Message"
 msgstr "Sealertmeddelande"
 
@@ -322,7 +341,7 @@ msgstr "inte autenticerad"
 msgid "user lookup failed"
 msgstr "uppslagning av användare misslyckades"
 
-#: ../src/gui_utils.py:53 ../src/sealert:527
+#: ../src/gui_utils.py:53 ../src/sealert:531
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Oj, %s stötte på ett fel!"
@@ -335,7 +354,9 @@ msgstr "Fel"
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr "du vill tillåta $SOURCE_BASE_PATH att ha $ACCESS till $TARGET_CLASS $TARGET_BASE_PATH"
+msgstr ""
+"du vill tillåta $SOURCE_BASE_PATH att ha $ACCESS till $TARGET_CLASS "
+"$TARGET_BASE_PATH"
 
 #: ../src/run_cmd.py:172
 msgid "Input: "
@@ -367,7 +388,8 @@ msgstr "Stoppa kommando"
 
 #: ../src/run_cmd.py:413
 msgid "Warning: You are responsible for verifying this command is correct"
-msgstr "Varning: Du är ansvarig för att verifiera att detta kommando är riktigt"
+msgstr ""
+"Varning: Du är ansvarig för att verifiera att detta kommando är riktigt"
 
 #: ../src/run_cmd.py:455
 msgid "Not Run Yet"
@@ -502,139 +524,160 @@ msgstr "SELinux hindrar %s från att använda förmågan %s."
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux hindrar %s från att använda förmågan ”%s”."
 
-#: ../src/signature.py:433
+#: ../src/signature.py:434
+#, fuzzy, python-format
+msgid "SELinux is preventing %s from %s access on the %s labeled %s."
+msgstr "SELinux hindrar %s från åtkomsten %s på %s %s."
+
+#: ../src/signature.py:434
+#, fuzzy, python-format
+msgid "SELinux is preventing %s from '%s' accesses on the the %s labeled %s."
+msgstr "SELinux hindrar %s från åtkomsten ”%s” på %s %s."
+
+#: ../src/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux hindrar %s från åtkomsten %s på %s %s."
 
-#: ../src/signature.py:433
+#: ../src/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux hindrar %s från åtkomsten ”%s” på %s %s."
 
-#: ../src/signature.py:461
+#: ../src/signature.py:463
 msgid "Additional Information:\n"
 msgstr "Ytterligare information:\n"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:464
 msgid "Source Context"
 msgstr "Källkontext"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:465
 msgid "Target Context"
 msgstr "Målkontext"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:466
 msgid "Target Objects"
 msgstr "Målobjekt"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:467
 msgid "Source"
 msgstr "Källa"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:468
 msgid "Source Path"
 msgstr "Källsökväg"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:469
 msgid "Port"
 msgstr "Port"
 
-#: ../src/signature.py:469 ../src/signature.py:471
+#: ../src/signature.py:471 ../src/signature.py:473
 msgid "Host"
 msgstr "Värd"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:474
 msgid "Source RPM Packages"
 msgstr "Käll-RPM-paket"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:475
 msgid "Target RPM Packages"
 msgstr "Mål-RPM-paket"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:476
 msgid "Policy RPM"
 msgstr "Policy-RPM"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:477
 msgid "Selinux Enabled"
 msgstr "SELinux aktiverat"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:478
 msgid "Policy Type"
 msgstr "Policytyp"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:479
 msgid "Enforcing Mode"
 msgstr "Verkställande läge"
 
-#: ../src/signature.py:479 ../src/signature.py:481
+#: ../src/signature.py:481 ../src/signature.py:483
 msgid "Host Name"
 msgstr "Värdnamn"
 
-#: ../src/signature.py:486 ../src/signature.py:488
+#: ../src/signature.py:488 ../src/signature.py:490
 msgid "Platform"
 msgstr "Plattform"
 
-#: ../src/signature.py:489
+#: ../src/signature.py:491
 msgid "Alert Count"
 msgstr "Antal larm"
 
-#: ../src/signature.py:491
+#: ../src/signature.py:493
 msgid "First Seen"
 msgstr "Först sedd"
 
-#: ../src/signature.py:492
+#: ../src/signature.py:494
 msgid "Last Seen"
 msgstr "Senast sedd"
 
-#: ../src/signature.py:493
+#: ../src/signature.py:495
 msgid "Local ID"
 msgstr "Lokalt ID"
 
-#: ../src/signature.py:495
+#: ../src/signature.py:497
 msgid "Raw Audit Messages"
 msgstr "Råa granskningsmeddelanden"
 
-#: ../src/signature.py:546
+#: ../src/signature.py:551
 #, python-format
 msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr "\n\n***** Insticksmodul %s (%.4s tillit) föreslår  "
+msgstr ""
+"\n"
+"\n"
+"***** Insticksmodul %s (%.4s tillit) föreslår  "
 
-#: ../src/signature.py:549
+#: ../src/signature.py:554
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:550
+#: ../src/signature.py:555
 msgid "\n"
 msgstr "\n"
-
-#: ../src/signature.py:552
-msgid ""
-"\n"
-"If "
-msgstr "\nOm "
-
-#: ../src/signature.py:554
-msgid ""
-"\n"
-"Then "
-msgstr "\nI så fall "
 
 #: ../src/signature.py:557
 msgid ""
 "\n"
-"Do\n"
-msgstr "\nGör\n"
+"If "
+msgstr ""
+"\n"
+"Om "
 
 #: ../src/signature.py:559
 msgid ""
 "\n"
+"Then "
+msgstr ""
 "\n"
-msgstr "\n\n"
+"I så fall "
+
+#: ../src/signature.py:562
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
+"\n"
+"Gör\n"
+
+#: ../src/signature.py:564
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -669,7 +712,9 @@ msgstr "AVC-nekande från SELinux, klicka för att se"
 
 #: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SELinux har inte aktiverats, sealert kommer inte att köras på icke SELinux-system"
+msgstr ""
+"SELinux har inte aktiverats, sealert kommer inte att köras på icke SELinux-"
+"system"
 
 #: ../src/sealert:150
 msgid "Not fixable."
@@ -685,11 +730,11 @@ msgstr "Körde framgångsrikt %s"
 msgid "Plugin %s not valid for %s id"
 msgstr "Insticksmodul %s är inte giltig för id %s"
 
-#: ../src/setroubleshootd:69
+#: ../src/setroubleshootd:72
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux är inte aktiverat, setroubleshootd avslutar ...\""
 
-#: ../src/setroubleshootd:101
+#: ../src/setroubleshootd:104
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "gren nr. 1 misslyckades: %d (%s)"
@@ -701,7 +746,12 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr "Copyright © 2010\nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
+msgstr ""
+"Copyright © 2010\n"
+"Thomas Liu <tliu@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -735,7 +785,9 @@ msgstr "etikett"
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr "Läs felsökningsinformation om larm.  Kan kräva administrativa rättigheter för att avhjälpa."
+msgstr ""
+"Läs felsökningsinformation om larm.  Kan kräva administrativa rättigheter "
+"för att avhjälpa."
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
@@ -763,13 +815,16 @@ msgstr "Granska och skicka in felrapport"
 
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr "<span size='large' weight='bold'>Granska och skicka in felrapport</span>"
+msgstr ""
+"<span size='large' weight='bold'>Granska och skicka in felrapport</span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr "Du kanske vill granska felutskrifterna som kommer inkluderas i denna felrapport och ändra dem för att utestluta eventuella känsliga data nedan."
+msgstr ""
+"Du kanske vill granska felutskrifterna som kommer inkluderas i denna "
+"felrapport och ändra dem för att utestluta eventuella känsliga data nedan."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
@@ -782,7 +837,8 @@ msgstr "Skicka in rapport"
 #: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr "Operationen fullbordades.  Flygande bäckasiner söka hwila på mjuka tuvor."
+msgstr ""
+"Operationen fullbordades.  Flygande bäckasiner söka hwila på mjuka tuvor."
 
 #: ../gui/success_dialog.glade.h:1
 msgid "Success!"

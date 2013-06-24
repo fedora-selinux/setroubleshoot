@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Aleksandr Brezhnev <abrezhnev@gmail.com>, 2012.
 # Andrew Martynov <andrewm@inventa.ru>, 2006.
@@ -19,15 +19,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-06 11:35-0500\n"
+"POT-Creation-Date: 2013-06-24 12:00-0400\n"
 "PO-Revision-Date: 2013-04-03 23:09+0000\n"
 "Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
 "Language-Team: Russian <trans-ru@lists.fedoraproject.org>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -46,7 +47,7 @@ msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgid "port %s"
 msgstr "порт %s"
 
-#: ../src/audit_data.py:900 ../src/browser.py:735 ../src/browser.py:810
+#: ../src/audit_data.py:900 ../src/browser.py:746 ../src/browser.py:821
 #: ../src/rpc.py:532 ../src/util.py:220
 msgid "Unknown"
 msgstr "Неизвестно"
@@ -56,14 +57,20 @@ msgstr "Неизвестно"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr "%s \n**** Неверный AVC разрешён текущим регламентом ***\n"
+msgstr ""
+"%s \n"
+"**** Неверный AVC разрешён текущим регламентом ***\n"
 
 #: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
-msgstr "%s \n**** Неверный AVC пропускается текущим регламентом. Команда «semodule -B» включает аудит правил с флагом «dontaudit». ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
+"dontaudit rules. ***\n"
+msgstr ""
+"%s \n"
+"**** Неверный AVC пропускается текущим регламентом. Команда «semodule -B» "
+"включает аудит правил с флагом «dontaudit». ***\n"
 
 #: ../src/audit_data.py:994
 msgid "Must call policy_init first"
@@ -74,182 +81,194 @@ msgstr "Сначала требуется вызвать policy_init"
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr "%s \n**** Неверный AVC плохой целевой контекст. ***\n"
+msgstr ""
+"%s \n"
+"**** Неверный AVC плохой целевой контекст. ***\n"
 
 #: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr "%s \n**** Неверный AVC плохой исходный контекст. ***\n"
+msgstr ""
+"%s \n"
+"**** Неверный AVC плохой исходный контекст. ***\n"
 
 #: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr "%s \n**** Неверный AVC плохой тип класса ***\n"
+msgstr ""
+"%s \n"
+"**** Неверный AVC плохой тип класса ***\n"
 
 #: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr "%s \n**** Неверный AVC плохие права доступа ***\n"
+msgstr ""
+"%s \n"
+"**** Неверный AVC плохие права доступа ***\n"
 
 #: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
 msgstr "Ошибка при вычислении вектора доступа"
 
-#: ../src/browser.py:164 ../gui/browser.glade.h:12
+#: ../src/browser.py:170 ../gui/browser.glade.h:12
 msgid "SELinux Alert Browser"
 msgstr "Обзор уведомлений SELinux"
 
-#: ../src/browser.py:168 ../gui/browser.glade.h:19
+#: ../src/browser.py:174 ../gui/browser.glade.h:19
 msgid "The source process:"
 msgstr "Исходный процесс:"
 
-#: ../src/browser.py:173 ../gui/browser.glade.h:15
+#: ../src/browser.py:179 ../gui/browser.glade.h:15
 msgid "Yes"
 msgstr "Да"
 
-#: ../src/browser.py:175 ../gui/browser.glade.h:17
+#: ../src/browser.py:181 ../gui/browser.glade.h:17
 msgid "No"
 msgstr "Нет"
 
-#: ../src/browser.py:180 ../gui/browser.glade.h:20
+#: ../src/browser.py:186 ../gui/browser.glade.h:20
 msgid "Attempted this access:"
 msgstr "Предпринята попытка доступа:"
 
-#: ../src/browser.py:194 ../gui/browser.glade.h:11
+#: ../src/browser.py:200 ../gui/browser.glade.h:11
 msgid "SETroubleshoot Details Window"
 msgstr "Окно сведений SETroubleshoot"
 
-#: ../src/browser.py:197 ../gui/browser.glade.h:14
+#: ../src/browser.py:203 ../gui/browser.glade.h:14
 msgid "Would you like to receive alerts?"
 msgstr "Получать оповещения?"
 
-#: ../src/browser.py:201 ../gui/browser.glade.h:24
+#: ../src/browser.py:207 ../gui/browser.glade.h:24
 msgid "Notify Admin"
 msgstr "Уведомить администратора"
 
-#: ../src/browser.py:204 ../src/browser.py:210 ../gui/browser.glade.h:8
+#: ../src/browser.py:210 ../src/browser.py:216 ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "Диагностика"
 
-#: ../src/browser.py:207 ../gui/browser.glade.h:26
+#: ../src/browser.py:213 ../gui/browser.glade.h:26
 msgid "Details"
 msgstr "Подробности"
 
-#: ../src/browser.py:214 ../gui/browser.glade.h:7
+#: ../src/browser.py:220 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "Список уведомлений SETroubleshoot"
 
-#: ../src/browser.py:216 ../gui/browser.glade.h:33
+#: ../src/browser.py:222 ../gui/browser.glade.h:33
 msgid "List All Alerts"
 msgstr "Показать все предупреждения"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Source Process"
 msgstr "Исходный процесс"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Attempted Access"
 msgstr "Попытка доступа"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "On this"
 msgstr "На этом"
 
-#: ../src/browser.py:263
+#: ../src/browser.py:269
 msgid "Occurred"
 msgstr "Повтор"
 
-#: ../src/browser.py:263 ../src/run_cmd.py:406
+#: ../src/browser.py:269 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "Статус"
 
-#: ../src/browser.py:337 ../src/browser.py:774 ../src/browser.py:818
+#: ../src/browser.py:343 ../src/browser.py:785 ../src/browser.py:829
 msgid "Notify"
 msgstr "Уведомить"
 
-#: ../src/browser.py:338
+#: ../src/browser.py:344
 msgid "Notify alert in the future."
 msgstr "Уведомлять о перупреждениях в будущем."
 
-#: ../src/browser.py:341 ../src/browser.py:776 ../src/browser.py:816
+#: ../src/browser.py:347 ../src/browser.py:787 ../src/browser.py:827
 #: ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Игнорировать"
 
-#: ../src/browser.py:342 ../gui/browser.glade.h:28
+#: ../src/browser.py:348 ../gui/browser.glade.h:28
 msgid "Ignore alert in the future."
 msgstr "Игнорировать предупреждение в будущем."
 
-#: ../src/browser.py:378
+#: ../src/browser.py:384
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Ожидаемый результат:</b>"
 
-#: ../src/browser.py:387
+#: ../src/browser.py:393
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Решение:</b>"
 
-#: ../src/browser.py:406 ../src/browser.py:542
+#: ../src/browser.py:412 ../src/browser.py:548
 msgid "If "
 msgstr "Если "
 
-#: ../src/browser.py:494
+#: ../src/browser.py:500
 msgid ""
 "Plugin\n"
 "Details"
-msgstr "Сведения о\nмодуле"
+msgstr ""
+"Сведения о\n"
+"модуле"
 
-#: ../src/browser.py:509
+#: ../src/browser.py:515
 msgid ""
 "Report\n"
 "Bug"
-msgstr "Сообщить\nоб ошибке"
+msgstr ""
+"Сообщить\n"
+"об ошибке"
 
-#: ../src/browser.py:537
+#: ../src/browser.py:543
 #, python-format
 msgid "Plugin: %s "
 msgstr "Модуль: %s"
 
-#: ../src/browser.py:599
+#: ../src/browser.py:610
 msgid "Unable to grant access."
 msgstr "Не удалось предоставить доступ."
 
-#: ../src/browser.py:630 ../src/browser.py:772
+#: ../src/browser.py:641 ../src/browser.py:783
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Предупреждение %d о %d"
 
-#: ../src/browser.py:755
+#: ../src/browser.py:766
 #, python-format
 msgid "On this %s:"
 msgstr "На %s:"
 
-#: ../src/browser.py:803 ../src/browser.py:809 ../src/signature.py:388
+#: ../src/browser.py:814 ../src/browser.py:820 ../src/signature.py:388
 msgid "N/A"
 msgstr "Нет"
 
-#: ../src/browser.py:850 ../src/browser.py:851 ../gui/browser.glade.h:31
+#: ../src/browser.py:861 ../src/browser.py:862 ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "Оповещений нет"
 
-#: ../src/browser.py:869
+#: ../src/browser.py:880
 msgid "SELinux has detected a problem."
 msgstr "SELinux обнаружил проблему."
 
-#: ../src/browser.py:974
+#: ../src/browser.py:985
 msgid "Sealert Error"
 msgstr "Ошибка sealert"
 
-#: ../src/browser.py:985
+#: ../src/browser.py:996
 msgid "Sealert Message"
 msgstr "Сообщение sealert"
 
@@ -331,7 +350,7 @@ msgstr "не авторизован"
 msgid "user lookup failed"
 msgstr "ошибка при поиске пользователя"
 
-#: ../src/gui_utils.py:53 ../src/sealert:527
+#: ../src/gui_utils.py:53 ../src/sealert:531
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Ошибка %s!"
@@ -344,7 +363,9 @@ msgstr "Ошибка"
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr "вы хотите предоставить $SOURCE_BASE_PATH доступ $ACCESS к $TARGET_BASE_PATH $TARGET_CLASS"
+msgstr ""
+"вы хотите предоставить $SOURCE_BASE_PATH доступ $ACCESS к $TARGET_BASE_PATH "
+"$TARGET_CLASS"
 
 #: ../src/run_cmd.py:172
 msgid "Input: "
@@ -407,7 +428,8 @@ msgstr "Готово:"
 #: ../src/server.py:191
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
-msgstr "Чтобы показать полный список сообщений SELinux, выполните sealert -l %s"
+msgstr ""
+"Чтобы показать полный список сообщений SELinux, выполните sealert -l %s"
 
 #: ../src/server.py:373
 #, python-format
@@ -511,139 +533,160 @@ msgstr "SELinux запрещает %s использовать возможно�
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux запрещает %s использовать возможности '%s'."
 
-#: ../src/signature.py:433
+#: ../src/signature.py:434
+#, fuzzy, python-format
+msgid "SELinux is preventing %s from %s access on the %s labeled %s."
+msgstr "SELinux запрещает %s доступ %s к %s %s."
+
+#: ../src/signature.py:434
+#, fuzzy, python-format
+msgid "SELinux is preventing %s from '%s' accesses on the the %s labeled %s."
+msgstr "SELinux запрещает %s методы доступа '%s' к %s %s."
+
+#: ../src/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux запрещает %s доступ %s к %s %s."
 
-#: ../src/signature.py:433
+#: ../src/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux запрещает %s методы доступа '%s' к %s %s."
 
-#: ../src/signature.py:461
+#: ../src/signature.py:463
 msgid "Additional Information:\n"
 msgstr "Дополнительные сведения:\n"
 
-#: ../src/signature.py:462
+#: ../src/signature.py:464
 msgid "Source Context"
 msgstr "Исходный контекст"
 
-#: ../src/signature.py:463
+#: ../src/signature.py:465
 msgid "Target Context"
 msgstr "Целевой контекст"
 
-#: ../src/signature.py:464
+#: ../src/signature.py:466
 msgid "Target Objects"
 msgstr "Целевые объекты"
 
-#: ../src/signature.py:465
+#: ../src/signature.py:467
 msgid "Source"
 msgstr "Источник"
 
-#: ../src/signature.py:466
+#: ../src/signature.py:468
 msgid "Source Path"
 msgstr "Путь к источнику"
 
-#: ../src/signature.py:467
+#: ../src/signature.py:469
 msgid "Port"
 msgstr "Порт"
 
-#: ../src/signature.py:469 ../src/signature.py:471
+#: ../src/signature.py:471 ../src/signature.py:473
 msgid "Host"
 msgstr "Узел"
 
-#: ../src/signature.py:472
+#: ../src/signature.py:474
 msgid "Source RPM Packages"
 msgstr "Исходные пакеты RPM"
 
-#: ../src/signature.py:473
+#: ../src/signature.py:475
 msgid "Target RPM Packages"
 msgstr "Целевые пакеты RPM"
 
-#: ../src/signature.py:474
+#: ../src/signature.py:476
 msgid "Policy RPM"
 msgstr "Пакет регламента"
 
-#: ../src/signature.py:475
+#: ../src/signature.py:477
 msgid "Selinux Enabled"
 msgstr "SELinux активен"
 
-#: ../src/signature.py:476
+#: ../src/signature.py:478
 msgid "Policy Type"
 msgstr "Тип регламента"
 
-#: ../src/signature.py:477
+#: ../src/signature.py:479
 msgid "Enforcing Mode"
 msgstr "Режим действия"
 
-#: ../src/signature.py:479 ../src/signature.py:481
+#: ../src/signature.py:481 ../src/signature.py:483
 msgid "Host Name"
 msgstr "Имя узла"
 
-#: ../src/signature.py:486 ../src/signature.py:488
+#: ../src/signature.py:488 ../src/signature.py:490
 msgid "Platform"
 msgstr "Платформа"
 
-#: ../src/signature.py:489
+#: ../src/signature.py:491
 msgid "Alert Count"
 msgstr "Счётчик уведомлений"
 
-#: ../src/signature.py:491
+#: ../src/signature.py:493
 msgid "First Seen"
 msgstr "Первый замеченный"
 
-#: ../src/signature.py:492
+#: ../src/signature.py:494
 msgid "Last Seen"
 msgstr "Последний замеченный"
 
-#: ../src/signature.py:493
+#: ../src/signature.py:495
 msgid "Local ID"
 msgstr "Локальный ID"
 
-#: ../src/signature.py:495
+#: ../src/signature.py:497
 msgid "Raw Audit Messages"
 msgstr "Необработанные сообщения аудита"
 
-#: ../src/signature.py:546
+#: ../src/signature.py:551
 #, python-format
 msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests  "
-msgstr "\n\n*****  Модуль %s (%.4s ) предлагает  "
+msgstr ""
+"\n"
+"\n"
+"*****  Модуль %s (%.4s ) предлагает  "
 
-#: ../src/signature.py:549
+#: ../src/signature.py:554
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:550
+#: ../src/signature.py:555
 msgid "\n"
 msgstr "\n"
-
-#: ../src/signature.py:552
-msgid ""
-"\n"
-"If "
-msgstr "\nЕсли "
-
-#: ../src/signature.py:554
-msgid ""
-"\n"
-"Then "
-msgstr "\nТо "
 
 #: ../src/signature.py:557
 msgid ""
 "\n"
-"Do\n"
-msgstr "\nСделать\n"
+"If "
+msgstr ""
+"\n"
+"Если "
 
 #: ../src/signature.py:559
 msgid ""
 "\n"
+"Then "
+msgstr ""
 "\n"
-msgstr "\n\n"
+"То "
+
+#: ../src/signature.py:562
+msgid ""
+"\n"
+"Do\n"
+msgstr ""
+"\n"
+"Сделать\n"
+
+#: ../src/signature.py:564
+msgid ""
+"\n"
+"\n"
+msgstr ""
+"\n"
+"\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -678,7 +721,8 @@ msgstr "Отказ AVC SELinix. Нажмите для просмотра"
 
 #: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SELinux не активирован, sealert не будет работать на системах без SELinux"
+msgstr ""
+"SELinux не активирован, sealert не будет работать на системах без SELinux"
 
 #: ../src/sealert:150
 msgid "Not fixable."
@@ -694,11 +738,11 @@ msgstr "Успешно запущен %s"
 msgid "Plugin %s not valid for %s id"
 msgstr "Модуль %s недействителен для id %s"
 
-#: ../src/setroubleshootd:69
+#: ../src/setroubleshootd:72
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "Механизм SELinux не включен. Работа setroubleshootd будет завершена..."
 
-#: ../src/setroubleshootd:101
+#: ../src/setroubleshootd:104
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "ошибка: %d (%s)"
@@ -710,7 +754,12 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr "Copyright (c) 2010 \nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
+msgstr ""
+"Copyright (c) 2010 \n"
+"Thomas Liu <tliu@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -744,7 +793,9 @@ msgstr "метка"
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr "Прочтите информацию о проблеме.  Для решения могут потребоваться права администратора."
+msgstr ""
+"Прочтите информацию о проблеме.  Для решения могут потребоваться права "
+"администратора."
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
@@ -772,13 +823,17 @@ msgstr "Просмотр отчёта"
 
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr "<span size='large' weight='bold'>Просмотреть и отправить отчёт об ошибке</span>"
+msgstr ""
+"<span size='large' weight='bold'>Просмотреть и отправить отчёт об ошибке</"
+"span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr "Если вы хотите просмотреть или изменить отчёт, например, удалить конфиденциальные данные, это можно сделать ниже."
+msgstr ""
+"Если вы хотите просмотреть или изменить отчёт, например, удалить "
+"конфиденциальные данные, это можно сделать ниже."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
