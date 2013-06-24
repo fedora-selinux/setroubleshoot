@@ -361,6 +361,11 @@ class SEAlert(object):
         try:
             gtk.main()
             self.finish()
+        except IOError, e:
+            syslog.syslog(syslog.LOG_ERR, str(e))
+            print >>sys.stderr, e
+            sys.exit(1)
+            
         except KeyboardInterrupt, e:
             syslog.syslog(syslog.LOG_DEBUG, "got KeyboardInterrupt, exiting ...")
             self.alert_client.close_connection(ConnectionState.HUP)
