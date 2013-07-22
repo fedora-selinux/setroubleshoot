@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Claudio Rodrigo Pereyra Diaz <elsupergomez@gmail.com>, 2013
 # Domingo Becker <domingobecker@gmail.com>, 2008, 2009
 # Domingo Becker <domingobecker@gmail.com>, 2012
 # vareli <ehespinosa@ya.com>, 2013
@@ -15,8 +16,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-24 11:58-0400\n"
-"PO-Revision-Date: 2013-06-24 16:01+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2013-07-04 19:01+0000\n"
+"Last-Translator: Claudio Rodrigo Pereyra Diaz <elsupergomez@gmail.com>\n"
 "Language-Team: Spanish <trans-es@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1350,7 +1351,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux ha denegado que $SOURCE se conecte al puerto de red $PORT_NUMBER con sandboxt.\n    Si $SOURCE debiera poder conectar a $PORT_NUMBER, necesita usar un tipo de caja de arena como sandbox_web_t o sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE.\n    \n\nSi no se supone que $SOURCE\n    se conecte a $PORT_NUMBER, esto podría ser una señal de intento de intrusión.\n    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -1359,11 +1360,11 @@ msgid ""
 "\n"
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
-msgstr ""
+msgstr "\n    Si desea permitir que $SOURCE se conecte a $PORT_NUMBER, debe ejecutar \n\n    # sandbox -X -t sandbox_net_t $SOURCE\n    "
 
 #: ../src/sandbox_connect.py:47
 msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr ""
+msgstr "desea permitir que $SOURCE_PATH se conecte al puerto de red $PORT_NUMBER"
 
 #: ../src/sandbox_connect.py:49
 msgid ""
@@ -1371,7 +1372,7 @@ msgid ""
 "For example:\n"
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "Please read 'sandbox' man page for more details.\n"
-msgstr ""
+msgstr "necesita modificar el tipo de caja de arena. sandbox_web_t o sandbox_net_t. \nPor ejemplo:\nsandbox -X -t sandbox_net_t $SOURCE_PATH\nPara mas detalles, por favor lea las páginas man de 'sandbox'.\n"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1769,7 +1770,7 @@ msgstr "Si desea permitir a los usuarios registrarse utilizando un servidor radi
 msgid ""
 "If you want to allow the graphical login program to create files in HOME "
 "dirs as xdm_home_t."
-msgstr ""
+msgstr "Si desea permitir al programa gráfico de ingreso crear archivos en directorios HOME como xdm_home_t."
 
 #: ../booleans_trans.py:21
 msgid ""
@@ -1805,7 +1806,7 @@ msgstr "Si usted desea permitir a glusterfsd modificar ficheros públicos usados
 msgid ""
 "If you want to deny any process from ptracing or debugging any other "
 "processes."
-msgstr ""
+msgstr "Si desea denegar que cualquier proceso pueda rastrear o depurar cualquier otro proceso."
 
 #: ../booleans_trans.py:33
 msgid ""
@@ -1837,7 +1838,7 @@ msgstr "Si desea permitir que los administradores de conexión de Telepathy se c
 
 #: ../booleans_trans.py:43
 msgid "If you want to allow http daemon to connect to mythtv"
-msgstr ""
+msgstr "Si desea permitir al demonio http conectar a mythtv"
 
 #: ../booleans_trans.py:45
 msgid ""
@@ -1864,7 +1865,7 @@ msgstr "Si desea  otorgar ssh con chroot env derechos de lectura en los director
 #: ../booleans_trans.py:53
 msgid ""
 "If you want to allow the mount commands to mount any directory or file."
-msgstr ""
+msgstr "Si desea permitir comandos de montaje en cualquier directorio o archivo."
 
 #: ../booleans_trans.py:55
 msgid "If you want to allow polipo to connect to all ports > 1023"
@@ -2363,7 +2364,7 @@ msgstr "Si desea permitir a los usuarios conectarse con PostgreSQL"
 
 #: ../booleans_trans.py:267
 msgid "If you want to allow httpd to connect to  sasl"
-msgstr ""
+msgstr "Si desea permitir que httpd se conecte a sasl"
 
 #: ../booleans_trans.py:269
 msgid ""
@@ -2533,7 +2534,7 @@ msgstr "Si desea determinar si webadm puede leer ficheros genéricos de usuario.
 
 #: ../booleans_trans.py:333
 msgid "If you want to allow mozilla plugin to support GPS."
-msgstr ""
+msgstr "Si desea permitir que el complemento de mozilla soporte GPS."
 
 #: ../booleans_trans.py:335
 msgid "If you want to support X userspace object manager"
@@ -2591,7 +2592,7 @@ msgstr "Si desea permitir que cualquier archivo/directorio sea exportado como de
 
 #: ../booleans_trans.py:359
 msgid "If you want to allow mailman to access FUSE file systems"
-msgstr ""
+msgstr "Si desea permitir que mailman acceda al sistema de archivos FUSE"
 
 #: ../booleans_trans.py:361
 msgid ""
@@ -2825,7 +2826,7 @@ msgstr "Si desea permitir que Apache modifique archivos públicos utilizados por
 #: ../booleans_trans.py:457
 msgid ""
 "If you want to allow HTTPD scripts and modules to server cobbler files."
-msgstr ""
+msgstr "Si desea permitir que scripts y modulos HTTPD accedan al servidor de archivos cobbler."
 
 #: ../booleans_trans.py:459
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2894,7 +2895,7 @@ msgstr "Si desea permitir que HTTPD ejecute ejecutables SSI en el mismo dominio 
 
 #: ../booleans_trans.py:485
 msgid "If you want to allow mozilla plugin to support spice protocols."
-msgstr ""
+msgstr "Si desea permitir que el complemento de mozilla soporte el protocolo spice."
 
 #: ../booleans_trans.py:487
 msgid "If you want to allow httpd to access openstack ports"

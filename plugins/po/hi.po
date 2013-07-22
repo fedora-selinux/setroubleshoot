@@ -6,6 +6,7 @@
 # abc <abc>, 2012
 # Chandan kumar <chandankumar.093047@gmail.com>, 2012
 # Rajesh Ranjan <rranjan@redhat.com>, 2007
+# jayeshvani <jayeshvani@gmail.com>, 2013
 # rajesh <rajesh>, 2012
 # Rajesh Ranjan <rajesh672@gmail.com>, 2009
 # Rajesh Ranjan <rranjan@redhat.com>, 2006-2008,2010,2012-2013
@@ -14,8 +15,8 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-24 11:58-0400\n"
-"PO-Revision-Date: 2013-06-24 16:01+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2013-07-10 08:14+0000\n"
+"Last-Translator: jayeshvani <jayeshvani@gmail.com>\n"
 "Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1349,7 +1350,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\nSELinux  ने sandbox के अंदर इंकार किया है $SOURCE को नेटओवर्क पोर्ट $PORT_NUMBER से जुड़ने के लिए.\nअगर $SOURCE को फिर भी अनुमति चाहिए $PORT_NUMBER से जुड़ने के लिए तो, उसे दूसरे किस्म का sandbox टाइप इस्तेमाल करना पड़ेगा, जैसे की sandbox_web_t या sandbox_net_t. sandbox -X -t sandbox_net_t $SOURCE.\n\n\nअगर $SOURCE, $PORT_NUMBER से नही जुड़ना चाहिए तो इसका मतलब है की कोई अनुचित हस्तक्षेप का प्रयास कर रहा है!"
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -1358,11 +1359,11 @@ msgid ""
 "\n"
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
-msgstr ""
+msgstr "\nअगर आपको इस $SOURCE को इस $PORT_NUMBER से जुड़ने की अनुमति देनी है तो यह एक्सेक्यूट करे\n\n# sandbox -X -t sandbox_net_t $SOURCE"
 
 #: ../src/sandbox_connect.py:47
 msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr ""
+msgstr "आपको इस $SOURCE_PATH को इस नेटोवर्क पोर्ट $PORT_NUMBER से जुड़ने की अनुमति देनी होगी"
 
 #: ../src/sandbox_connect.py:49
 msgid ""
@@ -1370,7 +1371,7 @@ msgid ""
 "For example:\n"
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "Please read 'sandbox' man page for more details.\n"
-msgstr ""
+msgstr "आपको यह sandbox टाइप बदलना होगा ! sandbox_web_t या sandbox_net_t.\nउदाहरण के तौर पे:\nsandbox -X -t sandbox_net_t $SOURCE_PATH\nकृपया करके और जानकारी के लिए 'sandbox'  man page को पढ़िए !\n\n"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1768,7 +1769,7 @@ msgstr "क्या आप रेडियस सर्वर के उपय�
 msgid ""
 "If you want to allow the graphical login program to create files in HOME "
 "dirs as xdm_home_t."
-msgstr ""
+msgstr "अगर आप अनुमति दें तो graphical login program होम डाइरेक्टरी में फाइल्स बनाएगा इस नाम से xdm_home_t."
 
 #: ../booleans_trans.py:21
 msgid ""
@@ -1804,7 +1805,7 @@ msgstr "क्या आप चाहते हैं कि glusterfsd को �
 msgid ""
 "If you want to deny any process from ptracing or debugging any other "
 "processes."
-msgstr ""
+msgstr "अगर आप इंकार करे तो कोई भी प्रोसेस का ptracing नही होगा और किसी अन्य प्रोसेसस का debugging  भी नही होगा !"
 
 #: ../booleans_trans.py:33
 msgid ""
@@ -1836,7 +1837,7 @@ msgstr "क्या आप टेलेपैथी कनेक्शन म�
 
 #: ../booleans_trans.py:43
 msgid "If you want to allow http daemon to connect to mythtv"
-msgstr ""
+msgstr "अगर आप अनुमति दें तो http daemon, mythtv से जुड़ सकता है "
 
 #: ../booleans_trans.py:45
 msgid ""
@@ -1863,7 +1864,7 @@ msgstr "क्या आप ssh को chroot env के साथ फ़ाइ�
 #: ../booleans_trans.py:53
 msgid ""
 "If you want to allow the mount commands to mount any directory or file."
-msgstr ""
+msgstr "अगर आप अनुमति दें तो mount commands, किसी भी फाइल या डाइरेक्टरी को mount कर सकते है "
 
 #: ../booleans_trans.py:55
 msgid "If you want to allow polipo to connect to all ports > 1023"
@@ -2362,7 +2363,7 @@ msgstr "क्या आप उपयोक्ता को PostgreSQL से �
 
 #: ../booleans_trans.py:267
 msgid "If you want to allow httpd to connect to  sasl"
-msgstr ""
+msgstr "अगर आप अनुमति दें तो httpd, sasl से जुड़ सकता है "
 
 #: ../booleans_trans.py:269
 msgid ""
@@ -2532,7 +2533,7 @@ msgstr "यदि आप निर्धारित करना चाहत�
 
 #: ../booleans_trans.py:333
 msgid "If you want to allow mozilla plugin to support GPS."
-msgstr ""
+msgstr "अगर आप अनुमति दें तो mozilla plugin, GPS को सपोर्ट कर सकता है"
 
 #: ../booleans_trans.py:335
 msgid "If you want to support X userspace object manager"
@@ -2590,7 +2591,7 @@ msgstr "क्या आप किसी फ़ाइल/निर्देश�
 
 #: ../booleans_trans.py:359
 msgid "If you want to allow mailman to access FUSE file systems"
-msgstr ""
+msgstr "अगर आप अनुमति दें तो mailman, FUSE फाइल सिस्टम को आक्सेस कर सकता है "
 
 #: ../booleans_trans.py:361
 msgid ""
@@ -2824,7 +2825,7 @@ msgstr "क्या आप अपाचे को पब्लिक फाइ�
 #: ../booleans_trans.py:457
 msgid ""
 "If you want to allow HTTPD scripts and modules to server cobbler files."
-msgstr ""
+msgstr "अगर आप अनुमति दें तो HTTPD scripts and modules, server cobbler files पर जा सकती है"
 
 #: ../booleans_trans.py:459
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2893,7 +2894,7 @@ msgstr "क्या आप HTTPD को SSI निष्पादनीय प�
 
 #: ../booleans_trans.py:485
 msgid "If you want to allow mozilla plugin to support spice protocols."
-msgstr ""
+msgstr "अगर आप अनुमति दें तो mozilla plugin, spice protocols को सपोर्ट कर सकता है"
 
 #: ../booleans_trans.py:487
 msgid "If you want to allow httpd to access openstack ports"
