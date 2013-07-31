@@ -189,7 +189,11 @@ class AlertPluginReportReceiver(PluginReportReceiver):
 
         from setroubleshoot.html_util import html_to_text
         syslog.syslog(syslog.LOG_ERR, siginfo.summary() + _(" For complete SELinux messages. run sealert -l %s") % siginfo.local_id )
-        systemd.journal.send(siginfo.format_text())
+        for audit_record in siginfo.audit_event.records:
+            if audit_record.record_type == 'AVC':
+                pid = audit_record.fields["pid"]
+                break;
+        systemd.journal.send(siginfo.format_text(), OBJECT_PID=pid)
 
         for u in siginfo.users:
                 action = siginfo.evaluate_filter_for_user(u.username)
