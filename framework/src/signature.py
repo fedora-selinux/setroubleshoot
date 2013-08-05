@@ -548,7 +548,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         total_priority, plugins = self.get_plugins(all)
 
         for p, args in plugins:
-            title = _("\n\n*****  Plugin %s (%.4s confidence) suggests  ") % (p.analysis_id, ((float(p.priority) / float(total_priority)) * 100 + .5))
+            title = _("\n\n*****  Plugin %s (%.4s confidence) suggests   ") % (p.analysis_id, ((float(p.priority) / float(total_priority)) * 100 + .5))
             text +=  title
             for i in range(len(title),80):
                 text +=  _("*")

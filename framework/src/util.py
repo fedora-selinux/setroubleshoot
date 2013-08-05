@@ -436,7 +436,6 @@ def load_plugins(filter_glob=None):
     module_name = plugin_base
     plugin_name = '__init__'
     if module_name not in sys.modules:
-        syslog.syslog(syslog.LOG_DEBUG, "importing %s as %s" % (os.path.join(plugin_dir, plugin_name), module_name))
         try:
             import imp
             mod_fp, mod_path, mod_description = imp.find_module(plugin_name, [plugin_dir])

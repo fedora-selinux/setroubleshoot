@@ -227,7 +227,6 @@ class AuditRecordReceiver:
 
     def feed(self, record):
         'Accept a new audit record into the system for processing.'
-        syslog.syslog(syslog.LOG_DEBUG, "%s.feed() got %s'" % (self.__class__.__name__, record))
 
         self.flush_count += 1
         if record.record_type in ('AVC', 'AVC_PATH', 'SYSCALL', 'CWD', 'PATH', 'EOE', "1400", "1107"):
@@ -304,8 +303,6 @@ class AuditSocketReceiverThread(threading.Thread):
             self.new_audit_event_handler(audit_event)
 
     def new_audit_event_handler(self, audit_event):
-        syslog.syslog(syslog.LOG_DEBUG, "new_audit_event_handler: event=%s" % audit_event)
-
         if audit_event.is_avc() and not audit_event.is_granted() and audit_event.num_records() > 0:
             avc = AVC(audit_event)
             if verify_avc(avc):

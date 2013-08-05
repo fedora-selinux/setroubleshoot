@@ -450,7 +450,6 @@ def rpc_method(interface):
     def decorator(method_ptr):
         rpc_def = interface_registry.set_rpc_def('method', interface, method_ptr)
         method = method_ptr.__name__
-        syslog.syslog(syslog.LOG_DEBUG, "@rpc_method() interface=%s method=%s positional_args=%s" % (rpc_def.interface, method, rpc_def.get_positional_arg_names()))
         def rpc_func(self, *args):
             rpc_id = self.new_rpc_id()
             rpc_def = interface_registry.get_rpc_def(interface, method)
@@ -467,14 +466,12 @@ def rpc_arg_type(interface, *arg_types):
         method = method_ptr.__name__
         rpc_def = interface_registry.get_rpc_def(interface, method)
         rpc_def.set_arg_obj_types(*arg_types)
-        syslog.syslog(syslog.LOG_DEBUG, "@rpc_arg_types() interface=%s method=%s arg_types=%s" % (rpc_def.interface, rpc_def.method, arg_types))
         return method_ptr
     return decorator
 
 def rpc_callback(interface, method):
     def decorator(method_ptr):
         rpc_callback_def = interface_registry.set_rpc_def('method_return', interface, method_ptr)
-        syslog.syslog(syslog.LOG_DEBUG, "@rpc_callback() interface=%s method=%s positional_args=%s" % (rpc_callback_def.interface, rpc_callback_def.method, rpc_callback_def.get_positional_arg_names()))
         rpc_def = interface_registry.get_rpc_def(interface, method)
         rpc_def.set_callback(rpc_callback_def.method)
         method_ptr._rpc_definition = True
@@ -486,7 +483,6 @@ def rpc_signal(interface):
     def decorator(method_ptr):
         rpc_def = interface_registry.set_rpc_def('signal', interface, method_ptr)
         method = method_ptr.__name__
-        syslog.syslog(syslog.LOG_DEBUG, "interface=%s method=%s positional_args=%s" % (rpc_def.interface, method, rpc_def.get_positional_arg_names()))
         def rpc_func(self, *args):
             rpc_id = self.new_rpc_id()
             rpc_def = interface_registry.get_rpc_def(interface, method)
@@ -647,8 +643,6 @@ class ListeningServer(ConnectionIO):
                 path = os.path.dirname(socket_address.address)
                 if not os.path.exists(path):
                     os.makedirs(path)
-
-        syslog.syslog(syslog.LOG_DEBUG, "new_listening_socket: %s" % self.socket_address)
 
         self.socket_address.socket = Socket.socket(self.socket_address.family, self.socket_address.type)
         fcntl.fcntl(self.socket_address.socket.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
