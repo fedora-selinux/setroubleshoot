@@ -12,13 +12,14 @@
 # I. Felix <ifelix@redhat.com>, 2009-2010
 # shkumar <shkumar@redhat.com>, 2012-2013
 # shkumar <shkumar@redhat.com>, 2012
+# shkumar <shkumar@redhat.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-24 11:58-0400\n"
-"PO-Revision-Date: 2013-06-24 16:01+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
+"PO-Revision-Date: 2013-07-23 11:04+0000\n"
+"Last-Translator: shkumar <shkumar@redhat.com>\n"
 "Language-Team: Tamil <tamil-users@lists.fedoraproject.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1352,7 +1353,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux சேன்ட்பாக்சிலிருந்து $PORT_NUMBER என்ற பிணைய முனையத்திற்கு இணைக்கும் முயற்சியிலிருந்து $SOURCE ஐத் தடுத்துவிட்டது.\n    $PORT_NUMBER க்கு இணைய $SOURCE ஐ அனுமதிக்க வேண்டுமானால், நீங்கள் sandbox_web_t அல்லது sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE போன்ற வேறு சேன்ட்பாக்சைப் பயன்படுத்த வேண்டும்.\n    \n\n$SOURCE ஆனது\n    $PORT_NUMBER க்கு இணைக்க முடியக்கூடாதெனில், குறுக்கிடும் முயற்சிக்கான சமிக்ஞையாக இதைக் கருதலாம்.\n    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -1361,11 +1362,11 @@ msgid ""
 "\n"
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
-msgstr ""
+msgstr "\n    நீங்கள் $PORT_NUMBER க்கு இணைய $SOURCE ஐ அனுமதிக்க விரும்பினால், \n\n    # sandbox -X -t sandbox_net_t $SOURCE கட்டளையை இயக்கலாம்\n    "
 
 #: ../src/sandbox_connect.py:47
 msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr ""
+msgstr "$PORT_NUMBER என்ற பிணைய முனையத்திற்கு இணைக்க $SOURCE_PATH ஐ நீங்கள் அனுமதிக்க விரும்பினால்"
 
 #: ../src/sandbox_connect.py:49
 msgid ""
@@ -1373,7 +1374,7 @@ msgid ""
 "For example:\n"
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "Please read 'sandbox' man page for more details.\n"
-msgstr ""
+msgstr "நீங்கள் சேன்ட்பாக்சின் வகையை மாற்ற வேண்டும். sandbox_web_t அல்லது sandbox_net_t. \nஎடுத்துக்காட்டுக்கு:\nsandbox -X -t sandbox_net_t $SOURCE_PATH\nமேலும் விவரங்களுக்கு 'sandbox' உதவிப் பக்கத்தைப் பார்க்கவும்.\n"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1771,7 +1772,7 @@ msgstr "ஒரு ஆர சேவையகத்தை பயன்படுத
 msgid ""
 "If you want to allow the graphical login program to create files in HOME "
 "dirs as xdm_home_t."
-msgstr ""
+msgstr "நீங்கள் HOME dirs இல் xdm_home_t ஆக கோப்புகளை உருவாக்க வரைவியல் புகுபதிவு நிரலை அனுமதிக்க விரும்பினால்."
 
 #: ../booleans_trans.py:21
 msgid ""
@@ -1807,7 +1808,7 @@ msgstr "பொது கோப்பு பரிமாற்ற சேவைக
 msgid ""
 "If you want to deny any process from ptracing or debugging any other "
 "processes."
-msgstr ""
+msgstr "நீங்கள் ஏதேனும் செயலாக்கங்கள் மற்ற செயலாக்கங்களை பேட்ச் செய்வதையும் வழுநீக்கம் செய்வதையும் மறுக்க விரும்பினால்."
 
 #: ../booleans_trans.py:33
 msgid ""
@@ -1839,7 +1840,7 @@ msgstr "ஏதாவது பொது TCP துறைக்கு இணை�
 
 #: ../booleans_trans.py:43
 msgid "If you want to allow http daemon to connect to mythtv"
-msgstr ""
+msgstr "நீங்கள் mythtv இணைக்க http டீமானை அனுமதிக்க விரும்பினால்"
 
 #: ../booleans_trans.py:45
 msgid ""
@@ -1866,7 +1867,7 @@ msgstr "பயனர்களின் முகப்பு அடைவுக�
 #: ../booleans_trans.py:53
 msgid ""
 "If you want to allow the mount commands to mount any directory or file."
-msgstr ""
+msgstr "நீங்கள் ஏற்றுதல் கட்டளைகள் எந்த கோப்பகம் அல்லது கோப்பையும் ஏற்ற அனுமதிக்க விரும்பினால்."
 
 #: ../booleans_trans.py:55
 msgid "If you want to allow polipo to connect to all ports > 1023"
@@ -2365,7 +2366,7 @@ msgstr "பயனர்களை PostgreSQL-க்கு இணைப்பத�
 
 #: ../booleans_trans.py:267
 msgid "If you want to allow httpd to connect to  sasl"
-msgstr ""
+msgstr "நீங்கள் sasl க்கு இணைக்க httpd ஐ அனுமதிக்க விரும்பினால்"
 
 #: ../booleans_trans.py:269
 msgid ""
@@ -2535,7 +2536,7 @@ msgstr "webadm ஆல் பொது பயனர் கோப்புகள�
 
 #: ../booleans_trans.py:333
 msgid "If you want to allow mozilla plugin to support GPS."
-msgstr ""
+msgstr "நீங்கள் mozilla செருகுநிரல் GPS ஐ ஆதரிக்க அனுமதிக்க விரும்பினால்."
 
 #: ../booleans_trans.py:335
 msgid "If you want to support X userspace object manager"
@@ -2593,7 +2594,7 @@ msgstr "ஏதாவது கோப்புகள்/அடைவுகளை 
 
 #: ../booleans_trans.py:359
 msgid "If you want to allow mailman to access FUSE file systems"
-msgstr ""
+msgstr "நீங்கள் FUSE கோப்பு முறைமைகளை அணுகுவதற்கு mailman ஐ அனுமதிக்க விரும்பினால்"
 
 #: ../booleans_trans.py:361
 msgid ""
@@ -2827,7 +2828,7 @@ msgstr "பொது கோப்பு பரிமாற்ற சேவைக
 #: ../booleans_trans.py:457
 msgid ""
 "If you want to allow HTTPD scripts and modules to server cobbler files."
-msgstr ""
+msgstr "நீங்கள் சேவையக காப்ளர் கோப்புகளுக்கு HTTPD ஸ்கிரிப்ட்டுகளையும் தொகுதிக்கூறுகளையும் அனுமதிக்க விரும்பினால்."
 
 #: ../booleans_trans.py:459
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2896,7 +2897,7 @@ msgstr "CGI ஸ்கிரிப்ட்டுகளில் SSI நிறை
 
 #: ../booleans_trans.py:485
 msgid "If you want to allow mozilla plugin to support spice protocols."
-msgstr ""
+msgstr "நீங்கள் mozilla செருகுநிரல் spice நெறிமுறைகளை ஆதரிக்க அனுமதிக்க விரும்பினால்."
 
 #: ../booleans_trans.py:487
 msgid "If you want to allow httpd to access openstack ports"
