@@ -47,9 +47,9 @@ setsebool -P unconfined_chrome_sandbox_transition 0
         return self.if_text % args[0]
 
     then_text = _("you must turn off SELinux controls on the Chrome plugins.")
-    do_text = """# setsebool unconfined_chrome_sandbox_transition 0"""
+    do_text = """# setsebool -P unconfined_chrome_sandbox_transition 0"""
 
-    fix_cmd = "setsebool unconfined_chrome_sandbox_transition 0"
+    fix_cmd = "setsebool -P unconfined_chrome_sandbox_transition 0"
     
     def __init__(self):
         Plugin.__init__(self, __name__)
