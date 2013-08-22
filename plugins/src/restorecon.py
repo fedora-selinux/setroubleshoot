@@ -31,10 +31,9 @@ import selinux
 customizable_types = None
 def customizable(target):
     global customizable_types
-
     if not customizable_types:
         fd = open(selinux.selinux_customizable_types_path())
-        customizable_types = fd.read()
+        customizable_types = fd.read().split("\n")
         fd.close()
     return target in customizable_types
 
@@ -116,7 +115,7 @@ class plugin(Plugin):
                 mcon_type=mcon.split(":")[2]
                 if mcon_type != avc.tcontext.type:
                     return self.report((0, mcon_type))
-            except OSError:
+            except OSError, e:
                 pass
 
         return None

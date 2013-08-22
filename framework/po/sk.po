@@ -1,23 +1,22 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Dušan Kazik <prescott66@gmail.com>, 2011.
+# Dušan Kazik <prescott66@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-24 12:00-0400\n"
-"PO-Revision-Date: 2012-07-25 15:37+0000\n"
+"POT-Creation-Date: 2013-08-14 08:44-0400\n"
+"PO-Revision-Date: 2013-08-14 12:45+0000\n"
 "Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/"
-"sk/)\n"
-"Language: sk\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/sk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
+"Language: sk\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -37,7 +36,7 @@ msgid "port %s"
 msgstr "port %s"
 
 #: ../src/audit_data.py:900 ../src/browser.py:746 ../src/browser.py:821
-#: ../src/rpc.py:532 ../src/util.py:220
+#: ../src/rpc.py:528 ../src/util.py:220
 msgid "Unknown"
 msgstr "Neznáme"
 
@@ -46,16 +45,13 @@ msgstr "Neznáme"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr ""
-"%s \n"
-"**** Neplatné AVC povolené v aktuálnej politike ***\n"
+msgstr "%s \n**** Neplatné AVC povolené v aktuálnej politike ***\n"
 
 #: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
 msgstr ""
 
 #: ../src/audit_data.py:994
@@ -67,36 +63,28 @@ msgstr ""
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr ""
-"%s \n"
-"**** Neplatné AVC zlý cieľový kontext. ***\n"
+msgstr "%s \n**** Neplatné AVC zlý cieľový kontext. ***\n"
 
 #: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr ""
-"%s \n"
-"**** Neplatné AVC zlá zdrojový kontext. ***\n"
+msgstr "%s \n**** Neplatné AVC zlá zdrojový kontext. ***\n"
 
 #: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr ""
-"%s \n"
-"**** Neplatné AVC zlá typová trieda ***\n"
+msgstr "%s \n**** Neplatné AVC zlá typová trieda ***\n"
 
 #: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr ""
-"%s \n"
-"**** Neplatné AVC zlé oprávnenie ***\n"
+msgstr "%s \n**** Neplatné AVC zlé oprávnenie ***\n"
 
 #: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
@@ -207,17 +195,13 @@ msgstr "Ak "
 msgid ""
 "Plugin\n"
 "Details"
-msgstr ""
-"Detaily\n"
-"zás. modulu"
+msgstr "Detaily\nzás. modulu"
 
 #: ../src/browser.py:515
 msgid ""
 "Report\n"
 "Bug"
-msgstr ""
-"Nahlásiť\n"
-"chybu"
+msgstr "Nahlásiť\nchybu"
 
 #: ../src/browser.py:543
 #, python-format
@@ -414,20 +398,20 @@ msgstr "Hotovo: "
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " Pre úplné SELinux správy spustite sealert -l %s"
 
-#: ../src/server.py:373
+#: ../src/server.py:377
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Užívateľ (%s) nemôže meniť údaje pre (%s)"
 
-#: ../src/server.py:436 ../src/sealert:291
+#: ../src/server.py:440 ../src/sealert:291
 msgid "Started"
 msgstr "Spustené"
 
-#: ../src/server.py:483
+#: ../src/server.py:487
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:549
+#: ../src/server.py:553
 msgid "Audit Listener"
 msgstr ""
 
@@ -625,7 +609,7 @@ msgstr ""
 msgid ""
 "\n"
 "\n"
-"*****  Plugin %s (%.4s confidence) suggests  "
+"*****  Plugin %s (%.4s confidence) suggests   "
 msgstr ""
 
 #: ../src/signature.py:554
@@ -640,33 +624,25 @@ msgstr ""
 msgid ""
 "\n"
 "If "
-msgstr ""
-"\n"
-"Ak "
+msgstr "\nAk "
 
 #: ../src/signature.py:559
 msgid ""
 "\n"
 "Then "
-msgstr ""
-"\n"
-"Potom "
+msgstr "\nPotom "
 
 #: ../src/signature.py:562
 msgid ""
 "\n"
 "Do\n"
-msgstr ""
-"\n"
-"Urob\n"
+msgstr "\nUrob\n"
 
 #: ../src/signature.py:564
 msgid ""
 "\n"
 "\n"
-msgstr ""
-"\n"
-"\n"
+msgstr "\n\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -701,8 +677,7 @@ msgstr "SELinux AVC odmietnutie, kliknite na zobrazenie"
 
 #: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr ""
-"SELinux nie je povolený, sealert sa nespúšťa na systémoch bez SELinuxu."
+msgstr "SELinux nie je povolený, sealert sa nespúšťa na systémoch bez SELinuxu."
 
 #: ../src/sealert:150
 msgid "Not fixable."
@@ -734,12 +709,7 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr ""
-"Copyright (c) 2010 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"Máirín Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+msgstr "Copyright (c) 2010 \nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -801,8 +771,7 @@ msgstr "Posúdiť a podať hlásenie o chybe"
 
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr ""
-"<span size='large' weight='bold'>Posúdiť a podať hlásenie o chybe</span>"
+msgstr "<span size='large' weight='bold'>Posúdiť a podať hlásenie o chybe</span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""

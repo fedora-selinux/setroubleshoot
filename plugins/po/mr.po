@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-24 11:58-0400\n"
-"PO-Revision-Date: 2013-07-23 07:16+0000\n"
+"POT-Creation-Date: 2013-08-14 08:43-0400\n"
+"PO-Revision-Date: 2013-08-18 05:04+0000\n"
 "Last-Translator: sandeeps <sshedmak@redhat.com>\n"
 "Language-Team: Marathi (http://www.transifex.com/projects/p/fedora/language/mr/)\n"
 "MIME-Version: 1.0\n"
@@ -326,7 +326,8 @@ msgstr "ftpd ला nfs फाइल प्रणालीकरीता लि
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
-#: ../src/restorecon.py:43 ../src/rsync_data.py:27 ../src/sshd_root.py:32
+#: ../src/restorecon.py:43 ../src/restorecon_source.py:33
+#: ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access to $TARGET_PATH.\n"
@@ -1300,15 +1301,49 @@ msgid ""
 "$TARGET_PATH default label should be %s."
 msgstr "तुम्हाला लेबल ठिक करायचे आहे. \n$TARGET_PATH पूर्वनिर्धारित लेबल %s पाहिजे."
 
-#: ../src/restorecon.py:87
+#: ../src/restorecon.py:87 ../src/restorecon_source.py:65
 msgid "you can run restorecon."
 msgstr "तुम्ही restorecon चालवू शकता."
 
-#: ../src/restorecon.py:95
+#: ../src/restorecon.py:95 ../src/restorecon_source.py:73
 msgid ""
 "Restore\n"
 "Context"
 msgstr "संदर्भ\nपूर्वस्थितीत आणा"
+
+#: ../src/restorecon_source.py:39
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing the\n"
+"    restorecon command.  restorecon '$SOURCE_PATH'.\n"
+"    "
+msgstr "\n    restorecon आदेश चालवून तुम्ही पूर्वनिर्धारीत\n    प्रणालीचा संदर्भ पूर्ववत् करू शकता.  restorecon '$SOURCE_PATH'.\n    "
+
+#: ../src/restorecon_source.py:45
+#, python-format
+msgid ""
+"\n"
+"    SELinux denied access requested by $SOURCE. $SOURCE_PATH may\n"
+"    be a mislabeled.  $SOURCE_PATH default SELinux type is\n"
+"    <B>%s</B>, but its current type is <B>$SOURCE_TYPE</B>. Changing\n"
+"    this file back to the default type, may fix your problem.\n"
+"    <p>\n"
+"    This file could have been mislabeled either by user error, or if an normally confined application\n"
+"    was run under the wrong domain.\n"
+"    <p> \n"
+"    However, this might also indicate a bug in SELinux because the file should not have been labeled\n"
+"    with this type.\n"
+"    <p>\n"
+"    If you believe this is a bug, please file a bug report against this package.\n"
+"    "
+msgstr "\n    SELinux ने $SOURCE. $SOURCE_PATH तर्फे विनंतीकृत प्रवेश नकारले, कदाचित\n    लेबल चुकीचे असू शकते.  $SOURCE_PATH पूर्वनिर्धारित SELinux प्रकार\n    <B>%s</B> आहे, परंतु त्याचे सध्याचे प्रकार <B>$SOURCE_TYPE</B> आहे. ह्या\n    फाइलला पूर्वनिर्धारित प्रकारकरिता बदलल्यास, कदाचित तुमच्या अडचणीचे निवारण होऊ शकते.\n    <p>\n    एकतर वापरकर्ता त्रुटीमुळे, किंवा साधारणतया मर्यादीत ॲप्लिकेशनला चुकीच्या डोमेन अंतर्गत चालवले असल्यास\n    ह्या फाइलचे लेबल कदाचित चुकीचे असू शकते.\n    <p> \n    तरी, हे SELinux मध्ये बग देखील असू शकते कारण फाइलचे लेबल प्रकार\n    असे नसायला पाहिजे होते.\n    <p>\n    हे बग आहे असे तुम्हाला वाटत असल्यास, कृपया ह्या संकुलच्या विरूद्ध बग अहवाल सादर करा.\n    "
+
+#: ../src/restorecon_source.py:60
+#, python-format
+msgid ""
+"you want to fix the label. \n"
+"$SOURCE_PATH default label should be %s."
+msgstr "लेबल ठिक करा. \n$SOURCE_PATH पूर्वनिर्धारित लेबवल %s पाहिजे."
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1335,39 +1370,6 @@ msgstr "$TARGET_BASE_PATH यास rsync डिमनच्या मदती�
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
 msgstr "$TARGET_BASE_PATH वरील लेबल बदलणे आवश्यक आहे"
-
-#: ../src/sandbox_connect.py:33
-msgid ""
-"\n"
-"    SELinux has denied $SOURCE from connecting to a network port $PORT_NUMBER within a sandboxt.\n"
-"    If $SOURCE should be allowed to connect on $PORT_NUMBER, use need to use a different sandbox type like sandbox_web_t or sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE.\n"
-"    \n"
-"\n"
-"If $SOURCE is not supposed\n"
-"    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
-"    "
-msgstr "\n    SELinux ने $SOURCEला sandboxt अंतर्गत नेटवर्क पोर्ट $PORT_NUMBERसह जोडणीकरिता नकारले आहे.\n    $SOURCEला $PORT_NUMBERसह जोडणीकरिता सहमती द्यायची असल्यास, वेगळ्यास sandbox प्रकार जसे कि sandbox_web_t किंवा  sandbox_net_t याचा वापर करा.  sandbox -X -t sandbox_net_t $SOURCE.\n    \n\n$SOURCE\n    $PORT_NUMBERसह जोडणीकरिता समर्थीत नसल्यास, हे अंतर्भेद प्रयत्न असू शकते.\n    "
-
-#: ../src/sandbox_connect.py:41
-msgid ""
-"\n"
-"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute \n"
-"\n"
-"    # sandbox -X -t sandbox_net_t $SOURCE\n"
-"    "
-msgstr "\n    $SOURCEला $PORT_NUMBERसह जोडणी करण्यासाठी परवानगी द्यायची असल्यास, खालील चालवा \n\n    # sandbox -X -t sandbox_net_t $SOURCE\n    "
-
-#: ../src/sandbox_connect.py:47
-msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr "$SOURCE_PATHला नेटवर्क पोर्ट $PORT_NUMBERसह जोडणी करण्यासाठी परवानगी द्या"
-
-#: ../src/sandbox_connect.py:49
-msgid ""
-"you need to modify the sandbox type. sandbox_web_t or sandbox_net_t. \n"
-"For example:\n"
-"sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
-"Please read 'sandbox' man page for more details.\n"
-msgstr "तुम्हाला sandbox प्रकार संपादित करावे लागेल. sandbox_web_t किंवा sandbox_net_t. \nउदाहरणार्थ:\nsandbox -X -t sandbox_net_t $SOURCE_PATH\nअधिक तपशीलकरिता कृपया 'sandbox' man पृष्ठ वाचा.\n"
 
 #: ../src/samba_share.py:27
 msgid ""
@@ -1401,6 +1403,39 @@ msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
 msgstr "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n# restorecon %s -v '$FIX_TARGET_PATH'"
+
+#: ../src/sandbox_connect.py:33
+msgid ""
+"\n"
+"    SELinux has denied $SOURCE from connecting to a network port $PORT_NUMBER within a sandboxt.\n"
+"    If $SOURCE should be allowed to connect on $PORT_NUMBER, use need to use a different sandbox type like sandbox_web_t or sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE.\n"
+"    \n"
+"\n"
+"If $SOURCE is not supposed\n"
+"    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
+"    "
+msgstr "\n    SELinux ने $SOURCEला sandboxt अंतर्गत नेटवर्क पोर्ट $PORT_NUMBERसह जोडणीकरिता नकारले आहे.\n    $SOURCEला $PORT_NUMBERसह जोडणीकरिता सहमती द्यायची असल्यास, वेगळ्यास sandbox प्रकार जसे कि sandbox_web_t किंवा  sandbox_net_t याचा वापर करा.  sandbox -X -t sandbox_net_t $SOURCE.\n    \n\n$SOURCE\n    $PORT_NUMBERसह जोडणीकरिता समर्थीत नसल्यास, हे अंतर्भेद प्रयत्न असू शकते.\n    "
+
+#: ../src/sandbox_connect.py:41
+msgid ""
+"\n"
+"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute \n"
+"\n"
+"    # sandbox -X -t sandbox_net_t $SOURCE\n"
+"    "
+msgstr "\n    $SOURCEला $PORT_NUMBERसह जोडणी करण्यासाठी परवानगी द्यायची असल्यास, खालील चालवा \n\n    # sandbox -X -t sandbox_net_t $SOURCE\n    "
+
+#: ../src/sandbox_connect.py:47
+msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
+msgstr "$SOURCE_PATHला नेटवर्क पोर्ट $PORT_NUMBERसह जोडणी करण्यासाठी परवानगी द्या"
+
+#: ../src/sandbox_connect.py:49
+msgid ""
+"you need to modify the sandbox type. sandbox_web_t or sandbox_net_t. \n"
+"For example:\n"
+"sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
+"Please read 'sandbox' man page for more details.\n"
+msgstr "तुम्हाला sandbox प्रकार संपादित करावे लागेल. sandbox_web_t किंवा sandbox_net_t. \nउदाहरणार्थ:\nsandbox -X -t sandbox_net_t $SOURCE_PATH\nअधिक तपशीलकरिता कृपया 'sandbox' man पृष्ठ वाचा.\n"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -2089,418 +2124,426 @@ msgid ""
 msgstr "साम्बाला नवीन होम डिरेक्ट्रिज (उ.दा. PAM तर्फे) निर्माण करण्यास परवानगी द्यायची असल्यास"
 
 #: ../booleans_trans.py:151
+msgid "If you want to allow virtual processes to run as userdomains"
+msgstr "वर्च्युअल प्रोसेस्ना userdomains म्हणून चालवायचे असल्यास"
+
+#: ../booleans_trans.py:153
 msgid ""
 "If you want to determine whether calling user domains can execute Git daemon"
 " in the git_session_t domain."
 msgstr "युजर डोमेनला कॉल केल्याने git_session_t डोमेनमध्ये Git डिमनला चालवणे शक्य आहे, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:153
+#: ../booleans_trans.py:155
 msgid "If you want to determine whether zabbix can connect to all TCP ports"
 msgstr "zabbix सर्व TCP पोर्टशी जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास"
 
-#: ../booleans_trans.py:155
+#: ../booleans_trans.py:157
 msgid "If you want to determine whether fenced can use ssh."
 msgstr "fenced sshचा वापर करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:157
+#: ../booleans_trans.py:159
+msgid "If you want to allow ZoneMinder to run su/sudo."
+msgstr "ZoneMinderला su/sudo म्हणून चालवायचे असल्यास."
+
+#: ../booleans_trans.py:161
 msgid "If you want to allow httpd to read home directories"
 msgstr "httpd ला होम डिरेक्ट्रिज् वाचण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:159
+#: ../booleans_trans.py:163
 msgid ""
 "If you want to allow gpg web domain to modify public files used for public "
 "file transfer services."
 msgstr "gpg ला पब्लिक ट्रांस्फर सर्व्हिसेसकरीता पब्लिक फाइल्स् संपादित करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:161
+#: ../booleans_trans.py:165
 msgid "If you want to allow rsync to export any files/directories read only."
 msgstr "rsyncला कोणत्याहि फाइल्स्/डिरेक्ट्रिज्ला फक्त वाचनजोगी म्हणून एक्सपोर्ट करण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:163
+#: ../booleans_trans.py:167
 msgid "If you want to allow regular users direct dri device access"
 msgstr "रेग्युलर वापरकर्त्यांना डाइरेक्ट dri साधनांच्या प्रवेशकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:165
+#: ../booleans_trans.py:169
 msgid ""
 "If you want to allow nfs servers to modify public files used for public file"
 " transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr "nfs सर्व्हर्स्ला पब्लिक ट्रांस्फर सर्व्हिसेसकरीता पब्लिक फाइल्स् संपादित करण्यासाठी परवानगी द्यायची असल्यास. फाइल्स्/डिरेक्ट्रिज् यास public_content_rw_t सह लेबल करायला हवे."
 
-#: ../booleans_trans.py:167
+#: ../booleans_trans.py:171
 msgid "If you want to allow mysqld to connect to all ports"
 msgstr "mysqld ला सर्व पोर्टशी जोडणी करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:169
+#: ../booleans_trans.py:173
 msgid ""
 "If you want to determine whether Polipo session daemon can bind tcp sockets "
 "to all unreserved ports."
 msgstr "सर्व विनाआरक्षित पोर्टस्करीता पोलिपो सत्र डिमनला tcp सॉकेटस्करीता बांधणीकरण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:171
+#: ../booleans_trans.py:175
 msgid "If you want to allow qemu to use serial/parallel communication ports"
 msgstr "qemu ला सिरिअल/पॅरलल् कम्युनिकेशन पोर्टस्चा वापर करण्यासाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:173
+#: ../booleans_trans.py:177
 msgid "If you want to allow Apache to communicate with avahi service via dbus"
 msgstr "Apache ला dbus च्या सहायाने avahi सर्व्हिससह संपर्क करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:175 ../booleans_trans.py:389
-msgid "If you want to allow samba to export ntfs/fusefs volumes."
-msgstr "samba ला ntfs/fusefs वॉल्युम्स् एक्सपोर्ट करण्यासाठी परवानगी द्यायची असल्यास."
+#: ../booleans_trans.py:179
+msgid "If you want to allow ftpd to use ntfs/fusefs volumes."
+msgstr "ftpdला ntfs/fusefs वॉल्युम्स म्हणून स्वीकारायचे असल्यास."
 
-#: ../booleans_trans.py:177
+#: ../booleans_trans.py:181
 msgid "If you want to allow sanlock to read/write fuse files"
 msgstr "sanlock फ्युज फाइल्स् वाचणे/लिहण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:179
+#: ../booleans_trans.py:183
 msgid ""
 "If you want to allow rsync server to manage all files/directories on the "
 "system."
 msgstr "rsync सर्व्हरला वापरकर्त्याच्या होम डिरेक्ट्रिजमध्ये फाइल्स व्यवस्थापीत करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:181
+#: ../booleans_trans.py:185
 msgid "If you want to allow user  to use ssh chroot environment."
 msgstr "वापरकर्त्याला ssh chroot वातावरणाचा वापर करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:183
+#: ../booleans_trans.py:187
 msgid ""
 "If you want to determine whether Cobbler can connect to the network using "
 "TCP."
 msgstr "TCPचा वापर करून कॉबलर नेटवर्कशी जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:185
+#: ../booleans_trans.py:189
 msgid ""
 "If you want to deny user domains applications to map a memory region as both"
 " executable and writable, this is dangerous and the executable should be "
 "reported in bugzilla"
 msgstr "वापरकर्ता डोमैन ॲप्लिकेशन्स्ला मेमरि क्षेत्राला दोंही एक्जिक्युटेबल व राइटेबल म्हणून मॅप करणे नकारायचे असल्यास, हे धोकादायक आहे व त्यास बजिलामध्ये कळवणे आवश्यक आहे"
 
-#: ../booleans_trans.py:187
+#: ../booleans_trans.py:191
 msgid "If you want to determine whether squid can run as a transparent proxy."
 msgstr "squid ट्रांस्परेंट प्रॉक्सी म्हणून चालवू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:189
+#: ../booleans_trans.py:193
 msgid "If you want to allow users to connect to the local mysql server"
 msgstr "वापरकर्त्यांना स्थानीय mysql सर्व्हरसह जोडणी करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:191
+#: ../booleans_trans.py:195
 msgid ""
 "If you want to determine whether ftpd can login to local users and can read "
 "and write all files on the system, governed by DAC."
 msgstr "DACतर्फे नियंत्रीत, ftpd स्थानीय वापरकर्ताकरीता प्रवेश करू शकतो किंवा नाही व प्रणालीवरील सर्व फाइल्स वाचू किंवा लिहू शकतो, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:193
+#: ../booleans_trans.py:197
 msgid "If you want to allows XServer to execute writable memory"
 msgstr "XServer ला लेखनजोगी मेमरि चालवण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:195
+#: ../booleans_trans.py:199
 msgid ""
 "If you want to allow glusterfsd to share any file/directory read/write."
 msgstr "glusterfsdला कोणतिही फाइल किंवा डिरेक्ट्रि वाचन किंवा लेखन, असे स्वीकारायचे असल्यास."
 
-#: ../booleans_trans.py:197
+#: ../booleans_trans.py:201
 msgid ""
 "If you want to boolean to determine whether the system permits loading "
 "policy, setting enforcing mode, and changing boolean values.  Set this to "
 "true and you have to reboot to set it back."
 msgstr "प्रणाली धोरण लोड करणे, एंफोर्सिंग मोड सेट करणे, व बूलिय मूल्ये बदलण्यासाठी बूलियन ओळखायचे असल्यास.  यास खरे असे निश्चित करा व यास ठरवण्यासाठी पुनःबूट करा."
 
-#: ../booleans_trans.py:199
+#: ../booleans_trans.py:203
 msgid ""
 "If you want to allow confined virtual guests to interact with rawip sockets"
 msgstr "बंधिस्त वर्च्युअल अतिथींना rawip सॉकेट्ससह संवाद करण्यासाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:201
+#: ../booleans_trans.py:205
 msgid "If you want to determine whether dbadm can manage generic user files."
 msgstr "dbadm जेनेरिक वापरकर्ता फाइल्स व्यवस्थापीत करू शकते किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:203
+#: ../booleans_trans.py:207
 msgid ""
 "If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
 "ABRT event scripts"
 msgstr "ABRT ला abrt_handle_event_t डोमैनमध्ये ABRT इव्हेंट स्क्रिप्टस् हाताळण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:205
+#: ../booleans_trans.py:209
 msgid "If you want to allow all domains to execute in fips_mode"
 msgstr "सर्व डोमेन्स्ला fips_modeमध्ये चालवण्याकरिता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:207
+#: ../booleans_trans.py:211
 msgid "If you want to allow sge to connect to the network using any TCP port"
 msgstr "कोणत्याहि TCP पोर्टचा वापर करून sge ला नेटवर्कसह जोडणीकरीता परवानगी द्यायचे असल्यास"
 
-#: ../booleans_trans.py:209
+#: ../booleans_trans.py:213
 msgid ""
 "If you want to determine whether Git system daemon can access nfs file "
 "systems."
 msgstr "Git प्रणाली डिमनची nfs फाइल प्रणालीकरीता प्रवेश प्राप्ति शक्य आहे किंवा नाही, हे ओळखायचे असल्यास"
 
-#: ../booleans_trans.py:211
+#: ../booleans_trans.py:215
 msgid "If you want to unify HTTPD handling of all content files."
 msgstr "HTTPD ला सर्व कंटेंट फाइल्स्ची हाताळणी एकत्र करण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:213
+#: ../booleans_trans.py:217
 msgid "If you want to allow nsplugin code to connect to unreserved ports"
 msgstr "nsplugin यास विनाआरक्षित पोर्टसह जोडणीकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:215
+#: ../booleans_trans.py:219
 msgid "If you want to determine whether amavis can use JIT compiler."
 msgstr "amavis JIT कम्पाइलरचा वापर करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:217
+#: ../booleans_trans.py:221
 msgid "If you want to determine whether java can make its stack executable."
 msgstr "java स्वतःचा स्टॅक चालवू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:219
+#: ../booleans_trans.py:223
 msgid ""
 "If you want to determine whether irc clients can listen on and connect to "
 "any unreserved TCP ports."
 msgstr "irc क्लाएंट्स कोणत्याही विनाआरक्षित TCP पोर्ट्सकरीता ऐकू व जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:221
+#: ../booleans_trans.py:225
 msgid "If you want to allow database admins to execute DML statement"
 msgstr "डाटाबेस ॲडमिन्स्ला DML वाक्य चालवण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:223
-msgid "If you want to allow qemu to use nfs file systems"
-msgstr "nfs फाइल प्रणालींचा वापर करण्यासाठी qemu ला परवानगी द्यायची असल्यास"
+#: ../booleans_trans.py:227
+msgid "If you want to allow openvpn to run unconfined scripts"
+msgstr "openvpnला unconfined स्क्रिप्ट्स म्हणून चालवायचे असल्यास"
 
-#: ../booleans_trans.py:225
+#: ../booleans_trans.py:229
 msgid "If you want to allow Apache to use mod_auth_pam"
 msgstr "Apache ला mod_auth_pam चा वापर करण्यास प्रतिबंधित करायचे असल्यास"
 
-#: ../booleans_trans.py:227
+#: ../booleans_trans.py:231
 msgid ""
 "If you want to allow confined virtual guests to interact with the xserver"
 msgstr "मर्यादित वर्च्युअल अतिथींना xserver सह परस्पर संवाद करण्यासाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:229
+#: ../booleans_trans.py:233
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to the network "
 "using TCP."
 msgstr "TCP पोर्टचा वापर करून HTTPD स्क्रिप्टस् व विभागांना नेटवर्कसह जोडणीकरीता परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:231
+#: ../booleans_trans.py:235
 msgid "If you want to allow qemu to use usb devices"
 msgstr "qemu ला usb साधने वापरण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:233
+#: ../booleans_trans.py:237
 msgid "If you want to determine whether exim can connect to databases."
 msgstr "exim डाटाबेसशी जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:235
+#: ../booleans_trans.py:239
 msgid "If you want to determine whether Git CGI can access nfs file systems."
 msgstr "Git CGIची nfs फाइल प्रणालीकरीता प्रवेश प्राप्ति शक्य आहे किंवा नाही, हे ओळखायचे असल्यास"
 
-#: ../booleans_trans.py:237
+#: ../booleans_trans.py:241
 msgid ""
 "If you want to determine whether varnishd can use the full TCP network."
 msgstr "varnishd संपूर्ण TCP नेटवर्कचा वापर करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:239
+#: ../booleans_trans.py:243
 msgid ""
 "If you want to allow tftp to read and write files in the user home "
 "directories"
 msgstr "वापरकर्त्यांच्या होम डिरेक्ट्रिजमध्ये tftpला फाइल्स वाचण्यास व लिहण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:241
+#: ../booleans_trans.py:245
 msgid "If you want to support ecryptfs home directories"
 msgstr "ecryptfs होम डिरेक्ट्रिज्करीता समर्थन पुरवायचे असल्यास"
 
-#: ../booleans_trans.py:243
+#: ../booleans_trans.py:247
 msgid "If you want to allow samba to act as a portmapper"
 msgstr "samba ला पोर्टमॅपर म्हणून चालवायचे असल्यास"
 
-#: ../booleans_trans.py:245
+#: ../booleans_trans.py:249
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
 msgstr "httpd स्क्रिप्टस् व घटके execmem/execstack करीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:247
+#: ../booleans_trans.py:251
 msgid "If you want to allow httpd to access FUSE file systems"
 msgstr "httpd ला FUSE फाइल प्रणालींकरीता प्रवेश प्राप्तिसाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:249
+#: ../booleans_trans.py:253
 msgid "If you want to allow httpd to connect to the ldap port"
 msgstr "httpd ला ldap पोर्टसह जोडणीकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:251
+#: ../booleans_trans.py:255
 msgid "If you want to enable polyinstantiated directory support."
 msgstr "पॉलिइंस्टँशिएटेड डिरेक्ट्री समर्थन सुरू करायचे असल्यास."
 
-#: ../booleans_trans.py:253
+#: ../booleans_trans.py:257
 msgid ""
 "If you want to allow cluster administrative cluster domains memcheck-amd64- "
 "to use executable memory"
 msgstr "एक्जिक्युटेबल मेमरिचा वापर करण्यासाठी क्लस्टर ॲडमिनिस्ट्रेटिव्ह क्सल्टर डोमेन्स  memcheck-amd64- ला परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:255
+#: ../booleans_trans.py:259
 msgid ""
 "If you want to allow logging in and using the system from /dev/console."
 msgstr "/dev/console पासून प्रणाली अंतर्गत प्रवेश व प्रणालीच्या वापरकरीता परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:257
+#: ../booleans_trans.py:261
 msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
 msgstr "Apache ला mod_auth_ntlm_winbind चा वापर करण्यास प्रतिबंधित करायचे असल्यास"
 
-#: ../booleans_trans.py:259
+#: ../booleans_trans.py:263
 msgid "If you want to allow the graphical login program to execute bootloader"
 msgstr "ग्राफिकल लॉगिन प्रोग्रामला bootloader चालवण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:261
+#: ../booleans_trans.py:265
 msgid "If you want to allow samba to share users home directories."
 msgstr "साम्बाला वापरकर्त्यांची होम डिरेक्ट्रिज निर्माण करण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:263
+#: ../booleans_trans.py:267
 msgid "If you want to allow qemu to connect fully to the network"
 msgstr "qemu ला नेटवर्कसह संपूर्णतया जोडणी करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:265
+#: ../booleans_trans.py:269
 msgid "If you want to allow users to connect to PostgreSQL"
 msgstr "वापरकर्त्यांना PostgreSQL सर्व्हरसह जोडणी करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:267
+#: ../booleans_trans.py:271
 msgid "If you want to allow httpd to connect to  sasl"
 msgstr "httpdला saslसह जोडणीकरिता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:269
+#: ../booleans_trans.py:273
 msgid ""
 "If you want to unify HTTPD to communicate with the terminal. Needed for "
 "entering the passphrase for certificates at the terminal."
 msgstr "HTTPD ला टर्मिनलसह संपर्क करण्यासाठी एकत्रीत करायचे असल्यास. टर्मिनलकडे प्रमाणपत्रांकरीता पासफ्रेज पुरवण्याकरीता आवश्यक."
 
-#: ../booleans_trans.py:271
+#: ../booleans_trans.py:275
 msgid ""
 "If you want to allow apache scripts to write to public content, "
 "directories/files must be labeled public_rw_content_t."
 msgstr "apache स्क्रिप्टस्ला पब्लिक कंटेंटकरीता लिहण्यास परवानगी द्यायची असल्यास, डिरेक्ट्रिज्/फाइल्स्चे लेबल public_rw_content_t पाहिजे."
 
-#: ../booleans_trans.py:273
+#: ../booleans_trans.py:277
 msgid ""
 "If you want to allow rsync to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr "rsyncला पब्लिक ट्रांस्फर सर्व्हिसेसकरीता पब्लिक फाइल्स् संपादित करण्यासाठी परवानगी द्यायची असल्यास. फाइल्स्/डिरेक्ट्रिज् यास public_content_rw_t सह लेबल करायला हवे."
 
-#: ../booleans_trans.py:275
+#: ../booleans_trans.py:279
 msgid ""
 "If you want to determine whether mplayer can make its stack executable."
 msgstr "mplayer स्वतःचा स्टॅक चालवू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:277
+#: ../booleans_trans.py:281
 msgid ""
 "If you want to allow users to run TCP servers (bind to ports and accept "
 "connection from the same domain and outside users)  disabling this forces "
 "FTP passive mode and may change other protocols."
 msgstr "FTP."
 
-#: ../booleans_trans.py:279
+#: ../booleans_trans.py:283
 msgid ""
 "If you want to allow xend to run qemu-dm. Not required if using paravirt and"
 " no vfb."
 msgstr "xend ला qemu-dm चालवण्यास परवानगी द्यायची असल्यास. paravirt व vfb चा वापर न करत असल्यास आवश्यक नाही."
 
-#: ../booleans_trans.py:281
+#: ../booleans_trans.py:285
 msgid ""
 "If you want to determine whether sftpd-can read and write files in user home"
 " directories."
 msgstr "युजर होम डिरेक्ट्रीजमध्ये sftpd फाइल्स वाचू व लिहू शकते किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:283
+#: ../booleans_trans.py:287
 msgid "If you want to support fusefs home directories"
 msgstr "fusefs होम डिरेक्ट्रिज्करीता समर्थन पुरवायचे असल्यास"
 
-#: ../booleans_trans.py:285
+#: ../booleans_trans.py:289
 msgid ""
 "If you want to allow the Telepathy connection managers to connect to any "
 "network port."
 msgstr "टेलिपथि जोडणी व्यवस्थापकांना कोणत्याहि नेटवर्क पोर्टशी जोडणी करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:287
+#: ../booleans_trans.py:291
 msgid "If you want to allow confined virtual guests to manage cifs files"
 msgstr "मर्यादित वर्च्युअल अतिथींना cifs फाइल्स् व्यवस्थापीत करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:289
+#: ../booleans_trans.py:293
 msgid ""
 "If you want to allow the Irssi IRC Client to connect to any port, and to "
 "bind to any unreserved port."
 msgstr "Irssi IRC क्लाएंटला कोणत्याहि पोर्टसह जोडणी करण्यास, व कोणत्याहि विनाआरक्षित पोर्टसह बांधणी करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:291
+#: ../booleans_trans.py:295
 msgid "If you want to allow confined applications to use nscd shared memory."
 msgstr "मर्यादित ॲप्लिकेशन्स्ला nscd शेअर्ड् मेमरि चालवण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:293
+#: ../booleans_trans.py:297
 msgid ""
 "If you want to determine whether attempts by wine to mmap low regions should"
 " be silently blocked."
 msgstr "वाइनतर्फे कमी क्षेत्रांना mmap करणे ब्लॉक करायचे किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:295
+#: ../booleans_trans.py:299
 msgid "If you want to allow racoon to read shadow"
 msgstr "racoon ला शॅडो वाचण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:297
+#: ../booleans_trans.py:301
 msgid ""
 "If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
 "database"
 msgstr "पपेट मास्टरला MySQL व PostgreSQL डाटाबेससह जोडणीकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:299
+#: ../booleans_trans.py:303
 msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
 msgstr "पूर्णपणे बंद करण्यासाठी HTTPD ला पोर्ट 80 सह जोडणीकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:301
+#: ../booleans_trans.py:305
 msgid "If you want to allow system to run with NIS"
 msgstr "प्रणालीला NIS सह चालवण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:303
+#: ../booleans_trans.py:307
 msgid "If you want to allow users to login using a yubikey  server"
 msgstr "yubikey सर्व्हरचा वापर करून वापरकर्त्यांना प्रवेशकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:305
+#: ../booleans_trans.py:309
 msgid "If you want to allow a user to login as an unconfined domain"
 msgstr "वापरकर्त्याला अमर्यादित डोमैन म्हणून प्रवेश करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:307
+#: ../booleans_trans.py:311
 msgid "If you want to disable kernel module loading."
 msgstr "कर्नल मॉड्युल लोड करणे बंद करायचे असल्यास."
 
-#: ../booleans_trans.py:309
+#: ../booleans_trans.py:313
 msgid ""
 "If you want to allow pacemaker memcheck-amd64- to use executable memory"
 msgstr "एक्जिक्युटेबल मेमरिचा वापर करण्यासाठी pacemaker memcheck-amd64- ला परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:311
+#: ../booleans_trans.py:315
 msgid ""
 "If you want to allow httpd to act as a FTP client connecting to the ftp port"
 " and ephemeral ports"
 msgstr "FTP"
 
-#: ../booleans_trans.py:313
+#: ../booleans_trans.py:317
 msgid ""
 "If you want to determine whether ftpd can bind to all unreserved ports for "
 "passive mode."
 msgstr "पासिव्ह मोडकरिता ftpd सर्व विनाआरक्षित पोर्टस्ना बाइंड करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:315
+#: ../booleans_trans.py:319
 msgid ""
 "If you want to allow samba to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
 msgstr "साम्बाला पब्लिक ट्रांस्फर सर्व्हिसेसकरीता पब्लिक फाइल्स् संपादित करण्यासाठी परवानगी द्यायची असल्यास. फाइल्स्/डिरेक्ट्रिज् यास public_content_rw_t सह लेबल करायला हवे."
 
-#: ../booleans_trans.py:317
+#: ../booleans_trans.py:321
 msgid ""
 "If you want to allow gssd to read temp directory.  For access to kerberos "
 "tgt."
 msgstr "gssd ला temp डिरेक्ट्रि वाचण्यास परवानगी द्यायची असल्यास.  kerberos tgt करीता प्रवेशसाठी."
 
-#: ../booleans_trans.py:319
+#: ../booleans_trans.py:323
 msgid "If you want to determine whether Cobbler can access nfs file systems."
 msgstr "कॉबलर nfs फाइल प्रणालीकरीता प्रवेश प्राप्त करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:321
+#: ../booleans_trans.py:325
 msgid "If you want to allow tor to act as a relay"
 msgstr "torला रिले म्हणून चालवायचे असल्यास"
 
-#: ../booleans_trans.py:323
+#: ../booleans_trans.py:327
 msgid ""
 "If you want to allow unconfined executables to make their stack executable."
 "  This should never, ever be necessary. Probably indicates a badly coded "
@@ -2508,464 +2551,478 @@ msgid ""
 " in bugzilla"
 msgstr "अमर्यादित एक्जिक्युटेबल्स्ला स्टॅक चालवण्याजोगी करण्यास परवानगी द्यायची असल्यास.  हे कधिहि अनावश्यक असावे. हे सहसा अयोग्यरित्या कोड केलेले एक्जिक्युटेबल निर्देशीत करतो, परंतु धोका देखील निर्देशीत करू शकतो. ह्या एक्जिक्युटेबलला बगजिलामध्ये  कळवा"
 
-#: ../booleans_trans.py:325
+#: ../booleans_trans.py:329
 msgid ""
 "If you want to allow confined virtual guests to interact with the sanlock"
 msgstr "मर्यादित वर्च्युअल अतिथींना sanlock सह परस्पर संवाद करण्यासाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:327
+#: ../booleans_trans.py:331
 msgid "If you want to allow all daemons to use tcp wrappers."
 msgstr "सर्व डिमन्स्ला tcp ऱ्यापर्स्चा वापर करण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:329
+#: ../booleans_trans.py:333
+msgid ""
+"If you want to permit to prosody to bind apache port. Need to be activated "
+"to use BOSH."
+msgstr "prosodyला apache पोर्टकरिता बांधणी कराण्यासाठी ठरवायचे असल्यास. BOSHचा वापर करण्यासाठी सक्रिय करणे आवश्यक."
+
+#: ../booleans_trans.py:335
 msgid ""
 "If you want to allow confined virtual guests to use executable memory and "
 "executable stack"
 msgstr "एक्जिक्युटेबल मेमरि व एक्जिक्युटेबल स्टॅकचा वापर करण्यासाठी मर्यादित वर्च्युअल अतिथींना परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:331
+#: ../booleans_trans.py:337
 msgid "If you want to determine whether webadm can read generic user files."
 msgstr "webadm जेनेरिक वापरकर्ता फाइल्स वाचू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:333
+#: ../booleans_trans.py:339
 msgid "If you want to allow mozilla plugin to support GPS."
 msgstr "mozilla प्लगइनला GPS समर्थनकरिता परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:335
+#: ../booleans_trans.py:341
 msgid "If you want to support X userspace object manager"
 msgstr "X युजरस्पेस् ऑब्जेक्ट मॅनेजरकरीता समर्थन पुरवायचे असल्यास"
 
-#: ../booleans_trans.py:337
+#: ../booleans_trans.py:343
 msgid ""
 "If you want to determine whether attempts by vbetool to mmap low regions "
 "should be silently blocked."
 msgstr "vbetoolतर्फे कमी क्षेत्रांना mmap करणे ब्लॉक करायचे किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:339
+#: ../booleans_trans.py:345
 msgid "If you want to allow httpd to read user content"
 msgstr "httpd ला वापरकर्ता अंतर्भुत माहिती वाचण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:341
+#: ../booleans_trans.py:347
 msgid "If you want to allow httpd to access nfs file systems"
 msgstr "httpd ला nfs फाइल प्रणालींकरीता प्रवेशसाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:343
+#: ../booleans_trans.py:349
 msgid ""
 "If you want to allow unconfined users to transition to the chrome sandbox "
 "domains when running chrome-sandbox"
 msgstr "chrome-sandbox चालवताना अमर्यादित वापरकर्त्यांना क्रोम सँडबॉक्स्च्या स्थानांतरनकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:345
+#: ../booleans_trans.py:351
 msgid "If you want to allow pppd to load kernel modules for certain modems"
 msgstr "ठराविक मोडेम्स्करीता pppd ला कर्नल घटके लोड करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:347
+#: ../booleans_trans.py:353
 msgid "If you want to allow sge to access nfs file systems."
 msgstr "sge ला nfs फाइल प्रणालींकरीता प्रवेशसाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:349
+#: ../booleans_trans.py:355
 msgid "If you want to allow confined virtual guests to read fuse files"
 msgstr "मर्यादित वर्च्युअल अतिथींना फ्युज फाइल्स् वाचण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:351
+#: ../booleans_trans.py:357
 msgid "If you want to allow spamd to read/write user home directories."
 msgstr "वापरकर्त्यांच्या होम डिरेक्ट्रिजमध्ये spamd ला वाचण्यास व लिहण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:353
+#: ../booleans_trans.py:359
 msgid "If you want to determine whether DHCP daemon can use LDAP backends."
 msgstr "DHCP डिमन LDAP बॅकएंड्स्चा वापर करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:355
+#: ../booleans_trans.py:361
 msgid "If you want to determine whether Git CGI can access cifs file systems."
 msgstr "Git CGIची cifs फाइल प्रणालीकरीता प्रवेश प्राप्ति शक्य आहे किंवा नाही, हे ओळखायचे असल्यास"
 
-#: ../booleans_trans.py:357
+#: ../booleans_trans.py:363
 msgid ""
 "If you want to allow any files/directories to be exported read/write via "
 "NFS."
 msgstr "NFS तर्फे कोणत्याहि फाइल्स्/डिरेक्ट्रिज्ला रिड/राइट म्हणून एक्सपोर्ट करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:359
+#: ../booleans_trans.py:365
 msgid "If you want to allow mailman to access FUSE file systems"
 msgstr "FUSE फाइल प्रणालीकरिता प्रवेशसाठी मेलमॅनला परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:361
+#: ../booleans_trans.py:367
 msgid ""
 "If you want to determine whether icecast can listen on and connect to any "
 "TCP port."
 msgstr "icecast क्लाएंट्स कोणत्याही TCP पोर्ट्सकरीता ऐकू व जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:363
+#: ../booleans_trans.py:369
 msgid "If you want to allow Apache to execute tmp content."
 msgstr "अपॅचीला tmp अंतर्भुत माहिती चालवण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:365
+#: ../booleans_trans.py:371
 msgid "If you want to allow zebra daemon to write it configuration files"
 msgstr "zebra डिमनला संरचना फाइल्स्करीता लिहण्यास स्वीकारायचे असल्यास"
 
-#: ../booleans_trans.py:367
+#: ../booleans_trans.py:373
 msgid "If you want to allow qemu to use cifs/Samba file systems"
 msgstr "qemu ला cifs/साम्बा फाइल प्रणालींच्या वापरकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:369
+#: ../booleans_trans.py:375
 msgid "If you want to allow ksmtuned to use cifs/Samba file systems"
 msgstr "ksmtunedला cifs किंवा साम्बा फाइल प्रणालींच्या वापरकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:371
+#: ../booleans_trans.py:377
 msgid ""
 "If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
 "dedicated logical volumes for disk images."
 msgstr "xend ला blktapctrl/tapdisk चालवण्यास परवानगी द्यायची असल्यास. डिस्क प्रतिमांकरीता डेडिकेटेड् लॉजिकल वॉल्युम्स्चा वापर करत असल्यास आवश्यक नाही."
 
-#: ../booleans_trans.py:373
+#: ../booleans_trans.py:379
 msgid ""
 "If you want to determine whether fenced can connect to the TCP network."
 msgstr "fenced TCP नेटवर्कशी जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:375
+#: ../booleans_trans.py:381
 msgid "If you want to allow sanlock to manage nfs files"
 msgstr "sanlockला nfs फाइल्स् व्यवस्थापीत करण्यासाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:377
+#: ../booleans_trans.py:383
 msgid "If you want to allow all domains to have the kernel load modules"
 msgstr "सर्व डोमैन्स्ला कर्नल घटकांना लोड करण्यासाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:379
+#: ../booleans_trans.py:385
 msgid "If you want to allow confined virtual guests to use usb devices"
 msgstr "मर्यादित वर्च्युअल अतिथींना usb साधने वापरण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:381
+#: ../booleans_trans.py:387
 msgid ""
 "If you want to determine whether smartmon can support devices on 3ware "
 "controllers."
 msgstr "smarton 3ware कंट्रोलर्सवरील साधनांकरीता समर्थन पुरवू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:383
+#: ../booleans_trans.py:389
 msgid ""
 "If you want to allow ABRT to modify public files used for public file "
 "transfer services."
 msgstr "ABRT ला पब्लिक ट्रांस्फर सर्व्हिसेसकरीता पब्लिक फाइल्स् संपादित करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:385
+#: ../booleans_trans.py:391
 msgid ""
 "If you want to allow cluster administrative domains to connect to the "
 "network using TCP."
 msgstr "क्लस्टर ॲडमिनिस्ट्रेटिव्ह डोमेन्सला TCPचा वापर करून नेटवर्कशी जोडणी करण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:387
+#: ../booleans_trans.py:393
 msgid "If you want to allow http daemon to send mail"
 msgstr "डिमनला मेल पाठवण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:391
+#: ../booleans_trans.py:395
+msgid "If you want to allow samba to export ntfs/fusefs volumes."
+msgstr "samba ला ntfs/fusefs वॉल्युम्स् एक्सपोर्ट करण्यासाठी परवानगी द्यायची असल्यास."
+
+#: ../booleans_trans.py:397
 msgid ""
 "If you want to allow staff user to create and transition to svirt domains."
 msgstr "svirt डोमेनचे निर्माण व स्थानांतरकरीता स्टॅफ वापरकर्त्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:393
+#: ../booleans_trans.py:399
 msgid ""
 "If you want to allow mozilla plugin domain to connect to the network using "
 "TCP."
 msgstr "mozilla प्लगइन डोमेनला TCP चा वापर करून नेटवर्कसह जोडणी करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:395
+#: ../booleans_trans.py:401
 msgid "If you want to allow httpd to use built in scripting (usually php)"
 msgstr "httpd ला स्क्रिप्टिंगमध्ये (सहसा php) वापरायचे असल्यास"
 
-#: ../booleans_trans.py:397
+#: ../booleans_trans.py:403
 msgid ""
 "If you want to allow confined users the ability to execute the ping and "
 "traceroute commands."
 msgstr "बंधिस्त वापरकर्त्यांना ping व traceroute आदेश चालवण्यास परवानगी द्यायचे असल्यास."
 
-#: ../booleans_trans.py:399
+#: ../booleans_trans.py:405
 msgid ""
 "If you want to determine whether exim can create, read, write, and delete "
 "generic user content files."
 msgstr "exim जेनेरिक वापरकर्ता कंटेंट फाइल्स निर्माण, वाचण, लेखण, व नष्ट करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:401
+#: ../booleans_trans.py:407
 msgid ""
 "If you want to allow cluster administrative domains to manage all files on a"
 " system."
 msgstr "क्लस्टर ॲडमिनिस्ट्रेटिव्ह डोमेन्सला प्रणालीवरील सर्व फाइल्स व्यवस्थापीत करण्याकरीता परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:403
+#: ../booleans_trans.py:409
 msgid ""
 "If you want to determine whether cdrecord can read various content. nfs, "
 "samba, removable devices, user temp and untrusted content files"
 msgstr "cdrecord विविध अंतर्भुत माहिती जसे कि nfs, साम्बा, काढून टाकण्याजोगी साधने, वापरकर्ता तात्पुर्ते व अविश्वासर्ह अंतर्भुत माहिती फाइल्स वाचू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:405
+#: ../booleans_trans.py:411
 msgid ""
 "If you want to determine whether Cobbler can modify public files used for "
 "public file transfer services."
 msgstr "कॉबलर पब्लिक ट्रांस्फर सर्व्हिसेसकरीता वापरण्याजोगी पब्लिक फाइल्स संपादित करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:407
+#: ../booleans_trans.py:413
 msgid "If you want to allow samba to export NFS volumes."
 msgstr "साम्बाला NFS वॉल्युम्स् एक्सपोर्ट करण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:409
+#: ../booleans_trans.py:415
 msgid ""
 "If you want to control the ability to mmap a low area of the address space, "
 "as configured by /proc/sys/kernel/mmap_min_addr."
 msgstr "/proc/sys/kernel/mmap_min_addr तर्फे संरचीत, ॲड्रेस स्पेस्चे खालील क्षेत्राला mmap करण्याची क्षमतेला नियंत्रीत करायचे असल्यास."
 
-#: ../booleans_trans.py:411
+#: ../booleans_trans.py:417
 msgid "If you want to determine whether dbadm can read generic user files."
 msgstr "dbadm जेनेरिक वापरकर्ता फाइल्स वाचू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:413
+#: ../booleans_trans.py:419
 msgid ""
 "If you want to determine whether ftpd can use NFS used for public file "
 "transfer services."
 msgstr "पब्लिक फाइल ट्रांस्फर सर्व्हिसेसकरीता ftpd NFSचा वापर करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:415
+#: ../booleans_trans.py:421
 msgid ""
 "If you want to allow antivirus programs to read non security files on a "
 "system"
 msgstr "antivirus प्रोग्राम्सला प्रणालीवरील विना सुरक्षित फाइल्स वाचायण्याकरिता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:417
+#: ../booleans_trans.py:423
 msgid ""
 "If you want to determine whether calling user domains can execute Polipo "
 "daemon in the polipo_session_t domain."
 msgstr "युजर डोमैन्स्ला कॉल केल्याने polipo_session_t डोमैन अंतर्गत Polipo डिमनला चालवणे शक्य आहे."
 
-#: ../booleans_trans.py:419
+#: ../booleans_trans.py:425
 msgid "If you want to allow confined applications to run with kerberos."
 msgstr "केर्बेरोससह मर्यादित ॲप्लिकेशन्स्ला चालवण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:421
+#: ../booleans_trans.py:427
 msgid "If you want to allow http daemon to check spam"
 msgstr "http डिमनला स्पॅम तपासण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:423
+#: ../booleans_trans.py:429
 msgid "If you want to allow xguest users to mount removable media"
 msgstr "xguest वापरकर्त्यांना काढूनटाकण्याजोगी मिडियाकरीता माऊंट करायचे असल्यास"
 
-#: ../booleans_trans.py:425
+#: ../booleans_trans.py:431
 msgid ""
 "If you want to determine whether sftpd-can login to local users and read and"
 " write all files on the system, governed by DAC."
 msgstr "DACतर्फे नियंत्रीत, sftpd स्थानीय वापरकर्ताकरीता प्रवेश करू शकतो किंवा नाही व प्रणालीवरील सर्व फाइल्स वाचू किंवा लिहू शकतो, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:427
+#: ../booleans_trans.py:433
 msgid ""
 "If you want to determine whether Bind can bind tcp socket to http ports."
 msgstr "http पोर्टस्करीता बाइंड tcp सॉकेट बाइंड करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:429
+#: ../booleans_trans.py:435
 msgid "If you want to allow syslogd the ability to read/write terminals"
 msgstr "syslogd ला टर्मिनल्स्करीता वाचन किंवा लेखन परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:431
+#: ../booleans_trans.py:437
 msgid ""
 "If you want to allow dhcpc client applications to execute iptables commands"
 msgstr "iptables आदेश चालवण्याकरीता dhcpc क्लाएंट ॲप्लिकेशन्स्ला चालवण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:433
+#: ../booleans_trans.py:439
 msgid "If you want to allow syslogd daemon to send mail"
 msgstr "syslogd डिमनला मेल पाठवण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:435
+#: ../booleans_trans.py:441
 msgid "If you want to determine whether Polipo can access nfs file systems."
 msgstr "polipo nfs फाइल प्रणालींकरीता प्रवेश ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:437
+#: ../booleans_trans.py:443
 msgid "If you want to allow samba to run unconfined scripts"
 msgstr "साम्बाला अमर्यादित स्क्रिप्टस् चालवण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:439
+#: ../booleans_trans.py:445
 msgid "If you want to allow nsplugin code to execmem/execstack"
 msgstr "nsplugin कोडला execmem/execstack करीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:441
+#: ../booleans_trans.py:447
 msgid "If you want to enable reading of urandom for all domains."
 msgstr "सर्व डोमैन्स्ला urandom याचे वाचणे सुरू करण्यास परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:443
+#: ../booleans_trans.py:449
 msgid "If you want to allow xguest to use blue tooth devices"
 msgstr "xguestला ब्ल्युटूथ साधनांचा वापर करण्यासाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:445
+#: ../booleans_trans.py:451
 msgid "If you want to determine whether mpd can use cifs file systems."
 msgstr "mpd cifs फाइल प्रणालीचा वापर करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:447
+#: ../booleans_trans.py:453
 msgid ""
 "If you want to determine whether ftpd can connect to all unreserved ports."
 msgstr "ftpd सर्व विनाआरक्षित पोर्टशी जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:449
+#: ../booleans_trans.py:455
 msgid "If you want to determine whether Gitosis can send mail."
 msgstr "Gitosis ईमेल पाठवू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:451
+#: ../booleans_trans.py:457
 msgid "If you want to allow httpd to connect to memcache server"
 msgstr "httpd ला memcache सर्व्हरसह जोडणीकरीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:453
+#: ../booleans_trans.py:459
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to cobbler over "
 "the network."
 msgstr "HTTPD स्क्रिप्टस् व घटकांना नेटवर्कवरील कॉबलरसह जोडणीकरीता परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:455
+#: ../booleans_trans.py:461
 msgid ""
 "If you want to allow Apache to modify public files used for public file "
 "transfer services. Directories/Files must be labeled public_content_rw_t."
 msgstr "अपॅचीला पब्लिक ट्रांस्फर सर्व्हिसेसकरीता पब्लिक फाइल्स् संपादित करण्यासाठी परवानगी द्यायची असल्यास. डिरेक्ट्रिज्/फाइल्स्चे लेबल public_content_rw_t असायला पाहिजे."
 
-#: ../booleans_trans.py:457
+#: ../booleans_trans.py:463
 msgid ""
 "If you want to allow HTTPD scripts and modules to server cobbler files."
 msgstr "HTTPD स्क्रिप्ट्स व मॉड्युल्सला सर्व्हर कॉबलर फाइल्सकरिता परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:459
+#: ../booleans_trans.py:465
 msgid "If you want to allow all daemons the ability to read/write terminals"
 msgstr "सर्व डिमन्स्ला वाचन/लेखन टर्मिनल्स्करीता परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:461
+#: ../booleans_trans.py:467
 msgid ""
 "If you want to determine whether Condor can connect to the network using "
 "TCP."
 msgstr "TCPचा वापर करून काँडोर नेटवर्कशी जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:463
+#: ../booleans_trans.py:469
 msgid ""
 "If you want to allow users to resolve user passwd entries directly from ldap"
 " rather then using a sssd server"
 msgstr "sssd सर्व्हरचा वापर करण्याऐवजी, ldap पासून वापरकर्त्यांना passwd नोंदणींचे निवारण करण्यासाठी परवानगी द्यायचे असल्यास"
 
-#: ../booleans_trans.py:465
+#: ../booleans_trans.py:471
 msgid ""
 "If you want to determine whether ftpd can modify public files used for "
 "public file transfer services. Directories/Files must be labeled "
 "public_content_rw_t."
 msgstr "ftpd पब्लिक ट्रांस्फर सर्व्हिसेसकरीता पब्लिक फाइल्स संपादित करू शकतो किंवा नाही, हे ओळखायचे असल्यास. डिरेक्ट्रिज किंवा फाइल्स्चे लेबल public_content_rw_t असे पाहिजे."
 
-#: ../booleans_trans.py:467
+#: ../booleans_trans.py:473
 msgid "If you want to allow sanlock to manage cifs files"
 msgstr "sanlockला cifs फाइल्स् व्यवस्थापीत करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:469
+#: ../booleans_trans.py:475
 msgid "If you want to determine whether awstats can purge httpd log files."
 msgstr "awstats httpd लॉग फाइल्स नष्ट करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:471
+#: ../booleans_trans.py:477
 msgid "If you want to determine whether portage can use nfs filesystems."
 msgstr "portage nfs फाइलप्रणालीचा वापर करू शकते किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:473
+#: ../booleans_trans.py:479
 msgid ""
 "If you want to allow unprivledged user to create and transition to svirt "
 "domains."
 msgstr "योग्य परवानगी नसणाऱ्या वापरकर्त्यास svirt डोमेनकरीता निर्माण व स्थानांतरनसाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:475
+#: ../booleans_trans.py:481
 msgid "If you want to determine whether to support lpd server."
 msgstr "lpd सर्व्हरकरीता समर्थन पुरवले जाते किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:477
+#: ../booleans_trans.py:483
 msgid "If you want to determine whether webadm can manage generic user files."
 msgstr "webadm जेनेरिक वापरकर्ता फाइल्स व्यवस्थापीत करू शकते किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:479
+#: ../booleans_trans.py:485
 msgid "If you want to determine whether can clamd use JIT compiler."
 msgstr "clamd JIT कम्पाइलरचा वापर करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:481
+#: ../booleans_trans.py:487
+msgid "If you want to allow qemu to use nfs file systems"
+msgstr "nfs फाइल प्रणालींचा वापर करण्यासाठी qemu ला परवानगी द्यायची असल्यास"
+
+#: ../booleans_trans.py:489
 msgid ""
 "If you want to determine whether Git session daemon can bind TCP sockets to "
 "all unreserved ports."
 msgstr "सर्व विनाआरक्षित पोर्टस्करीता Git सत्र डिमनला tcp सॉकेटस्करीता बांधणी शक्य आहे किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:483
+#: ../booleans_trans.py:491
 msgid ""
 "If you want to allow HTTPD to run SSI executables in the same domain as "
 "system CGI scripts."
 msgstr "HTTPD ला SSI एक्जिक्युटेबल्स समान डोमैनमध्ये CGI स्क्रिप्टस् म्हणून चालवण्याकरीता परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:485
+#: ../booleans_trans.py:493
 msgid "If you want to allow mozilla plugin to support spice protocols."
 msgstr "mozilla प्लगइनला spice प्रोटोकॉल्सकरिता समर्थनसाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:487
+#: ../booleans_trans.py:495
 msgid "If you want to allow httpd to access openstack ports"
 msgstr "httpd ला openstack पोर्टसकरीता प्रवेश स्वीकारायचे असल्यास"
 
-#: ../booleans_trans.py:489
+#: ../booleans_trans.py:497
 msgid ""
 "If you want to allow httpd to act as a FTP server by listening on the ftp "
 "port."
 msgstr "FTP."
 
-#: ../booleans_trans.py:491
+#: ../booleans_trans.py:499
 msgid "If you want to allow all daemons to write corefiles to /"
 msgstr "सर्व डिमन्स्ला कोरफाइल्स् / करीता लिहण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:493
+#: ../booleans_trans.py:501
 msgid "If you want to enable extra rules in the cron domain to support fcron."
 msgstr "क्रॉन डोमैनमध्ये fcron करीता समर्थन पुरवण्यासाठी अगाऊ नियम सुरू करायचे असल्यास."
 
-#: ../booleans_trans.py:495
+#: ../booleans_trans.py:503
 msgid ""
 "If you want to determine whether sftpd can read and write files in user ssh "
 "home directories."
 msgstr "युजर ssh होम डिरेक्ट्रीजमध्ये sftpd फाइल्स वाचू व लिहू शकते किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:497
+#: ../booleans_trans.py:505
 msgid "If you want to allow http daemon to connect to zabbix"
 msgstr "http डिमनला zabbix सह जोडणी करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:499
+#: ../booleans_trans.py:507
 msgid "If you want to allow transmit client label to foreign database"
 msgstr "फॉरेन डाटाबेसकरीता ट्रांस्मिट क्लाएंट लेबल स्वीकारण्यासाठी परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:501
+#: ../booleans_trans.py:509
 msgid ""
 "If you want to determine whether collectd can connect to the network using "
 "TCP."
 msgstr "TCPचा वापर करून collectd नेटवर्कशी जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:503
+#: ../booleans_trans.py:511
 msgid "If you want to determine whether Cobbler can access cifs file systems."
 msgstr "कॉबलर cifs फाइल प्रणालींकरीता प्रवेश प्राप्त करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:505
+#: ../booleans_trans.py:513
 msgid "If you want to determine whether mcelog supports server mode."
 msgstr "mcelog सर्व्हर मोडकरीता समर्थन पुरवू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:507
+#: ../booleans_trans.py:515
 msgid "If you want to allow httpd daemon to change its resource limits"
 msgstr "httpd डिमनला रिसोअर्स् मर्यादा बदलण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:509
+#: ../booleans_trans.py:517
 msgid "If you want to determine whether squid can connect to all TCP ports."
 msgstr "squid सर्व TCP पोर्टशी जोडणी करू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:511
+#: ../booleans_trans.py:519
 msgid "If you want to allow all domains to use other domains file descriptors"
 msgstr "सर्व डोमैन्स्ला इतर डोमैन्स् फाइल डिस्क्रिप्टर्स्चा वापर करण्यास परवानगी द्यायची असल्यास"
 
-#: ../booleans_trans.py:513
+#: ../booleans_trans.py:521
 msgid "If you want to determine whether mcelog supports client mode."
 msgstr "mcelog क्लाएंट मोडकरीता समर्थन पुरवू शकतो किंवा नाही, हे ओळखायचे असल्यास."
 
-#: ../booleans_trans.py:515
+#: ../booleans_trans.py:523
 msgid ""
 "If you want to allow any files/directories to be exported read/only via NFS."
 msgstr "NFS तर्फे फक्त वाचनीय म्हणून कोणत्याहि फाइल्स्/डिरेक्ट्रिज्ला एकस्पोर्ट करण्यासाठी परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:517
+#: ../booleans_trans.py:525
 msgid ""
 "If you want to allow system cron jobs to relabel filesystem for restoring "
 "file contexts."
 msgstr "फाइल संदर्भ पूर्वस्थितीत आणण्याकरीता फाइलप्रणाली पुनःलेबल करण्यासाठी सिस्टम क्रॉन जॉब्स्ला परवानगी द्यायची असल्यास."
 
-#: ../booleans_trans.py:519
+#: ../booleans_trans.py:527
 msgid ""
 "If you want to determine whether sftpd can modify public files used for "
 "public file transfer services. Directories/Files must be labeled "

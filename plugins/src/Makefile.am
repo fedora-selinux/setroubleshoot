@@ -40,6 +40,7 @@ PLUGIN_FILES =				\
 	qemu_blk_image.py		\
 	qemu_file_image.py		\
 	restorecon.py			\
+	restorecon_source.py		\
 	rsync_data.py			\
 	samba_share.py			\
 	sandbox_connect.py		\

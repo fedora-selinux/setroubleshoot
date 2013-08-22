@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
 # Dimitris Glezos <glezos@transifex.com>, 2011
 # Leah Liu <lliu@redhat.com>, 2008, 2009
@@ -14,14 +14,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-24 12:00-0400\n"
-"PO-Revision-Date: 2013-04-11 01:13+0000\n"
-"Last-Translator: Wei Liu <LLIU@REDHAT.COM>\n"
+"POT-Creation-Date: 2013-08-14 08:44-0400\n"
+"PO-Revision-Date: 2013-08-14 12:45+0000\n"
+"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
 "Language-Team: Chinese (China) <trans-zh_cn@lists.fedoraproject.org>\n"
-"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../setroubleshoot.desktop.in.h:1
@@ -42,7 +42,7 @@ msgid "port %s"
 msgstr "端口 %s"
 
 #: ../src/audit_data.py:900 ../src/browser.py:746 ../src/browser.py:821
-#: ../src/rpc.py:532 ../src/util.py:220
+#: ../src/rpc.py:528 ../src/util.py:220
 msgid "Unknown"
 msgstr "未知"
 
@@ -51,20 +51,14 @@ msgstr "未知"
 msgid ""
 "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
-msgstr ""
-"%s \n"
-"**** 目前策略中允许了无效的 AVC ***\n"
+msgstr "%s \n**** 目前策略中允许了无效的 AVC ***\n"
 
 #: ../src/audit_data.py:992
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
-msgstr ""
-"%s \n"
-"**** 已经在目前策略中 dontaudited 了无效的 AVC。'semodule -B' 将会打开 "
-"dontaudit 规则。 ***\n"
+"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n"
+msgstr "%s \n**** 已经在目前策略中 dontaudited 了无效的 AVC。'semodule -B' 将会打开 dontaudit 规则。 ***\n"
 
 #: ../src/audit_data.py:994
 msgid "Must call policy_init first"
@@ -75,36 +69,28 @@ msgstr "必须首先调用 policy_init"
 msgid ""
 "%s \n"
 "**** Invalid AVC bad target context. ***\n"
-msgstr ""
-"%s \n"
-"**** 无效的 AVC，目标上下文无效。 ***\n"
+msgstr "%s \n**** 无效的 AVC，目标上下文无效。 ***\n"
 
 #: ../src/audit_data.py:998
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad source context. ***\n"
-msgstr ""
-"%s \n"
-"**** 无效的 AVC，源上下文无效。 ***\n"
+msgstr "%s \n**** 无效的 AVC，源上下文无效。 ***\n"
 
 #: ../src/audit_data.py:1000
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad type class ***\n"
-msgstr ""
-"%s \n"
-"**** 无效的 AVC，类别类型无效 ***\n"
+msgstr "%s \n**** 无效的 AVC，类别类型无效 ***\n"
 
 #: ../src/audit_data.py:1002
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC bad permission ***\n"
-msgstr ""
-"%s \n"
-"**** 无效的 AVC，权限无效 ***\n"
+msgstr "%s \n**** 无效的 AVC，权限无效 ***\n"
 
 #: ../src/audit_data.py:1004
 msgid "Error during access vector computation"
@@ -215,17 +201,13 @@ msgstr "如果"
 msgid ""
 "Plugin\n"
 "Details"
-msgstr ""
-"插件\n"
-"详情"
+msgstr "插件\n详情"
 
 #: ../src/browser.py:515
 msgid ""
 "Report\n"
 "Bug"
-msgstr ""
-"报告\n"
-"Bug"
+msgstr "报告\nBug"
 
 #: ../src/browser.py:543
 #, python-format
@@ -357,9 +339,7 @@ msgstr "错误"
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
-msgstr ""
-"您想要允许 $SOURCE_BASE_PATH 以 $ACCESS 方式访问 $TARGET_BASE_PATH "
-"$TARGET_CLASS"
+msgstr "您想要允许 $SOURCE_BASE_PATH 以 $ACCESS 方式访问 $TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:172
 msgid "Input: "
@@ -424,20 +404,20 @@ msgstr "完成："
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr "如需要完整的 SELinux 信息，请运行 sealert -l %s"
 
-#: ../src/server.py:373
+#: ../src/server.py:377
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "用户（%s）无法为（%s）修改数据"
 
-#: ../src/server.py:436 ../src/sealert:291
+#: ../src/server.py:440 ../src/sealert:291
 msgid "Started"
 msgstr "已启动"
 
-#: ../src/server.py:483
+#: ../src/server.py:487
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:549
+#: ../src/server.py:553
 msgid "Audit Listener"
 msgstr "核查侦听程序"
 
@@ -527,14 +507,14 @@ msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux 正在阻止 %s 使用 '%s' 功能。"
 
 #: ../src/signature.py:434
-#, fuzzy, python-format
+#, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
-msgstr "SELinux 正在阻止 %s 在 %s %s 访问 %s。"
+msgstr ""
 
 #: ../src/signature.py:434
-#, fuzzy, python-format
+#, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the the %s labeled %s."
-msgstr "SELinux 正在阻止 %s 在 %s %s 访问 '%s'。"
+msgstr ""
 
 #: ../src/signature.py:435
 #, python-format
@@ -635,11 +615,8 @@ msgstr "原始核查信息"
 msgid ""
 "\n"
 "\n"
-"*****  Plugin %s (%.4s confidence) suggests  "
+"*****  Plugin %s (%.4s confidence) suggests   "
 msgstr ""
-"\n"
-"\n"
-"*****  插件 %s (%.4s 置信度) 建议  "
 
 #: ../src/signature.py:554
 msgid "*"
@@ -653,33 +630,25 @@ msgstr "\n"
 msgid ""
 "\n"
 "If "
-msgstr ""
-"\n"
-"If "
+msgstr "\nIf "
 
 #: ../src/signature.py:559
 msgid ""
 "\n"
 "Then "
-msgstr ""
-"\n"
-"Then "
+msgstr "\nThen "
 
 #: ../src/signature.py:562
 msgid ""
 "\n"
 "Do\n"
-msgstr ""
-"\n"
-"Do\n"
+msgstr "\nDo\n"
 
 #: ../src/signature.py:564
 msgid ""
 "\n"
 "\n"
-msgstr ""
-"\n"
-"\n"
+msgstr "\n\n"
 
 #: ../src/updater.py:18
 #, python-format
@@ -746,12 +715,7 @@ msgid ""
 "Máirín Duffy <duffy@redhat.com>\n"
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
-msgstr ""
-"版权 (c) 2010 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"Máirín Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
+msgstr "版权 (c) 2010 \nThomas Liu <tliu@redhat.com>\nMáirín Duffy <duffy@redhat.com>\nDaniel Walsh <dwalsh@redhat.com>\nJohn Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -819,9 +783,7 @@ msgstr "<span size='large' weight='bold'>预览并提交 Bug 报告</span>"
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr ""
-"您可能想要检查一下将包含在 bug 报告中的出错信息，并且做适当修改以排除任何敏感"
-"数据。"
+msgstr "您可能想要检查一下将包含在 bug 报告中的出错信息，并且做适当修改以排除任何敏感数据。"
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
