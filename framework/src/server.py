@@ -581,7 +581,7 @@ def RunFaultServer(timeout=10):
         analysis_queue = Queue.Queue(0)
 
         # Create a thread to peform analysis, it takes AVC objects off
-        # the the analysis queue and runs the plugins against the
+        # the analysis queue and runs the plugins against the
         # AVC. Analysis requests in the queue may arrive from a
         # variety of places; from the audit system, from a log file
         # scan, etc. The disposition of the analysis (e.g. where the
