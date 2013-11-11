@@ -13,9 +13,9 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-14 08:43-0400\n"
-"PO-Revision-Date: 2013-08-14 12:45+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Russian <trans-ru@lists.fedoraproject.org>\n"
+"PO-Revision-Date: 2013-11-01 08:23+0000\n"
+"Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/fedora/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -472,7 +472,7 @@ msgstr "setsebool -P %s %s"
 #: ../src/catchall_boolean.py:68
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean.\n"
-msgstr ""
+msgstr "Вы должны сообщить SELinux об этом, включив переключатель «%s».\n"
 
 #: ../src/catchall_boolean.py:71
 #, python-format
@@ -605,7 +605,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.  spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux отклонил запрос доступа от $SOURCE. Такой запрос\n    не ожидается от $SOURCE и может сигнализировать о\n    попытке вторжения. Возможно также, что отдельные версии\n    или конфигурации приложения являются причиной того, \n    что оно требует дополнительный доступ.  spice-xpi запускает приложения в mozilla-plugins, которым требуется доступ к рабочему столу, чего не позволит блокировка mozilla_plugin, поэтому либо нужно выключить блокировку mozilla_plugin, либо не использовать такие пакеты.\n    "
 
 #: ../src/chrome.py:39
 msgid ""
@@ -614,16 +614,16 @@ msgid ""
 "Or turn off enforcement of SELinux over the Chrome plugins.\n"
 "setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
-msgstr ""
+msgstr "\nЛибо удалите пакет mozplugger или spice-xpi командой «yum remove mozplugger spice-xpi»,\nлибо отключите применение SELinux к подключаемым модулям Chrome.\nsetsebool -P unconfined_chrome_sandbox_transition 0\n    "
 
 #: ../src/chrome.py:44 ../src/mozplugger.py:44
 #, python-format
 msgid "you want to use the %s package"
-msgstr ""
+msgstr "нужно использовать пакет %s"
 
 #: ../src/chrome.py:49
 msgid "you must turn off SELinux controls on the Chrome plugins."
-msgstr ""
+msgstr "нужно отключить управление SELinux подключаемыми модулями Chrome."
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -1105,7 +1105,7 @@ msgid ""
 "    version or configuration of the application is causing it to require\n"
 "    additional access.  mozplugger and spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
-msgstr ""
+msgstr "\nSELinux отклонил запрос доступа от $SOURCE. Такой запрос\nне ожидается от $SOURCE и может сигнализировать о\nпопытке вторжения. Возможно также, что отдельные версии\nили конфигурации приложения являются причиной того, \nчто оно требует дополнительный доступ.  mozplugger и  spice-xpi запускают приложения в mozilla-plugins, которым требуется доступ к рабочему столу, чего не позволит блокировка mozilla_plugin, поэтому либо нужно выключить блокировку mozilla_plugin, либо не использовать такие пакеты."
 
 #: ../src/mozplugger.py:39
 msgid ""
@@ -1114,7 +1114,7 @@ msgid ""
 "Or turn off enforcement of SELinux over the Firefox plugins.\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
-msgstr ""
+msgstr "\nЛибо удалите пакет mozplugger или spice-xpi командой «yum remove mozplugger spice-xpi»,\nлибо выключите применение SELinux к подключаемым модулям Firefox.\nsetsebool -P unconfined_mozilla_plugin_transition 0\n    "
 
 #: ../src/mozplugger.py:49
 msgid "you must turn off SELinux controls on the Firefox plugins."
@@ -1416,7 +1416,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n  SELinux запретил подключение $SOURCE к сетевому порту $PORT_NUMBER в sandbox.\n  Если $SOURCE должен иметь возможность подключения к порту $PORT_NUMBER, \n  рекомендуется использовать другой контейнер (sandbox_web_t или sandbox_net_t). \n  sandbox -X -t sandbox_net_t $SOURCE\n  \n  Если $SOURCE не должен подключаться этому порту,  \n  это может служить индикатором попытки вторжения.\n  "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -1437,7 +1437,7 @@ msgid ""
 "For example:\n"
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "Please read 'sandbox' man page for more details.\n"
-msgstr ""
+msgstr "необходимо изменить type. sandbox_web_t or sandbox_net_t. \nПример:\nsandbox -X -t sandbox_net_t $SOURCE_PATH\nЗа подробной информацией обратитесь к справочной странице sandbox.\n"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -1585,13 +1585,13 @@ msgid ""
 "    Confined domains should not require \"sys_resource\". This usually means that     your system is running out some system resource like disk space, memory, quota etc. Please clear up the disk and this\n"
 "    AVC message should go away. If this AVC continues after you clear up the disk space, please report this as a bug. \n"
 "    "
-msgstr ""
+msgstr "\nОграниченные домены не должны требовать «sys_resource». Обычно это означает, что не хватает какого-либо ресурса, например, места на диске, памяти, квоты и т.д. Освободите место на диске и это \nAVC-сообщение должно исчезнуть. Если проблема сохранится после очистки диска, создайте отчет об ошибке. \n    "
 
 #: ../src/sys_resource.py:39
 msgid ""
 "you do not want processes to require capabilities to use up all the system "
 "resources on your system;"
-msgstr ""
+msgstr "нельзя, чтобы процессы могли использовать все системные ресурсы;"
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -1756,16 +1756,16 @@ msgstr "\n    Файловый контекст можно изменить, в�
 msgid ""
 "If you want to determine whether ftpd can read and write files in user home "
 "directories."
-msgstr ""
+msgstr "Если вы хотите определить, может ли ftpd читать и записывать файлы  в домашних каталогах пользователей."
 
 #: ../booleans_trans.py:3
 msgid "If you want to determine whether privoxy can connect to all tcp ports."
-msgstr ""
+msgstr "Если вы хотите определить, может ли privoxy подключаться ко всем портам TCP."
 
 #: ../booleans_trans.py:5
 msgid ""
 "If you want to determine whether mpd can traverse user home directories."
-msgstr ""
+msgstr "Если вы хотите определить, может ли mpd просматривать домашние каталоги пользователей."
 
 #: ../booleans_trans.py:7
 msgid ""
@@ -1792,7 +1792,7 @@ msgstr "Если вы хотите разрешить пользователям
 msgid ""
 "If you want to allow postgresql to use ssh and rsync for point-in-time "
 "recovery"
-msgstr ""
+msgstr "Если вы хотите разрешить postgresql использовать ssh и rsync для восстановления до контрольной точки"
 
 #: ../booleans_trans.py:17
 msgid "If you want to allow users to login using a radius server"
@@ -1832,7 +1832,7 @@ msgstr "Если вы хотите разрешить клиентам spamassas
 msgid ""
 "If you want to allow glusterfsd to modify public files used for public file "
 "transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
+msgstr "Если вы хотите разрешить glusterfsd изменять файлы, используемые для открытой передачи файлов. Файлы и каталоги должны иметь метки "
 
 #: ../booleans_trans.py:31
 msgid ""
@@ -2133,7 +2133,7 @@ msgstr ""
 msgid ""
 "If you want to determine whether calling user domains can execute Git daemon"
 " in the git_session_t domain."
-msgstr ""
+msgstr "Если вы хотите определить, могут ли домены пользователей исполнять службу Git в домене git_session_t."
 
 #: ../booleans_trans.py:155
 msgid "If you want to determine whether zabbix can connect to all TCP ports"
@@ -2248,7 +2248,7 @@ msgid ""
 "If you want to boolean to determine whether the system permits loading "
 "policy, setting enforcing mode, and changing boolean values.  Set this to "
 "true and you have to reboot to set it back."
-msgstr ""
+msgstr "Если вы хотите определить, разрешает ли система загружать политику, устанавливать принудительный режим и изменять логические значения.  Установите значение true, а для возврата прежнего значения придется перезагрузить систему."
 
 #: ../booleans_trans.py:203
 msgid ""
@@ -2277,7 +2277,7 @@ msgstr "Если вы хотите разрешить sge осуществлят
 msgid ""
 "If you want to determine whether Git system daemon can access nfs file "
 "systems."
-msgstr ""
+msgstr "Если вы хотите определить, может ли системная служба Git получать доступ к файловым системам nfs."
 
 #: ../booleans_trans.py:215
 msgid "If you want to unify HTTPD handling of all content files."
@@ -2322,7 +2322,7 @@ msgstr "Если вы хотите разрешить обращение защ�
 msgid ""
 "If you want to allow HTTPD scripts and modules to connect to the network "
 "using TCP."
-msgstr ""
+msgstr "Если вы хотите разрешить скриптам и модулям HTTPD подключаться к сети по TCP."
 
 #: ../booleans_trans.py:235
 msgid "If you want to allow qemu to use usb devices"
@@ -2334,7 +2334,7 @@ msgstr ""
 
 #: ../booleans_trans.py:239
 msgid "If you want to determine whether Git CGI can access nfs file systems."
-msgstr ""
+msgstr "Если вы хотите определить, может ли Git CGI получать доступ к файловым системам nfs."
 
 #: ../booleans_trans.py:241
 msgid ""
@@ -2353,7 +2353,7 @@ msgstr "Если вы хотите включить поддержку дома�
 
 #: ../booleans_trans.py:247
 msgid "If you want to allow samba to act as a portmapper"
-msgstr ""
+msgstr "Если вы хотите разрешить samba выступать в роли portmapper"
 
 #: ../booleans_trans.py:249
 msgid "If you want to allow httpd scripts and modules execmem/execstack"
@@ -2361,7 +2361,7 @@ msgstr "Если вы хотите разрешить сценариям и мо
 
 #: ../booleans_trans.py:251
 msgid "If you want to allow httpd to access FUSE file systems"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd получать доступ к файловым системам FUSE"
 
 #: ../booleans_trans.py:253
 msgid "If you want to allow httpd to connect to the ldap port"
@@ -2416,7 +2416,7 @@ msgstr "Если вы хотите унифицировать методы вз�
 msgid ""
 "If you want to allow apache scripts to write to public content, "
 "directories/files must be labeled public_rw_content_t."
-msgstr ""
+msgstr "Если вы хотите разрешить скриптам apache осуществлять запись в открытое содержимое, то каталоги и файлы должны иметь метку public_rw_content_t."
 
 #: ../booleans_trans.py:277
 msgid ""
@@ -2490,7 +2490,7 @@ msgstr "Если вы хотите разрешить Puppetmaster осущес�
 
 #: ../booleans_trans.py:303
 msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
-msgstr ""
+msgstr "Если вы хотите разрешить HTTPD подключаться к порту 80для корректного завершения работы"
 
 #: ../booleans_trans.py:305
 msgid "If you want to allow system to run with NIS"
@@ -2506,7 +2506,7 @@ msgstr "Если вы хотите разрешить вход пользова�
 
 #: ../booleans_trans.py:311
 msgid "If you want to disable kernel module loading."
-msgstr ""
+msgstr "Если вы хотите отключить загрузку модулей ядра."
 
 #: ../booleans_trans.py:313
 msgid ""
@@ -2628,7 +2628,7 @@ msgstr ""
 
 #: ../booleans_trans.py:361
 msgid "If you want to determine whether Git CGI can access cifs file systems."
-msgstr ""
+msgstr "Если вы хотите определить, может ли Git CGI получать доступ к файловым системам cifs."
 
 #: ../booleans_trans.py:363
 msgid ""
@@ -2720,7 +2720,7 @@ msgstr ""
 msgid ""
 "If you want to allow mozilla plugin domain to connect to the network using "
 "TCP."
-msgstr ""
+msgstr "Если вы хотите разрешить подключение домена mozilla plugin к сети с помощью TCP."
 
 #: ../booleans_trans.py:401
 msgid "If you want to allow httpd to use built in scripting (usually php)"
@@ -2842,7 +2842,7 @@ msgstr "Если вы хотите разрешить чтение urandom до�
 
 #: ../booleans_trans.py:449
 msgid "If you want to allow xguest to use blue tooth devices"
-msgstr ""
+msgstr "Если вы хотите разрешить xguest использовать устройства blue tooth"
 
 #: ../booleans_trans.py:451
 msgid "If you want to determine whether mpd can use cifs file systems."
@@ -2903,7 +2903,7 @@ msgstr ""
 
 #: ../booleans_trans.py:473
 msgid "If you want to allow sanlock to manage cifs files"
-msgstr ""
+msgstr "Если вы хотите разрешить sanlock управлять файлами cifs"
 
 #: ../booleans_trans.py:475
 msgid "If you want to determine whether awstats can purge httpd log files."
@@ -2917,7 +2917,7 @@ msgstr ""
 msgid ""
 "If you want to allow unprivledged user to create and transition to svirt "
 "domains."
-msgstr ""
+msgstr "Если вы хотите разрешить непривилегированным пользователям создавать домены svirt и переходить в них."
 
 #: ../booleans_trans.py:481
 msgid "If you want to determine whether to support lpd server."
@@ -2939,7 +2939,7 @@ msgstr "Если вы хотите разрешить qemu использова�
 msgid ""
 "If you want to determine whether Git session daemon can bind TCP sockets to "
 "all unreserved ports."
-msgstr ""
+msgstr "Если вы хотите определить, может ли сеанс службы Git привязывать сокеты TCP ко всем незарезервированным портам."
 
 #: ../booleans_trans.py:491
 msgid ""
@@ -2953,7 +2953,7 @@ msgstr ""
 
 #: ../booleans_trans.py:495
 msgid "If you want to allow httpd to access openstack ports"
-msgstr ""
+msgstr "Если вы хотите разрешить httpd получать доступ к портам openstack"
 
 #: ../booleans_trans.py:497
 msgid ""
@@ -2981,7 +2981,7 @@ msgstr "Если вы хотите разрешить подключение д�
 
 #: ../booleans_trans.py:507
 msgid "If you want to allow transmit client label to foreign database"
-msgstr ""
+msgstr "Если вы хотите разрешить передачу метки клиента во внешнюю базу данных"
 
 #: ../booleans_trans.py:509
 msgid ""
@@ -2999,7 +2999,7 @@ msgstr ""
 
 #: ../booleans_trans.py:515
 msgid "If you want to allow httpd daemon to change its resource limits"
-msgstr ""
+msgstr "Если вы хотите разрешить службе httpd изменять ограничения своих ресурсов"
 
 #: ../booleans_trans.py:517
 msgid "If you want to determine whether squid can connect to all TCP ports."

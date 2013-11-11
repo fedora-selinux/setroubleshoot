@@ -13,9 +13,9 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-14 08:43-0400\n"
-"PO-Revision-Date: 2013-08-14 12:45+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Chinese (Taiwan) <trans-zh_TW@lists.fedoraproject.org>\n"
+"PO-Revision-Date: 2013-10-12 09:16+0000\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fedora/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -472,7 +472,7 @@ msgstr "setsebool -P %s %s"
 #: ../src/catchall_boolean.py:68
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean.\n"
-msgstr "您必須啟用「%s」布林值，以通知 SELinux。\n"
+msgstr "您必須啟用「%s」布林值以通知 SELinux。\n"
 
 #: ../src/catchall_boolean.py:71
 #, python-format
@@ -1319,7 +1319,7 @@ msgid ""
 "    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon '$SOURCE_PATH'.\n"
 "    "
-msgstr ""
+msgstr "\n    您可以執行 restorecon 指令還原預設系統情境。\n    restorecon '$SOURCE_PATH'。\n    "
 
 #: ../src/restorecon_source.py:45
 #, python-format
@@ -1338,14 +1338,14 @@ msgid ""
 "    <p>\n"
 "    If you believe this is a bug, please file a bug report against this package.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 拒絕 $SOURCE 的存取請求。$SOURCE_PATH 可能貼錯標籤。\n    $SOURCE_PATH 的預設 SELinux 類型為 <B>%s</B>，\n    但它目前的類型卻是 <B>$SOURCE_TYPE</B>。\n    將檔案修改回預設類型或許可修正此問題。\n    <p>\n    此檔案可能由使用者錯誤，或是錯誤網域下的一般受限應用程式誤標。\n    <p> \n    然而，這可能也代表 SElinux 中有臭蟲，因為這份檔案不應貼有此類\n    標籤。\n    <p>\n    如果你覺得這應該是個臭蟲，請針對此軟體包提交臭蟲回報。\n    "
 
 #: ../src/restorecon_source.py:60
 #, python-format
 msgid ""
 "you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
-msgstr ""
+msgstr "您想要修正標籤。\n$SOURCE_PATH 的預設標籤應該是 %s。"
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1416,7 +1416,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 拒絕讓 $SOURCE 在 sandboxt 情境下連接至網路連接埠 $PORT_NUMBER。\n    如果應該允許 $SOURCE 連接至連接埠 $PORT_NUMBER，則需要使用不同的沙箱類型，例如 sandbox_web_t 或 sandbox_net_t。sandbox -X -t sandbox_net_t $SOURCE。\n    \n\n如果 $SOURCE 不應該\n    連接至連接埠 $PORT_NUMBER，這可能代表有人試圖入侵。\n    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -1425,11 +1425,11 @@ msgid ""
 "\n"
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
-msgstr ""
+msgstr "\n    若您想要允許 $SOURCE 連接至連接埠 $PORT_NUMBER，您可以執行\n\n    # sandbox -X -t sandbox_net_t $SOURCE\n    "
 
 #: ../src/sandbox_connect.py:47
 msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr ""
+msgstr "您想要允許 $SOURCE_PATH 連接到網路連接埠 $PORT_NUMBER"
 
 #: ../src/sandbox_connect.py:49
 msgid ""
@@ -1437,7 +1437,7 @@ msgid ""
 "For example:\n"
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "Please read 'sandbox' man page for more details.\n"
-msgstr ""
+msgstr "您需要修改沙箱類型。sandbox_web_t 或 sandbox_net_t。\n舉例：\nsandbox -X -t sandbox_net_t $SOURCE_PATH\n請閱讀 'sandbox' man 頁面瞭解更多細節。\n"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -1802,7 +1802,7 @@ msgstr "若您希望允許使用者使用 radius 伺服器登入"
 msgid ""
 "If you want to allow the graphical login program to create files in HOME "
 "dirs as xdm_home_t."
-msgstr ""
+msgstr "如果您想要允許圖形化登入程式在 xdm_home_t 情境的 HOME 目錄下建立檔案。"
 
 #: ../booleans_trans.py:21
 msgid ""
@@ -1838,7 +1838,7 @@ msgstr "如果您想要允許 glusterfsd 修改用以公開檔案傳輸服務的
 msgid ""
 "If you want to deny any process from ptracing or debugging any other "
 "processes."
-msgstr ""
+msgstr "如果您想要拒絕任何因為 ptrace 或 debug 任何其他程序而出現的任何程序。"
 
 #: ../booleans_trans.py:33
 msgid ""
@@ -1870,7 +1870,7 @@ msgstr "若您希望允許 Telepathy 連線管理程式連至任何一般的 TCP
 
 #: ../booleans_trans.py:43
 msgid "If you want to allow http daemon to connect to mythtv"
-msgstr ""
+msgstr "如果您想要允許 http 幕後程式連接至 mythtv"
 
 #: ../booleans_trans.py:45
 msgid ""
@@ -1897,7 +1897,7 @@ msgstr "若您希望允許擁有 chroot env 的 ssh 讀取和寫入使用者家�
 #: ../booleans_trans.py:53
 msgid ""
 "If you want to allow the mount commands to mount any directory or file."
-msgstr ""
+msgstr "若您希望允許 mount 指令掛載任何目錄或檔案。"
 
 #: ../booleans_trans.py:55
 msgid "If you want to allow polipo to connect to all ports > 1023"
@@ -2127,7 +2127,7 @@ msgstr "如果您想要允許 samba 建立新的家目錄 (例如透過 PAM)"
 
 #: ../booleans_trans.py:151
 msgid "If you want to allow virtual processes to run as userdomains"
-msgstr ""
+msgstr "若您想要允許虛擬程序以 userdomains 執行"
 
 #: ../booleans_trans.py:153
 msgid ""
@@ -2145,7 +2145,7 @@ msgstr "fenced 是否可以使用 ssh。"
 
 #: ../booleans_trans.py:159
 msgid "If you want to allow ZoneMinder to run su/sudo."
-msgstr ""
+msgstr "若您想要允許 ZoneMinder 執行 su/sudo。"
 
 #: ../booleans_trans.py:161
 msgid "If you want to allow httpd to read home directories"
@@ -2191,7 +2191,7 @@ msgstr "如果您想要允許 Apache 透過 dbus 與 avahi 服務通訊"
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow ftpd to use ntfs/fusefs volumes."
-msgstr ""
+msgstr "若您想要允許 ftpd 使用 ntfs/fusefs 儲存區。"
 
 #: ../booleans_trans.py:181
 msgid "If you want to allow sanlock to read/write fuse files"
@@ -2307,7 +2307,7 @@ msgstr "若您希望允許資料庫管理員執行 DML statement"
 
 #: ../booleans_trans.py:227
 msgid "If you want to allow openvpn to run unconfined scripts"
-msgstr ""
+msgstr "若您想要允許 openvpn 執行未受限的指令稿"
 
 #: ../booleans_trans.py:229
 msgid "If you want to allow Apache to use mod_auth_pam"
@@ -2404,7 +2404,7 @@ msgstr "若您希望允許使用者連至 PostgreSQL"
 
 #: ../booleans_trans.py:271
 msgid "If you want to allow httpd to connect to  sasl"
-msgstr ""
+msgstr "若您想要允許 httpd 連接至 sasl"
 
 #: ../booleans_trans.py:273
 msgid ""
@@ -2566,7 +2566,7 @@ msgstr "若您希望允許所有幕後程式使用 tcp wrapper。"
 msgid ""
 "If you want to permit to prosody to bind apache port. Need to be activated "
 "to use BOSH."
-msgstr ""
+msgstr "若您想要許可 prosody 綁定 apache 連接埠。需要啟動方能使用 BOSH。"
 
 #: ../booleans_trans.py:335
 msgid ""
@@ -2580,7 +2580,7 @@ msgstr "決定 webadm 是否能夠讀取一般使用者的檔案。"
 
 #: ../booleans_trans.py:339
 msgid "If you want to allow mozilla plugin to support GPS."
-msgstr ""
+msgstr "若您想要允許 mozilla 外掛程式支援 GPS。"
 
 #: ../booleans_trans.py:341
 msgid "If you want to support X userspace object manager"
@@ -2638,7 +2638,7 @@ msgstr "若您希望允許任何檔案/目錄透過 NFS 被匯出為可讀取/�
 
 #: ../booleans_trans.py:365
 msgid "If you want to allow mailman to access FUSE file systems"
-msgstr ""
+msgstr "若您想要讓 mailman 存取 FUSE 檔案系統。"
 
 #: ../booleans_trans.py:367
 msgid ""
@@ -2876,7 +2876,7 @@ msgstr "如果您想要允許 Apache 修改用以公開傳輸服務的公開檔�
 #: ../booleans_trans.py:463
 msgid ""
 "If you want to allow HTTPD scripts and modules to server cobbler files."
-msgstr ""
+msgstr "如果您想要允許伺服器 cobbler 檔案採用 HTTPD 指令稿與模組。"
 
 #: ../booleans_trans.py:465
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2949,7 +2949,7 @@ msgstr "若您希望允許 HTTPD 在與 CGI 指令稿相同的領域中執行 SS
 
 #: ../booleans_trans.py:493
 msgid "If you want to allow mozilla plugin to support spice protocols."
-msgstr ""
+msgstr "若您希望允許 mozilla 插件支援 spice 協定。"
 
 #: ../booleans_trans.py:495
 msgid "If you want to allow httpd to access openstack ports"

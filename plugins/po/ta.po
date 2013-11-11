@@ -18,9 +18,9 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-14 08:43-0400\n"
-"PO-Revision-Date: 2013-08-14 12:45+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Tamil <tamil-users@lists.fedoraproject.org>\n"
+"PO-Revision-Date: 2013-10-25 08:37+0000\n"
+"Last-Translator: shkumar <shkumar@redhat.com>\n"
+"Language-Team: Tamil (http://www.transifex.com/projects/p/fedora/language/ta/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -33,7 +33,7 @@ msgid ""
 "    SELinux policy is preventing an httpd script from writing to a public\n"
 "    directory.\n"
 "    "
-msgstr "\n    SELinux பாலிசி ஒரு httpd ஸ்கிரிப்டை ஒரு பொதுவான அடைவிலிருந்து\n    எழுதுவதை தடுக்கிறது.\n    "
+msgstr "\n    SELinux கொள்கை ஒரு httpd ஸ்கிரிப்டை ஒரு பொதுவான அடைவில்\n    எழுதுவதை தடுக்கிறது.\n    "
 
 #: ../src/allow_anon_write.py:32
 msgid ""
@@ -42,7 +42,7 @@ msgid ""
 "    directory.  If httpd is not setup to write to public directories, this\n"
 "    could signal an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux பாலிசி ஒரு httpd ஸ்கிரிப்டை ஒரு பொதுவான அடைவிலிருந்து\n    எழுதுவதை தடுக்கிறது. httpd ஒரு பொதுவான அடைவுகளை எழுத அமைக்கவில்லை எனில், இந்த\n   நிர்வாக முயற்சி ஒரு சமிக்ஞை பெற்றுள்ளது.\n    "
+msgstr "\n    SELinux கொள்கை httpd ஸ்கிரிப்ட்டை ஒரு பொது கோப்பகத்தில்\n    எழுதாமல் தடுக்கிறது.  பொது கோப்பகத்தில் எழுதும்படி httpd அமைக்கப்பட்டிருக்காவிட்டால், இது\n    ஒரு குறுக்கீட்டுச் செயலின் அடையாளமாக இருக்கலாம்.\n    "
 
 #: ../src/allow_anon_write.py:38
 msgid ""
@@ -95,7 +95,7 @@ msgid ""
 "    $BOOLEAN boolean.  Note: This boolean will affect all applications\n"
 "    on the system.\n"
 "    "
-msgstr "\n    நீங்கள் $SOURCE_PATH தொடர வேண்டுமென நினைத்தால் $BOOLEAN \n    பூலியனை செயல் படுத்த வேண்டும். இது கணினியில் உள்ள எல்லா\n     நிரல்களையும் பாதிக்கும் என அறியவும். \n    "
+msgstr "\n    நீங்கள் $SOURCE_PATH தொடர வேண்டுமென நினைத்தால் $BOOLEAN \n    பூலியனை செயல்படுத்த வேண்டும். இது கணினியில் உள்ள எல்லா\n     நிரல்களையும் பாதிக்கும் என அறியவும். \n    "
 
 #: ../src/allow_execheap.py:50
 msgid ""
@@ -163,7 +163,7 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
-msgstr "\n    If you trust $TARGET_PATH to run correctly, you can change the\n    file context to textrel_shlib_t. \"chcon -t textrel_shlib_t\n    '$TARGET_PATH'\"\n    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n    \n    "
+msgstr "\n    நீங்கள் $TARGET_PATH சரியாக இயங்கும் என நம்பினால், நீங்கள்\n    கோப்பின் சூழலை textrel_shlib_t. \"chcon -t textrel_shlib_t\n    '$TARGET_PATH'\"\nஎன மாற்றலாம்    முழுமையாக மறுலேபிளிடப்படும் போதும் இந்த சூழல் இழக்கப்படாமல் இருக்க வேண்டுமானால் நீங்கள் கணினியில் உள்ள முன்னிருப்பு கோப்புச் சூழல் கோப்புகளையும் மாற்ற வேண்டும் .  \"semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'\"\n    \n    "
 
 #: ../src/allow_execstack.py:53
 msgid ""
@@ -239,7 +239,7 @@ msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.\n"
 "    "
-msgstr "\n    SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.\n    "
+msgstr "\n    ஒரு CIFS கோப்புமுறைமையில் சேமிக்கப்பட்டுள்ள $ACCESS கோப்புகளை அணுகுவதிலிருந்து ftp டெமானை SELinux தடுத்தது.\n    "
 
 #: ../src/allow_ftpd_use_cifs.py:33
 msgid ""
@@ -289,7 +289,7 @@ msgid ""
 "\n"
 "    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS filesystem.\n"
 "    "
-msgstr "\n    SELinux prevented the ftp daemon from $ACCESS files stored on a NFS filesystem.\n    "
+msgstr "\n    SELinux ஒரு NFS கோப்புமுறைமையில் சேமிக்கப்பட்டுள்ள கோப்பை $ACCESS அணுகுவதிலிருந்து ftp டெமானைத் தடுத்தது.\n    "
 
 #: ../src/allow_ftpd_use_nfs.py:33
 msgid ""
@@ -386,7 +386,7 @@ msgid ""
 "\n"
 "    If you want to change the file context of $TARGET_PATH so that the automounter can execute it you can execute \"chcon -t bin_t $TARGET_PATH\".  If you want this to survive a relabel, you need to permanently change the file context: execute  \"semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\".\n"
 "    "
-msgstr "\n    If you want to change the file context of $TARGET_PATH so that the automounter can execute it you can execute \"chcon -t bin_t $TARGET_PATH\".  If you want this to survive a relabel, you need to permanently change the file context: execute  \"semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\".\n    "
+msgstr "\n    $TARGET_PATH ஐ ஆட்டோமவுன்ட்டர் இயக்கக்கூடிய வகையில், அதன் கோப்புச் சூழலை நீங்கள் மாற்ற விரும்பினால் \"chcon -t bin_t $TARGET_PATH\" கட்டளையை இயக்கலாம்.  நீங்கள் ஒரு மறுலேபிளிடும் நிகழ்விலும் தக்கவைக்கப்பட விரும்பினால், கோப்புச் சூழலை நீங்கள் நிரந்தரமாக மாற்ற வேண்டும், அதற்கு \"semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\" எனும் கட்டளையை இயக்கவும்.\n    "
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -406,7 +406,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to bind to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux has denied the $SOURCE from binding to a network port $PORT_NUMBER which does not have an SELinux type associated with it.\n    If $SOURCE should be allowed to listen on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can bind to (%s). \n    \n\nIf $SOURCE is not supposed\n    to bind to $PORT_NUMBER, this could signal an intrusion attempt.\n    "
+msgstr "\n    $SOURCE தன்னுடன் SELinux வகை இணைக்கப்பட்டிருக்காத ஒரு பிணைய முனையம் $PORT_NUMBER பிணைப்பதை SELinux நிராகரித்தது.\n    $PORT_NUMBER இல் கவனிக்கப்பட $SOURCE அனுமதிக்கப்பட வேண்டுமெனில், $PORT_NUMBER ஐ $SOURCE_TYPE பிணைக்கக்கூடிய முனையத்திற்கு நியமிக்க <i>semanage</i> கட்டளையைப் பயன்படுத்தவும் (%s). \n    \n\n$SOURCE ஆனது\n    $PORT_NUMBER க்கு பிணைக்கப்படக்கூடாது எனில், இது குறுக்கீட்டுச் செயலின் அடையாளமாக இருக்கலாம்.\n    "
 
 #: ../src/bind_ports.py:38
 #, python-format
@@ -422,14 +422,14 @@ msgid ""
 "\n"
 "If this system is running as an NIS Client, turning on the allow_ypbind boolean may fix the problem.  setsebool -P allow_ypbind=1.\n"
 "    "
-msgstr "\n    If you want to allow $SOURCE to bind to port $PORT_NUMBER, you can execute \n\n    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    \nwhere PORT_TYPE is one of the following: %s.\n\n    \n\nIf this system is running as an NIS Client, turning on the allow_ypbind boolean may fix the problem.  setsebool -P allow_ypbind=1.\n    "
+msgstr "\n    முனையம் $PORT_NUMBER உடன் பிணைய $SOURCE ஐ நீங்கள் அனுமதிக்க விரும்பினால், இந்தக் கட்டளையை இயக்கலாம் \n\n    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    \nஇங்கு PORT_TYPE என்பது பின்வருபவற்றுள் ஒன்று: %s.\n\n    \n\nஇந்தக் கணினி ஒரு NIS கிளையன்ட்டாக இயங்கினால், allow_ypbind பூலியனை இயக்கினால், சிக்கல் தீரக்கூடும்.  setsebool -P allow_ypbind=1.\n    "
 
 #: ../src/bind_ports.py:53 ../src/connect_ports.py:52
 #, python-format
 msgid ""
 "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "    where PORT_TYPE is one of the following: %s."
-msgstr "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    where PORT_TYPE is one of the following: %s."
+msgstr "# semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n    இங்கு PORT_TYPE என்பது பின்வருபவற்றுள் ஒன்று: %s."
 
 #: ../src/bind_ports.py:56 ../src/connect_ports.py:55
 #, python-format
@@ -508,12 +508,12 @@ msgid ""
 "where FILE_TYPE is one of the following: %s. \n"
 "Then execute: \n"
 "restorecon -v '$FIX_TARGET_PATH'\n"
-msgstr "# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\nwhere FILE_TYPE is one of the following: %s. \nThen execute: \nrestorecon -v '$FIX_TARGET_PATH'\n"
+msgstr "# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'\nஇங்கு FILE_TYPE என்பது பின்வருபவற்றுள் ஒன்று: %s. \nபிறகு இதை இயக்கவும்: \nrestorecon -v '$FIX_TARGET_PATH'\n"
 
 #: ../src/catchall.py:29 ../src/chrome.py:29 ../src/mozplugger.py:29
 #: ../src/mozplugger_remove.py:29
 msgid "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
-msgstr "SELinux is preventing $SOURCE_PATH \"$ACCESS\" access."
+msgstr "$SOURCE_PATH \"$ACCESS\" அணுகலை SELinux தடுக்கிறது."
 
 #: ../src/catchall.py:31
 msgid ""
@@ -536,13 +536,13 @@ msgid ""
 "\n"
 "    Please file a bug report.\n"
 "    "
-msgstr "\n    You can generate a local policy module to allow this\n    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n\n    Please file a bug report.\n    "
+msgstr "\n    இந்த அணுகலை அனுமதிக்க நீங்கள் ஒரு உள்ளக கொள்கை தொகுதிக்கூறை\n    உருவாக்கலாம் - <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a> ஐக் காணவும்\n\n    ஒரு வழு அறிக்கையை சமர்ப்பிக்கவும்.\n    "
 
 #: ../src/catchall.py:50
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
-msgstr "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on processes labeled $TARGET_TYPE by default."
+msgstr "முன்னிருப்பாகவே $TARGET_TYPE என லேபிளிடப்பட்ட செயலாக்கங்களில், $SOURCE_BASE_PATH க்கு $ACCESS அணுகல் இருக்க வேண்டும் என நீங்கள் நம்புகிறீர்கள்."
 
 #: ../src/catchall.py:52
 msgid ""
@@ -554,7 +554,7 @@ msgstr "$SOURCE_BASE_PATH-ஆனது $ACCESS திறனை முன்ன�
 msgid ""
 "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS by default."
-msgstr "you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS by default."
+msgstr "முன்னிருப்பாகவே $TARGET_BASE_PATH $TARGET_CLASS இல் $SOURCE_BASE_PATH க்கு $ACCESS அணுகலுக்கு அனுமதி இருக்க வேண்டும் என நீங்கள் நம்புகிறீர்கள்."
 
 #: ../src/catchall.py:55
 msgid ""
@@ -567,7 +567,7 @@ msgid ""
 "Allow this access for now by executing:\n"
 "# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n"
 "# semodule -i mypol.pp"
-msgstr "Allow this access for now by executing:\n# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n# semodule -i mypol.pp"
+msgstr "இப்போது இந்த அணுகலை அனுமதிக்க:\n# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol\n# semodule -i mypol.ppஐப் பயன்படுத்தவும்"
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
@@ -587,7 +587,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux has denied $SOURCE from connecting to a network port $PORT_NUMBER which does not have an SELinux type associated with it.\n    If $SOURCE should be allowed to connect on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can connect to (%s). \n    \n\nIf $SOURCE is not supposed\n    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n    "
+msgstr "\n    $SOURCE தன்னுடன் SELinux வகை இணைக்கப்பட்டிருக்காத பிணைய முனையம் $PORT_NUMBER க்கு இணைவதை SELinux நிராகரித்தது.\n    $PORT_NUMBER இல் இணைய $SOURCE அனுமதிக்கப்பட வேண்டும் எனில், $SOURCE_TYPE இணையக்கூடிய முனையம் ஒன்றுக்கு $PORT_NUMBER ஐ நியமிக்க <i>semanage</i> கட்டளையைப் பயன்படுத்தவும் (%s). \n    \n\n$PORT_NUMBER க்கு $SOURCE இணையக்கூடாது எனில்\n    இது குறுக்கீட்டுச் செயலின் அடையாளமாக இருக்கலாம்.\n    "
 
 #: ../src/connect_ports.py:39
 #, python-format
@@ -599,7 +599,7 @@ msgid ""
 "\n"
 "    where PORT_TYPE is one of the following: %s.\n"
 "    "
-msgstr "\n    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute \n\n    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n\n    where PORT_TYPE is one of the following: %s.\n    "
+msgstr "\n    $PORT_NUMBER க்கு இணைய $SOURCE ஐ நீங்கள் அனுமதிக்க விரும்பினால், இந்தக் கட்டளையை இயக்கலாம் \n\n    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n\n    இங்கு PORT_TYPE என்பது பின்வருபவற்றுள் ஒன்று: %s.\n    "
 
 #: ../src/chrome.py:31
 msgid ""
@@ -654,7 +654,7 @@ msgid ""
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n"
 "    \n"
 "    "
-msgstr "\n    You can alter the file context by executing chcon -R -t cvs_data_t '$TARGET_PATH'\n    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n    \n    "
+msgstr "\n    chcon -R -t cvs_data_t '$TARGET_PATH' கட்டளையை இயக்கி நீங்கள் கோப்பு சூழலை மாற்றலாம்\n    முழுமையாக மறுலேபிளிடப்படும் போதும், கோப்பு சூழல்கள் நிரந்தரமாக தக்கவைக்கப்பட வேண்டுமானால், நீங்கள் கணினியில் உள்ள முன்னிருப்பு கோப்பு சூழலையும் மாற்ற வேண்டும்.  \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n    \n    "
 
 #: ../src/cvs_data.py:44
 msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
@@ -669,14 +669,14 @@ msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n"
 "    "
-msgstr "\n    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability. \n    "
+msgstr "\n    $SOURCE_PATH க்கு \"$ACCESS\" திறப்பாட்டை SELinux தடுக்கிறது. \n    "
 
 #: ../src/dac_override.py:32
 msgid ""
 "\n"
 "\tdac_override and dac_read_search capabilities usually indicates that the root process does not have access to a file based on the permission flags.  This usually mean you have some file with the wrong ownership/permissions on it.\n"
 "    "
-msgstr "\n\tdac_override and dac_read_search capabilities usually indicates that the root process does not have access to a file based on the permission flags.  This usually mean you have some file with the wrong ownership/permissions on it.\n    "
+msgstr "\n\tdac_override and dac_read_search திறப்பாடுகள் வழக்கமாக, அனுமதி கொடுகளின் அடிப்படையிலான கோப்புக்கு ரூட் செயலாக்கத்திற்கு அனுமதி இல்லை என்பதைக் குறிக்கிறது.  உங்களிடம் தவறான உரிமைத்தகுதி/அனுமதிகளுடன் சில கோப்புகள் உள்ளதையே இது குறிக்கிறது.\n    "
 
 #: ../src/dac_override.py:38
 msgid ""
@@ -699,7 +699,7 @@ msgid ""
 "# ausearch -m avc -ts recent\n"
 "If you see PATH record check ownership/permissions on file, and fix it, \n"
 "otherwise report as a bugzilla."
-msgstr "\nTurn on full auditing\n# auditctl -w /etc/shadow -p w\nTry to recreate AVC. Then execute\n# ausearch -m avc -ts recent\nIf you see PATH record check ownership/permissions on file, and fix it, \notherwise report as a bugzilla."
+msgstr "\nமுழு தணிக்கையை இயக்கவும்\n# auditctl -w /etc/shadow -p w\nAVC ஐ மீண்டும் உருவாக்க முயற்சிக்கவும். பிறகு\n# ausearch -m avc -ts recent கட்டளையை இயக்கவும்\nகோப்பில் நீங்கள் PATH ஐப் பார்த்தால், கோப்பில் உரிமைத்தன்மை/அனுமதிகளை சரிபார்த்து பிழையிருப்பின் அதை சரி செய்யவும், \nஇல்லாவிட்டால் bugzillaa வில் வழுவை சமர்ப்பிக்கவும்."
 
 #: ../src/device.py:29
 msgid ""
@@ -732,7 +732,7 @@ msgid ""
 "    using SELinux APIs.  If you can figure out which application created the device, please file a bug report against this application.\n"
 "    \n"
 "    "
-msgstr "\n\n    SELinux has denied $SOURCE \"$ACCESS\" access to device $TARGET_PATH.\n    $TARGET_PATH is mislabeled, this device has the default label of the /dev directory, which should not\n    happen.  All Character and/or Block Devices should have a label.\n\n    You can attempt to change the label of the file using\n\n    restorecon -v '$TARGET_PATH'.\n\n    If this device remains labeled device_t, then this is a bug in SELinux policy.\n\n    Please file a bg report.\n\n    If you look at the other similar devices labels, ls -lZ /dev/SIMILAR, and find a type that would work for $TARGET_PATH,\n    you can use chcon -t SIMILAR_TYPE '$TARGET_PATH', If this fixes the problem, you can make this permanent by executing\n    semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH'\n\n    If the restorecon changes the context, this indicates that the application that created the device, created it without\n    using SELinux APIs.  If you can figure out which application created the device, please file a bug report against this application.\n    \n    "
+msgstr "\n\n    SELinux, $SOURCE க்கு சாதன $TARGET_PATH க்கான \"$ACCESS\" அணுகலை மறுத்துள்ளது.\n    $TARGET_PATH தவறாக லேபிளிடப்பட்டுள்ளது, இந்த சாதனம் /dev கோப்பகத்தின் முன்னிருப்பு லேபிளைக் கொண்டுள்ளது, ஆனால் இப்படி\n    நிகழக்கூடாது.  எழுத்து மற்றும்/அல்லது தொகுப்பு சாதனங்கள் அனைத்தும் ஒரு லேபிளைக் கொண்டிருக்க வேண்டும்.\n\n    இந்தக் கட்டளையைப் பயன்படுத்தி கோப்பின் லேபிளை மாற்ற நீங்கள் முயற்சிக்கலாம்\n\n    restorecon -v '$TARGET_PATH'.\n\n    இந்த சாதனம் தொடர்ந்து device_t என்ற லேபிளையே கொண்டிருந்தால், அது SELinux கொள்கையின் ஒரு வழுவாகும்.\n\n    வழு அறிக்கையைச் சமர்ப்பிக்கவும்.\n\n    நீங்கள் ls -lZ /dev/SIMILAR ஐப் பயன்படுத்தி மற்ற ஒத்த சாதன லேபிள்களைப் பார்த்து அதில் $TARGET_PATH க்கு உதவக்கூடிய ஒரு வகையைக் கண்டறிந்தால்,\n    chcon -t SIMILAR_TYPE '$TARGET_PATH' ஐப் பயன்படுத்திப் பார்க்கலாம், இது சிக்கலைத் தீர்த்தால்,\n    semanage fcontext -a -t SIMILAR_TYPE '$FIX_TARGET_PATH' கட்டளையைப் பயன்படுத்தி நீங்கள் இதை நிரந்தரமாக்கலாம்\n\n    restorecon சூழலை மாற்றினால், இது சாதனத்தை உருவாக்கிய பயன்பாடு, அதை \n    SELinux APIகளைப் பயன்படுத்தாமல் உருவாக்கியுள்ளதைக் குறிக்கிறது.  எந்தப் பயன்பாடு சாதனத்தை உருவாக்கியது என்பதை நீங்கள் கண்டுபிடிக்க முடிந்தால், அந்த பயன்பாட்டுக்கு எதிராக ஒரு வழு அறிக்கையைச் சமர்ப்பிக்கவும்.\n    \n    "
 
 #: ../src/device.py:56
 msgid ""
@@ -757,7 +757,7 @@ msgid ""
 "\n"
 "Disable IPV6 properly.\n"
 "    "
-msgstr "\nDisable IPV6 properly.\n    "
+msgstr "\nIPV6 ஐ சரியாக முடக்கவும்.\n    "
 
 #: ../src/disable_ipv6.py:40
 msgid "you want to disable IPV6 on this machine"
@@ -774,7 +774,7 @@ msgid ""
 "Add \n"
 "net.ipv6.conf.all.disable_ipv6 = 1\n"
 "to /etc/sysctl.conf\n"
-msgstr "Add \nnet.ipv6.conf.all.disable_ipv6 = 1\nto /etc/sysctl.conf\n"
+msgstr "/etc/sysctl.conf இல் \nnet.ipv6.conf.all.disable_ipv6 = 1 ஐச்\nசேர்க்கவும்\n"
 
 #: ../src/file.py:27
 msgid ""
@@ -838,14 +838,14 @@ msgid ""
 "    on a r/w system.  \"cp -p\" might be a better solution, as this will adopt the default file context\n"
 "    for the destination.  \n"
 "    "
-msgstr "\n    SELinux is preventing $SOURCE from creating a file with a context of $SOURCE_TYPE on a filesystem.\n    Usually this happens when you ask the cp command to maintain the context of a file when\n    copying between file systems, \"cp -a\" for example.  Not all file contexts should be maintained\n    between the file systems.  For example, a read-only file type like iso9660_t should not be placed\n    on a r/w system.  \"cp -p\" might be a better solution, as this will adopt the default file context\n    for the destination.  \n    "
+msgstr "\n    SELinux $SOURCE_TYPE என்ற சூழலுடன் கோப்புமுறைமையில் ஒரு கோப்பை உருவாக்குவதிலிருந்து $SOURCE ஐத் தடுக்கிறது.\n    வழக்கமாக கோப்புமுறைமைகளுக்கு இடையே நீங்கள் சூழலைத் தக்கவைத்தபடி ஒரு கோப்பை நகலெடுக்க cp கட்டளையைப்\n    பயன்படுத்தும் போது இப்படி நிகழும், \"cp -a\" ஒரு உதாரணம்.  கோப்புமுறைமைகளுக்கு இடையே\n    அனைத்து கோப்பு சூழல்களும் தக்கவைக்கப்பட வேண்டியதில்லை.  எடுத்துக்காட்டாக, iso9660_t போன்ற ஒரு வாசிக்க மட்டுமான கோப்பை\n    r/w முறைமையில் வைக்கக்கூடாது.  \"cp -p\" கட்டளை இலக்கு இடத்திலும் முன்னிருப்பு கோப்பு சூழலையே\n    பின்பற்றுவதால் இந்தக் கட்டளை இதற்கு சிறந்த தீர்வாகக்கூடும்.  \n    "
 
 #: ../src/filesystem_associate.py:40
 msgid ""
 "\n"
 "    Use a command like \"cp -p\" to preserve all permissions except SELinux context.\n"
 "    "
-msgstr "\n    Use a command like \"cp -p\" to preserve all permissions except SELinux context.\n    "
+msgstr "\n    SELinux சூழல் தவிர்த்து மற்ற அனுமதிகள் அனைத்தையும் தக்கவைத்திருக்க \"cp -p\" கட்டளையைப் பயன்படுத்தவும்.\n    "
 
 #: ../src/filesystem_associate.py:43
 msgid ""
@@ -863,7 +863,7 @@ msgstr "ஒரு வேறுபட்ட கட்டளையை நீங்
 msgid ""
 "use a command like \"cp -p\" to preserve all permissions except SELinux "
 "context."
-msgstr "use a command like \"cp -p\" to preserve all permissions except SELinux context."
+msgstr "SELinux சூழல் தவிர்த்து மற்ற அனுமதிகள் அனைத்தையும் தக்கவைக்க \"cp -p\" போன்ற ஒரு கட்டளையைப் பயன்படுத்தவும்."
 
 #: ../src/httpd_can_sendmail.py:28
 msgid ""
@@ -924,7 +924,7 @@ msgid ""
 "    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially other\n"
 "    script types.\n"
 "    "
-msgstr "\n    SELinux prevented httpd $ACCESS access to http files.\n\n    Ordinarily httpd is allowed full access to all files labeled with http file\n    context.  This machine has a tightened security policy with the $BOOLEAN\n    turned off,  This requires explicit labeling of all files.  If a file is\n    a cgi script it needs to be labeled with httpd_TYPE_script_exec_t in order\n    to be executed.  If it is read only content, it needs to be labeled\n    httpd_TYPE_content_t, it is writable content. it needs to be labeled\n    httpd_TYPE_script_rw_t or httpd_TYPE_script_ra_t. You can use the\n    chcon command to change these context.  Please refer to the man page\n    \"man httpd_selinux\" or \n    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n    \"TYPE\" refers to one of \"sys\", \"user\" or \"staff\" or potentially other\n    script types.\n    "
+msgstr "\n    SELinux http கோப்புகளுக்கான httpd $ACCESS அணுகலைத் தடுத்தது.\n\n    வழக்கமாக http கோப்பு சூழல் உள்ள அனைத்து கோப்புகளுக்கும் httpd க்கு\n    முழு அணுகல் உண்டு.  இந்தக் கணினி $BOOLEAN\n    அணைக்கப்பட்ட கடுமையான பாதுகாப்புக் கொள்கையைக் கொண்டுள்ளது,  இதனால் அனைத்து கோப்புகளுக்கும் பிரத்யேக லேபிளிடுதல் அவசியமாகிறது.  ஒரு கோப்பு\n    cgi ஸ்கிரிப்ட் எனில், அது இயக்கப்பட வேண்டுமானால் அது httpd_TYPE_script_exec_t என லேபிளிடப்பட\n    வேண்டும்.  படிக்க மட்டுமான உள்ளடக்கமெனில், அது\n    httpd_TYPE_content_t என லேபிளிடப்பட வேண்டும், எழுதக்கூடிய உள்ளடக்கமானால் அது \n    httpd_TYPE_script_rw_t அல்லது httpd_TYPE_script_ra_t என லேபிளிடப்பட வேண்டும். இந்த சூழலை மாற்ற\n    நீங்கள் chcon கட்டளையைப் பயன்படுத்தலாம்.  man பக்கம்\n    \"man httpd_selinux\" அல்லது \n    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a> ஐப் பார்க்கவும்\n    \"TYPE\" என்பது \"sys\", \"user\" அல்லது \"staff\" அல்லது மற்ற\n    ஸ்கிரிப்ட் வகைகளில் ஒன்றைக் குறிக்கிறது.\n    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -955,7 +955,7 @@ msgid ""
 "    labeling of all files.  If $TARGET_PATH is writable content. it needs \n"
 "    to be labeled httpd_sys_rw_content_t or if all you need is append you can label it httpd_sys_ra_content_t.   Please refer to 'man httpd_selinux' for more information on setting up httpd and selinux.\n"
 "    "
-msgstr "\n    SELinux prevented httpd $ACCESS access to $TARGET_PATH.\n\n    httpd scripts are not allowed to write to content without explicit \n    labeling of all files.  If $TARGET_PATH is writable content. it needs \n    to be labeled httpd_sys_rw_content_t or if all you need is append you can label it httpd_sys_ra_content_t.   Please refer to 'man httpd_selinux' for more information on setting up httpd and selinux.\n    "
+msgstr "\n    SELinux $TARGET_PATH க்கு httpd $ACCESS அணுகலைத் தடுத்தது.\n\n    அனைத்து கோப்புகளின் பிரத்யேகமான லேபிள் இன்றி\n    உள்ளடக்கத்தை எழுத httpd க்கு அனுமதி இல்லை.  $TARGET_PATH ஆனது எழுதக்கூடிய உள்ளடக்கம் எனில், \n    அது httpd_sys_rw_content_t என லேபிளிடப்பட வேண்டும் அல்லது நீங்கள் அதற்கு httpd_sys_ra_content_t என லேபிளிடலாம்.  httpd மற்றும் selinux ஐ அமைப்பது பற்றிய கூடுதல் தகவலுக்கு 'man httpd_selinux' ஐப் பார்க்கவும்.\n    "
 
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
 #: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
@@ -985,7 +985,7 @@ msgstr "\n    SELinux ஆனது $SOURCE லிருந்து மாற்
 msgid ""
 "you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
-msgstr "you do not think $SOURCE_BASE_PATH should try $ACCESS access on $TARGET_BASE_PATH."
+msgstr "நீங்கள், $SOURCE_BASE_PATH $TARGET_BASE_PATH இல் $ACCESS அணுகலுக்கு முயற்சிக்கக்கூடாது எனக் கருதுகிறீர்கள்."
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
@@ -1013,7 +1013,7 @@ msgid ""
 "    You can generate a local policy module to allow this\n"
 "    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n"
 "    "
-msgstr "\n    You can generate a local policy module to allow this\n    access - see <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a>\n    "
+msgstr "\n    இந்த அணுகலை அனுமதிக்க நீங்கள் ஒரு உள்ளக கொள்கை தொகுதிக்கூறை\n    உருவாக்கலாம் - <a href=\"http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385\">FAQ</a> ஐக் காணவும்\n    "
 
 #: ../src/leaks.py:42
 msgid ""
@@ -1162,7 +1162,7 @@ msgid ""
 "    be a mislabeled. openvpn is allowed to read content in home directory if it \n"
 "    is labeled correctly.\n"
 "    "
-msgstr "\n    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n    be a mislabeled. openvpn is allowed to read content in home directory if it \n    is labeled correctly.\n    "
+msgstr "\n    $SOURCE கோரிய அணுகலை SELinux நிராகரித்தது. $TARGET_PATH\n    தவறாக லேபிளிடப்பட்டிருக்கலாம். openvpn க்கு சரியாக லேபிளிடப்பட்டிருந்தால்,\n    இல்லக் கோப்பகத்தில் உள்ள உள்ளடக்கத்தைப் படிக்க அதற்கு அனுமதி உண்டு.\n    "
 
 #: ../src/openvpn.py:41 ../src/sshd_root.py:42
 msgid ""
@@ -1170,7 +1170,7 @@ msgid ""
 "    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
 "    "
-msgstr "\n    You can restore the default system context to this file by executing the\n    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n    "
+msgstr "\n    restorecon கட்டளையை இயக்குவதன் மூலம் நீங்கள் முன்னிருப்பு கணினி சூழலை \n     மீட்டமைக்கலாம்.  restorecon -R /root/.ssh ஐப் பயன்படுத்தி மீட்டமைத்தலைக் காணவும்.\n    "
 
 #: ../src/openvpn.py:48
 msgid ""
@@ -1209,7 +1209,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t public_content_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr "\n    You can alter the file context by executing chcon -t public_content_t '$TARGET_PATH'\n    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n    "
+msgstr "\n    chcon -t public_content_t '$TARGET_PATH' ஐ இயக்கி நீங்கள் கோப்பு சூழலை மாற்றலாம்\n    முழுவதும் மறுலேபிளிடப்படும் போதும் கோப்புகளின் சூழல் தக்கவைக்கப்பட வேண்டுமானால் நீங்கள் கணினியில் உள்ள கோப்புகளின் முன்னிருப்பு கோப்பு சூழலையும் மாற்ற வேண்டும்.  \"semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/public_content.py:50
 msgid "you want to treat $TARGET_BASE_PATH as public content"
@@ -1229,7 +1229,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux denied qemu access to the block device $TARGET_PATH.\n    If this is a virtualization image, it needs to be labeled with a virtualization file context (virt_image_t). You can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add this\n    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n    image it could indicate either a bug or an intrusion attempt.\n    "
+msgstr "\n    SELinux தொகுப்பு சாதனம் $TARGET_PATH க்கு qemu அணுகலை மறுத்தது.\n    இது மெய்நிகராக்கப் படம் எனில், அது மெய்நிகராக்க கோப்புச் சூழலுடன் லேபிள் இட்டிருக்கப்பட வேண்டும் (virt_image_t). நீங்கள் chcon ஐப் பயன்படுத்தி $TARGET_PATH க்கு virt_image_t என மறுலேபிளிட முடியும்.  இந்தப் புதிய பாதையை கணினி முன்னிருப்பு மதிப்புகளில் சேர்க்க, நீங்கள் semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' \n கட்டளையையும் இயக்க வேண்டும். நீங்கள் $TARGET_PATH ஐ ஒரு qemu படமாக பயன்படுத்த நினைத்திருக்காவிட்டால் \n    இது ஒரு வழு அல்லது குறுக்கீட்டுச் செயலின் அடையாளமாக இருக்கலாம்.\n    "
 
 #: ../src/qemu_blk_image.py:38 ../src/qemu_file_image.py:41
 msgid ""
@@ -1237,7 +1237,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t virt_image_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr "\n    You can alter the file context by executing chcon -t virt_image_t '$TARGET_PATH'\n    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\"\n    "
+msgstr "\n    chcon -t virt_image_t '$TARGET_PATH' ஐ இயக்கி நீங்கள் கோப்பு சூழலை மாற்றலாம்\n    முழுவதும் மறுலேபிளிடப்படும் போதும் கோப்புகளின் சூழல் தக்கவைக்கப்பட வேண்டுமானால் நீங்கள் கணினியில் உள்ள கோப்புகளின் முன்னிருப்பு கோப்பு சூழலையும் மாற்ற வேண்டும்.  \"semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/qemu_blk_image.py:46
 msgid ""
@@ -1256,7 +1256,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux denied qemu access to $TARGET_PATH.\n    If this is a virtualization image, it has to have a file context label of\n    virt_image_t. The system is setup to label image files in directory./var/lib/libvirt/images\n    correctly.  We recommend that you copy your image file to /var/lib/libvirt/images.\n    If you really want to have your qemu image files in the current directory, you can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add this\n    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu\n    image it could indicate either a bug or an intrusion attempt.\n    "
+msgstr "\n    $TARGET_PATH க்கான qemu அணுகலை SELinux நிராகரித்தது.\n    இது ஒரு மெய்நிகராக்க படமாக இருந்தால், அது\n    virt_image_t எனும் கோப்பு சூழல் லேபிளைக் கொண்டிருக்க வேண்டும். ./var/lib/libvirt/images\n    கோப்பகத்தில் உள்ள படக் கோப்புகளுக்கு சரியாக லேபிளிடப்படும் வகையில் கணினி அமைக்கப்பட்டுள்ளது.  உங்கள் படக் கோப்பை /var/lib/libvirt/images க்கு நகலெடுக்குமாறு பரிந்துரைக்கிறோம்.\n    உண்மையிலேயே உஙக்ளுக்கு qemu படக் கோப்புகள் தற்போதைய கோப்பகத்தில் வேண்டுமானால், நீங்கள் chcon ஐப் பயன்படுத்தி $TARGET_PATH க்கு virt_image_t என மறு லேபிளிடலாம்.  நீங்கள் இந்த புதிய பாதையை கணினி முன்னிருப்பில் சேர்க்க வேண்டுமானால் semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'\n    கட்டளையையும் இயக்க வேண்டும். நீங்கள் $TARGET_PATH ஐ ஒரு qemu\n    படமாக பயன்படுத்த நினைத்திருக்காவிட்டால், இது ஒரு வழு அல்லது குறுக்கீட்டுச் செயலின் அடையாளமாக இருக்கலாம்.\n    "
 
 #: ../src/qemu_file_image.py:48
 msgid "$TARGET_BASE_PATH is a virtualization target"
@@ -1299,7 +1299,7 @@ msgid ""
 "    <p>\n"
 "    If you believe this is a bug, please file a bug report against this package.\n"
 "    "
-msgstr "\n    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n    be a mislabeled.  $TARGET_PATH default SELinux type is\n    <B>%s</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n    this file back to the default type, may fix your problem.\n    <p>\n    File contexts can be assigned to a file in the following ways.\n    <ul>\n        <li>Files created in a directory receive the file context of the parent directory by default.\n        <li>The SELinux policy might override the default label inherited from the parent directory by\n            specifying a process running in context A which creates a file in a directory labeled B\n            will instead create the file with label C. An example of this would be the dhcp client running\n            with the dhclient_t type and creating a file in the directory /etc. This file would normally\n            receive the etc_t type due to parental inheritance but instead the file\n            is labeled with the net_conf_t type because the SELinux policy specifies this.\n        <li>Users can change the file context on a file using tools such as chcon, or restorecon.\n    </ul>\n    This file could have been mislabeled either by user error, or if an normally confined application\n    was run under the wrong domain.\n    <p> \n    However, this might also indicate a bug in SELinux because the file should not have been labeled\n    with this type.\n    <p>\n    If you believe this is a bug, please file a bug report against this package.\n    "
+msgstr "\n    $SOURCE கோரிய அணுகலை SELinux நிராகரித்தது. $TARGET_PATH \n    தவறாக லேபிளிடப்பட்டிருக்கலாம்.  $TARGET_PATH முன்னிருப்பு SELinux வகை\n    <B>%s</B> ஆகும், ஆனால் அதன் தற்போதைய வகை <B>$TARGET_TYPE</B>.  இந்தக் கோப்பை மீண்டும்\n   முன்னிருப்பு வகைக்கு மாற்றினால் உங்கள் சிக்கல் தீரக்கூடும்.\n    <p>\n    கோப்புக்கு பின்வரும் வழிகளில் கோப்புச் சூழல்களைச் சேர்க்கலாம்.\n    <ul>\n        <li>ஒரு கோப்பகத்தில் உருவாக்கப்படும் கோப்புகள் முன்னிருப்பாக அந்தக் கோப்பகத்தின் சூழலையே பெறும்.\n        <li>SELinux கொள்கையானது B என லேபிளிடப்பட்ட கோப்பகத்தில் ஒரு கோப்பை உருவாக்குகின்ற\n            sசூழல் A வில் இயங்கும் ஒரு செயலாக்கம் மாறாக C எனும் லேபிளுடனான கோப்பை உருவாக்கும்\n            படி குறிப்பிடுவதன் மூலம் தாய் கோப்பகத்திலிருந்து பின்பற்றப்படும் முன்னிருப்பு லேபிளைப் புறக்கணிக்கக்கூடும்.\n            dhclient_t வகையைக் கொண்டு இயங்கும் ஒரு dhcp கிளையன்ட் /etc கோப்பகத்தில் ஒரு கோப்பை உருவாக்கும்\n            செயலை இதற்கு எடுத்துக்காட்டாகக் கூறலாம். வழக்கமாக இந்தக் கோப்பு தாய் கோப்பகத்தைப் பின்பற்றும்\n            பழக்கத்தின் காரணமாக etc_t வகையையே கொண்டிருக்கும், ஆனால் SELinux கொள்கை குறிப்பிடுவதால், மாறாக இந்தக் கோப்பு net_conf_t வகையைக் கொண்டிருக்கிறது.\n        <li>chcon அல்லது restorecon ஆகிய கருவிகளைக் கொண்டு பயனர்கள் கோப்பு சூழலை மாற்றலாம்.\n    </ul>\n    பயனார் பிழையால் அல்லது இயல்பாக கட்டுப்படுத்தப்பட்ட பயன்பாடு\n     தவறான டொமைனின் கீழ் இயக்கப்படுவதால் இந்தக் கோப்பு தவறாக லேபிளிடப்பட்டிருக்கவும் வாய்ப்புள்ளது.\n    <p> \n    இருப்பினும், இது SELinux இல் உள்ள ஒரு வழுவின் அடையாளமாகவும் இருக்கலாம், ஏனெனில் கோப்பு\n    இந்த வகையால் லேபிளிடப்பட்டிருக்கக்கூடாது.\n    <p>\n    இது ஒரு வழுதான் என நீங்கள் நம்பினால், இந்தத் தொகுப்புக்கு எதிராக ஒரு வழு அறிக்கையை சமர்ப்பிக்கவும்.\n    "
 
 #: ../src/restorecon.py:82
 #, python-format
@@ -1324,7 +1324,7 @@ msgid ""
 "    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon '$SOURCE_PATH'.\n"
 "    "
-msgstr ""
+msgstr "\n    நீங்கள்\n    restorecon கட்டளையைப் பயன்படுத்தி இந்தக் கோப்புக்கான முன்னிருப்பு கணினி சூழலை மீட்டமைக்கலாம்.  restorecon '$SOURCE_PATH'.\n    "
 
 #: ../src/restorecon_source.py:45
 #, python-format
@@ -1343,14 +1343,14 @@ msgid ""
 "    <p>\n"
 "    If you believe this is a bug, please file a bug report against this package.\n"
 "    "
-msgstr ""
+msgstr "\n    $SOURCE கோரிய அணுகலை SELinux நிராகரித்துவிட்டது. $SOURCE_PATH\n    தவறாக லேபிளிடப்பட்டிருக்கலாம்.  $SOURCE_PATH முன்னிருப்பு SELinux வகை\n    <B>%s</B> ஆகும், ஆனால் தற்போதைய வகை <B>$SOURCE_TYPE</B> ஆக உள்ளது. இந்தக்\n    கோப்பை அதன் முன்னிருப்பு வகைக்கு மாற்றினால் உங்கள் சிக்கல் தீரக்கூடும்.\n    <p>\n    பயனர் பிழையின் காரணமாகவோ அல்லது இயல்பாக கட்டுப்படுத்தப்பட்ட பயன்பாடு ஒன்று\n    தவறான டொமைனின் கீழ் இயக்கப்பட்டிருந்தாலோ இந்தக் கோப்பு தவறாக லேபிளிடப்பட்டிருக்கலாம்.\n    <p> \n    இருப்பினும், இது SELinux இல் வழு உள்ளதையும் குறிக்கக்கூடும், ஏனெனில் கோப்பு\n    இந்த வகையைக் கொண்டு லேபிளிடப்படக்கூடாது.\n    <p>\n    இது ஒரு வழு என நீங்கள் நம்பினால், இந்தத் தொகுப்புக்கு எதிராக ஒரு வழு அறிக்கையைப் பதிவு செய்யவும்.\n    "
 
 #: ../src/restorecon_source.py:60
 #, python-format
 msgid ""
 "you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
-msgstr ""
+msgstr "லேபிளை பொருத்த விரும்புகிறீர்கள். \n$SOURCE_PATH முன்னிருப்பு லேபிள் %s ஆக இருக்க வேண்டும்."
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1368,7 +1368,7 @@ msgid ""
 "    You can alter the file context by executing chcon -R -t rsync_data_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr "\n    You can alter the file context by executing chcon -R -t rsync_data_t '$TARGET_PATH'\n    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\"\n    "
+msgstr "\n    chcon -R -t rsync_data_t '$TARGET_PATH' ஐ இயக்கி நீங்கள் கோப்பு சூழலை மாற்றலாம்\n    முழுவதும் மறுலேபிளிடப்படும் போதும் கோப்புகளின் சூழல் தக்கவைக்கப்பட வேண்டுமானால் நீங்கள் கணினியில் உள்ள கோப்புகளின் முன்னிருப்பு கோப்பு சூழலையும் மாற்ற வேண்டும்.  \"semanage fcontext -a -t rsync_data_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
@@ -1394,7 +1394,7 @@ msgid ""
 "    it could indicate either a bug or it could signal a intrusion attempt.\n"
 "    Please refer to 'man samba_selinux' for more information on setting up Samba and SELinux.\n"
 "    "
-msgstr "\n    SELinux denied samba access to $TARGET_PATH.\n    If you want to share this directory with samba it has to have a file context label of\n    samba_share_t. If you did not intend to use $TARGET_PATH as a samba repository\n    it could indicate either a bug or it could signal a intrusion attempt.\n    Please refer to 'man samba_selinux' for more information on setting up Samba and SELinux.\n    "
+msgstr "\n    $TARGET_PATH க்கு samba அணுகலை SELinux நிராகரித்தது.\n    நீங்கள் இந்த கோப்பகத்தை samba உடன் பகிர விரும்பினால், அது\n    samba_share_t என்ற கோப்பு சூழல் லேபிளைக் கொண்டிருக்க வேண்டும். நீங்கள் $TARGET_PATH ஐ samba தொகுப்பதிவகமாக பயன்படுத்த\n    நினைத்திருக்காவிட்டால், இது ஒரு வழு அல்லது குறுக்கீட்டுச் செயலின் அடையாளமாக இருக்கலாம்.\n    Samba மற்றும் SELinux ஐ அமைத்தல் பற்றிய மேலும் தகவலுக்கு 'man samba_selinux' ஐப் பார்க்கவும்.\n    "
 
 #: ../src/samba_share.py:39
 msgid ""
@@ -1402,14 +1402,14 @@ msgid ""
 "    You can alter the file context by executing chcon -R -t samba_share_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr "\n    You can alter the file context by executing chcon -R -t samba_share_t '$TARGET_PATH'\n    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\"\n    "
+msgstr "\n    chcon -R -t samba_share_t '$TARGET_PATH' ஐ இயக்கி நீங்கள் கோப்பு சூழலை மாற்றலாம்\n    முழுவதும் மறுலேபிளிடப்படும் போதும் கோப்புகளின் சூழல் தக்கவைக்கப்பட வேண்டுமானால் நீங்கள் கணினியில் உள்ள கோப்புகளின் முன்னிருப்பு கோப்பு சூழலையும் மாற்ற வேண்டும்.  \"semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/samba_share.py:53
 #, python-format
 msgid ""
 "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n"
 "# restorecon %s -v '$FIX_TARGET_PATH'"
-msgstr "x# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n# restorecon %s -v '$FIX_TARGET_PATH'"
+msgstr "# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'\n# restorecon %s -v '$FIX_TARGET_PATH'"
 
 #: ../src/sandbox_connect.py:33
 msgid ""
@@ -1507,7 +1507,7 @@ msgid ""
 "    be a mislabeled. sshd is allowed to read content in /root/.ssh directory if it \n"
 "    is labeled correctly.\n"
 "    "
-msgstr "\n    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n    be a mislabeled. sshd is allowed to read content in /root/.ssh directory if it \n    is labeled correctly.\n    "
+msgstr "\n    $SOURCE கோரிய அண்னுகலை SELinux நிராகரித்தது. $TARGET_PATH\n    தவறாக லேபிளிடப்பட்டிருக்கலாம். sshd க்கு சரியாக லேபிளிடப்பட்டிருந்தால், /root/.ssh கோப்பகத்தில்\n    உள்ள உள்ளடக்கத்தைப் படிக்க அதற்கு அனுமதி உண்டு.\n    "
 
 #: ../src/sshd_root.py:54
 msgid "Restore Context"
@@ -1537,7 +1537,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t swapfile_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr "\n    You can alter the file context by executing chcon -t swapfile_t '$TARGET_PATH'\n    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\"\n    "
+msgstr "\n    chcon -t swapfile_t '$TARGET_PATH' ஐ இயக்கி நீங்கள் கோப்பு சூழலை மாற்றலாம்\n    முழுவதும் மறுலேபிளிடப்படும் போதும் கோப்புகளின் சூழல் தக்கவைக்கப்பட வேண்டுமானால் நீங்கள் கணினியில் உள்ள கோப்புகளின் முன்னிருப்பு கோப்பு சூழலையும் மாற்ற வேண்டும்.  \"semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../src/sys_module.py:28
 msgid ""
@@ -1644,7 +1644,7 @@ msgid ""
 "\n"
 "    SELinux has prevented vbetool from performing an unsafe memory operation.\n"
 "    "
-msgstr "\n    SELinux has prevented vbetool from performing an unsafe memory operation.\n    "
+msgstr "\n    SELinux ஒரு பாதுகாப்பற்ற நினைவக செயலைச் செய்வதிலிருந்து vbetool ஐ தடுத்தது.\n    "
 
 #: ../src/vbetool.py:34
 msgid ""
@@ -1658,7 +1658,7 @@ msgid ""
 "operation and reduce your system security against such malware.\n"
 "\n"
 "    "
-msgstr "\nSELinux denied an operation requested by $SOURCE, a program used\nto alter video hardware state.  This program is known to use\nan unsafe operation on system memory but so are a number of\nmalware/exploit programs which masquerade as vbetool.  This tool is used to \nreset video state when a machine resumes from a suspend.  If your machine \nis not resuming properly your only choice is to allow this\noperation and reduce your system security against such malware.\n\n    "
+msgstr "\nவீடியோ வன்பொருள் நிலையை மாற்ற பயன்படுத்தப்படும் ஒரு நிரலான $SOURCE கோரிய\nஒரு செயலை SELinux நிராகரித்தது.  இந்த நிரல்\nகணினி நினைவகத்தில் பாதுகாப்பற்ற ஒரு செயலைச் செய்யும் என அறியப்பட்டுள்ளது, ஆனால்\nvbetool கருவி போல பாவனை செய்யக்கூடிய தீம்பொருள்/தீங்கிழைக்கும் மென்பொருள் நிரல்கள் பல உள்ளன.  இந்தக் கருவி \nஇடைநிறுத்தப்பட்ட நிலையிலிருந்து ஒரு கணினியை மீண்டும் தொடங்கும் போது வீடியோ நிலையை மீட்டமைக்க பயன்படுகிறது.  உங்கள் கணினி சரியாக \nமீண்டும் தொடங்காவிட்டால், இந்த செயலை அனுமதித்து\nஅத்தகைய தீம்பொருளுக்கு எதிரான பாதுகாப்பைக் குறைத்துக்கொள்வது மட்டுமே உங்களுக்கு சாத்தியமுள்ள வழி.\n\n    "
 
 #: ../src/vbetool.py:45 ../src/wine.py:56
 msgid ""
@@ -1668,7 +1668,7 @@ msgid ""
 "executing:\n"
 "\n"
 "# setsebool -P mmap_low_allowed 1\n"
-msgstr "\nIf you decide to continue to run the program in question you will need\nto allow this operation.  This can be done on the command line by\nexecuting:\n\n# setsebool -P mmap_low_allowed 1\n"
+msgstr "\nஆனால் நீங்கள் நிரலை தொடர்ந்து இயக்க முடிவு செய்தால்,\nஇந்த செயலை நீங்கள் அனுமதிக்க வேண்டும்.  கட்டளை வரியில் இந்தக் கட்டளையை இயக்கி\nஇதைச் செய்யலாம்:\n\n# setsebool -P mmap_low_allowed 1\n"
 
 #: ../src/vbetool.py:55
 msgid ""
@@ -1691,7 +1691,7 @@ msgid ""
 "\n"
 "    SELinux has prevented wine from performing an unsafe memory operation.\n"
 "    "
-msgstr "\n    SELinux has prevented wine from performing an unsafe memory operation.\n    "
+msgstr "\n    SELinux ஒரு பாதுகாப்பற்ற நினைவக செயலைச் செய்வதிலிருந்து wine ஐ தடுத்தது.\n    "
 
 #: ../src/wine.py:35
 msgid ""
@@ -1715,7 +1715,7 @@ msgid ""
 "of memory and solutions to those problems.\n"
 "\n"
 "    "
-msgstr "\nSELinux denied an operation requested by wine-preloader, a program used\nto run Windows applications under Linux.  This program is known to use\nan unsafe operation on system memory but so are a number of\nmalware/exploit programs which masquerade as wine.  If you were\nattempting to run a Windows program your only choices are to allow this\noperation and reduce your system security against such malware or to\nrefrain from running Windows applications under Linux.  If you were not\nattempting to run a Windows application this indicates you are likely\nbeing attacked by some for of malware or program trying to exploit your\nsystem for nefarious purposes.\n\nPlease refer to \n\nhttp://wiki.winehq.org/PreloaderPageZeroProblem\n\nWhich outlines the other problems wine encounters due to its unsafe use\nof memory and solutions to those problems.\n\n    "
+msgstr "\nLinux இன் கீழ் Windows பயன்பாடுகளை இயக்கப் பயன்படும் நிரலான,\nwine-preloader கோரிய செயலை SELinux நிராகரித்தது.  இந்த நிரல்\nகணினி நினைவகத்தில் பாதுகாப்பற்ற ஒரு செயலைச் செய்யும் என அறியப்பட்டுள்ளது, ஆனால்\nwine போல பாவனை செய்யக்கூடிய தீம்பொருள்/தீங்கிழைக்கும் மென்பொருள் நிரல்கள் பல உள்ளன.  நீங்கள்\nஒரு Windows நிரலை இயக்க முயற்சித்தீர்கள் எனில், \nஇந்த செயலை அனுமதித்து அத்தகைய தீம்பொருளுக்கு எதிரான பாதுகாப்பைக் குறைத்துக்கொள்வது\nஅல்லது Linux இன் கீழ் Windows நிரல்களை இயக்காமல் கைவிடுவது ஆகியவை மட்டுமே உங்களுக்கு சாத்தியமுள்ள வழி.  நீங்கள்\nWindows பயன்பாட்டை இயக்க முயற்சிக்கவில்லை எனில், ஏதோ\nவஞ்சகமான நோக்கங்களுக்காக உங்கள் கணினியை ஏதோ ஒரு வடிவிலான \nதீம்பொருள் ஒன்று தாக்க முயற்சிப்பதையே இது குறிக்கிறது.\n\nஇதைக் காணவும்\n\nhttp://wiki.winehq.org/PreloaderPageZeroProblem\n\nஇது wine இன் பாதுகாப்பற்ற நினைவகப் பயன்படுத்தலால் அதற்கு ஏற்படக்கூடிய மற்ற சிக்கல்களைப் \nபற்றியும் அவற்றுக்கான தீர்வுகளைப் பற்றியும் விவரிக்கிறது.\n\n    "
 
 #: ../src/wine.py:66
 msgid ""
@@ -1747,7 +1747,7 @@ msgid ""
 "    new path to the system defaults. If you did not intend to use $TARGET_PATH as a xen\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
-msgstr "\n    SELinux denied xen access to $TARGET_PATH.\n    If this is a XEN image, it has to have a file context label of\n    xen_image_t. The system is setup to label image files in directory /var/lib/xen/images\n    correctly.  We recommend that you copy your image file to /var/lib/xen/images.\n    If you really want to have your xen image files in the current directory, you can relabel $TARGET_PATH to be xen_image_t using chcon.  You also need to execute semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH' to add this\n    new path to the system defaults. If you did not intend to use $TARGET_PATH as a xen\n    image it could indicate either a bug or an intrusion attempt.\n    "
+msgstr "\n    $TARGET_PATH க்கு xen அணுகலை SELinux நிராகரித்தது.\n    இது ஒரு XEN படம் எனில், அது\n    xen_image_t எனும் கோப்புச் சூழலல் லேபிளைக் கொண்டிருக்க வேண்டும். /var/lib/xen/images இல்\n    உள்ள படக் கோப்புகளை சரியாக லேபிளிடும் வகையில் கணினி அமைக்கப்பட்டுள்ளது .  உங்கள் படக் கோப்பை /var/lib/xen/images க்கு நகலெடுக்கப் பரிந்துரைக்கிறோம்.\n    உங்கள் xen படக் கோப்புகளை தற்போதைய கோப்பகத்திலேயே வைத்திருக்க விரும்பினால், chcon ஐப் பயன்படுத்தி $TARGET_PATH க்கு be xen_image_t என மறுலேபிளிடலாம்.  கணினி முன்னிருப்புகளில் இந்த புதிய பாதையைச் சேர்க்க நீங்கள்  semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\n    கட்டளையையும் இயக்க வேண்டும். நீங்க $TARGET_PATH ஐ ஒரு xen\n    படமாக பயன்படுத்த நீங்கள் நினைத்திருக்காவிட்டால், இது ஒரு வழு அல்லது குறுக்கிட்டுச் செயலின் அடையாளமாக இருக்கலாம்.\n    "
 
 #: ../src/xen_image.py:41
 msgid ""
@@ -1755,7 +1755,7 @@ msgid ""
 "    You can alter the file context by executing chcon -t xen_image_t '$TARGET_PATH'\n"
 "    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
-msgstr "\n    You can alter the file context by executing chcon -t xen_image_t '$TARGET_PATH'\n    You must also change the default file context files on the system in order to preserve them even on a full relabel.  \"semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n    "
+msgstr "\n    chcon -t xen_image_t '$TARGET_PATH' ஐ இயக்கி நீங்கள் கோப்பு சூழலை மாற்றலாம்\n     முழுவதும் மறுலேபிளிடப்படும் போதும் கோப்புகளின் சூழல் தக்கவைக்கப்பட வேண்டுமானால் நீங்கள் கணினியில் உள்ள கோப்புகளின் முன்னிருப்பு கோப்பு சூழலையும் மாற்ற வேண்டும்.  \"semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n    "
 
 #: ../booleans_trans.py:1
 msgid ""
@@ -2132,7 +2132,7 @@ msgstr "புதிய முகப்பு அடைவுகளை உரு
 
 #: ../booleans_trans.py:151
 msgid "If you want to allow virtual processes to run as userdomains"
-msgstr ""
+msgstr "பயனர்டொமைன்களாக இயங்க மெய்நிகர் செயலாக்கங்களை நீங்கள் அனுமதிக்க விரும்பினால்"
 
 #: ../booleans_trans.py:153
 msgid ""
@@ -2150,7 +2150,7 @@ msgstr "fenced ஆல் ssh ஐப் பயன்படுத்த முட�
 
 #: ../booleans_trans.py:159
 msgid "If you want to allow ZoneMinder to run su/sudo."
-msgstr ""
+msgstr "su/sudo ஐ இயக்க ZoneMinderஐ நீங்கள் அனுமதிக்க விரும்பினால்."
 
 #: ../booleans_trans.py:161
 msgid "If you want to allow httpd to read home directories"
@@ -2196,7 +2196,7 @@ msgstr "avahi சேவை dbus வழியாக இதனுடன் தொ�
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow ftpd to use ntfs/fusefs volumes."
-msgstr ""
+msgstr "ntfs/fusefs தொகுதிகளைப் பயன்படுத்த ftpd ஐ நீங்கள் அனுமதிக்க விரும்பினால்."
 
 #: ../booleans_trans.py:181
 msgid "If you want to allow sanlock to read/write fuse files"
@@ -2312,7 +2312,7 @@ msgstr "DML நிலையை செயல்படுத்த தரவுத
 
 #: ../booleans_trans.py:227
 msgid "If you want to allow openvpn to run unconfined scripts"
-msgstr ""
+msgstr "கட்டுப்படுத்தப்படாத ஸ்கிரிப்டுகளை இயக்க நீங்கள் openvpn ஐ அனுமதிக்க விரும்பினால்"
 
 #: ../booleans_trans.py:229
 msgid "If you want to allow Apache to use mod_auth_pam"
@@ -2571,7 +2571,7 @@ msgstr "அனைத்து டொமைன்களின் வாசித�
 msgid ""
 "If you want to permit to prosody to bind apache port. Need to be activated "
 "to use BOSH."
-msgstr ""
+msgstr "apache துறையுடன் பிணைக்க prosody ஐ நீங்கள் அனுமதிக்க விரும்பினால். BOSH ஐப் பயன்படுத்த இது செயல்படுத்தப்பட வேண்டும்."
 
 #: ../booleans_trans.py:335
 msgid ""

@@ -14,9 +14,9 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-14 08:43-0400\n"
-"PO-Revision-Date: 2013-08-14 12:45+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Chinese (China) <trans-zh_cn@lists.fedoraproject.org>\n"
+"PO-Revision-Date: 2013-09-29 07:57+0000\n"
+"Last-Translator: Tommy He <lovenemesis@gmail.com>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/fedora/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1320,7 +1320,7 @@ msgid ""
 "    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon '$SOURCE_PATH'.\n"
 "    "
-msgstr ""
+msgstr "\n    您要恢复该文件的默认文件上下文\n使用 resotrecon 命令。restorecon '$SOURCE_PATH'。\n    "
 
 #: ../src/restorecon_source.py:45
 #, python-format
@@ -1339,14 +1339,14 @@ msgid ""
 "    <p>\n"
 "    If you believe this is a bug, please file a bug report against this package.\n"
 "    "
-msgstr ""
+msgstr "\n    SELinux 阻止了来自 $SOURCE 的访问请求。$SOURCE_PATH 可能\n    被错误标注了。$SOURCE_PATH 默认 SELinux 类型是\n    <B>%s</B>，但它当前类型是 <B>$SOURCE_TYPE</B>。将文件\n    恢复为默认类型，可能修复您的问题。\n    <p>\n    该文件可能由于用户操作，或者运行在错误域的正常受限程序\n    被错误的标注了。\n    <p> \n    但是，这也可能代表一个 SELinux Bug，因为此文件\n    不应该被标注为当前类型。\n    <p>\n    如果认为这是一个 Bug，请针对该软件包提交 Bug 报告。\n    "
 
 #: ../src/restorecon_source.py:60
 #, python-format
 msgid ""
 "you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
-msgstr ""
+msgstr "您想要修复标签。 \n$SOURCE_PATH 默认标签应为 %s。"
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1426,11 +1426,11 @@ msgid ""
 "\n"
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
-msgstr ""
+msgstr "\n   如果您要允许 $SOURCE 连接到 $PORT_NUMBER，您可以执行\n\n    # sandbox -X -t sandbox_net_t $SOURCE\n    "
 
 #: ../src/sandbox_connect.py:47
 msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr ""
+msgstr "您要允许 $SOURCE_PATH 连接至网络端口号 $PORT_NUMBER"
 
 #: ../src/sandbox_connect.py:49
 msgid ""
@@ -1839,7 +1839,7 @@ msgstr "如果您要允许 glusterfsd 修改在公共文件传输服务中使用
 msgid ""
 "If you want to deny any process from ptracing or debugging any other "
 "processes."
-msgstr ""
+msgstr "如果您要组织任何来自 ptracing 的进程或对任何其他进程调试。"
 
 #: ../booleans_trans.py:33
 msgid ""
@@ -2128,7 +2128,7 @@ msgstr "如果您要允许 samba 生成新的主目录（例如：使用 PAM）"
 
 #: ../booleans_trans.py:151
 msgid "If you want to allow virtual processes to run as userdomains"
-msgstr ""
+msgstr "如果您要允许虚拟进程以用户域运行"
 
 #: ../booleans_trans.py:153
 msgid ""
@@ -2146,7 +2146,7 @@ msgstr "如果您要决定 fenced 是否可以使用 SSH。"
 
 #: ../booleans_trans.py:159
 msgid "If you want to allow ZoneMinder to run su/sudo."
-msgstr ""
+msgstr "如果您要允许 ZoneMinder 运行 su/sudo。"
 
 #: ../booleans_trans.py:161
 msgid "If you want to allow httpd to read home directories"
@@ -2192,7 +2192,7 @@ msgstr "如果您要允许 Apache 与 avahi 服务通过 dbus 沟通"
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow ftpd to use ntfs/fusefs volumes."
-msgstr ""
+msgstr "如果您要允许 ftpd 使用 ntfs/fusefs 卷。"
 
 #: ../booleans_trans.py:181
 msgid "If you want to allow sanlock to read/write fuse files"
@@ -2308,7 +2308,7 @@ msgstr "如果您要允许数据库管理员执行 DML 声明"
 
 #: ../booleans_trans.py:227
 msgid "If you want to allow openvpn to run unconfined scripts"
-msgstr ""
+msgstr "如果您要允许 openvpn 运行不受限的脚本"
 
 #: ../booleans_trans.py:229
 msgid "If you want to allow Apache to use mod_auth_pam"
@@ -2405,7 +2405,7 @@ msgstr "如果您要允许用户连接到 PostgreSQL"
 
 #: ../booleans_trans.py:271
 msgid "If you want to allow httpd to connect to  sasl"
-msgstr ""
+msgstr "如果您要允许 httpd 连接至 sasl"
 
 #: ../booleans_trans.py:273
 msgid ""
@@ -2567,7 +2567,7 @@ msgstr "如果您要允许所有守护进程使用 tcp wrappers。"
 msgid ""
 "If you want to permit to prosody to bind apache port. Need to be activated "
 "to use BOSH."
-msgstr ""
+msgstr "如果您要允许 prosody 绑定 apache 端口。需要启用以使用 BOSH。"
 
 #: ../booleans_trans.py:335
 msgid ""
@@ -2877,7 +2877,7 @@ msgstr "如果您要允许 Apache 修改在公共文件传输服务中使用的�
 #: ../booleans_trans.py:463
 msgid ""
 "If you want to allow HTTPD scripts and modules to server cobbler files."
-msgstr ""
+msgstr "如果您要允许 HTTPD 脚本及模块去服务 cobbler 文件。"
 
 #: ../booleans_trans.py:465
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2950,7 +2950,7 @@ msgstr "如果您要允许 HTTPD 在与系统 CGI 脚本相同的域中运行 SS
 
 #: ../booleans_trans.py:493
 msgid "If you want to allow mozilla plugin to support spice protocols."
-msgstr ""
+msgstr "如果您要允许 Mozilla 插件支持 SPICE 协议。"
 
 #: ../booleans_trans.py:495
 msgid "If you want to allow httpd to access openstack ports"

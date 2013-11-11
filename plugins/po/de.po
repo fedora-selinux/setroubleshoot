@@ -10,6 +10,7 @@
 # hpeters <hpeters@redhat.com>, 2009
 # hpeters <hpeters@redhat.com>, 2012
 # Marcus Nitzschke <kenda@fedoraproject.org>, 2009
+# Rainer <rgromans@redhat.com>, 2013
 # Roman Spirgi <bigant@fedoraproject.org>, 2012-2013
 # sknirT omiT <moc.tahder@sknirtt>, 2010
 # Thomas Spura <tomspur@fedoraproject.org>, 2008, 2009
@@ -18,9 +19,9 @@ msgstr ""
 "Project-Id-Version: setroubleshoot\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-08-14 08:43-0400\n"
-"PO-Revision-Date: 2013-08-14 12:45+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: German <trans-de@lists.fedoraproject.org>\n"
+"PO-Revision-Date: 2013-09-18 05:43+0000\n"
+"Last-Translator: Rainer <rgromans@redhat.com>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/fedora/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1324,7 +1325,7 @@ msgid ""
 "    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon '$SOURCE_PATH'.\n"
 "    "
-msgstr ""
+msgstr "\nSie können den Standard-System-Kontext für diese Datei durch Ausführen des\nrestorecon Befehls wiederherstellen.  restorecon '$SOURCE_PATH'.\n    "
 
 #: ../src/restorecon_source.py:45
 #, python-format
@@ -1343,14 +1344,14 @@ msgid ""
 "    <p>\n"
 "    If you believe this is a bug, please file a bug report against this package.\n"
 "    "
-msgstr ""
+msgstr "\nSELinux verweigerte den durch $SOURCE angeforderten Zugriff. $SOURCE_PATH kann\nfalsch gekennzeichnet sein.  Der $SOURCE_PATH Standard SELinux Typ ist\n<B>%s</B>, aber der derzeitige Typ ist <B>$SOURCE_TYPE</B>. Der Wechsel\ndieser Datei zurück auf den Standard-Typ kann Ihr Problem beheben.\n<p>\nDiese Datei könnte entweder durch einen Anwenderfehler falsch bezeichnet worden sein oder wenn eine\nnormalerweise beschränkte Anwendung in der falschen Domain durchgeführt wurde.\n<p> \nAllerdings könnte dies auch auf einen Fehler in SELinux hinweisen, weil die Datei nicht mit diesem\nTyp markiert wurde.\n<p>\nWenn Sie glauben, dass dies ein Fehler ist, erstellen Sie bitte einen Fehlerbericht gegen dieses Paket.\n    "
 
 #: ../src/restorecon_source.py:60
 #, python-format
 msgid ""
 "you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
-msgstr ""
+msgstr "Sie wollen das Label berichtigen. \n$SOURCE_PATH Standard-Label sollte %s sein."
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -1421,7 +1422,7 @@ msgid ""
 "If $SOURCE is not supposed\n"
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
-msgstr ""
+msgstr "\nSELinux hat $SOURCE die Verbindung zu einem Netzwerk-Port $PORT_NUMBER innerhalb einer sandboxt verweigert.\nWenn es $SOURCE erlaubt sein sollte mit $PORT_NUMBER zu verbinden, müssen Sie eine andere Art von Sandbox verwenden, wie sandbox_web_t oder sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE.\n    \n\nFalls $SOURCE sich nicht mit\n$PORT_NUMBER verbinden soll, könnte dies auf einen Einbruchsversuch hinweisen.\n    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -1430,11 +1431,11 @@ msgid ""
 "\n"
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
-msgstr ""
+msgstr "\nWenn Sie $SOURCE erlauben möchten mit $​​PORT_NUMBER zu verbinden, führen Sie aus \n\n    # sandbox -X -t sandbox_net_t $SOURCE\n    "
 
 #: ../src/sandbox_connect.py:47
 msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr ""
+msgstr "Sie möchten $SOURCE erlauben mit dem Netzwerk-Port $​​PORT_NUMBER zu verbinden"
 
 #: ../src/sandbox_connect.py:49
 msgid ""
@@ -1442,7 +1443,7 @@ msgid ""
 "For example:\n"
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "Please read 'sandbox' man page for more details.\n"
-msgstr ""
+msgstr "müssen Sie den Sandbox-Typ ändern. sandbox_web_t oder sandbox_net_t. \nZum Beispiel:\nsandbox -X -t sandbox_net_t $SOURCE_PATH\nBitte lesen Sie die 'sandbox' man-Seite für weitere Details.\n"
 
 #: ../src/selinuxpolicy.py:29
 msgid ""
@@ -1807,7 +1808,7 @@ msgstr "Falls Sie Benutzern die Anmeldung mittels radius-Server erlauben möchte
 msgid ""
 "If you want to allow the graphical login program to create files in HOME "
 "dirs as xdm_home_t."
-msgstr ""
+msgstr "Wenn Sie dem grafischen Login-Programm erlauben möchten Dateien in HOME Verzeichnissen wie xdm_home_t zu erstellen."
 
 #: ../booleans_trans.py:21
 msgid ""
@@ -1843,7 +1844,7 @@ msgstr "Falls Sie Glusterfsd erlauben möchten, öffentliche Dateien zu bearbeit
 msgid ""
 "If you want to deny any process from ptracing or debugging any other "
 "processes."
-msgstr ""
+msgstr "Wenn Sie jedem Verfahren das ptracing oder Debuggen von allen anderen Prozessen verweigern wollen."
 
 #: ../booleans_trans.py:33
 msgid ""
@@ -1875,7 +1876,7 @@ msgstr "Falls Sie den Telepathy-Verbindungsmanagern erlauben möchten, sich auf 
 
 #: ../booleans_trans.py:43
 msgid "If you want to allow http daemon to connect to mythtv"
-msgstr ""
+msgstr "Wenn Sie dem http-Daemon erlauben möchten zum mythtv zu verbinden"
 
 #: ../booleans_trans.py:45
 msgid ""
@@ -1902,7 +1903,7 @@ msgstr "Falls Sie ssh mit chroot-Umgebung erlauben möchten, Dateien in Benutzer
 #: ../booleans_trans.py:53
 msgid ""
 "If you want to allow the mount commands to mount any directory or file."
-msgstr ""
+msgstr "Wenn Sie den Mount Befehle erlauben möchten jedes Verzeichnis oder jede Datei anzuschließen."
 
 #: ../booleans_trans.py:55
 msgid "If you want to allow polipo to connect to all ports > 1023"
@@ -2132,7 +2133,7 @@ msgstr "Falls Sie Samba die Erstellung neuer Benutzerverzeichnisse erlauben möc
 
 #: ../booleans_trans.py:151
 msgid "If you want to allow virtual processes to run as userdomains"
-msgstr ""
+msgstr "Wenn Sie virtuellen Prozessen erlauben möchten als userdomains zu laufen"
 
 #: ../booleans_trans.py:153
 msgid ""
@@ -2150,7 +2151,7 @@ msgstr "Falls Sie festlegen möchten, ob Fenced SSH benutzen darf."
 
 #: ../booleans_trans.py:159
 msgid "If you want to allow ZoneMinder to run su/sudo."
-msgstr ""
+msgstr "Wenn Sie ZoneMinder erlauben möchten su/sudo auszuführen."
 
 #: ../booleans_trans.py:161
 msgid "If you want to allow httpd to read home directories"
@@ -2196,7 +2197,7 @@ msgstr "Falls Sie Apache die Kommunikation mit dem avahi-Dienst mittels dbus erl
 
 #: ../booleans_trans.py:179
 msgid "If you want to allow ftpd to use ntfs/fusefs volumes."
-msgstr ""
+msgstr "Wenm Sie ftpd erlauben möchten ntfs/fusefs Volumes zu verwenden."
 
 #: ../booleans_trans.py:181
 msgid "If you want to allow sanlock to read/write fuse files"
@@ -2312,7 +2313,7 @@ msgstr "Falls Sie Datenbank-Administratoren erlauben möchten, DML-Statements au
 
 #: ../booleans_trans.py:227
 msgid "If you want to allow openvpn to run unconfined scripts"
-msgstr ""
+msgstr "Wenn Sie openvpn erlauben möchten uneingeschränkte Skripts durchzuführen"
 
 #: ../booleans_trans.py:229
 msgid "If you want to allow Apache to use mod_auth_pam"
@@ -2409,7 +2410,7 @@ msgstr "Falls Sie Benutzern die Verbindung mit PostgreSQL erlauben möchten"
 
 #: ../booleans_trans.py:271
 msgid "If you want to allow httpd to connect to  sasl"
-msgstr ""
+msgstr "Wenn Sie httpd erlauben möchten zu sasl zu verbinden"
 
 #: ../booleans_trans.py:273
 msgid ""
@@ -2571,7 +2572,7 @@ msgstr "Falls Sie allen Daemons die Verwendung von TCP-Wrappern erlauben möchte
 msgid ""
 "If you want to permit to prosody to bind apache port. Need to be activated "
 "to use BOSH."
-msgstr ""
+msgstr "Wenn Sie Prosodie gestatten möchten den Apache Port zu verbinden. Muss aktiviert werden, um BOSH zu verwenden."
 
 #: ../booleans_trans.py:335
 msgid ""
@@ -2585,7 +2586,7 @@ msgstr "Wenn Sie festlegen möchten, ob Webadm allgemeine Benutzerdaten lesen da
 
 #: ../booleans_trans.py:339
 msgid "If you want to allow mozilla plugin to support GPS."
-msgstr ""
+msgstr "Wenn Sie dem Mozilla Plugin erlauben möchten GPS zu unterstützen"
 
 #: ../booleans_trans.py:341
 msgid "If you want to support X userspace object manager"
@@ -2643,7 +2644,7 @@ msgstr "Falls Sie erlauben möchten, jegliche Dateien/Verzeichnisse lese- und sc
 
 #: ../booleans_trans.py:365
 msgid "If you want to allow mailman to access FUSE file systems"
-msgstr ""
+msgstr "Wenn Sie mailman erlauben möchten auf FUSE-Dateisysteme zuzugreifen"
 
 #: ../booleans_trans.py:367
 msgid ""
@@ -2881,7 +2882,7 @@ msgstr "Falls Sie Apache erlauben möchten, öffentliche Dateien für öffentlic
 #: ../booleans_trans.py:463
 msgid ""
 "If you want to allow HTTPD scripts and modules to server cobbler files."
-msgstr ""
+msgstr "Wenn Sie HTTPD-Skripts und -Modulen erlauben möchten cobbler Dateien zu liefern."
 
 #: ../booleans_trans.py:465
 msgid "If you want to allow all daemons the ability to read/write terminals"
@@ -2954,7 +2955,7 @@ msgstr "Falls Sie HTTPD erlauben möchten, ausführbare SSI-Dateien in derselben
 
 #: ../booleans_trans.py:493
 msgid "If you want to allow mozilla plugin to support spice protocols."
-msgstr ""
+msgstr "Wenn Sie dem Mozilla Plugin erlauben möchten spice Protokolle zu unterstützen."
 
 #: ../booleans_trans.py:495
 msgid "If you want to allow httpd to access openstack ports"
