@@ -20,7 +20,7 @@ import selinux
 from stat import *
 import gettext
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
-_=translation.ugettext
+_=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin

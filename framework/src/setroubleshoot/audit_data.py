@@ -43,7 +43,7 @@ from setroubleshoot.html_util import *
 from setroubleshoot.xml_serialize import *
 from sepolicy import *
 
-O_ACCMODE = 00000003
+O_ACCMODE = 0o0000003
 
 #-----------------------------------------------------------------------------
 
@@ -136,7 +136,7 @@ def parse_audit_binary_text(input):
 import string
 def printable(s):
     if s:
-        filtered_path = filter(lambda x: x in string.printable, s)
+        filtered_path = [x for x in s if x in string.printable]
         if filtered_path == s:
             return True
     return False
@@ -173,7 +173,7 @@ class AvcContext(XmlSerialize):
         return not self.__eq__(other)
 
     def __eq__(self, other):
-        for name in self._xml_info.keys():
+        for name in list(self._xml_info.keys()):
             if getattr(self, name) != getattr(other, name):
                 return False
         return True
@@ -267,7 +267,7 @@ class AuditRecord(XmlSerialize):
             self.set_fields_from_text(self.body_text)
 
         if self.record_type in ['AVC', 'USER_AVC', "1400", "1107"]:
-            if not self.fields.has_key('seresult'):
+            if 'seresult' not in self.fields:
                 match = AuditRecord.avc_re.search(self.body_text)
                 if match:
                     seresult = match.group(1)
@@ -296,14 +296,14 @@ class AuditRecord(XmlSerialize):
 			  'old', 'path', 'watch']
 
 	for field in encoded_fields:
-	    if self.fields.has_key(field):
+	    if field in self.fields:
 		if self.record_type == 'AVC' and field == 'saddr': continue
 		value = self.fields[field]
 		decoded_value = audit_msg_decode(value)
 		self.fields[field] = decoded_value
 
 	if self.record_type == 'EXECVE':
-	    for field, value in self.fields.items():
+	    for field, value in list(self.fields.items()):
 		if self.exec_arg_re.search(field):
 		    value = self.fields[field]
 		    decoded_value = audit_msg_decode(value)
@@ -677,7 +677,7 @@ class AVC:
         all_attributes = get_all_attributes()
         all_attributes.sort()
         allowed_types = []
-        wtypes = map(lambda x: x[TARGET], filter(lambda y: y["enabled"], search([ALLOW], {SOURCE: self.scontext.type, CLASS: self.tclass, PERMS: self.access})))
+        wtypes = [x[TARGET] for x in [y for y in search([ALLOW], {SOURCE: self.scontext.type, CLASS: self.tclass, PERMS: self.access}) if y["enabled"]]]
         types = wtypes
         for t in types:
             if t in all_attributes:
@@ -864,10 +864,12 @@ class AVC:
 
             else:
                 if path.startswith("/") == False and inodestr:
-                    import commands
+                    import subprocess
                     command = "locate -b '\%s'" % path 
-                    rc, output = commands.getstatusoutput(command)
-                    if rc == 0:
+                    try:
+                        output = subprocess.check_output(command, 
+                                                         stderr=subprocess.STDOUT,
+                                                         shell=True)
                         ino = int(inodestr)
                         for file in output.split("\n"):
                             try:
@@ -876,6 +878,8 @@ class AVC:
                                     break
                             except:
                                 pass
+                    except subprocess.CalledProcessError as e:
+                        pass
 
         if path is not None:
             if path.startswith('/'):
@@ -1023,7 +1027,7 @@ class AVC:
             self.tpath = path
 
     def set_template_substitutions(self, **kwds):
-        for key, value in kwds.items():
+        for key, value in list(kwds.items()):
             if value:
                 self.template_substitutions[key] = value
 
@@ -1061,6 +1065,6 @@ class AVC:
 
     def validate_template_substitutions(self):
         # validate, replace any None values with friendly string
-        for key, value in self.template_substitutions.items():
+        for key, value in list(self.template_substitutions.items()):
             if value is None:
                 self.template_substitutions[key] = escape_html(default_text(value))

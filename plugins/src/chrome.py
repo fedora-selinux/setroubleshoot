@@ -20,7 +20,7 @@
 
 import gettext
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
-_=translation.ugettext
+_=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
@@ -29,17 +29,11 @@ class plugin(Plugin):
     summary = _('''SELinux is preventing $SOURCE_PATH "$ACCESS" access.''')
 
     problem_description = _('''
-    SELinux denied access requested by $SOURCE. It is not
-    expected that this access is required by $SOURCE and this access
-    may signal an intrusion attempt. It is also possible that the specific
-    version or configuration of the application is causing it to require
-    additional access.  spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.
+    SELinux denied access requested by $SOURCE. It is not expected that this access is required by $SOURCE and this access may signal an intrusion attempt. It is also possible that the specific version or configuration of the application is causing it to require additional access.  spice-xpi run applications within mozilla-plugins that require access to the desktop, that the mozilla_plugin lockdown will not allow, so either you need to turn off the mozilla_plugin lockdown or not use these packages.
     ''')
 
     fix_description = _('''
-Either remove the mozplugger or spice-xpi package by executing 'yum remove mozplugger spice-xpi'
-Or turn off enforcement of SELinux over the Chrome plugins.
-setsebool -P unconfined_chrome_sandbox_transition 0
+Either remove the mozplugger or spice-xpi package by executing 'yum remove mozplugger spice-xpi', or turn off enforcement of SELinux over the Chrome plugins. setsebool -P unconfined_chrome_sandbox_transition 0
     ''')
     if_text = _("you want to use the %s package")
 

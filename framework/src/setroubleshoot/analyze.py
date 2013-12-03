@@ -190,8 +190,8 @@ class Analyze(object):
                     else:
                         siginfo.plugin_list.append(report)
 
-            except Exception, e:
-                print e
+            except Exception as e:
+                print(e)
                 syslog.syslog(syslog.LOG_ERR, "Plugin Exception %s " % plugin.analysis_id)
                 self.plugins.remove(plugin)
 
@@ -212,9 +212,9 @@ class AnalyzeThread(Analyze, threading.Thread):
             try:
                 avc, report_receiver = self.queue.get()
                 self.analyze_avc(avc, report_receiver)
-            except Exception, e:
+            except Exception as e:
                 syslog.syslog(syslog.LOG_ERR, "Exception during AVC analysis: %s" % e)
-            except ValueError, e:
+            except ValueError as e:
                 syslog.syslog(syslog.LOG_ERR, "Exception during AVC analysis: %s" % e)
 
 #------------------------------------------------------------------------------
@@ -229,7 +229,7 @@ class PluginReportReceiver(object):
             database_siginfo.update_merge(siginfo)
             self.database.modify_siginfo(database_siginfo)
             syslog.syslog(syslog.LOG_DEBUG, "signature found in database")
-        except ProgramError, e:
+        except ProgramError as e:
             if e.errno == ERR_NO_SIGNATURE_MATCH:
                 syslog.syslog(syslog.LOG_DEBUG, "not in database yet")
                 siginfo.first_seen_date = siginfo.last_seen_date
@@ -248,7 +248,7 @@ class TestPluginReportReceiver(object):
         super(TestPluginReportReceiver, self).__init__(database)
 
     def report_problem(self, siginfo):
-        print "Analysis Result: %s" % (siginfo.sig.analysis_id)
+        print("Analysis Result: %s" % (siginfo.sig.analysis_id))
 
 
 #------------------------------------------------------------------------------
@@ -499,7 +499,7 @@ class SETroubleshootDatabaseLocal(RpcManage,
             async_rpc.return_type = 'method_return'
             if async_rpc.return_args is not None:
                 async_rpc.return_args = [async_rpc.return_args]
-        except ProgramError, e:
+        except ProgramError as e:
             async_rpc.return_args = [e.errno, e.strerror]
             async_rpc.return_type = 'error_return'
 
@@ -552,7 +552,7 @@ class LogfileAnalyzer(gobject.GObject):
             self.file_size = stat_info[ST_SIZE]
             self.file = open(self.logfile_path)
             self.fileno = self.file.fileno()
-        except EnvironmentError, e:
+        except EnvironmentError as e:
             syslog.syslog(syslog.LOG_ERR, '%s.open(): %s' % (self.__class__.__name__, e.strerror))
             self.errno = e.errno
             self.strerror = e.strerror
@@ -615,14 +615,14 @@ class LogfileAnalyzer(gobject.GObject):
                 if new_data == '':
                     syslog.syslog(syslog.LOG_DEBUG, "EOF on %s" % self.logfile_path)
                     self.close()
-            except EnvironmentError, e:
+            except EnvironmentError as e:
                 self.errno = e.errno
                 self.strerror = e.strerror
                 self.close()
                 self.emit('state-changed', 'stopped')
                 yield False
-            except ValueError, e:
-                print "\n", e
+            except ValueError as e:
+                print("\n", e)
 
             self.n_bytes_read += len(new_data)
             if self.file_size > 0:
@@ -656,8 +656,8 @@ class LogfileAnalyzer(gobject.GObject):
         for audit_event in self.record_receiver.feed(audit_record):
             try:
                 self.avc_event_handler(audit_event)
-            except ValueError, e:
-                print e
+            except ValueError as e:
+                print(e)
 
 
 gobject.type_register(LogfileAnalyzer)

@@ -20,7 +20,7 @@
 
 import gettext
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
-_=translation.ugettext
+_=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
@@ -31,8 +31,8 @@ class plugin(Plugin):
     ''')
 
     problem_description = _('''
-    SELinux has denied $SOURCE from connecting to a network port $PORT_NUMBER within a sandboxt.
-    If $SOURCE should be allowed to connect on $PORT_NUMBER, use need to use a different sandbox type like sandbox_web_t or sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE.
+    SELinux has denied $SOURCE from connecting to a network port $PORT_NUMBER within a sandbox.
+    If $SOURCE should be allowed to connect on $PORT_NUMBER, you need to use a different sandbox type like sandbox_web_t or sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE.
     \n\nIf $SOURCE is not supposed
     to connect to $PORT_NUMBER, this could signal a intrusion attempt.
     ''')

@@ -1,7 +1,7 @@
-AC_INIT([setroubleshoot], [3.2.14],
+AC_INIT([setroubleshoot], [3.2.15],
         [http://bugzilla.redhat.com/bugzilla/enter_bug.cgi?product=setroubleshoot])
 
-AC_CONFIG_SRCDIR(src/__init__.py)
+AC_CONFIG_SRCDIR(src/setroubleshoot/__init__.py)
 AC_CONFIG_AUX_DIR([.])
 
 AM_INIT_AUTOMAKE
@@ -76,7 +76,6 @@ doc/Makefile
 gui/Makefile
 po/Makefile.in
 src/Makefile
-src/default_encoding/Makefile
 test/Makefile
 ])
 

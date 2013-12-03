@@ -1,28 +1,3 @@
-SUBDIRS = default_encoding
-
-PYTHON_FILES =			\
-	__init__.py			\
-	access_control.py		\
-	analyze.py			\
-	audit_data.py			\
-	avc_audit.py			\
-	browser.py			\
-	config.py			\
-	email_alert.py			\
-	errcode.py			\
-	gui_utils.py			\
-	html_util.py			\
-	Plugin.py			\
-	rpc.py				\
-	rpc_interfaces.py		\
-	server.py			\
-	serverconnection.py		\
-	signature.py			\
-	util.py				\
-	uuid.py				\
-	xml_serialize.py		\
-	$(NULL)
-
 bin_SCRIPTS =				\
 	sealert				\
 	$(NULL)
@@ -66,14 +41,35 @@ pkgconfig_DATA =			\
 	setroubleshoot.conf		\
 	$(NULL)
 
-setroubleshootdir = $(pyexecdir)/setroubleshoot
-setroubleshoot_PYTHON = $(PYTHON_FILES)
-
 audisp_DATA =				\
 	sedispatch.conf			\
 	$(NULL)
 
+PYTHON_FILES =				\
+	setroubleshoot/access_control.py \
+	setroubleshoot/analyze.py \
+	setroubleshoot/audit_data.py \
+	setroubleshoot/avc_audit.py \
+	setroubleshoot/browser.py \
+	setroubleshoot/browser.pyc \
+	setroubleshoot/email_alert.py \
+	setroubleshoot/errcode.py \
+	setroubleshoot/gui_utils.py \
+	setroubleshoot/html_util.py \
+	setroubleshoot/__init__.py \
+	setroubleshoot/Plugin.py \
+	setroubleshoot/rpc_interfaces.py \
+	setroubleshoot/rpc.py \
+	setroubleshoot/serverconnection.py \
+	setroubleshoot/server.py \
+	setroubleshoot/signature.py \
+	setroubleshoot/util.py \
+	setroubleshoot/uuid.py \
+	setroubleshoot/xml_serialize.py
+
 EXTRA_DIST =				\
+	setup.py			\
+	default_encoding.c		\
 	$(PYTHON_FILES)			\
 	$(pkg_SCRIPTS)			\
 	$(sbin_SCRIPTS)			\
@@ -82,7 +78,7 @@ EXTRA_DIST =				\
 	config.py.in			\
 	$(NULL)
 
-config.py: config.py.in Makefile
+setroubleshoot/config.py: config.py.in Makefile
 	sed \
 	-e s!\@PACKAGE_NAME\@!$(PACKAGE_NAME)!			\
 	-e s!\@PACKAGE_VERSION\@!$(PACKAGE_VERSION)!		\
@@ -100,8 +96,19 @@ config.py: config.py.in Makefile
 	-e s!\@html_browser_open\@!$(html_browser_open)!	\
 	< $< > $@
 
-setroubleshoot.conf: config.py
-	python config.py -d > $@
+setroubleshoot.conf: setroubleshoot/config.py
+	python setroubleshoot/config.py -d > $@
 
-DISTCLEANFILES = config.py
-BUILT_SOURCES  = config.py
+DISTCLEANFILES = setroubleshoot/config.py
+BUILT_SOURCES  = setroubleshoot/config.py
+
+all-am: python-build
+
+python-build: 
+	$(PYTHON) setup.py build
+
+install-exec-hook:
+	$(PYTHON) setup.py install `test -n "$(DESTDIR)" && echo --root $(DESTDIR)`
+
+uninstall-hook: 
+	$(PYTHON) setup.py uninstall `test -n "$(DESTDIR)" && echo --root $(DESTDIR)`

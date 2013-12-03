@@ -20,7 +20,7 @@
 
 import gettext
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
-_=translation.ugettext
+_=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
@@ -96,6 +96,7 @@ class plugin(Plugin):
     def analyze(self, avc):
         if not avc.query_environment: return None
         if avc.tcontext.type in [ "cifs_t", "nfs_t" ]: return None
+        if avc.tcontext.type not in file_types: return None
         if avc.all_accesses_are_in("relabelto"): return None
         restorecon_files = {} 
         restorecon_files['dir'] = S_IFDIR

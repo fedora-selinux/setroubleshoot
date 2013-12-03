@@ -22,7 +22,7 @@
 import gettext
 import os
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
-_=translation.ugettext
+_=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin

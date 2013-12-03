@@ -73,7 +73,7 @@ class ServerAccess:
         # requested from invalid uids
 
         self.privileges = {}
-        for privilege in ServerAccess.privileges.keys():
+        for privilege in list(ServerAccess.privileges.keys()):
             self.privileges[privilege] = self.init_privilege(privilege)
 
     def init_privilege(self, privilege):
@@ -82,7 +82,7 @@ class ServerAccess:
         return cfg_names
 
     def valid_privilege(self, privilege):
-        valid = ServerAccess.privileges.has_key(privilege)
+        valid = privilege in ServerAccess.privileges
         if valid: return True
         syslog.syslog(syslog.LOG_ERR, "unknown access privilege (%s)" % privilege)
         return False
@@ -154,7 +154,7 @@ class ServerAccess:
             if pid == -1: pid = None
             if uid == -1: uid = None
             if gid == -1: gid = None
-        except Exception, e:
+        except Exception as e:
             pid = uid = gid = None
             syslog.syslog(syslog.LOG_ERR, "get_credentials(): %s" % e)
 
