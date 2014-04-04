@@ -966,7 +966,8 @@ class BugReport:
                                                 "setroubleshoot", 
                                                 self.alert.get_hash(), 
                                                 self.summary, 
-                                                content)
+                                                content,
+                                                package=self.alert.get_policy_rpm())
  
         try:
             rc = report.report(signature, report.io.GTKIO.GTKIO(self.parent.accounts))

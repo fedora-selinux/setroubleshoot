@@ -295,6 +295,9 @@ class SEFaultSignatureInfo(XmlSerialize):
         for name in self.merge_include:
             setattr(self, name, getattr(siginfo, name))
 
+    def get_policy_rpm(self):
+        return self.environment.policy_rpm;
+
     def get_hash_str(self):
         return  "%s,%s,%s,%s,%s" % (self.source, self.scontext.type, self.tcontext.type, self.tclass, ",".join(self.sig.access))
 
