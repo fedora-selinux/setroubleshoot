@@ -52,7 +52,7 @@ def email_alert(siginfo, to_addrs):
         from_domain = get_hostname()
     from_address = '%s@%s' % (from_user, from_domain)
 
-    syslog.syslog(syslog.LOG_DEBUG, "alert smtp=%s:%d  -> %s" % (smtp_host, smtp_port, ','.join(to_addrs)))
+    log_debug("alert smtp=%s:%d  -> %s" % (smtp_host, smtp_port, ','.join(to_addrs)))
 
     siginfo.update_derived_template_substitutions()
     summary = siginfo.substitute(siginfo.summary())

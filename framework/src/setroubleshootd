@@ -27,6 +27,7 @@ import getopt
 import sys
 import syslog
 from setroubleshoot.config import parse_config_setting, get_config
+from setroubleshoot.util import log_debug
 import gettext
 gettext.install(domain    = get_config('general', 'i18n_text_domain'),
                 localedir = get_config('general', 'i18n_locale_dir'))
@@ -96,7 +97,7 @@ try:
         f.close()
     
     from setroubleshoot.server import RunFaultServer
-    syslog.syslog(syslog.LOG_DEBUG, "RunFaultServer(%d)" % timeout)
+    log_debug("RunFaultServer(%d)" % timeout)
 
     RunFaultServer(timeout)
     

@@ -57,15 +57,15 @@ i18n_encoding = get_config('general', 'i18n_encoding')
 
 def validate_database_doc(doc):
     if doc is None:
-        syslog.syslog(syslog.LOG_DEBUG, "validate_database_doc: doc is empty, validate fails")
+        log_debug("validate_database_doc: doc is empty, validate fails")
         return False
     root_node = doc.getRootElement()
     if root_node is None:
-        syslog.syslog(syslog.LOG_DEBUG, "validate_database_doc: root is empty, validate fails")
+        log_debug("validate_database_doc: root is empty, validate fails")
         return False
     version = root_node.prop('version')
     if version is None:
-        syslog.syslog(syslog.LOG_DEBUG, "validate_database_doc: version is empty, validate fails")
+        log_debug("validate_database_doc: version is empty, validate fails")
         return False
     else:
         return database_version_compatible(version)
@@ -382,7 +382,7 @@ class XmlSerialize(object):
 
         for name, value in xml_attributes(root):
             if name not in attributes:
-                syslog.syslog(syslog.LOG_DEBUG,"unknown attribute (%s) found in xml element (%s)" % (name, root.get_name()))
+                log_debug("unknown attribute (%s) found in xml element (%s)" % (name, root.get_name()))
                 continue
             name_info = self._xml_info[name]
             typecast = name_info.get('import_typecast', str)
@@ -405,7 +405,7 @@ class XmlSerialize(object):
                 # Python value in the Python object (self) which can then be
                 # accessed by "name"
                 if name not in elements:
-                    syslog.syslog(syslog.LOG_DEBUG,"unknown element (%s) found in xml element (%s)" % (name, root.get_name()))
+                    log_debug("unknown element (%s) found in xml element (%s)" % (name, root.get_name()))
                     continue
                 name_info = self._xml_info[name]
                 typecast =  name_info.get('import_typecast', str)

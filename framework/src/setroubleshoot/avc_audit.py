@@ -158,7 +158,7 @@ class AuditRecordReceiver:
         return self.cache.get(str(record.event_id), None)
 
     def add_record_to_cache(self, record):
-        syslog.syslog(syslog.LOG_DEBUG, "%s.add_record_to_cache(): %s" % (self.__class__.__name__, record))
+        log_debug("%s.add_record_to_cache(): %s" % (self.__class__.__name__, record))
         
         audit_event = self.get_event_from_record(record)
         if record.record_type == 'EOE':
@@ -277,20 +277,20 @@ class AuditSocketReceiverThread(threading.Thread):
                             fcntl.fcntl(self.audit_socket.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
                             self.audit_socket.connect(self.audit_socket_path)
                             self.audit_socket_fd = self.audit_socket.makefile()
-                            syslog.syslog(syslog.LOG_DEBUG, "audit socket (%s) connected" % self.audit_socket_path)
+                            log_debug("audit socket (%s) connected" % self.audit_socket_path)
                             return
                         except Socket.error, e:
                             errno, strerror = get_error_from_socket_exception(e)
-                            syslog.syslog(syslog.LOG_DEBUG, "attempt to open audit socket (%s) failed, error='%s'" % (self.audit_socket_path, strerror))
+                            log_debug("attempt to open audit socket (%s) failed, error='%s'" % (self.audit_socket_path, strerror))
 
-                syslog.syslog(syslog.LOG_DEBUG, "could not open any audit sockets (%s), retry in %d seconds" % (', '.join(self.audit_socket_paths), self.retry_interval))
+                log_debug("could not open any audit sockets (%s), retry in %d seconds" % (', '.join(self.audit_socket_paths), self.retry_interval))
 
             except Socket.error, e:
                 errno, strerror = get_error_from_socket_exception(e)
-                syslog.syslog(syslog.LOG_DEBUG, "audit socket (%s) failed, error='%s', retry in %d seconds" % (self.audit_socket_path, strerror, self.retry_interval))
+                log_debug("audit socket (%s) failed, error='%s', retry in %d seconds" % (self.audit_socket_path, strerror, self.retry_interval))
                 
             except OSError, e:
-                syslog.syslog(syslog.LOG_DEBUG, "audit socket (%s) failed, error='%s', retry in %d seconds" % (self.audit_socket_path, e[1], self.retry_interval))
+                log_debug("audit socket (%s) failed, error='%s', retry in %d seconds" % (self.audit_socket_path, e[1], self.retry_interval))
 
             time.sleep(self.retry_interval)
 
@@ -320,10 +320,10 @@ class AuditSocketReceiverThread(threading.Thread):
                     import os
                     new_data = os.read(self.audit_socket_fd.fileno(), 1024)
                     if new_data == '':
-                        syslog.syslog(syslog.LOG_DEBUG, "audit socket connection dropped")
+                        log_debug("audit socket connection dropped")
                         self.connect()
                     else:
-                        syslog.syslog(syslog.LOG_DEBUG, "cached audit event count = %d" % (self.record_receiver.num_cached_events()))
+                        log_debug("cached audit event count = %d" % (self.record_receiver.num_cached_events()))
                         if not self.has_audit_eoe:
                             timeout = self.timeout_interval
                         for (record_type, event_id, body_text, fields, line_number) in self.record_reader.feed(new_data):
@@ -339,11 +339,11 @@ class AuditSocketReceiverThread(threading.Thread):
                         timeout = None
 
             except KeyboardInterrupt, e:
-                syslog.syslog(syslog.LOG_DEBUG, "KeyboardInterrupt exception in %s" % self.__class__.__name__)
+                log_debug("KeyboardInterrupt exception in %s" % self.__class__.__name__)
                 thread.interrupt_main()
 
             except SystemExit, e:
-                syslog.syslog(syslog.LOG_DEBUG, "SystemExit exception in %s" % self.__class__.__name__)
+                log_debug("SystemExit exception in %s" % self.__class__.__name__)
                 thread.interrupt_main()
 
             except Exception, e:

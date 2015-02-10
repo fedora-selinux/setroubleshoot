@@ -66,7 +66,7 @@ def parse_socket_address_list(addr_string, default_port=None):
     socket_addresses = []
     family_re = re.compile('\s*{(unix|inet)}(.+)')
 
-    syslog.syslog(syslog.LOG_DEBUG, "parse_socket_address_list: input='%s'" %  addr_string)
+    log_debug("parse_socket_address_list: input='%s'" %  addr_string)
     if not addr_string: 
         return socket_addresses
     addrs = re.split('[\s,]+', addr_string)
@@ -79,7 +79,7 @@ def parse_socket_address_list(addr_string, default_port=None):
 
             family = SocketAddress.map_family(family_tag)
             if family is None:
-                syslog.syslog(syslog.LOG_DEBUG, "unknown socket family - %s in address %s" % (family_tag, cfg_addr))
+                log_debug("unknown socket family - %s in address %s" % (family_tag, cfg_addr))
                 continue
         else:
             family = Socket.AF_INET
@@ -88,7 +88,7 @@ def parse_socket_address_list(addr_string, default_port=None):
         socket_address = SocketAddress(family, address, default_port)
         socket_addresses.append(socket_address)
 
-    syslog.syslog(syslog.LOG_DEBUG, "parse_socket_address_list: %s --> %s" % ( cfg_addr, socket_address))
+    log_debug("parse_socket_address_list: %s --> %s" % ( cfg_addr, socket_address))
     return socket_addresses
 
 def get_default_port():
@@ -768,11 +768,11 @@ class RpcManage(object):
         return str(self.rpc_id)
     
     def dump_async_rpc_cache(self):
-        syslog.syslog(syslog.LOG_DEBUG, "async_rpc_cache: %d entries, cur rpc_id=%s" % (len(self.async_rpc_cache), self.rpc_id))
+        log_debug("async_rpc_cache: %d entries, cur rpc_id=%s" % (len(self.async_rpc_cache), self.rpc_id))
         rpc_ids = self.async_rpc_cache.keys()
         rpc_ids.sort()
         for rpc_id in rpc_ids:
-            syslog.syslog(syslog.LOG_DEBUG, "%s: %s" % (rpc_id, self.async_rpc_cache[rpc_id]))
+            log_debug("%s: %s" % (rpc_id, self.async_rpc_cache[rpc_id]))
 
     def flush_async_rpc_cache(self):
         self.async_rpc_cache.clear()
@@ -825,7 +825,7 @@ class RpcChannel(ConnectionIO, RpcManage):
         return self.channel_type
 
     def close_connection(self, add_flags=0, remove_flags=0, result_code=0, result_msg=''):
-        syslog.syslog(syslog.LOG_DEBUG, "close_connection: %s" % (self.socket_address))
+        log_debug("close_connection: %s" % (self.socket_address))
         self.flush_async_rpc_cache()
         if self.socket_address.socket is None:
             return
@@ -923,7 +923,7 @@ class RpcChannel(ConnectionIO, RpcManage):
             syslog.syslog(syslog.LOG_ERR, "handle_return(): rpc_id=%s not in async_rpc_cache" % rpc_id)
             return
 
-        syslog.syslog(syslog.LOG_DEBUG, "%s.handle_return: rpc_id=%s type=%s %s.%s, {%s}" % (self.__class__.__name__, rpc_id, type, async_rpc.rpc_def.interface, async_rpc.rpc_def.method, body))
+        log_debug("%s.handle_return: rpc_id=%s type=%s %s.%s, {%s}" % (self.__class__.__name__, rpc_id, type, async_rpc.rpc_def.interface, async_rpc.rpc_def.method, body))
 
         interface, method, args = convert_rpc_xml_to_args(body)
         async_rpc.return_type = type
@@ -934,7 +934,7 @@ class RpcChannel(ConnectionIO, RpcManage):
 	rpc_id    = header.get('rpc_id', 0)
 	type      = header.get('type', None)
 
-        syslog.syslog(syslog.LOG_DEBUG, "%s.default_request_handler: rpc_id=%s type=%s {%s}" % (self.__class__.__name__, rpc_id, type, body))
+        log_debug("%s.default_request_handler: rpc_id=%s type=%s {%s}" % (self.__class__.__name__, rpc_id, type, body))
 
 	if type == 'error_return' or type == 'method_return':
             self.handle_return(type, rpc_id, body)

@@ -47,7 +47,7 @@ gettext.install(domain    = domain,
 
 syslog.openlog(sys.argv[0])
 from setroubleshoot.errcode import *
-from setroubleshoot.util import get_identity, load_plugins
+from setroubleshoot.util import get_identity, load_plugins, log_debug
 from setroubleshoot.rpc import *
 
 #------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ app = None
 default_status_icon_tooltip = _("SELinux AVC denial, click to view")
 #------------------------------------------------------------------------------
 def sighandler(signum, frame):
-    syslog.syslog(syslog.LOG_DEBUG,"exiting on signal %s" % signum)
+    log_debug("exiting on signal %s" % signum)
     sys.exit()
 
 def get_server_socket_address():
@@ -99,12 +99,12 @@ def run_as_dbus_service(user):
     global app
 #-----------------------------------------------------------------------------
     if not selinux.is_selinux_enabled():
-        syslog.syslog(syslog.LOG_DEBUG, "SELinux not enabled, sealert will not run on non SELinux systems")
+        log_debug("SELinux not enabled, sealert will not run on non SELinux systems")
         error(_("SELinux not enabled, sealert will not run on non SELinux systems"))
         sys.exit(3)
 
     try:
-        syslog.syslog(syslog.LOG_DEBUG, 'starting service')
+        log_debug('starting service')
         dbus_service = DBusSessionService(dbus_session_bus_name)
         app = SEAlert(user, dbus_service.presentation_manager, watch_setroubleshootd=True)
         return app.main()    
@@ -135,7 +135,7 @@ def ask_dbus_to_quit_app():
 
 def fix_lookup_id(local_id, analysis_id):
     def lookup_local_id():
-        syslog.syslog(syslog.LOG_DEBUG, "calling server to lookup id (%s)" % local_id)
+        log_debug("calling server to lookup id (%s)" % local_id)
         async_rpc = cl.alert_client.query_alerts(local_id)
         async_rpc.add_callback(query_alerts_callback)
         async_rpc.add_errback(query_alerts_error)
@@ -174,7 +174,7 @@ def command_line_lookup_id(local_id, html=False):
     global err;
     err=None
     def lookup_local_id():
-        syslog.syslog(syslog.LOG_DEBUG, "calling server to lookup id (%s)" % local_id)
+        log_debug("calling server to lookup id (%s)" % local_id)
         async_rpc = cl.alert_client.query_alerts(local_id)
         async_rpc.add_callback(query_alerts_callback)
         async_rpc.add_errback(query_alerts_error)
@@ -235,7 +235,7 @@ class SETroubleshootdDBus(gobject.GObject):
         proxy_obj = self.bus.get_object(dbus_system_bus_name, dbus_system_object_path)
         self.iface = dbus.Interface(proxy_obj, dbus_system_interface)
         s = self.iface.start()
-        syslog.syslog(syslog.LOG_DEBUG,"starting setroubleshootd service")
+        log_debug("starting setroubleshootd service")
 
         self.bus.add_signal_receiver(self.on_dbus_name_owner_change, 'NameOwnerChanged',
                                      'org.freedesktop.DBus', 'org.freedesktop.DBus', '/org/freedesktop/DBus',
@@ -247,31 +247,31 @@ class SETroubleshootdDBus(gobject.GObject):
         self.bus.add_signal_receiver(self.do_restart, 'restart', dbus_system_interface, None, dbus_system_object_path)
 
     def finish(self):
-        syslog.syslog(syslog.LOG_DEBUG,"exiting dbus")
+        log_debug("exiting dbus")
         s = self.iface.finish()
 
     def __del__(self):
-        syslog.syslog(syslog.LOG_DEBUG,"exiting dbus")
+        log_debug("exiting dbus")
         s = self.iface.finish()
 
     def on_dbus_name_owner_change(self, name, old_owner, new_owner):
-        syslog.syslog(syslog.LOG_DEBUG, "on_dbus_name_owner_change: name=%s old_owner=%s new_owner=%s" % (name, old_owner, new_owner))
+        log_debug("on_dbus_name_owner_change: name=%s old_owner=%s new_owner=%s" % (name, old_owner, new_owner))
         if not old_owner and new_owner:
-            syslog.syslog(syslog.LOG_DEBUG, "setroubleshootd: came on line")
+            log_debug("setroubleshootd: came on line")
             self.emit('state_change', 'run')
         elif old_owner and not new_owner:
-            syslog.syslog(syslog.LOG_DEBUG, "setroubleshootd: went off line")
+            log_debug("setroubleshootd: went off line")
             self.emit('state_change', 'stop')
         elif not old_owner and not new_owner:
-            syslog.syslog(syslog.LOG_DEBUG, "setroubleshootd: no connection")
+            log_debug("setroubleshootd: no connection")
             self.emit('state_change', 'stop')
         elif old_owner and new_owner:
-            syslog.syslog(syslog.LOG_DEBUG, "setroubleshootd: owner change")
+            log_debug("setroubleshootd: owner change")
         else:
-            syslog.syslog(syslog.LOG_DEBUG, "don't know how to parse old_owner(%s) new_owner(%s)" % (old_owner, new_owner))
+            log_debug("don't know how to parse old_owner(%s) new_owner(%s)" % (old_owner, new_owner))
 
     def do_restart(self, reason):
-        syslog.syslog(syslog.LOG_DEBUG, "do_restart(%s)" % reason)
+        log_debug("do_restart(%s)" % reason)
         self.emit('restart_request', reason)
 
 gobject.type_register(SETroubleshootdDBus)
@@ -292,13 +292,13 @@ class DBusSessionService(dbus.service.Object):
 
     @dbus.service.method(dbus_session_interface)
     def show_browser(self):
-        syslog.syslog(syslog.LOG_DEBUG, 'dbus iface show_browser() called',)
+        log_debug('dbus iface show_browser() called',)
         self.presentation_manager.show_browser()
         return ""
 
     @dbus.service.method(dbus_session_interface)
     def quit_app(self):
-        syslog.syslog(syslog.LOG_DEBUG, 'quit_app() called')
+        log_debug('quit_app() called')
         self.presentation_manager.quit_app()
 
 #-----------------------------------------------------------------------------
@@ -357,7 +357,7 @@ class SEAlert(object):
             self.setroubleshootd_dbus.finish()
 
     def main(self):
-        syslog.syslog(syslog.LOG_DEBUG,'creating main GUI application')
+        log_debug('creating main GUI application')
         try:
             gtk.main()
             self.finish()
@@ -367,13 +367,13 @@ class SEAlert(object):
             sys.exit(1)
             
         except KeyboardInterrupt, e:
-            syslog.syslog(syslog.LOG_DEBUG, "got KeyboardInterrupt, exiting ...")
+            log_debug("got KeyboardInterrupt, exiting ...")
             self.alert_client.close_connection(ConnectionState.HUP)
             self.finish()
             sys.exit()
 
     def alert(self, alert_client, siginfo):
-        syslog.syslog(syslog.LOG_DEBUG, "evaluating alert")
+        log_debug("evaluating alert")
 
         def alert_filter_result(result):
             pass
@@ -390,7 +390,7 @@ class SEAlert(object):
         if data_name is not None:
             self.browser.do_visit(data_name)
 
-        syslog.syslog(syslog.LOG_DEBUG, "SEAlert.show_browser(): data_name=%s" % data_name)
+        log_debug("SEAlert.show_browser(): data_name=%s" % data_name)
         self.browser.show()
         return True
 
@@ -403,18 +403,18 @@ class SEAlert(object):
         self.show_browser(data_name)
 
     def on_setroubleshootd_state_change(self, setroubleshootd_dbus, state):
-        syslog.syslog(syslog.LOG_DEBUG, 'setroubleshootd state change (%s)' % state)
+        log_debug('setroubleshootd state change (%s)' % state)
         if state == 'run':
             self.alert_client.open()
 
     def on_restart_request(self, setroubleshootd_dbus, reason):
-        syslog.syslog(syslog.LOG_DEBUG, 'restart request: reason = %s' % reason)
+        log_debug('restart request: reason = %s' % reason)
         do_restart()
         return False
         
 
 def do_restart():
-    syslog.syslog(syslog.LOG_DEBUG, "restarting application...)")
+    log_debug("restarting application...)")
     window_state = None
     geometry = None
     if app is not None:
@@ -423,7 +423,7 @@ def do_restart():
             geometry = app.browser.get_geometry()
             os.environ['SEALERT_WINDOW_STATE'] = window_state
             os.environ['SEALERT_WINDOW_GEOMETRY'] = geometry
-    syslog.syslog(syslog.LOG_DEBUG, "restarting %s: args=%s window_state=%s geometry=%s" % (sys.argv[0], sys.argv[1:], window_state, geometry))
+    log_debug("restarting %s: args=%s window_state=%s geometry=%s" % (sys.argv[0], sys.argv[1:], window_state, geometry))
     os.execv(sys.argv[0], sys.argv)
 
 #-----------------------------------------------------------------------------
@@ -445,10 +445,10 @@ class SECommandLine(object):
 
     def do_logon(self):
         def logon_callback(pkg_version, rpc_version):
-            syslog.syslog(syslog.LOG_DEBUG,"logon_callback(): pkg_version=%s rpc_version=%s" % (pkg_version, rpc_version))
+            log_debug("logon_callback(): pkg_version=%s rpc_version=%s" % (pkg_version, rpc_version))
             self.alert_client.connection_state.update(ConnectionState.AUTHENTICATED)
 
-        syslog.syslog(syslog.LOG_DEBUG,"logon: %s" % self.username)
+        log_debug("logon: %s" % self.username)
 
         self.alert_client.channel_name = self.username
         async_rpc = self.alert_client.logon(self.alert_client.channel_type, self.username, 'passwd')
@@ -456,7 +456,7 @@ class SECommandLine(object):
         async_rpc.add_errback(self.async_error_callback)
 
     def on_connection_state_change(self, connection, connection_state, flags, flags_added, flags_removed):
-        syslog.syslog(syslog.LOG_DEBUG,"%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" % (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed), connection.socket_address))
+        log_debug("%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" % (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed), connection.socket_address))
 
         if flags_added & ConnectionState.ERROR:
             errno, strerror = connection_state.get_result()
@@ -470,7 +470,7 @@ class SECommandLine(object):
             self.func()
 
     def run(self):
-        syslog.syslog(syslog.LOG_DEBUG,'executing command line application')
+        log_debug('executing command line application')
         self.alert_client.open(get_server_socket_address())
         try:
             self.main_loop.run()
@@ -497,7 +497,7 @@ class ScanLogfile:
         if state == 'stopped':
             if analyzer.strerror:
                 print >> sys.stderr, "ERROR: %s" % analyzer.strerror
-            syslog.syslog(syslog.LOG_DEBUG,"analyzer stopped")
+            log_debug("analyzer stopped")
             self.main_loop.quit()
             self.output_results()
 
@@ -540,7 +540,7 @@ except:
 if __name__ == '__main__':
     use_terminal = False
     setup_sighandlers()
-    syslog.syslog(syslog.LOG_DEBUG,"main() args=%s" % sys.argv)
+    log_debug("main() args=%s" % sys.argv)
 
     def validate_invocation_style(opt, opts_instance, conflict_opts):
         global invocation_style
@@ -627,7 +627,7 @@ if __name__ == '__main__':
         # Attempt to communicate with the service.  DBus should start it if it is not
         # running, otherwise we will become the service
         if invocation_style is None:
-            syslog.syslog(syslog.LOG_DEBUG,"invocation style not set, asking dbus to start us")
+            log_debug("invocation style not set, asking dbus to start us")
             try:
                 bus = dbus.SessionBus()
                 proxy_obj = bus.get_object(dbus_session_bus_name, dbus_session_object_path)
@@ -638,7 +638,7 @@ if __name__ == '__main__':
                 sys.exit(1)
             sys.exit()
 
-            syslog.syslog(syslog.LOG_DEBUG,"invocation style = '%s'" % invocation_style)
+            log_debug("invocation style = '%s'" % invocation_style)
 
         if invocation_style == 'browser':
             ask_dbus_to_show_browser()

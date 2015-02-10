@@ -178,11 +178,11 @@ class SEFaultSignatureUser(XmlSerialize):
         setattr(self, item, data)
 
     def update_filter(self, filter_type, data=None):
-        syslog.syslog(syslog.LOG_DEBUG, "update_filter: filter_type=%s data=%s" % (map_filter_value_to_name.get(filter_type, 'unknown'), data))
+        log_debug("update_filter: filter_type=%s data=%s" % (map_filter_value_to_name.get(filter_type, 'unknown'), data))
         if filter_type == FILTER_NEVER or \
            filter_type == FILTER_AFTER_FIRST or \
            filter_type == FILTER_ALWAYS:
-            syslog.syslog(syslog.LOG_DEBUG, "update_filter: !!!")
+            log_debug("update_filter: !!!")
             self.filter = SEFilter(filter_type=filter_type)
             return True
         else:
@@ -309,13 +309,13 @@ class SEFaultSignatureInfo(XmlSerialize):
         for user in self.users:
             if user.username == username:
                 return user
-        syslog.syslog(syslog.LOG_DEBUG, "new SEFaultSignatureUser for %s" % username)
+        log_debug("new SEFaultSignatureUser for %s" % username)
         user = SEFaultSignatureUser(username)
         self.users.append(user)
         return user
 
     def find_filter_by_username(self, username):
-        syslog.syslog(syslog.LOG_DEBUG, "find_filter_by_username %s" % username)
+        log_debug("find_filter_by_username %s" % username)
         
         filter = None
         user_data = self.get_user_data(username)
@@ -330,12 +330,12 @@ class SEFaultSignatureInfo(XmlSerialize):
     def evaluate_filter_for_user(self, username, filter_type=None):
         action = 'display'
         f = self.find_filter_by_username(username)
-        syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found %s user's filter = %s" % (username, f))
+        log_debug("evaluate_filter_for_user: found %s user's filter = %s" % (username, f))
         if f is not None:
             if filter_type is not None:
                 f.filter_type = filter_type
             action = self.evaluate_filter(f)
-            syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found filter for %s: %s\n%s" % (username, action, f))
+            log_debug("evaluate_filter_for_user: found filter for %s: %s\n%s" % (username, action, f))
         return action
         
     def evaluate_filter(self, filter):
@@ -788,16 +788,16 @@ class SEEmailRecipientSet(XmlSerialize):
                             if option == 'filter_type':
                                 filter_type = map_filter_name_to_value.get(value.lower(), None)
                                 if filter_type is None:
-                                    syslog.syslog(syslog.LOG_DEBUG, "unknown email filter (%s) for address %s" % (option, address))
+                                    log_debug("unknown email filter (%s) for address %s" % (option, address))
                                     
                             else:
-                                syslog.syslog(syslog.LOG_DEBUG, "unknown email option (%s) for address %s" % (option, address))
+                                log_debug("unknown email option (%s) for address %s" % (option, address))
                                 
                     try:
                         self.add_address(address, filter_type)
                     except ProgramError, e:
                         if e.errno == ERR_INVALID_EMAIL_ADDR:
-                            syslog.syslog(syslog.LOG_DEBUG, e.strerror)
+                            log_debug(e.strerror)
                         else:
                             raise e
 

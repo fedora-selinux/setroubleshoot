@@ -47,6 +47,7 @@ __all__ = [
     'valid_email_address',
     'launch_web_browser_on_url',
     'abstract',
+    'log_debug',
     'get_error_from_socket_exception',
     'assure_file_ownership_permissions',
     'parse_datetime_offset',
@@ -84,6 +85,14 @@ href_re = re.compile('<a\s*href="([^"]+)"[^<]*</a>')
 name_at_domain_re = re.compile('^([^\s@]+)@([^\s@]+)$')
 audit_decode_re = re.compile(r'^\s*"([^"]+)"\s*$')
 
+log_level="unknown"
+def log_debug(*msg):
+    global log_level
+    if log_level == "unknown":
+        log_level = get_config('sealert_log', 'level')
+    if log_level == "debug":
+        syslog.syslog(syslog.LOG_DEBUG, msg)
+ 
 def database_version_compatible(version):
     major = minor = None
     components = version.split('.')
@@ -91,10 +100,10 @@ def database_version_compatible(version):
     if len(components) >= 2: minor = int(components[1])
 
     if major < DATABASE_MAJOR_VERSION:
-        syslog.syslog(syslog.LOG_DEBUG, "database version %s not compatible with current %d.%d version" % (version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION))
+        log_debug("database version %s not compatible with current %d.%d version" % (version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION))
         return False
     else:
-        syslog.syslog(syslog.LOG_DEBUG, "database version %s compatible with current %d.%d version" % (version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION))
+        log_debug("database version %s compatible with current %d.%d version" % (version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION))
         return True
 
 
@@ -430,7 +439,7 @@ def load_plugins(filter_glob=None):
     plugin_base = os.path.basename(plugin_dir)
     plugins = []
     plugin_names = get_plugin_names(filter_glob)
-    syslog.syslog(syslog.LOG_DEBUG, "load_plugins() names=%s" % plugin_names)
+    log_debug("load_plugins() names=%s" % plugin_names)
 
     # load the parent (e.g. the package containing the submodules), required for python 2.5 and above
     module_name = plugin_base
@@ -450,7 +459,7 @@ def load_plugins(filter_glob=None):
         module_name = "%s.%s" % (plugin_base, plugin_name)
         mod = sys.modules.get(module_name)
         if mod is not None:
-            syslog.syslog(syslog.LOG_DEBUG, "load_plugins() %s previously imported" % module_name)
+            log_debug("load_plugins() %s previously imported" % module_name)
             plugins.append(mod.plugin())
             continue
         try:
@@ -554,7 +563,7 @@ def parse_datetime_offset(text):
 
     if found:
         td = datetime.timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
-        syslog.syslog(syslog.LOG_DEBUG, "parse_datetime_offset(%s) = time delta %s" % (text, td))
+        log_debug("parse_datetime_offset(%s) = time delta %s" % (text, td))
         return td
     else:
         syslog.syslog(syslog.LOG_ERR, "could not parse datetime offset (%s)" % text)

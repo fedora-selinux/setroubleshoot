@@ -127,7 +127,7 @@ class AnalyzeStatistics(object):
 class Analyze(object):
     def __init__(self):
         self.plugins = load_plugins()
-        syslog.syslog(syslog.LOG_DEBUG, "Number of Plugins = %d" % len(self.plugins))
+        log_debug("Number of Plugins = %d" % len(self.plugins))
 
     def get_environment(self, query_environment):
         environment = SEEnvironment()
@@ -146,7 +146,7 @@ class Analyze(object):
         return sig
 
     def analyze_avc(self, avc, report_receiver, query_environment=True):
-        syslog.syslog(syslog.LOG_DEBUG, "analyze_avc() avc=%s" % avc)
+        log_debug("analyze_avc() avc=%s" % avc)
 
         avc.update()
 
@@ -181,7 +181,7 @@ class Analyze(object):
                 report = plugin.analyze(avc)
                 if report is not None:
                     if plugin.level == "white":
-                        syslog.syslog(syslog.LOG_DEBUG, "plugin level white, not reporting")
+                        log_debug("plugin level white, not reporting")
                         return;
 
                     if isinstance(report, list):
@@ -228,10 +228,10 @@ class PluginReportReceiver(object):
             database_siginfo = self.database.lookup_signature(siginfo.sig)
             database_siginfo.update_merge(siginfo)
             self.database.modify_siginfo(database_siginfo)
-            syslog.syslog(syslog.LOG_DEBUG, "signature found in database")
+            log_debug("signature found in database")
         except ProgramError as e:
             if e.errno == ERR_NO_SIGNATURE_MATCH:
-                syslog.syslog(syslog.LOG_DEBUG, "not in database yet")
+                log_debug("not in database yet")
                 siginfo.first_seen_date = siginfo.last_seen_date
                 database_siginfo = self.database.add_siginfo(siginfo)
             else:
@@ -272,7 +272,7 @@ class SETroubleshootDatabase(object):
             if max_alert_age:
                 self.max_alert_age = parse_datetime_offset(max_alert_age)
 
-        syslog.syslog(syslog.LOG_DEBUG, "created new database: name=%s, friendly_name=%s, filepath=%s" % (self.properties.name, self.properties.friendly_name, self.properties.filepath))
+        log_debug("created new database: name=%s, friendly_name=%s, filepath=%s" % (self.properties.name, self.properties.friendly_name, self.properties.filepath))
 
         self.load()
 
@@ -293,9 +293,9 @@ class SETroubleshootDatabase(object):
                 keep += 1
 
             if keep > 0:
-                syslog.syslog(syslog.LOG_DEBUG, "prune by age: max_alert_age=%s min_time_to_survive=%s" % (self.max_alert_age, min_time_to_survive.format()))
-                syslog.syslog(syslog.LOG_DEBUG, "prune by age: pruning [%s - %s]" % (self.sigs.signature_list[0].last_seen_date.format(), self.sigs.signature_list[keep-1].last_seen_date.format()))
-                syslog.syslog(syslog.LOG_DEBUG, "prune by age: keeping [%s - %s]" % (self.sigs.signature_list[keep].last_seen_date.format(), self.sigs.signature_list[-1].last_seen_date.format()))
+                log_debug("prune by age: max_alert_age=%s min_time_to_survive=%s" % (self.max_alert_age, min_time_to_survive.format()))
+                log_debug("prune by age: pruning [%s - %s]" % (self.sigs.signature_list[0].last_seen_date.format(), self.sigs.signature_list[keep-1].last_seen_date.format()))
+                log_debug("prune by age: keeping [%s - %s]" % (self.sigs.signature_list[keep].last_seen_date.format(), self.sigs.signature_list[-1].last_seen_date.format()))
                 sigs = [siginfo.sig for siginfo in self.sigs.signature_list[:keep]]
                 for sig in sigs:
                     self.delete_signature(sig, prune=True)
@@ -304,7 +304,7 @@ class SETroubleshootDatabase(object):
             keep = len(self.sigs.signature_list) - self.max_alerts
             if keep > 0:
                 sigs = [siginfo.sig for siginfo in self.sigs.signature_list[:keep]]
-                syslog.syslog(syslog.LOG_DEBUG, "prune first %d alerts, len(sigs=%d sigs=%s" % (keep, len(sigs), sigs))
+                log_debug("prune first %d alerts, len(sigs=%d sigs=%s" % (keep, len(sigs), sigs))
                 for sig in sigs:
                     self.delete_signature(sig, prune=True)
 
@@ -338,7 +338,7 @@ class SETroubleshootDatabase(object):
         if self.filepath is None:
             return
 
-        syslog.syslog(syslog.LOG_DEBUG, "writing database (%s) modified_count=%s" % (self.filepath, self.modified_count))
+        log_debug("writing database (%s) modified_count=%s" % (self.filepath, self.modified_count))
 
         if not prune:
             self.prune()
@@ -362,7 +362,7 @@ class SETroubleshootDatabase(object):
                                     self.auto_save_callback)
 
     def auto_save_callback(self):
-        syslog.syslog(syslog.LOG_DEBUG, "auto_save database (%s) modified_count=%s" % (self.filepath, self.modified_count))
+        log_debug("auto_save database (%s) modified_count=%s" % (self.filepath, self.modified_count))
         self.save()
         return False
 
@@ -370,7 +370,7 @@ class SETroubleshootDatabase(object):
         if self.filepath is None:
             return
         if os.path.exists(self.filepath):
-            syslog.syslog(syslog.LOG_DEBUG, "deleting database (%s)" % self.filepath)
+            log_debug("deleting database (%s)" % self.filepath)
             os.remove(self.filepath)
 
     def acquire(self):
@@ -383,18 +383,18 @@ class SETroubleshootDatabase(object):
         siginfo = None
 
         matches = self.sigs.match_signatures(sig)
-        syslog.syslog(syslog.LOG_DEBUG, "lookup_signature: found %d matches with scores %s" % (len(matches), ",".join(["%.2f" % x.score for x in matches])))
+        log_debug("lookup_signature: found %d matches with scores %s" % (len(matches), ",".join(["%.2f" % x.score for x in matches])))
         if len(matches) == 0:
             raise ProgramError(ERR_NO_SIGNATURE_MATCH)
         if len(matches) > 1:
-            syslog.syslog(syslog.LOG_DEBUG, "lookup_signature: found %d matches with scores %s" % (len(matches), ",".join(["%.2f" % x.score for x in matches])))
+            log_debug("lookup_signature: found %d matches with scores %s" % (len(matches), ",".join(["%.2f" % x.score for x in matches])))
         siginfo = matches[0].siginfo
         return siginfo
 
     def lookup_local_id(self, local_id):
         siginfo = self.sigs.lookup_local_id(local_id)
         if siginfo is None:
-            syslog.syslog(syslog.LOG_DEBUG, "lookup_local_id: %s not found" % local_id)
+            log_debug("lookup_local_id: %s not found" % local_id)
             raise ProgramError(ERR_SIGNATURE_ID_NOT_FOUND, "id (%s) not found" % local_id)
         return siginfo
 
@@ -409,7 +409,7 @@ class SETroubleshootDatabase(object):
         return self.properties
 
     def query_alerts(self, criteria):
-        syslog.syslog(syslog.LOG_DEBUG, "query_alerts: criteria=%s" % criteria)
+        log_debug("query_alerts: criteria=%s" % criteria)
 
         if criteria == '*':
             return self.sigs
@@ -421,7 +421,7 @@ class SETroubleshootDatabase(object):
         return sigs
 
     def delete_signature(self, sig, prune=False):
-        syslog.syslog(syslog.LOG_DEBUG, "delete_signature: sig=%s" % sig)
+        log_debug("delete_signature: sig=%s" % sig)
 
         siginfo = self.lookup_signature(sig)
         self.sigs.remove_siginfo(siginfo)
@@ -435,14 +435,14 @@ class SETroubleshootDatabase(object):
         self.mark_modified()
 
     def evaluate_alert_filter(self, sig, username):
-        syslog.syslog(syslog.LOG_DEBUG, "evaluate_alert_filter: username=%s sig=%s" % (username, sig))
+        log_debug("evaluate_alert_filter: username=%s sig=%s" % (username, sig))
 
         siginfo = self.lookup_signature(sig)
         action = siginfo.evaluate_filter_for_user(username)
         return action
 
     def set_user_data(self, sig, username, item, data):
-        syslog.syslog(syslog.LOG_DEBUG, "set_user_data: username=%s item=%s data=%s sig=\n%s" % (username, item, data, sig))
+        log_debug("set_user_data: username=%s item=%s data=%s sig=\n%s" % (username, item, data, sig))
 
         siginfo = self.lookup_signature(sig)
         user_data = siginfo.get_user_data(username)
@@ -450,7 +450,7 @@ class SETroubleshootDatabase(object):
         self.modify_siginfo(siginfo)
 
     def set_filter(self, sig, username, filter_type, data = "" ):
-        syslog.syslog(syslog.LOG_DEBUG, "set_filter: username=%s filter_type=%s sig=\n%s" % (username, filter_type, sig))
+        log_debug("set_filter: username=%s filter_type=%s sig=\n%s" % (username, filter_type, sig))
 
         siginfo = self.lookup_signature(sig)
         siginfo.update_user_filter(username, filter_type, data)
@@ -488,7 +488,7 @@ class SETroubleshootDatabaseLocal(RpcManage,
         self.database.set_notify(notify)
 
     def emit_rpc(self, rpc_id, type, rpc_def, *args):
-        syslog.syslog(syslog.LOG_DEBUG, "%s emit %s(%s) id=%s" % (self.__class__.__name__, rpc_def.method, ','.join([str(arg) for arg in args]), rpc_id))
+        log_debug("%s emit %s(%s) id=%s" % (self.__class__.__name__, rpc_def.method, ','.join([str(arg) for arg in args]), rpc_id))
         async_rpc = self.async_rpc_cache[rpc_id]
         func = getattr(self.database, rpc_def.method, None)
         if func is None:
@@ -508,7 +508,7 @@ class SETroubleshootDatabaseLocal(RpcManage,
 
 
     def signatures_updated(self, type, item):
-        syslog.syslog(syslog.LOG_DEBUG, 'signatures_updated() database local: type=%s item=%s' % (type, item))
+        log_debug('signatures_updated() database local: type=%s item=%s' % (type, item))
         self.emit('signatures_updated', type, item)
 
 gobject.type_register(SETroubleshootDatabaseLocal)
@@ -525,7 +525,7 @@ class LogfileAnalyzer(gobject.GObject):
 
     def __init__(self, logfile_path=None):
         gobject.GObject.__init__(self)
-        syslog.syslog(syslog.LOG_DEBUG, "%s.__init__(%s)" % (self.__class__.__name__, logfile_path))
+        log_debug("%s.__init__(%s)" % (self.__class__.__name__, logfile_path))
 
         self.logfile_path = logfile_path
 
@@ -546,7 +546,7 @@ class LogfileAnalyzer(gobject.GObject):
     def open(self, logfile_path=None):
         if logfile_path is not None:
             self.logfile_path = logfile_path
-        syslog.syslog(syslog.LOG_DEBUG, '%s.open(%s)' % (self.__class__.__name__, self.logfile_path))
+        log_debug('%s.open(%s)' % (self.__class__.__name__, self.logfile_path))
         try:
             stat_info = os.stat(self.logfile_path)
             self.file_size = stat_info[ST_SIZE]
@@ -580,7 +580,7 @@ class LogfileAnalyzer(gobject.GObject):
         return True
 
     def run(self):
-        syslog.syslog(syslog.LOG_DEBUG, '%s.run(%s)' % (self.__class__.__name__, self.file))
+        log_debug('%s.run(%s)' % (self.__class__.__name__, self.file))
         self.idle_proc_id = gobject.idle_add(self.task().next)
         return True
 
@@ -595,7 +595,7 @@ class LogfileAnalyzer(gobject.GObject):
             import errno as Errno
             strerror = "failed to read complete file, %d bytes read out of total %d bytes (%s)" % \
                        (self.n_bytes_read, self.file_size, self.logfile_path)
-            syslog.syslog(syslog.LOG_DEBUG, strerror)
+            log_debug(strerror)
             self.errno = Errno.EIO
             self.strerror = strerror
 
@@ -613,7 +613,7 @@ class LogfileAnalyzer(gobject.GObject):
             try:
                 new_data = os.read(self.fileno, self.read_size)
                 if new_data == '':
-                    syslog.syslog(syslog.LOG_DEBUG, "EOF on %s" % self.logfile_path)
+                    log_debug("EOF on %s" % self.logfile_path)
                     self.close()
             except EnvironmentError as e:
                 self.errno = e.errno
@@ -639,7 +639,7 @@ class LogfileAnalyzer(gobject.GObject):
         yield False
 
     def avc_event_handler(self, audit_event):
-        syslog.syslog(syslog.LOG_DEBUG, 'avc_event_handler() audit_event=%s' % audit_event)
+        log_debug('avc_event_handler() audit_event=%s' % audit_event)
         if audit_event.is_avc() and not audit_event.is_granted() and audit_event.num_records() > 0:
             avc = AVC(audit_event)
 
@@ -648,7 +648,7 @@ class LogfileAnalyzer(gobject.GObject):
 
     def new_audit_record_handler(self, record_type, event_id, body_text, fields, line_number):
         'called to enter a new audit record'
-        syslog.syslog(syslog.LOG_DEBUG, 'new_audit_record_handler() record_type=%s event_id=%s body_text=%s' % (record_type, event_id, body_text))
+        log_debug('new_audit_record_handler() record_type=%s event_id=%s body_text=%s' % (record_type, event_id, body_text))
 
         self.record_count += 1
 
