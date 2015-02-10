@@ -794,7 +794,6 @@ class AVC:
         if path:
             path = path.strip('"')
         inodestr = self.avc_record.get_field("ino")
-
         if path is None:
             avc_path_record = self.audit_event.get_record_of_type('PATH')
             if avc_path_record:
@@ -893,7 +892,9 @@ class AVC:
                 if match:
                     path = self.tclass
 
-        self.tpath = self.decodehex(path)                    
+        self.tpath = self.decodehex(path)
+        if self.tpath == '':
+            self.tpath = path
 
         if self.tpath is None:
             if self.tclass == "filesystem":
