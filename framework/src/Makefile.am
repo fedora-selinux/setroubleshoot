@@ -51,7 +51,6 @@ PYTHON_FILES =				\
 	setroubleshoot/audit_data.py \
 	setroubleshoot/avc_audit.py \
 	setroubleshoot/browser.py \
-	setroubleshoot/browser.pyc \
 	setroubleshoot/email_alert.py \
 	setroubleshoot/errcode.py \
 	setroubleshoot/gui_utils.py \
