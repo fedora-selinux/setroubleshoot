@@ -27,7 +27,8 @@ domain = get_config('general', 'i18n_text_domain')
 gettext.install(domain    = domain,
                 unicode = True,
                 localedir = get_config('general', 'i18n_locale_dir'))
-
+translation=gettext.translation(domain, fallback=True)
+_=translation.ugettext
 import sys, os
 from xml.dom import minidom
 from xmlrpclib  import ProtocolError
