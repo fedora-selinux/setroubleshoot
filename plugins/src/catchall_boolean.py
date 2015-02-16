@@ -75,7 +75,7 @@ class plugin(Plugin):
         return text
         
     def analyze(self, avc):
-        man_page = self.check_for_man(avc.tcontext.type)
+        man_page = self.check_for_man(avc.scontext.type)
         if  len(avc.bools) > 0:            
             reports = []
             fix = self.fix_description
