@@ -1,9 +1,6 @@
 @INTLTOOL_DESKTOP_RULE@
 SUBDIRS = po src gui doc test
 
-HG = hg
-HG_REPOSITORY = ssh://hg.fedoraproject.org//hg/hosted/setroubleshoot
-
 desktopdir = $(datadir)/applications
 desktop_in_files = setroubleshoot.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
