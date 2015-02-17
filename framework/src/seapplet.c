@@ -33,6 +33,7 @@
 #include <errno.h>
 #include <gtk/gtk.h>
 #include <libnotify/notify.h>
+#include <selinux/selinux.h>
 
 #include <dbus/dbus-glib-lowlevel.h>
 #include "sedbus.h"
