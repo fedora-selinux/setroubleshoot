@@ -1,6 +1,7 @@
 ICON_FILES = \
 	scalable/setroubleshoot_red_icon.svg \
 	scalable/setroubleshoot_icon.svg \
+	scalable/setroubleshoot_icon-symbolic.svg \
 	48x48/setroubleshoot_red_icon.png \
 	48x48/setroubleshoot_icon.png \
 	32x32/setroubleshoot_red_icon.png \
