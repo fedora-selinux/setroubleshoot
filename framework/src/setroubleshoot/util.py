@@ -263,25 +263,25 @@ def get_rpm_nvr_by_name_temporary(name):
 
     nvr = None
     try:
-        import commands
-        rc, output = commands.getstatusoutput("rpm -q %s" % name)
-        if rc == 0:
-            nvr = output
+        import  subprocess
+        nvr = subprocess.check_output(["rpm", "-q", name]).rstrip()
     except:
         syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
     return nvr
 
 
 def get_rpm_nvr_by_file_path_temporary(name):
-    if name is None or not os.path.exists(name):
+    if name is None:
+        return None
+
+    name = os.path.abspath(name)
+    if not os.path.exists(name):
         return None
 
     nvr = None
     try:
-        import commands
-        rc, output = commands.getstatusoutput("rpm -qf '%s'" % name)
-        if rc == 0:
-            nvr = output
+        import subprocess
+        nvr = subprocess.check_output(["rpm", "-qf", name]).rstrip()
     except:
         syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
     return nvr
