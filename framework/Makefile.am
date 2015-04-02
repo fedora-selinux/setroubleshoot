@@ -5,6 +5,9 @@ desktopdir = $(datadir)/applications
 desktop_in_files = setroubleshoot.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 
+appdatadir = $(datadir)/appdata
+appdata_DATA = setroubleshoot.appdata.xml
+
 dbus_sessiondir = $(datadir)/dbus-1/services
 dbus_session_DATA = sealert.service
 
