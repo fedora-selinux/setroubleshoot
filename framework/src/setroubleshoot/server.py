@@ -548,7 +548,7 @@ def RunFaultServer(timeout=10):
         
         database_filename = get_config('database','filename')
         database_filepath = make_database_filepath(database_filename)
-        assure_file_ownership_permissions(database_filepath, 0600, 'root', 'root')
+        assure_file_ownership_permissions(database_filepath, 0600, 'setroubleshoot')
         host_database = SETroubleshootDatabase(database_filepath, database_filename,
                                                friendly_name=_("Audit Listener"))
         host_database.set_notify(client_notifier)
@@ -607,7 +607,7 @@ def RunFaultServer(timeout=10):
         # Initialize the email recipient list
         from setroubleshoot.signature import SEEmailRecipientSet
         email_recipients = SEEmailRecipientSet()
-        assure_file_ownership_permissions(email_recipients_filepath, 0600, 'root', 'root')
+        assure_file_ownership_permissions(email_recipients_filepath, 0600, 'setroubleshoot')
         try:
             email_recipients.parse_recipient_file(email_recipients_filepath)
         except ProgramError, e:

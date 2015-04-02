@@ -375,7 +375,7 @@ def assure_file_ownership_permissions(filepath, mode, owner, group=None):
             f.close()
         except Exception, e:
             result = False
-            syslog.syslog(syslog.LOG_ERR, "cannot create file %s [%s]" % filepath, e.strerror)
+            syslog.syslog(syslog.LOG_ERR, "cannot create file %s [%s]" % (filepath, e.strerror))
     
     try:
         os.chmod(filepath, mode)
