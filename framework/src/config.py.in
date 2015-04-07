@@ -93,7 +93,7 @@ defaults = {
         'readOnly'    : True,
     },
     'use_auparse' : {
-        'value'       : False,
+        'value'       : 'False',
         'description' : '',
         'readOnly'    : False,
     },
@@ -119,7 +119,7 @@ defaults = {
         'description' : 'unix domain socket used to listen for audit messages (textural audit protocol)',
     },
     'retry_interval' : {
-        'value'       : 60,
+        'value'       : '60',
         'description' : 'number of seconds to wait before trying to connect to audit socket again in the event of socket failure',
     },
 },
@@ -182,7 +182,7 @@ for a specific alert, this parameter does not override that.''',
         'description' : '',
     },
     'max_alerts' : {
-        'value'       : 50,
+        'value'       : '50',
         'description' : '''
 Keep no more than this many alerts in the database. Oldest alerts based on
 the alert's last seen date will be purged first. Zero implies no limit''',
