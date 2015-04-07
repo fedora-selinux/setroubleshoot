@@ -78,7 +78,7 @@ class plugin(Plugin):
         if avc.spath is None: return None
         if avc.spath[0] != '/': return None
         try:
-            mcon = selinux.matchpathcon(avc.spath.strip('"'), S_IFREG)
+            mcon = selinux.matchpathcon(avc.spath.strip('"'), S_IFREG)[1]
             mcon_type=mcon.split(":")[2]
             if mcon_type != avc.scontext.type:
                 return self.report((0, mcon_type))
