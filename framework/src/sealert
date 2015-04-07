@@ -607,10 +607,7 @@ if __name__ == '__main__':
         if options.analyze:
             validate_invocation_style("analyze", options, conflict_opts)
             use_terminal = True
-            if options.analyze != "False":
-                logfile = options.analyze 
-            else:
-                logfile = "/dev/stdin"
+            logfile = options.analyze
 
         if options.plugin:
             plugin_name = options.plugin
