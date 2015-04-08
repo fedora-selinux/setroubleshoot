@@ -17,6 +17,8 @@
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
 
+from __future__ import print_function
+
 __all__ = ['AnalyzeThread',
            'Analyze',
            'PluginReportReceiver',
@@ -33,7 +35,6 @@ import time
 import threading
 from stat import *
 import sys
-from __future__ import print_function
 
 from setroubleshoot.config import get_config
 from setroubleshoot.avc_audit import *
