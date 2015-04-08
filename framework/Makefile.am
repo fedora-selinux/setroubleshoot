@@ -38,6 +38,7 @@ EXTRA_DIST = 				\
 	$(dbus_systemservice_DATA)	\
 	$(dbus_system_DATA)		\
 	$(polkit_system_DATA)		\
+	$(appdata_DATA)			\
 	$(NULL)
 
 pkgdoc_DATA =		\
