@@ -32,6 +32,8 @@ import os
 import time
 import threading
 from stat import *
+import sys
+from __future__ import print_function
 
 from setroubleshoot.config import get_config
 from setroubleshoot.avc_audit import *
@@ -191,7 +193,7 @@ class Analyze(object):
                         siginfo.plugin_list.append(report)
 
             except Exception as e:
-                print(e)
+                print(e, file=sys.stderr)
                 syslog.syslog(syslog.LOG_ERR, "Plugin Exception %s " % plugin.analysis_id)
                 self.plugins.remove(plugin)
 
@@ -622,7 +624,7 @@ class LogfileAnalyzer(gobject.GObject):
                 self.emit('state-changed', 'stopped')
                 yield False
             except ValueError as e:
-                print("\n", e)
+                print("\n", e, file=sys.stderr)
 
             self.n_bytes_read += len(new_data)
             if self.file_size > 0:
@@ -657,7 +659,7 @@ class LogfileAnalyzer(gobject.GObject):
             try:
                 self.avc_event_handler(audit_event)
             except ValueError as e:
-                print(e)
+                print(e, file=sys.stderr)
 
 
 gobject.type_register(LogfileAnalyzer)
