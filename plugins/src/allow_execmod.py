@@ -91,10 +91,16 @@ setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, 
         self.set_priority(10)
 
     def analyze(self, avc):
-        import commands
+        import subprocess
         if avc.has_any_access_in(['execmod']):
             # MATCH
-            if (commands.getstatusoutput("eu-readelf -d %s | fgrep -q TEXTREL" % avc.tpath)[0] == 1):
+            # from https://docs.python.org/2.7/library/subprocess.html#replacing-shell-pipeline
+            p1 = subprocess.Popen(['eu-readelf', '-d', avc.tpath], stdout=subprocess.PIPE)
+            p2 = subprocess.Popen(["fgrep", "-q", "TEXTREL"], stdin=p1.stdout, stdout=subprocess.PIPE)
+            p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
+            p1.wait()
+            p2.wait()
+            if p2.returncode == 1:
                 return self.report(("unsafe"))
 
             mcon = selinux.matchpathcon(avc.tpath.strip('"'), S_IFREG)[1]
