@@ -460,6 +460,9 @@ class SEFaultSignatureInfo(XmlSerialize):
     def substitute(self, txt):
         return Template(txt).safe_substitute(self.template_substitutions)
 
+    def substitute_array(self, args):
+        return [self.substitute(txt) for txt in args]
+
     def format_details(self, replace=False):
         env = self.environment
 
