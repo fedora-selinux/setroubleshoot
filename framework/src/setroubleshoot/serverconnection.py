@@ -90,7 +90,7 @@ class ServerConnectionHandler(RpcChannel,
             self.connection_retry.stop()
             self.report_connect_failure = True
             self.do_logon()
-        except Socket.error, e:
+        except Socket.error as e:
             errno, strerror = get_error_from_socket_exception(e)
             if self.report_connect_failure == True:
                 syslog.syslog(syslog.LOG_ERR, "attempt to open server connection failed: %s" % strerror)

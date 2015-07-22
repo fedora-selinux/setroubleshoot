@@ -49,6 +49,8 @@ import report.accountmanager
 
 import gio
 
+cmp = lambda x, y: (x > y) - (x < y)
+
 GLADE_DIRECTORY = "/usr/share/setroubleshoot/gui/"
 OLD_PATH = os.environ['HOME'] + "/.setroubleshoot"
 PREF_PATH = glib.get_user_config_dir() + "/sealert.conf"
@@ -160,7 +162,7 @@ class BrowserApplet:
         self.read_config()
         builder = gtk.Builder()
 #        builder.set_translation_domain("setroubleshoot")
-        builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade") 
+        builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade")
         self.plugins = load_plugins()
 
         self.alert_list = []
@@ -216,13 +218,13 @@ class BrowserApplet:
         self.troubleshoot_list_button = builder.get_object("troubleshoot_list_button")
         self.troubleshoot_list_button.set_label(_("Troubleshoot"))
         self.grant_button = builder.get_object("grant_button")
-        self.alert_list_window = builder.get_object("alert_list_window") 
+        self.alert_list_window = builder.get_object("alert_list_window")
         self.alert_list_window.connect("delete-event", self.close_alert_window)
         self.alert_list_window.set_title(_("SETroubleshoot Alert List"))
         self.list_all_button = builder.get_object("list_all_button")
         self.list_all_button.set_label(_("List All Alerts"))
-        self.treeview_window = builder.get_object("treeview_window") 
-        self.treeview = builder.get_object("treeview") 
+        self.treeview_window = builder.get_object("treeview_window")
+        self.treeview = builder.get_object("treeview")
         self.treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
         self.treeview.get_selection().connect("changed", self.itemSelected)
         self.solutions_pane = builder.get_object("solutions_pane")
@@ -231,7 +233,7 @@ class BrowserApplet:
         self.solutions_vbox = builder.get_object("solutions_vbox")
         self.bug_report_window = None
 
-        builder.connect_signals(self)       
+        builder.connect_signals(self)
         self.username = username
         self.database = server
         self.server = server
@@ -240,7 +242,7 @@ class BrowserApplet:
         self.alert_list_window.hide()
         self.empty_load()
         self.load_data()
-        self.liststore = gtk.ListStore(int, str, str, str, int, str) 
+        self.liststore = gtk.ListStore(int, str, str, str, int, str)
         self.make_treeview()
         self.troubleshoot_visible=False
         self.current_alert = -1
@@ -252,11 +254,11 @@ class BrowserApplet:
             return alert
         except:
             return None
-        
+
     def itemSelected(self, widget):
            self.troubleshoot_list_button.set_sensitive(widget.count_selected_rows() == 1)
            self.delete_list_button.set_sensitive(widget.count_selected_rows() > 0)
-           
+
     def install_button_clicked(self, widget):
         if not os.access(UPDATE_PROGRAM, os.X_OK):
             return
@@ -266,7 +268,7 @@ class BrowserApplet:
 
     def make_treeview(self):
         tmsort = gtk.TreeModelSort(self.liststore)
-       
+
         cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occurred"), _("Status")]
         self.treeview.set_model(tmsort)
         x = 0
@@ -279,10 +281,10 @@ class BrowserApplet:
             col.set_sort_column_id(x)
             col.set_resizable(True)
             self.treeview.append_column(col)
-            x +=1 
+            x +=1
         self.treeview.set_headers_clickable(True)
         self.treeview.connect("row-activated", self.row_activated)
-    
+
     def row_activated(self, x, y, z):
         self.on_troubleshoot_list_button_clicked(None)
 
@@ -341,12 +343,12 @@ class BrowserApplet:
 
     def set_ignore_sig(self, sig, state):
         if state == True:
-	    self.ignore_button.set_label(_("Notify"))
-	    self.ignore_button.set_tooltip_text(_("Notify alert in the future."))
+            self.ignore_button.set_label(_("Notify"))
+            self.ignore_button.set_tooltip_text(_("Notify alert in the future."))
             self.server.set_filter(sig, self.username, FILTER_ALWAYS, '')
         else:
-	    self.ignore_button.set_label(_("Ignore"))
-	    self.ignore_button.set_tooltip_text(_("Ignore alert in the future."))
+            self.ignore_button.set_label(_("Ignore"))
+            self.ignore_button.set_tooltip_text(_("Ignore alert in the future."))
             self.server.set_filter(sig, self.username, FILTER_NEVER, '')
 
     def on_ignore_button_clicked(self, widget):
@@ -370,7 +372,7 @@ class BrowserApplet:
 
         self.show_current_alert()
 
-    # TODO        
+    # TODO
     def database_error(self, method, errno, strerror):
         pass
 
@@ -446,7 +448,7 @@ class BrowserApplet:
 
         self.toggles.append(sev_toggle)
         sev_toggle.show()
-        
+
         if_label = gtk.Label()
         if_label.set_text(self.wrap(if_text))
         if_label.set_justify(gtk.JUSTIFY_LEFT)
@@ -491,7 +493,7 @@ class BrowserApplet:
 
         col += 1
         self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
-#, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, 
+#, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL,
 
         self.table.resize(rows + 1, cols + 1)
         col += 1
@@ -559,7 +561,7 @@ class BrowserApplet:
            return True
 
     def read_config(self):
-        filename = PREF_PATH 
+        filename = PREF_PATH
         self.checkonlogin=1
         if not os.path.exists(filename):
             if os.path.exists(OLD_PATH):
@@ -582,7 +584,7 @@ class BrowserApplet:
         return
 
     def quit(self, widget):
-        filename = PREF_PATH 
+        filename = PREF_PATH
         try:
             fd = open(filename, "w")
         except IOError:
@@ -590,14 +592,14 @@ class BrowserApplet:
             return
 
         if len(self.alert_list) > 0:
-            fd.write("last=" + self.alert_list[-1].local_id)    
+            fd.write("last=" + self.alert_list[-1].local_id)
         else:
-            fd.write("last=")    
+            fd.write("last=")
 
         fd.write("\n");
         fd.write("checkonlogin=%d\n" % self.checkonlogin)
         fd.close()
-        gtk.main_quit() 
+        gtk.main_quit()
 
     def fix_bug(self, widget, local_id, analysis_id):
         # Grant access here
@@ -606,8 +608,8 @@ class BrowserApplet:
             dbus_proxy = DBusProxy()
             resp = dbus_proxy.run_fix(local_id, analysis_id)
             MessageDialog(resp)
-        except dbus.DBusException, e:
-            print e
+        except dbus.DBusException as e:
+            print(e)
             FailDialog(_("Unable to grant access."))
 
     def report_bug(self, widget, alert):
@@ -631,7 +633,7 @@ class BrowserApplet:
             self.show_current_alert()
             self.update_list_all()
 
-        if type == "add" or type == "modify": 
+        if type == "add" or type == "modify":
             async_rpc = self.database.query_alerts(item)
             async_rpc.add_callback(new_siginfo_callback)
 
@@ -648,7 +650,7 @@ class BrowserApplet:
            selected = []
            self.treeview.get_selection().selected_foreach(self.foreach, selected)
            if len(selected) == 0:
-               return 
+               return
 
            alert = self.get_current_alert()
            selected.sort(reverse=True)
@@ -667,7 +669,7 @@ class BrowserApplet:
            selected = []
            self.treeview.get_selection().selected_foreach(self.foreach, selected)
            if len(selected) != 1:
-                  return 
+                  return
 
            self.current_alert = selected[0] - 1
            self.alert_list_window.hide()
@@ -681,14 +683,14 @@ class BrowserApplet:
             message += alert.format_details()
             self.details_textview.get_buffer().set_text(message)
             self.details_window.show_all()
-        
+
     def on_delete_button_clicked(self, widget):
         alert = self.get_current_alert()
         if alert:
             self.database.delete_signature(alert.sig)
             self.delete_current_alert()
             self.show_current_alert()
-                        
+
     def delete_current_alert(self):
         try:
             del self.alert_list[self.current_alert]
@@ -713,12 +715,12 @@ class BrowserApplet:
             pass
 
         self.alert_list.append(new_alert)
-               
+
     def show_current_alert(self):
         self.clear_rows()
         size = len(self.alert_list)
         self.update_button_visibility()
-        
+
         if size  == 0:
             return
 
@@ -778,15 +780,15 @@ class BrowserApplet:
         if len(plugins) == 1:
                rb.set_active(True)
                self.on_sev_togglebutton_activated(rb, 1)
-               
+
         self.show_date(alert)
 
         self.alert_count_label.set_label(_("Alert %d of %d") % (self.current_alert + 1, len(self.alert_list)))
         if alert.evaluate_filter_for_user(self.username) == "ignore":
-		self.ignore_button.set_label(_("Notify"))
-	else:
-		self.ignore_button.set_label(_("Ignore"))
-        
+            self.ignore_button.set_label(_("Notify"))
+        else:
+            self.ignore_button.set_label(_("Ignore"))
+
     def on_close_button_clicked(self, widget):
         gtk.main_quit()
 
@@ -798,7 +800,7 @@ class BrowserApplet:
         self.about_dialog.show()
 
     def on_previous_button_clicked(self, widget):
-        if self.current_alert > 0:             
+        if self.current_alert > 0:
             self.current_alert -= 1
             self.show_current_alert()
 
@@ -806,7 +808,7 @@ class BrowserApplet:
         if self.current_alert < len(self.alert_list)-1:
             self.current_alert += 1
             self.show_current_alert()
-                
+
     def update_list_all(self):
         self.liststore.clear()
         ctr = 1
@@ -818,24 +820,24 @@ class BrowserApplet:
 
             tpath = alert.tpath
             if not tpath:
-                   tpath = _("N/A")
+                tpath = _("N/A")
             elif tpath == _("Unknown"):
-                   tpath = alert.tclass
+                tpath = alert.tclass
             elif len(tpath) > 1:
-                   tpath = os.path.basename(tpath.rstrip("/"))
+                tpath = os.path.basename(tpath.rstrip("/"))
 
-	    if alert.evaluate_filter_for_user(self.username) == "ignore":
-		   status = _("Ignore")
+            if alert.evaluate_filter_for_user(self.username) == "ignore":
+                status = _("Ignore")
             else:
-		   status = _("Notify")
+                status = _("Notify")
 
-	    self.liststore.append([ctr, spath, ",".join(alert.sig.access), tpath, alert.report_count, status])
+            self.liststore.append([ctr, spath, ",".join(alert.sig.access), tpath, alert.report_count, status])
             ctr = ctr + 1
 
     def on_list_all_button_clicked(self, widget):
         self.update_list_all()
         self.alert_list_window.show_all()
-        
+
     def update_button_visibility(self):
         size = len(self.alert_list)
 
@@ -882,7 +884,7 @@ class BrowserApplet:
         if size > 1:
             self.next_button.set_sensitive(True)
             self.previous_button.set_sensitive(True)
-        
+
         self.next_button.set_sensitive(self.current_alert < (size - 1))
         self.previous_button.set_sensitive(self.current_alert != 0)
 
@@ -904,7 +906,7 @@ class DBusProxy (object):
 # BugReport is the window that pops up when you press the Report Bug button
 class BugReport:
     def __init__(self, parent, alert):
-        
+
         self.parent = parent
         self.gladefile = GLADE_DIRECTORY + "bug_report.glade"
         self.widget_tree = gtk.glade.XML(self.gladefile, domain=parent.domain)
@@ -913,7 +915,7 @@ class BugReport:
         self.alert.host = "(removed)"
         self.alert.environment.hostname = "(removed)"
         self.alert.sig.host = "(removed)"
-        
+
         hash = self.alert.get_hash()
         self.summary = self.alert.untranslated(self.alert.summary)
         # Get the widgets we need
@@ -926,10 +928,10 @@ class BugReport:
         # Construct and connect the dictionary
         dic = { "on_cancel_button_clicked" : self.cancel_button_clicked,
                 "on_submit_button_clicked" : self.submit_button_clicked}
-                
+
         self.main_window.connect("destroy", self.destroy)
         self.widget_tree.signal_autoconnect(dic)
-        
+
         text_buf = gtk.TextBuffer()
         text = self.alert.untranslated(self.alert.format_text, replace = True)
         text += self.alert.untranslated(self.alert.format_details, replace = True)
@@ -943,13 +945,13 @@ class BugReport:
 
     def cancel_button_clicked(self, widget):
         self.destroy(self.main_window)
-    
+
     def idle_func(self):
         while gtk.events_pending():
             gtk.main_iteration()
-    
+
     def submit_button_clicked(self, widget):
-        main_window = self.main_window.get_root_window() 
+        main_window = self.main_window.get_root_window()
         busy_cursor = gtk.gdk.Cursor(gtk.gdk.WATCH)
         ready_cursor = gtk.gdk.Cursor(gtk.gdk.LEFT_PTR)
         main_window.set_cursor(busy_cursor)
@@ -963,16 +965,16 @@ class BugReport:
     def submit(self):
         text_buf = self.error_submit_text.get_buffer()
         content = text_buf.get_text(text_buf.get_start_iter(), text_buf.get_end_iter())
-        signature = report.createAlertSignature("selinux-policy", 
-                                                "setroubleshoot", 
-                                                self.alert.get_hash(), 
-                                                self.summary, 
+        signature = report.createAlertSignature("selinux-policy",
+                                                "setroubleshoot",
+                                                self.alert.get_hash(),
+                                                self.summary,
                                                 content,
                                                 package=self.alert.get_policy_rpm())
- 
+
         try:
             rc = report.report(signature, report.io.GTKIO.GTKIO(self.parent.accounts))
-        except ProtocolError, e:
+        except ProtocolError as e:
             FailDialog(e)
         self.destroy(self.main_window)
 

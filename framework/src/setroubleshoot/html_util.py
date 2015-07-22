@@ -27,7 +27,9 @@ __all__ = [
 ]
 
 import syslog
-import htmllib
+import html
+import html.parser
+import html.entities
 import formatter as Formatter
 import string
 from types import *
@@ -80,7 +82,7 @@ class TextWriter(Formatter.DumbWriter):
             atbreak = 1
         self.col = col
         self.atbreak = data[-1] in string.whitespace
-            
+
 class HTMLParserAnchor(htmllib.HTMLParser):
 
     def __init__(self, formatter, verbose=0):
@@ -131,7 +133,7 @@ def html_to_text(html, maxcol=80):
         text = buffer.getvalue()
         buffer.close()
         return text
-    except Exception, e:
+    except Exception as e:
         syslog.syslog(syslog.LOG_ERR, 'cannot convert html to text: %s' % e)
         return None
 

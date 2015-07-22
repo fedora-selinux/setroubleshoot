@@ -266,7 +266,7 @@ class XmlSerialize(object):
                 doc = libxml2.parseDoc(buf.strip())
                 root_node = doc.getRootElement()
                 self.init_from_xml_node(doc, obj_name)
-            except libxml2.parserError, e:
+            except libxml2.parserError as e:
                 syslog.syslog(syslog.LOG_ERR, "read_xml() libxml2.parserError: %s" % e)
                 return
         finally:
@@ -281,10 +281,10 @@ class XmlSerialize(object):
                 if validate_doc:
                     if not validate_doc(doc): return False
                 self.init_from_xml_node(doc, obj_name)
-            except libxml2.parserError, e:
+            except libxml2.parserError as e:
                 syslog.syslog(syslog.LOG_ERR, "read_xml_file() libxml2.parserError: %s" % e)
                 return False
-            except Exception, e:
+            except Exception as e:
                 syslog.syslog(syslog.LOG_ERR, "read_xml_file() error: %s" % e)
                 return False
         finally:
@@ -308,7 +308,7 @@ class XmlSerialize(object):
             f.write(self.get_xml_text_doc(obj_name))
             if need_to_close:
                 f.close()
-        except Exception, e:
+        except Exception as e:
             syslog.syslog(syslog.LOG_ERR, "could not write %s: %s" % (f, e))
 
     def get_xml_nodes(self, doc, obj_name=None):
@@ -360,7 +360,7 @@ class XmlSerialize(object):
                         root.addChild(element_node)
                         child = typecast(doc, value)
                         element_node.addChild(child)
-            except Exception, e:
+            except Exception as e:
                 syslog.syslog(syslog.LOG_ERR, "%s.%s value=%s" % (self.__class__.__name__, name, value))
 
         return root

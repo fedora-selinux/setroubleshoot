@@ -19,14 +19,14 @@
 
 __all__ = ['derive_record_format',
            'parse_audit_record_text',
-           
+
            'AvcContext',
            'AVC',
            'AuditEventID',
            'AuditEvent',
            'AuditRecord',
            'AuditRecordReader',
-           
+
            ]
 
 import audit
@@ -44,6 +44,8 @@ from setroubleshoot.xml_serialize import *
 from sepolicy import *
 
 O_ACCMODE = 0o0000003
+
+cmp = lambda x, y: (x > y) - (x < y)
 
 #-----------------------------------------------------------------------------
 
@@ -160,7 +162,7 @@ class AvcContext(XmlSerialize):
                     self.mls = ':'.join(fields[3:])
                 else:
                     self.mls = 's0'
-        
+
     def __str__(self):
         return '%s:%s:%s:%s' % (self.user, self.role, self.type, self.mls)
 
@@ -177,7 +179,7 @@ class AvcContext(XmlSerialize):
             if getattr(self, name) != getattr(other, name):
                 return False
         return True
-        
+
 
 #-----------------------------------------------------------------------------
 
@@ -204,22 +206,16 @@ class AuditEventID(XmlSerialize):
         if self.serial  != other.serial:        return False
         return True
 
-    def __cmp__(self, other):
+    def __lt__(self, other):
         if self.host != other.host:
             raise ValueError("cannot compare two %s objects whose host values differ (%s!=%s)" \
                              % (self.__class__.__name__, self.host, other.host))
 
-        result = cmp(self.seconds, other.seconds)
-        if result != 0: return result
+        if self.seconds != other.seconds: return self.seconds < other.seconds
+        if self.milli != other.milli: return self.milli < other.milli
 
-        result = cmp(self.milli, other.milli)
-        if result != 0: return result
+        return self.serial < other.serial
 
-        result = cmp(self.serial, other.serial)
-        if result != 0: return result
-
-        return 0
-    
     def copy(self):
         import copy
         return copy.copy(self)
@@ -234,7 +230,7 @@ class AuditEventID(XmlSerialize):
         if self.milli   is None: return False
         if self.serial  is None: return False
         return True
-    
+
 #-----------------------------------------------------------------------------
 
 class AuditRecord(XmlSerialize):
@@ -261,7 +257,7 @@ class AuditRecord(XmlSerialize):
         self.fields = fields
         self.line_number = line_number
         self._init_postprocess()
-        
+
     def _init_postprocess(self):
         if getattr(self, 'fields', None) is None:
             self.set_fields_from_text(self.body_text)
@@ -291,25 +287,25 @@ class AuditRecord(XmlSerialize):
         return True
 
     def decode_fields(self):
-	encoded_fields = ['acct', 'cmd', 'comm', 'cwd', 'data', 'dir', 'exe',
-			  'file', 'host', 'key', 'msg', 'name', 'new', 'ocomm'
-			  'old', 'path', 'watch']
+        encoded_fields = ['acct', 'cmd', 'comm', 'cwd', 'data', 'dir', 'exe',
+                'file', 'host', 'key', 'msg', 'name', 'new', 'ocomm'
+                'old', 'path', 'watch']
 
-	for field in encoded_fields:
-	    if field in self.fields:
-		if self.record_type == 'AVC' and field == 'saddr': continue
-		value = self.fields[field]
-		decoded_value = audit_msg_decode(value)
-		self.fields[field] = decoded_value
+        for field in encoded_fields:
+            if field in self.fields:
+                if self.record_type == 'AVC' and field == 'saddr': continue
+                value = self.fields[field]
+                decoded_value = audit_msg_decode(value)
+                self.fields[field] = decoded_value
 
-	if self.record_type == 'EXECVE':
-	    for field, value in list(self.fields.items()):
-		if self.exec_arg_re.search(field):
-		    value = self.fields[field]
-		    decoded_value = audit_msg_decode(value)
-		    self.fields[field] = decoded_value
-		    
-		
+        if self.record_type == 'EXECVE':
+            for field, value in list(self.fields.items()):
+                if self.exec_arg_re.search(field):
+                    value = self.fields[field]
+                    decoded_value = audit_msg_decode(value)
+                    self.fields[field] = decoded_value
+
+
     def translate_path(self, path):
         try:
             t = path.decode("hex")
@@ -330,7 +326,7 @@ class AuditRecord(XmlSerialize):
     def set_fields_from_text(self, body_text):
         self.fields_ord = []
         self.fields = {}
-        
+
         for match in AuditRecord.key_value_pair_re.finditer(body_text):
             key   = match.group(1)
             value = match.group(2)
@@ -399,7 +395,7 @@ class AuditRecordReader:
         self.record_format = record_format
         self._input_buffer = ''
         self.line_number = 0
-        
+
         if self.record_format == self.TEXT_FORMAT:
             self.feed = self.feed_text
         elif self.record_format == self.BINARY_FORMAT:
@@ -483,7 +479,7 @@ class AuditEvent(XmlSerialize):
     def _init_postprocess(self):
         if getattr(self, 'record_types', None) is None:
             self.record_types = {}
-            
+
         for record in self.records:
             self.process_record(record)
 
@@ -649,7 +645,7 @@ class AVC:
 
     # Below are helper functions to get values that might be
     # stored in one or more fields in an AVC.
-    
+
     def has_any_access_in(self, access_list):
         'Returns true if the AVC contains _any_ of the permissions in the access list.'
 
@@ -657,7 +653,7 @@ class AVC:
         for a in self.access:
             if a in access_list:
                 return True
-                
+
         return False
 
     def all_accesses_are_in(self, access_list):
@@ -668,9 +664,9 @@ class AVC:
         for a in self.access:
             if a not in access_list:
                 return False
-                
+
         return True
-    
+
     def allowed_target_types(self):
         all_types = get_all_file_types() + get_all_port_types()
         all_types.sort()
@@ -682,7 +678,7 @@ class AVC:
         for t in types:
             if t in all_attributes:
                 wtypes.extend(info(ATTRIBUTE, t)[0]["types"])
-                
+
         for t in wtypes:
             if t in all_types:
                 if t not in allowed_types:
@@ -798,12 +794,12 @@ class AVC:
             avc_path_record = self.audit_event.get_record_of_type('PATH')
             if avc_path_record:
                 path = avc_path_record.get_field('name')
-            
+
         if path is None:
             # No path field, so try and use the name field instead
             name = self.avc_record.get_field('name')
             if name is not None:
-                # Use the class to be smart about formatting the name 
+                # Use the class to be smart about formatting the name
                 tclass = self.avc_record.get_field('tclass')
                 if tclass   == 'file':
                     # file name is not a full path so make it appear relative
@@ -838,7 +834,7 @@ class AVC:
                                 if (dev_rdev == 0 or os.stat(x[0]).st_rdev == dev_rdev) and int(os.lstat(x[1]).st_ino) == ino:
                                     matches.append(x[:3])
                             except OSError:
-                                continue 
+                                continue
                     fd.close()
                     if len(matches) == 1:
                         path = matches[0][1]
@@ -864,9 +860,9 @@ class AVC:
             else:
                 if path.startswith("/") == False and inodestr:
                     import subprocess
-                    command = "locate -b '\%s'" % path 
+                    command = "locate -b '\%s'" % path
                     try:
-                        output = subprocess.check_output(command, 
+                        output = subprocess.check_output(command,
                                                          stderr=subprocess.STDOUT,
                                                          shell=True)
                         ino = int(inodestr)
@@ -903,7 +899,7 @@ class AVC:
                 self.tpath = _("port %s") % self.port
             else:
                 self.tpath = _("Unknown")
-         
+
     def derive_avc_info_from_audit_event(self):
         self.tpath = None
         self.spath = None
@@ -1016,7 +1012,7 @@ class AVC:
                 self.source_pkg = get_rpm_nvr_by_file_path(self.spath)
                 if self.source_pkg:
                     self.src_rpms.append(self.source_pkg)
-        
+
             if self.tpath:
                 rpm = get_rpm_nvr_by_file_path(self.tpath)
                 if rpm:

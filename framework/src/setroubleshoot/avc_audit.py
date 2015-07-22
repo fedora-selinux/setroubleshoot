@@ -20,8 +20,11 @@
 __all__ = [
     'AuditSocketReceiverThread',
     'AuditRecordReceiver',              # FIXME, do we really want to export this?
-    'verify_avc', 
+    'verify_avc',
     ]
+
+from builtins import str
+from builtins import object
 
 import syslog
 import audit
@@ -29,7 +32,7 @@ import select
 import selinux
 import socket as Socket
 import fcntl
-import thread
+import _thread
 import threading
 import time
 
@@ -60,7 +63,7 @@ def verify_avc(avc):
 
 #------------------------------------------------------------------------------
 
-class AuditRecordReceiver:
+class AuditRecordReceiver(object):
     """
     The audit system emits messages about a single event
     independently. Thus one single auditable event may be composed
@@ -159,7 +162,7 @@ class AuditRecordReceiver:
 
     def add_record_to_cache(self, record):
         log_debug("%s.add_record_to_cache(): %s" % (self.__class__.__name__, record))
-        
+
         audit_event = self.get_event_from_record(record)
         if record.record_type == 'EOE':
             if audit_event:
@@ -191,8 +194,8 @@ class AuditRecordReceiver:
 
         if len(self.cache) > self.max_cache_length:
             self.max_cache_length = len(self.cache)
-            
-        event_ids = self.cache.keys()
+
+        event_ids = list(self.cache.keys())
 
         # flush everything
         if threshold_age == 0:
@@ -202,7 +205,7 @@ class AuditRecordReceiver:
             return
 
         # flush old events
-        event_ids.sort(lambda a,b: cmp(self.cache[a].timestamp, self.cache[b].timestamp))
+        event_ids.sort(lambda a,b: self.cache[a].timestamp < self.cache[b].timestamp)
         if threshold_age is None:
             threshold_age = self.cache[event_ids[-1]].timestamp - self.cache_time_to_live
 
@@ -221,7 +224,7 @@ class AuditRecordReceiver:
     def close(self):
         """Emit every event in the cache irrespective of its
         timestamp. This means we're done, nothing should remain buffered."""
-        
+
         for audit_event in self.flush(0):
             yield audit_event
 
@@ -279,17 +282,17 @@ class AuditSocketReceiverThread(threading.Thread):
                             self.audit_socket_fd = self.audit_socket.makefile()
                             log_debug("audit socket (%s) connected" % self.audit_socket_path)
                             return
-                        except Socket.error, e:
+                        except Socket.error as e:
                             errno, strerror = get_error_from_socket_exception(e)
                             log_debug("attempt to open audit socket (%s) failed, error='%s'" % (self.audit_socket_path, strerror))
 
                 log_debug("could not open any audit sockets (%s), retry in %d seconds" % (', '.join(self.audit_socket_paths), self.retry_interval))
 
-            except Socket.error, e:
+            except Socket.error as e:
                 errno, strerror = get_error_from_socket_exception(e)
                 log_debug("audit socket (%s) failed, error='%s', retry in %d seconds" % (self.audit_socket_path, strerror, self.retry_interval))
-                
-            except OSError, e:
+
+            except OSError as e:
                 log_debug("audit socket (%s) failed, error='%s', retry in %d seconds" % (self.audit_socket_path, e[1], self.retry_interval))
 
             time.sleep(self.retry_interval)
@@ -311,7 +314,7 @@ class AuditSocketReceiverThread(threading.Thread):
 
     def run(self):
         self.connect()
-        
+
         timeout = self.timeout_interval
         while True:
             inList, outList, errList = select.select([self.audit_socket],[], [], timeout)
@@ -338,15 +341,15 @@ class AuditSocketReceiverThread(threading.Thread):
                     if self.record_receiver.num_cached_events() == 0:
                         timeout = None
 
-            except KeyboardInterrupt, e:
+            except KeyboardInterrupt as e:
                 log_debug("KeyboardInterrupt exception in %s" % self.__class__.__name__)
-                thread.interrupt_main()
+                _thread.interrupt_main()
 
-            except SystemExit, e:
+            except SystemExit as e:
                 log_debug("SystemExit exception in %s" % self.__class__.__name__)
-                thread.interrupt_main()
+                _thread.interrupt_main()
 
-            except Exception, e:
+            except Exception as e:
                 syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
                 return
 

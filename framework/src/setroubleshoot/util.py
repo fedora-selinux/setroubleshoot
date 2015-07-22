@@ -61,7 +61,7 @@ __all__ = [
 
 import datetime
 import glob
-import gobject
+from gi.repository import GObject
 import os
 import pwd
 import re
@@ -73,6 +73,8 @@ import syslog
 
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
+
+cmp = lambda x, y: (x > y) - (x < y)
 
 DATABASE_MAJOR_VERSION = 3
 DATABASE_MINOR_VERSION = 0
@@ -92,7 +94,7 @@ def log_debug(*msg):
         log_level = get_config('sealert_log', 'level')
     if log_level == "debug":
         syslog.syslog(syslog.LOG_DEBUG, msg)
- 
+
 def database_version_compatible(version):
     major = minor = None
     components = version.split('.')
@@ -120,10 +122,10 @@ def format_elapsed_time(elapsed_time):
 
     hours = whole/3600
     whole = whole - hours*3600
-    
+
     minutes = whole/60
     seconds = whole - minutes*60
-    
+
     if days:
         return "%dd:%dh:%dm:%.3fs" % (days,hours,minutes,seconds+fraction)
     if hours:
@@ -190,7 +192,7 @@ def format_2_column_name_value(name, value, value_indent=30, page_width=80):
         initial_indent = name[0:value_indent-1] + ' '
     else:
         initial_indent = name + ' ' * (value_indent - len(name))
-        
+
 
     if not value or value.isspace():
         return initial_indent + value + '\n'
@@ -244,7 +246,7 @@ def get_standard_directories():
             lst.append(i[0])
     except:
         syslog.syslog(syslog.LOG_ERR, "failed to get filesystem list from rpm")
-        
+
     return lst
 
 def get_rpm_nvr_from_header(hdr):
@@ -368,18 +370,18 @@ def get_error_from_socket_exception(e):
 
 def assure_file_ownership_permissions(filepath, mode, owner, group=None):
     result = True
-    
+
     if not os.path.exists(filepath):
         try:
             f = open(filepath, "w")
             f.close()
-        except Exception, e:
+        except Exception as e:
             result = False
             syslog.syslog(syslog.LOG_ERR, "cannot create file %s [%s]" % (filepath, e.strerror))
-    
+
     try:
         os.chmod(filepath, mode)
-    except OSError, e:
+    except OSError as e:
         result = False
         syslog.syslog(syslog.LOG_ERR, "cannot chmod %s to %o [%s]" % (filepath, mode, e.strerror))
 
@@ -398,8 +400,8 @@ def assure_file_ownership_permissions(filepath, mode, owner, group=None):
             gid = grp.getgrnam(group)[2]
 
         os.chown(filepath, uid, gid)
-    
-    except OSError, e:
+
+    except OSError as e:
         result = False
         import grp
         syslog.syslog(syslog.LOG_ERR, "cannot chown %s to %s:%s [%s]" % (filepath, pwd.getpwuid(uid)[0], grp.getgrgid(gid)[0], e.strerror))
@@ -433,7 +435,7 @@ def get_plugin_names(filter_glob=None):
 
 def sort_plugins(x,y):
     return x.get_priority()-y.get_priority()
-    
+
 def load_plugins(filter_glob=None):
     plugin_dir = get_config('plugins','plugin_dir')
     plugin_base = os.path.basename(plugin_dir)
@@ -472,10 +474,10 @@ def load_plugins(filter_glob=None):
 
         if mod_fp:
             mod_fp.close()
-    
+
     plugins.sort(sort_plugins)
     return plugins
-                
+
 def get_os_environment():
     try:
         myplatform = open(redhat_release_path).readlines()[0].strip()
@@ -483,7 +485,7 @@ def get_os_environment():
         # dist returns (distname, version, id)
         import platform
         myplatform = ' '.join(platform.dist())
-        
+
     # uname returns (sysname, nodename, release, version, machine)
     uname = os.uname()
     kernel_release = uname[2]
@@ -491,7 +493,7 @@ def get_os_environment():
 
     os_desc = "%s %s" % (kernel_release, cpu)
     return (myplatform, os_desc)
-    
+
 def get_identity(uid=None):
     if uid is None:
         uid = os.getuid()
@@ -508,10 +510,10 @@ def get_hostname():
         import socket as Socket
         hostname = Socket.gethostname()
         return hostname
-    except Exception, e:
+    except Exception as e:
         syslog.syslog(syslog.LOG_ERR, "cannot lookup hostname: %s" % e)
         return None
-        
+
 def find_program(prog):
     if os.path.isabs(prog):
         return prog
@@ -641,12 +643,12 @@ class TimeStamp:
             self._dt = t._dt
         else:
             raise TypeError("must be string, float, datetime, or TimeStamp")
-    
-    def __cmp__(self, other):
+
+    def __lt__(self, other):
         if isinstance(other, TimeStamp):
-            return cmp(self._dt, other._dt)
+            return self._dt < other._dt
         else:
-            return cmp(self._dt, other)
+            return self._dt < other
 
     def __add__(self, other):
         if isinstance(other, TimeStamp):
@@ -679,7 +681,7 @@ class TimeStamp:
             return datetime.datetime.now(self.local_tz)
         else:
             return datetime.datetime.now(self.utc_tz)
-    
+
     def local(self):
         return self._dt.astimezone(self.local_tz)
 
@@ -696,7 +698,7 @@ class TimeStamp:
     def add(self,days=0, hours=0, minutes=0, seconds=0):
         self._dt += datetime.timedelta(days=days, hours=hours,
                                        minutes=minutes, seconds=seconds)
-        
+
     def in_future(self):
         now = self.now()
         if now < self._dt:
@@ -718,10 +720,10 @@ class TimeStamp:
             return self.local().strftime(fmt)
         else:
             return self._dt.strftime(fmt)
-        
+
 #------------------------------------------------------------------------------
 
-class Retry(gobject.GObject):
+class Retry(GObject.GObject):
     '''
     A class which schedules attempts until one succeeds.
 
@@ -760,11 +762,11 @@ class Retry(gobject.GObject):
     '''
     __gsignals__ = {
         'pending_retry':                # callback(retry_object, seconds_pending, user_data)
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_FLOAT, gobject.TYPE_PYOBJECT,)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_FLOAT, GObject.TYPE_PYOBJECT,)),
         }
 
     def __init__(self, callback, retry_interval, user_data=None, notify_interval=None):
-        gobject.GObject.__init__(self)
+        GObject.GObject.__init__(self)
         self.callback = callback
         self.retry_interval = retry_interval
         self.user_data = user_data
@@ -772,10 +774,10 @@ class Retry(gobject.GObject):
         self.notify_interval = notify_interval  # how often pending_retry signal is emitted
         self.trigger_time = None                # time in future when retry is attempted
         self.timeout_id = None                  # alarm timeout id
-    
+
     def stop(self):
         if self.timeout_id is not None:
-            gobject.source_remove(self.timeout_id)
+            GObject.source_remove(self.timeout_id)
             self.timeout_id = None
 
     def start(self,  retry_interval=None, user_data=None, notify_interval=None):
@@ -800,7 +802,7 @@ class Retry(gobject.GObject):
             alarm_time = min(self.notify_interval, seconds_pending)
         else:
             alarm_time = seconds_pending
-        self.timeout_id = gobject.timeout_add(int(alarm_time*1000), self._alarm_callback)
+        self.timeout_id = GObject.timeout_add(int(alarm_time*1000), self._alarm_callback)
 
     def _alarm_callback(self):
         self.timeout_id = None
@@ -835,8 +837,8 @@ class Retry(gobject.GObject):
             return self.retry_interval(self, self.user_data)
         return self.retry_interval
 
-gobject.type_register(Retry)
+GObject.type_register(Retry)
 
 #-----------------------------------------------------------------------------
 
-    
+

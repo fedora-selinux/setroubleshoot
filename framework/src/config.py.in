@@ -1,3 +1,12 @@
+from __future__ import print_function
+try:
+    # Python 2
+    from future import standard_library
+    standard_library.install_aliases()
+except:
+    # On Python 3 the code above throws an exception
+    pass
+
 # /usr/bin/python -E
 # -*- mode: Python; -*-
 #
@@ -30,7 +39,7 @@ __all__ = ['config_init',
 import getopt
 import sys
 import os
-import ConfigParser
+import configparser
 import re
 
 _cfg = None
@@ -417,19 +426,19 @@ def config_init():
     _cfg = read_configuration(defaults)
 
 def read_configuration(defaults):
-    cfg = ConfigParser.SafeConfigParser()
+    cfg = configparser.SafeConfigParser()
     try:
         cfg.read(CFG_FILE)
-    except Exception, e:
+    except Exception as e:
         # loggers have not been initialized yet, can't use log_cfg, use stderr instead
-        print >> sys.stderr, "error parsing config file (%s): %s" % (CFG_FILE, e)
+        print("error parsing config file (%s): %s" % (CFG_FILE, e), file=sys.stderr)
         return None
 
-    default_sections = defaults.keys()
+    default_sections = list(defaults.keys())
     for default_section in default_sections:
         if not cfg.has_section(default_section):
             cfg.add_section(default_section)
-        for default_option,properties in defaults[default_section].items():
+        for default_option,properties in list(defaults[default_section].items()):
             value    = properties['value']
             readOnly = properties.get('readOnly', False)
             if not cfg.has_option(default_section, default_option):
@@ -437,9 +446,9 @@ def read_configuration(defaults):
             else:
                 if readOnly:
                     # loggers have not been initialized yet, can't use log_cfg, use stderr instead
-                    print >> sys.stderr, "error [%s] %s cannot be set in config file" %( default_section, default_option)
+                    print("error [%s] %s cannot be set in config file" %( default_section, default_option), file=sys.stderr)
                     cfg.set(default_section, default_option, value)
-                    
+
     return cfg
 
 def convert_cfg_type(value, cfg_type=None):
@@ -462,22 +471,22 @@ def convert_cfg_type(value, cfg_type=None):
             try:
                 # We can't import log in this modules scope because log imports us, thus loggers will not
                 # have been created yet, Therefore we must import the logger in our function local scope
-                from setroubleshoot.log import log_cfg 
+                from setroubleshoot.log import log_cfg
                 log_cfg.error("unknown type %s for option %s", cfg_type, value)
             except ImportError:
-                print >> sys.stderr, "error unknown type %s for option %s" % (cfg_type, value)
-    except Exception, e:
+                print("error unknown type %s for option %s" % (cfg_type, value), file=sys.stderr)
+    except Exception as e:
         try:
             # We can't import log in this modules scope because log imports us, thus loggers will not
             # have been created yet, Therefore we must import the logger in our function local scope
-            from setroubleshoot.log import log_cfg 
+            from setroubleshoot.log import log_cfg
             log_cfg.error("unknown type %s for option %s", cfg_type, value)
         except ImportError:
-            print >> sys.stderr, "error unknown type %s for option %s" % (cfg_type, value)
+            print("error unknown type %s for option %s" % (cfg_type, value), file=sys.stderr)
 
 def get_option(section, name, default_value=None, kwds=None, option_type=None):
     value = None
-    if kwds is not None and kwds.has_key(name):
+    if kwds is not None and name in kwds:
         value = convert_cfg_type(kwds[name])
     elif config_has_section(section):
         value = get_config(section, name, option_type)
@@ -504,21 +513,21 @@ def get_config(section, option, cfg_type=None):
             try:
                 # We can't import log in this modules scope because log imports us, thus loggers will not
                 # have been created yet, Therefore we must import the logger in our function local scope
-                from setroubleshoot.log import log_cfg 
+                from setroubleshoot.log import log_cfg
                 log_cfg.error("unknown type = %s getting %s option in %s section: %s", cfg_type, option, section)
             except ImportError:
-                print >> sys.stderr, "error unknown type = %s getting %s option in %s section: %s" % (cfg_type, option, section)
-            
-    except Exception, e:
+                print("error unknown type = %s getting %s option in %s section: %s" % (cfg_type, option, section), file=sys.stderr)
+
+    except Exception as e:
         try:
             # We can't import log in this modules scope because log imports us, thus loggers will not
             # have been created yet, Therefore we must import the logger in our function local scope
             from setroubleshoot.log import log_cfg
             log_cfg.error("cannot get %s option in %s section: %s", option, section, e)
         except ImportError:
-            print >> sys.stderr, "error cannot get %s option in %s section: %s" % (option, section, e)
+            print("error cannot get %s option in %s section: %s" % (option, section, e), file=sys.stderr)
         return None
-    
+
 
 def set_config(section, option, value):
     try:
@@ -527,11 +536,11 @@ def set_config(section, option, value):
         if not _cfg.has_section(section):
             _cfg.add_section(section)
         _cfg.set(section, option, value)
-    except Exception, e:
+    except Exception as e:
         log_program.exception("Cannot set config: section='%s' option='%s' value='%s'", section, option, value)
         return False
     return True
-    
+
 config_setting_re = re.compile("([^.=]+?)\s*\.\s*([^.=]+?)\s*=\s*(.*)")
 def parse_config_setting(cfg_setting):
     match = config_setting_re.search(cfg_setting)
@@ -546,7 +555,7 @@ def parse_config_setting(cfg_setting):
             from setroubleshoot.log import log_cfg
             log_cfg.error("could not parse '%s', must be 'section.option=value'", cfg_setting)
         except ImportError:
-            print >> sys.stderr, "error: could not parse '%s', must be 'section.option=value'" % (cfg_setting)
+            print("error: could not parse '%s', must be 'section.option=value'" % (cfg_setting), file=sys.stderr)
         return False
 
     try:
@@ -555,7 +564,7 @@ def parse_config_setting(cfg_setting):
         from setroubleshoot.log import log_cfg
         log_cfg.debug("setting config: section='%s' option='%s' value='%s'", section, option, value)
     except ImportError:
-        print >> sys.stderr, "setting config: section='%s' option='%s' value='%s'" % (section, option, value)
+        print("setting config: section='%s' option='%s' value='%s'" % (section, option, value), file=sys.stderr)
 
     set_config(section, option, value)
     return True
@@ -564,33 +573,33 @@ def config_has_section(section):
     if _cfg is None: return None
     try:
         return _cfg.has_section(section)
-    except Exception, e:
+    except Exception as e:
         try:
             # We can't import log in this modules scope because log imports us, thus loggers will not
             # have been created yet, Therefore we must import the logger in our function local scope
             from setroubleshoot.log import log_cfg
             log_cfg.error("config_has_section(%s): %s", section, e)
         except ImportError:
-            print >> sys.stderr, "error: config_has_section(%s): %s" % (section, e)
+            print("error: config_has_section(%s): %s" % (section, e), file=sys.stderr)
         return False
-    
+
 
 def dump_defaults(defaults, showReadOnly=False):
     import textwrap
     wrap = textwrap.TextWrapper(width=78,
                                 initial_indent='# ', subsequent_indent='# ')
 
-    sections = defaults.keys()
+    sections = list(defaults.keys())
     sections.sort()
     for section in sections:
         visibleOptions = 0
-        for option,properties in defaults[section].items():
+        for option,properties in list(defaults[section].items()):
             readOnly    = properties.get('readOnly', False)
             if showReadOnly or not readOnly:
                 visibleOptions += 1
         if visibleOptions > 0:
-            print "[%s]" % section
-            for option,properties in defaults[section].items():
+            print("[%s]" % section)
+            for option,properties in list(defaults[section].items()):
                 value       = properties['value']
                 readOnly    = properties.get('readOnly', False)
                 description = properties.get('description', '')
@@ -600,12 +609,12 @@ def dump_defaults(defaults, showReadOnly=False):
 
                 if not description:
                     description = 'No Description Available'
-                print wrap.fill('%s: ' % option + description)
+                print(wrap.fill('%s: ' % option + description))
                 if readOnly:
-                    print '# READ ONLY, default = "%s"' % (value)
+                    print('# READ ONLY, default = "%s"' % (value))
                 else:
-                    print "%s = %s" % (option, value)
-                print
+                    print("%s = %s" % (option, value))
+                print()
 
 def dump_configuration(cfg):
     sections = cfg.sections()
@@ -615,8 +624,8 @@ def dump_configuration(cfg):
         options.sort()
         for option in options:
             value = get_config(section, option)
-            print "[%s] %s = %s" % (section, option, value)
-        print
+            print("[%s] %s = %s" % (section, option, value))
+        print()
 
 
 # -----------------------------------------------------------------------------
@@ -624,25 +633,26 @@ def dump_configuration(cfg):
 if __name__ == '__main__':
 
     def usage():
-	print '''
+        print('''
     -d generate default config file
     -h help
-    '''
+    ''')
+
     try:
-	opts, args = getopt.getopt(sys.argv[1:], "dh", ["defaults", "help"])
+        opts, args = getopt.getopt(sys.argv[1:], "dh", ["defaults", "help"])
     except getopt.GetoptError:
-	# print help information and exit:
-	usage()
-	sys.exit(2)
+        # print help information and exit:
+        usage()
+        sys.exit(2)
 
     do_dump_defaults = False
     for o, a in opts:
-	if o in ("-d", "--defaults"):
+        if o in ("-d", "--defaults"):
             do_dump_defaults = True
 
-	if o in ("-h", "--help"):
-	    usage()
-	    sys.exit()
+        if o in ("-h", "--help"):
+            usage()
+            sys.exit()
 
     if do_dump_defaults:
         dump_defaults(defaults)

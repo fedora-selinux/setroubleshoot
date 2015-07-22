@@ -22,7 +22,7 @@ import re
 import syslog
 
 import errno as Errno
-import gobject
+from gi.repository import GObject
 import os
 import socket as Socket
 import fcntl
@@ -40,7 +40,7 @@ __all__ = [
     'rpc_callback',
     'rpc_signal',
     'interface_registry',
-    
+
     'parse_socket_address_list',
     'get_default_port',
     'get_socket_list_from_config',
@@ -67,7 +67,7 @@ def parse_socket_address_list(addr_string, default_port=None):
     family_re = re.compile('\s*{(unix|inet)}(.+)')
 
     log_debug("parse_socket_address_list: input='%s'" %  addr_string)
-    if not addr_string: 
+    if not addr_string:
         return socket_addresses
     addrs = re.split('[\s,]+', addr_string)
     for cfg_addr in addrs:
@@ -108,17 +108,17 @@ def get_local_server_socket_address():
 def io_condition_to_string(io_condition):
     names = []
 
-    if io_condition & gobject.IO_IN:
+    if io_condition & GObject.IO_IN:
         names.append('IN')
-    if io_condition & gobject.IO_OUT:
+    if io_condition & GObject.IO_OUT:
         names.append('OUT')
-    if io_condition & gobject.IO_PRI:
+    if io_condition & GObject.IO_PRI:
         names.append('PRI')
-    if io_condition & gobject.IO_ERR:
+    if io_condition & GObject.IO_ERR:
         names.append('ERR')
-    if io_condition & gobject.IO_HUP:
+    if io_condition & GObject.IO_HUP:
         names.append('HUP')
-    if io_condition & gobject.IO_NVAL:
+    if io_condition & GObject.IO_NVAL:
         names.append('NVAL')
 
     return '(%d)[%s]' % (io_condition, ','.join(names))
@@ -134,7 +134,7 @@ def rpc_header(body, **kwds):
 def rpc_message(rpc_id, type, body):
     hdr = rpc_header(body, rpc_id=rpc_id, type=type)
     return hdr+body
-    
+
 def convert_rpc_xml_to_args(cmd):
     interface = method = args = doc = None
     try:
@@ -215,7 +215,7 @@ def convert_rpc_to_xml(rpc_id, rpc_def, *args):
 
 #-----------------------------------------------------------------------------
 
-class ConnectionState(gobject.GObject):
+class ConnectionState(GObject.GObject):
     CONNECTING    = (1 << 1)
     OPEN          = (1 << 2)
     AUTHENTICATED = (1 << 3)
@@ -242,10 +242,10 @@ class ConnectionState(gobject.GObject):
 
     __gsignals__ = {
         'changed': # callback(connection_state, flags, flags_added, flags_removed):
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_INT)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_INT, GObject.TYPE_INT, GObject.TYPE_INT)),
         }
     def __init__(self):
-        gobject.GObject.__init__(self)
+        GObject.GObject.__init__(self)
         self.flags = 0
         self.result_code = None
         self.result_msg = None
@@ -254,7 +254,7 @@ class ConnectionState(gobject.GObject):
     def __str__(self):
         return "flags=%s, result_code=%d, result_msg=%s" % \
                (self.flags_to_string(self.flags), self.result_code, self.result_msg)
-    
+
     def clear(self):
         self.update(0, self.ALL_FLAGS)
 
@@ -293,7 +293,7 @@ class ConnectionState(gobject.GObject):
         if difference:
             self.emit('changed', self.flags, flags_added, flags_removed)
 
-gobject.type_register(ConnectionState)
+GObject.type_register(ConnectionState)
 
 #-----------------------------------------------------------------------------
 
@@ -359,7 +359,7 @@ class RpcDefinition(object):
             self.callback = callback_name
             return callback_def
         return interface_registry.get_rpc_def(self.interface, self.callback)
-        
+
     def set_positional_args(self, arg_names):
         if arg_names is not None:
             self.positional_args = preextend_list(len(arg_names), self.positional_args, RpcArg)
@@ -368,7 +368,7 @@ class RpcDefinition(object):
                 rpc_arg = self.positional_args[position]
                 rpc_arg.name = arg_name
                 position += 1
-        
+
     def set_arg_obj_types(self, *obj_types):
         if obj_types is not None:
             self.positional_args = preextend_list(len(obj_types), self.positional_args, RpcArg)
@@ -377,7 +377,7 @@ class RpcDefinition(object):
                 rpc_arg = self.positional_args[position]
                 rpc_arg.obj_type = obj_type
                 position += 1
-        
+
     def get_positional_arg_names(self):
         return [rpc_arg.name for rpc_arg in self.positional_args]
 
@@ -419,13 +419,13 @@ class InterfaceRegistry(object):
             rpc_def = RpcDefinition(None, interface, method, None)
             self.register_rpc_def(interface, method, rpc_def)
         return rpc_def
-        
+
     def register_rpc_def(self, interface, method, rpc_def):
         interface_dict = self.get_interface(interface)
         if type(method) == MethodType:
             method = method.__name__
         interface_dict[method] = rpc_def
-        
+
     def get_error_rpc_def(self, interface):
         interface_dict = self.get_interface(interface)
         return interface_dict['_error_return']
@@ -435,17 +435,17 @@ class InterfaceRegistry(object):
         interface_names.sort()
         for interface_name in interface_names:
             interface = self.interfaces[interface_name]
-            print "Interface: %s" % interface_name
+            print("Interface: %s" % interface_name)
             method_names = interface.keys()
             method_names.sort()
             for method_name in method_names:
                 method = interface[method_name]
-                print "    %s" % str(method)
+                print("    %s" % str(method))
 
 interface_registry = InterfaceRegistry()
 
 #-------------------------------- Decorators ---------------------------------
-    
+
 def rpc_method(interface):
     def decorator(method_ptr):
         rpc_def = interface_registry.set_rpc_def('method', interface, method_ptr)
@@ -580,7 +580,7 @@ class SocketAddress(object):
 #-----------------------------------------------------------------------------
 
 class ConnectionIO(object):
-    io_input_conditions = gobject.IO_IN | gobject.IO_HUP | gobject.IO_ERR | gobject.IO_NVAL
+    io_input_conditions = GObject.IO_IN | GObject.IO_HUP | GObject.IO_ERR | GObject.IO_NVAL
 
     def __init__(self, channel_type=None, channel_name=None, socket_address=SocketAddress()):
         self.connection_state = ConnectionState()
@@ -593,27 +593,27 @@ class ConnectionIO(object):
     def io_watch_add(self, callback):
         '''callback signature: (io_object, io_condition)'''
         self.io_watch_remove()
-        self.io_watch_id = gobject.io_add_watch(self.socket_address.socket,
+        self.io_watch_id = GObject.io_add_watch(self.socket_address.socket,
                                                 self.io_input_conditions, callback)
-        
+
     def io_watch_remove(self):
         if self.io_watch_id is not None:
-            gobject.source_remove(self.io_watch_id)
+            GObject.source_remove(self.io_watch_id)
             self.io_watch_id = None
 
     def valid_io_condition(self, io_condition):
-        if io_condition & (gobject.IO_HUP | gobject.IO_ERR | gobject.IO_NVAL):
-            if io_condition & gobject.IO_HUP:
+        if io_condition & (GObject.IO_HUP | GObject.IO_ERR | GObject.IO_NVAL):
+            if io_condition & GObject.IO_HUP:
                 errno = ERR_SOCKET_HUP
                 strerror = get_strerror(errno)
                 self.close_connection(ConnectionState.HUP, 0, errno, strerror)
 
-            if io_condition & gobject.IO_ERR:
+            if io_condition & GObject.IO_ERR:
                 errno = ERR_SOCKET_ERROR
                 strerror = get_strerror(errno)
                 self.close_connection(ConnectionState.ERROR, 0, errno, strerror)
 
-            if io_condition & gobject.IO_NVAL:
+            if io_condition & GObject.IO_NVAL:
                 errno = ERR_IO_INVALID
                 strerror = get_strerror(errno)
                 self.close_connection(ConnectionState.ERROR, 0, errno, strerror)
@@ -621,7 +621,7 @@ class ConnectionIO(object):
             return False
         else:
             return True
-        
+
 #-----------------------------------------------------------------------------
 
 class ListeningServer(ConnectionIO):
@@ -650,7 +650,7 @@ class ListeningServer(ConnectionIO):
             self.socket_address.socket.setsockopt(Socket.SOL_SOCKET, Socket.SO_REUSEADDR, 1)
         self.socket_address.socket.bind(self.socket_address.get_py_address())
         if self.socket_address.family == Socket.AF_UNIX:
-            os.chmod(self.socket_address.address, 0666)
+            os.chmod(self.socket_address.address, 0o600)
         self.socket_address.socket.listen(self.request_queue_size)
 
         return self.socket_address.socket
@@ -660,7 +660,7 @@ class ListeningServer(ConnectionIO):
         try:
             self.socket_address.socket = self.new_listening_socket(self.socket_address)
             self.io_watch_add(self.handle_client_connect)
-        except Exception, e:
+        except Exception as e:
             self.connection_state.update(ConnectionState.ERROR, ConnectionState.OPEN, -1, str(e))
             return False
         return True
@@ -670,7 +670,7 @@ class ListeningServer(ConnectionIO):
             if not self.valid_io_condition(io_condition):
                 return False
 
-            if io_condition & gobject.IO_IN:
+            if io_condition & GObject.IO_IN:
                 try:
                     client_socket, client_address = socket.accept()
                     fcntl.fcntl(client_socket.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
@@ -678,7 +678,7 @@ class ListeningServer(ConnectionIO):
                     client_handler.open(client_socket, client_address)
                     self.connection_state.update(0, ConnectionState.PROBLEM_FLAGS)
 
-                except Socket.error, e:
+                except Socket.error as e:
                     errno, strerror = get_error_from_socket_exception(e)
                     syslog.syslog(syslog.LOG_ERR, "closing client connection due to socket error(%s): %s" % (self.socket_address, strerror))
                     if errno == Errno.EPIPE:
@@ -687,7 +687,7 @@ class ListeningServer(ConnectionIO):
                         add_flags = ConnectionState.ERROR
                     self.connection_state.update(add_flags, 0, errno, strerror)
 
-        except Exception, e:
+        except Exception as e:
             syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
             self.connection_state.update(ConnectionState.ERROR, 0, -1, str(e))
 
@@ -699,14 +699,14 @@ class RequestReceiver:
     def __init__(self, dispatchFunc):
         self.dispatchFunc = dispatchFunc
         self.reset()
-    
+
     def reset(self):
         self.headerLen = -1
         self.bodyLen = 0
         self.header = None
         self.body = ''
         self.feed_buf = ''
-        
+
     def process(self):
         if len(self.feed_buf) == 0:
             # No data, nothing to process
@@ -759,14 +759,14 @@ class RequestReceiver:
 
 class RpcManage(object):
     def __init__(self):
-	self.async_rpc_cache = {}
+        self.async_rpc_cache = {}
         self.rpc_handlers = {}
         self.rpc_id = 0
 
     def new_rpc_id(self):
         self.rpc_id +=1
         return str(self.rpc_id)
-    
+
     def dump_async_rpc_cache(self):
         log_debug("async_rpc_cache: %d entries, cur rpc_id=%s" % (len(self.async_rpc_cache), self.rpc_id))
         rpc_ids = self.async_rpc_cache.keys()
@@ -796,7 +796,7 @@ class RpcManage(object):
 
     def connect_rpc_interface(self, interface, handler):
         self.rpc_handlers[interface] = handler
-        
+
 #-----------------------------------------------------------------------------
 
 class RpcChannel(ConnectionIO, RpcManage):
@@ -817,10 +817,10 @@ class RpcChannel(ConnectionIO, RpcManage):
 
     def release_write_lock(self):
         self.write_lock.release()
-        
+
     def set_channel_type(self, channel_type):
         self.channel_type = channel_type
-        
+
     def get_channel_type(self):
         return self.channel_type
 
@@ -834,7 +834,7 @@ class RpcChannel(ConnectionIO, RpcManage):
                 self.socket_address.socket.shutdown(Socket.SHUT_RDWR)
                 self.socket_address.socket.close()
                 self.socket_address.socket = None
-            except Socket.error, e:
+            except Socket.error as e:
                 self.socket_address.socket = None
 
         self.connection_state.update(add_flags, remove_flags | ConnectionState.GOOD_FLAGS,
@@ -868,12 +868,12 @@ class RpcChannel(ConnectionIO, RpcManage):
                     self.close_connection(ConnectionState.HUP)
                     raise ProgramError(ERR_SOCKET_HUP, detail=self.connection_state)
                 totalSent = totalSent + sent
-        except Socket.timeout, e:
+        except Socket.timeout as e:
             syslog.syslog(syslog.LOG_ERR, "socket timeout: (%s)" % (self.socket_address))
             self.release_write_lock()
             self.connection_state.update(ConnectionState.TIMEOUT)
             return
-        except Socket.error, e:
+        except Socket.error as e:
             errno, strerror = get_error_from_socket_exception(e)
             syslog.syslog(syslog.LOG_ERR, "could not send data on socket (%s): %s" % (self.socket_address, strerror))
             self.release_write_lock()
@@ -892,13 +892,13 @@ class RpcChannel(ConnectionIO, RpcManage):
             if not self.valid_io_condition(io_condition):
                 return False
 
-            if io_condition & gobject.IO_IN:
+            if io_condition & GObject.IO_IN:
                 try:
                     data = socket.recv(self.socket_buf_size)
                     if len(data) == 0:
                         self.close_connection(ConnectionState.HUP)
                         return False
-                except Socket.error, e:
+                except Socket.error as e:
                     errno, strerror = get_error_from_socket_exception(e)
                     syslog.syslog(syslog.LOG_ERR, "socket error (%s): %s" % (self.socket_address, strerror))
                     if errno == Errno.EPIPE:
@@ -910,7 +910,7 @@ class RpcChannel(ConnectionIO, RpcManage):
 
                 self.connection_state.update(0, ConnectionState.PROBLEM_FLAGS)
                 self.receiver.feed(data)
-        except Exception, e:
+        except Exception as e:
             syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
             self.close_connection(ConnectionState.ERROR, 0, -1, str(e))
             return False
@@ -931,12 +931,12 @@ class RpcChannel(ConnectionIO, RpcManage):
         self.process_async_return(async_rpc)
 
     def default_request_handler(self, header, body):
-	rpc_id    = header.get('rpc_id', 0)
-	type      = header.get('type', None)
+        rpc_id    = header.get('rpc_id', 0)
+        type      = header.get('type', None)
 
         log_debug("%s.default_request_handler: rpc_id=%s type=%s {%s}" % (self.__class__.__name__, rpc_id, type, body))
 
-	if type == 'error_return' or type == 'method_return':
+        if type == 'error_return' or type == 'method_return':
             self.handle_return(type, rpc_id, body)
         elif type == 'method':
             interface, method, args = convert_rpc_xml_to_args(body)
@@ -948,7 +948,7 @@ class RpcChannel(ConnectionIO, RpcManage):
                     rpc_method_def   = interface_registry.get_rpc_def(interface, method)
                     rpc_callback_def = rpc_method_def.get_callback_def()
                     self.emit_rpc(rpc_id, 'method_return', rpc_callback_def, *return_args)
-                except ProgramError, e:
+                except ProgramError as e:
                     rpc_error_def = interface_registry.get_error_rpc_def(interface)
                     self.emit_rpc(rpc_id, 'error_return', rpc_error_def, method, e.errno, e.strerror)
             else:
@@ -962,7 +962,7 @@ class RpcChannel(ConnectionIO, RpcManage):
             if method_ptr:
                 try:
                     method_ptr(*args)
-                except ProgramError, e:
+                except ProgramError as e:
                     rpc_error_def = interface_registry.get_error_rpc_def(interface)
             else:
                 err_code = Errno.ENOSYS
@@ -982,7 +982,7 @@ class AsyncRpc(object):
         self.return_type = None
         self.callbacks = []
         self.errbacks = []
-        
+
     def add_callback(self, callback):
         self.callbacks.append(callback)
 

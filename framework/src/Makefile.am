@@ -35,7 +35,7 @@ pkglibexec_SCRIPTS =            	\
 pkgdir = $(datarootdir)/setroubleshoot
 pkg_SCRIPTS =			\
 	SetroubleshootFixit.py		\
-	updater.py			
+	updater.py
 
 pkgconfig_DATA =			\
 	setroubleshoot.conf		\
@@ -96,18 +96,18 @@ setroubleshoot/config.py: config.py.in Makefile
 	< $< > $@
 
 setroubleshoot.conf: setroubleshoot/config.py
-	python setroubleshoot/config.py -d > $@
+	$(PYTHON) setroubleshoot/config.py -d > $@
 
 DISTCLEANFILES = setroubleshoot/config.py
 BUILT_SOURCES  = setroubleshoot/config.py
 
 all-am: python-build
 
-python-build: 
+python-build:
 	$(PYTHON) setup.py build
 
 install-exec-hook:
 	$(PYTHON) setup.py install `test -n "$(DESTDIR)" && echo --root $(DESTDIR)`
 
-uninstall-hook: 
+uninstall-hook:
 	$(PYTHON) setup.py uninstall `test -n "$(DESTDIR)" && echo --root $(DESTDIR)`

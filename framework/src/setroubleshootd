@@ -20,11 +20,16 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
-import setroubleshoot.default_encoding_utf8
+from __future__ import print_function
+from builtins import str
+
+import sys
+if sys.version_info < (3,):
+    import setroubleshoot.default_encoding_utf8
+
 import selinux
 import os
 import getopt
-import sys
 import syslog
 from setroubleshoot.config import parse_config_setting, get_config
 from setroubleshoot.util import log_debug
@@ -36,12 +41,12 @@ pkg_name = get_config('general','pkg_name')
 syslog.openlog(pkg_name)
 
 def usage():
-    print '''
+    print('''
 -f --nofork				no fork
 -d --debug				debug
 -c --config section.option=value	set a configuration value
 -h --help				display help info
-'''
+''')
 
 fork = True
 timeout = 10
@@ -62,7 +67,7 @@ for o, a in opts:
         fork = False
 
     if o in ("-d", "--debug"):
-	timeout = 0 
+        timeout = 0
 
     if o in ("-c", "--config"):
         config_setting = a
@@ -76,39 +81,39 @@ if not selinux.is_selinux_enabled():
 import dbus.service
 import dbus
 
-try: 
+try:
     if fork:
-        # do the UNIX double-fork magic, see Stevens' "Advanced 
+        # do the UNIX double-fork magic, see Stevens' "Advanced
         # Programming in the UNIX Environment" for details (ISBN 0201563177)
-        pid = os.fork() 
+        pid = os.fork()
         if pid > 0:
             # exit first parent
-            sys.exit(0) 
+            sys.exit(0)
 
         # decouple from parent environment
-        os.chdir("/") 
-        os.setsid() 
-        os.umask(os.umask(0077) | 0022)
-    
+        os.chdir("/")
+        os.setsid()
+        os.umask(os.umask(0o077) | 0o022)
+
         # write the pid file
         pid_file = get_config('general','pid_file')
         f=open(pid_file, "w")
         f.write(str(os.getpid()))
         f.close()
-    
+
     from setroubleshoot.server import RunFaultServer
     log_debug("RunFaultServer(%d)" % timeout)
 
     RunFaultServer(timeout)
-    
-except OSError, e: 
-    print >>sys.stderr, _("fork #1 failed: %d (%s)") % (e.errno, e.strerror) 
+
+except OSError as e:
+    print(_("fork #1 failed: %d (%s)") % (e.errno, e.strerror), file=sys.stderr)
     sys.exit(1)
-except dbus.DBusException, e:
+except dbus.DBusException as e:
     syslog.syslog(syslog.LOG_ERR, str(e))
-    print >>sys.stderr, e
+    print(e, file=sys.stderr)
     sys.exit(1)
-except IOError, e:
+except IOError as e:
     syslog.syslog(syslog.LOG_ERR, str(e))
-    print >>sys.stderr, e
+    print(e, file=sys.stderr)
     sys.exit(1)

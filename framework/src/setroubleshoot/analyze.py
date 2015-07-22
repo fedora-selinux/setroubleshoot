@@ -29,7 +29,7 @@ __all__ = ['AnalyzeThread',
           ]
 
 import syslog
-import gobject
+from gi.repository import GObject
 import os
 import time
 import threading
@@ -45,6 +45,8 @@ from setroubleshoot.signature import *
 from setroubleshoot.util import *
 from setroubleshoot.audit_data import *
 from setroubleshoot.xml_serialize import validate_database_doc
+
+cmp = lambda x, y: (x > y) - (x < y)
 
 #------------------------------------------------------------------------------
 
@@ -349,7 +351,7 @@ class SETroubleshootDatabase(object):
         self.file_exists = True
         self.modified_count = 0
         if self.auto_save_timer is not None:
-            gobject.source_remove(self.auto_save_timer)
+            GObject.source_remove(self.auto_save_timer)
             self.auto_save_timer = None
 
     def mark_modified(self, prune=False):
@@ -361,7 +363,7 @@ class SETroubleshootDatabase(object):
             self.save(prune)
         elif self.auto_save_timer is None:
             self.auto_save_timer = \
-                gobject.timeout_add(self.auto_save_interval*1000,
+                GObject.timeout_add(self.auto_save_interval*1000,
                                     self.auto_save_callback)
 
     def auto_save_callback(self):
@@ -471,18 +473,18 @@ class SETroubleshootDatabase(object):
 class SETroubleshootDatabaseLocal(RpcManage,
                                   SETroubleshootDatabaseInterface,
                                   SETroubleshootDatabaseNotifyInterface,
-                                  gobject.GObject):
+                                  GObject.GObject):
 
     __gsignals__ = {
         'signatures_updated':
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
         'async-error': # callback(method, errno, strerror)
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_STRING, gobject.TYPE_INT, gobject.TYPE_STRING)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_STRING, GObject.TYPE_INT, GObject.TYPE_STRING)),
         }
 
 
     def __init__(self, database):
-        gobject.GObject.__init__(self)
+        GObject.GObject.__init__(self)
         RpcManage.__init__(self)
         self.database = database
         self.database.set_notify(self)
@@ -507,27 +509,27 @@ class SETroubleshootDatabaseLocal(RpcManage,
             async_rpc.return_type = 'error_return'
 
         if async_rpc.return_args is not None:
-            gobject.idle_add(self.process_async_return, async_rpc)
+            GObject.idle_add(self.process_async_return, async_rpc)
 
 
     def signatures_updated(self, type, item):
         log_debug('signatures_updated() database local: type=%s item=%s' % (type, item))
         self.emit('signatures_updated', type, item)
 
-gobject.type_register(SETroubleshootDatabaseLocal)
+GObject.type_register(SETroubleshootDatabaseLocal)
 
 #------------------------------------------------------------------------------
 
-class LogfileAnalyzer(gobject.GObject):
+class LogfileAnalyzer(GObject.GObject):
     __gsignals__ = {
         'progress':
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_FLOAT,)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_FLOAT,)),
         'state-changed':
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT,)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
         }
 
     def __init__(self, logfile_path=None):
-        gobject.GObject.__init__(self)
+        GObject.GObject.__init__(self)
         log_debug("%s.__init__(%s)" % (self.__class__.__name__, logfile_path))
 
         self.logfile_path = logfile_path
@@ -584,7 +586,7 @@ class LogfileAnalyzer(gobject.GObject):
 
     def run(self):
         log_debug('%s.run(%s)' % (self.__class__.__name__, self.file))
-        self.idle_proc_id = gobject.idle_add(self.task().next)
+        self.idle_proc_id = GObject.idle_add(self.task().next)
         return True
 
     def close(self):
@@ -663,5 +665,5 @@ class LogfileAnalyzer(gobject.GObject):
                 print(e, file=sys.stderr)
 
 
-gobject.type_register(LogfileAnalyzer)
+GObject.type_register(LogfileAnalyzer)
 

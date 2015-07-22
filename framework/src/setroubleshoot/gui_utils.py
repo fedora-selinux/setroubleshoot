@@ -38,7 +38,7 @@ def get_display():
         dpy = gtk.gdk.Display('')
         dpy_name = dpy.get_name()
         return dpy_name
-    except RuntimeError, e:
+    except RuntimeError as e:
         return None
 
     # --- Interaction Dialogs ---
