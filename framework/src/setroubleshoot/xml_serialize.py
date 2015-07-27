@@ -49,6 +49,8 @@ from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
 from setroubleshoot.util import *
 
+from six import add_metaclass
+
 #------------------------------------------------------------------------
 
 i18n_encoding = get_config('general', 'i18n_encoding')
@@ -93,7 +95,7 @@ def string_to_xmlnode(doc, value):
 
 def string_to_cdata_xmlnode(doc, value):
     return doc.newCDataBlock(value, len(value))
-    
+
 # newChild() content is a string, which will be added as children
 
 # addChild() adds xmlNode
@@ -103,7 +105,7 @@ def string_to_cdata_xmlnode(doc, value):
 # newChild --> newDocNode --> newNode;stringGetNodeList(content) # note: this inserts entity nodes if content contains &;
 
 # xmlEncodeEntitiesReentrant called from xmlNodeListGetString
-# xmlEncodeSpecialChars called from xmlNodeListGetRawString 
+# xmlEncodeSpecialChars called from xmlNodeListGetRawString
 #------------------------------------------------------------------------
 
 def xml_attributes(node):
@@ -210,9 +212,8 @@ class XmlSerializeMetaData(type):
             cls._attributes.sort()
             cls._names.sort()
 
+@add_metaclass(XmlSerializeMetaData)
 class XmlSerialize(object):
-    __metaclass__ = XmlSerializeMetaData
-
     def __init__(self):
         self._init_defaults()
 
