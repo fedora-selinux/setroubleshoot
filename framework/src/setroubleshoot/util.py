@@ -76,6 +76,12 @@ from setroubleshoot.errcode import *
 
 cmp = lambda x, y: (x > y) - (x < y)
 
+def is_type(obj):
+    try:
+        return isinstance(obj, TypeType)
+    except NameError:
+        return isinstance(obj, type)
+
 DATABASE_MAJOR_VERSION = 3
 DATABASE_MINOR_VERSION = 0
 
@@ -169,7 +175,7 @@ def preextend_list(requested_length, _list=None, default=None):
     cur_length = len(_list)
     delta = requested_length-cur_length
     if delta > 0:
-        if type(default) is TypeType:
+        if is_type(default):
             _list.extend([default() for x in range(delta)])
         else:
             _list.extend([default] * delta)
@@ -241,7 +247,7 @@ def get_standard_directories():
     import rpm
     try:
         ts = rpm.ts()
-        h = ts.dbMatch("name", "filesystem").next()
+        h = next(ts.dbMatch("name", "filesystem"))
         for i in h.fiFromHeader():
             lst.append(i[0])
     except:
