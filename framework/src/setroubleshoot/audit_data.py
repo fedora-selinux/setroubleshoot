@@ -47,6 +47,13 @@ O_ACCMODE = 0o0000003
 
 cmp = lambda x, y: (x > y) - (x < y)
 
+def is_str(obj):
+    try:
+        return isinstance(obj, basestring)
+    except NameError:
+        return isinstance(obj, str)
+
+
 #-----------------------------------------------------------------------------
 
 standard_directories = get_standard_directories()
@@ -152,7 +159,7 @@ class AvcContext(XmlSerialize):
     }
     def __init__(self, data):
         super(AvcContext, self).__init__()
-        if type(data) is StringType:
+        if is_str:
             fields = data.split(':')
             if len(fields) >= 3:
                 self.user = fields[0]
