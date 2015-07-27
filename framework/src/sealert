@@ -20,17 +20,16 @@
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
 
+from __future__ import print_function
 import syslog
-import setroubleshoot.default_encoding_utf8
-import gobject
-gobject.set_prgname('setroubleshoot') 
+from gi.repository import GObject
+GObject.set_prgname('setroubleshoot')
 import dbus
 import dbus.glib
 import dbus.service
 import errno as Errno
 import gettext
 import os
-import Queue
 import re
 import signal
 import selinux
@@ -41,9 +40,12 @@ import slip.dbus.service
 
 from setroubleshoot.config import parse_config_setting, get_config
 domain = get_config('general', 'i18n_text_domain')
+kwargs = {}
+if sys.version_info < (3,):
+    kwargs['unicode'] = True
 gettext.install(domain    = domain,
-                unicode = True,
-                localedir = get_config('general', 'i18n_locale_dir'))
+                localedir = get_config('general', 'i18n_locale_dir'),
+                **kwargs)
 
 syslog.openlog(sys.argv[0])
 from setroubleshoot.errcode import *
@@ -81,7 +83,7 @@ def run_app(user):
     global app
 
     from setroubleshoot.serverconnection import ServerConnectionHandler
-    gobject.type_register(ServerConnectionHandler)
+    GObject.type_register(ServerConnectionHandler)
 
     app = SEAlert(user)
     return app.main()    
@@ -108,7 +110,7 @@ def run_as_dbus_service(user):
         dbus_service = DBusSessionService(dbus_session_bus_name)
         app = SEAlert(user, dbus_service.presentation_manager, watch_setroubleshootd=True)
         return app.main()    
-    except dbus.DBusException, e:
+    except dbus.DBusException as e:
         syslog.syslog(syslog.LOG_ERR, 'could not start dbus: %s' % str(e))
         return False
 
@@ -118,7 +120,7 @@ def ask_dbus_to_show_browser():
         proxy_obj = bus.get_object(dbus_session_bus_name, dbus_session_object_path)
         iface = dbus.Interface(proxy_obj, dbus_session_interface)
         return True
-    except dbus.DBusException, e:
+    except dbus.DBusException as e:
         syslog.syslog(syslog.LOG_ERR, 'could not start dbus: %s' % str(e))
         return False
 
@@ -129,7 +131,7 @@ def ask_dbus_to_quit_app():
         iface = dbus.Interface(proxy_obj, dbus_session_interface)
         iface.quit_app()    
         return True
-    except dbus.DBusException, e:
+    except dbus.DBusException as e:
         syslog.syslog(syslog.LOG_ERR, 'could not start dbus: %s' % str(e))
         return False
 
@@ -147,23 +149,23 @@ def fix_lookup_id(local_id, analysis_id):
                 if analysis_id == plugin.analysis_id:
                     p = load_plugins(analysis_id)[0]
                     if p.fixable == False:
-                        print _("Not fixable.")
+                        print(_("Not fixable."))
                         cl.main_loop.quit()
                         return
                     siginfo.update_derived_template_substitutions()
                     command = siginfo.substitute_array(p.get_fix_cmd(siginfo.audit_event, plugin.args).split())
                     try:
                         output = subprocess.check_output(command)
-                        print _("Successfully ran %s" % ' '.join(command))
+                        print(_("Successfully ran %s" % ' '.join(command)))
                     except subprocess.CalledProcessError as e:
-                        print(e.output)
+                        print((e.output))
                     cl.main_loop.quit()
                     return
-        print _("Plugin %s not valid for %s id") % (analysis_id, local_id)
+        print(_("Plugin %s not valid for %s id") % (analysis_id, local_id))
         cl.main_loop.quit()
 
     def query_alerts_error(method, errno, strerror):
-        print >> sys.stderr, "%s error (%d): %s" % (method, errno, strerror)
+        print("%s error (%d): %s" % (method, errno, strerror), file=sys.stderr)
         cl.main_loop.quit()
 
     cl = SECommandLine(lookup_local_id)
@@ -181,8 +183,8 @@ def command_line_lookup_id(local_id, html=False):
 
     def query_alerts_callback(sigs):
         for siginfo in sigs.signature_list:
-            print siginfo.format_text()
-            print siginfo.format_details()
+            print(siginfo.format_text())
+            print(siginfo.format_details())
         cl.main_loop.quit()
 
     def query_alerts_error(method, errno, strerror):
@@ -193,21 +195,21 @@ def command_line_lookup_id(local_id, html=False):
     cl = SECommandLine(lookup_local_id)
     cl.run()
     if err:
-        print "Error"
+        print("Error")
         raise ValueError(err)
 
 #-----------------------------------------------------------------------------
 
-class PresentationManager(gobject.GObject):
+class PresentationManager(GObject.GObject):
     __gsignals__ = {
         'show_browser':
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT,)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
         'quit_app':
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, ()),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
         }
 
     def __init__(self):
-        gobject.GObject.__init__(self)
+        GObject.GObject.__init__(self)
 
     def show_browser(self, data_name = None):
         self.emit('show_browser', data_name)
@@ -215,20 +217,20 @@ class PresentationManager(gobject.GObject):
     def quit_app(self):
         self.emit('quit_app')
 
-gobject.type_register(PresentationManager)
+GObject.type_register(PresentationManager)
 
 #-----------------------------------------------------------------------------
 
-class SETroubleshootdDBus(gobject.GObject):
+class SETroubleshootdDBus(GObject.GObject):
     __gsignals__ = {
         'state_change':
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT,)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
         'restart_request':
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT,)),
+        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
         }
 
     def __init__(self):
-        gobject.GObject.__init__(self)
+        GObject.GObject.__init__(self)
 
         self.bus = dbus.SystemBus()
 
@@ -274,7 +276,7 @@ class SETroubleshootdDBus(gobject.GObject):
         log_debug("do_restart(%s)" % reason)
         self.emit('restart_request', reason)
 
-gobject.type_register(SETroubleshootdDBus)
+GObject.type_register(SETroubleshootdDBus)
 
 #-----------------------------------------------------------------------------
 
@@ -313,7 +315,7 @@ class SEAlert(object):
     """
     def __init__(self, username, presentation_manager = None, watch_setroubleshootd = False):
         from setroubleshoot.serverconnection import ServerConnectionHandler
-        gobject.type_register(ServerConnectionHandler)
+        GObject.type_register(ServerConnectionHandler)
 
         try:
             self.username = username
@@ -321,7 +323,7 @@ class SEAlert(object):
 
             if presentation_manager is None:
                 self.presentation_manager = PresentationManager()
-                gobject.idle_add(self.show_browser_at_startup)
+                GObject.idle_add(self.show_browser_at_startup)
             else:
                 self.presentation_manager = presentation_manager
 
@@ -348,7 +350,7 @@ class SEAlert(object):
             # in "alert" mode we want the application to persist in the background
             self.browser.window_delete_hides = False
 
-        except ProgramError, e:
+        except ProgramError as e:
             syslog.syslog(syslog.LOG_ERR, e.strerror)
             sys.exit(1)
 
@@ -361,12 +363,12 @@ class SEAlert(object):
         try:
             gtk.main()
             self.finish()
-        except IOError, e:
+        except IOError as e:
             syslog.syslog(syslog.LOG_ERR, str(e))
-            print >>sys.stderr, e
+            print(e, file=sys.stderr)
             sys.exit(1)
             
-        except KeyboardInterrupt, e:
+        except KeyboardInterrupt as e:
             log_debug("got KeyboardInterrupt, exiting ...")
             self.alert_client.close_connection(ConnectionState.HUP)
             self.finish()
@@ -436,11 +438,11 @@ class SECommandLine(object):
 
         self.alert_client = ServerConnectionHandler(self.username)
         self.alert_client.connect('connection_state_changed', self.on_connection_state_change)
-        self.main_loop = gobject.MainLoop()
+        self.main_loop = GObject.MainLoop()
 
 
     def async_error_callback(self, method, errno, strerror):
-        print >> sys.stderr, "%s error (%d): %s" % (method, errno, strerror)
+        print("%s error (%d): %s" % (method, errno, strerror), file=sys.stderr)
         sys.exit(1)
 
     def do_logon(self):
@@ -460,7 +462,7 @@ class SECommandLine(object):
 
         if flags_added & ConnectionState.ERROR:
             errno, strerror = connection_state.get_result()
-            print >> sys.stderr, "failed to connect to server: %s" % (strerror)
+            print("failed to connect to server: %s" % (strerror), file=sys.stderr)
             sys.exit(1)
 
         if flags_added & ConnectionState.OPEN:
@@ -474,7 +476,7 @@ class SECommandLine(object):
         self.alert_client.open(get_server_socket_address())
         try:
             self.main_loop.run()
-        except KeyboardInterrupt, e:
+        except KeyboardInterrupt as e:
             sys.exit()
 
 #-----------------------------------------------------------------------------
@@ -483,7 +485,7 @@ class ScanLogfile:
     def __init__(self, logfile_path):
         from setroubleshoot.analyze import LogfileAnalyzer
         self.analyzer = LogfileAnalyzer(logfile_path)
-        self.main_loop = gobject.MainLoop()
+        self.main_loop = GObject.MainLoop()
         if sys.stdout.isatty():
             self.analyzer.connect('progress', self.on_progress)
         self.analyzer.connect('state-changed', self.on_analyzer_state_change)
@@ -496,7 +498,7 @@ class ScanLogfile:
     def on_analyzer_state_change(self, analyzer, state):
         if state == 'stopped':
             if analyzer.strerror:
-                print >> sys.stderr, "ERROR: %s" % analyzer.strerror
+                print("ERROR: %s" % analyzer.strerror, file=sys.stderr)
             log_debug("analyzer stopped")
             self.main_loop.quit()
             self.output_results()
@@ -510,11 +512,11 @@ class ScanLogfile:
     def output_results(self):
         sigs = self.analyzer.database.query_alerts('*')
         seperator = '-'*80 + '\n'
-        print "\nfound %d alerts in %s" % (len(sigs.signature_list), self.analyzer.logfile_path)
+        print("\nfound %d alerts in %s" % (len(sigs.signature_list), self.analyzer.logfile_path))
         for siginfo in sigs.signature_list:
-            print seperator
-            print siginfo.format_text()
-            print siginfo.format_details()
+            print(seperator)
+            print(siginfo.format_text())
+            print(siginfo.format_details())
 
 def do_analyze_logfile(logfile_path):
     import selinux.audit2why as audit2why
@@ -528,7 +530,7 @@ def do_analyze_logfile(logfile_path):
 def display_terminal_traceback(who):
     import traceback
     stacktrace = traceback.format_exc()
-    print _("Opps, %s hit an error!" % who) + '\n\n' +stacktrace
+    print(_("Opps, %s hit an error!" % who) + '\n\n' +stacktrace)
 
 try:
     from setroubleshoot.gui_utils import display_traceback
@@ -548,7 +550,7 @@ if __name__ == '__main__':
         invocation_style = opt
         for i in conflict_opts:
             if (getattr(opts_instance,i)):
-                    print >> sys.stderr, "cannot run as %s with other option" % (opt)
+                    print("cannot run as %s with other option" % (opt), file=sys.stderr)
                     sys.exit(3)					
 
     try:
@@ -618,7 +620,7 @@ if __name__ == '__main__':
             if options.plugin:
                 plugin_name = options.plugin
             else:
-                print >> sys.stderr, "-P plugin_name required for fix"
+                print("-P plugin_name required for fix", file=sys.stderr)
                 sys.exit(3)
 
         # Attempt to communicate with the service.  DBus should start it if it is not
@@ -631,7 +633,7 @@ if __name__ == '__main__':
                 iface = dbus.Interface(proxy_obj, dbus_session_interface)
                 s = iface.start()
             except dbus.DBusException:
-                print >> sys.stderr, "could not attach to desktop process"
+                print("could not attach to desktop process", file=sys.stderr)
                 sys.exit(1)
             sys.exit()
 
@@ -645,8 +647,8 @@ if __name__ == '__main__':
                 # This import must come before importing gtk to silence warnings
                 import gtk
                 run_as_dbus_service(username)
-            except RuntimeError, e:
-                print e
+            except RuntimeError as e:
+                print(e)
                 sys.exit(3)
             sys.exit()
         elif invocation_style == 'noservice':
@@ -666,8 +668,8 @@ if __name__ == '__main__':
                 iface.start()
                 command_line_lookup_id(local_id)
                 iface.finish()
-            except ValueError, e:
-                print >> sys.stderr, e
+            except ValueError as e:
+                print(e, file=sys.stderr)
                 sys.exit(3)
 
             sys.exit()
@@ -676,11 +678,11 @@ if __name__ == '__main__':
 
             try:
                 do_analyze_logfile(logfile)
-            except OSError, e:
-                print e
+            except OSError as e:
+                print(e)
                 sys.exit(3)
-            except ProgramError, e:
-                print >> sys.stderr, e.strerror
+            except ProgramError as e:
+                print(e.strerror, file=sys.stderr)
                 sys.exit(3)
                 
         elif invocation_style == 'fix':
@@ -695,15 +697,15 @@ if __name__ == '__main__':
 
                 fix_lookup_id(local_id, plugin_name)
                 iface.finish()
-            except dbus.DBusException, e:
-                print >> sys.stderr, "could not attach to desktop process"
+            except dbus.DBusException as e:
+                print("could not attach to desktop process", file=sys.stderr)
                 sys.exit(3)
                 
             sys.exit()
         else:
-            print >> sys.stderr, "unknown invocation style (%s)" % invocation_style
+            print("unknown invocation style (%s)" % invocation_style, file=sys.stderr)
             sys.exit(3)
-    except Exception, e:	
+    except Exception as e:
         syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
         if use_terminal:
             display_terminal_traceback('sealert')
