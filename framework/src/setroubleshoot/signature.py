@@ -20,10 +20,13 @@
 #
 import syslog
 from subprocess import *
-import setroubleshoot.default_encoding_utf8
 import gettext
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
-_=translation.ugettext
+
+try:
+    _ = translation.ugettext # This raises exception in Python3, succ. in Py2
+except AttributeError:
+    _ = translation.gettext # Python3
 
 __all__ = [
            'SignatureMatch',
