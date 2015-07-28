@@ -24,7 +24,7 @@ import re
 import syslog
 
 import errno as Errno
-from gi.repository import GObject
+from gi.repository import GObject, GLib
 import os
 import socket as Socket
 import fcntl
@@ -244,7 +244,7 @@ class ConnectionState(GObject.GObject):
 
     __gsignals__ = {
         'changed': # callback(connection_state, flags, flags_added, flags_removed):
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_INT, GObject.TYPE_INT, GObject.TYPE_INT)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_INT, GObject.TYPE_INT, GObject.TYPE_INT)),
         }
     def __init__(self):
         GObject.GObject.__init__(self)
@@ -582,7 +582,7 @@ class SocketAddress(object):
 #-----------------------------------------------------------------------------
 
 class ConnectionIO(object):
-    io_input_conditions = GObject.IO_IN | GObject.IO_HUP | GObject.IO_ERR | GObject.IO_NVAL
+    io_input_conditions = GLib.IO_IN | GLib.IO_HUP | GLib.IO_ERR | GLib.IO_NVAL
 
     def __init__(self, channel_type=None, channel_name=None, socket_address=SocketAddress()):
         self.connection_state = ConnectionState()

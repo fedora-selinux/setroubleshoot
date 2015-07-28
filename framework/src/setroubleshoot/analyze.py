@@ -477,9 +477,9 @@ class SETroubleshootDatabaseLocal(RpcManage,
 
     __gsignals__ = {
         'signatures_updated':
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
         'async-error': # callback(method, errno, strerror)
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_STRING, GObject.TYPE_INT, GObject.TYPE_STRING)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_STRING, GObject.TYPE_INT, GObject.TYPE_STRING)),
         }
 
 
@@ -523,9 +523,9 @@ GObject.type_register(SETroubleshootDatabaseLocal)
 class LogfileAnalyzer(GObject.GObject):
     __gsignals__ = {
         'progress':
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_FLOAT,)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_FLOAT,)),
         'state-changed':
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
         }
 
     def __init__(self, logfile_path=None):

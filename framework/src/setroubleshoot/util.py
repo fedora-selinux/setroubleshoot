@@ -770,7 +770,7 @@ class Retry(GObject.GObject):
     '''
     __gsignals__ = {
         'pending_retry':                # callback(retry_object, seconds_pending, user_data)
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_FLOAT, GObject.TYPE_PYOBJECT,)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_FLOAT, GObject.TYPE_PYOBJECT,)),
         }
 
     def __init__(self, callback, retry_interval, user_data=None, notify_interval=None):
