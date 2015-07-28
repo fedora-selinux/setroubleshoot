@@ -61,6 +61,7 @@ __all__ = [
     'Retry',
     ]
 
+import six
 import datetime
 import glob
 from gi.repository import GObject
@@ -73,6 +74,7 @@ import time
 from types import *
 import syslog
 from functools import cmp_to_key
+from types import FunctionType, MethodType
 
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
@@ -642,9 +644,9 @@ class TimeStamp:
     def __init__(self, t=None):
         if t is None:
             self._dt = self.now(local=False)
-        elif type(t) is StringType:
+        elif isinstance(t, six.string_types):
             self.parse(t)
-        elif type(t) is FloatType:
+        elif isinstance(t, float):
             self._dt = datetime.datetime.fromtimestamp(t, self.utc_tz)
         elif isinstance(t, datetime.datetime):
             self._dt = t
@@ -841,8 +843,7 @@ class Retry(GObject.GObject):
             self._schedule_alarm(True)
 
     def _get_retry_interval(self):
-        interval_type = type(self.retry_interval)
-        if interval_type is MethodType or interval_type is FunctionType:
+        if isinstance(interval_type, (MethodType, FunctionType)):
             return self.retry_interval(self, self.user_data)
         return self.retry_interval
 

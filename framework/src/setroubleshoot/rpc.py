@@ -19,6 +19,7 @@ from __future__ import print_function
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
 
+import six
 import libxml2
 import re
 import syslog
@@ -414,7 +415,7 @@ class InterfaceRegistry(object):
 
     def get_rpc_def(self, interface, method):
         interface_dict = self.get_interface(interface)
-        if type(method) == MethodType:
+        if isinstance(method, MethodType):
             method = method.__name__
         rpc_def = interface_dict.get(method)
         if rpc_def is None:
@@ -424,7 +425,7 @@ class InterfaceRegistry(object):
 
     def register_rpc_def(self, interface, method, rpc_def):
         interface_dict = self.get_interface(interface)
-        if type(method) == MethodType:
+        if isinstance(method, MethodType):
             method = method.__name__
         interface_dict[method] = rpc_def
 
@@ -548,7 +549,7 @@ class SocketAddress(object):
 
     @staticmethod
     def map_family(family):
-        if type(family) is str:
+        if isinstance(family, six.string_types):
             family = family.lower()
             family = {'unix' : Socket.AF_UNIX, 'inet' : Socket.AF_INET}.get(family)
             return family
@@ -595,7 +596,7 @@ class ConnectionIO(object):
     def io_watch_add(self, callback):
         '''callback signature: (io_object, io_condition)'''
         self.io_watch_remove()
-        self.io_watch_id = GObject.io_add_watch(self.socket_address.socket,
+        self.io_watch_id = GLib.io_add_watch(self.socket_address.socket,
                                                 self.io_input_conditions, callback)
 
     def io_watch_remove(self):

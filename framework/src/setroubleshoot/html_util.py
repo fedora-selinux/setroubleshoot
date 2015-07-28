@@ -178,14 +178,14 @@ def html_document(*body_components):
     doc = head
 
     for body_component in body_components:
-        if type(body_component) is StringTypes:
+        if isinstance(body_component, six.string_types):
             doc += body_component
-        elif type(body_component) in [TupleType, ListType]:
+        elif isinstance(body_component, (tuple, list)):
             for item in body_component:
                 doc += item
         elif callable(body_component):
             result = body_component()
-            if type(result) in [TupleType, ListType]:
+            if isinstance(result, (tuple, list)):
                 for item in result:
                     doc += item
             else:

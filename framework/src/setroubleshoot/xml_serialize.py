@@ -50,7 +50,7 @@ from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
 from setroubleshoot.util import *
 
-from six import add_metaclass
+from six import add_metaclass, string_types
 
 #------------------------------------------------------------------------
 
@@ -75,9 +75,9 @@ def validate_database_doc(doc):
 
 def boolean(value):
     'convert value to bool'
-    if type(value) == BooleanType:
+    if isinstance(value, bool):
         return value
-    elif type(value == StringType):
+    elif isinstance(value, six.string_types):
         value = value.lower()
         if value in ('t', 'true', '1'):
             return True
@@ -85,7 +85,7 @@ def boolean(value):
             return False
         else:
             raise ValueError("cannot convert (%s) to boolean" % value)
-    elif type(value == IntType):
+    elif isinstance(value, int):
         return bool(value)
     else:
         raise ValueError("cannot convert (%s) to boolean" % value)
@@ -299,10 +299,10 @@ class XmlSerialize(object):
             need_to_close = False
             if f is None:
                 f = sys.stdout
-            elif type(f) is StringType:
+            elif isinstance(f, string_types):
                 f = open(f, "w")
                 need_to_close = True
-            elif type(f) is FileType:
+            elif isinstance(f, FileType):
                 pass
             else:
                 raise ValueError("bad file parameter %s" % f)

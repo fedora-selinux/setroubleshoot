@@ -20,6 +20,8 @@ from __future__ import print_function
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
+
+import six
 import syslog
 from subprocess import *
 import gettext
@@ -660,7 +662,7 @@ class SEFaultSignatureSet(XmlSerialize):
         exact = False
         if criteria == 'exact':
             exact = True
-        elif type(criteria) is FloatType:
+        elif isinstance(criteria, float):
             num_match_targets = len(match_targets)
             score_per_match_target = 1.0 / num_match_targets
         else:

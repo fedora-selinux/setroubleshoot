@@ -28,7 +28,7 @@ __all__ = ['RunFaultServer',
           ]
 
 
-from gi.repository import GObject
+from gi.repository import GObject, GLib
 GObject.threads_init()
 import dbus
 import dbus.service
@@ -628,7 +628,7 @@ def RunFaultServer(timeout=10):
 
         dbus.glib.init_threads()
         setroubleshootd_dbus = SetroubleshootdDBus(analysis_queue, alert_receiver, timeout)
-        main_loop = GObject.MainLoop()
+        main_loop = GLib.MainLoop()
         main_loop.run()
 
     except KeyboardInterrupt as e:
