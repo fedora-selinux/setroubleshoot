@@ -601,22 +601,22 @@ class ConnectionIO(object):
 
     def io_watch_remove(self):
         if self.io_watch_id is not None:
-            GObject.source_remove(self.io_watch_id)
+            GLib.source_remove(self.io_watch_id)
             self.io_watch_id = None
 
     def valid_io_condition(self, io_condition):
-        if io_condition & (GObject.IO_HUP | GObject.IO_ERR | GObject.IO_NVAL):
-            if io_condition & GObject.IO_HUP:
+        if io_condition & (GLib.IO_HUP | GLib.IO_ERR | GLib.IO_NVAL):
+            if io_condition & GLib.IO_HUP:
                 errno = ERR_SOCKET_HUP
                 strerror = get_strerror(errno)
                 self.close_connection(ConnectionState.HUP, 0, errno, strerror)
 
-            if io_condition & GObject.IO_ERR:
+            if io_condition & GLib.IO_ERR:
                 errno = ERR_SOCKET_ERROR
                 strerror = get_strerror(errno)
                 self.close_connection(ConnectionState.ERROR, 0, errno, strerror)
 
-            if io_condition & GObject.IO_NVAL:
+            if io_condition & GLib.IO_NVAL:
                 errno = ERR_IO_INVALID
                 strerror = get_strerror(errno)
                 self.close_connection(ConnectionState.ERROR, 0, errno, strerror)
@@ -673,7 +673,7 @@ class ListeningServer(ConnectionIO):
             if not self.valid_io_condition(io_condition):
                 return False
 
-            if io_condition & GObject.IO_IN:
+            if io_condition & GLib.IO_IN:
                 try:
                     client_socket, client_address = socket.accept()
                     fcntl.fcntl(client_socket.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
@@ -866,7 +866,7 @@ class RpcChannel(ConnectionIO, RpcManage):
         try:
             totalSent = 0
             while totalSent < len(data):
-                sent = self.socket_address.socket.send(data[totalSent:])
+                sent = self.socket_address.socket.send(bytes(data[totalSent:], 'UTF-8'))
                 if sent == 0:
                     self.close_connection(ConnectionState.HUP)
                     raise ProgramError(ERR_SOCKET_HUP, detail=self.connection_state)
@@ -895,7 +895,7 @@ class RpcChannel(ConnectionIO, RpcManage):
             if not self.valid_io_condition(io_condition):
                 return False
 
-            if io_condition & GObject.IO_IN:
+            if io_condition & GLib.IO_IN:
                 try:
                     data = socket.recv(self.socket_buf_size)
                     if len(data) == 0:

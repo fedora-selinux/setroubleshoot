@@ -1,4 +1,4 @@
-#! /usr/bin/python -Es
+#!/usr/bin/python3 -Es
 #
 # Authors: John Dennis <jdennis@redhat.com>
 # Authors: Dan Walsh <dwalsh@redhat.com>
@@ -22,8 +22,8 @@
 
 from __future__ import print_function
 import syslog
-from gi.repository import GObject
-GObject.set_prgname('setroubleshoot')
+from gi.repository import GObject, GLib
+GLib.set_prgname('setroubleshoot')
 import dbus
 import dbus.glib
 import dbus.service
@@ -86,7 +86,7 @@ def run_app(user):
     GObject.type_register(ServerConnectionHandler)
 
     app = SEAlert(user)
-    return app.main()    
+    return app.main()
 
 def error(message):
     dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_ERROR,
@@ -109,7 +109,7 @@ def run_as_dbus_service(user):
         log_debug('starting service')
         dbus_service = DBusSessionService(dbus_session_bus_name)
         app = SEAlert(user, dbus_service.presentation_manager, watch_setroubleshootd=True)
-        return app.main()    
+        return app.main()
     except dbus.DBusException as e:
         syslog.syslog(syslog.LOG_ERR, 'could not start dbus: %s' % str(e))
         return False
@@ -129,7 +129,7 @@ def ask_dbus_to_quit_app():
         bus = dbus.SessionBus()
         proxy_obj = bus.get_object(dbus_session_bus_name, dbus_session_object_path)
         iface = dbus.Interface(proxy_obj, dbus_session_interface)
-        iface.quit_app()    
+        iface.quit_app()
         return True
     except dbus.DBusException as e:
         syslog.syslog(syslog.LOG_ERR, 'could not start dbus: %s' % str(e))
@@ -203,9 +203,9 @@ def command_line_lookup_id(local_id, html=False):
 class PresentationManager(GObject.GObject):
     __gsignals__ = {
         'show_browser':
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
         'quit_app':
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, ()),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, ()),
         }
 
     def __init__(self):
@@ -224,9 +224,9 @@ GObject.type_register(PresentationManager)
 class SETroubleshootdDBus(GObject.GObject):
     __gsignals__ = {
         'state_change':
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
         'restart_request':
-        (GObject.SIGNAL_RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
+        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_PYOBJECT,)),
         }
 
     def __init__(self):
@@ -367,7 +367,7 @@ class SEAlert(object):
             syslog.syslog(syslog.LOG_ERR, str(e))
             print(e, file=sys.stderr)
             sys.exit(1)
-            
+
         except KeyboardInterrupt as e:
             log_debug("got KeyboardInterrupt, exiting ...")
             self.alert_client.close_connection(ConnectionState.HUP)
@@ -413,7 +413,7 @@ class SEAlert(object):
         log_debug('restart request: reason = %s' % reason)
         do_restart()
         return False
-        
+
 
 def do_restart():
     log_debug("restarting application...)")
@@ -438,7 +438,7 @@ class SECommandLine(object):
 
         self.alert_client = ServerConnectionHandler(self.username)
         self.alert_client.connect('connection_state_changed', self.on_connection_state_change)
-        self.main_loop = GObject.MainLoop()
+        self.main_loop = GLib.MainLoop()
 
 
     def async_error_callback(self, method, errno, strerror):
@@ -489,7 +489,7 @@ class ScanLogfile:
         if sys.stdout.isatty():
             self.analyzer.connect('progress', self.on_progress)
         self.analyzer.connect('state-changed', self.on_analyzer_state_change)
-        
+
     def on_progress(self, analyzer, progress):
         output = "\r%3d%% done" % (progress*100)
         sys.stdout.write(output)
@@ -524,7 +524,7 @@ def do_analyze_logfile(logfile_path):
     scanner = ScanLogfile(logfile_path)
     scanner.scan_file()
     audit2why.finish()
-        
+
 #-----------------------------------------------------------------------------
 
 def display_terminal_traceback(who):
@@ -551,7 +551,7 @@ if __name__ == '__main__':
         for i in conflict_opts:
             if (getattr(opts_instance,i)):
                     print("cannot run as %s with other option" % (opt), file=sys.stderr)
-                    sys.exit(3)					
+                    sys.exit(3)
 
     try:
         from optparse import OptionParser
@@ -589,13 +589,13 @@ if __name__ == '__main__':
             username = get_identity()
 
         if options.password:
-            password = options.password    
+            password = options.password
         else:
             password = 'passwd'
 
         if options.browser:
             validate_invocation_style("browser", options, conflict_opts)
-      
+
         if options.service:
             validate_invocation_style("service", options, conflict_opts)
 
@@ -684,7 +684,7 @@ if __name__ == '__main__':
             except ProgramError as e:
                 print(e.strerror, file=sys.stderr)
                 sys.exit(3)
-                
+
         elif invocation_style == 'fix':
             use_terminal = True
 
@@ -700,7 +700,7 @@ if __name__ == '__main__':
             except dbus.DBusException as e:
                 print("could not attach to desktop process", file=sys.stderr)
                 sys.exit(3)
-                
+
             sys.exit()
         else:
             print("unknown invocation style (%s)" % invocation_style, file=sys.stderr)

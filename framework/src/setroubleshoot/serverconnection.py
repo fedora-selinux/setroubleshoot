@@ -1,7 +1,11 @@
 from __future__ import absolute_import
 import syslog
-import setroubleshoot.default_encoding_utf8
-import gobject
+
+import sys
+if sys.version_info < (3,):
+    import setroubleshoot.default_encoding_utf8
+
+from gi.repository import GObject as gobject
 import errno as Errno
 import gettext
 import os
@@ -11,7 +15,6 @@ import signal
 import selinux
 import socket as Socket
 import fcntl
-import sys
 
 from setroubleshoot.config import parse_config_setting, get_config
 
@@ -30,15 +33,15 @@ class ServerConnectionHandler(RpcChannel,
                               gobject.GObject):
     __gsignals__ = {
         'alert':
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT,)),
+        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT,)),
         'connection_state_changed': # callback(connection_state, flags, flags_added, flags_removed):
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_INT)),
-        'signatures_updated': 
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
-        'database_bind': 
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
+        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_INT)),
+        'signatures_updated':
+        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
+        'database_bind':
+        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
         'async-error': # callback(method, errno, strerror)
-        (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_STRING, gobject.TYPE_INT, gobject.TYPE_STRING)),
+        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_STRING, gobject.TYPE_INT, gobject.TYPE_STRING)),
         }
 
     def __init__(self, username):
@@ -103,13 +106,13 @@ class ServerConnectionHandler(RpcChannel,
             self.close_connection(add_flags, ConnectionState.CONNECTING, errno, strerror)
             return False
         return True
-            
+
     def retry_connection(self, retry, user_data):
         if self.open(self.socket_address):
             return True
         else:
             return False
-        
+
     def get_connection_retry_interval(self, retry, user_data):
         if retry.failed_attempts < 5:
             return 10
