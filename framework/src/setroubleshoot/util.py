@@ -72,6 +72,7 @@ import textwrap
 import time
 from types import *
 import syslog
+from functools import cmp_to_key
 
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
@@ -483,7 +484,7 @@ def load_plugins(filter_glob=None):
         if mod_fp:
             mod_fp.close()
 
-    plugins.sort(sort_plugins)
+    plugins.sort(key=cmp_to_key(sort_plugins))
     return plugins
 
 def get_os_environment():
