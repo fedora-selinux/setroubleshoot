@@ -28,7 +28,7 @@ from setroubleshoot.config import parse_config_setting, get_config
 import six
 domain = get_config('general', 'i18n_text_domain')
 gettext.install(domain    = domain,
-                six.text_type = True,
+                unicode   = True,
                 localedir = get_config('general', 'i18n_locale_dir'))
 translation=gettext.translation(domain, fallback=True)
 _=translation.ugettext
