@@ -285,7 +285,7 @@ class SETroubleshootDatabase(object):
         if not (self.max_alerts or self.max_alert_age): return False
 
         # Sort oldest to youngest by last_seen_date
-        self.sigs.signature_list.sort(lambda a,b: cmp(a.last_seen_date, b.last_seen_date))
+        self.sigs.signature_list.sort(key=lambda a,b: cmp(a.last_seen_date, b.last_seen_date))
 
         if self.max_alert_age:
             # Find the first alert younger than the age threshold, prune everything before that
