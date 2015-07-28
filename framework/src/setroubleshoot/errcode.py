@@ -22,7 +22,7 @@ translation=gettext.translation('setroubleshoot-plugins', fallback=True)
 try:
     _ = translation.ugettext # This raises exception in Python3, succ. in Py2
 except AttributeError:
-     _ = translation.gettext # Python3
+    _ = translation.gettext # Python3
 
 __all__ = [
     'ProgramError',

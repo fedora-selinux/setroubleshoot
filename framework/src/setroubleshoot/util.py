@@ -185,11 +185,11 @@ def preextend_list(requested_length, _list=None, default=None):
     return _list
 
 def fmt_obj(obj):
-    if type(obj) is StringType:
+    if isinstance(obj, six.string_types):
         return obj
-    elif type(obj) is ListType or type(obj) is TupleType:
+    elif isinstance(obj, (list, tuple)):
         return "["+" ".join(["%s" % fmt_obj(x) for x in obj])+"]"
-    elif type(obj) is DictType:
+    elif isinstance(obj, dict):
         keys = list(obj.keys())
         keys.sort()
         return "{"+" ".join(["%s=%s" % (fmt_obj(key), fmt_obj(obj[key])) for key in keys])+"}"

@@ -39,7 +39,11 @@ __all__ = ['config_init',
 import getopt
 import sys
 import os
-import configparser
+try:
+    from configparser import SafeConfigParser
+except ImportError:
+    from ConfigParser import SafeConfigParser
+
 import re
 
 _cfg = None
@@ -426,7 +430,7 @@ def config_init():
     _cfg = read_configuration(defaults)
 
 def read_configuration(defaults):
-    cfg = configparser.SafeConfigParser()
+    cfg = SafeConfigParser()
     try:
         cfg.read(CFG_FILE)
     except Exception as e:

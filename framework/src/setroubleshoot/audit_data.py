@@ -32,6 +32,7 @@ __all__ = ['derive_record_format',
 
            ]
 
+import six
 import audit
 import struct
 import os,errno
@@ -50,11 +51,6 @@ O_ACCMODE = 0o0000003
 
 cmp = lambda x, y: (x > y) - (x < y)
 
-def is_str(obj):
-    try:
-        return isinstance(obj, six.string_types)
-    except NameError:
-        return isinstance(obj, str)
 
 #-----------------------------------------------------------------------------
 
@@ -161,7 +157,7 @@ class AvcContext(XmlSerialize):
     }
     def __init__(self, data):
         super(AvcContext, self).__init__()
-        if is_str:
+        if isinstance(data, six.string_types):
             fields = data.split(':')
             if len(fields) >= 3:
                 self.user = fields[0]
