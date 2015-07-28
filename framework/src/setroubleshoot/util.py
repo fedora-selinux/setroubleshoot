@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from six.moves import range
 # Authors: John Dennis <jdennis@redhat.com>
 #
 # Copyright (C) 2006,2007,2008 Red Hat, Inc.
@@ -166,7 +168,7 @@ def merge_lists(a,b):
     d = {}
     for i in a: d[i] = None
     for i in b: d[i] = None
-    m = d.keys()
+    m = list(d.keys())
     return m
 
 def preextend_list(requested_length, _list=None, default=None):
@@ -187,7 +189,7 @@ def fmt_obj(obj):
     elif type(obj) is ListType or type(obj) is TupleType:
         return "["+" ".join(["%s" % fmt_obj(x) for x in obj])+"]"
     elif type(obj) is DictType:
-        keys = obj.keys()
+        keys = list(obj.keys())
         keys.sort()
         return "{"+" ".join(["%s=%s" % (fmt_obj(key), fmt_obj(obj[key])) for key in keys])+"}"
     else:

@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 # Authors: John Dennis <jdennis@redhat.com>
 #          Thomas Liu <tliu@redhat.com>
 #          Dan Walsh <dwalsh@redhat.com>
@@ -21,6 +23,7 @@
 import syslog
 from subprocess import *
 import gettext
+from six.moves import range
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
 
 try:
@@ -145,7 +148,7 @@ class SEEnvironment(XmlSerialize):
         return not self.__eq__(other)
 
     def __eq__(self, other):
-        for name in self._xml_info.keys():
+        for name in list(self._xml_info.keys()):
             if getattr(self, name) != getattr(other, name):
                 return False
         return True
@@ -208,7 +211,7 @@ class_dict['node'] = _("node")
 class_dict['capability'] = _("capability")
 
 def translate_class(tclass):
-    if tclass in class_dict.keys():
+    if tclass in list(class_dict.keys()):
         return class_dict[tclass]
     return tclass
 
@@ -231,7 +234,7 @@ class SEFaultSignature(XmlSerialize):
     }
     def __init__(self, **kwds):
         super(SEFaultSignature, self).__init__()
-        for k,v in kwds.items():
+        for k,v in list(kwds.items()):
             setattr(self, k, v)
 
 class SEPlugin(XmlSerialize):
@@ -287,7 +290,7 @@ class SEFaultSignatureInfo(XmlSerialize):
 
     def __init__(self, **kwds):
         super(SEFaultSignatureInfo, self).__init__()
-        for k,v in kwds.items():
+        for k,v in list(kwds.items()):
             setattr(self, k, v)
         self.report_count = 1
         self.plugin_list = []
@@ -425,7 +428,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         self.template_substitutions["PORT_NUMBER"] = self.port
 
         # validate, replace any None values with friendly string
-        for key, value in self.template_substitutions.items():
+        for key, value in list(self.template_substitutions.items()):
             if value is None:
                 self.template_substitutions[key] = default_text(value)
 
@@ -653,7 +656,7 @@ class SEFaultSignatureSet(XmlSerialize):
         return None
 
     def match_signatures(self, pat, criteria='exact', xml_info=SEFaultSignature._xml_info):
-        match_targets = xml_info.keys()
+        match_targets = list(xml_info.keys())
         exact = False
         if criteria == 'exact':
             exact = True
@@ -839,8 +842,8 @@ if __name__ == '__main__':
     sigs.read_xml_file(xml_file, 'sigs')
     siginfo = sigs.signature_list[0]
     record = siginfo.audit_event.records[0]
-    print(record.record_type)
-    print("siginfo.audit_event=%s" % siginfo.audit_event)
+    print((record.record_type))
+    print(("siginfo.audit_event=%s" % siginfo.audit_event))
     print(sigs)
 
     #memory debug specific
@@ -848,5 +851,5 @@ if __name__ == '__main__':
     if libxml2.debugMemory(1) == 0:
         print("Memory OK")
     else:
-        print("Memory leak %d bytes" % (libxml2.debugMemory(1)))
+        print(("Memory leak %d bytes" % (libxml2.debugMemory(1))))
         libxml2.dumpMemory()

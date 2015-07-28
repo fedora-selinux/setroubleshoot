@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # Authors: John Dennis <jdennis@redhat.com>
 #
 # Copyright (C) 2007 Red Hat, Inc.
@@ -204,8 +205,8 @@ class XmlSerializeMetaData(type):
             cls._unstructured = True
         else:
             cls._unstructured = False
-            cls._elements = [x for x in xml_info.keys() if xml_info[x]['XMLForm'] == 'element']
-            cls._attributes = [x for x in xml_info.keys() if xml_info[x]['XMLForm'] == 'attribute']
+            cls._elements = [x for x in list(xml_info.keys()) if xml_info[x]['XMLForm'] == 'element']
+            cls._attributes = [x for x in list(xml_info.keys()) if xml_info[x]['XMLForm'] == 'attribute']
             cls._names = cls._elements + cls._attributes
 
             cls._elements.sort()
@@ -236,7 +237,7 @@ class XmlSerialize(object):
 
     def get_elements_and_attributes(self):
         if self._unstructured:
-            elements = [x for x in self.__dict__.keys() if not x.startswith('_')]
+            elements = [x for x in list(self.__dict__.keys()) if not x.startswith('_')]
             attributes = []
         else:
             elements   = self._elements

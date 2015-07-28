@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # Authors: John Dennis <jdennis@redhat.com>
 #
 # Copyright (C) 2006,2007,2008 Red Hat, Inc.

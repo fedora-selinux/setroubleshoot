@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # Authors: John Dennis <jdennis@redhat.com>
 #          Thomas Liu  <tliu@redhat.com>
 #          Dan Walsh <dwalsh@redhat.com>
@@ -141,13 +142,13 @@ class ConnectionPool(object):
         self.client_pool = {}
 
     def add_client(self, handler):
-        if self.client_pool.has_key(handler):
+        if handler in self.client_pool:
             log_debug("add_client: client (%s) already in client pool" % handler)
             return
         self.client_pool[handler] = None
 
     def remove_client(self, handler):
-        if not self.client_pool.has_key(handler):
+        if handler not in self.client_pool:
             log_debug("remove_client: client (%s) not in client pool" % handler)
             return
         del(self.client_pool[handler])
@@ -580,8 +581,8 @@ def RunFaultServer(timeout=10):
             alert_receiver = TestPluginReportReceiver(host_database)
 
         # Create a synchronized queue for analysis requests
-        import Queue
-        analysis_queue = Queue.Queue(0)
+        import six.moves.queue
+        analysis_queue = six.moves.queue.Queue(0)
 
         # Create a thread to peform analysis, it takes AVC objects off
         # the analysis queue and runs the plugins against the

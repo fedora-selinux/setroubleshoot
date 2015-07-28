@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 # Authors: John Dennis <jdennis@redhat.com>
 #
 # Copyright (C) 2006,2007,2008 Red Hat, Inc.
@@ -126,7 +128,7 @@ def io_condition_to_string(io_condition):
 
 def rpc_header(body, **kwds):
     hdr = "content-length: %d\r\n" % len(body)
-    for key,value in kwds.items():
+    for key,value in list(kwds.items()):
         hdr += "%s: %s\r\n" % (key, value)
     hdr += "\r\n"
     return hdr
@@ -431,16 +433,16 @@ class InterfaceRegistry(object):
         return interface_dict['_error_return']
 
     def dump_interfaces(self):
-        interface_names = self.interfaces.keys()
+        interface_names = list(self.interfaces.keys())
         interface_names.sort()
         for interface_name in interface_names:
             interface = self.interfaces[interface_name]
-            print("Interface: %s" % interface_name)
-            method_names = interface.keys()
+            print(("Interface: %s" % interface_name))
+            method_names = list(interface.keys())
             method_names.sort()
             for method_name in method_names:
                 method = interface[method_name]
-                print("    %s" % str(method))
+                print(("    %s" % str(method)))
 
 interface_registry = InterfaceRegistry()
 
@@ -769,7 +771,7 @@ class RpcManage(object):
 
     def dump_async_rpc_cache(self):
         log_debug("async_rpc_cache: %d entries, cur rpc_id=%s" % (len(self.async_rpc_cache), self.rpc_id))
-        rpc_ids = self.async_rpc_cache.keys()
+        rpc_ids = list(self.async_rpc_cache.keys())
         rpc_ids.sort()
         for rpc_id in rpc_ids:
             log_debug("%s: %s" % (rpc_id, self.async_rpc_cache[rpc_id]))

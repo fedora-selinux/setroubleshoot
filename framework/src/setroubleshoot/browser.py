@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 #!/usr/bin/python -Es
 # Author: Thomas Liu <tliu@redhat.com>
 # Author: Dan Walsh <dwalsh@redhat.com>
@@ -23,15 +25,16 @@ from math import pi
 from subprocess import *
 from gettext import ngettext as P_
 from setroubleshoot.config import parse_config_setting, get_config
+import six
 domain = get_config('general', 'i18n_text_domain')
 gettext.install(domain    = domain,
-                unicode = True,
+                six.text_type = True,
                 localedir = get_config('general', 'i18n_locale_dir'))
 translation=gettext.translation(domain, fallback=True)
 _=translation.ugettext
 import sys, os
 from xml.dom import minidom
-from xmlrpclib  import ProtocolError
+from six.moves.xmlrpc_client  import ProtocolError
 import gtk, glib
 import gtk.glade
 from setroubleshoot.errcode import *

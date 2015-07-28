@@ -1,3 +1,6 @@
+from __future__ import absolute_import
+import six
+from six.moves import range
 # Authors: John Dennis <jdennis@redhat.com>
 #          Thomas Liu <tliu@redhat.com
 # Copyright (C) 2007-2010 Red Hat, Inc.
@@ -49,10 +52,9 @@ cmp = lambda x, y: (x > y) - (x < y)
 
 def is_str(obj):
     try:
-        return isinstance(obj, basestring)
+        return isinstance(obj, six.string_types)
     except NameError:
         return isinstance(obj, str)
-
 
 #-----------------------------------------------------------------------------
 

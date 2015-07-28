@@ -1,10 +1,11 @@
+from __future__ import absolute_import
 import syslog
 import setroubleshoot.default_encoding_utf8
 import gobject
 import errno as Errno
 import gettext
 import os
-import Queue
+import six.moves.queue
 import re
 import signal
 import selinux
