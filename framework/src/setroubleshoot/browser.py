@@ -26,10 +26,16 @@ from subprocess import *
 from gettext import ngettext as P_
 from setroubleshoot.config import parse_config_setting, get_config
 import six
+import sys
 domain = get_config('general', 'i18n_text_domain')
+
+kwargs = {}
+if sys.version_info < (3,):
+    kwargs['unicode'] = True
 gettext.install(domain    = domain,
-                unicode   = True,
-                localedir = get_config('general', 'i18n_locale_dir'))
+                localedir = get_config('general', 'i18n_locale_dir'),
+                **kwargs)
+
 translation=gettext.translation(domain, fallback=True)
 _=translation.ugettext
 import sys, os
