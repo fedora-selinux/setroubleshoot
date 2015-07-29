@@ -900,6 +900,7 @@ class RpcChannel(ConnectionIO, RpcManage):
             if io_condition & GLib.IO_IN:
                 try:
                     data = socket.recv(self.socket_buf_size)
+                    data = data.decode("utf-8")
                     if len(data) == 0:
                         self.close_connection(ConnectionState.HUP)
                         return False
