@@ -77,7 +77,7 @@ def boolean(value):
     'convert value to bool'
     if isinstance(value, bool):
         return value
-    elif isinstance(value, six.string_types):
+    elif isinstance(value, string_types):
         value = value.lower()
         if value in ('t', 'true', '1'):
             return True
