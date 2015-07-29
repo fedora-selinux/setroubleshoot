@@ -79,7 +79,7 @@ from setroubleshoot.rpc_interfaces import (SETroubleshootServerInterface,
 from setroubleshoot.util import (get_hostname,
                                  make_database_filepath,
                                  assure_file_ownership_permissions,
-                                 get_identity, log_debug
+                                 get_identity, log_debug, syslog_trace
                                  )
 
 cmp = lambda x, y: (x > y) - (x < y)
@@ -638,6 +638,8 @@ def RunFaultServer(timeout=10):
         log_debug("raising SystemExit in RunFaultServer")
 
     except Exception as e:
+        import traceback
+        syslog_trace(traceback.format_exc())
         syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
 
 if __name__=='__main__':

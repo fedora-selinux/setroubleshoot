@@ -692,6 +692,8 @@ class ListeningServer(ConnectionIO):
 
         except Exception as e:
             syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
+            import traceback
+            syslog_trace(traceback.format_exc())
             self.connection_state.update(ConnectionState.ERROR, 0, -1, str(e))
 
         return True
@@ -915,6 +917,8 @@ class RpcChannel(ConnectionIO, RpcManage):
                 self.receiver.feed(data)
         except Exception as e:
             syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
+            import traceback
+            syslog_trace(traceback.format_exc())
             self.close_connection(ConnectionState.ERROR, 0, -1, str(e))
             return False
 

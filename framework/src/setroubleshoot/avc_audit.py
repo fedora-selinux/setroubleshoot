@@ -350,6 +350,8 @@ class AuditSocketReceiverThread(threading.Thread):
                 _thread.interrupt_main()
 
             except Exception as e:
+                import traceback
+                syslog_trace(traceback.format_exc())
                 syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
                 return
 

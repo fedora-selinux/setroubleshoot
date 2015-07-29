@@ -56,6 +56,7 @@ __all__ = [
     'DATABASE_MAJOR_VERSION',
     'DATABASE_MINOR_VERSION',
     'database_version_compatible',
+    'syslog_trace',
 
     'TimeStamp',
     'Retry',
@@ -105,6 +106,12 @@ def log_debug(*msg):
         log_level = get_config('sealert_log', 'level')
     if log_level == "debug":
         syslog.syslog(syslog.LOG_DEBUG, msg)
+
+def syslog_trace(trace):
+    log_lines = trace.split('\n')
+    for line in log_lines:
+        if len(line):
+            syslog.syslog(line)
 
 def database_version_compatible(version):
     major = minor = None
