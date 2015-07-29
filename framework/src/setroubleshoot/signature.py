@@ -26,6 +26,7 @@ import syslog
 from subprocess import *
 import gettext
 from six.moves import range
+from functools import cmp_to_key
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
 
 try:
@@ -463,7 +464,7 @@ class SEFaultSignatureInfo(XmlSerialize):
                         plugins.append((p, tuple(solution.args)))
                         break
 
-        plugins.sort(self.priority_sort)
+        plugins.sort(key=cmp_to_key(self.priority_sort))
 
         return total_priority, plugins
 
@@ -688,7 +689,7 @@ class SEFaultSignatureSet(XmlSerialize):
             else:
                 if score >= criteria:
                     matches.append(SignatureMatch(siginfo, score))
-        matches.sort((lambda a,b: cmp(b.score, a.score)))
+        matches.sort(key=cmp_to_key(lambda a,b: cmp(b.score, a.score)))
         return matches
 
 
