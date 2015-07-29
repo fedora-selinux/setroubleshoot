@@ -485,7 +485,7 @@ class ScanLogfile:
     def __init__(self, logfile_path):
         from setroubleshoot.analyze import LogfileAnalyzer
         self.analyzer = LogfileAnalyzer(logfile_path)
-        self.main_loop = GObject.MainLoop()
+        self.main_loop = GLib.MainLoop()
         if sys.stdout.isatty():
             self.analyzer.connect('progress', self.on_progress)
         self.analyzer.connect('state-changed', self.on_analyzer_state_change)

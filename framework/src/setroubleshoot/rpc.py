@@ -597,7 +597,8 @@ class ConnectionIO(object):
         '''callback signature: (io_object, io_condition)'''
         self.io_watch_remove()
         self.io_watch_id = GLib.io_add_watch(self.socket_address.socket,
-                                                self.io_input_conditions, callback)
+                                             GLib.PRIORITY_DEFAULT,
+                                             self.io_input_conditions, callback)
 
     def io_watch_remove(self):
         if self.io_watch_id is not None:

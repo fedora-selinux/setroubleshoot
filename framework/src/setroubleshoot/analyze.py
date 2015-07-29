@@ -351,7 +351,7 @@ class SETroubleshootDatabase(object):
         self.file_exists = True
         self.modified_count = 0
         if self.auto_save_timer is not None:
-            GObject.source_remove(self.auto_save_timer)
+            GLib.source_remove(self.auto_save_timer)
             self.auto_save_timer = None
 
     def mark_modified(self, prune=False):
@@ -363,8 +363,8 @@ class SETroubleshootDatabase(object):
             self.save(prune)
         elif self.auto_save_timer is None:
             self.auto_save_timer = \
-                GObject.timeout_add(self.auto_save_interval*1000,
-                                    self.auto_save_callback)
+                GLib.timeout_add(self.auto_save_interval*1000,
+                                 self.auto_save_callback)
 
     def auto_save_callback(self):
         log_debug("auto_save database (%s) modified_count=%s" % (self.filepath, self.modified_count))

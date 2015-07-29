@@ -795,7 +795,7 @@ class Retry(GObject.GObject):
 
     def stop(self):
         if self.timeout_id is not None:
-            GObject.source_remove(self.timeout_id)
+            GLib.source_remove(self.timeout_id)
             self.timeout_id = None
 
     def start(self,  retry_interval=None, user_data=None, notify_interval=None):
