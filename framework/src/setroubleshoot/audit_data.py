@@ -869,7 +869,8 @@ class AVC:
                     try:
                         output = subprocess.check_output(command,
                                                          stderr=subprocess.STDOUT,
-                                                         shell=True)
+                                                         shell=True,
+                                                         universal_newlines=True)
                         ino = int(inodestr)
                         for file in output.split("\n"):
                             try:

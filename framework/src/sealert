@@ -155,7 +155,7 @@ def fix_lookup_id(local_id, analysis_id):
                     siginfo.update_derived_template_substitutions()
                     command = siginfo.substitute_array(p.get_fix_cmd(siginfo.audit_event, plugin.args).split())
                     try:
-                        output = subprocess.check_output(command)
+                        output = subprocess.check_output(command, universal_newlines=True)
                         print(_("Successfully ran %s" % ' '.join(command)))
                     except subprocess.CalledProcessError as e:
                         print((e.output))
