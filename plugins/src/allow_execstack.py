@@ -23,19 +23,19 @@ _=translation.gettext
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
 
-import commands
+import subprocess
 import sys
 
 def is_execstack(path):
     if path[0] != "/":
         return False
 
-    x = commands.getoutput("execstack -q %s" %   path).split()
+    x = subprocess.getoutput("execstack -q %s" %   path).split()
     return ( x[0]  == "X" )
 
 def find_execstack(exe, pid):
     execstacklist = []
-    for path in commands.getoutput("ldd %s" %   exe).split():
+    for path in subprocess.getoutput("ldd %s" %   exe).split():
         if is_execstack(path) and path not in execstacklist:
                 execstacklist.append(path)
     try:

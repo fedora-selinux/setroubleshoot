@@ -24,7 +24,7 @@ _=translation.gettext
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
 import re
-import os, commands
+import os
 
 class plugin(Plugin):
     summary =_('''
