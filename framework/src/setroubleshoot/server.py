@@ -29,7 +29,6 @@ __all__ = ['RunFaultServer',
 
 
 from gi.repository import GObject, GLib
-GObject.threads_init()
 import dbus
 import dbus.service
 import dbus.glib
