@@ -470,6 +470,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 
     @dbus.service.method(dbus_system_interface, in_signature='s',  out_signature='s')
     def avc(self, data):
+        data = str(data)
         self.alarm(0)
         self.conn_ctr += 1
         log_debug('dbus avc(%s) called: %d Connections' % (data, self.conn_ctr))

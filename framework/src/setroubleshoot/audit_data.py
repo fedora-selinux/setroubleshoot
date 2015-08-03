@@ -398,7 +398,7 @@ class AuditRecordReader:
 
     def __init__(self, record_format):
         self.record_format = record_format
-        self._input_buffer = b''
+        self._input_buffer = ''
         self.line_number = 0
 
         if self.record_format == self.TEXT_FORMAT:
@@ -451,16 +451,16 @@ class AuditRecordReader:
 
         # To read a complete message we must see a line ending
         start = 0
-        end = self._input_buffer.find(b'\n', start)
+        end = self._input_buffer.find('\n', start)
         while end >= 0:
             self.line_number += 1
             end += 1                # include newline
-            line = self._input_buffer[start:end].decode()
+            line = self._input_buffer[start:end]
             parse_succeeded, record_type, event_id, body_text = parse_audit_record_text(line)
             if parse_succeeded:
                 yield (record_type, event_id, body_text, None, self.line_number)
             start = end
-            end = self._input_buffer.find(b'\n', start)
+            end = self._input_buffer.find('\n', start)
 
         self._input_buffer = self._input_buffer[start:]
 
