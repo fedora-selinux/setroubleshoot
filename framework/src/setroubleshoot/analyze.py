@@ -29,7 +29,7 @@ __all__ = ['AnalyzeThread',
           ]
 
 import syslog
-from gi.repository import GObject
+from gi.repository import GObject, GLib
 import os
 import time
 import threading
