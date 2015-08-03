@@ -570,12 +570,12 @@ class SEFaultSignatureInfo(XmlSerialize):
             for i in range(len(title),80):
                 text +=  _("*")
             text +=  _("\n")
-            txt = self.substitute(p.get_if_text(self.audit_event.records, args)).decode('utf-8')
+            txt = self.substitute(p.get_if_text(self.audit_event.records, args))
             text +=  _("\nIf ") + txt[0].lower() + txt[1:]
-            txt = self.substitute(p.get_then_text(self.audit_event.records, args)).decode('utf-8')
+            txt = self.substitute(p.get_then_text(self.audit_event.records, args))
             text +=  _("\nThen ") + txt[0].lower() + txt[1:]
 
-            txt = self.substitute(p.get_do_text(self.audit_event.records, args)).decode('utf-8')
+            txt = self.substitute(p.get_do_text(self.audit_event.records, args))
             text +=  _("\nDo\n") + txt[0].lower() + txt[1:]
 
         text += _('\n\n')
