@@ -11,12 +11,12 @@ class RunFix(slip.dbus.service.Object):
     default_polkit_auth_required = "org.fedoraproject.setroubleshootfixit.write"
     def __init__ (self, *p, **k):
         super(RunFix, self).__init__(*p, **k)
-        
+
     @dbus.service.method ("org.fedoraproject.SetroubleshootFixit", in_signature='ss', out_signature='s')
     def run_fix(self, local_id, analysis_id):
-        import commands
-        command = "sealert -f %s -P %s" % ( local_id, analysis_id)
-        return commands.getoutput(command)
+        import subprocess
+        command = "sealert -f %s -P %s" % (local_id, analysis_id)
+        return subprocess.getoutput(command)
 
 if __name__ == "__main__":
     mainloop = gobject.MainLoop ()
