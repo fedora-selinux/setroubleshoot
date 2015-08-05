@@ -587,7 +587,7 @@ class LogfileAnalyzer(GObject.GObject):
 
     def run(self):
         log_debug('%s.run(%s)' % (self.__class__.__name__, self.file))
-        self.idle_proc_id = GObject.idle_add(lambda: next(self.task()))
+        self.idle_proc_id = GLib.idle_add(lambda: next(self.task()))
         return True
 
     def close(self):
@@ -617,8 +617,8 @@ class LogfileAnalyzer(GObject.GObject):
         self.emit('state-changed', 'running')
         while self.fileno:
             try:
-                new_data = os.read(self.fileno, self.read_size)
-                if new_data == b'':
+                new_data = os.read(self.fileno, self.read_size).decode('utf-8')
+                if new_data == '':
                     log_debug("EOF on %s" % self.logfile_path)
                     self.close()
             except EnvironmentError as e:
