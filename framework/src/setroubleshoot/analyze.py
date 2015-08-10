@@ -587,7 +587,8 @@ class LogfileAnalyzer(GObject.GObject):
 
     def run(self):
         log_debug('%s.run(%s)' % (self.__class__.__name__, self.file))
-        self.idle_proc_id = GLib.idle_add(lambda: next(self.task()))
+        task_generator = self.task()
+        self.idle_proc_id = GLib.idle_add(lambda: next(task_generator))
         return True
 
     def close(self):
