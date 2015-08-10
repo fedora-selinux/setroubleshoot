@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 from __future__ import print_function
-#!/usr/bin/python -Es
+#!/usr/bin/python3 -Es
 # Author: Thomas Liu <tliu@redhat.com>
 # Author: Dan Walsh <dwalsh@redhat.com>
 # Copyright (C) 2006-2011 Red Hat, Inc.
