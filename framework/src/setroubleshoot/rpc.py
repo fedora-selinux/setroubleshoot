@@ -245,7 +245,7 @@ class ConnectionState(GObject.GObject):
 
     __gsignals__ = {
         'changed': # callback(connection_state, flags, flags_added, flags_removed):
-        (GObject.SignalFlags.RUN_LAST, GObject.TYPE_NONE, (GObject.TYPE_INT, GObject.TYPE_INT, GObject.TYPE_INT)),
+        (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_INT, GObject.TYPE_INT, GObject.TYPE_INT)),
         }
     def __init__(self):
         GObject.GObject.__init__(self)

@@ -5,7 +5,7 @@ import sys
 if sys.version_info < (3,):
     import setroubleshoot.default_encoding_utf8
 
-from gi.repository import GObject as gobject
+from gi.repository import GObject
 import errno as Errno
 import gettext
 import os
@@ -30,23 +30,23 @@ __all__ = [
 class ServerConnectionHandler(RpcChannel,
                               SETroubleshootServerInterface,
                               SETroubleshootDatabaseInterface,
-                              gobject.GObject):
+                              GObject.GObject):
     __gsignals__ = {
         'alert':
-        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT,)),
+        (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT,)),
         'connection_state_changed': # callback(connection_state, flags, flags_added, flags_removed):
-        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_INT)),
+        (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_INT, GObject.TYPE_INT, GObject.TYPE_INT)),
         'signatures_updated':
-        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
+        (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
         'database_bind':
-        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
+        (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
         'async-error': # callback(method, errno, strerror)
-        (gobject.SignalFlags.RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_STRING, gobject.TYPE_INT, gobject.TYPE_STRING)),
+        (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_STRING, GObject.TYPE_INT, GObject.TYPE_STRING)),
         }
 
     def __init__(self, username):
         RpcChannel.__init__(self, channel_type = 'sealert')
-        gobject.GObject.__init__(self)
+        GObject.GObject.__init__(self)
         self.connection_state.connect('changed', self.on_connection_state_change)
 
         self.connect_rpc_interface('SEAlert', self)

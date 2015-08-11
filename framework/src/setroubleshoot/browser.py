@@ -46,8 +46,7 @@ except AttributeError:
 import sys, os
 from xml.dom import minidom
 from six.moves.xmlrpc_client  import ProtocolError
-import gtk, glib
-import gtk.glade
+from gi.repository import Gtk, GLib, Gdk
 from setroubleshoot.errcode import *
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
@@ -61,13 +60,13 @@ import report.io
 import report.io.GTKIO
 import report.accountmanager
 
-import gio
+from gi.repository import Gio
 
 cmp = lambda x, y: (x > y) - (x < y)
 
 GLADE_DIRECTORY = "/usr/share/setroubleshoot/gui/"
 OLD_PATH = os.environ['HOME'] + "/.setroubleshoot"
-PREF_PATH = glib.get_user_config_dir() + "/sealert.conf"
+PREF_PATH = GLib.get_user_config_dir() + "/sealert.conf"
 UPDATE_PROGRAM = "/usr/bin/gpk-update-viewer"
 
 dict = { "file": "text-x-generic",
@@ -84,10 +83,10 @@ dict = { "file": "text-x-generic",
  }
 
 def msg(message):
-    dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_INFO,
-                            gtk.BUTTONS_CLOSE,
+    dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.INFO,
+                            Gtk.ButtonsType.CLOSE,
                             message)
-    dlg.set_position(gtk.WIN_POS_MOUSE)
+    dlg.set_position(Gtk.WindowPosition.MOUSE)
     dlg.show_all()
     dlg.run()
     dlg.destroy()
@@ -105,7 +104,7 @@ def fullpath(cmd):
 def old():
     sealert_app_info = None
     desktop_icon_dict = {}
-    for desktop_app_info in gio.app_info_get_all():
+    for desktop_app_info in Gio.app_info_get_all():
         exe = fullpath(desktop_app_info.get_executable())
         rpmver = get_rpm_nvr_by_file_path(exe)
         if rpmver:
@@ -136,20 +135,20 @@ def get_icon(path, tclass="*"):
                 if icon:
                     return icon
 
-        file = gio.File(path)
-        info = file.query_info("standard::*", flags=gio.FILE_QUERY_INFO_NOFOLLOW_SYMLINKS)
+        file = Gio.File(path)
+        info = file.query_info("standard::*", flags=Gio.FileQueryInfoFlags.NOFOLLOW_SYMLINKS)
         icon = info.get_icon()
         if icon:
             icon.append_name("text-x-generic")
             return icon
 
-    except gio.Error:
+    except Gio.Error:
         pass
 
     if tclass in dict:
-        return gio.content_type_get_icon(dict[tclass])
+        return Gio.content_type_get_icon(dict[tclass])
     else:
-        return gio.content_type_get_icon(dict["*"])
+        return Gio.content_type_get_icon(dict["*"])
 
 package_list = set()
 # The main security alert window
@@ -169,12 +168,12 @@ class BrowserApplet:
 
     def __init__(self, username=None, server=None, list=False, domain=None):
         self.RECT_SIZE = 20
-        size = gtk.gdk.Screen().get_monitor_geometry(0)
+        size = Gdk.Screen().get_monitor_geometry(0)
         self.width = min(900, int(size.width * .90))
         self.height = min(500, int(size.height * .90))
 
         self.read_config()
-        builder = gtk.Builder()
+        builder = Gtk.Builder()
 #        builder.set_translation_domain("setroubleshoot")
         builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade")
         self.plugins = load_plugins()
@@ -239,7 +238,7 @@ class BrowserApplet:
         self.list_all_button.set_label(_("List All Alerts"))
         self.treeview_window = builder.get_object("treeview_window")
         self.treeview = builder.get_object("treeview")
-        self.treeview.get_selection().set_mode(gtk.SELECTION_MULTIPLE)
+        self.treeview.get_selection().set_mode(Gtk.SelectionMode.MULTIPLE)
         self.treeview.get_selection().connect("changed", self.itemSelected)
         self.solutions_pane = builder.get_object("solutions_pane")
         self.solutions_pane.hide()
@@ -256,7 +255,7 @@ class BrowserApplet:
         self.alert_list_window.hide()
         self.empty_load()
         self.load_data()
-        self.liststore = gtk.ListStore(int, str, str, str, int, str)
+        self.liststore = Gtk.ListStore(int, str, str, str, int, str)
         self.make_treeview()
         self.troubleshoot_visible=False
         self.current_alert = -1
@@ -281,14 +280,14 @@ class BrowserApplet:
             os.execv(UPDATE_PROGRAM, [UPDATE_PROGRAM])
 
     def make_treeview(self):
-        tmsort = gtk.TreeModelSort(self.liststore)
+        tmsort = Gtk.TreeModelSort(self.liststore)
 
         cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occurred"), _("Status")]
         self.treeview.set_model(tmsort)
         x = 0
         for c in cols:
-            cell = gtk.CellRendererText()
-            col = gtk.TreeViewColumn(c)
+            cell = Gtk.CellRendererText()
+            col = Gtk.TreeViewColumn(c)
             col.width = 20
             col.pack_start(cell, True)
             col.set_attributes(cell, text=x)
@@ -391,21 +390,21 @@ class BrowserApplet:
         pass
 
     def clear_rows(self):
-        self.radio = gtk.RadioButton(None)
+        self.radio = Gtk.RadioButton(None)
         for child in self.table.get_children():
             self.table.remove(child)
         cols = int(self.table.get_property("n-columns"))
         self.table.resize(1, cols)
         col = 0
-        label = gtk.Label()
+        label = Gtk.Label()
         label.set_markup(_("<b>If you were trying to...</b>"))
-        label.set_justify(gtk.JUSTIFY_LEFT)
+        label.set_justify(Gtk.Justification.LEFT)
         label.set_alignment(-1.0, 0.0)
         label.show()
         self.table.attach(label, col, col + 1, 0, 1, xoptions=0, yoptions=0)
 
-        label = gtk.Label()
-        label.set_justify(gtk.JUSTIFY_LEFT)
+        label = Gtk.Label()
+        label.set_justify(Gtk.Justification.LEFT)
         label.set_alignment(0.0, 0.0)
         label.set_markup(_("<b>Then this is the solution.</b>"))
         label.show()
@@ -436,42 +435,42 @@ class BrowserApplet:
         rows = int(self.table.get_property("n-rows"))
         cols = int(self.table.get_property("n-columns"))
 
-        black = gtk.gdk.Color(0,0,0)
+        black = Gdk.Color(0,0,0)
         if plugin.level == "red":
-            color = gtk.gdk.Color(65535,0,0)
+            color = Gdk.Color(65535,0,0)
         elif plugin.level == "yellow":
-            color = gtk.gdk.Color(65535,65525,0)
+            color = Gdk.Color(65535,65525,0)
         elif plugin.level == "green":
-            color = gtk.gdk.Color(0,65535,0)
+            color = Gdk.Color(0,65535,0)
 
-        sev_toggle = gtk.ToggleButton()
+        sev_toggle = Gtk.ToggleButton()
 #        sev_toggle.set_size_request(20,20)
-        sev_toggle.modify_bg(gtk.STATE_PRELIGHT, color)
-        sev_toggle.modify_bg(gtk.STATE_SELECTED, black)
-        sev_toggle.modify_bg(gtk.STATE_ACTIVE, color)
-        sev_toggle.modify_bg(gtk.STATE_NORMAL, color)
+        sev_toggle.modify_bg(Gtk.StateType.PRELIGHT, color)
+        sev_toggle.modify_bg(Gtk.StateType.SELECTED, black)
+        sev_toggle.modify_bg(Gtk.StateType.ACTIVE, color)
+        sev_toggle.modify_bg(Gtk.StateType.NORMAL, color)
 
-        sev_toggle.modify_fg(gtk.STATE_PRELIGHT, color)
-        sev_toggle.modify_fg(gtk.STATE_SELECTED, black)
-        sev_toggle.modify_fg(gtk.STATE_ACTIVE, black)
-        sev_toggle.modify_fg(gtk.STATE_NORMAL, color)
+        sev_toggle.modify_fg(Gtk.StateType.PRELIGHT, color)
+        sev_toggle.modify_fg(Gtk.StateType.SELECTED, black)
+        sev_toggle.modify_fg(Gtk.StateType.ACTIVE, black)
+        sev_toggle.modify_fg(Gtk.StateType.NORMAL, color)
 
-        sev_toggle.modify_base(gtk.STATE_SELECTED, black)
+        sev_toggle.modify_base(Gtk.StateType.SELECTED, black)
 
         sev_toggle.set_alignment(0.5, 0.0)
 
         self.toggles.append(sev_toggle)
         sev_toggle.show()
 
-        if_label = gtk.Label()
+        if_label = Gtk.Label()
         if_label.set_text(self.wrap(if_text))
-        if_label.set_justify(gtk.JUSTIFY_LEFT)
+        if_label.set_justify(Gtk.Justification.LEFT)
         if_label.set_alignment(0.5, 0.0)
         if_label.set_line_wrap(True)
         if_label.show()
 
-        if_button = gtk.Button()
-        if_box = gtk.HBox(False, 5)
+        if_button = Gtk.Button()
+        if_box = Gtk.HBox(False, 5)
         if_box.add(sev_toggle)
         if_box.set_child_packing(sev_toggle, expand=False, fill=False, padding=0, pack_type=0)
         if_box.add(if_label)
@@ -479,17 +478,17 @@ class BrowserApplet:
         if_box.show()
         if_button.show()
 
-        then_label = gtk.Label()
+        then_label = Gtk.Label()
         then_label.set_text(then_text)
         then_label.set_selectable(True)
         then_label.set_alignment(0.0, 0.0)
-        then_label.set_justify(gtk.JUSTIFY_LEFT)
+        then_label.set_justify(Gtk.Justification.LEFT)
         then_label.show()
 
-        then_scroll = gtk.ScrolledWindow()
-        then_scroll.set_shadow_type(gtk.SHADOW_NONE)
+        then_scroll = Gtk.ScrolledWindow()
+        then_scroll.set_shadow_type(Gtk.ShadowType.NONE)
         then_scroll.set_border_width(0)
-        then_scroll.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+        then_scroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         then_scroll.add_with_viewport(then_label)
         then_scroll.show()
         then_scroll.set_sensitive(False)
@@ -503,17 +502,17 @@ class BrowserApplet:
         col = 0
 #        col += 1
         if_button.connect("clicked", self.on_sev_togglebutton_activated, rows)
-        self.table.attach(if_button, col, col+1, rows, rows + 1) # xoptions=gtk.EXPAND|gtk.FILL) #yoptions=gtk.FILL)
+        self.table.attach(if_button, col, col+1, rows, rows + 1) # xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL) #yoptions=Gtk.AttachOptions.FILL)
 
         col += 1
-        self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL, yoptions=gtk.EXPAND|gtk.FILL)
-#, col, col+1, rows, rows + 1, xoptions=gtk.EXPAND|gtk.FILL,
+        self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL, yoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL)
+#, col, col+1, rows, rows + 1, xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL,
 
         self.table.resize(rows + 1, cols + 1)
         col += 1
 
-        vbox = gtk.VBox(spacing=5)
-        report_button = gtk.Button()
+        vbox = Gtk.VBox(spacing=5)
+        report_button = Gtk.Button()
         report_button.set_label(_("Plugin\nDetails"))
         report_button.show()
 
@@ -521,14 +520,14 @@ class BrowserApplet:
         vbox.add(report_button)
 
         if plugin.fixable:
-            report_button = gtk.Button()
+            report_button = Gtk.Button()
             report_button.set_label(plugin.button_text)
             report_button.show()
             report_button.connect("clicked", self.fix_bug, alert.local_id, plugin.analysis_id)
             vbox.add(report_button)
 
         elif plugin.report_bug:
-               report_button = gtk.Button()
+               report_button = Gtk.Button()
                report_button.set_label(_("Report\nBug"))
                report_button.show()
                report_button.connect("clicked", self.report_bug, alert)
@@ -602,7 +601,7 @@ class BrowserApplet:
         try:
             fd = open(filename, "w")
         except IOError:
-            gtk.main_quit()
+            Gtk.main_quit()
             return
 
         if len(self.alert_list) > 0:
@@ -613,7 +612,7 @@ class BrowserApplet:
         fd.write("\n");
         fd.write("checkonlogin=%d\n" % self.checkonlogin)
         fd.close()
-        gtk.main_quit()
+        Gtk.main_quit()
 
     def fix_bug(self, widget, local_id, analysis_id):
         # Grant access here
@@ -804,7 +803,7 @@ class BrowserApplet:
             self.ignore_button.set_label(_("Ignore"))
 
     def on_close_button_clicked(self, widget):
-        gtk.main_quit()
+        Gtk.main_quit()
 
     def close_alert_window(self, widget, event=None):
         self.alert_list_window.hide()
@@ -923,7 +922,8 @@ class BugReport:
 
         self.parent = parent
         self.gladefile = GLADE_DIRECTORY + "bug_report.glade"
-        self.widget_tree = gtk.glade.XML(self.gladefile, domain=parent.domain)
+        self.builder = Gtk.Builder()
+        self.builder.add_from_file(self.gladefile, domain=parent.domain)
         self.alert = alert
         self.hostname = self.alert.sig.host
         self.alert.host = "(removed)"
@@ -946,7 +946,7 @@ class BugReport:
         self.main_window.connect("destroy", self.destroy)
         self.widget_tree.signal_autoconnect(dic)
 
-        text_buf = gtk.TextBuffer()
+        text_buf = Gtk.TextBuffer()
         text = self.alert.untranslated(self.alert.format_text, replace = True)
         text += self.alert.untranslated(self.alert.format_details, replace = True)
         text_buf.set_text(text)
@@ -961,13 +961,13 @@ class BugReport:
         self.destroy(self.main_window)
 
     def idle_func(self):
-        while gtk.events_pending():
-            gtk.main_iteration()
+        while Gtk.events_pending():
+            Gtk.main_iteration()
 
     def submit_button_clicked(self, widget):
         main_window = self.main_window.get_root_window()
-        busy_cursor = gtk.gdk.Cursor(gtk.gdk.WATCH)
-        ready_cursor = gtk.gdk.Cursor(gtk.gdk.LEFT_PTR)
+        busy_cursor = Gdk.Cursor.new(Gdk.CursorType.WATCH)
+        ready_cursor = Gdk.Cursor.new(Gdk.CursorType.LEFT_PTR)
         main_window.set_cursor(busy_cursor)
         self.idle_func()
 
@@ -993,26 +993,26 @@ class BugReport:
         self.destroy(self.main_window)
 
     def widget(self, name):
-        return self.widget_tree.get_widget(name)
+        return self.widget_tree.get_object(name)
 
 class FailDialog():
     def __init__(self, message):
-        dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_ERROR,
-                                gtk.BUTTONS_OK,
+        dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
+                                Gtk.ButtonsType.OK,
                                 message)
         dlg.set_title(_("Sealert Error"))
-        dlg.set_position(gtk.WIN_POS_MOUSE)
+        dlg.set_position(Gtk.WindowPosition.MOUSE)
         dlg.show_all()
         rc = dlg.run()
         dlg.destroy()
 
 class MessageDialog():
     def __init__(self, message):
-        dlg = gtk.MessageDialog(None, 0, gtk.MESSAGE_INFO,
-                                gtk.BUTTONS_OK,
+        dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.INFO,
+                                Gtk.ButtonsType.OK,
                                 message)
         dlg.set_title(_("Sealert Message"))
-        dlg.set_position(gtk.WIN_POS_MOUSE)
+        dlg.set_position(Gtk.WindowPosition.MOUSE)
         dlg.show_all()
         rc = dlg.run()
         dlg.destroy()
