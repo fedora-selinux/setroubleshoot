@@ -37,7 +37,12 @@ gettext.install(domain    = domain,
                 **kwargs)
 
 translation=gettext.translation(domain, fallback=True)
-_=translation.ugettext
+
+try:
+    _ = translation.ugettext # This raises exception in Python3, succ. in Py2
+except AttributeError:
+    _ = translation.gettext # Python3
+
 import sys, os
 from xml.dom import minidom
 from six.moves.xmlrpc_client  import ProtocolError
