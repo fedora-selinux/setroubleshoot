@@ -1,5 +1,3 @@
-from __future__ import absolute_import
-from __future__ import print_function
 #!/usr/bin/python3 -Es
 # Author: Thomas Liu <tliu@redhat.com>
 # Author: Dan Walsh <dwalsh@redhat.com>
@@ -19,6 +17,9 @@ from __future__ import print_function
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
+
+from __future__ import absolute_import
+from __future__ import print_function
 
 import gettext
 from math import pi
@@ -46,7 +47,11 @@ except AttributeError:
 import sys, os
 from xml.dom import minidom
 from six.moves.xmlrpc_client  import ProtocolError
+
+import gi
+gi.require_version('Gdk', '3.0')
 from gi.repository import Gtk, GLib, Gdk
+
 from setroubleshoot.errcode import *
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
@@ -168,7 +173,7 @@ class BrowserApplet:
 
     def __init__(self, username=None, server=None, list=False, domain=None):
         self.RECT_SIZE = 20
-        size = Gdk.Screen().get_monitor_geometry(0)
+        size = Gdk.Screen().get_default().get_monitor_geometry(0)
         self.width = min(900, int(size.width * .90))
         self.height = min(500, int(size.height * .90))
 
