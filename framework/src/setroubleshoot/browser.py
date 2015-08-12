@@ -944,7 +944,7 @@ class BugReport:
                 "on_submit_button_clicked" : self.submit_button_clicked}
 
         self.main_window.connect("destroy", self.destroy)
-        self.widget_tree.signal_autoconnect(dic)
+        self.builder.connect_signals(dic)
 
         text_buf = Gtk.TextBuffer()
         text = self.alert.untranslated(self.alert.format_text, replace = True)
@@ -993,7 +993,7 @@ class BugReport:
         self.destroy(self.main_window)
 
     def widget(self, name):
-        return self.widget_tree.get_object(name)
+        return self.builder.get_object(name)
 
 class FailDialog():
     def __init__(self, message):

@@ -35,6 +35,7 @@ import fcntl
 from six.moves import _thread
 import threading
 import time
+from functools import cmp_to_key
 
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
@@ -205,7 +206,7 @@ class AuditRecordReceiver(object):
             return
 
         # flush old events
-        event_ids.sort(lambda a,b: self.cache[a].timestamp < self.cache[b].timestamp)
+        event_ids.sort(key=cmp_to_key(lambda a,b: self.cache[a].timestamp < self.cache[b].timestamp))
         if threshold_age is None:
             threshold_age = self.cache[event_ids[-1]].timestamp - self.cache_time_to_live
 
