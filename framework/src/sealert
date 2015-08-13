@@ -22,8 +22,12 @@
 
 from __future__ import print_function
 import syslog
+
+import gi
+GTK_VERSION = '3.0'
 from gi.repository import GObject, GLib
 GLib.set_prgname('setroubleshoot')
+
 import dbus
 import dbus.glib
 import dbus.service
@@ -361,7 +365,7 @@ class SEAlert(object):
     def main(self):
         log_debug('creating main GUI application')
         try:
-            gtk.main()
+            Gtk.main()
             self.finish()
         except IOError as e:
             syslog.syslog(syslog.LOG_ERR, str(e))
@@ -645,7 +649,8 @@ if __name__ == '__main__':
         elif invocation_style == 'service':
             try:
                 # This import must come before importing gtk to silence warnings
-                import gtk
+                gi.require_version('Gtk', GTK_VERSION)
+                from gi.repository import Gtk
                 run_as_dbus_service(username)
             except RuntimeError as e:
                 print(e)
@@ -653,7 +658,8 @@ if __name__ == '__main__':
             sys.exit()
         elif invocation_style == 'noservice':
             # This import must come before importing gtk to silence warnings
-            import gtk
+            gi.require_version('Gtk', GTK_VERSION)
+            from gi.repository import Gtk
             run_app(username)
             sys.exit()
         elif invocation_style == 'lookupid':
