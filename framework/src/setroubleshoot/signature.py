@@ -313,7 +313,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         return  "%s,%s,%s,%s,%s" % (self.source, self.scontext.type, self.tcontext.type, self.tclass, ",".join(self.sig.access))
 
     def get_hash(self):
-        hash = hashlib.sha256(self.get_hash_str())
+        hash = hashlib.sha256(self.get_hash_str().encode('utf-8'))
         return hash.hexdigest()
 
     def get_user_data(self, username):

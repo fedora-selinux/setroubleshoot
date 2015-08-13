@@ -927,9 +927,10 @@ class BugReport:
     def __init__(self, parent, alert):
 
         self.parent = parent
-        self.gladefile = GLADE_DIRECTORY + "bug_report.glade"
+        self.gladefile = GLADE_DIRECTORY + "bug_report.ui"
         self.builder = Gtk.Builder()
-        self.builder.add_from_file(self.gladefile, domain=parent.domain)
+        self.builder.add_from_file(self.gladefile)
+        self.builder.set_translation_domain(parent.domain)
         self.alert = alert
         self.hostname = self.alert.sig.host
         self.alert.host = "(removed)"
@@ -984,7 +985,8 @@ class BugReport:
 
     def submit(self):
         text_buf = self.error_submit_text.get_buffer()
-        content = text_buf.get_text(text_buf.get_start_iter(), text_buf.get_end_iter())
+        content = text_buf.get_text(text_buf.get_start_iter(),
+                    text_buf.get_end_iter(), False)
         signature = report.createAlertSignature("selinux-policy",
                                                 "setroubleshoot",
                                                 self.alert.get_hash(),
