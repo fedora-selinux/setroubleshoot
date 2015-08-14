@@ -654,7 +654,7 @@ class ListeningServer(ConnectionIO):
             self.socket_address.socket.setsockopt(Socket.SOL_SOCKET, Socket.SO_REUSEADDR, 1)
         self.socket_address.socket.bind(self.socket_address.get_py_address())
         if self.socket_address.family == Socket.AF_UNIX:
-            os.chmod(self.socket_address.address, 0o600)
+            os.chmod(self.socket_address.address, 0o666)
         self.socket_address.socket.listen(self.request_queue_size)
 
         return self.socket_address.socket
