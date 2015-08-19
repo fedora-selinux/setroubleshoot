@@ -8,10 +8,10 @@ AM_INIT_AUTOMAKE
 AM_MAINTAINER_MODE
 
 PKG_CHECK_MODULES([DBUS], [dbus-1])
-PKG_CHECK_MODULES([GTK], [gtk+-2.0])
+PKG_CHECK_MODULES([GTK], [gtk+-3.0])
 PKG_CHECK_MODULES([GIO], [gio-unix-2.0])
 PKG_CHECK_MODULES([NOTIFY], [libnotify])
-PKG_CHECK_MODULES([SEAPPLET], [gtk+-2.0 gio-unix-2.0 libnotify dbus-glib-1])
+PKG_CHECK_MODULES([SEAPPLET], [gtk+-3.0 gio-unix-2.0 libnotify dbus-glib-1])
 
 # make sure we keep ACLOCAL_FLAGS around for maintainer builds to work
 AC_SUBST(ACLOCAL_AMFLAGS, "\${ACLOCAL_FLAGS}")
