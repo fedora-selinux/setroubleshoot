@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import sepolicy
 sepolicy.gen_bool_dict()
 for i in sepolicy.booleans_dict:

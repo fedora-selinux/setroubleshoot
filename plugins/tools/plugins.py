@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 import selinux
 import sys
 def setroubleshoot_print( se_plugin ):
@@ -23,7 +23,7 @@ from setroubleshoot.config import get_config
 import gettext
 gettext.install(domain    = get_config('general', 'i18n_text_domain'),
                 localedir = get_config('general', 'i18n_locale_dir'),
-                unicode   = False,
+                str   = False,
                 codeset   = get_config('general', 'i18n_encoding'))
 
 from setroubleshoot.util import *
@@ -52,7 +52,7 @@ for b in booleans[1]:
         if b in se_plugins:
             rec += setroubleshoot_print(se_plugins[b])
         rec += "</boolean>"
-        print rec
+        print(rec)
     except:
         raise
         pass

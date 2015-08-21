@@ -1,17 +1,17 @@
-#! /usr/bin/python
-import commands
+#! /usr/bin/python3
+import subprocess
 import sys
 
 def is_execstack(path):
     if path[0] != "/":
         return False
 
-    x = commands.getoutput("execstack -q %s" %   path).split()
+    x = subprocess.getoutput("execstack -q %s" %   path).split()
     return ( x[0]  == "X" )
 
 def find_execstack(exe, pid):
     execstacklist = []
-    for path in commands.getoutput("ldd %s" %   sys.argv[1]).split():
+    for path in subprocess.getoutput("ldd %s" %   sys.argv[1]).split():
         if is_execstack(path) and path not in execstacklist:
                 execstacklist.append(path)
     try:
@@ -34,9 +34,9 @@ except:
 try:
 	path=sys.argv[1]
 	for i in find_execstack(path, pid):
-	    print "execstack -c   %s" %  i
+	    print("execstack -c   %s" %  i)
 except:
-	print "Usage:  %s  executable [ pid ]" % sys.argv[0]
+	print("Usage:  %s  executable [ pid ]" % sys.argv[0])
 
 
 
