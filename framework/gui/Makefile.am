@@ -13,11 +13,11 @@ ICON_FILES = \
 	16x16/setroubleshoot_red_icon.png \
 	16x16/setroubleshoot_icon.png
 
-GUI_FILES =				\
-	browser.glade		\
-	bug_report.ui		\
-	fail_dialog.glade	\
-	success_dialog.glade	\
+GUI_FILES =              \
+	browser.ui           \
+	bug_report.ui        \
+	fail_dialog.glade    \
+	success_dialog.glade \
 	$(NULL)
 
 icondir = /usr/share/icons/hicolor/

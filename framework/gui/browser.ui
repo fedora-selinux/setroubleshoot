@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <interface>
-  <requires lib="gtk+" version="2.16"/>
   <object class="GtkAboutDialog" id="aboutdialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -8,14 +7,14 @@
     <property name="icon">setroubleshoot_icon.png</property>
     <property name="type_hint">normal</property>
     <property name="program_name">SETroubleshoot</property>
-    <property name="copyright" translatable="yes">Copyright (c) 2010 
+    <property name="copyright" translatable="yes">Copyright (c) 2010
 Thomas Liu &lt;tliu@redhat.com&gt;
-Máirín Duffy &lt;duffy@redhat.com&gt;
+M&#xE1;ir&#xED;n Duffy &lt;duffy@redhat.com&gt;
 Daniel Walsh &lt;dwalsh@redhat.com&gt;
 John Dennis &lt;jdennis@redhat.com&gt;
 </property>
     <property name="authors">Thomas Liu &lt;tliu@redhat.com&gt;
-Máirín Duffy &lt;duffy@redhat.com&gt;
+M&#xE1;ir&#xED;n Duffy &lt;duffy@redhat.com&gt;
 Daniel Walsh &lt;dwalsh@redhat.com&gt;
 John Dennis &lt;jdennis@redhat.com&gt;</property>
     <child internal-child="vbox">
@@ -90,8 +89,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Troubleshoot selected alert</property>
                     <property name="use_action_appearance">False</property>
-                    <accelerator key="t" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
-                    <signal name="clicked" handler="on_troubleshoot_list_button_clicked" swapped="no"/>
+                    <accelerator key="t" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
+                    <signal handler="on_troubleshoot_list_button_clicked" name="clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -109,7 +108,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
                     <accelerator key="Delete" signal="clicked"/>
-                    <signal name="clicked" handler="on_delete_list_button_clicked" swapped="no"/>
+                    <signal handler="on_delete_list_button_clicked" name="clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -182,7 +181,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
                 <property name="use_stock">True</property>
-                <signal name="clicked" handler="on_close_details_button_clicked" swapped="no"/>
+                <signal handler="on_close_details_button_clicked" name="clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -254,7 +253,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <property name="use_action_appearance">False</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
-                <signal name="toggled" handler="on_receive_button_changed" swapped="no"/>
+                <signal handler="on_receive_button_changed" name="toggled" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -466,8 +465,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                 <property name="receives_default">True</property>
                                 <property name="tooltip_text" translatable="yes">Read alert troubleshoot information.  May require administrative privileges to remedy.</property>
                                 <property name="use_action_appearance">False</property>
-                                <accelerator key="t" signal="clicked" modifiers="GDK_MOD1_MASK"/>
-                                <signal name="clicked" handler="on_troubleshoot_button_clicked" swapped="no"/>
+                                <accelerator key="t" modifiers="GDK_MOD1_MASK" signal="clicked"/>
+                                <signal handler="on_troubleshoot_button_clicked" name="clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -484,9 +483,9 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                 <property name="receives_default">True</property>
                                 <property name="tooltip_text" translatable="yes">Email alert to system administrator.</property>
                                 <property name="use_action_appearance">False</property>
-                                <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
-                                <accelerator key="r" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
-                                <signal name="clicked" handler="on_report_button_clicked" swapped="no"/>
+                                <accelerator key="r" modifiers="GDK_MOD1_MASK" signal="clicked"/>
+                                <accelerator key="r" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
+                                <signal handler="on_report_button_clicked" name="clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -502,9 +501,9 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="use_action_appearance">False</property>
-                                <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
-                                <accelerator key="r" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
-                                <signal name="clicked" handler="on_details_button_clicked" swapped="no"/>
+                                <accelerator key="r" modifiers="GDK_MOD1_MASK" signal="clicked"/>
+                                <accelerator key="r" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
+                                <signal handler="on_details_button_clicked" name="clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -533,8 +532,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                 <property name="tooltip_text" translatable="yes">Ignore alert in the future.</property>
                                 <property name="use_action_appearance">False</property>
                                 <property name="image_position">right</property>
-                                <accelerator key="i" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
-                                <signal name="clicked" handler="on_ignore_button_clicked" swapped="no"/>
+                                <accelerator key="i" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
+                                <signal handler="on_ignore_button_clicked" name="clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -554,7 +553,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                 <property name="use_stock">True</property>
                                 <property name="image_position">right</property>
                                 <accelerator key="Delete" signal="activate"/>
-                                <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
+                                <signal handler="on_delete_button_clicked" name="clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -660,9 +659,9 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <property name="tooltip_text" translatable="yes">Show previous alert.</property>
                     <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
-                    <accelerator key="Left" signal="clicked" modifiers="GDK_MOD1_MASK"/>
-                    <accelerator key="p" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
-                    <signal name="clicked" handler="on_previous_button_clicked" swapped="no"/>
+                    <accelerator key="Left" modifiers="GDK_MOD1_MASK" signal="clicked"/>
+                    <accelerator key="p" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
+                    <signal handler="on_previous_button_clicked" name="clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -693,9 +692,9 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <property name="tooltip_text" translatable="yes">Show next alert.</property>
                     <property name="use_action_appearance">False</property>
                     <property name="use_stock">True</property>
-                    <accelerator key="Right" signal="clicked" modifiers="GDK_MOD1_MASK"/>
-                    <accelerator key="n" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
-                    <signal name="clicked" handler="on_next_button_clicked" swapped="no"/>
+                    <accelerator key="Right" modifiers="GDK_MOD1_MASK" signal="clicked"/>
+                    <accelerator key="n" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
+                    <signal handler="on_next_button_clicked" name="clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -711,8 +710,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">List all alerts in the database.</property>
                     <property name="use_action_appearance">False</property>
-                    <accelerator key="l" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
-                    <signal name="clicked" handler="on_list_all_button_clicked" swapped="no"/>
+                    <accelerator key="l" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
+                    <signal handler="on_list_all_button_clicked" name="clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>

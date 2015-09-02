@@ -181,7 +181,7 @@ class BrowserApplet:
         self.read_config()
         builder = Gtk.Builder()
 #        builder.set_translation_domain("setroubleshoot")
-        builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade")
+        builder.add_from_file("/usr/share/setroubleshoot/gui/browser.ui")
         self.plugins = load_plugins()
 
         self.alert_list = []
@@ -286,10 +286,10 @@ class BrowserApplet:
             os.execv(UPDATE_PROGRAM, [UPDATE_PROGRAM])
 
     def make_treeview(self):
-        tmsort = Gtk.TreeModelSort(self.liststore)
+        tmsort = Gtk.TreeModelSort(model = self.liststore)
 
         cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occurred"), _("Status")]
-        self.treeview.set_model(tmsort)
+#        self.treeview.set_model(tmsort)
         x = 0
         for c in cols:
             cell = Gtk.CellRendererText()
@@ -396,7 +396,7 @@ class BrowserApplet:
         pass
 
     def clear_rows(self):
-        self.radio = Gtk.RadioButton(None)
+        self.radio = Gtk.RadioButton(label = None)
         for child in self.table.get_children():
             self.table.remove(child)
         cols = int(self.table.get_property("n-columns"))
@@ -476,7 +476,7 @@ class BrowserApplet:
         if_label.show()
 
         if_button = Gtk.Button()
-        if_box = Gtk.HBox(False, 5)
+        if_box = Gtk.HBox(homogenous = False, spacing = 5)
         if_box.add(sev_toggle)
         if_box.set_child_packing(sev_toggle, expand=False, fill=False, padding=0, pack_type=0)
         if_box.add(if_label)
