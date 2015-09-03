@@ -476,7 +476,9 @@ class BrowserApplet:
         if_label.show()
 
         if_button = Gtk.Button()
-        if_box = Gtk.HBox(homogenous = False, spacing = 5)
+        if_box = Gtk.Box(homogeneous = True,
+                    orientation = Gtk.Orientation.HORIZONTAL,
+                    spacing = 5)
         if_box.add(sev_toggle)
         if_box.set_child_packing(sev_toggle, expand=False, fill=False, padding=0, pack_type=0)
         if_box.add(if_label)
