@@ -80,7 +80,9 @@ class plugin(Plugin):
         try:
             mcon = selinux.matchpathcon(avc.spath.strip('"'), S_IFREG)[1]
             mcon_type=mcon.split(":")[2]
-            if mcon_type != avc.scontext.type:
+            gcon = selinux.getfilecon(avc.spath.strip('"'))[1]
+            gcon_type = gcon.split(":")[2]
+            if mcon_type != gcon_type:
                 return self.report((0, mcon_type))
         except OSError:
             pass
