@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # Authors: John Dennis <jdennis@redhat.com>
 #          Thomas Liu  <tliu@redhat.com>
 #          Dan Walsh <dwalsh@redhat.com>
@@ -27,8 +28,7 @@ __all__ = ['RunFaultServer',
           ]
 
 
-import gobject
-gobject.threads_init()
+from gi.repository import GObject, GLib
 import dbus
 import dbus.service
 import dbus.glib
@@ -47,41 +47,44 @@ from setroubleshoot.access_control import ServerAccess
 from setroubleshoot.analyze import (PluginReportReceiver,
                                     SETroubleshootDatabase,
                                     TestPluginReportReceiver,
-                                    AnalyzeThread, 
-                                    )                                
+                                    AnalyzeThread,
+                                    )
 from setroubleshoot.avc_audit import *
 from setroubleshoot.config import get_config
 if get_config('general', 'use_auparse', bool):
     from setroubleshoot.avc_auparse import *
 else:
     from setroubleshoot.avc_audit import AuditRecordReceiver
-    
+
 from setroubleshoot.errcode import (ProgramError,
-                                    ERR_NOT_AUTHENTICATED, 
-                                    ERR_USER_LOOKUP, 
-                                    ERR_USER_PROHIBITED, 
-                                    ERR_USER_PERMISSION, 
-                                    ERR_FILE_OPEN, 
-                                    ERR_DATABASE_NOT_FOUND, 
+                                    ERR_NOT_AUTHENTICATED,
+                                    ERR_USER_LOOKUP,
+                                    ERR_USER_PROHIBITED,
+                                    ERR_USER_PERMISSION,
+                                    ERR_FILE_OPEN,
+                                    ERR_DATABASE_NOT_FOUND,
                                     )
-                                    
+
 from setroubleshoot.rpc import (RpcChannel,
-                                ConnectionState, 
-                                get_socket_list_from_config, 
-                                ListeningServer, 
+                                ConnectionState,
+                                get_socket_list_from_config,
+                                ListeningServer,
                                 )
-                                
+
 from setroubleshoot.rpc_interfaces import (SETroubleshootServerInterface,
-                                           SETroubleshootDatabaseNotifyInterface, 
-                                           SEAlertInterface, 
+                                           SETroubleshootDatabaseNotifyInterface,
+                                           SEAlertInterface,
                                            )
-from setroubleshoot.util import (get_hostname, 
-                                 make_database_filepath, 
-                                 assure_file_ownership_permissions, 
-                                 get_identity, log_debug
+from setroubleshoot.util import (get_hostname,
+                                 make_database_filepath,
+                                 assure_file_ownership_permissions,
+                                 get_identity, log_debug, syslog_trace
                                  )
+
+cmp = lambda x, y: (x > y) - (x < y)
+
 #------------------------------ Utility Functions -----------------------------
-    
+
 
 def sighandler(signum, frame):
     log_debug("received signal=%s" % signum)
@@ -90,7 +93,7 @@ def sighandler(signum, frame):
         log_debug("reloading configuration file")
         config.config_init()
         return
-    import sys    
+    import sys
     sys.exit()
 
 def make_instance_id():
@@ -138,13 +141,13 @@ class ConnectionPool(object):
         self.client_pool = {}
 
     def add_client(self, handler):
-        if self.client_pool.has_key(handler):
+        if handler in self.client_pool:
             log_debug("add_client: client (%s) already in client pool" % handler)
             return
         self.client_pool[handler] = None
 
     def remove_client(self, handler):
-        if not self.client_pool.has_key(handler):
+        if handler not in self.client_pool:
             log_debug("remove_client: client (%s) not in client pool" % handler)
             return
         del(self.client_pool[handler])
@@ -184,7 +187,7 @@ class AlertPluginReportReceiver(PluginReportReceiver):
             if len(to_addrs):
                 from setroubleshoot.email_alert import email_alert
                 email_alert(siginfo, to_addrs)
-        
+
         log_debug("sending alert to all clients")
 
         from setroubleshoot.html_util import html_to_text
@@ -277,7 +280,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         if host_database.properties.name == database_name:
             return [host_database.properties]
         raise ProgramError(ERR_DATABASE_NOT_FOUND, "database (%s) not found" % database_name)
-        
+
 
     def logon(self, type, username, password):
         log_debug("logon(%s) type=%s username=%s" % (self, type, username))
@@ -330,7 +333,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
 
         siginfo = self.database.delete_signature(sig)
         return None
-        
+
     def get_properties(self):
         log_debug("get_properties")
 
@@ -375,7 +378,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
 
         if username != self.username:
             raise ProgramError(ERR_USER_PERMISSION, detail=_("The user (%s) cannot modify data for (%s)") % (self.username, username))
-        
+
         self.database.set_filter(sig, username, filter_type, data)
         return None
 
@@ -425,7 +428,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
             if verify_avc(avc):
                 self.queue.put((avc, self.receiver))
 
-        except ValueError, e:
+        except ValueError as e:
             syslog.syslog(syslog.LOG_ERR, str(e))
 
     @dbus.service.signal(dbus_system_interface)
@@ -438,7 +441,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
         self.conn_ctr += 1
         log_debug('dbus iface start() called: %d Connections' % self.conn_ctr)
         return _("Started")
-    
+
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ii')
     def check_for_new(self, last_seen_id, sender):
         username = get_identity(self.connection.get_unix_user(sender))
@@ -449,9 +452,9 @@ class SetroubleshootdDBusObject(dbus.service.Object):
             action = sig.evaluate_filter_for_user(username)
             if action != "ignore":
                 signatures.append(sig)
-                
+
         signatures.sort(compare_sig)
-        
+
         count = 0
         red = 0
         for sig in signatures:
@@ -461,11 +464,12 @@ class SetroubleshootdDBusObject(dbus.service.Object):
             if sig.local_id == last_seen_id:
                 red = 0
                 count = 0
-            
+
         return count, red
 
     @dbus.service.method(dbus_system_interface, in_signature='s',  out_signature='s')
     def avc(self, data):
+        data = str(data)
         self.alarm(0)
         self.conn_ctr += 1
         log_debug('dbus avc(%s) called: %d Connections' % (data, self.conn_ctr))
@@ -479,7 +483,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
         for audit_event in self.record_receiver.flush(0):
             try:
                 self.add(AVC(audit_event))
-            except ValueError, e:
+            except ValueError as e:
                 syslog.syslog(syslog.LOG_ERR, "Unable to add audit event: %s" % e)
 
         self.conn_ctr -= 1
@@ -495,7 +499,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 
     def alarm(self, timeout = 10):
         if self.conn_ctr == 0:
-            signal.alarm(timeout) 
+            signal.alarm(timeout)
 
 def compare_sig(a, b):
     return cmp(a.last_seen_date, b.last_seen_date)
@@ -505,7 +509,7 @@ class SetroubleshootdDBus:
         try:
             log_debug("creating system dbus: bus_name=%s object_path=%s interface=%s" % (dbus_system_bus_name, dbus_system_object_path, dbus_system_interface))
             self.dbus_obj = SetroubleshootdDBusObject(dbus_system_object_path, analysis_queue, alert_receiver, timeout)
-        except Exception, e:
+        except Exception as e:
             syslog.syslog(syslog.LOG_ERR, "cannot start system DBus service: %s" % e)
             raise e
 
@@ -545,10 +549,10 @@ def RunFaultServer(timeout=10):
         client_notifier = ClientNotifier(connection_pool)
 
         # Create a database local to this host
-        
+
         database_filename = get_config('database','filename')
         database_filepath = make_database_filepath(database_filename)
-        assure_file_ownership_permissions(database_filepath, 0600, 'setroubleshoot')
+        assure_file_ownership_permissions(database_filepath, 0o600, 'setroubleshoot')
         host_database = SETroubleshootDatabase(database_filepath, database_filename,
                                                friendly_name=_("Audit Listener"))
         host_database.set_notify(client_notifier)
@@ -577,8 +581,8 @@ def RunFaultServer(timeout=10):
             alert_receiver = TestPluginReportReceiver(host_database)
 
         # Create a synchronized queue for analysis requests
-        import Queue
-        analysis_queue = Queue.Queue(0)
+        import six.moves.queue
+        analysis_queue = six.moves.queue.Queue(0)
 
         # Create a thread to peform analysis, it takes AVC objects off
         # the analysis queue and runs the plugins against the
@@ -591,7 +595,7 @@ def RunFaultServer(timeout=10):
         analyze_thread = AnalyzeThread(analysis_queue)
         analyze_thread.setDaemon(True)
         analyze_thread.start()
-    
+
         # Create a thread to receive messages from the audit system.
         # This is a time sensitive operation, the primary job of this
         # thread is to receive the audit message as quickly as
@@ -607,10 +611,10 @@ def RunFaultServer(timeout=10):
         # Initialize the email recipient list
         from setroubleshoot.signature import SEEmailRecipientSet
         email_recipients = SEEmailRecipientSet()
-        assure_file_ownership_permissions(email_recipients_filepath, 0600, 'setroubleshoot')
+        assure_file_ownership_permissions(email_recipients_filepath, 0o600, 'setroubleshoot')
         try:
             email_recipients.parse_recipient_file(email_recipients_filepath)
-        except ProgramError, e:
+        except ProgramError as e:
             if e.errno == ERR_FILE_OPEN:
                 log_debug(e.strerror)
             else:
@@ -624,16 +628,18 @@ def RunFaultServer(timeout=10):
 
         dbus.glib.init_threads()
         setroubleshootd_dbus = SetroubleshootdDBus(analysis_queue, alert_receiver, timeout)
-        main_loop = gobject.MainLoop()
+        main_loop = GLib.MainLoop()
         main_loop.run()
 
-    except KeyboardInterrupt, e:
+    except KeyboardInterrupt as e:
         log_debug("KeyboardInterrupt in RunFaultServer")
 
-    except SystemExit, e:
+    except SystemExit as e:
         log_debug("raising SystemExit in RunFaultServer")
 
-    except Exception, e:
+    except Exception as e:
+        import traceback
+        syslog_trace(traceback.format_exc())
         syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
 
 if __name__=='__main__':

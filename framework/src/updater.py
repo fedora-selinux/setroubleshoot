@@ -15,28 +15,28 @@ try:
     if installed:
         for pkg in sorted(installed):
             if pkg.name == 'selinux-policy':
-                print _("current: %s ") % pkg.printVer()
+                print(_("current: %s ") % pkg.printVer())
     try:
         pl = yb.doPackageLists(patterns=['selinux-policy'])
-    except yum.Errors.RepoError, msg:
+    except yum.Errors.RepoError as msg:
         yb.conf.cache = False
         pl = yb.doPackageLists(patterns=['selinux-policy'])
 
     if pl.available:
         for pkg in sorted(pl.available):
-            print _("newer: %s ") % pkg.printVer()
-            
-
-except yum.Errors.RepoError, msg:
-    print "error: ", str(msg)
-
-except yum.Errors.ConfigError, msg:
-    print "error: ", str(msg)
-
-except TypeError, msg:
-    print "error: ", str(msg)
-except Exception, e:
-    print "error: " + str(e)
+            print(_("newer: %s ") % pkg.printVer())
 
 
-print "done"
+except yum.Errors.RepoError as msg:
+    print("error: ", str(msg))
+
+except yum.Errors.ConfigError as msg:
+    print("error: ", str(msg))
+
+except TypeError as msg:
+    print("error: ", str(msg))
+except Exception as e:
+    print("error: " + str(e))
+
+
+print("done")

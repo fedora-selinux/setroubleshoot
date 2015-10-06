@@ -11,11 +11,11 @@ ICON_FILES = \
 	22x22/setroubleshoot_red_icon.png \
 	22x22/setroubleshoot_icon.png \
 	16x16/setroubleshoot_red_icon.png \
-	16x16/setroubleshoot_icon.png 
+	16x16/setroubleshoot_icon.png
 
 GUI_FILES =				\
 	browser.glade		\
-	bug_report.glade	\
+	bug_report.ui		\
 	fail_dialog.glade	\
 	success_dialog.glade	\
 	$(NULL)

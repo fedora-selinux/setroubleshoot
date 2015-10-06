@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # Authors: John Dennis <jdennis@redhat.com>
 #
 # Copyright (C) 2007 Red Hat, Inc.
@@ -49,6 +50,8 @@ from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
 from setroubleshoot.util import *
 
+from six import add_metaclass, string_types
+
 #------------------------------------------------------------------------
 
 i18n_encoding = get_config('general', 'i18n_encoding')
@@ -72,9 +75,9 @@ def validate_database_doc(doc):
 
 def boolean(value):
     'convert value to bool'
-    if type(value) == BooleanType:
+    if isinstance(value, bool):
         return value
-    elif type(value == StringType):
+    elif isinstance(value, string_types):
         value = value.lower()
         if value in ('t', 'true', '1'):
             return True
@@ -82,7 +85,7 @@ def boolean(value):
             return False
         else:
             raise ValueError("cannot convert (%s) to boolean" % value)
-    elif type(value == IntType):
+    elif isinstance(value, int):
         return bool(value)
     else:
         raise ValueError("cannot convert (%s) to boolean" % value)
@@ -93,7 +96,7 @@ def string_to_xmlnode(doc, value):
 
 def string_to_cdata_xmlnode(doc, value):
     return doc.newCDataBlock(value, len(value))
-    
+
 # newChild() content is a string, which will be added as children
 
 # addChild() adds xmlNode
@@ -103,7 +106,7 @@ def string_to_cdata_xmlnode(doc, value):
 # newChild --> newDocNode --> newNode;stringGetNodeList(content) # note: this inserts entity nodes if content contains &;
 
 # xmlEncodeEntitiesReentrant called from xmlNodeListGetString
-# xmlEncodeSpecialChars called from xmlNodeListGetRawString 
+# xmlEncodeSpecialChars called from xmlNodeListGetRawString
 #------------------------------------------------------------------------
 
 def xml_attributes(node):
@@ -202,17 +205,16 @@ class XmlSerializeMetaData(type):
             cls._unstructured = True
         else:
             cls._unstructured = False
-            cls._elements = [x for x in xml_info.keys() if xml_info[x]['XMLForm'] == 'element']
-            cls._attributes = [x for x in xml_info.keys() if xml_info[x]['XMLForm'] == 'attribute']
+            cls._elements = [x for x in list(xml_info.keys()) if xml_info[x]['XMLForm'] == 'element']
+            cls._attributes = [x for x in list(xml_info.keys()) if xml_info[x]['XMLForm'] == 'attribute']
             cls._names = cls._elements + cls._attributes
 
             cls._elements.sort()
             cls._attributes.sort()
             cls._names.sort()
 
+@add_metaclass(XmlSerializeMetaData)
 class XmlSerialize(object):
-    __metaclass__ = XmlSerializeMetaData
-
     def __init__(self):
         self._init_defaults()
 
@@ -235,7 +237,7 @@ class XmlSerialize(object):
 
     def get_elements_and_attributes(self):
         if self._unstructured:
-            elements = [x for x in self.__dict__.keys() if not x.startswith('_')]
+            elements = [x for x in list(self.__dict__.keys()) if not x.startswith('_')]
             attributes = []
         else:
             elements   = self._elements
@@ -266,7 +268,7 @@ class XmlSerialize(object):
                 doc = libxml2.parseDoc(buf.strip())
                 root_node = doc.getRootElement()
                 self.init_from_xml_node(doc, obj_name)
-            except libxml2.parserError, e:
+            except libxml2.parserError as e:
                 syslog.syslog(syslog.LOG_ERR, "read_xml() libxml2.parserError: %s" % e)
                 return
         finally:
@@ -281,10 +283,10 @@ class XmlSerialize(object):
                 if validate_doc:
                     if not validate_doc(doc): return False
                 self.init_from_xml_node(doc, obj_name)
-            except libxml2.parserError, e:
+            except libxml2.parserError as e:
                 syslog.syslog(syslog.LOG_ERR, "read_xml_file() libxml2.parserError: %s" % e)
                 return False
-            except Exception, e:
+            except Exception as e:
                 syslog.syslog(syslog.LOG_ERR, "read_xml_file() error: %s" % e)
                 return False
         finally:
@@ -297,10 +299,10 @@ class XmlSerialize(object):
             need_to_close = False
             if f is None:
                 f = sys.stdout
-            elif type(f) is StringType:
+            elif isinstance(f, string_types):
                 f = open(f, "w")
                 need_to_close = True
-            elif type(f) is FileType:
+            elif isinstance(f, FileType):
                 pass
             else:
                 raise ValueError("bad file parameter %s" % f)
@@ -308,7 +310,7 @@ class XmlSerialize(object):
             f.write(self.get_xml_text_doc(obj_name))
             if need_to_close:
                 f.close()
-        except Exception, e:
+        except Exception as e:
             syslog.syslog(syslog.LOG_ERR, "could not write %s: %s" % (f, e))
 
     def get_xml_nodes(self, doc, obj_name=None):
@@ -360,7 +362,7 @@ class XmlSerialize(object):
                         root.addChild(element_node)
                         child = typecast(doc, value)
                         element_node.addChild(child)
-            except Exception, e:
+            except Exception as e:
                 syslog.syslog(syslog.LOG_ERR, "%s.%s value=%s" % (self.__class__.__name__, name, value))
 
         return root

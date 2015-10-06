@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 # Authors: John Dennis <jdennis@redhat.com>
 #          Thomas Liu <tliu@redhat.com>
 #          Dan Walsh <dwalsh@redhat.com>
@@ -18,12 +20,19 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
+
+import six
 import syslog
 from subprocess import *
-import setroubleshoot.default_encoding_utf8
 import gettext
+from six.moves import range
+from functools import cmp_to_key
 translation=gettext.translation('setroubleshoot-plugins', fallback=True)
-_=translation.ugettext
+
+try:
+    _ = translation.ugettext # This raises exception in Python3, succ. in Py2
+except AttributeError:
+    _ = translation.gettext # Python3
 
 __all__ = [
            'SignatureMatch',
@@ -64,6 +73,8 @@ import hashlib
 from types import *
 from string import Template
 import re, os
+
+cmp = lambda x, y: (x > y) - (x < y)
 
 # Don't reuse the numeric values!
 FILTER_NEVER              = 0
@@ -140,7 +151,7 @@ class SEEnvironment(XmlSerialize):
         return not self.__eq__(other)
 
     def __eq__(self, other):
-        for name in self._xml_info.keys():
+        for name in list(self._xml_info.keys()):
             if getattr(self, name) != getattr(other, name):
                 return False
         return True
@@ -155,7 +166,7 @@ class SEFilter(XmlSerialize):
     def __init__(self, filter_type=FILTER_NEVER):
         super(SEFilter, self).__init__()
         self.filter_type = filter_type
-        
+
 
 class SEFaultSignatureUser(XmlSerialize):
     _xml_info = {
@@ -167,14 +178,14 @@ class SEFaultSignatureUser(XmlSerialize):
     def __init__(self, username):
         super(SEFaultSignatureUser, self).__init__()
         self.username = username
-        
+
     def update_item(self, item, data):
         if not item in self._names:
             raise ProgramError(ERR_NOT_MEMBER, 'item (%s) is not a defined member' % item)
 
         if item == 'username':
             raise ProgramError(ERR_ILLEGAL_USER_CHANGE, 'changing the username is illegal')
-            
+
         setattr(self, item, data)
 
     def update_filter(self, filter_type, data=None):
@@ -203,7 +214,7 @@ class_dict['node'] = _("node")
 class_dict['capability'] = _("capability")
 
 def translate_class(tclass):
-    if tclass in class_dict.keys():
+    if tclass in list(class_dict.keys()):
         return class_dict[tclass]
     return tclass
 
@@ -226,9 +237,9 @@ class SEFaultSignature(XmlSerialize):
     }
     def __init__(self, **kwds):
         super(SEFaultSignature, self).__init__()
-        for k,v in kwds.items():
+        for k,v in list(kwds.items()):
             setattr(self, k, v)
-        
+
 class SEPlugin(XmlSerialize):
     _xml_info = {
     'analysis_id'          : {'XMLForm':'element'},
@@ -282,7 +293,7 @@ class SEFaultSignatureInfo(XmlSerialize):
 
     def __init__(self, **kwds):
         super(SEFaultSignatureInfo, self).__init__()
-        for k,v in kwds.items():
+        for k,v in list(kwds.items()):
             setattr(self, k, v)
         self.report_count = 1
         self.plugin_list = []
@@ -302,9 +313,9 @@ class SEFaultSignatureInfo(XmlSerialize):
         return  "%s,%s,%s,%s,%s" % (self.source, self.scontext.type, self.tcontext.type, self.tclass, ",".join(self.sig.access))
 
     def get_hash(self):
-        hash = hashlib.sha256(self.get_hash_str())
+        hash = hashlib.sha256(self.get_hash_str().encode('utf-8'))
         return hash.hexdigest()
-        
+
     def get_user_data(self, username):
         for user in self.users:
             if user.username == username:
@@ -316,7 +327,7 @@ class SEFaultSignatureInfo(XmlSerialize):
 
     def find_filter_by_username(self, username):
         log_debug("find_filter_by_username %s" % username)
-        
+
         filter = None
         user_data = self.get_user_data(username)
         if user_data is not None:
@@ -337,10 +348,10 @@ class SEFaultSignatureInfo(XmlSerialize):
             action = self.evaluate_filter(f)
             log_debug("evaluate_filter_for_user: found filter for %s: %s\n%s" % (username, action, f))
         return action
-        
+
     def evaluate_filter(self, filter):
         filter_type = filter.filter_type
-        
+
         action = 'display'
 
         if filter_type == FILTER_NEVER:
@@ -379,7 +390,7 @@ class SEFaultSignatureInfo(XmlSerialize):
             permissive_msg = _("SELinux is in permissive mode. This access was not denied.")
 
     def update_derived_template_substitutions(self):
-        self.template_substitutions = {} 
+        self.template_substitutions = {}
         self.template_substitutions["SOURCE_TYPE"] = self.scontext.type
         self.template_substitutions["TARGET_TYPE"] = self.tcontext.type
         self.template_substitutions["SOURCE"]      = self.source
@@ -420,7 +431,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         self.template_substitutions["PORT_NUMBER"] = self.port
 
         # validate, replace any None values with friendly string
-        for key, value in self.template_substitutions.items():
+        for key, value in list(self.template_substitutions.items()):
             if value is None:
                 self.template_substitutions[key] = default_text(value)
 
@@ -453,7 +464,7 @@ class SEFaultSignatureInfo(XmlSerialize):
                         plugins.append((p, tuple(solution.args)))
                         break
 
-        plugins.sort(self.priority_sort)
+        plugins.sort(key=cmp_to_key(self.priority_sort))
 
         return total_priority, plugins
 
@@ -509,7 +520,7 @@ class SEFaultSignatureInfo(XmlSerialize):
                 avcbuf += "\ntype=%s msg=%s: " % (audit_record.record_type, audit_record.event_id)
                 avcbuf += ' '.join(["%s=%s" % (k, audit_record.fields[k]) for k in audit_record.fields_ord]) +"\n"
 
-        avcbuf += "\nHash: " + self.get_hash_str() 
+        avcbuf += "\nHash: " + self.get_hash_str()
 
         try:
             audit2allow = "/usr/bin/audit2allow"
@@ -543,7 +554,7 @@ class SEFaultSignatureInfo(XmlSerialize):
             _ = lambda x:x
             return func(*args, **kwargs)
         finally:
-            P_ = saved_translateP_ 
+            P_ = saved_translateP_
             _ = saved_translate_
 
     def format_text(self, all = False, replace = False):
@@ -559,12 +570,12 @@ class SEFaultSignatureInfo(XmlSerialize):
             for i in range(len(title),80):
                 text +=  _("*")
             text +=  _("\n")
-            txt = self.substitute(p.get_if_text(self.audit_event.records, args)).decode('utf-8')
+            txt = self.substitute(p.get_if_text(self.audit_event.records, args))
             text +=  _("\nIf ") + txt[0].lower() + txt[1:]
-            txt = self.substitute(p.get_then_text(self.audit_event.records, args)).decode('utf-8')
+            txt = self.substitute(p.get_then_text(self.audit_event.records, args))
             text +=  _("\nThen ") + txt[0].lower() + txt[1:]
 
-            txt = self.substitute(p.get_do_text(self.audit_event.records, args)).decode('utf-8')
+            txt = self.substitute(p.get_do_text(self.audit_event.records, args))
             text +=  _("\nDo\n") + txt[0].lower() + txt[1:]
 
         text += _('\n\n')
@@ -632,7 +643,7 @@ class SEFaultSignatureSet(XmlSerialize):
 
     def clear(self):
         self.signature_list = []
-        
+
 
     def generate_local_id(self):
         return str(uuid.uuid4())
@@ -648,16 +659,16 @@ class SEFaultSignatureSet(XmlSerialize):
         return None
 
     def match_signatures(self, pat, criteria='exact', xml_info=SEFaultSignature._xml_info):
-        match_targets = xml_info.keys()
+        match_targets = list(xml_info.keys())
         exact = False
         if criteria == 'exact':
             exact = True
-        elif type(criteria) is FloatType:
+        elif isinstance(criteria, float):
             num_match_targets = len(match_targets)
             score_per_match_target = 1.0 / num_match_targets
         else:
             raise ValueError("unknown criteria = %s" % criteria)
-        
+
         matches = []
         for siginfo in self.signature_list:
             score = 0.0
@@ -678,7 +689,7 @@ class SEFaultSignatureSet(XmlSerialize):
             else:
                 if score >= criteria:
                     matches.append(SignatureMatch(siginfo, score))
-        matches.sort((lambda a,b: cmp(b.score, a.score)))
+        matches.sort(key=cmp_to_key(lambda a,b: cmp(b.score, a.score)))
         return matches
 
 
@@ -767,7 +778,7 @@ class SEEmailRecipientSet(XmlSerialize):
 
         try:
             f = open(filepath)
-        except IOError, e:
+        except IOError as e:
             raise ProgramError(ERR_FILE_OPEN, detail="%s, %s" % (filepath, e.strerror))
 
         self.clear_recipient_list()
@@ -792,13 +803,13 @@ class SEEmailRecipientSet(XmlSerialize):
                                 filter_type = map_filter_name_to_value.get(value.lower(), None)
                                 if filter_type is None:
                                     log_debug("unknown email filter (%s) for address %s" % (option, address))
-                                    
+
                             else:
                                 log_debug("unknown email option (%s) for address %s" % (option, address))
-                                
+
                     try:
                         self.add_address(address, filter_type)
-                    except ProgramError, e:
+                    except ProgramError as e:
                         if e.errno == ERR_INVALID_EMAIL_ADDR:
                             log_debug(e.strerror)
                         else:
@@ -810,13 +821,13 @@ class SEEmailRecipientSet(XmlSerialize):
     def write_recipient_file(self, filepath):
         try:
             f = open(filepath, 'w')
-        except IOError, e:
+        except IOError as e:
             raise ProgramError(ERR_FILE_OPEN, detail="%s, %s" % (filepath, e.strerror))
 
         for recipient in self.recipient_list:
             filter_type = map_filter_value_to_name[recipient.filter_type]
             f.write("%-40s filter_type=%s\n" % (recipient.address, filter_type))
-        
+
         f.close()
 
 
@@ -834,14 +845,14 @@ if __name__ == '__main__':
     sigs.read_xml_file(xml_file, 'sigs')
     siginfo = sigs.signature_list[0]
     record = siginfo.audit_event.records[0]
-    print record.record_type
-    print "siginfo.audit_event=%s" % siginfo.audit_event
-    print sigs
+    print((record.record_type))
+    print(("siginfo.audit_event=%s" % siginfo.audit_event))
+    print(sigs)
 
     #memory debug specific
     libxml2.cleanupParser()
     if libxml2.debugMemory(1) == 0:
-        print "Memory OK"
+        print("Memory OK")
     else:
-        print "Memory leak %d bytes" % (libxml2.debugMemory(1))
+        print(("Memory leak %d bytes" % (libxml2.debugMemory(1))))
         libxml2.dumpMemory()

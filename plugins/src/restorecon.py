@@ -116,7 +116,7 @@ class plugin(Plugin):
                 mcon_type=mcon.split(":")[2]
                 if mcon_type != avc.tcontext.type:
                     return self.report((0, mcon_type))
-            except OSError, e:
+            except OSError as e:
                 pass
 
         return None

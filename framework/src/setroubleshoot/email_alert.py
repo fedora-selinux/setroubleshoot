@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 # Authors: John Dennis <jdennis@redhat.com>
 #
 # Copyright (C) 2006,2007,2008 Red Hat, Inc.
@@ -72,7 +73,7 @@ def email_alert(siginfo, to_addrs):
         smtp = smtplib.SMTP(smtp_host, smtp_port)
         smtp.sendmail(from_address, to_addrs, email_msg.as_string())
         smtp.quit()
-    except smtplib.SMTPException, e:
+    except smtplib.SMTPException as e:
         syslog.syslog(syslog.LOG_ERR, "email failed: %s" % e)
 
 #-----------------------------------------------------------------------------

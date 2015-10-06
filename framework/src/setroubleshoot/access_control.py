@@ -26,11 +26,12 @@ import socket as Socket
 import syslog
 
 from setroubleshoot.config import get_config
+from setroubleshoot.util import syslog_trace
 
 __all__ = [
     'ServerAccess',
     ]
-           
+
 
 # SO_PEERCRED is not defined by the socket class unless patched
 # SO_PEERCRED's value is architecture dependent
@@ -51,7 +52,7 @@ except AttributeError:
     elif re.search(r'^(alpha|mips)',    machine): SO_PEERCRED = 18     # alpha, mips
     elif re.search(r'^sparc',           machine): SO_PEERCRED = 0x0040 # sparc
     elif re.search(r'^parisc',          machine): SO_PEERCRED = 0x4011 # parisc
-    else: SO_PEERCRED = 17 
+    else: SO_PEERCRED = 17
     #print "hardcoding SO_PEERCRED=%s" % SO_PEERCRED
 
 
@@ -64,7 +65,7 @@ class ServerAccess:
     privileges = {'client' : {'wildcard':True},
                   'fix_cmd': {'wildcard':False},
                  }
-    
+
     def __init__(self):
         # No attempt is made to validate the user name is valid. This
         # makes the configuration file more relaxed. Additionally, the
@@ -134,7 +135,7 @@ class ServerAccess:
         the other end of a socket. SO_PEERCRED is used so the information
         returned is generally trustworthy (though root processes can
         impersonate any uid/gid)."""
-        
+
         pid = uid = gid = None
         try:
             # socket attributes family,type,proto,timeout available only in Python >= 2.5
@@ -156,6 +157,8 @@ class ServerAccess:
             if gid == -1: gid = None
         except Exception as e:
             pid = uid = gid = None
+            import traceback
+            syslog_trace(traceback.format_exc())
             syslog.syslog(syslog.LOG_ERR, "get_credentials(): %s" % e)
 
         return uid, gid

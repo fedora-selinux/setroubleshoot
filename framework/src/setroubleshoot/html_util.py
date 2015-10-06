@@ -27,7 +27,15 @@ __all__ = [
 ]
 
 import syslog
-import htmllib
+import sys
+if sys.version_info > (3,):
+    import html
+    import html.parser
+    import html.entities
+    from io import StringIO
+else:
+    import htmllib
+    from StringIO import StringIO
 import formatter as Formatter
 import string
 from types import *
@@ -80,19 +88,42 @@ class TextWriter(Formatter.DumbWriter):
             atbreak = 1
         self.col = col
         self.atbreak = data[-1] in string.whitespace
-            
-class HTMLParserAnchor(htmllib.HTMLParser):
 
-    def __init__(self, formatter, verbose=0):
-        htmllib.HTMLParser.__init__(self, formatter, verbose)
+if sys.version_info > (3,):
+    class HTMLParserAnchor(html.parser.HTMLParser):
+        def __init__(self, formatter, strict=False, convert_charrefs=False):
+            super(HTMLParserAnchor, self).__init__()
+            self.formatter = formatter
+            self.anchor_href = None
 
-    def anchor_bgn(self, href, name, type):
-        self.anchor = href
+        def handle_starttag(self, tag, attrs):
+            if tag == 'a':
+                for key, value in attrs:
+                    if key == 'href':
+                        self.anchor_href = value
 
-    def anchor_end(self):
-        if self.anchor:
-            self.handle_data(' (%s) ' % self.anchor)
-            self.anchor = None
+        def handle_endtag(self, tag):
+            if tag == 'a':
+                if self.anchor_href != None:
+                    self.formatter.writer.send_flowing_data('(' + self.anchor_href + ')')
+                self.anchor_href = None
+
+        def handle_data(self, data):
+            self.formatter.writer.send_flowing_data(data)
+
+else:
+    class HTMLParserAnchor(htmllib.HTMLParser):
+
+        def __init__(self, formatter, verbose=0):
+            htmllib.HTMLParser.__init__(self, formatter, verbose)
+
+        def anchor_bgn(self, href, name, type):
+            self.anchor = href
+
+        def anchor_end(self):
+            if self.anchor:
+                self.handle_data(' (%s) ' % self.anchor)
+                self.anchor = None
 
 #------------------------------------------------------------------------------
 
@@ -122,8 +153,7 @@ def unescape_html(s):
 
 def html_to_text(html, maxcol=80):
     try:
-        import StringIO
-        buffer = StringIO.StringIO()
+        buffer = StringIO()
         formatter = Formatter.AbstractFormatter(TextWriter(buffer, maxcol))
         parser = HTMLParserAnchor(formatter)
         parser.feed(html)
@@ -131,7 +161,7 @@ def html_to_text(html, maxcol=80):
         text = buffer.getvalue()
         buffer.close()
         return text
-    except Exception, e:
+    except Exception as e:
         syslog.syslog(syslog.LOG_ERR, 'cannot convert html to text: %s' % e)
         return None
 
@@ -148,14 +178,14 @@ def html_document(*body_components):
     doc = head
 
     for body_component in body_components:
-        if type(body_component) is StringTypes:
+        if isinstance(body_component, six.string_types):
             doc += body_component
-        elif type(body_component) in [TupleType, ListType]:
+        elif isinstance(body_component, (tuple, list)):
             for item in body_component:
                 doc += item
         elif callable(body_component):
             result = body_component()
-            if type(result) in [TupleType, ListType]:
+            if isinstance(result, (tuple, list)):
                 for item in result:
                     doc += item
             else:

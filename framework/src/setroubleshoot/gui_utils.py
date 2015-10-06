@@ -22,7 +22,9 @@
 import warnings
 warnings.filterwarnings('ignore', 'could not open display')
 
-import gtk
+import gi
+gi.require_version('Gtk', 3.0)
+from gi.repository import Gtk, Gdk
 
 #------------------------------------------------------------------------------
 
@@ -35,10 +37,10 @@ __all__ = ['get_display',
 
 def get_display():
     try:
-        dpy = gtk.gdk.Display('')
+        dpy = Gdk.Display('')
         dpy_name = dpy.get_name()
         return dpy_name
-    except RuntimeError, e:
+    except RuntimeError as e:
         return None
 
     # --- Interaction Dialogs ---
@@ -53,18 +55,18 @@ def display_traceback(who,  parent=None):
     message = _("Opps, %s hit an error!" % who)
 
     title= who + ' ' + _("Error")
-    dlg = gtk.Dialog(title, parent, 0, (gtk.STOCK_OK, gtk.RESPONSE_OK))
-    dlg.set_position(gtk.WIN_POS_CENTER)
+    dlg = Gtk.Dialog(title, parent, 0, (Gtk.STOCK_OK, Gtk.ResponseType.OK))
+    dlg.set_position(Gtk.WindowPosition.CENTER)
     dlg.set_default_size(600, 400)
 
-    text_buffer = gtk.TextBuffer()
+    text_buffer = Gtk.TextBuffer()
     text_buffer.set_text(message+'\n\n'+stacktrace)
 
-    text_view = gtk.TextView(text_buffer)
+    text_view = Gtk.TextView(text_buffer)
     text_view.set_editable(False)
 
-    scrolled_window = gtk.ScrolledWindow()
-    scrolled_window.set_policy(gtk.POLICY_AUTOMATIC, gtk.POLICY_AUTOMATIC)
+    scrolled_window = Gtk.ScrolledWindow()
+    scrolled_window.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
     scrolled_window.add(text_view)
 
     dlg.vbox.pack_start(scrolled_window, True, True, 0)
@@ -72,6 +74,6 @@ def display_traceback(who,  parent=None):
     dlg.show_all()
     rc = dlg.run()
     dlg.destroy()
-    if rc == gtk.RESPONSE_OK:
+    if rc == Gtk.ResponseType.OK:
         return True
     return None
