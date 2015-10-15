@@ -1,5 +1,7 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generated with glade 3.19.0 -->
 <interface>
+  <requires lib="gtk+" version="3.0"/>
   <object class="GtkAboutDialog" id="aboutdialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -9,14 +11,15 @@
     <property name="program_name">SETroubleshoot</property>
     <property name="copyright" translatable="yes">Copyright (c) 2010
 Thomas Liu &lt;tliu@redhat.com&gt;
-M&#xE1;ir&#xED;n Duffy &lt;duffy@redhat.com&gt;
+Máirín Duffy &lt;duffy@redhat.com&gt;
 Daniel Walsh &lt;dwalsh@redhat.com&gt;
 John Dennis &lt;jdennis@redhat.com&gt;
 </property>
     <property name="authors">Thomas Liu &lt;tliu@redhat.com&gt;
-M&#xE1;ir&#xED;n Duffy &lt;duffy@redhat.com&gt;
+Máirín Duffy &lt;duffy@redhat.com&gt;
 Daniel Walsh &lt;dwalsh@redhat.com&gt;
 John Dennis &lt;jdennis@redhat.com&gt;</property>
+    <property name="logo_icon_name">image-missing</property>
     <child internal-child="vbox">
       <object class="GtkBox" id="dialog-vbox3">
         <property name="visible">True</property>
@@ -28,6 +31,11 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
             <property name="can_focus">False</property>
             <property name="layout_style">end</property>
           </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="position">0</property>
+          </packing>
         </child>
         <child>
           <placeholder/>
@@ -60,6 +68,9 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
               <object class="GtkTreeView" id="treeview">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <child internal-child="selection">
+                  <object class="GtkTreeSelection" id="treeview-selection1"/>
+                </child>
               </object>
             </child>
           </object>
@@ -84,13 +95,13 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <child>
                   <object class="GtkButton" id="troubleshoot_list_button">
                     <property name="label" translatable="yes">Troubleshoot</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Troubleshoot selected alert</property>
-                    <property name="use_action_appearance">False</property>
-                    <accelerator key="t" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
-                    <signal handler="on_troubleshoot_list_button_clicked" name="clicked" swapped="no"/>
+                    <signal name="clicked" handler="on_troubleshoot_list_button_clicked" swapped="no"/>
+                    <accelerator key="t" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -101,13 +112,13 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <child>
                   <object class="GtkButton" id="delete_list_button">
                     <property name="label">Delete</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Delete Selected Alerts</property>
-                    <property name="use_action_appearance">False</property>
+                    <signal name="clicked" handler="on_delete_list_button_clicked" swapped="no"/>
                     <accelerator key="Delete" signal="clicked"/>
-                    <signal handler="on_delete_list_button_clicked" name="clicked" swapped="no"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -175,11 +186,11 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
             <child>
               <object class="GtkButton" id="close_details_button">
                 <property name="label">Close</property>
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <property name="use_action_appearance">False</property>
-                <signal handler="on_close_details_button_clicked" name="clicked" swapped="no"/>
+                <signal name="clicked" handler="on_close_details_button_clicked" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -217,10 +228,10 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
               <object class="GtkLabel" id="selinux_label">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="xalign">0.039999999105930328</property>
-                <property name="yalign">0.40000000596046448</property>
                 <property name="label" translatable="yes">&lt;b&gt;SELinux has detected a problem.&lt;/b&gt;</property>
                 <property name="use_markup">True</property>
+                <property name="xalign">0.039999999105930328</property>
+                <property name="yalign">0.40000000596046448</property>
               </object>
               <packing>
                 <property name="expand">True</property>
@@ -244,14 +255,15 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
             <child>
               <object class="GtkRadioButton" id="yes_radiobutton">
                 <property name="label" translatable="yes">Yes</property>
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="tooltip_text" translatable="yes">Turn on alert pop-ups.</property>
-                <property name="use_action_appearance">False</property>
+                <property name="xalign">0.5</property>
                 <property name="active">True</property>
                 <property name="draw_indicator">True</property>
-                <signal handler="on_receive_button_changed" name="toggled" swapped="no"/>
+                <signal name="toggled" handler="on_receive_button_changed" swapped="no"/>
               </object>
               <packing>
                 <property name="expand">False</property>
@@ -263,11 +275,12 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
             <child>
               <object class="GtkRadioButton" id="no_radiobutton">
                 <property name="label" translatable="yes">No</property>
+                <property name="use_action_appearance">False</property>
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">False</property>
                 <property name="tooltip_text" translatable="yes">Turn off alert pop-ups.</property>
-                <property name="use_action_appearance">False</property>
+                <property name="xalign">0.5</property>
                 <property name="draw_indicator">True</property>
                 <property name="group">yes_radiobutton</property>
               </object>
@@ -316,8 +329,8 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                   <object class="GtkLabel" id="source_title_label">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">1</property>
                                     <property name="label" translatable="yes">The source process:</property>
+                                    <property name="xalign">1</property>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>
@@ -329,9 +342,9 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                   <object class="GtkLabel" id="access_title_label">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">1</property>
                                     <property name="label" translatable="yes">Attempted this access:</property>
                                     <property name="justify">center</property>
+                                    <property name="xalign">1</property>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>
@@ -343,9 +356,9 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                   <object class="GtkLabel" id="class_label">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">1</property>
                                     <property name="label" translatable="yes">On this file:</property>
                                     <property name="justify">center</property>
+                                    <property name="xalign">1</property>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>
@@ -369,10 +382,10 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                   <object class="GtkLabel" id="source_label">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">label</property>
                                     <property name="width_chars">20</property>
                                     <property name="single_line_mode">True</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>
@@ -384,10 +397,10 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                   <object class="GtkLabel" id="access_label">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">label</property>
                                     <property name="justify">center</property>
                                     <property name="max_width_chars">50</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>
@@ -399,10 +412,10 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                                   <object class="GtkLabel" id="target_label">
                                     <property name="visible">True</property>
                                     <property name="can_focus">False</property>
-                                    <property name="xalign">0</property>
                                     <property name="label" translatable="yes">label</property>
                                     <property name="justify">center</property>
                                     <property name="max_width_chars">50</property>
+                                    <property name="xalign">0</property>
                                   </object>
                                   <packing>
                                     <property name="expand">True</property>
@@ -428,9 +441,9 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                           <object class="GtkLabel" id="date_label">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
+                            <property name="justify">right</property>
                             <property name="xalign">0</property>
                             <property name="yalign">0</property>
-                            <property name="justify">right</property>
                           </object>
                           <packing>
                             <property name="expand">False</property>
@@ -458,13 +471,13 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                             <child>
                               <object class="GtkButton" id="troubleshoot_button">
                                 <property name="label" translatable="yes">Troubleshoot</property>
+                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="tooltip_text" translatable="yes">Read alert troubleshoot information.  May require administrative privileges to remedy.</property>
-                                <property name="use_action_appearance">False</property>
-                                <accelerator key="t" modifiers="GDK_MOD1_MASK" signal="clicked"/>
-                                <signal handler="on_troubleshoot_button_clicked" name="clicked" swapped="no"/>
+                                <signal name="clicked" handler="on_troubleshoot_button_clicked" swapped="no"/>
+                                <accelerator key="t" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -476,14 +489,14 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                             <child>
                               <object class="GtkButton" id="report_button">
                                 <property name="label" translatable="yes">Notify Admin</property>
+                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="tooltip_text" translatable="yes">Email alert to system administrator.</property>
-                                <property name="use_action_appearance">False</property>
-                                <accelerator key="r" modifiers="GDK_MOD1_MASK" signal="clicked"/>
-                                <accelerator key="r" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
-                                <signal handler="on_report_button_clicked" name="clicked" swapped="no"/>
+                                <signal name="clicked" handler="on_report_button_clicked" swapped="no"/>
+                                <accelerator key="r" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                                <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -495,13 +508,13 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                             <child>
                               <object class="GtkButton" id="details_button">
                                 <property name="label" translatable="yes">Details</property>
+                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
-                                <property name="use_action_appearance">False</property>
-                                <accelerator key="r" modifiers="GDK_MOD1_MASK" signal="clicked"/>
-                                <accelerator key="r" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
-                                <signal handler="on_details_button_clicked" name="clicked" swapped="no"/>
+                                <signal name="clicked" handler="on_details_button_clicked" swapped="no"/>
+                                <accelerator key="r" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                                <accelerator key="r" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -524,14 +537,14 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                             <child>
                               <object class="GtkButton" id="ignore_button">
                                 <property name="label" translatable="yes">Ignore</property>
+                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="tooltip_text" translatable="yes">Ignore alert in the future.</property>
-                                <property name="use_action_appearance">False</property>
                                 <property name="image_position">right</property>
-                                <accelerator key="i" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
-                                <signal handler="on_ignore_button_clicked" name="clicked" swapped="no"/>
+                                <signal name="clicked" handler="on_ignore_button_clicked" swapped="no"/>
+                                <accelerator key="i" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -543,14 +556,14 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                             <child>
                               <object class="GtkButton" id="delete_button">
                                 <property name="label">Delete</property>
+                                <property name="use_action_appearance">False</property>
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
                                 <property name="receives_default">True</property>
                                 <property name="tooltip_text" translatable="yes">Delete current alert from the database.</property>
-                                <property name="use_action_appearance">False</property>
                                 <property name="image_position">right</property>
+                                <signal name="clicked" handler="on_delete_button_clicked" swapped="no"/>
                                 <accelerator key="Delete" signal="activate"/>
-                                <signal handler="on_delete_button_clicked" name="clicked" swapped="no"/>
                               </object>
                               <packing>
                                 <property name="expand">False</property>
@@ -605,12 +618,11 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <property name="resize_mode">queue</property>
                 <property name="shadow_type">none</property>
                 <child>
-                  <object class="GtkTable" id="solutions_table">
+                  <object class="GtkGrid" id="solutions_table">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
-                    <property name="n_columns">4</property>
+                    <property name="row_spacing">3</property>
                     <property name="column_spacing">3</property>
-                    <property name="row_spacing">5</property>
                     <child>
                       <placeholder/>
                     </child>
@@ -650,14 +662,14 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <child>
                   <object class="GtkButton" id="previous_button">
                     <property name="label">Previous</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Show previous alert.</property>
-                    <property name="use_action_appearance">False</property>
-                    <accelerator key="Left" modifiers="GDK_MOD1_MASK" signal="clicked"/>
-                    <accelerator key="p" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
-                    <signal handler="on_previous_button_clicked" name="clicked" swapped="no"/>
+                    <signal name="clicked" handler="on_previous_button_clicked" swapped="no"/>
+                    <accelerator key="p" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                    <accelerator key="Left" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -682,14 +694,14 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <child>
                   <object class="GtkButton" id="next_button">
                     <property name="label">Next</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">Show next alert.</property>
-                    <property name="use_action_appearance">False</property>
-                    <accelerator key="Right" modifiers="GDK_MOD1_MASK" signal="clicked"/>
-                    <accelerator key="n" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
-                    <signal handler="on_next_button_clicked" name="clicked" swapped="no"/>
+                    <signal name="clicked" handler="on_next_button_clicked" swapped="no"/>
+                    <accelerator key="n" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
+                    <accelerator key="Right" signal="clicked" modifiers="GDK_MOD1_MASK"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>
@@ -700,13 +712,13 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <child>
                   <object class="GtkButton" id="list_all_button">
                     <property name="label" translatable="yes">List All Alerts</property>
+                    <property name="use_action_appearance">False</property>
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="tooltip_text" translatable="yes">List all alerts in the database.</property>
-                    <property name="use_action_appearance">False</property>
-                    <accelerator key="l" modifiers="GDK_CONTROL_MASK" signal="clicked"/>
-                    <signal handler="on_list_all_button_clicked" name="clicked" swapped="no"/>
+                    <signal name="clicked" handler="on_list_all_button_clicked" swapped="no"/>
+                    <accelerator key="l" signal="clicked" modifiers="GDK_CONTROL_MASK"/>
                   </object>
                   <packing>
                     <property name="expand">False</property>

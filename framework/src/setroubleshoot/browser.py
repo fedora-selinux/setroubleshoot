@@ -399,23 +399,23 @@ class BrowserApplet:
         self.radio = Gtk.RadioButton(label = None)
         for child in self.table.get_children():
             self.table.remove(child)
-        cols = int(self.table.get_property("n-columns"))
-        self.table.resize(1, cols)
-        col = 0
+        # cols = int(self.table.get_property("width"))
+        # self.table.resize(1, cols)
+        global rows
+        rows = 1
         label = Gtk.Label()
         label.set_markup(_("<b>If you were trying to...</b>"))
         label.set_justify(Gtk.Justification.LEFT)
         label.set_alignment(-1.0, 0.0)
         label.show()
-        self.table.attach(label, col, col + 1, 0, 1, xoptions=0, yoptions=0)
+        self.table.attach(label, 0, 0, 1, 1)
 
         label = Gtk.Label()
         label.set_justify(Gtk.Justification.LEFT)
         label.set_alignment(0.0, 0.0)
         label.set_markup(_("<b>Then this is the solution.</b>"))
         label.show()
-        col += 1
-        self.table.attach(label, col, col + 1, 0, 1, xoptions=0, yoptions=0)
+        self.table.attach(label, 1, 0, 1, 1)
 
     def wrap(self,if_text):
         lines = ""
@@ -430,6 +430,7 @@ class BrowserApplet:
         return lines
 
     def add_row(self, plugin, alert, args):
+        global rows
         avc = alert.audit_event.records
         if_text = _("If ") + alert.substitute(plugin.get_if_text(avc, args))
         then_text = alert.substitute(plugin.get_then_text(avc, args))
@@ -438,8 +439,8 @@ class BrowserApplet:
         if not if_text:
             return
 
-        rows = int(self.table.get_property("n-rows"))
-        cols = int(self.table.get_property("n-columns"))
+        # rows = int(self.table.get_property("n-rows"))
+        # cols = int(self.table.get_property("n-columns"))
 
         black = Gdk.Color(0,0,0)
         if plugin.level == "red":
@@ -502,22 +503,19 @@ class BrowserApplet:
         then_scroll.set_sensitive(False)
         then_scroll.set_size_request(450, 90)
 
-        self.table.resize(rows, cols)
+        # self.table.resize(rows, cols)
 #        sev_toggle.connect("toggled", self.on_sev_togglebutton_activated, rows)
 #        col = 0
 #        self.table.attach(sev_toggle, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
 
-        col = 0
-#        col += 1
         if_button.connect("clicked", self.on_sev_togglebutton_activated, rows)
-        self.table.attach(if_button, col, col+1, rows, rows + 1) # xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL) #yoptions=Gtk.AttachOptions.FILL)
+        self.table.insert_row(rows)
+        self.table.attach(if_button, 0, rows, 1,  1) # xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL) #yoptions=Gtk.AttachOptions.FILL)
 
-        col += 1
-        self.table.attach(then_scroll, col, col+1, rows, rows + 1, xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL, yoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL)
+        self.table.attach(then_scroll, 1, rows, 1, 1)
 #, col, col+1, rows, rows + 1, xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL,
 
-        self.table.resize(rows + 1, cols + 1)
-        col += 1
+        # self.table.resize(rows + 1, cols + 1)
 
         vbox = Gtk.VBox(spacing=5)
         report_button = Gtk.Button()
@@ -543,8 +541,9 @@ class BrowserApplet:
 
         vbox.set_sensitive(False)
         vbox.show()
-        self.table.attach(vbox, col, col+1, rows, rows + 1,xoptions=0, yoptions=0)
+        self.table.attach(vbox, 2, rows, 1, 1)
 
+        rows += 1
         return sev_toggle
     def on_sev_togglebutton_activated(self, widget, row):
         for child in self.table.get_children():
