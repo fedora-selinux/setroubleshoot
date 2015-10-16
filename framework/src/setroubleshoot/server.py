@@ -81,8 +81,6 @@ from setroubleshoot.util import (get_hostname,
                                  get_identity, log_debug, syslog_trace
                                  )
 
-cmp = lambda x, y: (x > y) - (x < y)
-
 #------------------------------ Utility Functions -----------------------------
 
 
@@ -453,7 +451,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
             if action != "ignore":
                 signatures.append(sig)
 
-        signatures.sort(compare_sig)
+        signatures.sort(key=compare_sig)
 
         count = 0
         red = 0
@@ -501,8 +499,8 @@ class SetroubleshootdDBusObject(dbus.service.Object):
         if self.conn_ctr == 0:
             signal.alarm(timeout)
 
-def compare_sig(a, b):
-    return cmp(a.last_seen_date, b.last_seen_date)
+def compare_sig(a):
+    return a.last_seen_date
 
 class SetroubleshootdDBus:
     def __init__(self, analysis_queue, alert_receiver, timeout):
