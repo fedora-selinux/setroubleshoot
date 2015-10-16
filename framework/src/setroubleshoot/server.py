@@ -421,8 +421,14 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 
     def add(self, avc):
         try:
-            if os.path.exists("%s%s/modules/active/disable_dontaudit" % (selinux.selinux_path(),selinux.selinux_getpolicytype()[1])):
-                raise ValueError("Setroubleshoot can not analyze AVCs while dontaudit rules are disabled, 'semodule -B' will turn on dontaudit rules.")
+            # FIXME: do not hardcode /var/lib/selinux/ store_path
+            policy_type = selinux.selinux_getpolicytype()[1]
+            for store_path in [
+                "%s%s/modules/active/disable_dontaudit" % (selinux.selinux_path(),policy_type),
+                "/var/lib/selinux/%s/active/disable_dontaudit" % policy_type
+            ]:
+                if os.path.exists(store_path):
+                    raise ValueError("Setroubleshoot can not analyze AVCs while dontaudit rules are disabled, 'semodule -B' will turn on dontaudit rules.")
             if verify_avc(avc):
                 self.queue.put((avc, self.receiver))
 
