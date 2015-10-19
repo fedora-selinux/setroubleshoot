@@ -484,6 +484,83 @@ class SetroubleshootdDBusObject(dbus.service.Object):
             
         return count, red
 
+    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='', out_signature='a(ssi)')
+    def get_all_alerts(self, sender):
+        """
+        Return array of *local_id*'s, *summary*'s, and *report_count*'s of all current alerts in a setroubleshoot database
+
+        returns list of:
+        * `local_id(s)`: a report id in a setroubleshoot database
+        * `summary(s)`: a brief description of an alert. E.g. `"SELinux is preventing /usr/bin/bash from ioctl access on the unix_stream_socket unix_stream_socket."`
+        * `report_count(i)`: count of reports of this alert
+"""
+
+        username = get_identity(self.connection.get_unix_user(sender))
+        database = get_host_database()
+        database_alerts = database.query_alerts("*").signature_list
+        alerts = []
+        for alert in database_alerts:
+            if alert.evaluate_filter_for_user(username) != "ignore":
+                alerts.append((alert.local_id, alert.summary(), alert.report_count))
+        return alerts
+
+    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ssiasa(ssssbb)')
+    def get_alert(self, local_id, sender):
+        """
+Return an alert with summary, audit events, fix suggestions
+
+##### arguments
+
+* `local_id(s)`: an alert id
+
+##### return values
+
+* `local_id(s)`: an alert id
+* `summary(s)`: a brief description of an alert. E.g. `"SELinux is preventing /usr/bin/bash from
+  ioctl access on the unix_stream_socket unix_stream_socket."`
+* `report_count(i)`: count of reports of this alert
+* `audit_event(as)`: an array of audit events (AVC, SYSCALL) connected to the alert
+* `plugin_analysis(a(ssssbb)`: an array of plugin analysis structure
+ * `if_text(s)`:
+ * `then_text(s)`
+ * `do_text(s)`
+ * `analysis_id(s)`: plugin id. It can be used in `org.fedoraproject.SetroubleshootFixit.run_fix()`
+ * `fixable(b)`: True when an alert is fixable by a plugin
+ * `report_bug(b)`: True when an alert should be reported to bugzilla
+"""
+        username = get_identity(self.connection.get_unix_user(sender))
+        database = get_host_database()
+        try:
+            database_alerts = database.query_alerts(local_id)
+        except ProgramError as e:
+            if e.errno == ERR_SIGNATURE_ID_NOT_FOUND:
+                return None
+            raise e
+        alert = next(database_alerts.siginfos())
+        alert.update_derived_template_substitutions()
+
+        avc = alert.audit_event.records
+        audit_events = [event.to_text() for event in avc]
+
+        total_priority, alert_plugins = alert.get_plugins()
+        plugins = []
+        for plugin, args in alert_plugins:
+            plugins.append((
+                _("If ") + alert.substitute(plugin.get_if_text(avc, args)),
+                alert.substitute(plugin.get_then_text(avc, args)),
+                alert.substitute(plugin.get_do_text(avc, args)),
+                plugin.analysis_id,
+                plugin.fixable,
+                plugin.report_bug)
+            )
+
+
+        return (alert.local_id, alert.summary(), alert.report_count,
+                audit_events, plugins
+        )
+
+
+
     @dbus.service.method(dbus_system_interface, in_signature='s',  out_signature='s')
     def avc(self, data):
         self.alarm(0)
