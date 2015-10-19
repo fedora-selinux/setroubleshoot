@@ -32,16 +32,36 @@ from gi.repository import GObject, GLib
 import dbus
 import dbus.service
 import dbus.glib
+import gettext
 #import errno as Errno
 import os
 #import pwd
 import signal
 import atexit
 #from stat import *
+import sys
 import syslog
 import systemd.journal
 #import threading
 #from types import *
+
+from setroubleshoot.config import parse_config_setting, get_config
+
+domain = get_config('general', 'i18n_text_domain')
+kwargs = {}
+if sys.version_info < (3,):
+    kwargs['unicode'] = True
+gettext.install(domain    = domain,
+                localedir = get_config('general', 'i18n_locale_dir'),
+                **kwargs)
+
+translation=gettext.translation(domain, fallback=True)
+
+try:
+    _ = translation.ugettext # This raises exception in Python3, succ. in Py2
+except AttributeError:
+    _ = translation.gettext # Python3
+
 
 from setroubleshoot.access_control import ServerAccess
 from setroubleshoot.analyze import (PluginReportReceiver,
