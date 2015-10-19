@@ -426,6 +426,7 @@ class ClientNotifier(object):
 
 #------------------------------------------------------------------------------
 from setroubleshoot.audit_data import *
+import setroubleshoot.util
 
 class SetroubleshootdDBusObject(dbus.service.Object):
     def __init__(self, object_path, analysis_queue, alert_receiver, timeout = 10):
@@ -491,6 +492,23 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 
         return count, red
 
+    def _get_all_alerts_since(self, since, sender):
+        username = get_identity(self.connection.get_unix_user(sender))
+        database = get_host_database()
+        since_alerts = setroubleshoot.util.TimeStamp(since)
+        database_alerts = database.query_alerts("*").signature_list
+        alerts = []
+        for alert in database_alerts:
+            if alert.last_seen_date < since_alerts:
+                continue
+            if alert.evaluate_filter_for_user(username) != "ignore":
+                alerts.append((alert.local_id, alert.summary(), alert.report_count))
+        return alerts
+
+    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='a(ssi)')
+    def get_all_alerts_since(self, since, sender):
+        return self._get_all_alerts_since(since, sender)
+
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='', out_signature='a(ssi)')
     def get_all_alerts(self, sender):
         """
@@ -501,15 +519,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
         * `summary(s)`: a brief description of an alert. E.g. `"SELinux is preventing /usr/bin/bash from ioctl access on the unix_stream_socket unix_stream_socket."`
         * `report_count(i)`: count of reports of this alert
 """
-
-        username = get_identity(self.connection.get_unix_user(sender))
-        database = get_host_database()
-        database_alerts = database.query_alerts("*").signature_list
-        alerts = []
-        for alert in database_alerts:
-            if alert.evaluate_filter_for_user(username) != "ignore":
-                alerts.append((alert.local_id, alert.summary(), alert.report_count))
-        return alerts
+        return self._get_all_alerts_since('1970-01-01T00:00:00Z', sender)
 
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ssiasa(ssssbb)')
     def get_alert(self, local_id, sender):
