@@ -15,6 +15,7 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2013
 # Yulia <yulia.poyarkova@redhat.com>, 2012
 # Игорь Горбунов <igor.gorbounov@gmail.com>, 2011,2013
+# yuliya <ypoyarko@redhat.com>, 2015. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: setroubleshoot\n"
@@ -23,14 +24,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-12-22 06:14-0500\n"
-"Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
+"PO-Revision-Date: 2015-09-24 01:44-0400\n"
+"Last-Translator: yuliya <ypoyarko@redhat.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/fedora/language/"
 "ru/)\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.6.2\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -114,7 +115,7 @@ msgstr "Обзор уведомлений SELinux"
 
 #: ../src/browser.py:174 ../gui/browser.glade.h:19
 msgid "The source process:"
-msgstr "Исходный процесс:"
+msgstr "Процесс:"
 
 #: ../src/browser.py:179 ../gui/browser.glade.h:15
 msgid "Yes"
@@ -126,7 +127,7 @@ msgstr "Нет"
 
 #: ../src/browser.py:186 ../gui/browser.glade.h:20
 msgid "Attempted this access:"
-msgstr "Предпринята попытка доступа:"
+msgstr "Попытка доступа:"
 
 #: ../src/browser.py:200 ../gui/browser.glade.h:11
 msgid "SETroubleshoot Details Window"
@@ -154,7 +155,7 @@ msgstr "Список уведомлений SETroubleshoot"
 
 #: ../src/browser.py:222 ../gui/browser.glade.h:33
 msgid "List All Alerts"
-msgstr "Показать все предупреждения"
+msgstr "Показать все"
 
 #: ../src/browser.py:269
 msgid "#"
@@ -233,7 +234,7 @@ msgstr "Не удалось предоставить доступ."
 #: ../src/browser.py:641 ../src/browser.py:783
 #, python-format
 msgid "Alert %d of %d"
-msgstr "Предупреждение %d о %d"
+msgstr "Предупреждение %d из %d"
 
 #: ../src/browser.py:766
 #, python-format
@@ -250,7 +251,7 @@ msgstr "Оповещений нет"
 
 #: ../src/browser.py:880
 msgid "SELinux has detected a problem."
-msgstr "SELinux обнаружил проблему."
+msgstr "SELinux обнаружил конфликт."
 
 #: ../src/browser.py:985
 msgid "Sealert Error"
@@ -595,7 +596,7 @@ msgstr "Тип регламента"
 
 #: ../src/signature.py:479
 msgid "Enforcing Mode"
-msgstr "Режим действия"
+msgstr "Режим"
 
 #: ../src/signature.py:481 ../src/signature.py:483
 msgid "Host Name"
@@ -607,15 +608,15 @@ msgstr "Платформа"
 
 #: ../src/signature.py:491
 msgid "Alert Count"
-msgstr "Счётчик уведомлений"
+msgstr "Счетчик уведомлений"
 
 #: ../src/signature.py:493
 msgid "First Seen"
-msgstr "Первый замеченный"
+msgstr "Впервые обнаружено"
 
 #: ../src/signature.py:494
 msgid "Last Seen"
-msgstr "Последний замеченный"
+msgstr "В последний раз"
 
 #: ../src/signature.py:495
 msgid "Local ID"
@@ -623,7 +624,7 @@ msgstr "Локальный ID"
 
 #: ../src/signature.py:497
 msgid "Raw Audit Messages"
-msgstr "Необработанные сообщения аудита"
+msgstr "Построчный вывод сообщений аудита"
 
 #: ../src/signature.py:551
 #, python-format
@@ -632,7 +633,7 @@ msgid "\n"
 "*****  Plugin %s (%.4s confidence) suggests   "
 msgstr "\n"
 "\n"
-"*****  Модуль %s (степень доверительности %.4s) предполагает   "
+"*****  Модуль %s предлагает (точность %.4s)  "
 
 #: ../src/signature.py:554
 msgid "*"

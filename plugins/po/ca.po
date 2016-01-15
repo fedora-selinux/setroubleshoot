@@ -14,13 +14,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-04-10 04:19-0400\n"
+"PO-Revision-Date: 2015-10-09 04:27-0400\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/fedora/language/"
 "ca/)\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.6.2\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -44,9 +44,8 @@ msgid ""
 msgstr ""
 "\n"
 "    La política de SELinux està impedint a un script httpd que escrigui \n"
-"    a un directori públic.  Si httpd no està configurat per a què escrigui "
-"als \n"
-"    directoris públics, això podria ser una senyal d'intent d'intrusió.\n"
+"    a un directori públic.  Si httpd no està configurat perquè escrigui als \n"
+"    directoris públics, això podria ser un senyal d'intent d'intrusió.\n"
 "    "
 
 #: ../src/allow_anon_write.py:38
@@ -63,7 +62,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Si els scripts d'httpd han de poder escriure als directoris públics "
+"    Si els scripts d'httpd han de poder escriure als directoris públics, "
 "necessiteu activar el booleà $BOOLEAN i canviar el context de fitxer del "
 "directori públic a public_content_rw_t.  Per a una informació més detallada, "
 "llegiu la pàgina man httpd_selinux:\n"
@@ -97,7 +96,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux està impedint que en $SOURCE_PATH es canvii la protecció \n"
+"    SELinux està impedint que en $SOURCE_PATH es canviï la protecció \n"
 "    d'accés de memòria en la secció heap.\n"
 "    "
 
@@ -121,7 +120,7 @@ msgstr ""
 "\n"
 "    L'aplicació $SOURCE va intentar de canviar la protecció d'accés de la "
 "memòria\n"
-"    en la secció heap (p.ex., assignada amb malloc).  Aquest és sobretot un "
+"    en la secció heap (p. ex. amb assignació malloc).  Aquest és sobretot un "
 "problema\n"
 "    de seguretat.  Les aplicacions no haurien de fer-ho. Alguns cops les "
 "aplicacions\n"
@@ -264,7 +263,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Si confieu en que $TARGET_PATH s'executa correctament, podeu canviar\n"
+"    Si confieu en què $TARGET_PATH s'executa correctament, podeu canviar\n"
 "    el context de fitxer a textrel_shlib_t. \"chcon -t textrel_shlib_t\n"
 "    '$TARGET_PATH'\"\n"
 "    També heu de canviar el context de fitxer per defecte de l'etiquetatge "
@@ -333,14 +332,13 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    De vegades, una biblioteca es marcada accidentalment amb la senyal "
+"    De vegades, una biblioteca és marcada accidentalment amb el senyal "
 "execstack, \n"
-"    si us trobeu amb una biblioteca amb aquesta senyalització la podeu "
-"esborrar amb\n"
+"    si us trobeu amb una biblioteca amb aquest senyal, ho podeu netejar amb\n"
 "    execstack -c LIBRARY_PATH.  Després torneu a provar la vostra aplicació. "
 "Si\n"
-"    l'aplicació continua sense funcionar, podeu tornar a activar la "
-"senyalització amb\n"
+"    l'aplicació continua sense funcionar, podeu tornar a activar el senyal "
+"amb\n"
 "    execstack -s LIBRARY_PATH.  \n"
 "    "
 
@@ -375,10 +373,10 @@ msgid ""
 "Report this as a bug on %s.\n"
 "You can clear the exestack flag by executing:"
 msgstr ""
-"heu de netejar la senyal execstack i veure si $SOURCE_PATH funciona "
+"heu de netejar el senyal execstack i veure si $SOURCE_PATH funciona "
 "correctament.\n"
 "Informeu d'aquest error de programari a %s.\n"
-"Podeu netejar la senyal execstack amb l'execució de:"
+"Podeu netejar el senyal execstack amb l'execució de:"
 
 #: ../src/allow_execstack.py:111
 #, python-format
@@ -393,7 +391,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux va impedir al dimoni d'ftp $ACCESS fitxers emmagatzemats en un "
+"    SELinux va impedir al dimoni de ftp $ACCESS fitxers emmagatzemats en un "
 "sistema de fitxers CIFS.\n"
 "    "
 
@@ -416,22 +414,22 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux va impedir al dimoni d'ftp $ACCESS fitxers emmagatzemats en un \n"
+"    SELinux va impedir al dimoni de ftp $ACCESS fitxers emmagatzemats en un \n"
 "    sistema de fitxers CIFS. CIFS (Comment Internet File System) és un "
 "sistema de fitxers de xarxa \n"
 "    semblant a SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs."
 "asp\">http://www.microsoft.com/mind/1196/cifs.asp</a>)\n"
-"    El dimoni ftp va intentar de llegir un o més fitxers o directoris d'un "
-"sistema de fitxers\n"
-"    muntat d'aquest tipus. A causa de què els sistemes de fitxers CIFS no "
+"    El dimoni de ftp va intentar de llegir un o més fitxers o directoris "
+"d'un sistema de fitxers\n"
+"    muntat d'aquest tipus. A causa que els sistemes de fitxers CIFS no "
 "suporten la \n"
 "    granulació de l'etiquetatge de SELinux, tots els fitxers i els "
 "directoris del sistema \n"
 "    de fitxers tindran el mateix context de seguretat.\n"
 "    \n"
-"    Si no heu configurat el dimoni ftp per a que llegeixi els fitxers des "
+"    Si no heu configurat el dimoni de ftp perquè llegeixi els fitxers des "
 "d'un sistema de\n"
-"    fitxers CIFS, aquest intent d'accés podria ser una senyal d'intent "
+"    fitxers CIFS, aquest intent d'accés podria ser un senyal d'intent "
 "d'intrusió.\n"
 "    "
 
@@ -462,7 +460,7 @@ msgstr ""
 "    \"setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1\".\n"
 "    advertència: en establir el booleà \"$WRITE_BOOLEAN\" a cert, es "
 "permetrà\n"
-"    al dimoni d'ftp escriure a tot els continguts públic (fitxers i\n"
+"    al dimoni de ftp escriure a tots els continguts públics (fitxers i\n"
 "    directoris amb el tipus public_content_t) a més d'escriure als fitxers \n"
 "    i als directoris en sistemes de fitxers CIFS.  "
 
@@ -472,7 +470,7 @@ msgstr "voleu permetre que ftpd escrigui als sistemes de fitxers cifs"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
-msgstr "heu de dir-li a SELinux alguna cosa al respecte"
+msgstr "heu de dir-li a SELinux alguna cosa referent a això"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -482,7 +480,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux va impedir al dimoni d'ftp $ACCESS fitxers emmagatzemats en un "
+"    SELinux va impedir al dimoni de ftp $ACCESS fitxers emmagatzemats en un "
 "sistema de fitxers NFS.\n"
 "    "
 
@@ -506,22 +504,22 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux va impedir al dimoni d'ftp $ACCESS fitxers emmagatzemats en un \n"
+"    SELinux va impedir al dimoni de ftp $ACCESS fitxers emmagatzemats en un \n"
 "    sistema de fitxers NFS. NFS (Network Filesystem) és un sistema de "
 "fitxers de \n"
 "    xarxa molt utilitzat en sistemes Unix i Linux.\n"
 "    \n"
-"    El dimoni ftp var intentar de llegir un o més fitxers o directoris des "
-"d'un sistema\n"
-"    de fitxers muntat d'aquest tipus. A causa de què els sistemes de fitxers "
+"    El dimoni de ftp var intentar de llegir un o més fitxers o directoris "
+"des d'un sistema\n"
+"    de fitxers muntat d'aquest tipus. A causa que els sistemes de fitxers "
 "NFS no\n"
 "    suporten la granulació de l'etiquetatge de SELinux, tots els fitxers i  "
 "els directoris\n"
 "    del sistema de fitxers tindran el mateix context de seguretat.\n"
 "    \n"
-"    Si no heu configurat el dimoni ftp per a què llegeixi els fitxers des "
+"    Si no heu configurat el dimoni de ftp perquè llegeixi els fitxers des "
 "d'un sistema de\n"
-"    fitxers NFS, aquest intent d'accés podria ser una senyal d'intent "
+"    fitxers NFS, aquest intent d'accés podria ser un senyal d'intent "
 "d'intrusió.\n"
 "    "
 
@@ -551,8 +549,8 @@ msgstr ""
 " Si canvieu els booleans \"allow_ftpd_use_nfs\" i\n"
 "    \"$WRITE_BOOLEAN\" a cert, es permetrà aquest accés:\n"
 "    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n"
-"    avís: establir el booleà \"$WRITE_BOOLEAN\" a cert us permetrà\n"
-"    que el dimoni ftp escrigui a tot el contingut public (fitxers i\n"
+"    avís: establir el booleà \"$WRITE_BOOLEAN\" a cert es permetrà\n"
+"    que el dimoni de ftp escrigui a tot el contingut públic (fitxers i\n"
 "    directoris amb el tipus public_content_t) a més a més d'escriure a "
 "fitxers\n"
 "    i directoris en sistemes de fitxers NFS.  "
@@ -602,8 +600,8 @@ msgid ""
 "you want to change the label of $TARGET_PATH to %s, you are not allowed to "
 "since it is not a valid file type."
 msgstr ""
-"voleu canvia l'etiqueta de $TARGET_PATH a %s, no se se us permet fer-ho ja "
-"que no és un tipus vàlid de fitxer."
+"voleu canviar l'etiqueta de $TARGET_PATH a %s, no se us permet fer-ho perquè "
+"no és un tipus vàlid de fitxer."
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -650,7 +648,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux està impedint que en $SOURCE_PATH es crei un vincle al port "
+"    SELinux està impedint que en $SOURCE_PATH es creï un vincle al port "
 "$PORT_NUMBER.\n"
 "    "
 
@@ -688,7 +686,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Si voleu permetre que en $SOURCE es crei un vincle al port $PORT_NUMBER, "
+"    Si voleu permetre que en $SOURCE es creï un vincle al port $PORT_NUMBER, "
 "podeu executar \n"
 "\n"
 "    # semanage port -a -t TIPUS_DE_PORT -p %s $PORT_NUMBER\n"
@@ -742,7 +740,7 @@ msgstr ""
 "\n"
 "    SELinux va denegar l'accés sol·licitat per $SOURCE. Els actuals ajustos\n"
 "    booleans no permeten aquest accés. Si no heu configurat $SOURCE per\n"
-"    sol·licitar aquest accés, aquest intent d'accés podria ser una senyal "
+"    sol·licitar aquest accés, aquest intent d'accés podria ser un senyal "
 "d'intent \n"
 "    d'intrusió. Si teniu la intenció de permetre aquest accés, necessiteu "
 "canviar \n"
@@ -773,8 +771,8 @@ msgstr "setsebool -P %s %s"
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean.\n"
 msgstr ""
-"Heu de dir-li a SELinux alguna cosa al respecte amb l'habilitació del booleà "
-"\"%s\".\n"
+"Heu de dir-li a SELinux alguna cosa referent a això amb l'habilitació del "
+"booleà \"%s\".\n"
 
 #: ../src/catchall_boolean.py:71
 #, python-format
@@ -836,8 +834,7 @@ msgstr ""
 "    SELinux ha denegat l'accés sol·licitat per $SOURCE. No s'esperava\n"
 "    que aquest accés fos sol·licitat per $SOURCE i aquest intent d'accés "
 "podria\n"
-"    ser una senyal d'intent d'intrusió. També és possible que la "
-"configuració\n"
+"    ser un senyal d'intent d'intrusió. També és possible que la configuració\n"
 "    específica de l'aplicació o la seva versió estigui provocant-ho i "
 "requereixi \n"
 "    accés addicional.\n"
@@ -911,7 +908,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux està impedint que en $SOURCE_PATH es crei una connexió al port "
+"    SELinux està impedint que en $SOURCE_PATH es creï una connexió al port "
 "$PORT_NUMBER.\n"
 "    "
 
@@ -1134,7 +1131,7 @@ msgstr ""
 "    $TARGET_PATH està mal etiquetat, aquest dispositiu té el tipus "
 "d'etiqueta per defecte del directori /dev, que no hauria\n"
 "    d'ocórrer. Tots els dispositius de caràcters i/o de blocs haurien de "
-"teniu una etiqueta.\n"
+"tenir una etiqueta.\n"
 "\n"
 "    Podeu intentar de canviar l'etiqueta del fitxer mitjançant\n"
 "\n"
@@ -1145,14 +1142,14 @@ msgstr ""
 "\n"
 "    Si us plau, ompliu un informe d'error de programari.\n"
 "\n"
-"    Si mireu els altres etiquetes de dispositius similars, ls -lZ /dev/"
+"    Si mireu les altres etiquetes dels dispositius similars, ls -lZ /dev/"
 "SIMILAR, i trobeu un tipus que podria funcionar amb $TARGET_PATH,\n"
-"    podeu utilitzar chcon -t TIPUS_SIMILAR '$TARGET_PATH', si aixó corregeix "
+"    podeu utilitzar chcon -t TIPUS_SIMILAR '$TARGET_PATH', si això corregeix "
 "el problema, ho podeu fer permanent amb l'execució de\n"
 "    semanage fcontext -a -t TIPUS_SIMILAR '$FIX_TARGET_PATH'\n"
 "\n"
-"    Si restorecon canvia el context context, això indica que l'aplicació que "
-"va crear el dispositiu, el va crear sense\n"
+"    Si restorecon canvia el context, això indica que l'aplicació que va "
+"crear el dispositiu, el va crear sense\n"
 "    l'ús de les API de SELinux.  Si podeu esbrinar quina aplicació va crear "
 "el dispositiu, si us plau, ompli un informe d'error de programari contra "
 "aquesta aplicació.\n"
@@ -1253,11 +1250,11 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "this is caused by a newly created file system."
-msgstr "això està provocat per un sistema de fitxers acabat de crear."
+msgstr "això és a causa d'un sistema de fitxers acabat de crear."
 
 #: ../src/file.py:51
 msgid "you think this is caused by a badly mislabeled machine."
-msgstr "creieu que això està provocat per un màquina dolenta mal etiquetada."
+msgstr "creieu que això és a causa d'una màquina dolenta mal etiquetada."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
@@ -1275,7 +1272,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux està impedint que en $SOURCE_PATH es crei un fitxer amb un "
+"    SELinux està impedint que en $SOURCE_PATH es creï un fitxer amb un "
 "context $SOURCE_TYPE en un sistema de fitxers.\n"
 "    "
 
@@ -1334,7 +1331,7 @@ msgid "\n"
 "    SELinux is preventing the http daemon from sending mail.\n"
 "    "
 msgstr "\n"
-"    SELinux està impedint que el dimoni http envii correus.\n"
+"    SELinux està impedint que el dimoni d'http enviï correus.\n"
 "    "
 
 #: ../src/httpd_can_sendmail.py:32
@@ -1356,14 +1353,14 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    Si voleu que httpd envii correus necessiteu d'activar el \n"
+"    Si voleu que httpd enviï correus necessiteu activar el \n"
 "    booleà $BOOLEAN: \"setsebool -P\n"
 "    $BOOLEAN=1\"\n"
 "    "
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "you want to allow httpd to send mail"
-msgstr "voleu permetre que httpd envii correus"
+msgstr "voleu permetre que httpd enviï correus"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
@@ -1409,17 +1406,17 @@ msgstr ""
 "seguretat\n"
 "    reforçada amb $BOOLEAN engegat.  Això requereix l'etiquetatge explícit "
 "de\n"
-"    tots els fitxers.  Si es tracta d'un fitxer d'un script cgi aquest "
-"necessita estar\n"
-"    etiquetar amb httpd_TYPE_script_exec_t per a poder executar-se.  Si es \n"
+"    tots els fitxers.  Si es tracta d'un fitxer d'un script cgi, aquest cal "
+"que estigui\n"
+"    etiquetat amb httpd_TYPE_script_exec_t per a poder executar-se.  Si es \n"
 "    llegeix només el contingut, necessita etiquetar-se amb \n"
 "    httpd_TYPE_content_t,  si el contingut és d'escriptura. necessita \n"
 "    etiquetar-se amb httpd_TYPE_script_rw_t o httpd_TYPE_script_ra_t.\n"
 "    Podeu utilitzar l'ordre chcon per canviar aquests contexts.  Si us plau,\n"
 "    consulteu la pàgina man \"man httpd_selinux\" o les <a href=\"http://"
 "fedora.redhat.com/docs/selinux-apache-fc3\">PMF</a> \"TYPE\" fa referència\n"
-"    a \"sys\", \"user\" o \"staff\" , o als altres tipus potencials "
-"d'scripts.\n"
+"    a \"sys\", \"user\" o \"staff\", o als altres tipus potencials de "
+"scripts.\n"
 "    "
 
 #: ../src/httpd_unified.py:50
@@ -1508,7 +1505,7 @@ msgid ""
 "you may be under attack by a hacker, since confined applications should not "
 "need this access."
 msgstr ""
-"podeu estar sota l'atac d'un hacker, ja que les aplicacions confinades no "
+"podeu estar sota l'atac d'un hacker perquè les aplicacions confinades no "
 "haurien de necessitar aquest accés."
 
 #: ../src/leaks.py:27
@@ -1539,9 +1536,9 @@ msgstr ""
 "\n"
 "    SELinux va denegar l'accés que va sol·licitar l'ordre $SOURCE. Sembla "
 "que aquest és o bé un descriptor filtrat o la sortida de $SOURCE va "
-"redirigir-se a un fitxer que no se li permet l'accés.  Les filtracions poden "
-"ignorar-se normalment ja que SELinux sols tanca la filtració i informa de "
-"l'error.  L'aplicació no utilitza el descriptor, perquè s'executi "
+"redirigir-se a un fitxer que no se li permet l'accés.  Les filtracions "
+"normalment poden ignorar-se perquè SELinux sols tanca la filtració i informa "
+"de l'error.  L'aplicació no utilitza el descriptor, perquè s'executi "
 "correctament.  Si es tracta d'una redirecció, no obtindreu la sortida a "
 "$TARGET_PATH.  Haureu de generar un bugzilla sobre selinux-policy, i "
 "s'encaminarà cap al paquet indicat.  Podeu ignorar de manera segura aquest "
@@ -1578,7 +1575,7 @@ msgid ""
 "You can generate a local policy module to dontaudit this access."
 msgstr ""
 "Heu d'informar d'això com a un error de programari.\n"
-"Podeu generar una un mòdul de política local per a no auditar aquest accés."
+"Podeu generar un mòdul de política local per no auditar aquest accés."
 
 #: ../src/leaks.py:44
 msgid ""
@@ -1672,7 +1669,7 @@ msgstr "voleu permetre que $SOURCE_BASE_PATH es munti a $TARGET_BASE_PATH."
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
-msgstr "heu de canvia l'etiquetatge a $TARGET_PATH."
+msgstr "heu de canviar l'etiquetatge a $TARGET_PATH."
 
 #: ../src/mozplugger.py:31
 msgid ""
@@ -1743,6 +1740,12 @@ msgid ""
 "    is labeled correctly.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux va denegar l'accés que va sol·licitar $SOURCE. $TARGET_PATH pot\n"
+"    estar mal etiquetat. A l'openvpn se li permet llegir el contingut al "
+"directori \n"
+"    inicial si està etiquetat correctament.\n"
+"    "
 
 #: ../src/openvpn.py:41 ../src/sshd_root.py:42
 msgid ""
@@ -1757,8 +1760,8 @@ msgid ""
 "you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
-"voleu mv $TARGET_BASE_PATH a una ubicació estàndard per a què "
-"$SOURCE_BASE_PATH pugui tenir l'accés $ACCESS"
+"voleu mv $TARGET_BASE_PATH a una ubicació estàndard perquè $SOURCE_BASE_PATH "
+"pugui tenir l'accés $ACCESS"
 
 #: ../src/openvpn.py:50
 msgid ""
@@ -1774,7 +1777,7 @@ msgstr "heu de moure el fitxer del certificat al directori ~/.cert"
 
 #: ../src/openvpn.py:56 ../src/sshd_root.py:47
 msgid "you must fix the labels."
-msgstr "he de corregir les etiquetes."
+msgstr "heu de corregir les etiquetes."
 
 #: ../src/public_content.py:31
 msgid ""
@@ -2012,7 +2015,7 @@ msgstr ""
 
 #: ../src/rsync_data.py:45
 msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr "$TARGET_BASE_PATH ha de compartir-se a través del dimoni rsync"
+msgstr "$TARGET_BASE_PATH ha de compartir-se a través del dimoni de rsync"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
@@ -2473,7 +2476,7 @@ msgid ""
 "directories."
 msgstr ""
 "Si voleu determinar si ftpd pot llegir i escriure fitxers als directoris "
-"d'inici d'usuari."
+"inicials dels usuaris."
 
 #: ../booleans_trans.py:3
 msgid "If you want to determine whether privoxy can connect to all tcp ports."
@@ -2483,14 +2486,15 @@ msgstr "Si voleu determinar si privoxy pot connectar-se a tots els ports tcp."
 msgid ""
 "If you want to determine whether mpd can traverse user home directories."
 msgstr ""
-"Si voleu determinar si mpd pot travessar els directoris d'inici d'usuari."
+"Si voleu determinar si mpd pot travessar els directoris inicials dels "
+"usuaris."
 
 #: ../booleans_trans.py:7
 msgid ""
 "If you want to allow the graphical login program to login directly as "
 "sysadm_r:sysadm_t"
 msgstr ""
-"Si voleu permetre que que els programes gràfics d'inici de sessió iniciïn la "
+"Si voleu permetre que els programes gràfics d'inici de sessió iniciïn la "
 "sessió directament com a sysadm_r:sysadm_t"
 
 #: ../booleans_trans.py:9
@@ -2501,8 +2505,8 @@ msgstr "Si voleu permetre que xen gestioni els fitxers nfs"
 msgid ""
 "If you want to allow confined web browsers to read home directory content"
 msgstr ""
-"Si voleu permetre que que els navegador web no confinats llegeixin els "
-"continguts del directori d'inici"
+"Si voleu permetre que els navegadors web no confinats llegeixin els "
+"continguts del directori inicial"
 
 #: ../booleans_trans.py:13
 msgid ""
@@ -2531,8 +2535,8 @@ msgid ""
 "If you want to allow the graphical login program to create files in HOME "
 "dirs as xdm_home_t."
 msgstr ""
-"Si voleu permetre que el programa gràfic d'inici de sessió creïn fitxers als "
-"directoris d'inici d'usuari com a xdm_home_t."
+"Si voleu permetre que el programa gràfic d'inici de sessió creï fitxers als "
+"directoris inicials com xdm_home_t."
 
 #: ../booleans_trans.py:21
 msgid ""
@@ -2603,7 +2607,7 @@ msgid ""
 "files."
 msgstr ""
 "Si voleu determinar si openvpn pot llegir els fitxers de continguts genèrics "
-"del directori d'inici de l'usuari."
+"del directori inicial de l'usuari."
 
 #: ../booleans_trans.py:39
 msgid ""
@@ -2623,7 +2627,7 @@ msgstr ""
 
 #: ../booleans_trans.py:43
 msgid "If you want to allow http daemon to connect to mythtv"
-msgstr "Si voleu permetre que el dimoni http es connecti a mythtv"
+msgstr "Si voleu permetre que el dimoni d'http es connecti a mythtv"
 
 #: ../booleans_trans.py:45
 msgid ""
@@ -2631,8 +2635,8 @@ msgid ""
 "domain when running xulrunner plugin-container."
 msgstr ""
 "Si voleu permetre que els usuaris no confinats facin la transició al domini "
-"dels complements del Mozilla quan executin el contenidor dels complements de "
-"l'xulrunner."
+"dels complements del Mozilla quan executin el contenidor dels complements "
+"del xulrunner."
 
 #: ../booleans_trans.py:47
 msgid "If you want to allow sasl to read shadow"
@@ -2651,8 +2655,8 @@ msgid ""
 "If you want to allow ssh with chroot env to read and write files in the user "
 "home directories"
 msgstr ""
-"Si voleu permetre que ssh amb l'entorn chroot llegeixi i escrigui els "
-"fitxers als directoris d'inici d'usuari."
+"Si voleu permetre que ssh amb l'entorn chroot llegeixi i escrigui fitxers "
+"als directoris inicials dels usuaris"
 
 #: ../booleans_trans.py:53
 msgid ""
@@ -2681,7 +2685,7 @@ msgid ""
 "groups and change passwords."
 msgstr ""
 "Si voleu permetre que samba actuï com al controlador de domini, afegeixi "
-"usuaris i grups i canvii les contrasenyes."
+"usuaris i grups i canviï les contrasenyes."
 
 #: ../booleans_trans.py:63
 msgid "If you want to allow ksmtuned to use nfs file systems"
@@ -2723,8 +2727,8 @@ msgid ""
 "If you want to allow confined virtual guests to use serial/parallel "
 "communication ports"
 msgstr ""
-"Si voleu permetre que els convidats virtuals confinats utilitzin els port de "
-"comunicació sèrie i paral·lel"
+"Si voleu permetre que els convidats virtuals confinats utilitzin els ports "
+"de comunicació sèrie i paral·lel"
 
 #: ../booleans_trans.py:79
 msgid "If you want to allow rsync to run as a client"
@@ -2734,7 +2738,7 @@ msgstr "Si voleu permetre que rsync actuï com un client"
 msgid ""
 "If you want to allow rgmanager domain to connect to the network using TCP."
 msgstr ""
-"Si voleu permetre que el domini de l'rgmanager es connecti a la xarxa "
+"Si voleu permetre que el domini del rgmanager es connecti a la xarxa "
 "mitjançant TCP."
 
 #: ../booleans_trans.py:83
@@ -2831,8 +2835,7 @@ msgstr "Si voleu permetre que httpd accedeixi als sistemes de fitxers cifs"
 #: ../booleans_trans.py:113
 msgid "If you want to determine whether Git CGI can search home directories."
 msgstr ""
-"Si voleu determinar si CGI del Git pot cercar als directoris d'inici "
-"d'usuari."
+"Si voleu determinar si CGI del Git pot cercar als directoris inicials."
 
 #: ../booleans_trans.py:115
 msgid "If you want to allow host key based authentication"
@@ -2840,7 +2843,7 @@ msgstr "Si voleu permetre l'autentificació basada amb clau d'amfitrió"
 
 #: ../booleans_trans.py:117
 msgid "If you want to support NFS home directories"
-msgstr "Si voleu donar suport als directoris d'inici d'usuari NFS"
+msgstr "Si voleu donar suport als directoris inicials NFS"
 
 #: ../booleans_trans.py:119
 msgid ""
@@ -2912,16 +2915,15 @@ msgid ""
 "directories."
 msgstr ""
 "Si voleu determinar si el dimoni de sistema de Git pot cercar als directoris "
-"d'inici d'usuari."
+"inicials."
 
 #: ../booleans_trans.py:141
 msgid "If you want to support SAMBA home directories"
-msgstr "Si voleu donar suport als directoris d'inici d'usuari SAMBA"
+msgstr "Si voleu donar suport als directoris inicials SAMBA"
 
 #: ../booleans_trans.py:143
 msgid "If you want to allow mock to read files in home directories."
-msgstr ""
-"Si voleu permetre que mock llegeixi fitxers als directoris d'inici d'usuari."
+msgstr "Si voleu permetre que mock llegeixi fitxers als directoris inicials."
 
 #: ../booleans_trans.py:145
 msgid ""
@@ -2943,8 +2945,8 @@ msgstr ""
 msgid ""
 "If you want to allow samba to create new home directories (e.g. via PAM)"
 msgstr ""
-"Si voleu permetre que samba crei nous directoris d'inici d'usuari (p.ex. a "
-"través de PAM)"
+"Si voleu permetre que samba creï nous directoris inicials (p. ex. a través "
+"de PAM)"
 
 #: ../booleans_trans.py:151
 msgid "If you want to allow virtual processes to run as userdomains"
@@ -2974,7 +2976,7 @@ msgstr "Si voleu permetre que ZoneMinder executi su i sudo."
 
 #: ../booleans_trans.py:161
 msgid "If you want to allow httpd to read home directories"
-msgstr "Si voleu permetre que httpd llegeixi els directoris d'inici d'usuari"
+msgstr "Si voleu permetre que httpd llegeixi els directoris inicials"
 
 #: ../booleans_trans.py:163
 msgid ""
@@ -3047,7 +3049,7 @@ msgstr ""
 
 #: ../booleans_trans.py:185
 msgid "If you want to allow user  to use ssh chroot environment."
-msgstr "Si voleu permetre que l'usuari utilitzi l'entorn chroot d'ssh."
+msgstr "Si voleu permetre que l'usuari utilitzi l'entorn chroot de ssh."
 
 #: ../booleans_trans.py:187
 msgid ""
@@ -3063,8 +3065,8 @@ msgid ""
 "reported in bugzilla"
 msgstr ""
 "Si voleu denegar que les aplicacions dels dominis de l'usuari s'assignin una "
-"regió de memòria tant d'execució com d'escriptura, això és perillós i "
-"l'executable ha de ser informat al Bugzilla"
+"regió de memòria tant d'execució com d'escriptura, això és perillós s'ha "
+"d'informar de l'executable al Bugzilla"
 
 #: ../booleans_trans.py:191
 msgid "If you want to determine whether squid can run as a transparent proxy."
@@ -3083,7 +3085,7 @@ msgid ""
 "and write all files on the system, governed by DAC."
 msgstr ""
 "Si voleu determinar si ftpd pot iniciar la sessió als usuaris locals i pot "
-"llegir i escriure tots el fitxers al sistema de fitxers, governat amb DAC."
+"llegir i escriure tots els fitxers al sistema de fitxers, governat amb DAC."
 
 #: ../booleans_trans.py:197
 msgid "If you want to allows XServer to execute writable memory"
@@ -3152,7 +3154,8 @@ msgstr ""
 #: ../booleans_trans.py:217
 msgid "If you want to allow nsplugin code to connect to unreserved ports"
 msgstr ""
-"Si voleu permetre que el codi d'nsplugin es connecti als ports no reservats"
+"Si voleu permetre que el codi del nsplugin es connecti als ports no "
+"reservats"
 
 #: ../booleans_trans.py:219
 msgid "If you want to determine whether amavis can use JIT compiler."
@@ -3168,7 +3171,7 @@ msgid ""
 "any unreserved TCP ports."
 msgstr ""
 "Si voleu determinar si els clients d'irc poden escoltar i connectar-se a "
-"qualsevol dels port TCP reservats."
+"qualsevol dels ports TCP reservats."
 
 #: ../booleans_trans.py:225
 msgid "If you want to allow database admins to execute DML statement"
@@ -3224,11 +3227,11 @@ msgid ""
 "directories"
 msgstr ""
 "Si voleu permetre que tftp llegeixi i escrigui fitxers als directoris "
-"d'inici d'usuari."
+"inicials dels usuaris"
 
 #: ../booleans_trans.py:245
 msgid "If you want to support ecryptfs home directories"
-msgstr "Si voleu donar suport als directoris d'inici d'usuari ecryptfs"
+msgstr "Si voleu donar suport als directoris inicials ecryptfs"
 
 #: ../booleans_trans.py:247
 msgid "If you want to allow samba to act as a portmapper"
@@ -3280,7 +3283,8 @@ msgstr ""
 #: ../booleans_trans.py:265
 msgid "If you want to allow samba to share users home directories."
 msgstr ""
-"Si voleu permetre que samba comparteixi els directoris d'inici dels usuaris."
+"Si voleu permetre que samba comparteixi els directoris inicials dels usuaris."
+""
 
 #: ../booleans_trans.py:267
 msgid "If you want to allow qemu to connect fully to the network"
@@ -3340,7 +3344,7 @@ msgid ""
 "If you want to allow xend to run qemu-dm. Not required if using paravirt and "
 "no vfb."
 msgstr ""
-"Si voleu permetre que xend executi qemu-dm. No es obligatori si s'utilitza "
+"Si voleu permetre que xend executi qemu-dm. No és obligatori si s'utilitza "
 "el format paravirt sense vfb."
 
 #: ../booleans_trans.py:285
@@ -3349,11 +3353,11 @@ msgid ""
 "directories."
 msgstr ""
 "Si voleu determinar si sftpd- pot llegir i escriure fitxers als directoris "
-"d'inici d'usuari."
+"inicials dels usuaris."
 
 #: ../booleans_trans.py:287
 msgid "If you want to support fusefs home directories"
-msgstr "Si voleu donar suport als directoris d'inici d'usuari fusefs"
+msgstr "Si voleu donar suport als directoris inicials fusefs"
 
 #: ../booleans_trans.py:289
 msgid ""
@@ -3375,13 +3379,13 @@ msgid ""
 "bind to any unreserved port."
 msgstr ""
 "Si voleu permetre que el client d'IRC Irssi es connecti a qualsevol port, i "
-"crei un vincle a qualsevol port no confinat."
+"creï un vincle a qualsevol port no confinat."
 
 #: ../booleans_trans.py:295
 msgid "If you want to allow confined applications to use nscd shared memory."
 msgstr ""
 "Si voleu permetre que les aplicacions confinades utilitzin la memòria "
-"compartida de l'nscd."
+"compartida del nscd."
 
 #: ../booleans_trans.py:297
 msgid ""
@@ -3410,7 +3414,7 @@ msgstr ""
 
 #: ../booleans_trans.py:305
 msgid "If you want to allow system to run with NIS"
-msgstr "Si voleu permetre que els sistema s'executi amb NIS"
+msgstr "Si voleu permetre que el sistema s'executi amb NIS"
 
 #: ../booleans_trans.py:307
 msgid "If you want to allow users to login using a yubikey  server"
@@ -3421,7 +3425,7 @@ msgstr ""
 #: ../booleans_trans.py:309
 msgid "If you want to allow a user to login as an unconfined domain"
 msgstr ""
-"Si voleu permetre que un usuari inicii la sessió com a un domini no confinat"
+"Si voleu permetre que un usuari iniciï la sessió com a un domini no confinat"
 
 #: ../booleans_trans.py:311
 msgid "If you want to disable kernel module loading."
@@ -3438,7 +3442,7 @@ msgid ""
 "If you want to allow httpd to act as a FTP client connecting to the ftp port "
 "and ephemeral ports"
 msgstr ""
-"Si voleu permetre que httpd actui com un client FTP en connectar-se al port "
+"Si voleu permetre que httpd actuï com un client FTP en connectar-se al port "
 "ftp i als ports efímers"
 
 #: ../booleans_trans.py:317
@@ -3463,6 +3467,8 @@ msgid ""
 "If you want to allow gssd to read temp directory.  For access to kerberos "
 "tgt."
 msgstr ""
+"Si voleu permetre que gssd llegeixi el directori temporal. Per accedir al "
+"tgt de kerberos."
 
 #: ../booleans_trans.py:323
 msgid "If you want to determine whether Cobbler can access nfs file systems."
@@ -3501,7 +3507,7 @@ msgid ""
 "If you want to permit to prosody to bind apache port. Need to be activated "
 "to use BOSH."
 msgstr ""
-"Si voleu permetre que prosody crei un vincle al port d'apache. Necessita "
+"Si voleu permetre que prosody creï un vincle al port d'apache. Necessita "
 "activar-se per utilitzar BOSH."
 
 #: ../booleans_trans.py:335
@@ -3569,13 +3575,13 @@ msgstr ""
 #: ../booleans_trans.py:357
 msgid "If you want to allow spamd to read/write user home directories."
 msgstr ""
-"Si voleu permetre que spamd llegeixi i escrigui als directoris d'inici "
-"d'usuari."
+"Si voleu permetre que spamd llegeixi i escrigui als directoris inicials dels "
+"usuaris."
 
 #: ../booleans_trans.py:359
 msgid "If you want to determine whether DHCP daemon can use LDAP backends."
 msgstr ""
-"Si voleu determinar si el dimoni DHCP pot utilitzar el recolzament d'LDAP."
+"Si voleu determinar si el dimoni de DHCP pot utilitzar el suport d'LDAP."
 
 #: ../booleans_trans.py:361
 msgid "If you want to determine whether Git CGI can access cifs file systems."
@@ -3610,7 +3616,8 @@ msgstr "Si voleu permetre que Apache executi continguts temporals."
 #: ../booleans_trans.py:371
 msgid "If you want to allow zebra daemon to write it configuration files"
 msgstr ""
-"Si voleu permetre que el dimoni zebra escrigui els fitxers de configuració"
+"Si voleu permetre que el dimoni de zebra escrigui els fitxers de "
+"configuració"
 
 #: ../booleans_trans.py:373
 msgid "If you want to allow qemu to use cifs/Samba file systems"
@@ -3677,7 +3684,7 @@ msgstr ""
 
 #: ../booleans_trans.py:393
 msgid "If you want to allow http daemon to send mail"
-msgstr "Si voleu permetre que el dimoni http envii correus"
+msgstr "Si voleu permetre que el dimoni d'http enviï correus"
 
 #: ../booleans_trans.py:395
 msgid "If you want to allow samba to export ntfs/fusefs volumes."
@@ -3687,8 +3694,8 @@ msgstr "Si voleu permetre que samba exporti els volums ntfs i fusefs."
 msgid ""
 "If you want to allow staff user to create and transition to svirt domains."
 msgstr ""
-"Si voleu permetre que l'usuari d'staff crei i faci la transició als dominis "
-"de l'svirt."
+"Si voleu permetre que l'usuari staff creï i faci la transició als dominis de "
+"l'svirt."
 
 #: ../booleans_trans.py:399
 msgid ""
@@ -3783,8 +3790,8 @@ msgid ""
 "If you want to determine whether calling user domains can execute Polipo "
 "daemon in the polipo_session_t domain."
 msgstr ""
-"Si voleu determinar si la crida als dominis de l'usuari poden executar el "
-"dimoni del polipo al dimoni del polipo_session_t."
+"Si voleu determinar si les crides als dominis d'usuari poden executar el "
+"dimoni de polipo al dimoni de polipo_session_t."
 
 #: ../booleans_trans.py:425
 msgid "If you want to allow confined applications to run with kerberos."
@@ -3793,12 +3800,12 @@ msgstr ""
 
 #: ../booleans_trans.py:427
 msgid "If you want to allow http daemon to check spam"
-msgstr "Si voleu permetre que el dimoni http comprovi el correu brossa"
+msgstr "Si voleu permetre que el dimoni d'http comprovi el correu brossa"
 
 #: ../booleans_trans.py:429
 msgid "If you want to allow xguest users to mount removable media"
 msgstr ""
-"Si voleu permetre que els usuaris d'xguest muntin els dispositius extraïbles"
+"Si voleu permetre que els usuaris del xguest muntin els mitjans extraïbles"
 
 #: ../booleans_trans.py:431
 msgid ""
@@ -3806,7 +3813,7 @@ msgid ""
 "write all files on the system, governed by DAC."
 msgstr ""
 "Si voleu determinar si sftpd pot iniciar la sessió als usuaris locals i pot "
-"llegir i escriure tots el fitxers al sistema de fitxers, governat amb DAC."
+"llegir i escriure tots els fitxers al sistema de fitxers, governat amb DAC."
 
 #: ../booleans_trans.py:433
 msgid ""
@@ -3830,7 +3837,7 @@ msgstr ""
 
 #: ../booleans_trans.py:439
 msgid "If you want to allow syslogd daemon to send mail"
-msgstr "Si voleu permetre que el dimoni syslogd envii correus"
+msgstr "Si voleu permetre que el dimoni syslogd enviï correus"
 
 #: ../booleans_trans.py:441
 msgid "If you want to determine whether Polipo can access nfs file systems."
@@ -3843,7 +3850,8 @@ msgstr "Si voleu permetre que samba executi els scripts no confinats"
 
 #: ../booleans_trans.py:445
 msgid "If you want to allow nsplugin code to execmem/execstack"
-msgstr "Si voleu permetre que el codi d'nsplugin utilitzi execmem i execstack"
+msgstr ""
+"Si voleu permetre que el codi del nsplugin utilitzi execmem i execstack"
 
 #: ../booleans_trans.py:447
 msgid "If you want to enable reading of urandom for all domains."
@@ -3946,7 +3954,7 @@ msgid ""
 "If you want to allow unprivledged user to create and transition to svirt "
 "domains."
 msgstr ""
-"Si voleu permetre que l'usuari sense privilegis crei i faci la transició als "
+"Si voleu permetre que l'usuari sense privilegis creï i faci la transició als "
 "dominis de l'svirt."
 
 #: ../booleans_trans.py:481
@@ -4008,8 +4016,8 @@ msgstr ""
 #: ../booleans_trans.py:501
 msgid "If you want to enable extra rules in the cron domain to support fcron."
 msgstr ""
-"Si voleu habilitar les regles extra en el domini del cron per donar suport a "
-"fcron."
+"Si voleu habilitar les regles addicionals al domini del cron perquè doni "
+"suport a fcron."
 
 #: ../booleans_trans.py:503
 msgid ""
@@ -4017,11 +4025,11 @@ msgid ""
 "home directories."
 msgstr ""
 "Si voleu determinar si sftpd pot llegir i escriure fitxers als directoris "
-"d'inici d'usuari."
+"inicials ssh dels usuaris."
 
 #: ../booleans_trans.py:505
 msgid "If you want to allow http daemon to connect to zabbix"
-msgstr "Si voleu permetre que el dimoni http es connecti a zabbix"
+msgstr "Si voleu permetre que el dimoni d'http es connecti a zabbix"
 
 #: ../booleans_trans.py:507
 msgid "If you want to allow transmit client label to foreign database"
@@ -4048,11 +4056,12 @@ msgstr "Si voleu determinar si mcelog dóna suport al mode servidor."
 #: ../booleans_trans.py:515
 msgid "If you want to allow httpd daemon to change its resource limits"
 msgstr ""
-"Si voleu permetre que el domini httpd canvii els limits dels seus recursos"
+"Si voleu permetre que el domini httpd canviï els límits dels seus recursos"
 
 #: ../booleans_trans.py:517
 msgid "If you want to determine whether squid can connect to all TCP ports."
-msgstr "Si voleu determinar squid pot connectar-se a tots els ports tcp."
+msgstr ""
+"Si voleu determinar que squid pugui connectar-se a tots els ports tcp."
 
 #: ../booleans_trans.py:519
 msgid "If you want to allow all domains to use other domains file descriptors"
