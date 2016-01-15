@@ -23,9 +23,9 @@ __all__ = ['email_alert',
 
 import syslog
 import re
-from email.MIMEText import MIMEText
-from email.MIMEMultipart import MIMEMultipart
-from email.Utils import formatdate
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+from email.utils import formatdate
 
 from setroubleshoot.config import get_config
 from setroubleshoot.util import *
