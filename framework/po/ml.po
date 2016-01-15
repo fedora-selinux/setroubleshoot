@@ -8,9 +8,9 @@
 # Dimitris Glezos <glezos@indifex.com>, 2011
 msgid ""
 msgstr ""
-"Project-Id-Version: setroubleshoot\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-16 14:49-0400\n"
+"POT-Creation-Date: 2016-01-15 16:27+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,7 +20,7 @@ msgstr ""
 "language/ml/)\n"
 "Language: ml\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.7.2\n"
+"X-Generator: Zanata 3.7.3\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -34,17 +34,18 @@ msgstr "ട്രബിള്‍ഷൂട്ട് SELinux ആക്സസ്സ
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/audit_data.py:898
+#: ../src/setroubleshoot/audit_data.py:903
 #, python-format
 msgid "port %s"
 msgstr "പോര്‍ട്ട് %s"
 
-#: ../src/audit_data.py:900 ../src/browser.py:746 ../src/browser.py:821
-#: ../src/rpc.py:528 ../src/util.py:220
+#: ../src/setroubleshoot/audit_data.py:905
+#: ../src/setroubleshoot/browser.py:747 ../src/setroubleshoot/browser.py:822
+#: ../src/setroubleshoot/rpc.py:528 ../src/setroubleshoot/util.py:229
 msgid "Unknown"
 msgstr "അപരിചിതം"
 
-#: ../src/audit_data.py:990
+#: ../src/setroubleshoot/audit_data.py:995
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
@@ -52,7 +53,7 @@ msgstr ""
 "%s \n"
 "**** നിലവിലുള്ള പോളിസിയില്‍ തെറ്റായ എവിസി അനുവദിച്ചിരിയ്ക്കുന്നു ***\n"
 
-#: ../src/audit_data.py:992
+#: ../src/setroubleshoot/audit_data.py:997
 #, python-format
 msgid ""
 "%s \n"
@@ -63,282 +64,286 @@ msgstr ""
 "**** നിലവിലുള്ള പോളിസിയില്‍ തെറ്റായ എവിസി ഓഡിറ്റ് ചെയ്തിട്ടില്ല.  dontaudit "
 "നിയമങ്ങളില്‍ 'semodule -B' ഓണ്‍ ആകുന്നു. ***\n"
 
-#: ../src/audit_data.py:994
+#: ../src/setroubleshoot/audit_data.py:999
 msgid "Must call policy_init first"
 msgstr "ആദ്യം policy_init വിളിയ്ക്കേണ്ടതുണ്ടു്"
 
-#: ../src/audit_data.py:996
+#: ../src/setroubleshoot/audit_data.py:1001
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
 "**** തെറ്റായ എവിസി ലക്ഷ്യ കണ്ടക്സ്റ്റ് ***\n"
 
-#: ../src/audit_data.py:998
+#: ../src/setroubleshoot/audit_data.py:1003
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
 "**** തെറ്റായ എവിസി സോഴ്സ് കണ്ടക്സ്റ്റ് ***\n"
 
-#: ../src/audit_data.py:1000
+#: ../src/setroubleshoot/audit_data.py:1005
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** തെറ്റായ എവിസി തരത്തിലുള്ള ക്ലാസ്സ് ***\n"
 
-#: ../src/audit_data.py:1002
+#: ../src/setroubleshoot/audit_data.py:1007
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** തെറ്റായ എവിസി അനുമതി ***\n"
 
-#: ../src/audit_data.py:1004
+#: ../src/setroubleshoot/audit_data.py:1009
 msgid "Error during access vector computation"
 msgstr "ആക്സസ് വെക്ടര്‍ കമ്പ്യൂട്ടേഷന്‍ സമയത്തുള്ള പിശക്"
 
-#: ../src/browser.py:170 ../gui/browser.glade.h:12
+#: ../src/setroubleshoot/browser.py:171 ../gui/browser.glade.h:12
 msgid "SELinux Alert Browser"
 msgstr "SELinux അറിയിപ്പിനുള്ള ബ്രൌസര്‍"
 
-#: ../src/browser.py:174 ../gui/browser.glade.h:19
+#: ../src/setroubleshoot/browser.py:175 ../gui/browser.glade.h:19
 msgid "The source process:"
 msgstr "സോഴ്സ് പ്രക്രിയ:"
 
-#: ../src/browser.py:179 ../gui/browser.glade.h:15
+#: ../src/setroubleshoot/browser.py:180 ../gui/browser.glade.h:15
 msgid "Yes"
 msgstr "ഉവ്വു്"
 
-#: ../src/browser.py:181 ../gui/browser.glade.h:17
+#: ../src/setroubleshoot/browser.py:182 ../gui/browser.glade.h:17
 msgid "No"
 msgstr "ഇല്ല"
 
-#: ../src/browser.py:186 ../gui/browser.glade.h:20
+#: ../src/setroubleshoot/browser.py:187 ../gui/browser.glade.h:20
 msgid "Attempted this access:"
 msgstr "ഈ പ്രവേശനം ശ്രമിയ്ക്കുക:"
 
-#: ../src/browser.py:200 ../gui/browser.glade.h:11
+#: ../src/setroubleshoot/browser.py:201 ../gui/browser.glade.h:11
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshoot വിശദാംശങ്ങള്‍ക്കുള്ള ജാലകം"
 
-#: ../src/browser.py:203 ../gui/browser.glade.h:14
+#: ../src/setroubleshoot/browser.py:204 ../gui/browser.glade.h:14
 msgid "Would you like to receive alerts?"
 msgstr "അറിയിപ്പുകള്‍ ലഭ്യമാകണമോ?"
 
-#: ../src/browser.py:207 ../gui/browser.glade.h:24
+#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:24
 msgid "Notify Admin"
 msgstr "അഡ്മിനെ അറിയിയ്ക്കുക"
 
-#: ../src/browser.py:210 ../src/browser.py:216 ../gui/browser.glade.h:8
+#: ../src/setroubleshoot/browser.py:211 ../src/setroubleshoot/browser.py:217
+#: ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "ട്രബിള്‍ഷൂട്ട്"
 
-#: ../src/browser.py:213 ../gui/browser.glade.h:26
+#: ../src/setroubleshoot/browser.py:214 ../gui/browser.glade.h:26
 msgid "Details"
 msgstr "വിശദവിവരങ്ങള്‍"
 
-#: ../src/browser.py:220 ../gui/browser.glade.h:7
+#: ../src/setroubleshoot/browser.py:221 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot അറിയിപ്പു് പട്ടിക"
 
-#: ../src/browser.py:222 ../gui/browser.glade.h:33
+#: ../src/setroubleshoot/browser.py:223 ../gui/browser.glade.h:33
 msgid "List All Alerts"
 msgstr "എല്ലാ അറിയിപ്പുകളും കാണിയ്ക്കുക"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "Source Process"
 msgstr "സോഴ്സ് പ്രക്രിയ"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "Attempted Access"
 msgstr "ശ്രമിച്ചിരിയ്ക്കുന്ന അനുമതി"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "On this"
 msgstr "ഇതില്‍"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "Occurred"
 msgstr "സംഭവിച്ചിരിയ്ക്കുന്നു"
 
-#: ../src/browser.py:269 ../src/run_cmd.py:406
+#: ../src/setroubleshoot/browser.py:270 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "അവസ്ഥ"
 
-#: ../src/browser.py:343 ../src/browser.py:785 ../src/browser.py:829
+#: ../src/setroubleshoot/browser.py:344 ../src/setroubleshoot/browser.py:786
+#: ../src/setroubleshoot/browser.py:830
 msgid "Notify"
 msgstr "അറിയിയ്ക്കുക"
 
-#: ../src/browser.py:344
+#: ../src/setroubleshoot/browser.py:345
 msgid "Notify alert in the future."
 msgstr "ഭാവിയില്‍ അറിയിയ്ക്കുക."
 
-#: ../src/browser.py:347 ../src/browser.py:787 ../src/browser.py:827
-#: ../gui/browser.glade.h:27
+#: ../src/setroubleshoot/browser.py:348 ../src/setroubleshoot/browser.py:788
+#: ../src/setroubleshoot/browser.py:828 ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "വേണ്ടെന്നു് വയ്ക്കുക"
 
-#: ../src/browser.py:348 ../gui/browser.glade.h:28
+#: ../src/setroubleshoot/browser.py:349 ../gui/browser.glade.h:28
 msgid "Ignore alert in the future."
 msgstr "ഭാവിയില്‍ അറിയിപ്പു് വേണ്ടെന്നുവയ്ക്കുക."
 
-#: ../src/browser.py:384
+#: ../src/setroubleshoot/browser.py:385
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>നിങ്ങള്‍ ഇതിനായി ശ്രമിയ്ക്കുന്നെങ്കില്‍...</b>"
 
-#: ../src/browser.py:393
+#: ../src/setroubleshoot/browser.py:394
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>അങ്ങനെയെങ്കില്‍ ഇതാണു് പ്രതിവിധി.</b>"
 
-#: ../src/browser.py:412 ../src/browser.py:548
+#: ../src/setroubleshoot/browser.py:413 ../src/setroubleshoot/browser.py:549
 msgid "If "
 msgstr "ആണെങ്കില്‍"
 
-#: ../src/browser.py:500
+#: ../src/setroubleshoot/browser.py:501
 msgid "Plugin\n"
 "Details"
 msgstr "പ്ലഗിന്‍\n"
 "വിശദാംശങ്ങള്‍"
 
-#: ../src/browser.py:515
+#: ../src/setroubleshoot/browser.py:516
 msgid "Report\n"
 "Bug"
 msgstr "ബഗ്\n"
 "രേഖപ്പെടുത്തുക"
 
-#: ../src/browser.py:543
+#: ../src/setroubleshoot/browser.py:544
 #, python-format
 msgid "Plugin: %s "
 msgstr "പ്ലഗിന്‍: %s "
 
-#: ../src/browser.py:610
+#: ../src/setroubleshoot/browser.py:611
 msgid "Unable to grant access."
 msgstr "അനുമതി നല്‍കുവാന്‍ സാധ്യമല്ല"
 
-#: ../src/browser.py:641 ../src/browser.py:783
+#: ../src/setroubleshoot/browser.py:642 ../src/setroubleshoot/browser.py:784
 #, python-format
 msgid "Alert %d of %d"
 msgstr "അറിയിപ്പു് %d/%d"
 
-#: ../src/browser.py:766
+#: ../src/setroubleshoot/browser.py:767
 #, python-format
 msgid "On this %s:"
 msgstr "ഈ %s-ല്‍:"
 
-#: ../src/browser.py:814 ../src/browser.py:820 ../src/signature.py:388
+#: ../src/setroubleshoot/browser.py:815 ../src/setroubleshoot/browser.py:821
+#: ../src/setroubleshoot/signature.py:391
 msgid "N/A"
 msgstr "ലഭ്യമല്ല"
 
-#: ../src/browser.py:861 ../src/browser.py:862 ../gui/browser.glade.h:31
+#: ../src/setroubleshoot/browser.py:862 ../src/setroubleshoot/browser.py:863
+#: ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "അറിയിപ്പുകളില്ല"
 
-#: ../src/browser.py:880
+#: ../src/setroubleshoot/browser.py:881
 msgid "SELinux has detected a problem."
 msgstr "SELinux ഒരു പ്രശ്നം കണ്ടുപിടിച്ചിരിയ്ക്കുന്നു."
 
-#: ../src/browser.py:985
+#: ../src/setroubleshoot/browser.py:987
 msgid "Sealert Error"
 msgstr "Sealert പിശക്"
 
-#: ../src/browser.py:996
+#: ../src/setroubleshoot/browser.py:998
 msgid "Sealert Message"
 msgstr "Sealert സന്ദേശങ്ങള്‍"
 
 #. -----------------------------------------------------------------------------
-#: ../src/errcode.py:71
+#: ../src/setroubleshoot/errcode.py:71
 msgid "signature not found"
 msgstr "ഒപ്പ് ലഭ്യമല്ല"
 
-#: ../src/errcode.py:72
+#: ../src/setroubleshoot/errcode.py:72
 msgid "multiple signatures matched"
 msgstr "അനവധി ഒപ്പുകള്‍ ചേര്‍ന്നിരിക്കുന്നു"
 
-#: ../src/errcode.py:73
+#: ../src/setroubleshoot/errcode.py:73
 msgid "id not found"
 msgstr "id ലഭ്യമല്ല"
 
-#: ../src/errcode.py:74
+#: ../src/setroubleshoot/errcode.py:74
 msgid "database not found"
 msgstr "ഡേറ്റാബേയിസ് ലഭ്യമല്ല"
 
-#: ../src/errcode.py:75
+#: ../src/setroubleshoot/errcode.py:75
 msgid "item is not a member"
 msgstr "ഇനം ഒരു അംഗമല്ല"
 
-#: ../src/errcode.py:76
+#: ../src/setroubleshoot/errcode.py:76
 msgid "illegal to change user"
 msgstr "ഉപയോഗിക്കുന്ന ആളിനെ മാറ്റുന്നത് തെറ്റാണ്"
 
-#: ../src/errcode.py:77
+#: ../src/setroubleshoot/errcode.py:77
 msgid "method not found"
 msgstr "മാര്‍ഗ്ഗം ലഭ്യമല്ല"
 
-#: ../src/errcode.py:78
+#: ../src/setroubleshoot/errcode.py:78
 msgid "cannot create GUI"
 msgstr "GUI ഉണ്ടാക്കുവാന്‍ സാധ്യമല്ല"
 
-#: ../src/errcode.py:79
+#: ../src/setroubleshoot/errcode.py:79
 msgid "value unknown"
 msgstr "മൂല്ല്യം ലഭ്യമല്ല"
 
-#: ../src/errcode.py:80
+#: ../src/setroubleshoot/errcode.py:80
 msgid "cannot open file"
 msgstr "ഫയല്‍ തുറക്കുവാന്‍ സാധ്യമല്ല"
 
-#: ../src/errcode.py:81
+#: ../src/setroubleshoot/errcode.py:81
 msgid "invalid email address"
 msgstr "തെറ്റായ ഈമെയില്‍ വിലാസം"
 
 #. gobject IO Errors
-#: ../src/errcode.py:84
+#: ../src/setroubleshoot/errcode.py:84
 msgid "socket error"
 msgstr "സോക്കറ്റ് പിശക്"
 
-#: ../src/errcode.py:85
+#: ../src/setroubleshoot/errcode.py:85
 msgid "connection has been broken"
 msgstr "കണക്ഷന് തകരാറ് സംഭവിച്ചിരിക്കുന്നു"
 
-#: ../src/errcode.py:86
+#: ../src/setroubleshoot/errcode.py:86
 msgid "Invalid request. The file descriptor is not open"
 msgstr "തെറ്റായ ആവശ്യം. ഫയല്‍ ഡിസ്ക്രിപ്റ്റര്‍ തുറന്നിട്ടില്ല"
 
-#: ../src/errcode.py:88
+#: ../src/setroubleshoot/errcode.py:88
 msgid "insufficient permission to modify user"
 msgstr "ഉപയോക്താവില്‍ മാറ്റം വരുത്തുന്നിന് മതിയാകാത്ത അനുവാദം"
 
-#: ../src/errcode.py:89
+#: ../src/setroubleshoot/errcode.py:89
 msgid "authentication failed"
 msgstr "ആധികാരികത ലഭ്യമാക്കുന്നതില്‍ പരാജയം"
 
-#: ../src/errcode.py:90
+#: ../src/setroubleshoot/errcode.py:90
 msgid "user prohibited"
 msgstr "ഉപയോക്താക്കള്‍ക്ക് പ്രവേശനമില്ല"
 
-#: ../src/errcode.py:91
+#: ../src/setroubleshoot/errcode.py:91
 msgid "not authenticated"
 msgstr "ആധികരികത ഉറപ്പാക്കിയിട്ടില്ല"
 
-#: ../src/errcode.py:92
+#: ../src/setroubleshoot/errcode.py:92
 msgid "user lookup failed"
 msgstr "ഉപയോക്താവിനുള്ള തിരച്ചില്‍ പരാജയപ്പെട്ടു"
 
-#: ../src/gui_utils.py:53 ../src/sealert:531
+#: ../src/setroubleshoot/gui_utils.py:53 ../src/sealert:531
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "%s-ല്‍ ഒരു തകരാറു സംഭവിച്ചിരിക്കുന്നു!"
 
-#: ../src/gui_utils.py:55 ../gui/fail_dialog.glade.h:1
+#: ../src/setroubleshoot/gui_utils.py:55 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "പിശക്"
 
-#: ../src/Plugin.py:81
+#: ../src/setroubleshoot/Plugin.py:81
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -406,228 +411,231 @@ msgstr "പരാജയപ്പെട്ടു, പുറത്ത് കടന
 msgid "Done: "
 msgstr "പൂര്‍ത്തിയായി:"
 
-#: ../src/server.py:191
+#: ../src/setroubleshoot/server.py:191
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr ""
 " പൂര്‍ണ്ണ SELinux സന്ദേശങ്ങള്‍ക്ക്. sealert -l %s പ്രവര്‍ത്തിപ്പിക്കുക"
 
-#: ../src/server.py:377
+#: ../src/setroubleshoot/server.py:377
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr ""
 "ഉപയോക്താവിന് (%s) (%s)-നുള്ള ഡേറ്റായില്‍ മാറ്റം വരുത്തുവാന്‍ സാധ്യമല്ല"
 
-#: ../src/server.py:440 ../src/sealert:291
+#: ../src/setroubleshoot/server.py:440 ../src/sealert:291
 msgid "Started"
 msgstr "ആരംഭിച്ചു"
 
-#: ../src/server.py:487
+#: ../src/setroubleshoot/server.py:487
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:553
+#: ../src/setroubleshoot/server.py:553
 msgid "Audit Listener"
 msgstr "ഓഡിറ്റ് ലിസണര്‍"
 
-#: ../src/signature.py:74
+#: ../src/setroubleshoot/signature.py:74
 msgid "Never Ignore"
 msgstr "ഒരിക്കലും ഉപേക്ഷിക്കുവാന്‍ പാടില്ല"
 
-#: ../src/signature.py:75
+#: ../src/setroubleshoot/signature.py:75
 msgid "Ignore Always"
 msgstr "എപ്പോഴും ഉപേക്ഷിക്കുക"
 
-#: ../src/signature.py:76
+#: ../src/setroubleshoot/signature.py:76
 msgid "Ignore After First Alert"
 msgstr "ആദ്യത്തെ അറിയിപ്പിന് ശേഷം ഉപേക്ഷിക്കുക"
 
-#: ../src/signature.py:193
+#: ../src/setroubleshoot/signature.py:193
 msgid "directory"
 msgstr "ഡയറക്ടറി"
 
-#: ../src/signature.py:194
+#: ../src/setroubleshoot/signature.py:194
 msgid "semaphore"
 msgstr "സെമാഫോര്‍"
 
-#: ../src/signature.py:195
+#: ../src/setroubleshoot/signature.py:195
 msgid "shared memory"
 msgstr "പങ്കിട്ട മെമ്മറി"
 
-#: ../src/signature.py:196
+#: ../src/setroubleshoot/signature.py:196
 msgid "message queue"
 msgstr "സന്ദേശത്തിന്റെ ക്യൂ"
 
-#: ../src/signature.py:197
+#: ../src/setroubleshoot/signature.py:197
 msgid "message"
 msgstr "സന്ദേശം"
 
-#: ../src/signature.py:198
+#: ../src/setroubleshoot/signature.py:198
 msgid "file"
 msgstr "ഫയല്‍"
 
-#: ../src/signature.py:199
+#: ../src/setroubleshoot/signature.py:199
 msgid "socket"
 msgstr "സോക്കറ്റ്"
 
-#: ../src/signature.py:200
+#: ../src/setroubleshoot/signature.py:200
 msgid "process"
 msgstr "പ്രക്രിയ"
 
-#: ../src/signature.py:201
+#: ../src/setroubleshoot/signature.py:201
 msgid "filesystem"
 msgstr "ഫയല്‍സിസ്റ്റം"
 
-#: ../src/signature.py:202
+#: ../src/setroubleshoot/signature.py:202
 msgid "node"
 msgstr "നോഡ്"
 
-#: ../src/signature.py:203
+#: ../src/setroubleshoot/signature.py:203
 msgid "capability"
 msgstr "കഴിവു്"
 
-#: ../src/signature.py:373
+#: ../src/setroubleshoot/signature.py:376
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s-നു് ഒരു പെര്‍മിസ്സീവ് തരമുണ്ടു് (%s). ഈ അനുമതി നിഷേധിച്ചിട്ടില്ല."
 
-#: ../src/signature.py:376
+#: ../src/setroubleshoot/signature.py:379
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux പെര്‍മിസ്സീവ് മോഡിലാണു്. ഈ അനുമതി നിഷേധിച്ചിട്ടില്ല."
 
-#: ../src/signature.py:429
+#: ../src/setroubleshoot/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr ""
 "%s-നെ, ഒരു പ്രക്രിയയില്‍ %s പ്രവേശനം ഉപയോഗിയ്ക്കുന്നതില്‍ നിന്നും SELinux "
 "തടയുന്നു."
 
-#: ../src/signature.py:429
+#: ../src/setroubleshoot/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr ""
 "%s-നെ, ഒരു പ്രക്രിയയില്‍ '%s' പ്രവേശനങ്ങള്‍ ഉപയോഗിയ്ക്കുന്നതില്‍ നിന്നും "
 "SELinux തടയുന്നു."
 
-#: ../src/signature.py:432
+#: ../src/setroubleshoot/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "%s-നെ, %s വിശേഷത ഉപയോഗിയ്ക്കുന്നതില്‍ നിന്നും SELinux തടയുന്നു."
 
-#: ../src/signature.py:432
+#: ../src/setroubleshoot/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "%s-നെ, '%s' വിശേഷതകള്‍ ഉപയോഗിയ്ക്കുന്നതില്‍ നിന്നും SELinux തടയുന്നു."
 
-#: ../src/signature.py:434
+#: ../src/setroubleshoot/signature.py:437
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr ""
 "SELinux %s-നെ %s പ്രവേശനത്തില്‍ നിന്നും തടയുന്നു, %s-ല്‍ %s എന്നു് "
 "പേരിടുന്നു."
 
-#: ../src/signature.py:434
+#: ../src/setroubleshoot/signature.py:437
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr ""
 "SELinux %s-നെ '%s' പ്രവേശനത്തില്‍ നിന്നും തടയുന്നു, %s-ല്‍ %s എന്നു് "
 "പേരിടുന്നു."
 
-#: ../src/signature.py:435
+#: ../src/setroubleshoot/signature.py:438
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "%s-നെ, %s %s-ലുള്ള %s പ്രവേശനങ്ങളില്‍ നിന്നും SELinux തടയുന്നു."
 
-#: ../src/signature.py:435
+#: ../src/setroubleshoot/signature.py:438
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "%s-നെ, %s %s-ലുള്ള '%s' പ്രവേശനങ്ങളില്‍ നിന്നും SELinux തടയുന്നു."
 
-#: ../src/signature.py:463
+#: ../src/setroubleshoot/signature.py:469
 msgid "Additional Information:\n"
 msgstr "കൂടുതല്‍ വിവരം:\n"
 
-#: ../src/signature.py:464
+#: ../src/setroubleshoot/signature.py:470
 msgid "Source Context"
 msgstr "സോഴ്സ് കോണ്‍ട്ടെക്സ്റ്റ്"
 
-#: ../src/signature.py:465
+#: ../src/setroubleshoot/signature.py:471
 msgid "Target Context"
 msgstr "ടാര്‍ഗറ്റ് കോണ്‍ട്ടെക്സ്റ്റ്"
 
-#: ../src/signature.py:466
+#: ../src/setroubleshoot/signature.py:472
 msgid "Target Objects"
 msgstr "ടാര്‍ഗറ്റ് ഒബ്ജക്ടുകള്‍"
 
-#: ../src/signature.py:467
+#: ../src/setroubleshoot/signature.py:473
 msgid "Source"
 msgstr "സോഴ്സ് "
 
-#: ../src/signature.py:468
+#: ../src/setroubleshoot/signature.py:474
 msgid "Source Path"
 msgstr "സോഴ്സ് പാഥ്"
 
-#: ../src/signature.py:469
+#: ../src/setroubleshoot/signature.py:475
 msgid "Port"
 msgstr "പോര്‍ട്ട്"
 
-#: ../src/signature.py:471 ../src/signature.py:473
+#: ../src/setroubleshoot/signature.py:477
+#: ../src/setroubleshoot/signature.py:479
 msgid "Host"
 msgstr "ഹോസ്റ്റ് "
 
-#: ../src/signature.py:474
+#: ../src/setroubleshoot/signature.py:480
 msgid "Source RPM Packages"
 msgstr "ഉറവിടമായ RPM പാക്കേജുകള്‍"
 
-#: ../src/signature.py:475
+#: ../src/setroubleshoot/signature.py:481
 msgid "Target RPM Packages"
 msgstr "ലക്ഷ്യമായ RPM പാക്കേജുകള്‍"
 
-#: ../src/signature.py:476
+#: ../src/setroubleshoot/signature.py:482
 msgid "Policy RPM"
 msgstr "പോളിസി RPM"
 
-#: ../src/signature.py:477
+#: ../src/setroubleshoot/signature.py:483
 msgid "Selinux Enabled"
 msgstr "Selinux സജ്ജമാക്കല്‍"
 
-#: ../src/signature.py:478
+#: ../src/setroubleshoot/signature.py:484
 msgid "Policy Type"
 msgstr "പോളിസി രീതി"
 
-#: ../src/signature.py:479
+#: ../src/setroubleshoot/signature.py:485
 msgid "Enforcing Mode"
 msgstr "Enforcing മോഡ്"
 
-#: ../src/signature.py:481 ../src/signature.py:483
+#: ../src/setroubleshoot/signature.py:487
+#: ../src/setroubleshoot/signature.py:489
 msgid "Host Name"
 msgstr "ഹോസ്റ്റ് നെയിം"
 
-#: ../src/signature.py:488 ../src/signature.py:490
+#: ../src/setroubleshoot/signature.py:494
+#: ../src/setroubleshoot/signature.py:496
 msgid "Platform"
 msgstr "പ്ളാറ്റ്ഫോം"
 
-#: ../src/signature.py:491
+#: ../src/setroubleshoot/signature.py:497
 msgid "Alert Count"
 msgstr "എണ്ണം അറിയിപ്പ്"
 
-#: ../src/signature.py:493
+#: ../src/setroubleshoot/signature.py:499
 msgid "First Seen"
 msgstr "ആദ്യം കണ്ടത്"
 
-#: ../src/signature.py:494
+#: ../src/setroubleshoot/signature.py:500
 msgid "Last Seen"
 msgstr "അവസാനം കണ്ടത്"
 
-#: ../src/signature.py:495
+#: ../src/setroubleshoot/signature.py:501
 msgid "Local ID"
 msgstr "ലോക്കല്‍ ഐഡി"
 
-#: ../src/signature.py:497
+#: ../src/setroubleshoot/signature.py:503
 msgid "Raw Audit Messages"
 msgstr "റോ ഓഡിറ്റ് സന്ദേശങ്ങള്‍"
 
-#: ../src/signature.py:551
+#: ../src/setroubleshoot/signature.py:557
 #, python-format
 msgid "\n"
 "\n"
@@ -636,33 +644,33 @@ msgstr "\n"
 "\n"
 "*****  പ്ലഗിന്‍ %s (%.4s കോണ്‍ഫിഡന്‍സ്) നിര്‍ദ്ദേശിയ്ക്കുന്നു"
 
-#: ../src/signature.py:554
+#: ../src/setroubleshoot/signature.py:560
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:555
+#: ../src/setroubleshoot/signature.py:561
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:557
+#: ../src/setroubleshoot/signature.py:563
 msgid "\n"
 "If "
 msgstr "\n"
 "എങ്കില്‍ "
 
-#: ../src/signature.py:559
+#: ../src/setroubleshoot/signature.py:565
 msgid "\n"
 "Then "
 msgstr "\n"
 "അങ്ങനെയെങ്കില്‍ "
 
-#: ../src/signature.py:562
+#: ../src/setroubleshoot/signature.py:568
 msgid "\n"
 "Do\n"
 msgstr "\n"
 "ചെയ്യേണ്ടതു്\n"
 
-#: ../src/signature.py:564
+#: ../src/setroubleshoot/signature.py:570
 msgid "\n"
 "\n"
 msgstr "\n"
@@ -678,24 +686,24 @@ msgstr "നിലവില്‍: %s "
 msgid "newer: %s "
 msgstr "പുതിയതു്: %s "
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:189
 msgid "New SELinux security alert"
 msgstr "പുതിയ SELinux സുരക്ഷാ അറിയിപ്പു്"
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
 msgstr "AVC നിഷേധം, കാണുന്നതിനായി പ്രതിരൂപത്തില്‍ ക്ലിക്ക് ചെയ്യുക"
 
-#: ../src/seapplet.c:194 ../src/seapplet.c:245
+#: ../src/seapplet.c:195 ../src/seapplet.c:246
 msgid "Dismiss"
 msgstr "വേണ്ടെന്നു് വയ്ക്കുക"
 
-#: ../src/seapplet.c:204 ../src/seapplet.c:255
+#: ../src/seapplet.c:205 ../src/seapplet.c:256
 msgid "Show"
 msgstr "കാണിക്കുക"
 
 #. set tooltip
-#: ../src/seapplet.c:439 ../src/sealert:64
+#: ../src/seapplet.c:440 ../src/sealert:64
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC നിഷേധം, കാണുന്നതിനായി ക്ലിക്ക് ചെയ്യുക"
 
@@ -719,11 +727,11 @@ msgstr "%s വിജയകരമായി പ്രവര്‍ത്തിപ�
 msgid "Plugin %s not valid for %s id"
 msgstr "പ്ലഗിന്‍ %s തെറ്റാണു് - %s id"
 
-#: ../src/setroubleshootd:72
+#: ../src/setroubleshootd:73
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux സജ്ജമല്ല, setroubleshootd-ല്‍ നിന്നും പുറത്തു് കടക്കുന്നു..."
 
-#: ../src/setroubleshootd:104
+#: ../src/setroubleshootd:105
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "ഫോര്‍ക്ക് #1 പരാജയപ്പെട്ടു: %d (%s)"
