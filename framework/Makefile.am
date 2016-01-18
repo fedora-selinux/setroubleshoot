@@ -39,12 +39,14 @@ EXTRA_DIST = 				\
 	$(dbus_system_DATA)		\
 	$(polkit_system_DATA)		\
 	$(appdata_DATA)			\
+	DBUS.md				\
 	$(NULL)
 
 pkgdoc_DATA =		\
 	AUTHORS		\
 	COPYING		\
 	ChangeLog	\
+	DBUS.md		\
 	NEWS		\
 	README		\
 	TODO		\
