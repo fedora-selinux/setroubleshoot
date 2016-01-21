@@ -39,6 +39,8 @@ gettext.install(domain    = domain,
 
 translation=gettext.translation(domain, fallback=True)
 
+rows = 1
+
 try:
     _ = translation.ugettext # This raises exception in Python3, succ. in Py2
 except AttributeError:
@@ -399,10 +401,10 @@ class BrowserApplet:
         self.radio = Gtk.RadioButton(label = None)
         for child in self.table.get_children():
             self.table.remove(child)
-        # cols = int(self.table.get_property("width"))
-        # self.table.resize(1, cols)
         global rows
-        rows = 1
+        while rows > 1:
+            self.table.remove_row(rows)
+            rows -= 1
         label = Gtk.Label()
         label.set_markup(_("<b>If you were trying to...</b>"))
         label.set_justify(Gtk.Justification.LEFT)
@@ -439,9 +441,6 @@ class BrowserApplet:
         if not if_text:
             return
 
-        # rows = int(self.table.get_property("n-rows"))
-        # cols = int(self.table.get_property("n-columns"))
-
         black = Gdk.Color(0,0,0)
         if plugin.level == "red":
             color = Gdk.Color(65535,0,0)
@@ -477,7 +476,7 @@ class BrowserApplet:
         if_label.show()
 
         if_button = Gtk.Button()
-        if_box = Gtk.Box(homogeneous = True,
+        if_box = Gtk.Box(homogeneous = False,
                     orientation = Gtk.Orientation.HORIZONTAL,
                     spacing = 5)
         if_box.add(sev_toggle)
@@ -492,6 +491,7 @@ class BrowserApplet:
         then_label.set_selectable(True)
         then_label.set_alignment(0.0, 0.0)
         then_label.set_justify(Gtk.Justification.LEFT)
+        then_label.set_line_wrap(True)
         then_label.show()
 
         then_scroll = Gtk.ScrolledWindow()
@@ -502,11 +502,11 @@ class BrowserApplet:
         then_scroll.show()
         then_scroll.set_sensitive(False)
         then_scroll.set_size_request(450, 90)
-
-        # self.table.resize(rows, cols)
-#        sev_toggle.connect("toggled", self.on_sev_togglebutton_activated, rows)
+        then_scroll.set_hexpand(True)
+        # self.table.resize(rows, cols) GtkGrid resize automatically
+        sev_toggle.connect("toggled", self.on_sev_togglebutton_activated, rows)
 #        col = 0
-#        self.table.attach(sev_toggle, col, col+1, rows, rows + 1, xoptions=0, yoptions=0)
+        # self.table.attach(sev_toggle, 10, rows, 1, 1)
 
         if_button.connect("clicked", self.on_sev_togglebutton_activated, rows)
         self.table.insert_row(rows)
@@ -515,9 +515,11 @@ class BrowserApplet:
         self.table.attach(then_scroll, 1, rows, 1, 1)
 #, col, col+1, rows, rows + 1, xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL,
 
+        self.table.attach(sev_toggle, 0, rows, 1, 1)
+
         # self.table.resize(rows + 1, cols + 1)
 
-        vbox = Gtk.VBox(spacing=5)
+        vbox = Gtk.Box(spacing=5, orientation=Gtk.Orientation.VERTICAL)
         report_button = Gtk.Button()
         report_button.set_label(_("Plugin\nDetails"))
         report_button.show()
