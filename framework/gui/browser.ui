@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Generated with glade 3.19.0 -->
 <interface>
-  <requires lib="gtk+" version="3.0"/>
+  <requires lib="gtk+" version="3.10"/>
   <object class="GtkAboutDialog" id="aboutdialog1">
     <property name="can_focus">False</property>
     <property name="border_width">5</property>
@@ -52,11 +52,12 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
     <property name="destroy_with_parent">True</property>
     <property name="icon">setroubleshoot_icon.png</property>
     <child>
-      <object class="GtkVBox" id="vbox3">
+      <object class="GtkBox" id="vbox3">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="border_width">10</property>
         <property name="spacing">5</property>
+	<property name="orientation">vertical</property>
         <child>
           <placeholder/>
         </child>
@@ -81,14 +82,14 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="hbox101">
+          <object class="GtkBox" id="hbox101">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
               <placeholder/>
             </child>
             <child>
-              <object class="GtkHBox" id="hbox102">
+              <object class="GtkBox" id="hbox102">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">5</property>
@@ -151,12 +152,13 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
     <property name="destroy_with_parent">True</property>
     <property name="icon">setroubleshoot_icon.png</property>
     <child>
-      <object class="GtkVBox" id="vbox301">
+      <object class="GtkBox" id="vbox301">
         <property name="width_request">600</property>
         <property name="height_request">500</property>
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="spacing">5</property>
+	<property name="orientation">vertical</property>
         <child>
           <object class="GtkScrolledWindow" id="scrolledwindow1">
             <property name="visible">True</property>
@@ -177,7 +179,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="hbox301">
+          <object class="GtkBox" id="hbox301">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -217,11 +219,12 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
     <property name="title" translatable="yes">SELinux Alert Browser</property>
     <property name="icon">setroubleshoot_icon.png</property>
     <child>
-      <object class="GtkVBox" id="vbox1">
+      <object class="GtkBox" id="vbox1">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
+        <property name="orientation">vertical</property>
         <child>
-          <object class="GtkHBox" id="hbox1">
+          <object class="GtkBox" id="hbox1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <child>
@@ -310,21 +313,23 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                 <property name="can_focus">False</property>
                 <property name="left_padding">12</property>
                 <child>
-                  <object class="GtkVBox" id="vbox2">
+                  <object class="GtkBox" id="vbox2">
                     <property name="visible">True</property>
                     <property name="can_focus">False</property>
+                    <property name="orientation">vertical</property>
                     <child>
-                      <object class="GtkHBox" id="hbox5">
+                      <object class="GtkBox" id="hbox5">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
-                          <object class="GtkHBox" id="hbox7">
+                          <object class="GtkBox" id="hbox7">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
-                              <object class="GtkVBox" id="vbox33">
+                              <object class="GtkBox" id="vbox33">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="orientation">vertical</property>
                                 <child>
                                   <object class="GtkLabel" id="source_title_label">
                                     <property name="visible">True</property>
@@ -375,9 +380,10 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                               </packing>
                             </child>
                             <child>
-                              <object class="GtkVBox" id="vbox4">
+                              <object class="GtkBox" id="vbox4">
                                 <property name="visible">True</property>
                                 <property name="can_focus">False</property>
+                                <property name="orientation">vertical</property>
                                 <child>
                                   <object class="GtkLabel" id="source_label">
                                     <property name="visible">True</property>
@@ -461,11 +467,11 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                       </packing>
                     </child>
                     <child>
-                      <object class="GtkHBox" id="hbox2">
+                      <object class="GtkBox" id="hbox2">
                         <property name="visible">True</property>
                         <property name="can_focus">False</property>
                         <child>
-                          <object class="GtkHBox" id="hbox3">
+                          <object class="GtkBox" id="hbox3">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
@@ -531,7 +537,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                           </packing>
                         </child>
                         <child>
-                          <object class="GtkHBox" id="hbox4">
+                          <object class="GtkBox" id="hbox4">
                             <property name="visible">True</property>
                             <property name="can_focus">False</property>
                             <child>
@@ -632,9 +638,6 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
                     <child>
                       <placeholder/>
                     </child>
-                    <child>
-                      <placeholder/>
-                    </child>
                   </object>
                 </child>
               </object>
@@ -647,7 +650,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
           </packing>
         </child>
         <child>
-          <object class="GtkHBox" id="hbox60">
+          <object class="GtkBox" id="hbox60">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
             <property name="spacing">5</property>
@@ -655,7 +658,7 @@ John Dennis &lt;jdennis@redhat.com&gt;</property>
               <placeholder/>
             </child>
             <child>
-              <object class="GtkHBox" id="hbox6">
+              <object class="GtkBox" id="hbox6">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
                 <property name="spacing">5</property>
