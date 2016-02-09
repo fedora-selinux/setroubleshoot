@@ -3,7 +3,7 @@
 import dbus
 import dbus.service
 import dbus.mainloop.glib
-import gobject
+from gi.repository import GLib
 import slip.dbus.service
 from slip.dbus import polkit
 import os
@@ -19,7 +19,7 @@ class RunFix(slip.dbus.service.Object):
         return subprocess.getoutput(command)
 
 if __name__ == "__main__":
-    mainloop = gobject.MainLoop ()
+    mainloop = GLib.MainLoop ()
     dbus.mainloop.glib.DBusGMainLoop (set_as_default=True)
     system_bus = dbus.SystemBus ()
     name = dbus.service.BusName("org.fedoraproject.SetroubleshootFixit", system_bus)
