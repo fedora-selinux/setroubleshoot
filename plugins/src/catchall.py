@@ -54,7 +54,7 @@ class plugin(Plugin):
 
     then_text = _('You should report this as a bug.\nYou can generate a local policy module to allow this access.')
     do_text = _("""Allow this access for now by executing:
-# grep $SOURCE /var/log/audit/audit.log | audit2allow -M mypol
+# ausearch -c $SOURCE --raw | audit2allow -M mypol
 # semodule -i mypol.pp""")
 
     def __init__(self):
