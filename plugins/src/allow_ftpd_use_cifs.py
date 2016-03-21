@@ -29,7 +29,7 @@ class plugin(Plugin):
     summary = _('''
     SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.
     ''')
-    
+
     problem_description = _('''
     SELinux prevented the ftp daemon from $ACCESS files stored on a CIFS filesystem.
     CIFS (Comment Internet File System) is a network filesystem similar to
@@ -38,7 +38,7 @@ class plugin(Plugin):
     a mounted filesystem of this type.  As CIFS filesystems do not support
     fine-grained SELinux labeling, all files and directories in the
     filesystem will have the same security context.
-    
+
     If you have not configured the ftp daemon to read files from a CIFS filesystem
     this access attempt could signal an intrusion attempt.
     ''')
@@ -47,7 +47,7 @@ class plugin(Plugin):
     Changing the "$BOOLEAN" boolean to true will allow this access:
     "setsebool -P $BOOLEAN=1."
     ''')
-    
+
     fix_cmd = 'setsebool -P $BOOLEAN=1'
 
     rw_fix_description = _(''' Changing the "$BOOLEAN" and
@@ -57,10 +57,10 @@ class plugin(Plugin):
     allow the ftp daemon to write to all public content (files and
     directories with type public_content_t) in addition to writing to
     files and directories on CIFS filesystems.  ''')
-    
+
     rw_fix_cmd = 'setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1'
-    if_text = _("you want to allow ftpd to write to cifs file systems")
-    then_text = _("you must tell SELinux about this")
+    if_text = _("You want to allow ftpd to write to cifs file systems.")
+    then_text = _("You must tell SELinux about this.")
     do_text = '# setsebool -P allow_ftpd_use_cifs=1 allow_ftpd_anon_write=1'
 
     def __init__(self):

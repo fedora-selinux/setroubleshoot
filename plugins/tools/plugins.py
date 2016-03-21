@@ -14,7 +14,7 @@ def setroubleshoot_print( se_plugin ):
         rec += "</fix>\n"
         rec += "</setroubleshoot>"
         return rec
-    
+
 __all__ = ['RunFaultServer',
            'get_host_database',
            'send_alert_notification',
@@ -27,7 +27,7 @@ gettext.install(domain    = get_config('general', 'i18n_text_domain'),
                 codeset   = get_config('general', 'i18n_encoding'))
 
 from setroubleshoot.util import *
-se_plugins = {} 
+se_plugins = {}
 plugins = load_plugins()
 for p in plugins:
     se_plugins[p.analysis_id.split(".")[1]] = p

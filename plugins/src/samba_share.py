@@ -37,19 +37,19 @@ class plugin(Plugin):
     ''')
 
     fix_description = _('''
-    You can alter the file context by executing chcon -R -t samba_share_t '$TARGET_PATH'
-    You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'"
+    You can alter the file context by executing chcon -R -t samba_share_t '$TARGET_PATH'.
+    You must also change the default file context files on the system in order to preserve them even on a full relabel. "semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH'"
     ''')
 
     fix_cmd = "chcon -R -t samba_share_t '$TARGET_PATH'"
-    then_text = _("You need to change the label on '$FIX_TARGET_PATH'")
+    then_text = _("You need to change the label on '$FIX_TARGET_PATH'.")
     def get_do_text(self, avc, tclass):
         dpath = ""
         rflag = ""
         if tclass == "dir":
             dpath = "(/.*)?"
             rflag = "-R"
-            
+
         return _("""# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'
 # restorecon %s -v '$FIX_TARGET_PATH'""") % (dpath, rflag)
 

@@ -35,15 +35,15 @@ class plugin(Plugin):
 
     problem_description = _('''
 
-    SELinux denied access requested by $SOURCE. The current boolean 
+    SELinux denied access requested by $SOURCE. The current boolean
     settings do not allow this access.  If you have not setup $SOURCE to
-    require this access this may signal an intrusion attempt. If you do intend 
-    this access you need to change the booleans on this system to allow 
+    require this access this may signal an intrusion attempt. If you do intend
+    this access you need to change the booleans on this system to allow
     the access.
     ''')
 
     fix_description = _('''
-    Confined processes can be configured to run requiring different access, SELinux provides booleans to allow you to turn on/off 
+    Confined processes can be configured to run requiring different access, SELinux provides booleans to allow you to turn on/off
     access as needed.
 
     ''')
@@ -59,8 +59,8 @@ class plugin(Plugin):
         txt=seobject.boolean_desc(args[0])
         if not isinstance(txt, unicode):
             txt=unicode(txt, encoding="utf8")
-        return _("you want to %s") % (txt[0].lower() + txt[1:])
-        
+        return _("You want to %s") % (txt[0].lower() + txt[1:])
+
     def get_do_text(self, avc, args):
         return _("setsebool -P %s %s") % (args[0], args[1])
 
@@ -73,10 +73,10 @@ class plugin(Plugin):
             pass
 
         return text
-        
+
     def analyze(self, avc):
         man_page = self.check_for_man(avc.scontext.type)
-        if  len(avc.bools) > 0:            
+        if  len(avc.bools) > 0:
             reports = []
             fix = self.fix_description
             fix_cmd = ""

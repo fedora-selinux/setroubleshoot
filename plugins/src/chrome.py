@@ -35,16 +35,16 @@ class plugin(Plugin):
     fix_description = _('''
 Either remove the mozplugger or spice-xpi package by executing 'yum remove mozplugger spice-xpi', or turn off enforcement of SELinux over the Chrome plugins. setsebool -P unconfined_chrome_sandbox_transition 0
     ''')
-    if_text = _("you want to use the %s package")
+    if_text = _("You want to use the %s package.")
 
     def get_if_text(self, avc, args):
         return self.if_text % args[0]
 
-    then_text = _("you must turn off SELinux controls on the Chrome plugins.")
+    then_text = _("You must turn off SELinux controls on the Chrome plugins.")
     do_text = """# setsebool -P unconfined_chrome_sandbox_transition 0"""
 
     fix_cmd = "setsebool -P unconfined_chrome_sandbox_transition 0"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(50)

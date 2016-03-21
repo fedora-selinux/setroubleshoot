@@ -33,7 +33,7 @@ class plugin(Plugin):
     If this is a XEN image, it has to have a file context label of
     xen_image_t. The system is setup to label image files in directory /var/lib/xen/images
     correctly.  We recommend that you copy your image file to /var/lib/xen/images.
-    If you really want to have your xen image files in the current directory, you can relabel $TARGET_PATH to be xen_image_t using chcon.  You also need to execute semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH' to add this
+    If you really want to have your xen image files in the current directory, you can relabel $TARGET_PATH to be xen_image_t using chcon. You also need to execute semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH' to add this
     new path to the system defaults. If you did not intend to use $TARGET_PATH as a xen
     image it could indicate either a bug or an intrusion attempt.
     ''')
@@ -49,7 +49,7 @@ class plugin(Plugin):
 
     do_text = """# semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
 

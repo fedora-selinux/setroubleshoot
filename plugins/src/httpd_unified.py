@@ -29,7 +29,7 @@ class plugin(Plugin):
     summary = _('''
     SELinux prevented httpd $ACCESS access to http files.
     ''')
-    
+
     problem_description = _('''
     SELinux prevented httpd $ACCESS access to http files.
 
@@ -41,21 +41,21 @@ class plugin(Plugin):
     httpd_TYPE_content_t, it is writable content. it needs to be labeled
     httpd_TYPE_script_rw_t or httpd_TYPE_script_ra_t. You can use the
     chcon command to change these context.  Please refer to the man page
-    "man httpd_selinux" or 
+    "man httpd_selinux" or
     <a href="http://fedora.redhat.com/docs/selinux-apache-fc3">FAQ</a>
     "TYPE" refers to one of "sys", "user" or "staff" or potentially other
     script types.
     ''')
-    
+
     fix_description = _('''
     Changing the "$BOOLEAN" boolean to true will allow this access:
     "setsebool -P $BOOLEAN=1"
     ''')
-    
+
     fix_cmd = 'setsebool -P $BOOLEAN=1'
 
-    if_text = _("you want to allow httpd to execute cgi scripts and to unify HTTPD handling of all content files.")
-    then_text = _("you must tell SELinux about this by enabling the 'httpd_unified' and 'http_enable_cgi' booleans")
+    if_text = _("You want to allow httpd to execute cgi scripts and to unify HTTPD handling of all content files.")
+    then_text = _("You must tell SELinux about this by enabling the 'httpd_unified' and 'http_enable_cgi' booleans.")
     do_text = "# setsebool -P httpd_unified=1 httpd_enable_cgi=1"
 
     def __init__(self):

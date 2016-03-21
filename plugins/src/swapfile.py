@@ -37,13 +37,13 @@ class plugin(Plugin):
     ''')
 
     fix_description = _('''
-    You can alter the file context by executing chcon -t swapfile_t '$TARGET_PATH'
+    You can alter the file context by executing chcon -t swapfile_t '$TARGET_PATH'.
     You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'"
     ''')
 
     fix_cmd = "chcon -t swapfile_t '$TARGET_PATH'"
 
-    then_text = _("You need to change the label on '$FIX_TARGET_PATH'")
+    then_text = _("You need to change the label on '$FIX_TARGET_PATH'.")
     do_text = """# semanage fcontext -a -t swapfile_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""
     def __init__(self):

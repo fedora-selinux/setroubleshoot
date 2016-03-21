@@ -31,18 +31,18 @@ class plugin(Plugin):
     ''')
 
     problem_description = _('''
-    SELinux has prevented $SOURCE from modifying $TARGET.  This denial 
-    indicates $SOURCE was trying to modify the selinux policy configuration. 
-    All applications that need this access should have already had policy 
+    SELinux has prevented $SOURCE from modifying $TARGET.  This denial
+    indicates $SOURCE was trying to modify the selinux policy configuration.
+    All applications that need this access should have already had policy
     written for them.  If a compromised application tries to modify the SELinux
-    policy this AVC will be generated. This is a serious issue. Your system 
+    policy this AVC will be generated. This is a serious issue. Your system
     may very well be compromised.
     ''')
 
-    fix_description = "Contact your security administrator and report this issue." 
+    fix_description = "Contact your security administrator and report this issue."
     fix_cmd = ""
-    if_text = _("you do not think $SOURCE_BASE_PATH should try $ACCESS access on $TARGET_BASE_PATH.")
-    then_text = _("you may be under attack by a hacker, since confined applications should not need this access.")
+    if_text = _("You do not think $SOURCE_BASE_PATH should try $ACCESS access on $TARGET_BASE_PATH.")
+    then_text = _("You may be under attack by a hacker, since confined applications should not need this access.")
     do_text = _("Contact your security administrator and report this issue.")
 
     def __init__(self):

@@ -27,19 +27,19 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux has denied the $SOURCE access to potentially
-    mislabeled files $TARGET_PATH.  This means that SELinux will not
+    mislabeled files $TARGET_PATH. This means that SELinux will not
     allow httpd to use these files. If httpd should be allowed this access to these files you should change the file context to one of the following types, %s.
     Many third party apps install html files
-    in directories that SELinux policy cannot predict.  These directories
+    in directories that SELinux policy cannot predict. These directories
     have to be labeled with a file context which httpd can access.
     ''')
 
-    then_text = _("You need to change the label on $FIX_TARGET_PATH")
+    then_text = _("You need to change the label on $FIX_TARGET_PATH.")
 
     def get_do_text(self, avc, args):
         return _("""# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'
-where FILE_TYPE is one of the following: %s. 
-Then execute: 
+where FILE_TYPE is one of the following: %s.
+Then execute:
 restorecon -v '$FIX_TARGET_PATH'
 """) % ", ".join(args)
 

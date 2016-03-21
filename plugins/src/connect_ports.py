@@ -30,11 +30,10 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux has denied $SOURCE from connecting to a network port $PORT_NUMBER which does not have an SELinux type associated with it.
-    If $SOURCE should be allowed to connect on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can connect to (%s). 
+    If $SOURCE should be allowed to connect on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can connect to (%s).
     \n\nIf $SOURCE is not supposed
     to connect to $PORT_NUMBER, this could signal a intrusion attempt.
     ''')
-    
 
     fix_description = _('''
     If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute \n
@@ -43,9 +42,9 @@ class plugin(Plugin):
     ''')
 
     fix_cmd = ''
-    if_text = 'you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER'
-    then_text = 'you need to modify the port type.'
-    
+    if_text = 'You want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER.'
+    then_text = 'You need to modify the port type.'
+
     def get_do_text(self, avc, options):
         ports = options[1].split(",")
         if len(ports) > 1:
