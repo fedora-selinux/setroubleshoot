@@ -41,8 +41,8 @@ class plugin(Plugin):
     ''')
 
     fix_cmd = "chcon -t virt_image_t '$TARGET_PATH'"
-    
-    then_text = _("You need to change the label on '$FIX_TARGET_PATH'")
+
+    then_text = _("You need to change the label on '$FIX_TARGET_PATH'.")
     do_text = _("""# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'""")
 

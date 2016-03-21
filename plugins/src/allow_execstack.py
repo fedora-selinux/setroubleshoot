@@ -53,7 +53,7 @@ class plugin(Plugin):
     summary =_('''
     SELinux is preventing $SOURCE_PATH from making the program stack executable.
     ''')
-    
+
     problem_description = _('''
     The $SOURCE application attempted to make its stack
     executable.  This is a potential security problem.  This should
@@ -65,22 +65,22 @@ class plugin(Plugin):
     <a href="http://people.redhat.com/drepper/selinux-mem.html">SELinux Memory Protection Tests</a>
     web page explains how to remove this requirement.  If $SOURCE does not
     work and you need it to work, you can configure SELinux
-    temporarily to allow this access until the application is fixed. Please 
+    temporarily to allow this access until the application is fixed. Please
 file a bug report.
     ''')
-    
+
     fix_description = _('''
     Sometimes a library is accidentally marked with the execstack flag,
     if you find a library with this flag you can clear it with the
     execstack -c LIBRARY_PATH.  Then retry your application.  If the
     app continues to not work, you can turn the flag back on with
-    execstack -s LIBRARY_PATH.  
+    execstack -s LIBRARY_PATH.
     ''')
 
     fix_cmd = ""
 
-    if_text = _("you do not think $SOURCE_PATH should need to map stack memory that is both writable and executable.")
-    then_text = _("you need to report a bug. \nThis is a potentially dangerous access.")
+    if_text = _("You do not think $SOURCE_PATH should need to map stack memory that is both writable and executable.")
+    then_text = _("You need to report a bug. \nThis is a potentially dangerous access.")
     do_text = _("Contact your security administrator and report this issue.")
 
     def get_if_text(self, avc, args):
@@ -89,25 +89,25 @@ file a bug report.
             if not path:
                 return self.if_text
 
-            return _("you believe that \n%s\nshould not require execstack") % path
+            return _("You believe that \n%s\nshould not require execstack.") % path
         except:
             return self.if_text
-        
+
     def get_then_text(self, avc, args):
         try:
             path = args[0]
             if not path:
                 return self.then_text
-            return _("you should clear the execstack flag and see if $SOURCE_PATH works correctly.\nReport this as a bug on %s.\nYou can clear the exestack flag by executing:") % path
+            return _("You should clear the execstack flag and see if $SOURCE_PATH works correctly.\nReport this as a bug on %s.\nYou can clear the exestack flag by executing:") % path
         except:
             return self.then_text
-        
+
     def get_do_text(self, avc, args):
         try:
             path = args[0]
             if not path:
                 return self.do_text
-            
+
             return _("execstack -c %s") % path
         except:
             return self.do_text

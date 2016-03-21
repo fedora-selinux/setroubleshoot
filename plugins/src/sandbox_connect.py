@@ -36,7 +36,6 @@ class plugin(Plugin):
     \n\nIf $SOURCE is not supposed
     to connect to $PORT_NUMBER, this could signal a intrusion attempt.
     ''')
-    
 
     fix_description = _('''
     If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute \n
@@ -44,9 +43,9 @@ class plugin(Plugin):
     ''')
 
     fix_cmd = ''
-    if_text = _('you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER')
+    if_text = _('You want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER.')
 
-    then_text =  _("""you need to modify the sandbox type. sandbox_web_t or sandbox_net_t. 
+    then_text =  _("""You need to modify the sandbox type. sandbox_web_t or sandbox_net_t.
 For example:
 sandbox -X -t sandbox_net_t $SOURCE_PATH
 Please read 'sandbox' man page for more details.

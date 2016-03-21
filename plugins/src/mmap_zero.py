@@ -31,20 +31,20 @@ class plugin(Plugin):
     ''')
 
     problem_description = _('''
-    SELinux has denied the $SOURCE the ability to mmap low area of the kernel 
-    address space.  The ability to mmap a low area of the address space, as 
-    configured by /proc/sys/kernel/mmap_min_addr.  Preventing such mappings 
-    helps protect against exploiting null deref bugs in the kernel. All 
-    applications that need this access should have already had policy written 
-    for them.  If a compromised application tries modify the kernel this AVC 
-    would be generated. This is a serious issue. Your system may very well be 
+    SELinux has denied the $SOURCE the ability to mmap low area of the kernel
+    address space.  The ability to mmap a low area of the address space, as
+    configured by /proc/sys/kernel/mmap_min_addr.  Preventing such mappings
+    helps protect against exploiting null deref bugs in the kernel. All
+    applications that need this access should have already had policy written
+    for them.  If a compromised application tries modify the kernel this AVC
+    would be generated. This is a serious issue. Your system may very well be
     compromised.
     ''')
 
     fix_description = ("Contact your security administrator and report this issue.")
     fix_cmd = ""
-    if_text = _("you do not think $SOURCE_PATH should need to mmap low memory in the kernel.")
-    then_text = _("you may be under attack by a hacker, this is a very dangerous access.")
+    if_text = _("You do not think $SOURCE_PATH should need to mmap low memory in the kernel.")
+    then_text = _("You may be under attack by a hacker, this is a very dangerous access.")
     do_text = _("Contact your security administrator and report this issue.")
     def __init__(self):
         Plugin.__init__(self, __name__)

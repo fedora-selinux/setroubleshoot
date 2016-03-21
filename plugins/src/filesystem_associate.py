@@ -34,16 +34,16 @@ class plugin(Plugin):
     copying between file systems, "cp -a" for example.  Not all file contexts should be maintained
     between the file systems.  For example, a read-only file type like iso9660_t should not be placed
     on a r/w system.  "cp -p" might be a better solution, as this will adopt the default file context
-    for the destination.  
+    for the destination.
     ''')
 
     fix_description = _('''
     Use a command like "cp -p" to preserve all permissions except SELinux context.
     ''')
-    if_text = _("you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH files")
-    then_text = _("you need to use a different command. You are not allowed to preserve the SELinux context on the target file system.")
+    if_text = _("You believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH files.")
+    then_text = _("You need to use a different command. You are not allowed to preserve the SELinux context on the target file system.")
 
-    do_text = _('use a command like "cp -p" to preserve all permissions except SELinux context.')
+    do_text = _('Use a command like "cp -p" to preserve all permissions except SELinux context.')
 
     def __init__(self):
         Plugin.__init__(self, __name__)

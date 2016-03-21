@@ -42,7 +42,7 @@ class plugin(Plugin):
 
     fix_cmd = 'chcon -t bin_t $TARGET_PATH'
 
-    then_text = "You need to change the label on '$FIX_TARGET_PATH'"
+    then_text = "You need to change the label on '$FIX_TARGET_PATH'."
 
     do_text = "chcon -t bin_t '$FIX_TARGET_PATH'"
 

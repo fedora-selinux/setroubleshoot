@@ -39,14 +39,14 @@ class plugin(Plugin):
     ''')
 
     fix_description = _('''
-    You can alter the file context by executing chcon -t virt_image_t '$TARGET_PATH'
+    You can alter the file context by executing chcon -t virt_image_t '$TARGET_PATH'.
     You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'"
     ''')
 
     fix_cmd = "chcon -t virt_image_t '$TARGET_PATH'"
-    
-    if_text = _("$TARGET_BASE_PATH is a virtualization target")
-    then_text = _("You need to change the label on $TARGET_BASE_PATH'")
+
+    if_text = _("$TARGET_BASE_PATH is a virtualization target.")
+    then_text = _("You need to change the label on $TARGET_BASE_PATH'.")
     do_text = """# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""
     def __init__(self):

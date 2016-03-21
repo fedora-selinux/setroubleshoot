@@ -29,7 +29,7 @@ class plugin(Plugin):
     summary =_('''
     SELinux is preventing $SOURCE_PATH from loading $TARGET_PATH which requires text relocation.
     ''')
-    
+
     problem_description = _('''
     The $SOURCE application attempted to load $TARGET_PATH which
     requires text relocation.  This is a potential security problem.
@@ -38,39 +38,39 @@ class plugin(Plugin):
     <a href="http://people.redhat.com/drepper/selinux-mem.html">SELinux Memory Protection Tests</a>
     web page explains how to remove this requirement.  You can configure
     SELinux temporarily to allow $TARGET_PATH to use relocation as a
-    workaround, until the library is fixed. Please file a 
+    workaround, until the library is fixed. Please file a
 bug report.
     ''')
-    
+
     unsafe_problem_description = _('''
     The $SOURCE application attempted to load $TARGET_PATH which
     requires text relocation.  This is a potential security problem.
-    Most libraries should not need this permission.   The   
+    Most libraries should not need this permission.   The
     <a href="http://people.redhat.com/drepper/selinux-mem.html">
     SELinux Memory Protection Tests</a>
-    web page explains this check.  This tool examined the library and it looks 
-    like it was built correctly. So setroubleshoot can not determine if this 
-    application is compromized or not.  This could be a serious issue. Your 
+    web page explains this check.  This tool examined the library and it looks
+    like it was built correctly. So setroubleshoot can not determine if this
+    application is compromized or not.  This could be a serious issue. Your
     system may very well be compromised.
 
     Contact your security administrator and report this issue.
 
     ''')
-    
-    unsafe_fix_description = "Contact your security administrator and report this issue." 
+
+    unsafe_fix_description = "Contact your security administrator and report this issue."
 
     fix_description = _('''
     If you trust $TARGET_PATH to run correctly, you can change the
     file context to textrel_shlib_t. "chcon -t textrel_shlib_t
     '$TARGET_PATH'"
     You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'"
-    
+
     ''')
 
     unsafe_then_text = """
 setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, but can not determine if this application has been compromized.  This alert could be a serious issue and your system could be compromised.
 """
-    unsafe_do_text = "Contact your security administrator and report this issue." 
+    unsafe_do_text = "Contact your security administrator and report this issue."
 
     then_text = "You need to change the label on '$FIX_TARGET_PATH'"
     do_text = """# semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'

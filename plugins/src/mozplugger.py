@@ -35,16 +35,16 @@ class plugin(Plugin):
     fix_description = _('''
 Either remove the mozplugger or spice-xpi package by executing 'yum remove mozplugger spice-xpi' or turn off enforcement of SELinux over the Firefox plugins. setsebool -P unconfined_mozilla_plugin_transition 0
     ''')
-    if_text = _("you want to use the %s package")
+    if_text = _("You want to use the %s package.")
 
     def get_if_text(self, avc, args):
         return self.if_text % args[0]
 
-    then_text = _("you must turn off SELinux controls on the Firefox plugins.")
+    then_text = _("You must turn off SELinux controls on the Firefox plugins.")
     do_text = """# setsebool -P unconfined_mozilla_plugin_transition 0"""
 
     fix_cmd = "setsebool -P unconfined_mozilla_plugin_transition 0"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(75)
@@ -52,7 +52,7 @@ Either remove the mozplugger or spice-xpi package by executing 'yum remove mozpl
     def analyze(self, avc):
         if avc.matches_source_types(['mozilla_plugin_t']):
             reports = []
-            if get_rpm_nvr_by_name("mozplugger"):                
+            if get_rpm_nvr_by_name("mozplugger"):
                 reports.append(self.report(("mozplugger", None)))
             if get_rpm_nvr_by_name("spice-xpi"):
                 reports.append(self.report(("spice-xpi", None)))

@@ -35,7 +35,7 @@ class plugin(Plugin):
     problem. No files on an SELinux box should ever be labeled file_t.
     If you have just added a disk drive to the system you can
     relabel it using the restorecon command.  For example if you saved the
-home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should
+home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels. Otherwise you should
     relabel the entire file system.
     ''')
 
@@ -46,15 +46,15 @@ home directory from a previous installation that did not use SELinux, 'restoreco
 
     def get_if_text(self, avc, args):
         if args == (1,0):
-            return _('this is caused by a newly created file system.')
+            return _('This is caused by a newly created file system.')
         else:
-            return _('you think this is caused by a badly mislabeled machine.')
+            return _('You think this is caused by a badly mislabeled machine.')
 
     def get_then_text(self, avc, args):
         if args == (1,0):
-            return _('you need to add labels to it.')
+            return _('You need to add labels to it.')
         else:
-            return _('you need to fully relabel.')
+            return _('You need to fully relabel.')
 
     def get_do_text(self, avc, args):
         if args == (1,0):

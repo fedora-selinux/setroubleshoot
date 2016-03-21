@@ -36,7 +36,7 @@ class plugin(Plugin):
     or directory "$TARGET_PATH" of type "$TARGET_TYPE". By default
     SELinux limits the mounting of filesystems to only some files or
     directories (those with types that have the mountpoint attribute). The
-    type "$TARGET_TYPE" does not have this attribute. You can change the 
+    type "$TARGET_TYPE" does not have this attribute. You can change the
     label of the file or directory.
     ''')
 
@@ -45,13 +45,13 @@ class plugin(Plugin):
     "chcon -t mnt_t '$TARGET_PATH'."
     You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t mnt_t '$FIX_TARGET_PATH'"
     ''')
-    if_text = _("you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH.")
-    then_text = _("you must change the labeling on $TARGET_PATH.")
+    if_text = _("You want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH.")
+    then_text = _("You must change the labeling on $TARGET_PATH.")
     do_text = """# semanage fcontext -a -t mnt_t '$FIX_TARGET_PATH'
 # restorecon -v $TARGET_PATH"""
 
     fix_cmd = "chcon -t mnt_t '$TARGET_PATH'"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
 

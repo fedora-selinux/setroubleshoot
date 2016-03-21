@@ -42,11 +42,11 @@ class plugin(Plugin):
     well be compromised.
     ''')
 
-    fix_description = "Contact your security administrator and report this issue." 
+    fix_description = "Contact your security administrator and report this issue."
     fix_cmd = ""
 
-    if_text = _("you believe $SOURCE_PATH tried to disable SELinux.")
-    then_text = _("you may be under attack by a hacker, since confined applications should never need this access.")
+    if_text = _("You believe $SOURCE_PATH tried to disable SELinux.")
+    then_text = _("You may be under attack by a hacker, since confined applications should never need this access.")
     do_text = _("Contact your security administrator and report this issue.")
 
     def __init__(self):

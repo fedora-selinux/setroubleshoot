@@ -24,7 +24,7 @@ _=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
-import os 
+import os
 from stat import *
 
 import selinux
@@ -35,20 +35,20 @@ class plugin(Plugin):
 
     def get_problem_description(self, avc, args):
         return _('''
-You tried to place a type on a %s that is not a file type.  This is not allowed, you must assigne a file type.  You can list all file types using the seinfo command.
+You tried to place a type on a %s that is not a file type. This is not allowed, you must assigne a file type. You can list all file types using the seinfo command.
 
 seinfo -afile_type -x
 
     ''') % args[1]
 
-    if_text = _('you want to change the label of $TARGET_PATH to %s, you are not allowed to since it is not a valid file type.') 
+    if_text = _('You want to change the label of $TARGET_PATH to %s, you are not allowed to since it is not a valid file type.')
 
     def get_if_text(self, avc, args):
         return self.if_text % args[1]
 
-    then_text = _('you must pick a valid file label.')
-    do_text = 'select a valid file type.  List valid file labels by executing: \n# seinfo -afile_type -x'
-    
+    then_text = _('You must pick a valid file label.')
+    do_text = 'Select a valid file type.  List valid file labels by executing: \n# seinfo -afile_type -x'
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(100)

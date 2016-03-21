@@ -28,7 +28,7 @@ class plugin(Plugin):
     SELinux is preventing $SOURCE_PATH from changing the access
     protection of memory on the heap.
     ''')
-    
+
     problem_description = _('''
     The $SOURCE application attempted to change the access protection of memory on
     the heap (e.g., allocated using malloc).  This is a potential security
@@ -46,14 +46,14 @@ class plugin(Plugin):
     $BOOLEAN boolean.  Note: This boolean will affect all applications
     on the system.
     ''')
-    
-    if_text = _("you do not think $SOURCE_PATH should need to map heap memory that is both writable and executable.")
-    then_text = _("you need to report a bug. This is a potentially dangerous access.")
+
+    if_text = _("You do not think $SOURCE_PATH should need to map heap memory that is both writable and executable.")
+    then_text = _("You need to report a bug. This is a potentially dangerous access.")
     do_text = _("Contact your security administrator and report this issue.")
 
     def __init__(self):
         Plugin.__init__(self, __name__)
-        
+
     def analyze(self, avc):
         if avc.has_any_access_in(['execheap']):
             return self.report()

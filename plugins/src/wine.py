@@ -44,7 +44,7 @@ attempting to run a Windows application this indicates you are likely
 being attacked by some for of malware or program trying to exploit your
 system for nefarious purposes.
 
-Please refer to 
+Please refer to
 
 http://wiki.winehq.org/PreloaderPageZeroProblem
 
@@ -63,8 +63,8 @@ executing:
 
     fix_cmd = "/usr/sbin/setsebool -P mmap_low_allowed 1"
 
-    if_text=_("you want to ignore this AVC because it is dangerous and your wine applications are working correctly.")
-    then_text = _("you must tell SELinux about this by enabling the wine_mmap_zero_ignore boolean.")
+    if_text=_("You want to ignore this AVC because it is dangerous and your wine applications are working correctly.")
+    then_text = _("You must tell SELinux about this by enabling the wine_mmap_zero_ignore boolean.")
     do_text = "# setsebool -P wine_mmap_zero_ignore 1"
 
     def __init__(self):
@@ -75,7 +75,7 @@ executing:
     def analyze(self, avc):
         if avc.has_any_access_in(['mmap_zero']) and \
                 avc.matches_source_types(['.*wine_t']) and \
-                os.stat(avc.spath).st_uid == 0:            
+                os.stat(avc.spath).st_uid == 0:
 
             # MATCH
             return self.report()

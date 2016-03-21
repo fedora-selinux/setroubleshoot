@@ -31,8 +31,8 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux has denied the http daemon from sending mail. An
-    httpd script is trying to connect to a mail port or execute the 
-    sendmail command. If you did not setup httpd to sendmail, this could 
+    httpd script is trying to connect to a mail port or execute the
+    sendmail command. If you did not setup httpd to sendmail, this could
     signal a intrusion attempt.
     ''')
 
@@ -44,10 +44,10 @@ class plugin(Plugin):
 
     fix_cmd = 'setsebool -P $BOOLEAN=1'
 
-    if_text = _("you want to allow httpd to send mail")
-    then_text = _("you must setup SELinux to allow this")
+    if_text = _("You want to allow httpd to send mail.")
+    then_text = _("You must setup SELinux to allow this.")
     do_text = 'setsebool -P httpd_can_sendmail=1'
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.level="green"

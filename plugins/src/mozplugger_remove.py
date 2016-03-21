@@ -37,16 +37,16 @@ class plugin(Plugin):
     ''')
 
     fix_description = _('''
-Either remove the mozplluger package by executing 'yum remove mozplugger'
+Either remove the mozplugger package by executing 'yum remove mozplugger'
 Or turn off enforcement of SELinux over the Firefox plugins.
 setsebool -P unconfined_mozilla_plugin_transition 0
     ''')
-    if_text = _("you want to to continue using SELinux Firefox plugin containment rather then using mozplugger package")
-    then_text = _("you must remove the mozplugger package.")
+    if_text = _("You want to to continue using SELinux Firefox plugin containment rather then using mozplugger package.")
+    then_text = _("You must remove the mozplugger package.")
     do_text = """# yum remove mozplugger"""
 
     fix_cmd = "yum remove mozplugger"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(99)

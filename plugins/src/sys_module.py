@@ -37,14 +37,14 @@ class plugin(Plugin):
     problem_description = _('''
     SELinux has prevented $SOURCE from loading a kernel module.
     All confined programs that need to load kernel modules should have already had policy
-    written for them. If a compromised application 
-    tries to modify the kernel this AVC will be generated. This is a serious 
+    written for them. If a compromised application
+    tries to modify the kernel this AVC will be generated. This is a serious
     issue. Your system may very well be compromised.
     ''')
 
-    fix_description = "Contact your security administrator and report this issue." 
-    if_text = _("you do not believe that $SOURCE_PATH should be attempting to modify the kernel by loading a kernel module.") 
-    then_text = _("A process might be attempting to hack into your system.") 
+    fix_description = "Contact your security administrator and report this issue."
+    if_text = _("You do not believe that $SOURCE_PATH should be attempting to modify the kernel by loading a kernel module.")
+    then_text = _("A process might be attempting to hack into your system.")
     do_text = _("Contact your security administrator and report this issue.")
     fix_cmd = ""
     def __init__(self):
