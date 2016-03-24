@@ -38,8 +38,8 @@ class plugin(Plugin):
 
     def get_do_text(self, avc, args):
         return _("""# semanage fcontext -a -t FILE_TYPE '$FIX_TARGET_PATH'
-where FILE_TYPE is one of the following: %s. 
-Then execute: 
+where FILE_TYPE is one of the following: %s.
+Then execute:
 restorecon -v '$FIX_TARGET_PATH'
 """) % ", ".join(args)
 
@@ -48,7 +48,7 @@ restorecon -v '$FIX_TARGET_PATH'
         self.set_priority(5)
 
     def analyze(self, avc):
-        if avc.syscall != 'execve' and avc.matches_target_types(['file_t', 'unlabeled_t', 'usr_t', 'etc_t', 'mnt_t', 'var_t', 'var_lib_t', 'default_t']) and \
-                avc.has_tclass_in(['dir', 'file', 'lnk_file', 'sock_file']):
+        if (avc.syscall != 'execve' and avc.matches_target_types(['file_t', 'unlabeled_t', 'usr_t', 'etc_t', 'mnt_t', 'var_t', 'var_lib_t', 'default_t']) and
+                avc.has_tclass_in(['dir', 'file', 'lnk_file', 'sock_file'])):
             return self.report(avc.allowed_target_types())
         return None

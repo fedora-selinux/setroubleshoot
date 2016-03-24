@@ -46,9 +46,9 @@ class plugin(Plugin):
         self.set_priority(100)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['httpd_t', 'httpd_sys_script_t'])  and \
-           avc.matches_target_types(['httpd_sys_content_t'])                     and \
-           avc.has_tclass_in(['file', 'dir']):
+        if (avc.matches_source_types(['httpd_t', 'httpd_sys_script_t'])  and
+            avc.matches_target_types(['httpd_sys_content_t'])            and
+            avc.has_tclass_in(['file', 'dir'])):
 
             if avc.all_accesses_are_in(avc.create_file_perms + avc.rw_dir_perms):
                 return self.report()

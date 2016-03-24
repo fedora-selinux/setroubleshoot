@@ -52,11 +52,11 @@ class plugin(Plugin):
         self.level="green"
 
     def analyze(self, avc):
-        if avc.matches_source_types(['rsync_t'])                                  and \
-           not avc.matches_target_types(['samba_share_t', 'httpd_.*_content_t'])  and \
-           avc.all_accesses_are_in(avc.r_file_perms + avc.r_dir_perms)            and \
-           avc.has_tclass_in(['file', 'dir'])                                     and \
-           avc.path_is_not_standard_directory():
+        if (avc.matches_source_types(['rsync_t'])                                  and
+            not avc.matches_target_types(['samba_share_t', 'httpd_.*_content_t'])  and
+            avc.all_accesses_are_in(avc.r_file_perms + avc.r_dir_perms)            and
+            avc.has_tclass_in(['file', 'dir'])                                     and
+            avc.path_is_not_standard_directory()):
             # MATCH
             return self.report()
         else:

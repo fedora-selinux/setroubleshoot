@@ -50,8 +50,24 @@ class plugin(Plugin):
         self.level="red"
 
     def analyze(self, avc):
-        if (avc.has_any_access_in(['write']) or avc.open_with_write())       and \
-           avc.matches_target_types(['selinux_config_t', 'default_context_t', 'file_context_t', 'semanage_store_t', 'semange_read_lock_t', 'semanage_trans_lock_t', 'load_policy_exec_t', 'setfiles_exec_t', 'checkpolicy_exec_t', 'newrole_exec_t', 'policy_src_t', 'restorecond_exec_t', 'run_init_exec_t', 'setsebool_exec_t', 'semanage_exec_t', 'selinux_var_lib_t']):
+        if ((avc.has_any_access_in(['write']) or avc.open_with_write()) and
+           avc.matches_target_types(['selinux_config_t',
+                                     'default_context_t',
+                                     'file_context_t',
+                                     'semanage_store_t',
+                                     'semange_read_lock_t',
+                                     'semanage_trans_lock_t',
+                                     'load_policy_exec_t',
+                                     'setfiles_exec_t',
+                                     'checkpolicy_exec_t',
+                                     'newrole_exec_t',
+                                     'policy_src_t',
+                                     'restorecond_exec_t',
+                                     'run_init_exec_t',
+                                     'setsebool_exec_t',
+                                     'semanage_exec_t',
+                                     'selinux_var_lib_t'
+                                    ])):
             # MATCH
             return self.report()
         return None

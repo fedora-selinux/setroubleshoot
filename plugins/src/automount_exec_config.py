@@ -50,9 +50,9 @@ class plugin(Plugin):
         Plugin.__init__(self, __name__)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['automount_t'])                 and \
-           avc.all_accesses_are_in(['execute', 'execute_no_trans'])  and \
-           avc.has_tclass_in(['file']):
+        if (avc.matches_source_types(['automount_t'])                 and
+            avc.all_accesses_are_in(['execute', 'execute_no_trans'])  and
+            avc.has_tclass_in(['file'])):
             # MATCH
             return self.report()
         return None

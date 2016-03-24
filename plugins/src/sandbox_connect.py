@@ -56,8 +56,8 @@ Please read 'sandbox' man page for more details.
         self.set_priority(75)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['sandbox_x_client_t']) and \
-           avc.has_any_access_in(['name_connect']):
+        if (avc.matches_source_types(['sandbox_x_client_t']) and
+            avc.has_any_access_in(['name_connect'])):
             return self.report()
 
         return None

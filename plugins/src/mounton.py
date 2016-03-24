@@ -56,9 +56,9 @@ class plugin(Plugin):
         Plugin.__init__(self, __name__)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['mount_t'])  and \
-           avc.has_any_access_in(['mounton'])     and \
-           avc.path_is_not_standard_directory():
+        if (avc.matches_source_types(['mount_t'])  and
+            avc.has_any_access_in(['mounton'])     and
+            avc.path_is_not_standard_directory()):
             # MATCH
             return self.report()
         else:

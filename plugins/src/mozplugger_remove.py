@@ -52,8 +52,8 @@ setsebool -P unconfined_mozilla_plugin_transition 0
         self.set_priority(99)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['mozilla_plugin_t']) and \
-                get_rpm_nvr_by_name("mozplugger"):
+        if (avc.matches_source_types(['mozilla_plugin_t']) and
+                get_rpm_nvr_by_name("mozplugger")):
             # MATCH
             return self.report()
         else:

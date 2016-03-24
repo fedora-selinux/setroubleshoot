@@ -67,9 +67,9 @@ class plugin(Plugin):
         Plugin.__init__(self, __name__)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['ftpd_t']) and \
-           avc.matches_target_types(['cifs_t']) and \
-           avc.has_tclass_in(['file', 'dir']):
+        if (avc.matches_source_types(['ftpd_t']) and
+            avc.matches_target_types(['cifs_t']) and
+            avc.has_tclass_in(['file', 'dir'])):
             # If only read access is requested then only the
             # allow_ftp_use_cifs boolean needs to be set. Write
             # access also requires the allow_ftpd_anon_write
