@@ -295,6 +295,10 @@ class SEFaultSignatureInfo(XmlSerialize):
         for name in self.merge_include:
             setattr(self, name, getattr(siginfo, name))
 
+        # older databases can have an uninitialized level
+        if self.level is None:
+            self.level = siginfo.level
+
     def get_policy_rpm(self):
         return self.environment.policy_rpm;
 

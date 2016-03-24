@@ -133,7 +133,7 @@ system_bus.request_name(dbus_system_bus_name)
 # FIXME: this should be part of ClientNotifier
 def send_alert_notification(siginfo):
     alert=dbus.lowlevel.SignalMessage(dbus_system_object_path, dbus_system_interface, "alert");
-    alert.append("yellow")
+    alert.append(siginfo.level)
     alert.append(siginfo.local_id)
     system_bus.send_message(alert)
 

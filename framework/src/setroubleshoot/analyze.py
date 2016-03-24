@@ -176,7 +176,8 @@ class Analyze(object):
             environment    = environment,
             line_numbers   = avc.audit_event.line_numbers,
             last_seen_date = TimeStamp(avc.audit_event.timestamp),
-            local_id = report_receiver.generate_id()
+            local_id = report_receiver.generate_id(),
+            level = "yellow"
             )
 
         for plugin in self.plugins:
@@ -186,6 +187,13 @@ class Analyze(object):
                     if plugin.level == "white":
                         log_debug("plugin level white, not reporting")
                         return;
+
+                    # "yellow" is default
+                    # "green" overrides "yellow"
+                    # "red" overrides everything
+                    if plugin.level is not None and siginfo.level != "red":
+                        if plugin.level == "red" or plugin.level == "green":
+                            siginfo.level = plugin.level
 
                     if isinstance(report, list):
                         for r in report:
