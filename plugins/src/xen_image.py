@@ -49,7 +49,7 @@ class plugin(Plugin):
 
     do_text = """# semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
 

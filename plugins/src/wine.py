@@ -44,7 +44,7 @@ attempting to run a Windows application this indicates you are likely
 being attacked by some for of malware or program trying to exploit your
 system for nefarious purposes.
 
-Please refer to 
+Please refer to
 
 http://wiki.winehq.org/PreloaderPageZeroProblem
 
@@ -75,7 +75,7 @@ executing:
     def analyze(self, avc):
         if avc.has_any_access_in(['mmap_zero']) and \
                 avc.matches_source_types(['.*wine_t']) and \
-                os.stat(avc.spath).st_uid == 0:            
+                os.stat(avc.spath).st_uid == 0:
 
             # MATCH
             return self.report()

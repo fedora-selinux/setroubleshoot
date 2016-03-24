@@ -49,7 +49,7 @@ class plugin(Plugin):
         if tclass == "dir":
             dpath = "(/.*)?"
             rflag = "-R"
-            
+
         return _("""# semanage fcontext -a -t samba_share_t '$FIX_TARGET_PATH%s'
 # restorecon %s -v '$FIX_TARGET_PATH'""") % (dpath, rflag)
 

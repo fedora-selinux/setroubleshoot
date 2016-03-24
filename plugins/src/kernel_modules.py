@@ -31,15 +31,15 @@ class plugin(Plugin):
     ''')
 
     problem_description = _('''
-    SELinux has prevented $SOURCE from modifying $TARGET.  This denial 
-    indicates $SOURCE was trying to modify the way the kernel runs or to 
-    actually insert code into the kernel. All applications that need this 
-    access should have already had policy written for them.  If a compromised 
-    application tries to modify the kernel this AVC will be generated. This is a 
+    SELinux has prevented $SOURCE from modifying $TARGET.  This denial
+    indicates $SOURCE was trying to modify the way the kernel runs or to
+    actually insert code into the kernel. All applications that need this
+    access should have already had policy written for them.  If a compromised
+    application tries to modify the kernel this AVC will be generated. This is a
     serious issue. Your system may very well be compromised.
     ''')
 
-    fix_description = "Contact your security administrator and report this issue." 
+    fix_description = "Contact your security administrator and report this issue."
     fix_cmd = ""
     if_text = _("you do not think $SOURCE_BASE_PATH should try $ACCESS access on $TARGET_BASE_PATH.")
     then_text = _("you may be under attack by a hacker, since confined applications should not need this access.")

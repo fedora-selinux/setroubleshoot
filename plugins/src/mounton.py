@@ -36,7 +36,7 @@ class plugin(Plugin):
     or directory "$TARGET_PATH" of type "$TARGET_TYPE". By default
     SELinux limits the mounting of filesystems to only some files or
     directories (those with types that have the mountpoint attribute). The
-    type "$TARGET_TYPE" does not have this attribute. You can change the 
+    type "$TARGET_TYPE" does not have this attribute. You can change the
     label of the file or directory.
     ''')
 
@@ -51,7 +51,7 @@ class plugin(Plugin):
 # restorecon -v $TARGET_PATH"""
 
     fix_cmd = "chcon -t mnt_t '$TARGET_PATH'"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
 

@@ -44,7 +44,7 @@ Either remove the mozplugger or spice-xpi package by executing 'yum remove mozpl
     do_text = """# setsebool -P unconfined_mozilla_plugin_transition 0"""
 
     fix_cmd = "setsebool -P unconfined_mozilla_plugin_transition 0"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(75)
@@ -52,7 +52,7 @@ Either remove the mozplugger or spice-xpi package by executing 'yum remove mozpl
     def analyze(self, avc):
         if avc.matches_source_types(['mozilla_plugin_t']):
             reports = []
-            if get_rpm_nvr_by_name("mozplugger"):                
+            if get_rpm_nvr_by_name("mozplugger"):
                 reports.append(self.report(("mozplugger", None)))
             if get_rpm_nvr_by_name("spice-xpi"):
                 reports.append(self.report(("spice-xpi", None)))

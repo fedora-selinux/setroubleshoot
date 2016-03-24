@@ -35,8 +35,8 @@ class plugin(Plugin):
 SELinux denied an operation requested by $SOURCE, a program used
 to alter video hardware state.  This program is known to use
 an unsafe operation on system memory but so are a number of
-malware/exploit programs which masquerade as vbetool.  This tool is used to 
-reset video state when a machine resumes from a suspend.  If your machine 
+malware/exploit programs which masquerade as vbetool.  This tool is used to
+reset video state when a machine resumes from a suspend.  If your machine
 is not resuming properly your only choice is to allow this
 operation and reduce your system security against such malware.
 
@@ -64,7 +64,7 @@ executing:
     def analyze(self, avc):
         if avc.has_any_access_in(['mmap_zero']) and \
                 avc.matches_source_types(['vbetool_t']) and \
-                os.stat(avc.spath).st_uid == 0:            
+                os.stat(avc.spath).st_uid == 0:
 
             # MATCH
             return self.report()

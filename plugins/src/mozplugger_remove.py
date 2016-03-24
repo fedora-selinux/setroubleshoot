@@ -46,7 +46,7 @@ setsebool -P unconfined_mozilla_plugin_transition 0
     do_text = """# yum remove mozplugger"""
 
     fix_cmd = "yum remove mozplugger"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(99)
