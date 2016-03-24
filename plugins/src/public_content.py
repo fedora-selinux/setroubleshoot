@@ -42,7 +42,7 @@ class plugin(Plugin):
     ''')
 
     fix_cmd = "chcon -t public_content_t '$TARGET_PATH'"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(8)

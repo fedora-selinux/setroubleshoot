@@ -42,7 +42,7 @@ class plugin(Plugin):
     well be compromised.
     ''')
 
-    fix_description = "Contact your security administrator and report this issue." 
+    fix_description = "Contact your security administrator and report this issue."
     fix_cmd = ""
 
     if_text = _("you believe $SOURCE_PATH tried to disable SELinux.")

@@ -30,7 +30,7 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux has denied the $SOURCE from binding to a network port $PORT_NUMBER which does not have an SELinux type associated with it.
-    If $SOURCE should be allowed to listen on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can bind to (%s). 
+    If $SOURCE should be allowed to listen on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can bind to (%s).
     \n\nIf $SOURCE is not supposed
     to bind to $PORT_NUMBER, this could signal an intrusion attempt.
     ''')
@@ -46,7 +46,7 @@ class plugin(Plugin):
     fix_cmd = ''
     if_text = 'you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER'
     then_text = 'you need to modify the port type.'
-    
+
     def get_do_text(self, avc, options):
         ports = options[1].split(",")
         if len(ports) > 1:
@@ -54,7 +54,7 @@ class plugin(Plugin):
     where PORT_TYPE is one of the following: %s.""") % options
         else:
             return _("# semanage port -a -t %s -p %s $PORT_NUMBER") % (options[1], options[0])
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(100)

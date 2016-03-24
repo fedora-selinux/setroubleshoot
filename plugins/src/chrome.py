@@ -44,7 +44,7 @@ Either remove the mozplugger or spice-xpi package by executing 'yum remove mozpl
     do_text = """# setsebool -P unconfined_chrome_sandbox_transition 0"""
 
     fix_cmd = "setsebool -P unconfined_chrome_sandbox_transition 0"
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(50)

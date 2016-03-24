@@ -24,7 +24,7 @@ _=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
-import os 
+import os
 from stat import *
 import selinux
 
@@ -71,21 +71,21 @@ class plugin(Plugin):
     </ul>
     This file could have been mislabeled either by user error, or if an normally confined application
     was run under the wrong domain.
-    <p> 
+    <p>
     However, this might also indicate a bug in SELinux because the file should not have been labeled
     with this type.
     <p>
     If you believe this is a bug, please file a bug report against this package.
     ''') % args[1]
 
-    if_text = _('you want to fix the label. \n$TARGET_PATH default label should be %s.') 
+    if_text = _('you want to fix the label. \n$TARGET_PATH default label should be %s.')
 
     def get_if_text(self, avc, args):
         return self.if_text % args[1]
 
     then_text = _('you can run restorecon.')
     do_text = '# /sbin/restorecon -v $TARGET_PATH'
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(100)
@@ -98,14 +98,14 @@ class plugin(Plugin):
         if avc.tcontext.type in [ "cifs_t", "nfs_t" ]: return None
         if avc.tcontext.type not in file_types: return None
         if avc.all_accesses_are_in("relabelto"): return None
-        restorecon_files = {} 
+        restorecon_files = {}
         restorecon_files['dir'] = S_IFDIR
         restorecon_files['file'] = S_IFREG
         restorecon_files['lnk_file'] = S_IFLNK
         restorecon_files['chr_file'] = S_IFCHR
         restorecon_files['blk_file'] = S_IFBLK
 
-        if avc.has_tclass_in(restorecon_files.keys()):               
+        if avc.has_tclass_in(restorecon_files.keys()):
             if avc.tpath is None: return None
             if avc.tpath == "/": return None
             if avc.tpath[0] != '/': return None

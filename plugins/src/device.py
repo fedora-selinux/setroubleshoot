@@ -27,7 +27,7 @@ from setroubleshoot.Plugin import Plugin
 
 class plugin(Plugin):
     summary = _('''
-    SELinux is preventing $SOURCE_PATH "$ACCESS" access to device $TARGET_PATH. 
+    SELinux is preventing $SOURCE_PATH "$ACCESS" access to device $TARGET_PATH.
     ''')
 
     problem_description = _('''
@@ -50,7 +50,7 @@ class plugin(Plugin):
 
     If the restorecon changes the context, this indicates that the application that created the device, created it without
     using SELinux APIs.  If you can figure out which application created the device, please file a bug report against this application.
-    
+
     ''')
 
     fix_description = _('''
@@ -62,7 +62,7 @@ class plugin(Plugin):
 # restorecon -v '$FIX_TARGET_PATH'""")
 
     fix_cmd = ''
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
 

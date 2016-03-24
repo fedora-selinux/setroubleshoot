@@ -24,7 +24,7 @@ _=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
-import os 
+import os
 from stat import *
 import selinux
 
@@ -50,21 +50,21 @@ class plugin(Plugin):
     <p>
     This file could have been mislabeled either by user error, or if an normally confined application
     was run under the wrong domain.
-    <p> 
+    <p>
     However, this might also indicate a bug in SELinux because the file should not have been labeled
     with this type.
     <p>
     If you believe this is a bug, please file a bug report against this package.
     ''') % args[1]
 
-    if_text = _('you want to fix the label. \n$SOURCE_PATH default label should be %s.') 
+    if_text = _('you want to fix the label. \n$SOURCE_PATH default label should be %s.')
 
     def get_if_text(self, avc, args):
         return self.if_text % args[1]
 
     then_text = _('you can run restorecon.')
     do_text = '# /sbin/restorecon -v $SOURCE_PATH'
-    
+
     def __init__(self):
         Plugin.__init__(self, __name__)
         self.set_priority(100)

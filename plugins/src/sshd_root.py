@@ -24,7 +24,7 @@ _=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
-import os 
+import os
 from stat import *
 
 import selinux
@@ -35,7 +35,7 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux denied access requested by $SOURCE. $TARGET_PATH may
-    be a mislabeled. sshd is allowed to read content in /root/.ssh directory if it 
+    be a mislabeled. sshd is allowed to read content in /root/.ssh directory if it
     is labeled correctly.
     ''')
 
@@ -62,4 +62,3 @@ class plugin(Plugin):
             return self.report()
 
         return None
-        

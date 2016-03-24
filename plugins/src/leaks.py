@@ -27,11 +27,11 @@ class plugin(Plugin):
     summary =_('''
     SELinux is preventing $SOURCE_PATH access to a leaked $TARGET_PATH file descriptor.
     ''')
-    
+
     problem_description = _('''
     SELinux denied access requested by the $SOURCE command. It looks like this is either a leaked descriptor or $SOURCE output was redirected to a file it is not allowed to access.  Leaks usually can be ignored since SELinux is just closing the leak and reporting the error.  The application does not use the descriptor, so it will run properly.  If this is a redirection, you will not get output in the $TARGET_PATH.  You should generate a bugzilla on selinux-policy, and it will get routed to the appropriate package.  You can safely ignore this avc.
     ''')
-    
+
     fix_description = _('''
     You can generate a local policy module to allow this
     access - see <a href="http://docs.fedoraproject.org/selinux-faq-fc5/#id2961385">FAQ</a>

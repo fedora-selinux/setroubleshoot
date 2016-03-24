@@ -24,7 +24,7 @@ _=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
-import os 
+import os
 from stat import *
 
 class plugin(Plugin):
@@ -34,7 +34,7 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux denied access requested by $SOURCE. $TARGET_PATH may
-    be a mislabeled. openvpn is allowed to read content in home directory if it 
+    be a mislabeled. openvpn is allowed to read content in home directory if it
     is labeled correctly.
     ''')
 
@@ -48,7 +48,7 @@ class plugin(Plugin):
             return _('you want to mv $TARGET_BASE_PATH to standard location so that $SOURCE_BASE_PATH can have $ACCESS access')
         else:
             return _('you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH can have $ACCESS access on it')
-        
+
     def get_then_text(self, avc, args):
         if (args[0] == "move"):
             return _('you must move the cert file to the ~/.cert directory')
@@ -78,5 +78,3 @@ class plugin(Plugin):
             return [self.report(("move",None)), self.report(("fixlabel",None))]
 
         return None
-
-        

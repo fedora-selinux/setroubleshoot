@@ -29,28 +29,28 @@ class plugin(Plugin):
     summary = _('''
     SELinux prevented the ftp daemon from $ACCESS files stored on a NFS filesystem.
     ''')
-    
+
     problem_description = _('''
     SELinux prevented the ftp daemon from $ACCESS files stored on a NFS filesystem.
     NFS (Network Filesystem) is a network filesystem commonly used on Unix / Linux
     systems.
-    
+
     The ftp daemon attempted to read one or more files or directories from
     a mounted filesystem of this type.  As NFS filesystems do not support
     fine-grained SELinux labeling, all files and directories in the
     filesystem will have the same security context.
-    
+
     If you have not configured the ftp daemon to read files from a NFS filesystem
     this access attempt could signal an intrusion attempt.
     ''')
-    
+
     fix_description = _('''
     Changing the "allow_ftpd_use_nfs" boolean to true will allow this access:
     "setsebool -P allow_ftpd_use_nfs=1."
     ''')
-    
+
     fix_cmd = 'setsebool -P allow_ftpd_use_nfs=1'
-    
+
     rw_fix_description = _(''' Changing the "allow_ftpd_use_nfs" and
     "$WRITE_BOOLEAN" booleans to true will allow this access:
     "setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1".
@@ -58,13 +58,13 @@ class plugin(Plugin):
     allow the ftp daemon to write to all public content (files and
     directories with type public_content_t) in addition to writing to
     files and directories on NFS filesystems.  ''')
-    
+
     rw_fix_cmd = 'setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1'
-     
+
     if_text = _("you want to allow ftpd to write to nfs file systems")
     then_text = _("you must tell SELinux about this")
     do_text = 'setsebool -P allow_ftpd_use_nfs=1 allow_ftpd_anon_write=1'
-            
+
     def __init__(self):
         Plugin.__init__(self, __name__)
 

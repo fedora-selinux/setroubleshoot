@@ -26,18 +26,18 @@ from setroubleshoot.Plugin import Plugin
 
 class plugin(Plugin):
     summary =_('''
-    SELinux is preventing $SOURCE_PATH the "sys_resource" capability. 
+    SELinux is preventing $SOURCE_PATH the "sys_resource" capability.
     ''')
 
     problem_description = _('''
     Confined domains should not require "sys_resource". This usually means that     your system is running out some system resource like disk space, memory, quota etc. Please clear up the disk and this
-    AVC message should go away. If this AVC continues after you clear up the disk space, please report this as a bug. 
+    AVC message should go away. If this AVC continues after you clear up the disk space, please report this as a bug.
     ''')
 
-    fix_description = "Fix the cause of the SYS_RESOURCE on your system." 
+    fix_description = "Fix the cause of the SYS_RESOURCE on your system."
 
-    if_text = _("you do not want processes to require capabilities to use up all the system resources on your system;") 
-    then_text = _("""you need to diagnose why your system is running out of system resources and fix the problem.  
+    if_text = _("you do not want processes to require capabilities to use up all the system resources on your system;")
+    then_text = _("""you need to diagnose why your system is running out of system resources and fix the problem.
 
 According to /usr/include/linux/capability.h, sys_resource is required to:
 
@@ -75,7 +75,7 @@ According to /usr/include/linux/capability.h, sys_resource is required to:
 /* Override max number of consoles on console allocation */
 /* Override max number of keymaps */
 """)
-    do_text = "Fix the cause of the SYS_RESOURCE on your system." 
+    do_text = "Fix the cause of the SYS_RESOURCE on your system."
 
     def __init__(self):
         Plugin.__init__(self, __name__)
