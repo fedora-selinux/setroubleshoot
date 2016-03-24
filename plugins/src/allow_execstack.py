@@ -30,12 +30,12 @@ def is_execstack(path):
     if path[0] != "/":
         return False
 
-    x = commands.getoutput("execstack -q %s" %   path).split()
+    x = commands.getoutput("execstack -q %s" % path).split()
     return ( x[0]  == "X" )
 
 def find_execstack(exe, pid):
     execstacklist = []
-    for path in commands.getoutput("ldd %s" %   exe).split():
+    for path in commands.getoutput("ldd %s" % exe).split():
         if is_execstack(path) and path not in execstacklist:
                 execstacklist.append(path)
     try:
@@ -116,8 +116,8 @@ file a bug report.
         Plugin.__init__(self,__name__)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['unconfined_t', 'staff_t', 'user_t', 'guest_t', 'xguest_t']) and \
-           avc.has_any_access_in(['execstack']):
+        if (avc.matches_source_types(['unconfined_t', 'staff_t', 'user_t', 'guest_t', 'xguest_t']) and
+           avc.has_any_access_in(['execstack'])):
             reports = []
             for i in find_execstack(avc.spath, avc.pid):
                 reports.append(self.report((i,avc)))

@@ -62,9 +62,9 @@ executing:
         self.button_text=_("Turn off memory protection")
 
     def analyze(self, avc):
-        if avc.has_any_access_in(['mmap_zero']) and \
-                avc.matches_source_types(['vbetool_t']) and \
-                os.stat(avc.spath).st_uid == 0:
+        if (avc.has_any_access_in(['mmap_zero']) and
+                avc.matches_source_types(['vbetool_t']) and
+                os.stat(avc.spath).st_uid == 0):
 
             # MATCH
             return self.report()

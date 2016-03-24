@@ -54,9 +54,9 @@ class plugin(Plugin):
 
 
     def analyze(self, avc):
-        if avc.matches_source_types(['smbd_t', 'httpd_t', 'ftpd_t', 'httpd_sys_script_t', 'nfsd_t', 'rsync_t'])  and \
-           avc.matches_target_types(['samba_share_t', 'httpd_.*_content_t', 'rsync_data_t'])                     and \
-           avc.all_accesses_are_in(avc.r_file_perms + avc.r_dir_perms):
+        if (avc.matches_source_types(['smbd_t', 'httpd_t', 'ftpd_t', 'httpd_sys_script_t', 'nfsd_t', 'rsync_t'])  and
+            avc.matches_target_types(['samba_share_t', 'httpd_.*_content_t', 'rsync_data_t'])                     and
+            avc.all_accesses_are_in(avc.r_file_perms + avc.r_dir_perms)):
             # MATCH
             return self.report()
         else:

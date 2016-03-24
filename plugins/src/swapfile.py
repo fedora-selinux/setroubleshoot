@@ -51,9 +51,9 @@ class plugin(Plugin):
         self.level="green"
 
     def analyze(self, avc):
-        if avc.matches_source_types(['fsadm_t'])                           and \
-           avc.all_accesses_are_in(['read', 'write', 'getattr', 'swapon']) and \
-           avc.has_tclass_in(['file']):
+        if (avc.matches_source_types(['fsadm_t'])                           and
+            avc.all_accesses_are_in(['read', 'write', 'getattr', 'swapon']) and
+            avc.has_tclass_in(['file'])):
             # MATCH
             return self.report()
         else:

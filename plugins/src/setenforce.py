@@ -54,8 +54,8 @@ class plugin(Plugin):
         self.level="red"
 
     def analyze(self, avc):
-        if avc.has_any_access_in(['write'])        and \
-           avc.matches_target_types(['security_t']):
+        if (avc.has_any_access_in(['write']) and
+            avc.matches_target_types(['security_t'])):
             # MATCH
             return self.report()
         return None

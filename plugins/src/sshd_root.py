@@ -54,10 +54,10 @@ class plugin(Plugin):
         self.button_text=_("Restore Context")
 
     def analyze(self, avc):
-        if avc.matches_source_types(['sshd_t'])           and \
-                avc.matches_target_types(['admin_home_t'])            and \
-                avc.all_accesses_are_in(avc.read_file_perms)  and \
-                avc.has_tclass_in(['file', 'dir']):
+        if (avc.matches_source_types(['sshd_t']) and
+                avc.matches_target_types(['admin_home_t']) and
+                avc.all_accesses_are_in(avc.read_file_perms) and
+                avc.has_tclass_in(['file', 'dir'])):
 
             return self.report()
 

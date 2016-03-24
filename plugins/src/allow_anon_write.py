@@ -55,8 +55,8 @@ class plugin(Plugin):
         self.level="green"
 
     def analyze(self, avc):
-        if avc.matches_target_types(['public_content_t']) and \
-                avc.all_accesses_are_in(avc.create_file_perms):
+        if (avc.matches_target_types(['public_content_t']) and
+                avc.all_accesses_are_in(avc.create_file_perms)):
 
             if avc.matches_source_types(['httpd_t']):
                 return self.report(('allow_httpd_anon_write', "1"))

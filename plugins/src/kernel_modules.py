@@ -50,8 +50,17 @@ class plugin(Plugin):
         self.level="red"
 
     def analyze(self, avc):
-        if (avc.has_any_access_in(['write']) or avc.open_with_write())        and \
-           avc.matches_target_types(['modules_object_t', 'modules_conf_t', 'modules_dep_t', 'insmod_exec_t', 'depmod_exec_t', 'update_modules_exec_t', 'update_modules_tmp_t', 'boot_t', 'system_map_t']):
+        if ((avc.has_any_access_in(['write']) or avc.open_with_write())        and
+           avc.matches_target_types(['modules_object_t',
+                                     'modules_conf_t',
+                                     'modules_dep_t',
+                                     'insmod_exec_t',
+                                     'depmod_exec_t',
+                                     'update_modules_exec_t',
+                                     'update_modules_tmp_t',
+                                     'boot_t',
+                                     'system_map_t'
+                                    ])):
             # MATCH
             return self.report()
         return None

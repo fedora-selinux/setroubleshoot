@@ -67,8 +67,8 @@ class plugin(Plugin):
         Plugin.__init__(self, __name__)
 
     def analyze(self, avc):
-        if avc.matches_target_types(['device_t']) and \
-           avc.has_tclass_in(['chr_file', 'blk_file']):
+        if (avc.matches_target_types(['device_t']) and
+            avc.has_tclass_in(['chr_file', 'blk_file'])):
             # MATCH
             return self.report()
         return None

@@ -50,9 +50,9 @@ class plugin(Plugin):
         Plugin.__init__(self, __name__)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['qemu_t'])                 and \
-           avc.all_accesses_are_in(avc.rw_file_perms + avc.r_dir_perms)  and \
-           avc.has_tclass_in(['blk_file']):
+        if (avc.matches_source_types(['qemu_t']) and
+           avc.all_accesses_are_in(avc.rw_file_perms + avc.r_dir_perms) and
+           avc.has_tclass_in(['blk_file'])):
             # MATCH
             return self.report()
         else:

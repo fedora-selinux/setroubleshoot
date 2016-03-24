@@ -34,7 +34,7 @@ class plugin(Plugin):
     copying between file systems, "cp -a" for example.  Not all file contexts should be maintained
     between the file systems.  For example, a read-only file type like iso9660_t should not be placed
     on a r/w system.  "cp -p" might be a better solution, as this will adopt the default file context
-    for the destination.  
+    for the destination.
     ''')
 
     fix_description = _('''
@@ -50,10 +50,10 @@ class plugin(Plugin):
         self.set_priority(100)
 
     def analyze(self, avc):
-        if avc.matches_target_types(['.*fs_t'])    and \
-           avc.all_accesses_are_in(['associate'])  and \
-           avc.tcontext.type in file_types and \
-           avc.has_tclass_in(['filesystem']):
+        if (avc.matches_target_types(['.*fs_t'])    and
+            avc.all_accesses_are_in(['associate'])  and
+            avc.tcontext.type in file_types and
+            avc.has_tclass_in(['filesystem'])):
             # MATCH
             return self.report()
         else:

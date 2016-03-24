@@ -63,11 +63,11 @@ class plugin(Plugin):
         self.set_priority(8)
 
     def analyze(self, avc):
-        if avc.matches_source_types("httpd_t httpd_.*_script_t") and \
-           avc.matches_target_types("httpd_.*t") and \
-           (avc.tclass == "file" or avc.tclass == "dir") and \
-           ( not selinux.security_get_boolean_active("httpd_unified")) and \
-           ( not selinux.security_get_boolean_active("httpd_enable_cgi")):
+        if (avc.matches_source_types("httpd_t httpd_.*_script_t") and
+           avc.matches_target_types("httpd_.*t") and
+           (avc.tclass == "file" or avc.tclass == "dir") and
+           ( not selinux.security_get_boolean_active("httpd_unified")) and
+           ( not selinux.security_get_boolean_active("httpd_enable_cgi"))):
             return self.report()
 
         return None

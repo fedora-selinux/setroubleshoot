@@ -58,11 +58,11 @@ class plugin(Plugin):
         self.set_priority(51)
 
     def analyze(self, avc):
-        if avc.matches_source_types(['smbd_t'])                                                                              and \
-           not avc.matches_target_types(['httpd_.*_content_t', 'rsync_data_t', 'home_root_t', '.*_home_dir_t', '.*_home_t']) and \
-           avc.all_accesses_are_in(avc.create_file_perms + avc.create_dir_perms)                                             and \
-           avc.has_tclass_in(['file', 'dir'])                                                                                and \
-           avc.path_is_not_standard_directory():
+        if (avc.matches_source_types(['smbd_t'])                                                                              and
+            not avc.matches_target_types(['httpd_.*_content_t', 'rsync_data_t', 'home_root_t', '.*_home_dir_t', '.*_home_t']) and
+            avc.all_accesses_are_in(avc.create_file_perms + avc.create_dir_perms)                                             and
+            avc.has_tclass_in(['file', 'dir'])                                                                                and
+            avc.path_is_not_standard_directory()):
             # MATCH
             return self.report(avc.tclass)
         else:
