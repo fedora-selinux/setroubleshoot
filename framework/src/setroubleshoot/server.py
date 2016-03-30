@@ -514,7 +514,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 """
         return self._get_all_alerts_since('1970-01-01T00:00:00Z', sender)
 
-    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ssiasa(ssssbb)')
+    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ssiasa(ssssbb)ss')
     def get_alert(self, local_id, sender):
         """
 Return an alert with summary, audit events, fix suggestions
@@ -537,6 +537,8 @@ Return an alert with summary, audit events, fix suggestions
  * `analysis_id(s)`: plugin id. It can be used in `org.fedoraproject.SetroubleshootFixit.run_fix()`
  * `fixable(b)`: True when an alert is fixable by a plugin
  * `report_bug(b)`: True when an alert should be reported to bugzilla
+* `first_seen_date(s)`: when the alert was seen for the first time, iso8601 format is used - '%Y-%m-%dT%H:%M:%SZ'
+* `last_seen_date(s)`: when the alert was seen for the last time, iso8601 format is used - '%Y-%m-%dT%H:%M:%SZ'
 """
         username = get_identity(self.connection.get_unix_user(sender))
         database = get_host_database()
@@ -566,7 +568,7 @@ Return an alert with summary, audit events, fix suggestions
 
 
         return (alert.local_id, alert.summary(), alert.report_count,
-                audit_events, plugins
+                audit_events, plugins, str(alert.first_seen_date), str(alert.last_seen_date)
         )
 
 
