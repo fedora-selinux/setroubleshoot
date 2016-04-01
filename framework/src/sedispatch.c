@@ -35,6 +35,9 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <string.h>
+#include <sys/time.h>
+#include <sys/types.h>
+#include <unistd.h>
 #include "libaudit.h"
 #include "auparse.h"
 #include "sedbus.h"
@@ -98,6 +101,9 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 {
 	char tmp[MAX_AUDIT_MESSAGE_LENGTH+1];
 	struct sigaction sa;
+	fd_set rfds;
+	struct timeval tv;
+	int retval;
 
 	/* Register sighandlers */
 	sa.sa_flags = 0;
@@ -131,6 +137,20 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 							hup==0 && stop==0) {
 			auparse_feed(au, tmp, strnlen(tmp,
 						MAX_AUDIT_MESSAGE_LENGTH));
+
+			/* Wait for 3 seconds and if nothing has happen expect that the event
+			 * is complete and flush parser's feed
+			 * FIXME: in future, libaudit will provide a better mechanism for aging
+			 * events
+			 */
+			FD_ZERO(&rfds);
+			FD_SET(0, &rfds);
+			tv.tv_sec = 3;
+			tv.tv_usec = 0;
+			if (select(1, &rfds, NULL, NULL, &tv) == 0) {
+				syslog(LOG_ERR, "timeout flush");
+				auparse_flush_feed(au);
+			}
 		}
 		if (feof(stdin))
 			break;
