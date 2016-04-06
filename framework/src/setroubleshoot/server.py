@@ -572,7 +572,7 @@ Return an alert with summary, audit events, fix suggestions
 
         return (alert.local_id, alert.summary(), alert.report_count,
                 audit_events, plugins,
-                str(alert.first_seen_date), str(alert.last_seen_date), alert.level
+                str(alert.first_seen_date), str(alert.last_seen_date), alert.level or ''
         )
 
 
