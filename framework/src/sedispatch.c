@@ -147,10 +147,9 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 			FD_SET(0, &rfds);
 			tv.tv_sec = 3;
 			tv.tv_usec = 0;
-			if (select(1, &rfds, NULL, NULL, &tv) == 0) {
-				syslog(LOG_ERR, "timeout flush");
+			if (select(1, &rfds, NULL, NULL, &tv) == 0)
+				/* The timeout occurred, the event is probably complete */
 				auparse_flush_feed(au);
-			}
 		}
 		if (feof(stdin))
 			break;
