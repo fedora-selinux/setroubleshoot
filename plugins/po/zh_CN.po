@@ -9,21 +9,22 @@
 # Tony Fu <tfu@redhat.com>, 2006
 # Wei Liu <LLIU@REDHAT.COM>, 2013
 # Xi Huang <xhuang@redhat.com>, 2006
+# Leah Liu <lliu@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: setroubleshoot\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-14 08:43-0400\n"
+"POT-Creation-Date: 2016-01-15 16:34+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-11-19 07:27-0500\n"
-"Last-Translator: Tommy He <lovenemesis@gmail.com>\n"
+"PO-Revision-Date: 2016-03-03 05:50-0500\n"
+"Last-Translator: Leah Liu <lliu@redhat.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/fedora/"
 "language/zh_CN/)\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -66,9 +67,9 @@ msgstr ""
 "    如果需要让 httpd 脚本写入公共目录，您需要开启 $BOOLEAN 布尔值并且将公共目录的文件上下文改为 "
 "public_content_rw_t。  阅读 httpd_selinux \n"
 "    的 man page 获得更多信息：\n"
-"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <路径>\"\n"
+"    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    您还必须更改系统中文件的默认文件上下文以便在重新标记时仍可保留公共目录标记。 \"semanage fcontext -a -t "
-"public_content_rw_t <路径>\"\n"
+"public_content_rw_t <path>\"\n"
 "        "
 
 #: ../src/allow_anon_write.py:44
@@ -490,7 +491,7 @@ msgstr "您要允许 ftpd 写入 nfs 文件系统"
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
-#: ../src/restorecon.py:43 ../src/restorecon_source.py:33
+#: ../src/restorecon.py:42 ../src/restorecon_source.py:33
 #: ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
@@ -889,48 +890,41 @@ msgstr ""
 #: ../src/chrome.py:31
 msgid ""
 "\n"
-"    SELinux denied access requested by $SOURCE. It is not\n"
-"    expected that this access is required by $SOURCE and this access\n"
-"    may signal an intrusion attempt. It is also possible that the specific\n"
-"    version or configuration of the application is causing it to require\n"
-"    additional access.  spice-xpi run applications within mozilla-plugins "
-"that require access to the desktop, that the mozilla_plugin lockdown will "
-"not allow, so either you need to turn off the mozilla_plugin lockdown or not "
-"use these packages.\n"
+"    SELinux denied access requested by $SOURCE. It is not expected that this "
+"access is required by $SOURCE and this access may signal an intrusion "
+"attempt. It is also possible that the specific version or configuration of "
+"the application is causing it to require additional access.  spice-xpi run "
+"applications within mozilla-plugins that require access to the desktop, that "
+"the mozilla_plugin lockdown will not allow, so either you need to turn off "
+"the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
 "\n"
-"SELinux 拒绝了 $SOURCE 的访问请求。这不该是\n"
-"$SOURCE 所需要的访问请求故此这个请求\n"
-"可能代表一个入侵企图。 这也可能是特定\n"
-"版本或应用程序的配置导致其需要\n"
-"额外访问。spice-xpi 在需要访问此桌面的 mozilla 插件中运行程序，该 mozilla 插 件不允许锁定，因此您要么关闭该 mozilla "
-"插件，要么不使用这些软件包。\n"
-"\n"
-"    "
+"SELinux 拒绝了 $SOURCE 的访问请求。这不该是$SOURCE 所需要的访问请求故此这个请求可能代表一个入侵企图。 "
+"这也可能是特定版本或应用程序的配置导致其需要额外访问。spice-xpi 在需要访问桌面的 mozilla 插件中运行程序，该 mozilla "
+"插件是不允许锁定的，因此您要么关闭 mozilla 插件锁定功能， 要么不使用这些软件包。"
 
-#: ../src/chrome.py:39
+#: ../src/chrome.py:35
 msgid ""
 "\n"
 "Either remove the mozplugger or spice-xpi package by executing 'yum remove "
-"mozplugger spice-xpi'\n"
-"Or turn off enforcement of SELinux over the Chrome plugins.\n"
-"setsebool -P unconfined_chrome_sandbox_transition 0\n"
+"mozplugger spice-xpi', or turn off enforcement of SELinux over the Chrome "
+"plugins. setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
 msgstr ""
 "\n"
-"您可以执行 'yum remove mozplugger' 移除 mozplluger 或者 spice-xpi 软件包。\n"
-"或者关闭 SELinux 强制关闭 Chrome 插件功能。\n"
+"您可以执行 'yum remove mozplugger' 移除 mozplluger 或者 spice-xpi 软件包。或者关闭 SELinux "
+"强制关闭 Chrome 插件功能。\n"
 "setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "\n"
 "    "
 
-#: ../src/chrome.py:44 ../src/mozplugger.py:44
+#: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
 msgid "you want to use the %s package"
 msgstr "您要使用 %s 软件包"
 
-#: ../src/chrome.py:49
+#: ../src/chrome.py:43
 msgid "you must turn off SELinux controls on the Chrome plugins."
 msgstr "您必须关闭 SELinux 对于 Chrome 插件的控制。"
 
@@ -1635,43 +1629,36 @@ msgstr "您必须在 $TARGET_PATH 中更改标记。"
 #: ../src/mozplugger.py:31
 msgid ""
 "\n"
-"    SELinux denied access requested by $SOURCE. It is not\n"
-"    expected that this access is required by $SOURCE and this access\n"
-"    may signal an intrusion attempt. It is also possible that the specific\n"
-"    version or configuration of the application is causing it to require\n"
-"    additional access.  mozplugger and spice-xpi run applications within "
-"mozilla-plugins that require access to the desktop, that the mozilla_plugin "
-"lockdown will not allow, so either you need to turn off the mozilla_plugin "
-"lockdown or not use these packages.\n"
+"    SELinux denied access requested by $SOURCE. It is not expected that this "
+"access is required by $SOURCE and this access may signal an intrusion "
+"attempt. It is also possible that the specific version or configuration of "
+"the application is causing it to require additional access.  mozplugger and "
+"spice-xpi run applications within mozilla-plugins that require access to the "
+"desktop, that the mozilla_plugin lockdown will not allow, so either you need "
+"to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
 "\n"
-"SELinux 拒绝了 $SOURCE 的访问请求。这不该是\n"
-"$SOURCE 所需要的访问请求故此这个请求\n"
-"可能代表一个入侵企图。 这也可能是特定\n"
-"版本或应用程序的配置导致其需要\n"
-"额外访问。mozplugger 和 spice-xpi 在需要访问桌面的 mozilla 插件中运行程序，该 mozilla "
-"插件是不允许锁定的，因此您要么关闭 mozilla 插件锁定功能， 要么不使用这些软件包。\n"
-"\n"
-"    "
+"SELinux 拒绝了 $SOURCE 的访问请求。这不该是$SOURCE 所需要的访问请求故此这个请求可能代表一个入侵企图。 "
+"这也可能是特定版本或应用程序的配置导致其需要额外访问。spice-xpi 在需要访问桌面的 mozilla 插件中运行程序，该 mozilla "
+"插件是不允许锁定的，因此您要么关闭 mozilla 插件锁定功能， 要么不使用这些软件包。"
 
-#: ../src/mozplugger.py:39
+#: ../src/mozplugger.py:35
 msgid ""
 "\n"
 "Either remove the mozplugger or spice-xpi package by executing 'yum remove "
-"mozplugger spice-xpi'\n"
-"Or turn off enforcement of SELinux over the Firefox plugins.\n"
-"setsebool -P unconfined_mozilla_plugin_transition 0\n"
+"mozplugger spice-xpi' or turn off enforcement of SELinux over the Firefox "
+"plugins. setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
 msgstr ""
 "\n"
-"您可以执行 'yum remove mozplugger spice-xpi' 删除 mozplluger 软件包 \n"
-"后者在 Firefox 插件上关闭 SELinux 强制检查。\n"
+"您可以执行 'yum remove mozplugger spice-xpi' 删除 mozplluger 软件包后者在 Firefox 插件上关闭 "
+"SELinux 强制检查。\n"
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "\n"
 "    "
 
-#: ../src/mozplugger.py:49
+#: ../src/mozplugger.py:43
 msgid "you must turn off SELinux controls on the Firefox plugins."
 msgstr "您必须关闭 SELinux 对于 FIrefox 插件的控制。"
 
@@ -1883,7 +1870,7 @@ msgstr ""
 msgid "$TARGET_BASE_PATH is a virtualization target"
 msgstr "$TARGET_BASE_PATH 是一个虚拟化目标"
 
-#: ../src/restorecon.py:49
+#: ../src/restorecon.py:48
 msgid ""
 "\n"
 "    You can restore the default system context to this file by executing the\n"
@@ -1896,7 +1883,7 @@ msgstr ""
 "    您可以执行 restorecon 命令为这个文件保存默认系统上下文。restorecon '$TARGET_PATH'，如果这个文件是一个目录，\n"
 "    您可以使用 restorecon -R '$TARGET_PATH' 进行递归保存。"
 
-#: ../src/restorecon.py:56
+#: ../src/restorecon.py:55
 #, python-format
 msgid ""
 "\n"
@@ -1962,18 +1949,18 @@ msgstr ""
 "    如果您确定这是一个 bug，请根据这个软件包提交 bug 报告。\n"
 "    "
 
-#: ../src/restorecon.py:82
+#: ../src/restorecon.py:81
 #, python-format
 msgid "you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
 msgstr "您想要修复标签。 \n"
 "$TARGET_PATH 默认标签应为 %s。"
 
-#: ../src/restorecon.py:87 ../src/restorecon_source.py:65
+#: ../src/restorecon.py:86 ../src/restorecon_source.py:65
 msgid "you can run restorecon."
 msgstr "您可以运行 restorecon。"
 
-#: ../src/restorecon.py:95 ../src/restorecon_source.py:73
+#: ../src/restorecon.py:94 ../src/restorecon_source.py:73
 msgid "Restore\n"
 "Context"
 msgstr "恢复\n"
@@ -2134,8 +2121,8 @@ msgstr ""
 msgid ""
 "\n"
 "    SELinux has denied $SOURCE from connecting to a network port "
-"$PORT_NUMBER within a sandboxt.\n"
-"    If $SOURCE should be allowed to connect on $PORT_NUMBER, use need to use "
+"$PORT_NUMBER within a sandbox.\n"
+"    If $SOURCE should be allowed to connect on $PORT_NUMBER, you need to use "
 "a different sandbox type like sandbox_web_t or sandbox_net_t.  sandbox -X -t "
 "sandbox_net_t $SOURCE.\n"
 "    \n"
@@ -2144,6 +2131,15 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    在沙箱内，SELinux 拒绝 $SOURCE 连接到网络端口 $PORT_NUMBER。\n"
+"    如果应允许 $SOURCE 连接到 $PORT_NUMBER，则需要使用不同的沙箱类型，比如 sandbox_web_t 或者 "
+"sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE。\n"
+"    \n"
+"\n"
+"如果 $SOURCE 不应与\n"
+"     $PORT_NUMBER 连接，则这就是尝试入侵的信号。\n"
+"    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -2634,1288 +2630,3 @@ msgstr ""
 "    您可以执行 chcon -t xen_image_t '$TARGET_PATH' 来更改文件上下文。\n"
 "    您还必须在系统中更改默认文件上下文文件以便在完全重新标记后保留它们。\"semanage fcontext -a -t xen_image_t "
 "'$FIX_TARGET_PATH'\""
-
-#: ../booleans_trans.py:1
-msgid ""
-"If you want to determine whether ftpd can read and write files in user home "
-"directories."
-msgstr "如果您要决定是否允许 ftp 在用户主目录读取并写入文件。"
-
-#: ../booleans_trans.py:3
-msgid "If you want to determine whether privoxy can connect to all tcp ports."
-msgstr "如果您要决定 privoxy 是否可以连接至所有 TCP 端口。"
-
-#: ../booleans_trans.py:5
-msgid ""
-"If you want to determine whether mpd can traverse user home directories."
-msgstr "如果您要决定 mpd 是否可以遍历用户主目录。"
-
-#: ../booleans_trans.py:7
-msgid ""
-"If you want to allow the graphical login program to login directly as "
-"sysadm_r:sysadm_t"
-msgstr "如果您要允许图形登录程序直接作为 sysadm_r:sysadm_t 登录"
-
-#: ../booleans_trans.py:9
-msgid "If you want to allow xen to manage nfs files"
-msgstr "如果您要允许 xen 管理 nfs 文件"
-
-#: ../booleans_trans.py:11
-msgid ""
-"If you want to allow confined web browsers to read home directory content"
-msgstr "如果您要允许限制的网页浏览器读取主目录内容"
-
-#: ../booleans_trans.py:13
-msgid ""
-"If you want to allow xguest users to configure Network Manager and connect "
-"to apache ports"
-msgstr "如果您要允许xguest 用户配置 Network Manager 并连接到 apache 端口"
-
-#: ../booleans_trans.py:15
-msgid ""
-"If you want to allow postgresql to use ssh and rsync for point-in-time "
-"recovery"
-msgstr "如果您想要允许 PostgreSQL 使用 SSH 和 Rsync 即时点恢复"
-
-#: ../booleans_trans.py:17
-msgid "If you want to allow users to login using a radius server"
-msgstr "如果您要允许用户使用 radius 服务器登录"
-
-#: ../booleans_trans.py:19
-msgid ""
-"If you want to allow the graphical login program to create files in HOME "
-"dirs as xdm_home_t."
-msgstr "如果您想要允许图形界面登录程序在家目录下创建 xdm_home_t 指定类型的文件。"
-
-#: ../booleans_trans.py:21
-msgid ""
-"If you want to allow tftp to modify public files used for public file "
-"transfer services."
-msgstr "如果您要允许 tftp 修改在公共文件传输服务中使用的公共文件"
-
-#: ../booleans_trans.py:23
-msgid ""
-"If you want to allow ZoneMinder to modify public files used for public file "
-"transfer services."
-msgstr "如果您要允许 XoneMinder 修改用于公共文件传输的公共文件。"
-
-#: ../booleans_trans.py:25
-msgid ""
-"If you want to allow unconfined executables to make their heap memory "
-"executable.  Doing this is a really bad idea. Probably indicates a badly "
-"coded executable, but could indicate an attack. This executable should be "
-"reported in bugzilla"
-msgstr ""
-"如果您要允许未限定可执行文件使其 heap 内存可执行。这实在是个馊主意。可能是没有正确编码的可执行文件，但也可能是一次攻击。应向 bugzilla "
-"报告这个可执行文件。"
-
-#: ../booleans_trans.py:27
-msgid "If you want to allow user spamassassin clients to use the network."
-msgstr "如果您要允许用户 spamassassin 客户端使用该网络。"
-
-#: ../booleans_trans.py:29
-msgid ""
-"If you want to allow glusterfsd to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"如果您要允许 glusterfsd 修改在公共文件传输服务中使用的公共文件。必须将文件/目录标记为 public_content_rw_t。"
-
-#: ../booleans_trans.py:31
-msgid ""
-"If you want to deny any process from ptracing or debugging any other "
-"processes."
-msgstr "如果您要组织任何来自 ptracing 的进程或对任何其他进程调试。"
-
-#: ../booleans_trans.py:33
-msgid ""
-"If you want to allow all unconfined executables to use libraries requiring "
-"text relocation that are not labeled textrel_shlib_t"
-msgstr "如果您要允许所有未限定可执行文件使用需要重新定位但没有标记为 textrel_shlib_t 的文本"
-
-#: ../booleans_trans.py:35
-msgid "If you want to allow httpd to act as a relay"
-msgstr "如果您要允许 httpd 作为中继使用"
-
-#: ../booleans_trans.py:37
-msgid ""
-"If you want to determine whether openvpn can read generic user home content "
-"files."
-msgstr "如果您要决定 openvpn 是否可以读取用户主目录中的普通文件。"
-
-#: ../booleans_trans.py:39
-msgid ""
-"If you want to allow usage of the gpg-agent --write-env-file option. This "
-"also allows gpg-agent to manage user files."
-msgstr "如果您要允许 gpg-agent 使用 --write-env-file 选项。这还允许 gpg-agent 管理用户文件。"
-
-#: ../booleans_trans.py:41
-msgid ""
-"If you want to allow the Telepathy connection managers to connect to any "
-"generic TCP port."
-msgstr "如果您要允许 Telepathy 连接管理器连接到任意一般 TCP 端口。"
-
-#: ../booleans_trans.py:43
-msgid "If you want to allow http daemon to connect to mythtv"
-msgstr "如果您想要允许 httpd 守护进程连接至 mythtv"
-
-#: ../booleans_trans.py:45
-msgid ""
-"If you want to allow unconfined users to transition to the Mozilla plugin "
-"domain when running xulrunner plugin-container."
-msgstr "如果您要允许未限定用户在运行 xulrunner 插件容器时转换为 Mozilla 插件域。"
-
-#: ../booleans_trans.py:47
-msgid "If you want to allow sasl to read shadow"
-msgstr "如果您要允许 sasl 读取 shadow"
-
-#: ../booleans_trans.py:49
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to databases over "
-"the network."
-msgstr "如果您要允许 HTTPD 脚本和模块通过网络连接到数据库。"
-
-#: ../booleans_trans.py:51
-msgid ""
-"If you want to allow ssh with chroot env to read and write files in the user "
-"home directories"
-msgstr "如果您要允许 ssh 使用 chrrot env 在用户主目录中读取和写入文件"
-
-#: ../booleans_trans.py:53
-msgid ""
-"If you want to allow the mount commands to mount any directory or file."
-msgstr "如果您想要允许 mount 命令挂载任意目录或文件。"
-
-#: ../booleans_trans.py:55
-msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr "如果您想要允许 polipo 可以连接到 1023 以上的端口"
-
-#: ../booleans_trans.py:57
-msgid "If you want to allow httpd to run gpg"
-msgstr "如果您想要允许 httpd 运行 gpg"
-
-#: ../booleans_trans.py:59
-msgid "If you want to allow samba to share any file/directory read/write."
-msgstr "如果您要允许 samba 共享所有文件（/目录）读取（/写入）。"
-
-#: ../booleans_trans.py:61
-msgid ""
-"If you want to allow samba to act as the domain controller, add users, "
-"groups and change passwords."
-msgstr "如果您要允许 samba 可作为域控制器添加用户、组，并更改密码。"
-
-#: ../booleans_trans.py:63
-msgid "If you want to allow ksmtuned to use nfs file systems"
-msgstr "如果您要允许 ksmtuned 使用 NFS 文件系统"
-
-#: ../booleans_trans.py:65
-msgid "If you want to allow httpd cgi support"
-msgstr "如果您想要允许 httpd cgi 支持"
-
-#: ../booleans_trans.py:67
-msgid "If you want to determine whether polipo can access cifs file systems."
-msgstr "如果您要确定 polipo 是否可以访问 cifs 文件系统。"
-
-#: ../booleans_trans.py:69
-msgid "If you want to allow Apache to query NS records"
-msgstr "如果您要允许 Apache 查询 NS 记录"
-
-#: ../booleans_trans.py:71
-msgid ""
-"If you want to determine whether ftpd can use CIFS used for public file "
-"transfer services."
-msgstr "如果您要决定 ftpd 是否可以在公共文件传输服务中使用 CIFS。"
-
-#: ../booleans_trans.py:73
-msgid "If you want to determine whether mcelog can use all the user ttys."
-msgstr "如果您要决定 mcelog 是否可以使用全部用户 TTY。"
-
-#: ../booleans_trans.py:75
-msgid "If you want to allow confined virtual guests to manage nfs files"
-msgstr "如果您要允许限定虚拟机管理 nfs 文件"
-
-#: ../booleans_trans.py:77
-msgid ""
-"If you want to allow confined virtual guests to use serial/parallel "
-"communication ports"
-msgstr "如果您要允许限定虚拟机使用串口（/并口）沟通端口"
-
-#: ../booleans_trans.py:79
-msgid "If you want to allow rsync to run as a client"
-msgstr "如果您要允许 rsync 作为客户端运行"
-
-#: ../booleans_trans.py:81
-msgid ""
-"If you want to allow rgmanager domain to connect to the network using TCP."
-msgstr "如果您要允许 rgmanager 域使用 TCP 连接到网络。"
-
-#: ../booleans_trans.py:83
-msgid ""
-"If you want to determine whether exim can read generic user content files."
-msgstr "如果您要决定 exim 是否可以读取用户主目录中的普通文件。"
-
-#: ../booleans_trans.py:85
-msgid ""
-"If you want to allow piranha-lvs domain to connect to the network using TCP."
-msgstr "如果您要允许 piranha-lvs 域使用 TCP 连接到网络。"
-
-#: ../booleans_trans.py:87
-msgid ""
-"If you want to allows clients to write to the X server shared memory "
-"segments."
-msgstr "如果您要允许客户端写入 X 服务器共享的内存片段。"
-
-#: ../booleans_trans.py:89
-msgid "If you want to allow Puppet client to manage all file types."
-msgstr "如果您要允许 Puppet 客户端管理所有文件类型。"
-
-#: ../booleans_trans.py:91
-msgid ""
-"If you want to determine whether entropyd can use audio devices as the "
-"source for the entropy feeds."
-msgstr "如果您要决定 entropyd 是否可以使用音频设备作为熵输入源。"
-
-#: ../booleans_trans.py:93
-msgid "If you want to allow user music sharing"
-msgstr "如果您要允许用户音乐共享"
-
-#: ../booleans_trans.py:95
-msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
-msgstr "如果您要允许 ssh 作为 sysadm_r:sysadm_t 登录"
-
-#: ../booleans_trans.py:97
-msgid ""
-"If you want to determine whether Bind can write to master zone files. "
-"Generally this is used for dynamic DNS or zone transfers."
-msgstr "如果您要决定 Bind 是否可以写入主域文件。通常情况下这用于动态 DNS 或者域迁移。"
-
-#: ../booleans_trans.py:99
-msgid ""
-"If you want to determine whether Git system daemon can access cifs file "
-"systems."
-msgstr "如果您想要决定 Git 系统守护进程是否可以访问 cifs 文件系统。"
-
-#: ../booleans_trans.py:101
-msgid "If you want to allow unprivileged users to execute DDL statement"
-msgstr "如果您要允许非特权用户执行 DDL 声明"
-
-#: ../booleans_trans.py:103
-msgid ""
-"If you want to determine whether tor can bind tcp sockets to all unreserved "
-"ports."
-msgstr "如果您要决定 tor 是否可以绑定 TCP Socket 到全部未保留端口上。"
-
-#: ../booleans_trans.py:105
-msgid "If you want to determine whether mpd can use nfs file systems."
-msgstr "如果您要决定 mpd 是否可以使用 NFS 文件系统。"
-
-#: ../booleans_trans.py:107
-msgid "If you want to determine whether mcelog can execute scripts."
-msgstr "如果您要决定 mcelog 是否可以执行脚本。"
-
-#: ../booleans_trans.py:109
-msgid "If you want to determine whether cvs can read shadow password files."
-msgstr "如果您要决定 cvs 是否可以读取密码暗码文件。"
-
-#: ../booleans_trans.py:111
-msgid "If you want to allow httpd to access cifs file systems"
-msgstr "如果您要允许 httpd 访问 cifs 文件系统"
-
-#: ../booleans_trans.py:113
-msgid "If you want to determine whether Git CGI can search home directories."
-msgstr "如果您想要决定 Git CGI 是否可以搜索主文件夹。"
-
-#: ../booleans_trans.py:115
-msgid "If you want to allow host key based authentication"
-msgstr "如果您要允许基于验证的主机密钥"
-
-#: ../booleans_trans.py:117
-msgid "If you want to support NFS home directories"
-msgstr "如果您要支持 NFS 主目录"
-
-#: ../booleans_trans.py:119
-msgid ""
-"If you want to allow postfix_local domain full write access to mail_spool "
-"directories"
-msgstr "如果您要允许 postfix_local 域有对 mail_spool 目录的完全写入访问"
-
-#: ../booleans_trans.py:121
-msgid ""
-"If you want to determine whether can antivirus programs use JIT compiler."
-msgstr "如果您想决定防病毒程序是否可以使用 JIT 即时编译器。"
-
-#: ../booleans_trans.py:123
-msgid ""
-"If you want to disallow programs, such as newrole, from transitioning to "
-"administrative user domains."
-msgstr "如果您要不允许类似 newrole 的程序转移到管理用户域。"
-
-#: ../booleans_trans.py:125
-msgid "If you want to allow glusterfsd to share any file/directory read only."
-msgstr "如果您要允许 glusterfsd 以只读共享任意文件/目录。"
-
-#: ../booleans_trans.py:127
-msgid "If you want to allow httpd processes to manage IPA content"
-msgstr "如果您想要允许 httpd 进程管理 IPA 内容"
-
-#: ../booleans_trans.py:129
-msgid "If you want to determine whether clamscan can read user content files."
-msgstr "如果您要决定 clamscan 是否可以读取用户普通文件。"
-
-#: ../booleans_trans.py:131
-msgid ""
-"If you want to determine whether clamscan can read all non-security files."
-msgstr "如果您要决定 clamscan 是否可以读取全部非保密文件。"
-
-#: ../booleans_trans.py:133
-msgid "If you want to allow pppd to be run for a regular user"
-msgstr "如果您要允许为常规用户运行 pppd "
-
-#: ../booleans_trans.py:135
-msgid "If you want to allow samba to share any file/directory read only."
-msgstr "如果您要允许 samba 共享所有只读的文件/目录。"
-
-#: ../booleans_trans.py:137
-msgid ""
-"If you want to determine whether ftpd can connect to databases over the TCP "
-"network."
-msgstr "如果您要决定 ftpd 是否可以通过 TCP 网络连接至数据库。"
-
-#: ../booleans_trans.py:139
-msgid ""
-"If you want to determine whether Git system daemon can search home "
-"directories."
-msgstr "如果您想要决定 Git 系统守护进程是否可以搜索主文件夹。"
-
-#: ../booleans_trans.py:141
-msgid "If you want to support SAMBA home directories"
-msgstr "如果您要支持 SAMBA 主目录"
-
-#: ../booleans_trans.py:143
-msgid "If you want to allow mock to read files in home directories."
-msgstr "如果您要允许 mock 读取主目录中的文件。"
-
-#: ../booleans_trans.py:145
-msgid ""
-"If you want to allow user to r/w files on filesystems that do not have "
-"extended attributes (FAT, CDROM, FLOPPY)"
-msgstr "如果您要允许用于在您没有扩展的属性（FAT、CDROM、FLOPPY）的文件系统中读取（/写入）文件"
-
-#: ../booleans_trans.py:147
-msgid ""
-"If you want to allow Apache to run in stickshift mode, not transition to "
-"passenger"
-msgstr "如果您想要允许 Apache 运行在 stickshift 模式，并不移交给访客"
-
-#: ../booleans_trans.py:149
-msgid ""
-"If you want to allow samba to create new home directories (e.g. via PAM)"
-msgstr "如果您要允许 samba 生成新的主目录（例如：使用 PAM）"
-
-#: ../booleans_trans.py:151
-msgid "If you want to allow virtual processes to run as userdomains"
-msgstr "如果您要允许虚拟进程以用户域运行"
-
-#: ../booleans_trans.py:153
-msgid ""
-"If you want to determine whether calling user domains can execute Git daemon "
-"in the git_session_t domain."
-msgstr "如果您想要决定访问的用户域是否可以在 git_seeion_t 域下执行 Git 守护进程。"
-
-#: ../booleans_trans.py:155
-msgid "If you want to determine whether zabbix can connect to all TCP ports"
-msgstr "如果您要决定 zabbix 是否可以连接至所有 TCP 端口。"
-
-#: ../booleans_trans.py:157
-msgid "If you want to determine whether fenced can use ssh."
-msgstr "如果您要决定 fenced 是否可以使用 SSH。"
-
-#: ../booleans_trans.py:159
-msgid "If you want to allow ZoneMinder to run su/sudo."
-msgstr "如果您要允许 ZoneMinder 运行 su/sudo。"
-
-#: ../booleans_trans.py:161
-msgid "If you want to allow httpd to read home directories"
-msgstr "如果您要允许 httpd 读取主目录"
-
-#: ../booleans_trans.py:163
-msgid ""
-"If you want to allow gpg web domain to modify public files used for public "
-"file transfer services."
-msgstr "如果您要允许 gpg web 域修改在公共文件传输服务中使用的公共文件。"
-
-#: ../booleans_trans.py:165
-msgid "If you want to allow rsync to export any files/directories read only."
-msgstr "如果您要允许 rsync 导出所有只读文件（/目录）。"
-
-#: ../booleans_trans.py:167
-msgid "If you want to allow regular users direct dri device access"
-msgstr "如果您要允许常规用户直接 dri 设备访问"
-
-#: ../booleans_trans.py:169
-msgid ""
-"If you want to allow nfs servers to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr "如果您要允许 nfs 服务器修改在公共文件传输服务中使用的公共文件。必须将文件/目录标记为 public_content_rw_t。"
-
-#: ../booleans_trans.py:171
-msgid "If you want to allow mysqld to connect to all ports"
-msgstr "如果您要允许 mysqld 连接到所有端口"
-
-#: ../booleans_trans.py:173
-msgid ""
-"If you want to determine whether Polipo session daemon can bind tcp sockets "
-"to all unreserved ports."
-msgstr "如果您要决定 Polipo 会话守护进程是否可以将 tcp 插槽与所有未预留端口捆绑。"
-
-#: ../booleans_trans.py:175
-msgid "If you want to allow qemu to use serial/parallel communication ports"
-msgstr "如果您要允许 qemu 使用串口/并口沟通端口"
-
-#: ../booleans_trans.py:177
-msgid "If you want to allow Apache to communicate with avahi service via dbus"
-msgstr "如果您要允许 Apache 与 avahi 服务通过 dbus 沟通"
-
-#: ../booleans_trans.py:179
-msgid "If you want to allow ftpd to use ntfs/fusefs volumes."
-msgstr "如果您要允许 ftpd 使用 ntfs/fusefs 卷。"
-
-#: ../booleans_trans.py:181
-msgid "If you want to allow sanlock to read/write fuse files"
-msgstr "如果您想要允许 sanlock 读写 fuse 文件"
-
-#: ../booleans_trans.py:183
-msgid ""
-"If you want to allow rsync server to manage all files/directories on the "
-"system."
-msgstr "如果您要允许 rsync 服务管理系统上的所有文件/目录。"
-
-#: ../booleans_trans.py:185
-msgid "If you want to allow user  to use ssh chroot environment."
-msgstr "如果您要允许用户使用 SSH chroot 环境。"
-
-#: ../booleans_trans.py:187
-msgid ""
-"If you want to determine whether Cobbler can connect to the network using "
-"TCP."
-msgstr "如果您要决定 Cobbler 是否可以使用 TCP 连接至网络。"
-
-#: ../booleans_trans.py:189
-msgid ""
-"If you want to deny user domains applications to map a memory region as both "
-"executable and writable, this is dangerous and the executable should be "
-"reported in bugzilla"
-msgstr "如果您要拒绝用户域程序与内存区映射，因为它们都是可执行并可写入的，这样做很危险，并应向 bugzilla 报告该可执行。"
-
-#: ../booleans_trans.py:191
-msgid "If you want to determine whether squid can run as a transparent proxy."
-msgstr "如果您要决定 squid 是否可以作为透明代理运行。"
-
-#: ../booleans_trans.py:193
-msgid "If you want to allow users to connect to the local mysql server"
-msgstr "如果您要允许用户连接到本地 mysql 服务器"
-
-#: ../booleans_trans.py:195
-msgid ""
-"If you want to determine whether ftpd can login to local users and can read "
-"and write all files on the system, governed by DAC."
-msgstr "如果您要决定 sftp-internal 是否可以登录到本地用户并读取/写入由 DAC 管理的所有文件。"
-
-#: ../booleans_trans.py:197
-msgid "If you want to allows XServer to execute writable memory"
-msgstr "如果您要允许 XServer 执行可写入内存"
-
-#: ../booleans_trans.py:199
-msgid ""
-"If you want to allow glusterfsd to share any file/directory read/write."
-msgstr "如果您要允许 glusterfsd 以可读可写共享任意文件/目录。"
-
-#: ../booleans_trans.py:201
-msgid ""
-"If you want to boolean to determine whether the system permits loading "
-"policy, setting enforcing mode, and changing boolean values.  Set this to "
-"true and you have to reboot to set it back."
-msgstr "如果您想要通过布尔值来决定系统是否允许载入策略、设定强制模式和改变布尔值。 将此项设定为 true 然后您需要重启来设定回去。"
-
-#: ../booleans_trans.py:203
-msgid ""
-"If you want to allow confined virtual guests to interact with rawip sockets"
-msgstr "如果您要允许受限虚拟客户机通过 rawip Socket 交互"
-
-#: ../booleans_trans.py:205
-msgid "If you want to determine whether dbadm can manage generic user files."
-msgstr "如果您要决定 dbadm 是否可以管理一般用户文件。"
-
-#: ../booleans_trans.py:207
-msgid ""
-"If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
-"ABRT event scripts"
-msgstr "如果您要允许 ABRT 在 abrt_handle_event_t 域中运行以便处理 ABRT 事件脚本"
-
-#: ../booleans_trans.py:209
-msgid "If you want to allow all domains to execute in fips_mode"
-msgstr "如果您要允许所有域可以在 fips_mode 下执行"
-
-#: ../booleans_trans.py:211
-msgid "If you want to allow sge to connect to the network using any TCP port"
-msgstr "如果您想要允许 sge 使用任何 TCP 端口连接网络"
-
-#: ../booleans_trans.py:213
-msgid ""
-"If you want to determine whether Git system daemon can access nfs file "
-"systems."
-msgstr "如果您想要决定 Git 系统守护进程是否可以访问 nfs 文件系统。"
-
-#: ../booleans_trans.py:215
-msgid "If you want to unify HTTPD handling of all content files."
-msgstr "如果您要为所有内容文件统一 HTTPD 句柄。"
-
-#: ../booleans_trans.py:217
-msgid "If you want to allow nsplugin code to connect to unreserved ports"
-msgstr "如果您要允许 nsplugin 代码与未预留端口连接"
-
-#: ../booleans_trans.py:219
-msgid "If you want to determine whether amavis can use JIT compiler."
-msgstr "如果您要决定 amavis 是否可以使用 JIT 即时编译器。"
-
-#: ../booleans_trans.py:221
-msgid "If you want to determine whether java can make its stack executable."
-msgstr "如果您要决定 java 是否可以使其存储栈可执行。"
-
-#: ../booleans_trans.py:223
-msgid ""
-"If you want to determine whether irc clients can listen on and connect to "
-"any unreserved TCP ports."
-msgstr "如果您要决定 IRC 客户端是否可以侦听并连接任意未保留的 TCP 端口。"
-
-#: ../booleans_trans.py:225
-msgid "If you want to allow database admins to execute DML statement"
-msgstr "如果您要允许数据库管理员执行 DML 声明"
-
-#: ../booleans_trans.py:227
-msgid "If you want to allow openvpn to run unconfined scripts"
-msgstr "如果您要允许 openvpn 运行不受限的脚本"
-
-#: ../booleans_trans.py:229
-msgid "If you want to allow Apache to use mod_auth_pam"
-msgstr "如果您要允许 Apache 使用 mod_auth_pam"
-
-#: ../booleans_trans.py:231
-msgid ""
-"If you want to allow confined virtual guests to interact with the xserver"
-msgstr "如果您要允许限定虚拟机与 xserver 互动"
-
-#: ../booleans_trans.py:233
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to the network "
-"using TCP."
-msgstr "如果您想要允许 HTTPD 脚本和模块使用 TCP 连接网络。"
-
-#: ../booleans_trans.py:235
-msgid "If you want to allow qemu to use usb devices"
-msgstr "如果您要允许 qemu 使用 usb 设备"
-
-#: ../booleans_trans.py:237
-msgid "If you want to determine whether exim can connect to databases."
-msgstr "如果您要决定 exim 是否可以连接至数据库。"
-
-#: ../booleans_trans.py:239
-msgid "If you want to determine whether Git CGI can access nfs file systems."
-msgstr "如果您想要决定 Git CGI 是否可以访问 nfs 文件系统。"
-
-#: ../booleans_trans.py:241
-msgid ""
-"If you want to determine whether varnishd can use the full TCP network."
-msgstr "如果您要决定 varnishd 是否可以使用全部 TCP 网络。"
-
-#: ../booleans_trans.py:243
-msgid ""
-"If you want to allow tftp to read and write files in the user home "
-"directories"
-msgstr "如果您要允许 tftp 在用户主目录读取并写入文件"
-
-#: ../booleans_trans.py:245
-msgid "If you want to support ecryptfs home directories"
-msgstr "如果您想要支持 ecryptfs 加密主文件夹"
-
-#: ../booleans_trans.py:247
-msgid "If you want to allow samba to act as a portmapper"
-msgstr "如果您想要允许 samba 像端口映射器般工作"
-
-#: ../booleans_trans.py:249
-msgid "If you want to allow httpd scripts and modules execmem/execstack"
-msgstr "如果您要允许 httpd 脚本和模块 execmem/execstack"
-
-#: ../booleans_trans.py:251
-msgid "If you want to allow httpd to access FUSE file systems"
-msgstr "如果您想要允许 httpd 访问 FUSE 文件系统"
-
-#: ../booleans_trans.py:253
-msgid "If you want to allow httpd to connect to the ldap port"
-msgstr "如果您要允许 httpd 连接到 ldap 端口"
-
-#: ../booleans_trans.py:255
-msgid "If you want to enable polyinstantiated directory support."
-msgstr "如果您要启用 polyinstantiated 目录支持。"
-
-#: ../booleans_trans.py:257
-msgid ""
-"If you want to allow cluster administrative cluster domains memcheck-amd64- "
-"to use executable memory"
-msgstr "如果您要允许集群管理域 memcheck-amd64- 使用可执行内存"
-
-#: ../booleans_trans.py:259
-msgid ""
-"If you want to allow logging in and using the system from /dev/console."
-msgstr "如果您要允许登录并使用 /dev/console 中的系统。"
-
-#: ../booleans_trans.py:261
-msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
-msgstr "如果您要允许 Apache 使用 mod_auth_ntlm_winbind"
-
-#: ../booleans_trans.py:263
-msgid "If you want to allow the graphical login program to execute bootloader"
-msgstr "如果您要允许图形登录程序执行引导装载程序"
-
-#: ../booleans_trans.py:265
-msgid "If you want to allow samba to share users home directories."
-msgstr "如果您要允许 samba 共享用户主目录。"
-
-#: ../booleans_trans.py:267
-msgid "If you want to allow qemu to connect fully to the network"
-msgstr "如果您要允许qemu 完全连接到该网络"
-
-#: ../booleans_trans.py:269
-msgid "If you want to allow users to connect to PostgreSQL"
-msgstr "如果您要允许用户连接到 PostgreSQL"
-
-#: ../booleans_trans.py:271
-msgid "If you want to allow httpd to connect to  sasl"
-msgstr "如果您要允许 httpd 连接至 sasl"
-
-#: ../booleans_trans.py:273
-msgid ""
-"If you want to unify HTTPD to communicate with the terminal. Needed for "
-"entering the passphrase for certificates at the terminal."
-msgstr "如果您要统一与终端沟通的 HTTPD。需要在终端输入证书密码短语。"
-
-#: ../booleans_trans.py:275
-msgid ""
-"If you want to allow apache scripts to write to public content, directories/"
-"files must be labeled public_rw_content_t."
-msgstr "如果您想要允许 apache 脚本写入公开内容，目录/文件必须标注为 public_rw_content_t。"
-
-#: ../booleans_trans.py:277
-msgid ""
-"If you want to allow rsync to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr "如果您要允许 rsync 修改在公共文件传输服务中使用的公共文件。必须将文件/目录标记为 public_content_rw_t。"
-
-#: ../booleans_trans.py:279
-msgid ""
-"If you want to determine whether mplayer can make its stack executable."
-msgstr "如果您要决定 mplayer 是否可以使其存储栈可执行。"
-
-#: ../booleans_trans.py:281
-msgid ""
-"If you want to allow users to run TCP servers (bind to ports and accept "
-"connection from the same domain and outside users)  disabling this forces "
-"FTP passive mode and may change other protocols."
-msgstr "如果您要允许用户运行 TCP 服务器（捆绑到端口并接受来自同一域或外部用户的连接）禁用这个强制 FTP 被动模式并更改其他协议。"
-
-#: ../booleans_trans.py:283
-msgid ""
-"If you want to allow xend to run qemu-dm. Not required if using paravirt and "
-"no vfb."
-msgstr "如果您要允许 xend 运行 qemu-dm。如果使用 paravirt，且没有 vfb，则不需要。"
-
-#: ../booleans_trans.py:285
-msgid ""
-"If you want to determine whether sftpd-can read and write files in user home "
-"directories."
-msgstr "如果您要决定 sftpd 是否可以在用户主目录读取并写入文件。"
-
-#: ../booleans_trans.py:287
-msgid "If you want to support fusefs home directories"
-msgstr "如果您要支持 fusefs 主目录"
-
-#: ../booleans_trans.py:289
-msgid ""
-"If you want to allow the Telepathy connection managers to connect to any "
-"network port."
-msgstr "如果您要允许 Telepathy 连接管理器连接到任意网络端口。"
-
-#: ../booleans_trans.py:291
-msgid "If you want to allow confined virtual guests to manage cifs files"
-msgstr "如果您要允许未限定虚拟机管理 cifs 文件"
-
-#: ../booleans_trans.py:293
-msgid ""
-"If you want to allow the Irssi IRC Client to connect to any port, and to "
-"bind to any unreserved port."
-msgstr "如果您要允许 Irssi IRC 客户端连接到所有端口，并将其与所有未预留端口捆绑。"
-
-#: ../booleans_trans.py:295
-msgid "If you want to allow confined applications to use nscd shared memory."
-msgstr "如果您要允许限定程序使用 nscd 共享的内存。"
-
-#: ../booleans_trans.py:297
-msgid ""
-"If you want to determine whether attempts by wine to mmap low regions should "
-"be silently blocked."
-msgstr "如果您要决定是否要安静的阻止 wine 尝试内存映射低端区域的请求。"
-
-#: ../booleans_trans.py:299
-msgid "If you want to allow racoon to read shadow"
-msgstr "如果您要允许 racoon 读取 shadow"
-
-#: ../booleans_trans.py:301
-msgid ""
-"If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
-"database"
-msgstr "如果您要允许 Puppet master 使用到 MySQL 和 PostgreSQL 数据库的连接"
-
-#: ../booleans_trans.py:303
-msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
-msgstr "如果您想要允许 HTTPD 连接至端口 80 实现平滑关闭"
-
-#: ../booleans_trans.py:305
-msgid "If you want to allow system to run with NIS"
-msgstr "如果您要允许系统使用 NIS 运行"
-
-#: ../booleans_trans.py:307
-msgid "If you want to allow users to login using a yubikey  server"
-msgstr "如果您要允许用户使用 yubikey 服务登录"
-
-#: ../booleans_trans.py:309
-msgid "If you want to allow a user to login as an unconfined domain"
-msgstr "如果您要允许用户作为非限定域登录"
-
-#: ../booleans_trans.py:311
-msgid "If you want to disable kernel module loading."
-msgstr "如果您想要禁用内核模块加载。"
-
-#: ../booleans_trans.py:313
-msgid ""
-"If you want to allow pacemaker memcheck-amd64- to use executable memory"
-msgstr "如果您要允许 pacemaker memcheck-amd64-to 使用可执行内存"
-
-#: ../booleans_trans.py:315
-msgid ""
-"If you want to allow httpd to act as a FTP client connecting to the ftp port "
-"and ephemeral ports"
-msgstr "如果您要允许 httpd 作为 FTP 客户端连接连接到 ftp 端口和 ephemeral 端口"
-
-#: ../booleans_trans.py:317
-msgid ""
-"If you want to determine whether ftpd can bind to all unreserved ports for "
-"passive mode."
-msgstr "如果您要决定 ftpd 是否可以被动模式绑定到全部未保留端口。"
-
-#: ../booleans_trans.py:319
-msgid ""
-"If you want to allow samba to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr "如果您要允许 samba 修改用于公共文件传输的公共文件。必须将文件（/目录）标记为 public_content_rw_t。"
-
-#: ../booleans_trans.py:321
-msgid ""
-"If you want to allow gssd to read temp directory.  For access to kerberos "
-"tgt."
-msgstr "如果您要允许 gssd 读取临时目录。要访问 kerberos tgt。"
-
-#: ../booleans_trans.py:323
-msgid "If you want to determine whether Cobbler can access nfs file systems."
-msgstr "如果您要决定 Cobbler 是否可以访问 NFS 文件系统。"
-
-#: ../booleans_trans.py:325
-msgid "If you want to allow tor to act as a relay"
-msgstr "如果您要允许 Tor 作为中继使用"
-
-#: ../booleans_trans.py:327
-msgid ""
-"If you want to allow unconfined executables to make their stack executable.  "
-"This should never, ever be necessary. Probably indicates a badly coded "
-"executable, but could indicate an attack. This executable should be reported "
-"in bugzilla"
-msgstr ""
-"如果您要允许未限定可执行文件使其栈可执行。这根本没有必要。可能是错误编码的可执行栈，但可能是一次攻击。应向 bugzilla 报告这个可执行栈。"
-
-#: ../booleans_trans.py:329
-msgid ""
-"If you want to allow confined virtual guests to interact with the sanlock"
-msgstr "如果您要允许限定虚拟机与 sanlock 互动"
-
-#: ../booleans_trans.py:331
-msgid "If you want to allow all daemons to use tcp wrappers."
-msgstr "如果您要允许所有守护进程使用 tcp wrappers。"
-
-#: ../booleans_trans.py:333
-msgid ""
-"If you want to permit to prosody to bind apache port. Need to be activated "
-"to use BOSH."
-msgstr "如果您要允许 prosody 绑定 apache 端口。需要启用以使用 BOSH。"
-
-#: ../booleans_trans.py:335
-msgid ""
-"If you want to allow confined virtual guests to use executable memory and "
-"executable stack"
-msgstr "如果您要允许限定虚拟机使用可执行内存和可执行栈"
-
-#: ../booleans_trans.py:337
-msgid "If you want to determine whether webadm can read generic user files."
-msgstr "如果您要决定 webadm 是否可以读取一般用户文件。"
-
-#: ../booleans_trans.py:339
-msgid "If you want to allow mozilla plugin to support GPS."
-msgstr "如果您想要允许 Mozilla GPS 定位插件。"
-
-#: ../booleans_trans.py:341
-msgid "If you want to support X userspace object manager"
-msgstr "如果您要支持 X 用户空间对象管理器"
-
-#: ../booleans_trans.py:343
-msgid ""
-"If you want to determine whether attempts by vbetool to mmap low regions "
-"should be silently blocked."
-msgstr "如果您要决定是否要安静的阻止 vbetool 尝试内存映射低端区域的请求。"
-
-#: ../booleans_trans.py:345
-msgid "If you want to allow httpd to read user content"
-msgstr "如果您要允许 httpd 读取用户内容"
-
-#: ../booleans_trans.py:347
-msgid "If you want to allow httpd to access nfs file systems"
-msgstr "如果您要允许 httpd 访问 nfs 文件系统"
-
-#: ../booleans_trans.py:349
-msgid ""
-"If you want to allow unconfined users to transition to the chrome sandbox "
-"domains when running chrome-sandbox"
-msgstr "如果您要允许非限定用户在运行 chrome-sandbox 时转换为 chrome 沙箱域"
-
-#: ../booleans_trans.py:351
-msgid "If you want to allow pppd to load kernel modules for certain modems"
-msgstr "如果您要允许 pppd 为特定调制解调器载入内核模块"
-
-#: ../booleans_trans.py:353
-msgid "If you want to allow sge to access nfs file systems."
-msgstr "如果您想要允许 sge 访问 NFS 文件系统。"
-
-#: ../booleans_trans.py:355
-msgid "If you want to allow confined virtual guests to read fuse files"
-msgstr "如果您要允许限定虚拟机读取 fuse 文件"
-
-#: ../booleans_trans.py:357
-msgid "If you want to allow spamd to read/write user home directories."
-msgstr "如果您要允许 spamd 读取（/写入）用户主目录。"
-
-#: ../booleans_trans.py:359
-msgid "If you want to determine whether DHCP daemon can use LDAP backends."
-msgstr "如果您要决定 DHCP 守护进程是否可以使用 LDAP 后端。"
-
-#: ../booleans_trans.py:361
-msgid "If you want to determine whether Git CGI can access cifs file systems."
-msgstr "如果您想要决定 Git CGI 是否可以访问 cifs 文件系统。"
-
-#: ../booleans_trans.py:363
-msgid ""
-"If you want to allow any files/directories to be exported read/write via NFS."
-""
-msgstr "如果您要允许所有文件/目录都可使用 NFS 导入为读取/写入。"
-
-#: ../booleans_trans.py:365
-msgid "If you want to allow mailman to access FUSE file systems"
-msgstr "如果您想要允许 Mailman 访问 FUSE 文件系统"
-
-#: ../booleans_trans.py:367
-msgid ""
-"If you want to determine whether icecast can listen on and connect to any "
-"TCP port."
-msgstr "如果您要决定 icecast 是否可以侦听并连接任意 TCP 端口。"
-
-#: ../booleans_trans.py:369
-msgid "If you want to allow Apache to execute tmp content."
-msgstr "如果您要允许 Apache 执行 tmp 内容。"
-
-#: ../booleans_trans.py:371
-msgid "If you want to allow zebra daemon to write it configuration files"
-msgstr "如果您要允许 zebra 守护进程将其写入配置文件"
-
-#: ../booleans_trans.py:373
-msgid "If you want to allow qemu to use cifs/Samba file systems"
-msgstr "如果您要允许 qumu 使用 cifs/Samba 文件系统"
-
-#: ../booleans_trans.py:375
-msgid "If you want to allow ksmtuned to use cifs/Samba file systems"
-msgstr "如果您要允许 ksmtuned 使用 cifs/Samba 文件系统"
-
-#: ../booleans_trans.py:377
-msgid ""
-"If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
-"dedicated logical volumes for disk images."
-msgstr "如果您要允许 xend 运行 blktapctrl/tapdisk。如果使用该映像的专用逻辑卷则不需要。"
-
-#: ../booleans_trans.py:379
-msgid ""
-"If you want to determine whether fenced can connect to the TCP network."
-msgstr "如果您要决定 fenced 是否可以连接至 TCP 网络。"
-
-#: ../booleans_trans.py:381
-msgid "If you want to allow sanlock to manage nfs files"
-msgstr "如果您想要允许 sanlock 管理 nfs 文件"
-
-#: ../booleans_trans.py:383
-msgid "If you want to allow all domains to have the kernel load modules"
-msgstr "如果您要允许所有域都让内核载入模块"
-
-#: ../booleans_trans.py:385
-msgid "If you want to allow confined virtual guests to use usb devices"
-msgstr "如果您要允许限定虚拟机使用 usb 设备"
-
-#: ../booleans_trans.py:387
-msgid ""
-"If you want to determine whether smartmon can support devices on 3ware "
-"controllers."
-msgstr "如果您要决定 smartmon 是否可以支持 3ware 控制器上的设备。"
-
-#: ../booleans_trans.py:389
-msgid ""
-"If you want to allow ABRT to modify public files used for public file "
-"transfer services."
-msgstr "如果您要允许 ABRT 修改在公共文件传输服务中使用的公共文件。"
-
-#: ../booleans_trans.py:391
-msgid ""
-"If you want to allow cluster administrative domains to connect to the "
-"network using TCP."
-msgstr "如果您要允许集群管理员域使用 TCP 连接至网络。"
-
-#: ../booleans_trans.py:393
-msgid "If you want to allow http daemon to send mail"
-msgstr "如果您要允许 http 守护进程发送邮件"
-
-#: ../booleans_trans.py:395
-msgid "If you want to allow samba to export ntfs/fusefs volumes."
-msgstr "如果您要允许 samba 导出 ntfs/fusefs 卷。"
-
-#: ../booleans_trans.py:397
-msgid ""
-"If you want to allow staff user to create and transition to svirt domains."
-msgstr "如果您想要允许一般用户创建并迁移至 svirt 域。"
-
-#: ../booleans_trans.py:399
-msgid ""
-"If you want to allow mozilla plugin domain to connect to the network using "
-"TCP."
-msgstr "如果您想要允许 mozilla 插件域使用 TCP 连接网络。"
-
-#: ../booleans_trans.py:401
-msgid "If you want to allow httpd to use built in scripting (usually php)"
-msgstr "如果您要允许 httpd 在脚本编写（通常是 php）中使用 built"
-
-#: ../booleans_trans.py:403
-msgid ""
-"If you want to allow confined users the ability to execute the ping and "
-"traceroute commands."
-msgstr "如果您要允许受限用户可以执行 ping 和 traceroute 命令。"
-
-#: ../booleans_trans.py:405
-msgid ""
-"If you want to determine whether exim can create, read, write, and delete "
-"generic user content files."
-msgstr "如果您要决定 exim 是否可以创建、读取、写入和删除一般用户文件。"
-
-#: ../booleans_trans.py:407
-msgid ""
-"If you want to allow cluster administrative domains to manage all files on a "
-"system."
-msgstr "如果您要允许集群管理员域管理系统上的全部文件。"
-
-#: ../booleans_trans.py:409
-msgid ""
-"If you want to determine whether cdrecord can read various content. nfs, "
-"samba, removable devices, user temp and untrusted content files"
-msgstr "如果您要决定 cdrecord 是否可以读取各种内容，包括 NFS、Samba、可移动设备、用户临时文件及未受信任的内容文件"
-
-#: ../booleans_trans.py:411
-msgid ""
-"If you want to determine whether Cobbler can modify public files used for "
-"public file transfer services."
-msgstr "如果您要决定 Cobbler 是否可以修改用于公共文件传输服务的共用文件。"
-
-#: ../booleans_trans.py:413
-msgid "If you want to allow samba to export NFS volumes."
-msgstr "如果您要允许 samba 导出 NFS 卷。"
-
-#: ../booleans_trans.py:415
-msgid ""
-"If you want to control the ability to mmap a low area of the address space, "
-"as configured by /proc/sys/kernel/mmap_min_addr."
-msgstr "如果您要控制 mmap 地址空间低区域的功能，如 /proc/sys/kernel/mmap_min_addr 所配置。"
-
-#: ../booleans_trans.py:417
-msgid "If you want to determine whether dbadm can read generic user files."
-msgstr "如果您要决定 dbadm 是否可以读取一般用户文件。"
-
-#: ../booleans_trans.py:419
-msgid ""
-"If you want to determine whether ftpd can use NFS used for public file "
-"transfer services."
-msgstr "如果您要决定 ftpd 是否可以在公共文件传输服务中使用 CIFS。"
-
-#: ../booleans_trans.py:421
-msgid ""
-"If you want to allow antivirus programs to read non security files on a "
-"system"
-msgstr "如果您要允许防病毒软件读取系统中的非保密文件"
-
-#: ../booleans_trans.py:423
-msgid ""
-"If you want to determine whether calling user domains can execute Polipo "
-"daemon in the polipo_session_t domain."
-msgstr "如果您要决定是否调用可在 polipo_session_t 域中执行 Polipo 守护进程的用户域。"
-
-#: ../booleans_trans.py:425
-msgid "If you want to allow confined applications to run with kerberos."
-msgstr "如果您要允许未限定程序使用 kerberos 运行。"
-
-#: ../booleans_trans.py:427
-msgid "If you want to allow http daemon to check spam"
-msgstr "如果您要允许 http 守护进程检查垃圾邮件"
-
-#: ../booleans_trans.py:429
-msgid "If you want to allow xguest users to mount removable media"
-msgstr "如果您要允许 xguest 用户挂载可移动介质"
-
-#: ../booleans_trans.py:431
-msgid ""
-"If you want to determine whether sftpd-can login to local users and read and "
-"write all files on the system, governed by DAC."
-msgstr "如果您要决定 sftp 是否可以登录到本地用户并读取/写入由 DAC 管理的所有文件。"
-
-#: ../booleans_trans.py:433
-msgid ""
-"If you want to determine whether Bind can bind tcp socket to http ports."
-msgstr "如果您要决定 Bind 是否可以绑定 TCP Socket 到 HTTP 端口。"
-
-#: ../booleans_trans.py:435
-msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr "如果您想要允许 syslogd 可以读取或写入终端"
-
-#: ../booleans_trans.py:437
-msgid ""
-"If you want to allow dhcpc client applications to execute iptables commands"
-msgstr "如果您要允许 dhcpc 客户端程序执行 iptables 命令"
-
-#: ../booleans_trans.py:439
-msgid "If you want to allow syslogd daemon to send mail"
-msgstr "如果您要允许syslogd 守护进程发送邮件"
-
-#: ../booleans_trans.py:441
-msgid "If you want to determine whether Polipo can access nfs file systems."
-msgstr "如果您要决定是否 Polipo 可以访问 nfs 文件系统。"
-
-#: ../booleans_trans.py:443
-msgid "If you want to allow samba to run unconfined scripts"
-msgstr "如果您要允许 samba 运行未限定脚本"
-
-#: ../booleans_trans.py:445
-msgid "If you want to allow nsplugin code to execmem/execstack"
-msgstr "如果您要允许 nsplugin 代码 execmem/execstack"
-
-#: ../booleans_trans.py:447
-msgid "If you want to enable reading of urandom for all domains."
-msgstr "如果您要为所有域启用 urandom 读取。"
-
-#: ../booleans_trans.py:449
-msgid "If you want to allow xguest to use blue tooth devices"
-msgstr "如果想要允许 xguest 使用蓝牙设备"
-
-#: ../booleans_trans.py:451
-msgid "If you want to determine whether mpd can use cifs file systems."
-msgstr "如果您要决定 mpd 是否可以使用 CIFS 文件系统。"
-
-#: ../booleans_trans.py:453
-msgid ""
-"If you want to determine whether ftpd can connect to all unreserved ports."
-msgstr "如果您要决定 ftpd 是否可以连接到所有未保留端口上。"
-
-#: ../booleans_trans.py:455
-msgid "If you want to determine whether Gitosis can send mail."
-msgstr "如果您要决定 Gitosis 是否可以发送邮件。"
-
-#: ../booleans_trans.py:457
-msgid "If you want to allow httpd to connect to memcache server"
-msgstr "如果您要允许 httpd 连接到 memcache 服务器"
-
-#: ../booleans_trans.py:459
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to cobbler over "
-"the network."
-msgstr "如果您要允许 HTTPD 脚本和模块通过网络连接到 cobbler。"
-
-#: ../booleans_trans.py:461
-msgid ""
-"If you want to allow Apache to modify public files used for public file "
-"transfer services. Directories/Files must be labeled public_content_rw_t."
-msgstr "如果您要允许 Apache 修改在公共文件传输服务中使用的公共文件。必须将文件（/目录）标记为 public_content_rw_t。"
-
-#: ../booleans_trans.py:463
-msgid ""
-"If you want to allow HTTPD scripts and modules to server cobbler files."
-msgstr "如果您要允许 HTTPD 脚本及模块去服务 cobbler 文件。"
-
-#: ../booleans_trans.py:465
-msgid "If you want to allow all daemons the ability to read/write terminals"
-msgstr "如果您要允许所有守护进程都可以读取/写入终端"
-
-#: ../booleans_trans.py:467
-msgid ""
-"If you want to determine whether Condor can connect to the network using TCP."
-""
-msgstr "如果您要决定 Condor 是否可以使用 TCP 连接至网络。"
-
-#: ../booleans_trans.py:469
-msgid ""
-"If you want to allow users to resolve user passwd entries directly from ldap "
-"rather then using a sssd server"
-msgstr "如果您想要允许用户直接使用 ldap 解析用户密码项而不是使用 sssd 服务器"
-
-#: ../booleans_trans.py:471
-msgid ""
-"If you want to determine whether ftpd can modify public files used for "
-"public file transfer services. Directories/Files must be labeled "
-"public_content_rw_t."
-msgstr ""
-"如果您要决定 ftpd 是否可以修改在公共文件传输服务中使用的共用文件。必须将文件（/目录）标记为 public_content_rw_t。"
-
-#: ../booleans_trans.py:473
-msgid "If you want to allow sanlock to manage cifs files"
-msgstr "如果您想要允许 sanlock 来管理 cifs 文件"
-
-#: ../booleans_trans.py:475
-msgid "If you want to determine whether awstats can purge httpd log files."
-msgstr "如果您要决定 awstats 是否可以清空 httpd 日志文件。"
-
-#: ../booleans_trans.py:477
-msgid "If you want to determine whether portage can use nfs filesystems."
-msgstr "如果您要决定 portage 是否可以使用 NFS 文件系统。"
-
-#: ../booleans_trans.py:479
-msgid ""
-"If you want to allow unprivledged user to create and transition to svirt "
-"domains."
-msgstr "如果您想要允许非特权用户创建并迁移至 svirt 域。"
-
-#: ../booleans_trans.py:481
-msgid "If you want to determine whether to support lpd server."
-msgstr "如果您要决定是否支持 lpd 服务器。"
-
-#: ../booleans_trans.py:483
-msgid "If you want to determine whether webadm can manage generic user files."
-msgstr "如果您要决定 webadm 是否可以管理一般用户文件。"
-
-#: ../booleans_trans.py:485
-msgid "If you want to determine whether can clamd use JIT compiler."
-msgstr "如果您要决定 clamd 是否可以使用 JIT 即时编译器。"
-
-#: ../booleans_trans.py:487
-msgid "If you want to allow qemu to use nfs file systems"
-msgstr "如果您要允许 qemu 使用 nfs 文件系统"
-
-#: ../booleans_trans.py:489
-msgid ""
-"If you want to determine whether Git session daemon can bind TCP sockets to "
-"all unreserved ports."
-msgstr "如果您想要决定 Git 用户守护进程是否可以绑定 TCP Socket 到全部未预留端口。"
-
-#: ../booleans_trans.py:491
-msgid ""
-"If you want to allow HTTPD to run SSI executables in the same domain as "
-"system CGI scripts."
-msgstr "如果您要允许 HTTPD 在与系统 CGI 脚本相同的域中运行 SSI 可执行。"
-
-#: ../booleans_trans.py:493
-msgid "If you want to allow mozilla plugin to support spice protocols."
-msgstr "如果您要允许 Mozilla 插件支持 SPICE 协议。"
-
-#: ../booleans_trans.py:495
-msgid "If you want to allow httpd to access openstack ports"
-msgstr "如果您想要允许 httpd 访问 openstack 端口"
-
-#: ../booleans_trans.py:497
-msgid ""
-"If you want to allow httpd to act as a FTP server by listening on the ftp "
-"port."
-msgstr "如果您要允许 httpd 通过在 封条破端口侦听而作为 FTP 服务器使用。"
-
-#: ../booleans_trans.py:499
-msgid "If you want to allow all daemons to write corefiles to /"
-msgstr "如果您要允许所有守护进程将 corefile 写入 /"
-
-#: ../booleans_trans.py:501
-msgid "If you want to enable extra rules in the cron domain to support fcron."
-msgstr "如果您要在 cron 域中启用附加规则支持 fcron。"
-
-#: ../booleans_trans.py:503
-msgid ""
-"If you want to determine whether sftpd can read and write files in user ssh "
-"home directories."
-msgstr "如果您要决定 sftpd 是否可以在用户 SSH 主目录中读取并写入文件。"
-
-#: ../booleans_trans.py:505
-msgid "If you want to allow http daemon to connect to zabbix"
-msgstr "如果您要允许 http 守护进程连接到 zabbix"
-
-#: ../booleans_trans.py:507
-msgid "If you want to allow transmit client label to foreign database"
-msgstr "如果您想要允许迁移客户端标记至陌生数据库"
-
-#: ../booleans_trans.py:509
-msgid ""
-"If you want to determine whether collectd can connect to the network using "
-"TCP."
-msgstr "如果您要决定 collectd 是否可以使用 TCP 连接至网络。"
-
-#: ../booleans_trans.py:511
-msgid "If you want to determine whether Cobbler can access cifs file systems."
-msgstr "如果您要决定 Cobbler 是否可以访问 CIFS 文件系统。"
-
-#: ../booleans_trans.py:513
-msgid "If you want to determine whether mcelog supports server mode."
-msgstr "如果您要决定 mcelog 是否支持服务器模式。"
-
-#: ../booleans_trans.py:515
-msgid "If you want to allow httpd daemon to change its resource limits"
-msgstr "如果您想要允许 httpd 守护进程改变它的资源限制"
-
-#: ../booleans_trans.py:517
-msgid "If you want to determine whether squid can connect to all TCP ports."
-msgstr "如果您要决定 squid 是否可以连接至所有 TCP 端口。"
-
-#: ../booleans_trans.py:519
-msgid "If you want to allow all domains to use other domains file descriptors"
-msgstr "如果您要允许所有域使用其他域文件描述符"
-
-#: ../booleans_trans.py:521
-msgid "If you want to determine whether mcelog supports client mode."
-msgstr "如果您要决定 mcelog 是否支持客户端模式。"
-
-#: ../booleans_trans.py:523
-msgid ""
-"If you want to allow any files/directories to be exported read/only via NFS."
-msgstr "如果您要允许所有文件（/目录）都可通过 NFS 导出为只读。"
-
-#: ../booleans_trans.py:525
-msgid ""
-"If you want to allow system cron jobs to relabel filesystem for restoring "
-"file contexts."
-msgstr "如果您要允许系统 cron 任务为恢复文件上下文重新标记文件系统。"
-
-#: ../booleans_trans.py:527
-msgid ""
-"If you want to determine whether sftpd can modify public files used for "
-"public file transfer services. Directories/Files must be labeled "
-"public_content_rw_t."
-msgstr ""
-"如果您要决定 sftpd 是否可以修改在公共文件传输服务中使用的共用文件。必须将文件（/目录）标记为 public_content_rw_t。"

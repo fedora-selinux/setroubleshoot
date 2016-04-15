@@ -11,21 +11,22 @@
 # Taylon Silmer <taylonsilva@gmail.com>, 2010
 # Teseu <teseu@linux-fedora.org>, 2007
 # Valnir Ferreira Jr. <vferreir@redhat.com>, 2006
+# Maria Andrada <msuppesd@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: setroubleshoot\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-14 08:43-0400\n"
+"POT-Creation-Date: 2016-01-15 16:34+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-11-19 07:27-0500\n"
-"Last-Translator: fabioolive <fabio.olive@gmail.com>\n"
+"PO-Revision-Date: 2016-03-30 10:12-0400\n"
+"Last-Translator: Maria Andrada <msuppesd@redhat.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "fedora/language/pt_BR/)\n"
 "Language: pt-BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -560,7 +561,7 @@ msgstr "você quer permitir que o ftpd grave em sistemas de arquivo nfs"
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
-#: ../src/restorecon.py:43 ../src/restorecon_source.py:33
+#: ../src/restorecon.py:42 ../src/restorecon_source.py:33
 #: ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
@@ -584,6 +585,12 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"Você tentou colocar algo em um %s que não é um tipo de arquivo. Isto não é "
+"permitido, você deve atribuir um tipo de arquivo. Você pode listar todos os "
+"tipos de arquivo usando o comando seinfo.\n"
+"\n"
+"seinfo -afile_type -x"
 
 #: ../src/associate.py:44
 #, python-format
@@ -591,6 +598,8 @@ msgid ""
 "you want to change the label of $TARGET_PATH to %s, you are not allowed to "
 "since it is not a valid file type."
 msgstr ""
+"você deseja alterar o rótulo de $TARGET_PATH para %s mas, você não tem "
+"permissão já que este não é um tipo de arquivo válido. "
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -918,7 +927,7 @@ msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
-"Você precisa reportar este como um erro.\n"
+"Você deve informar que este é um erro.\n"
 "Você pode gerar um módulo de política local para permitir este acesso."
 
 #: ../src/catchall.py:56
@@ -991,33 +1000,44 @@ msgstr ""
 #: ../src/chrome.py:31
 msgid ""
 "\n"
-"    SELinux denied access requested by $SOURCE. It is not\n"
-"    expected that this access is required by $SOURCE and this access\n"
-"    may signal an intrusion attempt. It is also possible that the specific\n"
-"    version or configuration of the application is causing it to require\n"
-"    additional access.  spice-xpi run applications within mozilla-plugins "
-"that require access to the desktop, that the mozilla_plugin lockdown will "
-"not allow, so either you need to turn off the mozilla_plugin lockdown or not "
-"use these packages.\n"
+"    SELinux denied access requested by $SOURCE. It is not expected that this "
+"access is required by $SOURCE and this access may signal an intrusion "
+"attempt. It is also possible that the specific version or configuration of "
+"the application is causing it to require additional access.  spice-xpi run "
+"applications within mozilla-plugins that require access to the desktop, that "
+"the mozilla_plugin lockdown will not allow, so either you need to turn off "
+"the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"O SELinux impediu o acesso requisitado pelo $SOURCE. Não é comum que este "
+"acesso seja requisitado pelo $SOURCE e isto pode indicar uma tentativa de "
+"invasão. Também é possível que a configuração ou a versão específica do "
+"aplicativo esteja fazendo com que o acesso adicional seja solicitado. spice-"
+"xpi executa aplicativos dentro dos plugins do mozilla que necessitam de "
+"acesso à área de trabalho e que o travamento do mozilla_plugin não o "
+"permitirá, portanto você precisa desativar o travamento do mozilla_plugin ou "
+"não usar estes pacotes. "
 
-#: ../src/chrome.py:39
+#: ../src/chrome.py:35
 msgid ""
 "\n"
 "Either remove the mozplugger or spice-xpi package by executing 'yum remove "
-"mozplugger spice-xpi'\n"
-"Or turn off enforcement of SELinux over the Chrome plugins.\n"
-"setsebool -P unconfined_chrome_sandbox_transition 0\n"
+"mozplugger spice-xpi', or turn off enforcement of SELinux over the Chrome "
+"plugins. setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"Remova o pacote spice-xpi ou mozplugger executando 'yum remove mozplugger "
+"spice-xpi' ou desative a imposição do SELinux sobre os plugins do Chrome. "
+"setsebool -P unconfined_chrome_sandbox_transition 0 "
 
-#: ../src/chrome.py:44 ../src/mozplugger.py:44
+#: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
 msgid "you want to use the %s package"
 msgstr "você deseja usar o pacote %s"
 
-#: ../src/chrome.py:49
+#: ../src/chrome.py:43
 msgid "you must turn off SELinux controls on the Chrome plugins."
 msgstr "você deve desligar os controles SELinux nos plugins do Chrome."
 
@@ -1291,6 +1311,20 @@ msgid ""
 "    relabel the entire file system.\n"
 "    "
 msgstr ""
+"\n"
+"    As verificações de permissão SELinux em arquivos rotulados como file_t "
+"estão sendo \n"
+"     negadas. file_t é o contexto que o kernel\n"
+"    do SELinux fornece aos arquivos que não têm um rótulo. Isto\n"
+"    indica um problema sério de rotulagem. Arquivos em uma máquina\n"
+"    SELinux jamais devem ser rotulados como file_t.\n"
+"    Se você acabou de adicionar uma unidade de disco ao sistema, você pode\n"
+"    rotulá-la novamente usando o comando restorecon.  Por exemplo, se você "
+"salvou o diretório home a partir de uma instalação anterior que não "
+"utilizava SELinux, o comando 'restorecon -R -v /home' corrigirá os rótulos.  "
+"Caso contrário, você deve\n"
+"    rotular todo o sistema de arquivos novamente.\n"
+"    "
 
 #: ../src/file.py:42
 msgid ""
@@ -1802,28 +1836,39 @@ msgstr "você precisa mudar o rótulo em $TARGET_PATH."
 #: ../src/mozplugger.py:31
 msgid ""
 "\n"
-"    SELinux denied access requested by $SOURCE. It is not\n"
-"    expected that this access is required by $SOURCE and this access\n"
-"    may signal an intrusion attempt. It is also possible that the specific\n"
-"    version or configuration of the application is causing it to require\n"
-"    additional access.  mozplugger and spice-xpi run applications within "
-"mozilla-plugins that require access to the desktop, that the mozilla_plugin "
-"lockdown will not allow, so either you need to turn off the mozilla_plugin "
-"lockdown or not use these packages.\n"
+"    SELinux denied access requested by $SOURCE. It is not expected that this "
+"access is required by $SOURCE and this access may signal an intrusion "
+"attempt. It is also possible that the specific version or configuration of "
+"the application is causing it to require additional access.  mozplugger and "
+"spice-xpi run applications within mozilla-plugins that require access to the "
+"desktop, that the mozilla_plugin lockdown will not allow, so either you need "
+"to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"O SELinux impediu o acesso requisitado pelo $SOURCE. Não é comum que este "
+"acesso seja requisitado pelo $SOURCE e isto pode indicar uma tentativa de "
+"invasão. Também é possível que a configuração ou a versão específica do "
+"aplicativo esteja fazendo com que o acesso adicional seja solicitado. spice-"
+"xpi e mozplugger executam aplicativos dentro dos plugins do mozilla que "
+"necessitam de acesso à área de trabalho e que o travamento do mozilla_plugin "
+"não o permitirá, portanto você precisa desativar o travamento do "
+"mozilla_plugin ou não usar estes pacotes. "
 
-#: ../src/mozplugger.py:39
+#: ../src/mozplugger.py:35
 msgid ""
 "\n"
 "Either remove the mozplugger or spice-xpi package by executing 'yum remove "
-"mozplugger spice-xpi'\n"
-"Or turn off enforcement of SELinux over the Firefox plugins.\n"
-"setsebool -P unconfined_mozilla_plugin_transition 0\n"
+"mozplugger spice-xpi' or turn off enforcement of SELinux over the Firefox "
+"plugins. setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"Remova o pacote spice-xpi ou mozplugger executando 'yum remove mozplugger "
+"spice-xpi' ou desative a imposição do SELinux sobre os plugins do Firefox. "
+"setsebool -P unconfined_mozilla_plugin_transition 0 "
 
-#: ../src/mozplugger.py:49
+#: ../src/mozplugger.py:43
 msgid "you must turn off SELinux controls on the Firefox plugins."
 msgstr "você deve desligar os controles SELinux nos plugins do Firefox."
 
@@ -1837,6 +1882,15 @@ msgid ""
 "    additional access.\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"    O SELinux impediu o acesso requisitado pelo $SOURCE. Não\n"
+"    é comum que este acesso seja requisitado pelo $SOURCE e isto\n"
+"    pode indicar uma tentativa de intrusão. Também é possível que a versão\n"
+"    ou configuração específica do aplicativo esteja fazendo com que o acesso "
+"adicional seja solicitado.\n"
+"\n"
+"    "
 
 #: ../src/mozplugger_remove.py:39
 msgid ""
@@ -1846,12 +1900,18 @@ msgid ""
 "setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"Remova o pacote mozplugger executando 'yum remove mozplugger' \n"
+"Ou desative a imposição do SELinux sobre os plugins do Firefox. setsebool -P "
+"unconfined_mozilla_plugin_transition 0 "
 
 #: ../src/mozplugger_remove.py:44
 msgid ""
 "you want to to continue using SELinux Firefox plugin containment rather then "
 "using mozplugger package"
 msgstr ""
+"você deseja continuar usando o confinamento do SELinux do plugin do Firefox "
+"ao invés de usar o pacote mozplugger "
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
@@ -2051,7 +2111,7 @@ msgstr ""
 msgid "$TARGET_BASE_PATH is a virtualization target"
 msgstr "$TARGET_BASE_PATH é um destino de virtualização"
 
-#: ../src/restorecon.py:49
+#: ../src/restorecon.py:48
 msgid ""
 "\n"
 "    You can restore the default system context to this file by executing the\n"
@@ -2067,7 +2127,7 @@ msgstr ""
 "    você pode restaurar recursivamente usando restorecon -R $TARGET_PATH.\n"
 "     "
 
-#: ../src/restorecon.py:56
+#: ../src/restorecon.py:55
 #, python-format
 msgid ""
 "\n"
@@ -2147,7 +2207,7 @@ msgstr ""
 "    \n"
 "       "
 
-#: ../src/restorecon.py:82
+#: ../src/restorecon.py:81
 #, python-format
 msgid "you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
@@ -2155,11 +2215,11 @@ msgstr ""
 "você deseja reparar este rótulo.\n"
 "$TARGET_PATH rótulo padrão deve ser %s."
 
-#: ../src/restorecon.py:87 ../src/restorecon_source.py:65
+#: ../src/restorecon.py:86 ../src/restorecon_source.py:65
 msgid "you can run restorecon."
 msgstr "você pode executar o restorecon."
 
-#: ../src/restorecon.py:95 ../src/restorecon_source.py:73
+#: ../src/restorecon.py:94 ../src/restorecon_source.py:73
 msgid "Restore\n"
 "Context"
 msgstr "Recuperar\n"
@@ -2172,6 +2232,10 @@ msgid ""
 "    restorecon command.  restorecon '$SOURCE_PATH'.\n"
 "    "
 msgstr ""
+"\n"
+"    Você pode restaurar o contexto do sistema padrão para este arquivo "
+"executando o\n"
+"    comando restorecon. restorecon '$SOURCE_PATH'."
 
 #: ../src/restorecon_source.py:45
 #, python-format
@@ -2194,12 +2258,33 @@ msgid ""
 "package.\n"
 "    "
 msgstr ""
+"\n"
+"    O SELinux impediu o acesso requisitado pelo $SOURCE. O $SOURCE_PATH\n"
+"    pode estar rotulado incorretamente. O tipo SELinux padrão para o "
+"$SOURCE_PATH é\n"
+"    <B>%s</B>, mas o seu tipo atual é <B>$SOURCE_TYPE</B>. A alteração\n"
+"    deste arquivo de volta ao tipo padrão pode resolver o seu problema.\n"
+"    <p>\n"
+"   Este arquivo pode ter sido rotulado incorretamente por erro do usuário ou "
+"por um aplicativo normalmente\n"
+"    confinado ter sido executado sob o domínio errado.\n"
+"<p>\n"
+"    Entretanto, isso também pode indicar um erro no SELinux, em que o "
+"arquivo não deveria ter sido rotulado como\n"
+"    deste tipo.\n"
+"    <p>\n"
+"    Se você acredita que isto é um erro, por favor, submeta um relatório de "
+"erro para este pacote.\n"
+"    \n"
+"       "
 
 #: ../src/restorecon_source.py:60
 #, python-format
 msgid "you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
 msgstr ""
+"você deseja corrigir o rótulo.\n"
+"O rótulo padrão para o $SOURCE_PATH deve ser %s."
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -2311,8 +2396,8 @@ msgstr ""
 msgid ""
 "\n"
 "    SELinux has denied $SOURCE from connecting to a network port "
-"$PORT_NUMBER within a sandboxt.\n"
-"    If $SOURCE should be allowed to connect on $PORT_NUMBER, use need to use "
+"$PORT_NUMBER within a sandbox.\n"
+"    If $SOURCE should be allowed to connect on $PORT_NUMBER, you need to use "
 "a different sandbox type like sandbox_web_t or sandbox_net_t.  sandbox -X -t "
 "sandbox_net_t $SOURCE.\n"
 "    \n"
@@ -2321,6 +2406,16 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"  O SELinux impediu o $SOURCE de conectar-se à porta de rede $PORT_NUMBER "
+"dentro de uma área restrita.\n"
+"  Caso o $SOURCE deva ser permitido a conectar-se à  $PORT_NUMBER, use um "
+"tipo de área restrita diferente, como sandbox_web_t ou sandbox_net_t.  "
+"sandbox -X -t sandbox_net_t $SOURCE.\n"
+"    \n"
+"\n"
+"Caso o $SOURCE não deva conectar-se à \n"
+"$PORT_NUMBER, este pode ser um sinal de tentativa intrusão."
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -2331,10 +2426,17 @@ msgid ""
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
 msgstr ""
+"\n"
+"Caso você deseja permitir que o $SOURCE conecte-se à $PORT_NUMBER, você pode "
+"executar\n"
+"\n"
+"  # sandbox -X -t sandbox_net_t $SOURCE"
 
 #: ../src/sandbox_connect.py:47
 msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
 msgstr ""
+"você deseja permitir que o $SOURCE_PATH conecte-se à porta de rede "
+"$PORT_NUMBER"
 
 #: ../src/sandbox_connect.py:49
 msgid ""
@@ -2343,6 +2445,12 @@ msgid ""
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "Please read 'sandbox' man page for more details.\n"
 msgstr ""
+"você precisa modificar o tipo de área restrita.  sandbox_web_t or "
+"sandbox_net_t. \n"
+"Por exemplo:\n"
+"sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
+"Por favor, leia a página manual sobre 'área restrita' (sandbox) para mais "
+"detalhes. \n"
 
 #: ../src/selinuxpolicy.py:29
 msgid "\n"
@@ -2579,12 +2687,22 @@ msgid ""
 "disk space, please report this as a bug. \n"
 "    "
 msgstr ""
+"\n"
+"    Os domínios confinados não devem precisar de \"sys_resource\". Isto "
+"geralmente significa que    seu sistema está ficando sem recursos, como "
+"espaço de disco, memória, cota, etc. Por favor, limpe o disco e esta\n"
+"    mensagem AVC deve desaparecer. Se este AVC continuar aparecendo mesmo "
+"depois que o espaço de disco estiver limpo, por favor submeta uma relatório "
+"de erro.\n"
+"     "
 
 #: ../src/sys_resource.py:39
 msgid ""
 "you do not want processes to require capabilities to use up all the system "
 "resources on your system;"
 msgstr ""
+"você não deseja que os processos necessitem das capacidades para usar todos "
+"os recursos no seu sistema;"
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -2627,6 +2745,50 @@ msgid ""
 "/* Override max number of consoles on console allocation */\n"
 "/* Override max number of keymaps */\n"
 msgstr ""
+"você precisa diagnosticar por que o seu sistema está ficando sem recursos e "
+"corrigir o problema. \n"
+"\n"
+"Segundo /usr/include/linux/capability.h, o sys_resource é necessário para:\n"
+"\n"
+"/* Substituir os limites dos recursos. Definir os limites dos recursos. */\n"
+"/* Substituir os limites das cotas. */\n"
+"/* Substituir o espaço reservado no sistema de arquivos ext2 */\n"
+"/* Modificar o modo de registro de dados no sistema de arquivos ext3 (usa "
+"registro \n"
+"de recursos) */\n"
+"/* OBSERVAÇÃO: ext2 honra fsuid durante a verificação de substituições de "
+"recursos, assim\n"
+"   você pode fazer substituições usando fsuid também */\n"
+"/* Substituir restrições de tamanho nas filas de messagem IPC */\n"
+"/* Permitir interrupções com mais de 64hz do relógio em tempo real */\n"
+"/* Substituir o número máximo de consoles na alocação de consoles */\n"
+"/* Substituir o número máximo dos mapas de chave */\n"
+"/* Substituir os limites dos recursos. Definir os limites dos recursos. */\n"
+"/*  Substituir os limites das cotas. */\n"
+"/* Substituir o espaço reservado no sistema de arquivos ext2 */\n"
+"/* Modificar o modo de registro de dados no sistema de arquivos ext3 (usa "
+"registro \n"
+"de recursos) */\n"
+"/* OBSERVAÇÃO: ext2 honra fsuid durante a verificação de substituições de "
+"recursos, assim\n"
+"   você pode fazer substituições usando fsuid também */\n"
+"/* Substituir restrições de tamanho nas filas de messagem IPC */\n"
+"/* Permitir interrupções com mais de 64hz do relógio em tempo real */\n"
+"/* Substituir o número máximo de consoles na alocação de consoles */\n"
+"/* Substituir o número máximo dos mapas de chave */\n"
+"/* Substituir os limites dos recursos. Definir os limites dos recursos*/\n"
+"/* Substituir os limites das cotas. */\n"
+"/* Substituir o espaço reservado no sistema de arquivos ext2 */\n"
+"/* Modificar o modo de registro de dados no sistema de arquivos ext3 (usa "
+"registro \n"
+"de recursos) */\n"
+"/* OBSERVAÇÃO: ext2 honra fsuid durante a verificação de substituições de "
+"recursos, assim\n"
+"   você pode fazer substituições usando fsuid também */\n"
+"/* Substituir restrições de tamanho nas filas de messagem IPC */\n"
+"/* Permitir interrupções com mais de 64hz do relógio em tempo real */\n"
+"/* Substituir o número máximo de consoles na alocação de consoles */\n"
+"/* Substituir o número máximo dos mapas de chave */\n"
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -2846,1482 +3008,3 @@ msgstr ""
 "sistema para preservá-los mesmo em uma reetiquetagem total.  \"semanage "
 "fcontext -a -t xen_image_t '$FIX_TARGET_PATH'\"\n"
 "     "
-
-#: ../booleans_trans.py:1
-msgid ""
-"If you want to determine whether ftpd can read and write files in user home "
-"directories."
-msgstr ""
-
-#: ../booleans_trans.py:3
-msgid "If you want to determine whether privoxy can connect to all tcp ports."
-msgstr ""
-
-#: ../booleans_trans.py:5
-msgid ""
-"If you want to determine whether mpd can traverse user home directories."
-msgstr ""
-
-#: ../booleans_trans.py:7
-msgid ""
-"If you want to allow the graphical login program to login directly as "
-"sysadm_r:sysadm_t"
-msgstr ""
-"Se você deseja permitir programa de login gráfico em login diretamente como "
-"sysadm_r:sysadm_t"
-
-#: ../booleans_trans.py:9
-msgid "If you want to allow xen to manage nfs files"
-msgstr "Se você deseja permitir que o xen gerencie arquivos nfs"
-
-#: ../booleans_trans.py:11
-msgid ""
-"If you want to allow confined web browsers to read home directory content"
-msgstr ""
-"Se você deseja permitir navegadores da Web confinados a ler conteúdo de "
-"diretório home."
-
-#: ../booleans_trans.py:13
-msgid ""
-"If you want to allow xguest users to configure Network Manager and connect "
-"to apache ports"
-msgstr ""
-"Se você deseja permitir usuários xguest a configurar o Network Manager e "
-"conectar-se à portas apache"
-
-#: ../booleans_trans.py:15
-msgid ""
-"If you want to allow postgresql to use ssh and rsync for point-in-time "
-"recovery"
-msgstr ""
-
-#: ../booleans_trans.py:17
-msgid "If you want to allow users to login using a radius server"
-msgstr ""
-"Se você deseja permitir que os usuários se autentiquem usando o servidor "
-"radius"
-
-#: ../booleans_trans.py:19
-msgid ""
-"If you want to allow the graphical login program to create files in HOME "
-"dirs as xdm_home_t."
-msgstr ""
-
-#: ../booleans_trans.py:21
-msgid ""
-"If you want to allow tftp to modify public files used for public file "
-"transfer services."
-msgstr ""
-"Se você deseja permitir que o tftp modifique arquivos públicos usados para "
-"serviços de transferência de arquivos públicos."
-
-#: ../booleans_trans.py:23
-msgid ""
-"If you want to allow ZoneMinder to modify public files used for public file "
-"transfer services."
-msgstr ""
-"Se você deseja permitir que o ZoneMinder modifique arquivos públicos usados "
-"para serviços de transferência de arquivo público."
-
-#: ../booleans_trans.py:25
-msgid ""
-"If you want to allow unconfined executables to make their heap memory "
-"executable.  Doing this is a really bad idea. Probably indicates a badly "
-"coded executable, but could indicate an attack. This executable should be "
-"reported in bugzilla"
-msgstr ""
-"Se você quiser permitir os executáveis não confinados para transformar a áre "
-"heap de memória executável.  Isto é uma péssima idéia. Provavelmente "
-"demonstra um executável mal codificado, mas pode significar um ataque. Este "
-"executável pode ser reportado no bugzilla."
-
-#: ../booleans_trans.py:27
-msgid "If you want to allow user spamassassin clients to use the network."
-msgstr ""
-"Se você deseja permitir usuário de clientes spamassassin a usar a rede;"
-
-#: ../booleans_trans.py:29
-msgid ""
-"If you want to allow glusterfsd to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-
-#: ../booleans_trans.py:31
-msgid ""
-"If you want to deny any process from ptracing or debugging any other "
-"processes."
-msgstr ""
-
-#: ../booleans_trans.py:33
-msgid ""
-"If you want to allow all unconfined executables to use libraries requiring "
-"text relocation that are not labeled textrel_shlib_t"
-msgstr ""
-"Se você deseja permitir todos os executáveis não confinados a usar "
-"bibliotecas requerendo relocação de texto que não são rotuladas "
-"textrel_shlib_t."
-
-#: ../booleans_trans.py:35
-msgid "If you want to allow httpd to act as a relay"
-msgstr "Se você deseja permitir que o httpd aja como um relay"
-
-#: ../booleans_trans.py:37
-msgid ""
-"If you want to determine whether openvpn can read generic user home content "
-"files."
-msgstr ""
-
-#: ../booleans_trans.py:39
-msgid ""
-"If you want to allow usage of the gpg-agent --write-env-file option. This "
-"also allows gpg-agent to manage user files."
-msgstr ""
-"Se você deseja permitir uso do gpg-agent--write-evn-file. Isto também "
-"permitirá que o gpg-agent gerencie arquivos de usuário."
-
-#: ../booleans_trans.py:41
-msgid ""
-"If you want to allow the Telepathy connection managers to connect to any "
-"generic TCP port."
-msgstr ""
-"Se você deseja permitir que os gerenciadores de conexão do Telepathy se "
-"conectem à porta genérica do TCP."
-
-#: ../booleans_trans.py:43
-msgid "If you want to allow http daemon to connect to mythtv"
-msgstr ""
-
-#: ../booleans_trans.py:45
-msgid ""
-"If you want to allow unconfined users to transition to the Mozilla plugin "
-"domain when running xulrunner plugin-container."
-msgstr ""
-"Se você deseja permitir usuaŕios não confinados à transição do domínio do "
-"plugin Mozilla ao executar o containter de plugin xulrunner."
-
-#: ../booleans_trans.py:47
-msgid "If you want to allow sasl to read shadow"
-msgstr "Se você deseja permitir que o sasl leia o shadow"
-
-#: ../booleans_trans.py:49
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to databases over "
-"the network."
-msgstr ""
-"Caso você queira permitir que os scripts HTTPD e módulos se conectem aos "
-"bancos de dados sob a rede."
-
-#: ../booleans_trans.py:51
-msgid ""
-"If you want to allow ssh with chroot env to read and write files in the user "
-"home directories"
-msgstr ""
-"Se você deseja permitir que o ssh com o chroot evn leiam e gravem arquivos "
-"nos diretórios home de usuários"
-
-#: ../booleans_trans.py:53
-msgid ""
-"If you want to allow the mount commands to mount any directory or file."
-msgstr ""
-
-#: ../booleans_trans.py:55
-msgid "If you want to allow polipo to connect to all ports > 1023"
-msgstr ""
-"Se você quer permitir que o polipo se conecte em todas as portas > 1023"
-
-#: ../booleans_trans.py:57
-msgid "If you want to allow httpd to run gpg"
-msgstr "Se você quer permitir ao httpd rodar o gpg"
-
-#: ../booleans_trans.py:59
-msgid "If you want to allow samba to share any file/directory read/write."
-msgstr ""
-"Se você deseja permitir que o samba compartilhe qualquer arquivo/diretório "
-"leitura/gravação."
-
-#: ../booleans_trans.py:61
-msgid ""
-"If you want to allow samba to act as the domain controller, add users, "
-"groups and change passwords."
-msgstr ""
-"Se você deseja permitir que o samba aja como um controlador de domínio, "
-"adicione usuários e grupos e mude senhas."
-
-#: ../booleans_trans.py:63
-msgid "If you want to allow ksmtuned to use nfs file systems"
-msgstr ""
-
-#: ../booleans_trans.py:65
-msgid "If you want to allow httpd cgi support"
-msgstr "Se você quer permitir suporte a cgi no httpd"
-
-#: ../booleans_trans.py:67
-msgid "If you want to determine whether polipo can access cifs file systems."
-msgstr ""
-"Se você deseja permitir que o polipo possa ou não acessar os sistemas de "
-"arquivo cifs."
-
-#: ../booleans_trans.py:69
-msgid "If you want to allow Apache to query NS records"
-msgstr "Se você deseja permitir ao Apache buscar registros NS"
-
-#: ../booleans_trans.py:71
-msgid ""
-"If you want to determine whether ftpd can use CIFS used for public file "
-"transfer services."
-msgstr ""
-
-#: ../booleans_trans.py:73
-msgid "If you want to determine whether mcelog can use all the user ttys."
-msgstr ""
-
-#: ../booleans_trans.py:75
-msgid "If you want to allow confined virtual guests to manage nfs files"
-msgstr ""
-"Se você deseja permitir que convidados virtuais confinados a gerenciar "
-"arquivos nfs"
-
-#: ../booleans_trans.py:77
-msgid ""
-"If you want to allow confined virtual guests to use serial/parallel "
-"communication ports"
-msgstr ""
-"Se você deseja permitir convidados virtuais confinados para usar as portas "
-"de comunicação serial/paralelo."
-
-#: ../booleans_trans.py:79
-msgid "If you want to allow rsync to run as a client"
-msgstr "Se você deseja permitir que o rsync execute como um cliente"
-
-#: ../booleans_trans.py:81
-msgid ""
-"If you want to allow rgmanager domain to connect to the network using TCP."
-msgstr ""
-"Se você deseja permitir que o domínio rgmanager se conecte à rede usando o "
-"TCP."
-
-#: ../booleans_trans.py:83
-msgid ""
-"If you want to determine whether exim can read generic user content files."
-msgstr ""
-
-#: ../booleans_trans.py:85
-msgid ""
-"If you want to allow piranha-lvs domain to connect to the network using TCP."
-msgstr ""
-"Se você deseja permitir que o domínio piranha-lvs se conecte a rede usando o "
-"TCP."
-
-#: ../booleans_trans.py:87
-msgid ""
-"If you want to allows clients to write to the X server shared memory "
-"segments."
-msgstr ""
-"Se você deseja permitir que clientes gravem no servidor X de segmentos de "
-"memória compartilhada."
-
-#: ../booleans_trans.py:89
-msgid "If you want to allow Puppet client to manage all file types."
-msgstr ""
-"Se você deseja permitir que o cliente Puppet gerencie todos os tipos de "
-"arquivos."
-
-#: ../booleans_trans.py:91
-msgid ""
-"If you want to determine whether entropyd can use audio devices as the "
-"source for the entropy feeds."
-msgstr ""
-
-#: ../booleans_trans.py:93
-msgid "If you want to allow user music sharing"
-msgstr "Se você deseja permitir que o compartilhamento da música de usuário."
-
-#: ../booleans_trans.py:95
-msgid "If you want to allow ssh logins as sysadm_r:sysadm_t"
-msgstr "Se você deseja permitir logins ssh como sysadm_r:sysadm_t"
-
-#: ../booleans_trans.py:97
-msgid ""
-"If you want to determine whether Bind can write to master zone files. "
-"Generally this is used for dynamic DNS or zone transfers."
-msgstr ""
-
-#: ../booleans_trans.py:99
-msgid ""
-"If you want to determine whether Git system daemon can access cifs file "
-"systems."
-msgstr ""
-"Se você deseja determinar se o daemon de sistema do Git pode acessar "
-"sistemas de arquivos CIFS."
-
-#: ../booleans_trans.py:101
-msgid "If you want to allow unprivileged users to execute DDL statement"
-msgstr ""
-"Se você deseja permitir que usuários sem previlégios executem as informações "
-"do DDL."
-
-#: ../booleans_trans.py:103
-msgid ""
-"If you want to determine whether tor can bind tcp sockets to all unreserved "
-"ports."
-msgstr ""
-
-#: ../booleans_trans.py:105
-msgid "If you want to determine whether mpd can use nfs file systems."
-msgstr ""
-
-#: ../booleans_trans.py:107
-msgid "If you want to determine whether mcelog can execute scripts."
-msgstr ""
-
-#: ../booleans_trans.py:109
-msgid "If you want to determine whether cvs can read shadow password files."
-msgstr ""
-
-#: ../booleans_trans.py:111
-msgid "If you want to allow httpd to access cifs file systems"
-msgstr "Se você deseja permitir que o httpd acesse sistemas de arquivo cifs"
-
-#: ../booleans_trans.py:113
-msgid "If you want to determine whether Git CGI can search home directories."
-msgstr "Se você deseja determinar se o GIT CGI pode acessar diretórios home."
-
-#: ../booleans_trans.py:115
-msgid "If you want to allow host key based authentication"
-msgstr "Se você deseja permitir autenticação baseada em chave de host"
-
-#: ../booleans_trans.py:117
-msgid "If you want to support NFS home directories"
-msgstr "Se você deseja suportar diretórios home em NFS"
-
-#: ../booleans_trans.py:119
-msgid ""
-"If you want to allow postfix_local domain full write access to mail_spool "
-"directories"
-msgstr ""
-"Se você deseja permitir que o dominio postfix_local tenha acesso de gravação "
-"total aos diretórios mail_spool"
-
-#: ../booleans_trans.py:121
-msgid ""
-"If you want to determine whether can antivirus programs use JIT compiler."
-msgstr ""
-
-#: ../booleans_trans.py:123
-msgid ""
-"If you want to disallow programs, such as newrole, from transitioning to "
-"administrative user domains."
-msgstr ""
-"Se você deseja cancelar permissão de programas, como o newrole, de transitar "
-"em domínios de usuários administrativos."
-
-#: ../booleans_trans.py:125
-msgid "If you want to allow glusterfsd to share any file/directory read only."
-msgstr ""
-
-#: ../booleans_trans.py:127
-msgid "If you want to allow httpd processes to manage IPA content"
-msgstr ""
-"Se você quer permitir que os processos do httpd gerencie conteúdo do IPA"
-
-#: ../booleans_trans.py:129
-msgid "If you want to determine whether clamscan can read user content files."
-msgstr ""
-
-#: ../booleans_trans.py:131
-msgid ""
-"If you want to determine whether clamscan can read all non-security files."
-msgstr ""
-
-#: ../booleans_trans.py:133
-msgid "If you want to allow pppd to be run for a regular user"
-msgstr ""
-"Se você deseja permitir que o pppd seja executado para um usuário regular."
-
-#: ../booleans_trans.py:135
-msgid "If you want to allow samba to share any file/directory read only."
-msgstr ""
-"Se você deseja permitir que o samba compartilhe de qualquer arquivo/"
-"diretório de somente leitura."
-
-#: ../booleans_trans.py:137
-msgid ""
-"If you want to determine whether ftpd can connect to databases over the TCP "
-"network."
-msgstr ""
-
-#: ../booleans_trans.py:139
-msgid ""
-"If you want to determine whether Git system daemon can search home "
-"directories."
-msgstr ""
-"Se você deseja determinar se o daemon de sistema do GIT pode procurar em "
-"diretórios home."
-
-#: ../booleans_trans.py:141
-msgid "If you want to support SAMBA home directories"
-msgstr "Se você deseja suportar diretórios home em SAMBA"
-
-#: ../booleans_trans.py:143
-msgid "If you want to allow mock to read files in home directories."
-msgstr "Se você deseja permitir que o mock leia arquivos nos diretórios home."
-
-#: ../booleans_trans.py:145
-msgid ""
-"If you want to allow user to r/w files on filesystems that do not have "
-"extended attributes (FAT, CDROM, FLOPPY)"
-msgstr ""
-"Se você deseja permitir que o usuário leia/grave em sistemas de arquivos que "
-"não possua atributos extendidos (FAT, CDROM, FLOPPY)"
-
-#: ../booleans_trans.py:147
-msgid ""
-"If you want to allow Apache to run in stickshift mode, not transition to "
-"passenger"
-msgstr ""
-
-#: ../booleans_trans.py:149
-msgid ""
-"If you want to allow samba to create new home directories (e.g. via PAM)"
-msgstr ""
-"Se você deseja permitir que o samba crie novos diretórios home (ex.: via "
-"PAM)"
-
-#: ../booleans_trans.py:151
-msgid "If you want to allow virtual processes to run as userdomains"
-msgstr ""
-"Se você quer permitir aos processos virtuais rodarem como userdomains."
-
-#: ../booleans_trans.py:153
-msgid ""
-"If you want to determine whether calling user domains can execute Git daemon "
-"in the git_session_t domain."
-msgstr ""
-"Se você deseja determinar se os domínios de usuários clientes podem executar "
-"o daemon do Git no domínio git_session_t."
-
-#: ../booleans_trans.py:155
-msgid "If you want to determine whether zabbix can connect to all TCP ports"
-msgstr ""
-
-#: ../booleans_trans.py:157
-msgid "If you want to determine whether fenced can use ssh."
-msgstr "Se você deseja determinar se o fenced pode usar ssh."
-
-#: ../booleans_trans.py:159
-msgid "If you want to allow ZoneMinder to run su/sudo."
-msgstr ""
-
-#: ../booleans_trans.py:161
-msgid "If you want to allow httpd to read home directories"
-msgstr "Se você deseja permitir que o httpd leia diretórios home"
-
-#: ../booleans_trans.py:163
-msgid ""
-"If you want to allow gpg web domain to modify public files used for public "
-"file transfer services."
-msgstr ""
-"Se você deseja permitir que o domínio da web gpg modifique os arquivos "
-"públicos usados para os serviços de transferências de arquivos públicos."
-
-#: ../booleans_trans.py:165
-msgid "If you want to allow rsync to export any files/directories read only."
-msgstr ""
-"Se você deseja permitir que o rsync exporte qualquer arquivo/diretórios de "
-"somente leitura."
-
-#: ../booleans_trans.py:167
-msgid "If you want to allow regular users direct dri device access"
-msgstr ""
-"Se você deseja permitir acesso do dispositivo dri à usuários comuns diretos"
-
-#: ../booleans_trans.py:169
-msgid ""
-"If you want to allow nfs servers to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"Se você deseja permitir que os servidores nfs modifiquem os arquivos "
-"públicos usados para os serviços de transferências de arquivos públicos.  "
-"Arquivos/Diretórios devem ser rotulados com public_content_rw_t"
-
-#: ../booleans_trans.py:171
-msgid "If you want to allow mysqld to connect to all ports"
-msgstr "Se você deseja permitir que o mysqld se conecte em todas as portas"
-
-#: ../booleans_trans.py:173
-msgid ""
-"If you want to determine whether Polipo session daemon can bind tcp sockets "
-"to all unreserved ports."
-msgstr ""
-"Se você deseja determinar se o daemon da sessão do Polipo pode fazer um bind "
-"de soquetes tcp em todas as portas não reservadas."
-
-#: ../booleans_trans.py:175
-msgid "If you want to allow qemu to use serial/parallel communication ports"
-msgstr ""
-"Se você deseja permitir que o qemu utilize portas de comunicação seriais/"
-"paralelas."
-
-#: ../booleans_trans.py:177
-msgid "If you want to allow Apache to communicate with avahi service via dbus"
-msgstr ""
-"Se você deseja permitir que o Apache se comunique com o serviço de avahi via "
-"dbus."
-
-#: ../booleans_trans.py:179
-msgid "If you want to allow ftpd to use ntfs/fusefs volumes."
-msgstr ""
-
-#: ../booleans_trans.py:181
-msgid "If you want to allow sanlock to read/write fuse files"
-msgstr "Se você deseja permitir que o sanlock leia/escreva arquivos em fuse"
-
-#: ../booleans_trans.py:183
-msgid ""
-"If you want to allow rsync server to manage all files/directories on the "
-"system."
-msgstr ""
-
-#: ../booleans_trans.py:185
-msgid "If you want to allow user  to use ssh chroot environment."
-msgstr "Se você deseja permitir ao usuário usar o ambiente ssh chroot."
-
-#: ../booleans_trans.py:187
-msgid ""
-"If you want to determine whether Cobbler can connect to the network using "
-"TCP."
-msgstr ""
-
-#: ../booleans_trans.py:189
-msgid ""
-"If you want to deny user domains applications to map a memory region as both "
-"executable and writable, this is dangerous and the executable should be "
-"reported in bugzilla"
-msgstr ""
-"Se você deseja evitar que aplicativos de domínios de usuários mapeiem uma "
-"região de memória como executável e gravável, isto é perigoso e o executável "
-"deve ser reportado no bugzilla."
-
-#: ../booleans_trans.py:191
-msgid "If you want to determine whether squid can run as a transparent proxy."
-msgstr ""
-
-#: ../booleans_trans.py:193
-msgid "If you want to allow users to connect to the local mysql server"
-msgstr ""
-"Se você deseja permitir que usuários se conectem em um servidor mysql local"
-
-#: ../booleans_trans.py:195
-msgid ""
-"If you want to determine whether ftpd can login to local users and can read "
-"and write all files on the system, governed by DAC."
-msgstr ""
-
-#: ../booleans_trans.py:197
-msgid "If you want to allows XServer to execute writable memory"
-msgstr "Se você deseja permitir que o XServer execute memória gravável"
-
-#: ../booleans_trans.py:199
-msgid ""
-"If you want to allow glusterfsd to share any file/directory read/write."
-msgstr ""
-
-#: ../booleans_trans.py:201
-msgid ""
-"If you want to boolean to determine whether the system permits loading "
-"policy, setting enforcing mode, and changing boolean values.  Set this to "
-"true and you have to reboot to set it back."
-msgstr ""
-
-#: ../booleans_trans.py:203
-msgid ""
-"If you want to allow confined virtual guests to interact with rawip sockets"
-msgstr ""
-
-#: ../booleans_trans.py:205
-msgid "If you want to determine whether dbadm can manage generic user files."
-msgstr ""
-
-#: ../booleans_trans.py:207
-msgid ""
-"If you want to allow ABRT to run in abrt_handle_event_t domain to handle "
-"ABRT event scripts"
-msgstr ""
-"Se você deseja permitir que o ABRT execute no domínio abrt_handle_event_t "
-"para manusear os scripts do evento do ABRT"
-
-#: ../booleans_trans.py:209
-msgid "If you want to allow all domains to execute in fips_mode"
-msgstr "Se você deseja permitir a todos os domínios rodarem em fips_mode"
-
-#: ../booleans_trans.py:211
-msgid "If you want to allow sge to connect to the network using any TCP port"
-msgstr ""
-"Se você quer permitir que o sge se conecte à rede usando qualquer porta TCP"
-
-#: ../booleans_trans.py:213
-msgid ""
-"If you want to determine whether Git system daemon can access nfs file "
-"systems."
-msgstr ""
-"Se você deseja determinar se o daemon de sistema do Git pode acessar "
-"sistemas de arquivos NFS."
-
-#: ../booleans_trans.py:215
-msgid "If you want to unify HTTPD handling of all content files."
-msgstr ""
-"Se você deseja unificar o manuseio do HTTPD de todos os arquivos de conteúdo."
-""
-
-#: ../booleans_trans.py:217
-msgid "If you want to allow nsplugin code to connect to unreserved ports"
-msgstr ""
-"Se você deseja permitir que o cógido nsplugin se conecte às portas não "
-"reservadas."
-
-#: ../booleans_trans.py:219
-msgid "If you want to determine whether amavis can use JIT compiler."
-msgstr ""
-
-#: ../booleans_trans.py:221
-msgid "If you want to determine whether java can make its stack executable."
-msgstr ""
-
-#: ../booleans_trans.py:223
-msgid ""
-"If you want to determine whether irc clients can listen on and connect to "
-"any unreserved TCP ports."
-msgstr ""
-
-#: ../booleans_trans.py:225
-msgid "If you want to allow database admins to execute DML statement"
-msgstr ""
-"Se você deseja permitir que admins de banco de dados executem informações de "
-"DML."
-
-#: ../booleans_trans.py:227
-msgid "If you want to allow openvpn to run unconfined scripts"
-msgstr ""
-
-#: ../booleans_trans.py:229
-msgid "If you want to allow Apache to use mod_auth_pam"
-msgstr "Se você deseja permitir que o Apache use o mod_auth_pam"
-
-#: ../booleans_trans.py:231
-msgid ""
-"If you want to allow confined virtual guests to interact with the xserver"
-msgstr ""
-"Se você deseja permitir convidados virtuais confinados a interagir com o "
-"xserver."
-
-#: ../booleans_trans.py:233
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to the network "
-"using TCP."
-msgstr ""
-
-#: ../booleans_trans.py:235
-msgid "If you want to allow qemu to use usb devices"
-msgstr "Se você deseja permitir que o qemu utilize os dispositivos usb"
-
-#: ../booleans_trans.py:237
-msgid "If you want to determine whether exim can connect to databases."
-msgstr ""
-
-#: ../booleans_trans.py:239
-msgid "If you want to determine whether Git CGI can access nfs file systems."
-msgstr ""
-
-#: ../booleans_trans.py:241
-msgid ""
-"If you want to determine whether varnishd can use the full TCP network."
-msgstr ""
-
-#: ../booleans_trans.py:243
-msgid ""
-"If you want to allow tftp to read and write files in the user home "
-"directories"
-msgstr ""
-
-#: ../booleans_trans.py:245
-msgid "If you want to support ecryptfs home directories"
-msgstr "Se você deseja suportar diretórios home em ecryptfs"
-
-#: ../booleans_trans.py:247
-msgid "If you want to allow samba to act as a portmapper"
-msgstr "Se você deseja permitir ao samba agir como um portmapper"
-
-#: ../booleans_trans.py:249
-msgid "If you want to allow httpd scripts and modules execmem/execstack"
-msgstr ""
-"Se você deseja permitir os scripts do httpd e módulos execmem/execstack "
-
-#: ../booleans_trans.py:251
-msgid "If you want to allow httpd to access FUSE file systems"
-msgstr "Se você deseja permitir ao httpd acessar sistemas de arquivos FUSE"
-
-#: ../booleans_trans.py:253
-msgid "If you want to allow httpd to connect to the ldap port"
-msgstr "Se você deseja permitir que o httpd se conecte à porta ldap"
-
-#: ../booleans_trans.py:255
-msgid "If you want to enable polyinstantiated directory support."
-msgstr "Se você deseja habilitar o suporte do diretório polyinstantiated"
-
-#: ../booleans_trans.py:257
-msgid ""
-"If you want to allow cluster administrative cluster domains memcheck-amd64- "
-"to use executable memory"
-msgstr ""
-
-#: ../booleans_trans.py:259
-msgid ""
-"If you want to allow logging in and using the system from /dev/console."
-msgstr ""
-"Se você deseja permitir o login e uso do sistema a partir do /dev/console."
-
-#: ../booleans_trans.py:261
-msgid "If you want to allow Apache to use mod_auth_ntlm_winbind"
-msgstr "Se você deseja permitir que o Apache utilize o mod_auth_ntlm_winbind"
-
-#: ../booleans_trans.py:263
-msgid "If you want to allow the graphical login program to execute bootloader"
-msgstr ""
-"Se você deseja permitir que o programa de login gráfico execute o bootloader"
-
-#: ../booleans_trans.py:265
-msgid "If you want to allow samba to share users home directories."
-msgstr ""
-"Se você deseja permitir que o samba compartilhe diretórios home de usuários."
-
-#: ../booleans_trans.py:267
-msgid "If you want to allow qemu to connect fully to the network"
-msgstr "Se você deseja permitir que o qemu se contecte totalmente à rede"
-
-#: ../booleans_trans.py:269
-msgid "If you want to allow users to connect to PostgreSQL"
-msgstr "Se você deseja permitir que usuários se conectem ao PostgreSQL"
-
-#: ../booleans_trans.py:271
-msgid "If you want to allow httpd to connect to  sasl"
-msgstr "Se você deseja permitir ao httpd conectar ao sasl"
-
-#: ../booleans_trans.py:273
-msgid ""
-"If you want to unify HTTPD to communicate with the terminal. Needed for "
-"entering the passphrase for certificates at the terminal."
-msgstr ""
-"Se você deseja unificar o HTTPD a se comunicar com o  terminal. Necessário "
-"para inserir a frase senha para certificados no terminal"
-
-#: ../booleans_trans.py:275
-msgid ""
-"If you want to allow apache scripts to write to public content, directories/"
-"files must be labeled public_rw_content_t."
-msgstr ""
-
-#: ../booleans_trans.py:277
-msgid ""
-"If you want to allow rsync to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"Se você deseja permitir que o rsync modifique arquivos públicos usados para "
-"serviços de transferência pública.  Arquivos/Diretórios devem ser rotulados "
-"labeled public_content_rw_t."
-
-#: ../booleans_trans.py:279
-msgid ""
-"If you want to determine whether mplayer can make its stack executable."
-msgstr ""
-
-#: ../booleans_trans.py:281
-msgid ""
-"If you want to allow users to run TCP servers (bind to ports and accept "
-"connection from the same domain and outside users)  disabling this forces "
-"FTP passive mode and may change other protocols."
-msgstr ""
-"Se você deseja que usuários executem os servidores TCP (conecte-se a portas "
-"e aceite conexão do mesmo domínio e usuários de fora)  desabilitando estes "
-"modos passivos FTP de forças e possa mudar outros protocolos."
-
-#: ../booleans_trans.py:283
-msgid ""
-"If you want to allow xend to run qemu-dm. Not required if using paravirt and "
-"no vfb."
-msgstr ""
-"Se você deseja permitir que xend execute o qemu-dm. Não é necessário caso "
-"esteja utilizando o paravirt e sem um vfb."
-
-#: ../booleans_trans.py:285
-msgid ""
-"If you want to determine whether sftpd-can read and write files in user home "
-"directories."
-msgstr ""
-
-#: ../booleans_trans.py:287
-msgid "If you want to support fusefs home directories"
-msgstr "Se você deseja suportar diretórios home em fusefs"
-
-#: ../booleans_trans.py:289
-msgid ""
-"If you want to allow the Telepathy connection managers to connect to any "
-"network port."
-msgstr ""
-"Se você deseja permitir que os gerenciadores de conexão do Telepathy se "
-"conectem a qualquer porta de rede."
-
-#: ../booleans_trans.py:291
-msgid "If you want to allow confined virtual guests to manage cifs files"
-msgstr ""
-"Se você deseja permitir que os convidados virtuais confinados gerenciem "
-"arquivos cifs"
-
-#: ../booleans_trans.py:293
-msgid ""
-"If you want to allow the Irssi IRC Client to connect to any port, and to "
-"bind to any unreserved port."
-msgstr ""
-"Se você deseja permitir que o cliente IRC Irssi se conecte a qualquer porta, "
-"e faça um bind com qualquer porta não reservada."
-
-#: ../booleans_trans.py:295
-msgid "If you want to allow confined applications to use nscd shared memory."
-msgstr ""
-"Se você deseja permitir que os aplicativos confinados usem a memória "
-"compartilhada nscd"
-
-#: ../booleans_trans.py:297
-msgid ""
-"If you want to determine whether attempts by wine to mmap low regions should "
-"be silently blocked."
-msgstr ""
-
-#: ../booleans_trans.py:299
-msgid "If you want to allow racoon to read shadow"
-msgstr "Se você deseja permitir que o racoon leia o shadow"
-
-#: ../booleans_trans.py:301
-msgid ""
-"If you want to allow Puppet master to use connect to MySQL and PostgreSQL "
-"database"
-msgstr ""
-"Se você deseja permitir que o mestre Puppet use conexão com o banco de dados "
-"de MySQL e PostgreSQL"
-
-#: ../booleans_trans.py:303
-msgid "If you want to allow HTTPD to connect to port 80 for graceful shutdown"
-msgstr ""
-
-#: ../booleans_trans.py:305
-msgid "If you want to allow system to run with NIS"
-msgstr "Se você deseja permitir que o sistema execute com o NIS"
-
-#: ../booleans_trans.py:307
-msgid "If you want to allow users to login using a yubikey  server"
-msgstr ""
-
-#: ../booleans_trans.py:309
-msgid "If you want to allow a user to login as an unconfined domain"
-msgstr ""
-"Se você deseja permitir que um usuário se autentique como um domínio não "
-"confinado."
-
-#: ../booleans_trans.py:311
-msgid "If you want to disable kernel module loading."
-msgstr ""
-
-#: ../booleans_trans.py:313
-msgid ""
-"If you want to allow pacemaker memcheck-amd64- to use executable memory"
-msgstr ""
-
-#: ../booleans_trans.py:315
-msgid ""
-"If you want to allow httpd to act as a FTP client connecting to the ftp port "
-"and ephemeral ports"
-msgstr ""
-"Se você deseja permitir que o httpd aja como um cliente FTP se conectando a "
-"porta ftp e portas efêmeras."
-
-#: ../booleans_trans.py:317
-msgid ""
-"If you want to determine whether ftpd can bind to all unreserved ports for "
-"passive mode."
-msgstr ""
-
-#: ../booleans_trans.py:319
-msgid ""
-"If you want to allow samba to modify public files used for public file "
-"transfer services.  Files/Directories must be labeled public_content_rw_t."
-msgstr ""
-"Se você deseja permitir que o samba modifique arquivos públicos usados para "
-"serviços de transferência de arquivos públicos.  Arquivos/Diretórios devem "
-"ser rolutados public_content_rw_t."
-
-#: ../booleans_trans.py:321
-msgid ""
-"If you want to allow gssd to read temp directory.  For access to kerberos "
-"tgt."
-msgstr ""
-"Se você deseja permitir que o gssd leia o diretório temp.   Para acesso ao "
-"tgt do kerberos."
-
-#: ../booleans_trans.py:323
-msgid "If you want to determine whether Cobbler can access nfs file systems."
-msgstr ""
-
-#: ../booleans_trans.py:325
-msgid "If you want to allow tor to act as a relay"
-msgstr "Se você deseja pemitir ao Tor agir como relay"
-
-#: ../booleans_trans.py:327
-msgid ""
-"If you want to allow unconfined executables to make their stack executable.  "
-"This should never, ever be necessary. Probably indicates a badly coded "
-"executable, but could indicate an attack. This executable should be reported "
-"in bugzilla"
-msgstr ""
-"Se você quiser permitir que os executáveis não confinados tornem suas pilhas "
-"executáveis. Isto nunca deve ser necessário. Provavelmente, significa um "
-"executável mal codificado, mas pode indicar um ataque. Este executável deve "
-"ser reportado no bugzilla."
-
-#: ../booleans_trans.py:329
-msgid ""
-"If you want to allow confined virtual guests to interact with the sanlock"
-msgstr ""
-"Se você deseja permitir que os convidados virtuais confinados interajam com "
-"o sanlock"
-
-#: ../booleans_trans.py:331
-msgid "If you want to allow all daemons to use tcp wrappers."
-msgstr "Se você deseja permitir que todos os daemons usem empacotadores tcp."
-
-#: ../booleans_trans.py:333
-msgid ""
-"If you want to permit to prosody to bind apache port. Need to be activated "
-"to use BOSH."
-msgstr ""
-
-#: ../booleans_trans.py:335
-msgid ""
-"If you want to allow confined virtual guests to use executable memory and "
-"executable stack"
-msgstr ""
-"Se você deseja permitir que os convidados virtuais confinados usem a memória "
-"executável e pilha executável."
-
-#: ../booleans_trans.py:337
-msgid "If you want to determine whether webadm can read generic user files."
-msgstr ""
-
-#: ../booleans_trans.py:339
-msgid "If you want to allow mozilla plugin to support GPS."
-msgstr "Se você deseja permitir ao plugin do mozilla suportar GPS."
-
-#: ../booleans_trans.py:341
-msgid "If you want to support X userspace object manager"
-msgstr "Se você deseja suportar o gerenciador de objeto do userspace X"
-
-#: ../booleans_trans.py:343
-msgid ""
-"If you want to determine whether attempts by vbetool to mmap low regions "
-"should be silently blocked."
-msgstr ""
-
-#: ../booleans_trans.py:345
-msgid "If you want to allow httpd to read user content"
-msgstr "Se você deseja permitir que o httpd leia o conteúdo de usuário"
-
-#: ../booleans_trans.py:347
-msgid "If you want to allow httpd to access nfs file systems"
-msgstr ""
-"Se você deseja permitir que o httpd acesse os sistemas de arquivos nfs."
-
-#: ../booleans_trans.py:349
-msgid ""
-"If you want to allow unconfined users to transition to the chrome sandbox "
-"domains when running chrome-sandbox"
-msgstr ""
-"Se você deseja permitir que os usuários não confinados transitem nos "
-"domínios do chrome sandbox ao executar o chrome-sandbox"
-
-#: ../booleans_trans.py:351
-msgid "If you want to allow pppd to load kernel modules for certain modems"
-msgstr ""
-"Se você deseja permitir que o pppd carregue módulos de kernel para modem "
-"específicos"
-
-#: ../booleans_trans.py:353
-msgid "If you want to allow sge to access nfs file systems."
-msgstr "Se você quer permitir que o sge acesse o sistema de arquivo nfs"
-
-#: ../booleans_trans.py:355
-msgid "If you want to allow confined virtual guests to read fuse files"
-msgstr ""
-"Se você deseja permitir convidados virtuais confinados a ler os arquivos "
-"fuse."
-
-#: ../booleans_trans.py:357
-msgid "If you want to allow spamd to read/write user home directories."
-msgstr ""
-"Se você deseja permitir o spamd a ler/gravar os diretórios home de usuário"
-
-#: ../booleans_trans.py:359
-msgid "If you want to determine whether DHCP daemon can use LDAP backends."
-msgstr ""
-
-#: ../booleans_trans.py:361
-msgid "If you want to determine whether Git CGI can access cifs file systems."
-msgstr ""
-
-#: ../booleans_trans.py:363
-msgid ""
-"If you want to allow any files/directories to be exported read/write via NFS."
-""
-msgstr ""
-"Se você deseja permitir que qualquer arquivo/diretório seja exportado em "
-"leitura/gravação via NFS"
-
-#: ../booleans_trans.py:365
-msgid "If you want to allow mailman to access FUSE file systems"
-msgstr ""
-
-#: ../booleans_trans.py:367
-msgid ""
-"If you want to determine whether icecast can listen on and connect to any "
-"TCP port."
-msgstr ""
-
-#: ../booleans_trans.py:369
-msgid "If you want to allow Apache to execute tmp content."
-msgstr "Se você deseja permitir que o Apache execute o conteúdo tmp"
-
-#: ../booleans_trans.py:371
-msgid "If you want to allow zebra daemon to write it configuration files"
-msgstr ""
-"Se você deseja permitir que o daemon zebra grave arquivos de configurações"
-
-#: ../booleans_trans.py:373
-msgid "If you want to allow qemu to use cifs/Samba file systems"
-msgstr ""
-"Se você deseja permitir que o qemu utilize os sistemas de arquivos cifs/"
-"Samba"
-
-#: ../booleans_trans.py:375
-msgid "If you want to allow ksmtuned to use cifs/Samba file systems"
-msgstr ""
-
-#: ../booleans_trans.py:377
-msgid ""
-"If you want to allow xend to run blktapctrl/tapdisk. Not required if using "
-"dedicated logical volumes for disk images."
-msgstr ""
-"Se você deseja permitir que o xend execute o blktapctrl/tapdisk. Não é "
-"necessário se estiver utilizando volumes lógicos dedicados para imagens de "
-"disco."
-
-#: ../booleans_trans.py:379
-msgid ""
-"If you want to determine whether fenced can connect to the TCP network."
-msgstr ""
-
-#: ../booleans_trans.py:381
-msgid "If you want to allow sanlock to manage nfs files"
-msgstr "Se você deseja permitir ao sanlock gerenciar arquivos NFS"
-
-#: ../booleans_trans.py:383
-msgid "If you want to allow all domains to have the kernel load modules"
-msgstr ""
-"Se você deseja permitir que todos os domínios carreguem seus módulos do "
-"kernel"
-
-#: ../booleans_trans.py:385
-msgid "If you want to allow confined virtual guests to use usb devices"
-msgstr ""
-"Se você deseja permitir que convidados virtuais confinados usem os "
-"dispositivos usb"
-
-#: ../booleans_trans.py:387
-msgid ""
-"If you want to determine whether smartmon can support devices on 3ware "
-"controllers."
-msgstr ""
-
-#: ../booleans_trans.py:389
-msgid ""
-"If you want to allow ABRT to modify public files used for public file "
-"transfer services."
-msgstr ""
-"Se você deseja permitir que o ABRT modifique os arquivos públicos usados "
-"para serviços de transferências de arquivos públicos"
-
-#: ../booleans_trans.py:391
-msgid ""
-"If you want to allow cluster administrative domains to connect to the "
-"network using TCP."
-msgstr ""
-
-#: ../booleans_trans.py:393
-msgid "If you want to allow http daemon to send mail"
-msgstr "Se você deseja permitir que o daemon http envie o correio"
-
-#: ../booleans_trans.py:395
-msgid "If you want to allow samba to export ntfs/fusefs volumes."
-msgstr "Se você deseja permitir que o samba exporte os volumes ntfs/fusefs"
-
-#: ../booleans_trans.py:397
-msgid ""
-"If you want to allow staff user to create and transition to svirt domains."
-msgstr ""
-
-#: ../booleans_trans.py:399
-msgid ""
-"If you want to allow mozilla plugin domain to connect to the network using "
-"TCP."
-msgstr ""
-
-#: ../booleans_trans.py:401
-msgid "If you want to allow httpd to use built in scripting (usually php)"
-msgstr ""
-"Se você deseja permitir que o httpd use os scripts embutidos (geralmente "
-"php)"
-
-#: ../booleans_trans.py:403
-msgid ""
-"If you want to allow confined users the ability to execute the ping and "
-"traceroute commands."
-msgstr ""
-
-#: ../booleans_trans.py:405
-msgid ""
-"If you want to determine whether exim can create, read, write, and delete "
-"generic user content files."
-msgstr ""
-
-#: ../booleans_trans.py:407
-msgid ""
-"If you want to allow cluster administrative domains to manage all files on a "
-"system."
-msgstr ""
-
-#: ../booleans_trans.py:409
-msgid ""
-"If you want to determine whether cdrecord can read various content. nfs, "
-"samba, removable devices, user temp and untrusted content files"
-msgstr ""
-
-#: ../booleans_trans.py:411
-msgid ""
-"If you want to determine whether Cobbler can modify public files used for "
-"public file transfer services."
-msgstr ""
-
-#: ../booleans_trans.py:413
-msgid "If you want to allow samba to export NFS volumes."
-msgstr "Se você deseja permitir que o samba exporte os volumes NFS"
-
-#: ../booleans_trans.py:415
-msgid ""
-"If you want to control the ability to mmap a low area of the address space, "
-"as configured by /proc/sys/kernel/mmap_min_addr."
-msgstr ""
-"Se você deseja controlar a habilidade do mmap em uma área baixa de espaço de "
-"endereços, como configurado por /proc/sys/kernel/mmap_min_addr."
-
-#: ../booleans_trans.py:417
-msgid "If you want to determine whether dbadm can read generic user files."
-msgstr ""
-
-#: ../booleans_trans.py:419
-msgid ""
-"If you want to determine whether ftpd can use NFS used for public file "
-"transfer services."
-msgstr ""
-
-#: ../booleans_trans.py:421
-msgid ""
-"If you want to allow antivirus programs to read non security files on a "
-"system"
-msgstr ""
-
-#: ../booleans_trans.py:423
-msgid ""
-"If you want to determine whether calling user domains can execute Polipo "
-"daemon in the polipo_session_t domain."
-msgstr ""
-"Se você deseja determinar se domínios de usuários clientes podem executar o "
-"daemon do Polipo no domínio polipo_session_t."
-
-#: ../booleans_trans.py:425
-msgid "If you want to allow confined applications to run with kerberos."
-msgstr ""
-"Se você deseja permitir que aplicativos confinados executem com o kerberos"
-
-#: ../booleans_trans.py:427
-msgid "If you want to allow http daemon to check spam"
-msgstr "Se você deseja permitir que o daemon do http verifique spam"
-
-#: ../booleans_trans.py:429
-msgid "If you want to allow xguest users to mount removable media"
-msgstr "Se você deseja permitir que o usuário xguest monte mídia removível"
-
-#: ../booleans_trans.py:431
-msgid ""
-"If you want to determine whether sftpd-can login to local users and read and "
-"write all files on the system, governed by DAC."
-msgstr ""
-
-#: ../booleans_trans.py:433
-msgid ""
-"If you want to determine whether Bind can bind tcp socket to http ports."
-msgstr ""
-
-#: ../booleans_trans.py:435
-msgid "If you want to allow syslogd the ability to read/write terminals"
-msgstr ""
-"Se você quer permitir que o syslogd tenha a habilidade de ler/gravar "
-"terminais."
-
-#: ../booleans_trans.py:437
-msgid ""
-"If you want to allow dhcpc client applications to execute iptables commands"
-msgstr ""
-"Se você deseja permitir que o aplicativo de cliente dhcpc execute os "
-"comandos iptables."
-
-#: ../booleans_trans.py:439
-msgid "If you want to allow syslogd daemon to send mail"
-msgstr "Se você deseja permitir que o daemon do syslogd envie correio."
-
-#: ../booleans_trans.py:441
-msgid "If you want to determine whether Polipo can access nfs file systems."
-msgstr ""
-"Se você deseja determinar se o Polipo pode acessar os sistemas de arquivo "
-"nfs"
-
-#: ../booleans_trans.py:443
-msgid "If you want to allow samba to run unconfined scripts"
-msgstr "Se você deseja permitir que o samba execute scripts não confinados"
-
-#: ../booleans_trans.py:445
-msgid "If you want to allow nsplugin code to execmem/execstack"
-msgstr "Se você deseja permitir que o código nsplugin a execmen/execstack"
-
-#: ../booleans_trans.py:447
-msgid "If you want to enable reading of urandom for all domains."
-msgstr "Se você deseja habilitar a leitura de urandom para todos os domínios."
-
-#: ../booleans_trans.py:449
-msgid "If you want to allow xguest to use blue tooth devices"
-msgstr "Se você deseja permitir ao xguest usar dispositivos bluetooth"
-
-#: ../booleans_trans.py:451
-msgid "If you want to determine whether mpd can use cifs file systems."
-msgstr ""
-
-#: ../booleans_trans.py:453
-msgid ""
-"If you want to determine whether ftpd can connect to all unreserved ports."
-msgstr ""
-
-#: ../booleans_trans.py:455
-msgid "If you want to determine whether Gitosis can send mail."
-msgstr ""
-
-#: ../booleans_trans.py:457
-msgid "If you want to allow httpd to connect to memcache server"
-msgstr "Se você deseja permitir que o httpd se conecte ao servidor memcache"
-
-#: ../booleans_trans.py:459
-msgid ""
-"If you want to allow HTTPD scripts and modules to connect to cobbler over "
-"the network."
-msgstr ""
-"Se você deseja permitir que os scripts HTTPD e módulos se conectem ao "
-"cobbler sob a rede"
-
-#: ../booleans_trans.py:461
-msgid ""
-"If you want to allow Apache to modify public files used for public file "
-"transfer services. Directories/Files must be labeled public_content_rw_t."
-msgstr ""
-"Se você deseja que o Apache modifique os arquivos públicos usados para "
-"serviços de transferências de arquivos públicos. Os DIretórios/Arquivos "
-"devem ser rotulados como public_content_rw_t."
-
-#: ../booleans_trans.py:463
-msgid ""
-"If you want to allow HTTPD scripts and modules to server cobbler files."
-msgstr ""
-
-#: ../booleans_trans.py:465
-msgid "If you want to allow all daemons the ability to read/write terminals"
-msgstr ""
-"Se você deseja permitir todos os daemons a habilidade de terminais de "
-"leitura/gravação"
-
-#: ../booleans_trans.py:467
-msgid ""
-"If you want to determine whether Condor can connect to the network using TCP."
-""
-msgstr ""
-
-#: ../booleans_trans.py:469
-msgid ""
-"If you want to allow users to resolve user passwd entries directly from ldap "
-"rather then using a sssd server"
-msgstr ""
-
-#: ../booleans_trans.py:471
-msgid ""
-"If you want to determine whether ftpd can modify public files used for "
-"public file transfer services. Directories/Files must be labeled "
-"public_content_rw_t."
-msgstr ""
-
-#: ../booleans_trans.py:473
-msgid "If you want to allow sanlock to manage cifs files"
-msgstr "Se você deseja permitir ao sanlock gerenciar arquivos CIFS"
-
-#: ../booleans_trans.py:475
-msgid "If you want to determine whether awstats can purge httpd log files."
-msgstr ""
-
-#: ../booleans_trans.py:477
-msgid "If you want to determine whether portage can use nfs filesystems."
-msgstr ""
-
-#: ../booleans_trans.py:479
-msgid ""
-"If you want to allow unprivledged user to create and transition to svirt "
-"domains."
-msgstr ""
-
-#: ../booleans_trans.py:481
-msgid "If you want to determine whether to support lpd server."
-msgstr ""
-
-#: ../booleans_trans.py:483
-msgid "If you want to determine whether webadm can manage generic user files."
-msgstr ""
-
-#: ../booleans_trans.py:485
-msgid "If you want to determine whether can clamd use JIT compiler."
-msgstr ""
-
-#: ../booleans_trans.py:487
-msgid "If you want to allow qemu to use nfs file systems"
-msgstr "Se você deseja permitir que o qemu use os sistemas de arquivo nfs."
-
-#: ../booleans_trans.py:489
-msgid ""
-"If you want to determine whether Git session daemon can bind TCP sockets to "
-"all unreserved ports."
-msgstr ""
-"Se você deseja determinar se o daemon de sessão Git pode fazer bind de "
-"sockets TCP em todas as portas não reservadas."
-
-#: ../booleans_trans.py:491
-msgid ""
-"If you want to allow HTTPD to run SSI executables in the same domain as "
-"system CGI scripts."
-msgstr ""
-"Se você deseja permitir que o HTTPD execute os executáveis SSI no mesmo "
-"domínio que os scripts CGI do sistema"
-
-#: ../booleans_trans.py:493
-msgid "If you want to allow mozilla plugin to support spice protocols."
-msgstr ""
-
-#: ../booleans_trans.py:495
-msgid "If you want to allow httpd to access openstack ports"
-msgstr "Se você deseja permitir ao httpd acessar portas do openstack"
-
-#: ../booleans_trans.py:497
-msgid ""
-"If you want to allow httpd to act as a FTP server by listening on the ftp "
-"port."
-msgstr ""
-"Se você deseja permitir que o httpd aja como um servidor FTP aguardando na "
-"porta ftp"
-
-#: ../booleans_trans.py:499
-msgid "If you want to allow all daemons to write corefiles to /"
-msgstr ""
-"Se você deseja permitir que todos os daemons gravem os arquivos centrais em /"
-""
-
-#: ../booleans_trans.py:501
-msgid "If you want to enable extra rules in the cron domain to support fcron."
-msgstr ""
-"Se você quiser habilitar as regras adicionais no domínio cron para suportar "
-"o fcron."
-
-#: ../booleans_trans.py:503
-msgid ""
-"If you want to determine whether sftpd can read and write files in user ssh "
-"home directories."
-msgstr ""
-
-#: ../booleans_trans.py:505
-msgid "If you want to allow http daemon to connect to zabbix"
-msgstr "Se você deseja permitir que o daemon do http se conecte ao zabbix"
-
-#: ../booleans_trans.py:507
-msgid "If you want to allow transmit client label to foreign database"
-msgstr ""
-
-#: ../booleans_trans.py:509
-msgid ""
-"If you want to determine whether collectd can connect to the network using "
-"TCP."
-msgstr ""
-
-#: ../booleans_trans.py:511
-msgid "If you want to determine whether Cobbler can access cifs file systems."
-msgstr ""
-
-#: ../booleans_trans.py:513
-msgid "If you want to determine whether mcelog supports server mode."
-msgstr ""
-
-#: ../booleans_trans.py:515
-msgid "If you want to allow httpd daemon to change its resource limits"
-msgstr ""
-
-#: ../booleans_trans.py:517
-msgid "If you want to determine whether squid can connect to all TCP ports."
-msgstr ""
-
-#: ../booleans_trans.py:519
-msgid "If you want to allow all domains to use other domains file descriptors"
-msgstr ""
-"Se você deseja permitir que todos os domínios usem outros descritores de "
-"arquivos de domínios."
-
-#: ../booleans_trans.py:521
-msgid "If you want to determine whether mcelog supports client mode."
-msgstr ""
-
-#: ../booleans_trans.py:523
-msgid ""
-"If you want to allow any files/directories to be exported read/only via NFS."
-msgstr ""
-"Se você deseja permitir que qualquer arquivos/diretórios sejam exportados "
-"como somente leitura via NFS"
-
-#: ../booleans_trans.py:525
-msgid ""
-"If you want to allow system cron jobs to relabel filesystem for restoring "
-"file contexts."
-msgstr ""
-"Se você deseja permitir que cron jobs de sistema rotulem novamente o sistema "
-"de arquivo para recuperar contexto de arquivos."
-
-#: ../booleans_trans.py:527
-msgid ""
-"If you want to determine whether sftpd can modify public files used for "
-"public file transfer services. Directories/Files must be labeled "
-"public_content_rw_t."
-msgstr ""

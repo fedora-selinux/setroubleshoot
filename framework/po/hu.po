@@ -11,9 +11,9 @@
 # Zoltan Hoppár <hopparz@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
-"Project-Id-Version: setroubleshoot\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-16 14:49-0400\n"
+"POT-Creation-Date: 2016-01-15 16:27+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,7 +23,7 @@ msgstr ""
 "language/hu/)\n"
 "Language: hu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -37,24 +37,25 @@ msgstr "SELinux hozzáférés elutasítások kezelése"
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/audit_data.py:898
+#: ../src/setroubleshoot/audit_data.py:903
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/audit_data.py:900 ../src/browser.py:746 ../src/browser.py:821
-#: ../src/rpc.py:528 ../src/util.py:220
+#: ../src/setroubleshoot/audit_data.py:905
+#: ../src/setroubleshoot/browser.py:747 ../src/setroubleshoot/browser.py:822
+#: ../src/setroubleshoot/rpc.py:528 ../src/setroubleshoot/util.py:229
 msgid "Unknown"
 msgstr "Ismeretlen"
 
-#: ../src/audit_data.py:990
+#: ../src/setroubleshoot/audit_data.py:995
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
 "**** Hibás AVC engedélyezett a jelenglegi szabályzatban ***\n"
 
-#: ../src/audit_data.py:992
+#: ../src/setroubleshoot/audit_data.py:997
 #, python-format
 msgid ""
 "%s \n"
@@ -65,282 +66,286 @@ msgstr ""
 "**** Hibás AVC dontaudit-os a jelenlegi szabályzatban.  Az 'semodule -B' "
 "opció bekapcsolja a dontaudit szabályzatot. ***\n"
 
-#: ../src/audit_data.py:994
+#: ../src/setroubleshoot/audit_data.py:999
 msgid "Must call policy_init first"
 msgstr "A policy_init-et kell elsőként hívni"
 
-#: ../src/audit_data.py:996
+#: ../src/setroubleshoot/audit_data.py:1001
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
 "**** Hibás AVC rossz cél kontextus. ***\n"
 
-#: ../src/audit_data.py:998
+#: ../src/setroubleshoot/audit_data.py:1003
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
 "**** Hibás AVC rossz forrás kontextus. ***\n"
 
-#: ../src/audit_data.py:1000
+#: ../src/setroubleshoot/audit_data.py:1005
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** Hibás AVC rossz típusosztály ***\n"
 
-#: ../src/audit_data.py:1002
+#: ../src/setroubleshoot/audit_data.py:1007
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** Hibás AVC hibás engedéllyel ***\n"
 
-#: ../src/audit_data.py:1004
+#: ../src/setroubleshoot/audit_data.py:1009
 msgid "Error during access vector computation"
 msgstr "Hiba a hozzáférési vektor kiszámításánál"
 
-#: ../src/browser.py:170 ../gui/browser.glade.h:12
+#: ../src/setroubleshoot/browser.py:171 ../gui/browser.glade.h:12
 msgid "SELinux Alert Browser"
 msgstr "SElinux riasztási böngésző"
 
-#: ../src/browser.py:174 ../gui/browser.glade.h:19
+#: ../src/setroubleshoot/browser.py:175 ../gui/browser.glade.h:19
 msgid "The source process:"
 msgstr "A forrás folyamat:"
 
-#: ../src/browser.py:179 ../gui/browser.glade.h:15
+#: ../src/setroubleshoot/browser.py:180 ../gui/browser.glade.h:15
 msgid "Yes"
 msgstr "Igen"
 
-#: ../src/browser.py:181 ../gui/browser.glade.h:17
+#: ../src/setroubleshoot/browser.py:182 ../gui/browser.glade.h:17
 msgid "No"
 msgstr "Nem"
 
-#: ../src/browser.py:186 ../gui/browser.glade.h:20
+#: ../src/setroubleshoot/browser.py:187 ../gui/browser.glade.h:20
 msgid "Attempted this access:"
 msgstr "Ez a hozzáférést próbálta:"
 
-#: ../src/browser.py:200 ../gui/browser.glade.h:11
+#: ../src/setroubleshoot/browser.py:201 ../gui/browser.glade.h:11
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshoot részletező ablak"
 
-#: ../src/browser.py:203 ../gui/browser.glade.h:14
+#: ../src/setroubleshoot/browser.py:204 ../gui/browser.glade.h:14
 msgid "Would you like to receive alerts?"
 msgstr "Szeretne kapni riasztási üzeneteket?"
 
-#: ../src/browser.py:207 ../gui/browser.glade.h:24
+#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:24
 msgid "Notify Admin"
 msgstr "Admin értesítése"
 
-#: ../src/browser.py:210 ../src/browser.py:216 ../gui/browser.glade.h:8
+#: ../src/setroubleshoot/browser.py:211 ../src/setroubleshoot/browser.py:217
+#: ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "Hibaelhárítás"
 
-#: ../src/browser.py:213 ../gui/browser.glade.h:26
+#: ../src/setroubleshoot/browser.py:214 ../gui/browser.glade.h:26
 msgid "Details"
 msgstr "Részletek"
 
-#: ../src/browser.py:220 ../gui/browser.glade.h:7
+#: ../src/setroubleshoot/browser.py:221 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot riasztási lista"
 
-#: ../src/browser.py:222 ../gui/browser.glade.h:33
+#: ../src/setroubleshoot/browser.py:223 ../gui/browser.glade.h:33
 msgid "List All Alerts"
 msgstr "Listázd az összes riasztást"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "#"
 msgstr "#"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "Source Process"
 msgstr "Forrás folyamat"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "Attempted Access"
 msgstr "Hozzáférési próbálkozás"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "On this"
 msgstr "Ezen"
 
-#: ../src/browser.py:269
+#: ../src/setroubleshoot/browser.py:270
 msgid "Occurred"
 msgstr "Történt"
 
-#: ../src/browser.py:269 ../src/run_cmd.py:406
+#: ../src/setroubleshoot/browser.py:270 ../src/run_cmd.py:406
 msgid "Status"
 msgstr "Állapot"
 
-#: ../src/browser.py:343 ../src/browser.py:785 ../src/browser.py:829
+#: ../src/setroubleshoot/browser.py:344 ../src/setroubleshoot/browser.py:786
+#: ../src/setroubleshoot/browser.py:830
 msgid "Notify"
 msgstr "Észrevétel"
 
-#: ../src/browser.py:344
+#: ../src/setroubleshoot/browser.py:345
 msgid "Notify alert in the future."
 msgstr "Riasszon a jövőben  is."
 
-#: ../src/browser.py:347 ../src/browser.py:787 ../src/browser.py:827
-#: ../gui/browser.glade.h:27
+#: ../src/setroubleshoot/browser.py:348 ../src/setroubleshoot/browser.py:788
+#: ../src/setroubleshoot/browser.py:828 ../gui/browser.glade.h:27
 msgid "Ignore"
 msgstr "Hagyja ki"
 
-#: ../src/browser.py:348 ../gui/browser.glade.h:28
+#: ../src/setroubleshoot/browser.py:349 ../gui/browser.glade.h:28
 msgid "Ignore alert in the future."
 msgstr "Riaszás figyelmen kívül hagyása a jövőben."
 
-#: ../src/browser.py:384
+#: ../src/setroubleshoot/browser.py:385
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Ha szeretné...</b>"
 
-#: ../src/browser.py:393
+#: ../src/setroubleshoot/browser.py:394
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Akkor ez a megoldás.</b>"
 
-#: ../src/browser.py:412 ../src/browser.py:548
+#: ../src/setroubleshoot/browser.py:413 ../src/setroubleshoot/browser.py:549
 msgid "If "
 msgstr "Ha "
 
-#: ../src/browser.py:500
+#: ../src/setroubleshoot/browser.py:501
 msgid "Plugin\n"
 "Details"
 msgstr "Plugin\n"
 "részletei"
 
-#: ../src/browser.py:515
+#: ../src/setroubleshoot/browser.py:516
 msgid "Report\n"
 "Bug"
 msgstr "Jelentés\n"
 "Hiba"
 
-#: ../src/browser.py:543
+#: ../src/setroubleshoot/browser.py:544
 #, python-format
 msgid "Plugin: %s "
 msgstr "Plugin: %s "
 
-#: ../src/browser.py:610
+#: ../src/setroubleshoot/browser.py:611
 msgid "Unable to grant access."
 msgstr "Nem sikerült engedélyezni a hozzáférést."
 
-#: ../src/browser.py:641 ../src/browser.py:783
+#: ../src/setroubleshoot/browser.py:642 ../src/setroubleshoot/browser.py:784
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Riasztás %d / %d"
 
-#: ../src/browser.py:766
+#: ../src/setroubleshoot/browser.py:767
 #, python-format
 msgid "On this %s:"
 msgstr "Ezen %s"
 
-#: ../src/browser.py:814 ../src/browser.py:820 ../src/signature.py:388
+#: ../src/setroubleshoot/browser.py:815 ../src/setroubleshoot/browser.py:821
+#: ../src/setroubleshoot/signature.py:391
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/browser.py:861 ../src/browser.py:862 ../gui/browser.glade.h:31
+#: ../src/setroubleshoot/browser.py:862 ../src/setroubleshoot/browser.py:863
+#: ../gui/browser.glade.h:31
 msgid "No Alerts"
 msgstr "Nincs riasztás"
 
-#: ../src/browser.py:880
+#: ../src/setroubleshoot/browser.py:881
 msgid "SELinux has detected a problem."
 msgstr "Az SElinux hibát észlelt."
 
-#: ../src/browser.py:985
+#: ../src/setroubleshoot/browser.py:987
 msgid "Sealert Error"
 msgstr "Sealert hiba"
 
-#: ../src/browser.py:996
+#: ../src/setroubleshoot/browser.py:998
 msgid "Sealert Message"
 msgstr "Sealert üzenet"
 
 #. -----------------------------------------------------------------------------
-#: ../src/errcode.py:71
+#: ../src/setroubleshoot/errcode.py:71
 msgid "signature not found"
 msgstr "nincs aláírás"
 
-#: ../src/errcode.py:72
+#: ../src/setroubleshoot/errcode.py:72
 msgid "multiple signatures matched"
 msgstr "több aláírás egyezik"
 
-#: ../src/errcode.py:73
+#: ../src/setroubleshoot/errcode.py:73
 msgid "id not found"
 msgstr "azonosító nem található"
 
-#: ../src/errcode.py:74
+#: ../src/setroubleshoot/errcode.py:74
 msgid "database not found"
 msgstr "adatbázis nem található"
 
-#: ../src/errcode.py:75
+#: ../src/setroubleshoot/errcode.py:75
 msgid "item is not a member"
 msgstr "az elem nem tag"
 
-#: ../src/errcode.py:76
+#: ../src/setroubleshoot/errcode.py:76
 msgid "illegal to change user"
 msgstr "nem változtathat felhasználót"
 
-#: ../src/errcode.py:77
+#: ../src/setroubleshoot/errcode.py:77
 msgid "method not found"
 msgstr "eljárás nem található"
 
-#: ../src/errcode.py:78
+#: ../src/setroubleshoot/errcode.py:78
 msgid "cannot create GUI"
 msgstr "GUI indítása sikertelen"
 
-#: ../src/errcode.py:79
+#: ../src/setroubleshoot/errcode.py:79
 msgid "value unknown"
 msgstr "ismeretlen érték"
 
-#: ../src/errcode.py:80
+#: ../src/setroubleshoot/errcode.py:80
 msgid "cannot open file"
 msgstr "fájl nem megnyitható "
 
-#: ../src/errcode.py:81
+#: ../src/setroubleshoot/errcode.py:81
 msgid "invalid email address"
 msgstr "Érvénytelen email cím"
 
 #. gobject IO Errors
-#: ../src/errcode.py:84
+#: ../src/setroubleshoot/errcode.py:84
 msgid "socket error"
 msgstr "socket hiba"
 
-#: ../src/errcode.py:85
+#: ../src/setroubleshoot/errcode.py:85
 msgid "connection has been broken"
 msgstr "kapcsolat megszakadt"
 
-#: ../src/errcode.py:86
+#: ../src/setroubleshoot/errcode.py:86
 msgid "Invalid request. The file descriptor is not open"
 msgstr "Érvénytelen kérés. A fájl leíró nincs nyitva"
 
-#: ../src/errcode.py:88
+#: ../src/setroubleshoot/errcode.py:88
 msgid "insufficient permission to modify user"
 msgstr "elégtelen jogosultság a felhasználó megváltoztatására"
 
-#: ../src/errcode.py:89
+#: ../src/setroubleshoot/errcode.py:89
 msgid "authentication failed"
 msgstr "hitelesítés sikertelen"
 
-#: ../src/errcode.py:90
+#: ../src/setroubleshoot/errcode.py:90
 msgid "user prohibited"
 msgstr "felhasználó letiltva"
 
-#: ../src/errcode.py:91
+#: ../src/setroubleshoot/errcode.py:91
 msgid "not authenticated"
 msgstr "nincs azonosítva"
 
-#: ../src/errcode.py:92
+#: ../src/setroubleshoot/errcode.py:92
 msgid "user lookup failed"
 msgstr "felhasználó keresés eredménytelen"
 
-#: ../src/gui_utils.py:53 ../src/sealert:531
+#: ../src/setroubleshoot/gui_utils.py:53 ../src/sealert:531
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Upsz, %s hibaüzenetet kapott!"
 
-#: ../src/gui_utils.py:55 ../gui/fail_dialog.glade.h:1
+#: ../src/setroubleshoot/gui_utils.py:55 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "Hiba"
 
-#: ../src/Plugin.py:81
+#: ../src/setroubleshoot/Plugin.py:81
 msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -407,225 +412,228 @@ msgstr "Hiba, hibakód = %d"
 msgid "Done: "
 msgstr "Kész:"
 
-#: ../src/server.py:191
+#: ../src/setroubleshoot/server.py:191
 #, python-format
 msgid " For complete SELinux messages. run sealert -l %s"
 msgstr " Teljes SELinux üzenetekért futtassa: sealert -l %s"
 
-#: ../src/server.py:377
+#: ../src/setroubleshoot/server.py:377
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "A (%s) felhasználó nem módosíthatja (%s) adatait"
 
-#: ../src/server.py:440 ../src/sealert:291
+#: ../src/setroubleshoot/server.py:440 ../src/sealert:291
 msgid "Started"
 msgstr "Elindítva"
 
-#: ../src/server.py:487
+#: ../src/setroubleshoot/server.py:487
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/server.py:553
+#: ../src/setroubleshoot/server.py:553
 msgid "Audit Listener"
 msgstr "Audit figyelő"
 
-#: ../src/signature.py:74
+#: ../src/setroubleshoot/signature.py:74
 msgid "Never Ignore"
 msgstr "Soha ne mellőzze"
 
-#: ../src/signature.py:75
+#: ../src/setroubleshoot/signature.py:75
 msgid "Ignore Always"
 msgstr "Mindig mellőzze"
 
-#: ../src/signature.py:76
+#: ../src/setroubleshoot/signature.py:76
 msgid "Ignore After First Alert"
 msgstr "Mellőzze az első riasztás után"
 
-#: ../src/signature.py:193
+#: ../src/setroubleshoot/signature.py:193
 msgid "directory"
 msgstr "könyvtár"
 
-#: ../src/signature.py:194
+#: ../src/setroubleshoot/signature.py:194
 msgid "semaphore"
 msgstr "szemafor"
 
-#: ../src/signature.py:195
+#: ../src/setroubleshoot/signature.py:195
 msgid "shared memory"
 msgstr "osztott memória"
 
-#: ../src/signature.py:196
+#: ../src/setroubleshoot/signature.py:196
 msgid "message queue"
 msgstr "üzenetsor"
 
-#: ../src/signature.py:197
+#: ../src/setroubleshoot/signature.py:197
 msgid "message"
 msgstr "üzenet"
 
-#: ../src/signature.py:198
+#: ../src/setroubleshoot/signature.py:198
 msgid "file"
 msgstr "fájl"
 
-#: ../src/signature.py:199
+#: ../src/setroubleshoot/signature.py:199
 msgid "socket"
 msgstr "port"
 
-#: ../src/signature.py:200
+#: ../src/setroubleshoot/signature.py:200
 msgid "process"
 msgstr "folyamat"
 
-#: ../src/signature.py:201
+#: ../src/setroubleshoot/signature.py:201
 msgid "filesystem"
 msgstr "fájlrendszer"
 
-#: ../src/signature.py:202
+#: ../src/setroubleshoot/signature.py:202
 msgid "node"
 msgstr "csomópont"
 
-#: ../src/signature.py:203
+#: ../src/setroubleshoot/signature.py:203
 msgid "capability"
 msgstr "funkció"
 
-#: ../src/signature.py:373
+#: ../src/setroubleshoot/signature.py:376
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr ""
 "%s egy engedélyező típussal rendelkezik (%s). Ez a hozzáférés nem volt "
 "megtagadva."
 
-#: ../src/signature.py:376
+#: ../src/setroubleshoot/signature.py:379
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SElinux átengedő módban van. Ez a hozzáférés nem volt blokkolva."
 
-#: ../src/signature.py:429
+#: ../src/setroubleshoot/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr ""
 "SELinux megakadályozta %s számára %s elérhető hozzáférést a folyamaton."
 
-#: ../src/signature.py:429
+#: ../src/setroubleshoot/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr ""
 "SELinux megakadályozta %s számára %s elérhető hozzáféréseket a folyamaton."
 
-#: ../src/signature.py:432
+#: ../src/setroubleshoot/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "SELinux megakadályozta %s számára %s funkció használatát."
 
-#: ../src/signature.py:432
+#: ../src/setroubleshoot/signature.py:435
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux megakadályozta %s számára '%s' funkciók használatát."
 
-#: ../src/signature.py:434
+#: ../src/setroubleshoot/signature.py:437
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr ""
 "SELinux megakadályozta %s alkalmazás %s hozzáférését %s erőforrás %s "
 "címkézett elemén."
 
-#: ../src/signature.py:434
+#: ../src/setroubleshoot/signature.py:437
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr ""
 "SElinux megakadályozta %s számára '%s' hozzáféréseit %s címkével ezen: %s"
 
-#: ../src/signature.py:435
+#: ../src/setroubleshoot/signature.py:438
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux megakadályozta %s számára %s hozzáférését itt: %s %s."
 
-#: ../src/signature.py:435
+#: ../src/setroubleshoot/signature.py:438
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux megakadályozta %s számára '%s' hozzáféréseit itt: %s %s."
 
-#: ../src/signature.py:463
+#: ../src/setroubleshoot/signature.py:469
 msgid "Additional Information:\n"
 msgstr "További információ:\n"
 
-#: ../src/signature.py:464
+#: ../src/setroubleshoot/signature.py:470
 msgid "Source Context"
 msgstr "Forrás kontextus"
 
-#: ../src/signature.py:465
+#: ../src/setroubleshoot/signature.py:471
 msgid "Target Context"
 msgstr "Cél kontextus"
 
-#: ../src/signature.py:466
+#: ../src/setroubleshoot/signature.py:472
 msgid "Target Objects"
 msgstr "Cél objektumok"
 
-#: ../src/signature.py:467
+#: ../src/setroubleshoot/signature.py:473
 msgid "Source"
 msgstr "Forrás"
 
-#: ../src/signature.py:468
+#: ../src/setroubleshoot/signature.py:474
 msgid "Source Path"
 msgstr "Forrás elérési útja"
 
-#: ../src/signature.py:469
+#: ../src/setroubleshoot/signature.py:475
 msgid "Port"
 msgstr "Port"
 
-#: ../src/signature.py:471 ../src/signature.py:473
+#: ../src/setroubleshoot/signature.py:477
+#: ../src/setroubleshoot/signature.py:479
 msgid "Host"
 msgstr "Kiszolgáló"
 
-#: ../src/signature.py:474
+#: ../src/setroubleshoot/signature.py:480
 msgid "Source RPM Packages"
 msgstr "Forrás RPM csomagok"
 
-#: ../src/signature.py:475
+#: ../src/setroubleshoot/signature.py:481
 msgid "Target RPM Packages"
 msgstr "Cél RPM csomagok"
 
-#: ../src/signature.py:476
+#: ../src/setroubleshoot/signature.py:482
 msgid "Policy RPM"
 msgstr "Szabályzat RPM"
 
-#: ../src/signature.py:477
+#: ../src/setroubleshoot/signature.py:483
 msgid "Selinux Enabled"
 msgstr "SELinux bekapcsolva"
 
-#: ../src/signature.py:478
+#: ../src/setroubleshoot/signature.py:484
 msgid "Policy Type"
 msgstr "Szabályzat típus"
 
-#: ../src/signature.py:479
+#: ../src/setroubleshoot/signature.py:485
 msgid "Enforcing Mode"
 msgstr "Kényszerítő mód"
 
-#: ../src/signature.py:481 ../src/signature.py:483
+#: ../src/setroubleshoot/signature.py:487
+#: ../src/setroubleshoot/signature.py:489
 msgid "Host Name"
 msgstr "Kiszolgáló neve"
 
-#: ../src/signature.py:488 ../src/signature.py:490
+#: ../src/setroubleshoot/signature.py:494
+#: ../src/setroubleshoot/signature.py:496
 msgid "Platform"
 msgstr "Platform"
 
-#: ../src/signature.py:491
+#: ../src/setroubleshoot/signature.py:497
 msgid "Alert Count"
 msgstr "Riasztás mennyisége"
 
-#: ../src/signature.py:493
+#: ../src/setroubleshoot/signature.py:499
 msgid "First Seen"
 msgstr "Először megjelent"
 
-#: ../src/signature.py:494
+#: ../src/setroubleshoot/signature.py:500
 msgid "Last Seen"
 msgstr "Utoljára megjelent"
 
-#: ../src/signature.py:495
+#: ../src/setroubleshoot/signature.py:501
 msgid "Local ID"
 msgstr "Helyi azonosító"
 
-#: ../src/signature.py:497
+#: ../src/setroubleshoot/signature.py:503
 msgid "Raw Audit Messages"
 msgstr "Nyers auditálási üzenetek"
 
-#: ../src/signature.py:551
+#: ../src/setroubleshoot/signature.py:557
 #, python-format
 msgid "\n"
 "\n"
@@ -634,33 +642,33 @@ msgstr "\n"
 "\n"
 "*****  Plugin %s (%.4s bizonyossággal) javasolja a következőt   "
 
-#: ../src/signature.py:554
+#: ../src/setroubleshoot/signature.py:560
 msgid "*"
 msgstr "*"
 
-#: ../src/signature.py:555
+#: ../src/setroubleshoot/signature.py:561
 msgid "\n"
 msgstr "\n"
 
-#: ../src/signature.py:557
+#: ../src/setroubleshoot/signature.py:563
 msgid "\n"
 "If "
 msgstr "\n"
 "Ha "
 
-#: ../src/signature.py:559
+#: ../src/setroubleshoot/signature.py:565
 msgid "\n"
 "Then "
 msgstr "\n"
 "Akkor "
 
-#: ../src/signature.py:562
+#: ../src/setroubleshoot/signature.py:568
 msgid "\n"
 "Do\n"
 msgstr "\n"
 "Tedd\n"
 
-#: ../src/signature.py:564
+#: ../src/setroubleshoot/signature.py:570
 msgid "\n"
 "\n"
 msgstr "\n"
@@ -676,24 +684,24 @@ msgstr "jelenlegi: %s "
 msgid "newer: %s "
 msgstr "újabb: %s"
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:189
 msgid "New SELinux security alert"
 msgstr "Új SELinux biztonsági riasztás"
 
-#: ../src/seapplet.c:188
+#: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
 msgstr "AVC tiltás. Kattintson az ikonra, hogy megtekinthesse"
 
-#: ../src/seapplet.c:194 ../src/seapplet.c:245
+#: ../src/seapplet.c:195 ../src/seapplet.c:246
 msgid "Dismiss"
 msgstr "Eldobás"
 
-#: ../src/seapplet.c:204 ../src/seapplet.c:255
+#: ../src/seapplet.c:205 ../src/seapplet.c:256
 msgid "Show"
 msgstr "Megjelenítés"
 
 #. set tooltip
-#: ../src/seapplet.c:439 ../src/sealert:64
+#: ../src/seapplet.c:440 ../src/sealert:64
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC megtagadás. Kattintson, hogy megtekinthesse"
 
@@ -716,11 +724,11 @@ msgstr "%s sikeresen lefutott"
 msgid "Plugin %s not valid for %s id"
 msgstr "Plugin %s nem érvényes a %s ID-hez"
 
-#: ../src/setroubleshootd:72
+#: ../src/setroubleshootd:73
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux nincs engedélyezve, setroubleshootd kilép..."
 
-#: ../src/setroubleshootd:104
+#: ../src/setroubleshootd:105
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork #1 sikertelen: %d (%s)"
