@@ -183,7 +183,7 @@ class BrowserApplet:
         self.read_config()
         builder = Gtk.Builder()
 #        builder.set_translation_domain("setroubleshoot")
-        builder.add_from_file("/usr/share/setroubleshoot/gui/browser.ui")
+        builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade")
         self.plugins = load_plugins()
 
         self.alert_list = []
@@ -930,7 +930,7 @@ class BugReport:
     def __init__(self, parent, alert):
 
         self.parent = parent
-        self.gladefile = GLADE_DIRECTORY + "bug_report.ui"
+        self.gladefile = GLADE_DIRECTORY + "bug_report.glade"
         self.builder = Gtk.Builder()
         self.builder.add_from_file(self.gladefile)
         self.builder.set_translation_domain(parent.domain)

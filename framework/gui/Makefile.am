@@ -14,8 +14,8 @@ ICON_FILES = \
 	16x16/setroubleshoot_icon.png
 
 GUI_FILES =              \
-	browser.ui           \
-	bug_report.ui        \
+	browser.glade           \
+	bug_report.glade        \
 	fail_dialog.glade    \
 	success_dialog.glade \
 	$(NULL)
