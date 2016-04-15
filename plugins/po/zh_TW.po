@@ -8,6 +8,7 @@
 # Terry Chuang <tchuang at redhat>, 2010
 # Terry Chuang <tchuang@redhat.com>, 2008-2010,2012-2013
 # Walter Cheuk <wwycheuk@gmail.com>, 2006
+# Chester Cheng <ccheng@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -16,13 +17,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-11-19 07:27-0500\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
+"PO-Revision-Date: 2016-03-14 10:33-0400\n"
+"Last-Translator: Chester Cheng <ccheng@redhat.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fedora/"
 "language/zh_TW/)\n"
 "Language: zh-TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -920,6 +921,12 @@ msgid ""
 "the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux 拒絕了來自於 $SOURCE 的存取請求。並未預期 $SOURCE "
+"需要此存取權限，並且此存取可能意味著入侵意圖。也有可能該應用程式的特定版本或配置導致它需要額外存取權限。spice-xpi 會在 mozilla-"
+"plugins 中執行需要存取桌面環境、並且 mozilla_plugin lockdown 所不允許的應用程式，因此您必須關閉 "
+"mozilla_plugin lockdown，或是選擇不使用這些套件。\n"
+"    "
 
 #: ../src/chrome.py:35
 msgid ""
@@ -929,6 +936,11 @@ msgid ""
 "plugins. setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"您可以透過「yum remove mozplugger spice-xpi」來移除 mozplugger spice-xpi 套件或是關閉 "
+"SELinux 對於 Chrome 外掛程式的安全性實作。setsebool -P "
+"unconfined_chrome_sandbox_transition 0\n"
+"    "
 
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
@@ -1655,6 +1667,12 @@ msgid ""
 "to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux 拒絕了來自於 $SOURCE 的存取請求。並未預期 $SOURCE "
+"需要此存取權限，並且此存取可能意味著入侵意圖。也有可能該應用程式的特定版本或配置導致它需要額外存取權限。mozplugger 與 spice-xpi "
+"會在 mozilla-plugins 中執行需要存取桌面環境、並且 mozilla_plugin lockdown 所不允許的應用程式，因此您必須關閉 "
+"mozilla_plugin lockdown，或是選擇不使用這些套件。\n"
+"    "
 
 #: ../src/mozplugger.py:35
 msgid ""
@@ -1664,6 +1682,11 @@ msgid ""
 "plugins. setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"您可以透過執行「yum remove mozplugger spice-xpi」來移除 mozplluger 或 spice-xpi 套件\n"
+"或是關閉 SELinux 對於 Firefox 外掛程式的強制執行。setsebool -P "
+"unconfined_mozilla_plugin_transition 0\n"
+"    "
 
 #: ../src/mozplugger.py:43
 msgid "you must turn off SELinux controls on the Firefox plugins."
@@ -2143,6 +2166,15 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux 拒絕讓 $SOURCE 在 sandboxt 情境下連接至網路連接埠 $PORT_NUMBER。\n"
+"    如果應該允許 $SOURCE 連接至連接埠 $PORT_NUMBER，則需要使用不同的沙箱類型，例如 sandbox_web_t 或 "
+"sandbox_net_t。sandbox -X -t sandbox_net_t $SOURCE。\n"
+"    \n"
+"\n"
+"如果 $SOURCE 不應該\n"
+"    連接至連接埠 $PORT_NUMBER，這可能代表有人試圖入侵。\n"
+"    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""

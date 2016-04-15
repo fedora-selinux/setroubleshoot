@@ -16,6 +16,7 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2012
 # Игорь Горбунов <igor.gorbounov@gmail.com>, 2011,2013
 # yuliya <ypoyarko@redhat.com>, 2015. #zanata
+# yuliya <ypoyarko@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -24,14 +25,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-24 01:44-0400\n"
+"PO-Revision-Date: 2016-03-30 08:45-0400\n"
 "Last-Translator: yuliya <ypoyarko@redhat.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/fedora/language/"
 "ru/)\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -39,7 +40,7 @@ msgstr "Диагностика SELinux"
 
 #: ../setroubleshoot.desktop.in.h:2
 msgid "Troubleshoot SELinux access denials"
-msgstr "Диагностика проблем отказа доступа SELinux"
+msgstr "Диагностика отказов SELinux"
 
 #: ../setroubleshoot.desktop.in.h:3
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
@@ -61,7 +62,7 @@ msgstr "Неизвестно"
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
-"**** Неверный AVC разрешён текущим регламентом ***\n"
+"**** Неверный AVC допускается текущим регламентом ***\n"
 
 #: ../src/setroubleshoot/audit_data.py:997
 #, python-format
@@ -751,7 +752,7 @@ msgstr ""
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
-msgstr "Решить проблему выбранного предупреждения"
+msgstr "Диагностика выбранного предупреждения"
 
 #: ../gui/browser.glade.h:10
 msgid "Delete Selected Alerts"
@@ -759,7 +760,7 @@ msgstr "Удалить выбранные оповещения"
 
 #: ../gui/browser.glade.h:13
 msgid "<b>SELinux has detected a problem.</b>"
-msgstr "<b>SELinux обнаружил проблему.</b>"
+msgstr "<b>SELinux обнаружил конфликт.</b>"
 
 #: ../gui/browser.glade.h:16
 msgid "Turn on alert pop-ups."
@@ -771,7 +772,7 @@ msgstr "Отключить всплывающие оповещения."
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
-msgstr "С этим файлом:"
+msgstr "к файлу:"
 
 #: ../gui/browser.glade.h:22
 msgid "label"
@@ -782,12 +783,12 @@ msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
-"Прочтите информацию о проблеме.  Для решения могут потребоваться права "
-"администратора."
+"Ознакомьтесь с описанием конфликта.  Его исправление может требовать наличия "
+"прав администратора."
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
-msgstr "Предупреждение системному администратору по e-mail."
+msgstr "Уведомить системного администратора по электронной почте."
 
 #: ../gui/browser.glade.h:29
 msgid "Delete current alert from the database."
@@ -820,8 +821,8 @@ msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
 msgstr ""
-"Если вы хотите просмотреть или изменить отчёт, например, удалить "
-"конфиденциальные данные, это можно сделать ниже."
+"Ниже вы можете проверить и изменить отчет — например, исключив "
+"конфиденциальные данные."
 
 #: ../gui/bug_report.glade.h:4
 msgid "Included error output:"

@@ -8,6 +8,7 @@
 # Yulia <ypoyarko@redhat.com>, 2006, 2008, 2009, 2010, 2012
 # Yulia <yulia.poyarkova@redhat.com>, 2013
 # Игорь Горбунов <igor.gorbounov@gmail.com>, 2013
+# yuliya <ypoyarko@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -16,14 +17,14 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-11-21 07:50-0500\n"
-"Last-Translator: Yulia <yulia.poyarkova@redhat.com>\n"
+"PO-Revision-Date: 2016-02-09 10:01-0500\n"
+"Last-Translator: yuliya <ypoyarko@redhat.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/fedora/language/"
 "ru/)\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -983,6 +984,15 @@ msgid ""
 "the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"SELinux отклонил запрос доступа от $SOURCE. Такой запрос от $SOURCE не "
+"ожидается и может сигнализировать о\n"
+"попытке вторжения. Возможно также, что отдельные версии или настройки "
+"приложения пытаются получить дополнительный доступ. spice-xpi запускает "
+"приложения в mozilla-plugins, что требует доступа к рабочему столу, но "
+"запрещается блокировкой mozilla_plugin. В этом случае надо либо отключить "
+"блокировку mozilla_plugin, либо отказаться от использования таких пакетов.\n"
+"   "
 
 #: ../src/chrome.py:35
 msgid ""
@@ -992,6 +1002,11 @@ msgid ""
 "plugins. setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"Удалите пакет mozplugger или spice-xpi, выполнив «yum remove mozplugger "
+"spice-xpi», или отключите контроль SELinux для плагинов Chrome. setsebool -P "
+"unconfined_chrome_sandbox_transition 0\n"
+"    "
 
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
@@ -1000,7 +1015,7 @@ msgstr "нужно использовать пакет %s"
 
 #: ../src/chrome.py:43
 msgid "you must turn off SELinux controls on the Chrome plugins."
-msgstr "нужно отключить управление SELinux подключаемыми модулями Chrome."
+msgstr "нужно отключить управление SELinux для плагинов Chrome."
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -1787,7 +1802,7 @@ msgstr ""
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
-msgstr "необходимо изменить метку для $TARGET_PATH."
+msgstr "необходимо изменить разметку $TARGET_PATH."
 
 #: ../src/mozplugger.py:31
 msgid ""
@@ -1801,6 +1816,16 @@ msgid ""
 "to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"SELinux отклонил запрос доступа от $SOURCE. Такой запрос от $SOURCE не "
+"ожидается и может сигнализировать о\n"
+"попытке вторжения. Возможно также, что отдельные версии или настройки "
+"приложения пытаются получить дополнительный доступ. mozplugger и spice-xpi "
+"запускают приложения в mozilla-plugins, что требует доступа к рабочему "
+"столу, но запрещается блокировкой mozilla_plugin. В этом случае надо либо "
+"отключить блокировку mozilla_plugin, либо отказаться от использования таких "
+"пакетов.\n"
+"   "
 
 #: ../src/mozplugger.py:35
 msgid ""
@@ -1810,11 +1835,15 @@ msgid ""
 "plugins. setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"Удалите пакеты mozplugger и spice-xpi, выполнив «yum remove mozplugger spice-"
+"xpi», или отключите контроль SELinux для плагинов Chrome. setsebool -P "
+"unconfined_mozilla_plugin_transition 0\n"
+"    "
 
 #: ../src/mozplugger.py:43
 msgid "you must turn off SELinux controls on the Firefox plugins."
-msgstr ""
-"необходимо отключить контроль SELinux для дополнительных модулей Firefox."
+msgstr "нужно отключить управление SELinux для плагинов Firefox."
 
 #: ../src/mozplugger_remove.py:31
 msgid ""
@@ -2171,6 +2200,11 @@ msgid ""
 "    restorecon command.  restorecon '$SOURCE_PATH'.\n"
 "    "
 msgstr ""
+"\n"
+"   Исходный контекст можно восстановить с помощью команды restorecon:\n"
+"   restorecon -R  '$SOURCE_PATH'.\n"
+"\n"
+"    "
 
 #: ../src/restorecon_source.py:45
 #, python-format
@@ -2193,12 +2227,29 @@ msgid ""
 "package.\n"
 "    "
 msgstr ""
+"\n"
+"SELinux отклонил запрос доступа от $SOURCE. Возможно, причина заключается \n"
+"в неверной разметке $SOURCE_PATH. По умолчанию $SOURCE_PATH имеет\n"
+"тип SELinux <B>%s</B>, в то время как сейчас используется <B>$SOURCE_TYPE</"
+"B>.\n"
+"Восстановление исходного типа может исправить этот конфликт.\n"
+"<p>\n"
+"Метка файла могла измениться вследствие ошибки пользователя или\n"
+"попытки запуска ограниченной программы в неправильном домене.\n"
+"<p>\n"
+"В то же время это может свидетельствовать об ошибках в SELinux, так как файл\n"
+"изначально не должен был получить неверную метку.\n"
+"<p>\n"
+"Если вы считаете, что причина заключается в SELinux, создайте \n"
+"отчет об ошибке для этого пакета.\n"
+"   "
 
 #: ../src/restorecon_source.py:60
 #, python-format
 msgid "you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
-msgstr ""
+msgstr "необходимо исправить метку.\n"
+"Стандартная метка для $SOURCE_PATH: %s."
 
 #: ../src/rsync_data.py:31
 msgid ""
@@ -2212,8 +2263,8 @@ msgid ""
 msgstr ""
 "\n"
 "    SELinux запретил доступ rsync к $TARGET_PATH.\n"
-"    Если это репозиторий RSYNC, он должен иметь контекст\n"
-"    rsync_data_t. Если вы не используете $TARGET_PATH как репозиторий rsync,\n"
+"    Если это репозиторий RSYNC, он должен иметь контекст rsync_data_t. \n"
+"    Если вы не используете $TARGET_PATH как репозиторий rsync,\n"
 "    это может служить индикатором ошибки или попытки вторжения.\n"
 "    "
 
@@ -2322,6 +2373,17 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"  SELinux запретил подключение $SOURCE к сетевому порту $PORT_NUMBER в "
+"песочнице.\n"
+"  Если $SOURCE должен иметь возможность подключения к порту $PORT_NUMBER, \n"
+"  следует использовать другой тип песочницы — sandbox_web_t или "
+"sandbox_net_t: \n"
+"  sandbox -X -t sandbox_net_t $SOURCE\n"
+"  \n"
+"  Если $SOURCE не должен подключаться этому порту,  \n"
+"  это может свидетельствовать о попытке вторжения.\n"
+"  "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -2332,10 +2394,17 @@ msgid ""
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
 msgstr ""
+"\n"
+"    Чтобы разрешить подключение $SOURCE к порту $PORT_NUMBER, выполните:\n"
+"\n"
+"    # sandbox -X -t sandbox_net_t $SOURCE\n"
+"    "
 
 #: ../src/sandbox_connect.py:47
 msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
 msgstr ""
+"возможно, вы захотите разрешить $SOURCE_PATH подключаться к порту "
+"$PORT_NUMBER"
 
 #: ../src/sandbox_connect.py:49
 msgid ""
@@ -2344,7 +2413,7 @@ msgid ""
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "Please read 'sandbox' man page for more details.\n"
 msgstr ""
-"необходимо изменить type. sandbox_web_t or sandbox_net_t. \n"
+"необходимо изменить type. sandbox_web_t или sandbox_net_t. \n"
 "Пример:\n"
 "sandbox -X -t sandbox_net_t $SOURCE_PATH\n"
 "За подробной информацией обратитесь к справочной странице sandbox.\n"

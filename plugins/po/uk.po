@@ -5,6 +5,7 @@
 # Translators:
 # Yuri Chornoivan <yurchor@ukr.net>, 2011-2013
 # Yuri Chornoivan <yurchor@ukr.net>, 2013
+# Yuri Chornoivan <yurchor@ukr.net>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -974,6 +975,15 @@ msgid ""
 "the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux відхилила запит на доступ від $SOURCE. Такий запит не очікується "
+"від $SOURCE, що може свідчити про спробу вторгнення. Також причиною "
+"негараздів може бути те, що певна версія або налаштування програми спричинює "
+"потребу у додатковому доступі. spice-xpi запускає програми у mozilla-"
+"plugins, що потребує доступу до стільниці, що забороняється блокуванням у "
+"mozilla_plugin. Отже вам слід або вимкнути блокування у mozilla_plugin, або "
+"не користуватися цими пакунками.\n"
+"    "
 
 #: ../src/chrome.py:35
 msgid ""
@@ -983,6 +993,11 @@ msgid ""
 "plugins. setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"Вилучіть пакунок mozplluger або spice-xpi за допомогою команди «yum remove "
+"mozplugger spice-xpi» або вимкніть примусове використання SELinux для "
+"додатків Chrome. setsebool -P unconfined_chrome_sandbox_transition 0\n"
+"    "
 
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
@@ -1795,6 +1810,15 @@ msgid ""
 "to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux відхилила запит на доступ від $SOURCE. Такий запит не очікується "
+"від $SOURCE, що може свідчити про спробу вторгнення. Також причиною "
+"негараздів може бути те, що певна версія або налаштування програми спричинює "
+"потребу у додатковому доступі. mozplugger і spice-xpi запускає програми у "
+"mozilla-plugins, що потребує доступу до стільниці, що забороняється "
+"блокуванням у mozilla_plugin. Отже вам слід або вимкнути блокування у "
+"mozilla_plugin, або не користуватися цими пакунками.\n"
+"    "
 
 #: ../src/mozplugger.py:35
 msgid ""
@@ -1804,6 +1828,11 @@ msgid ""
 "plugins. setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"Вилучіть пакунок mozplluger або spice-xpi за допомогою команди «yum remove "
+"mozplugger spice-xpi» або вимкніть примусове використання SELinux для "
+"додатків Firefox. setsebool -P unconfined_mozilla_plugin_transition 0\n"
+"    "
 
 #: ../src/mozplugger.py:43
 msgid "you must turn off SELinux controls on the Firefox plugins."
@@ -2332,6 +2361,18 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux було заборонено з’єднання $SOURCE з мережевим портом "
+"$PORT_NUMBER у межах пісочниці\n"
+"    Якщо $SOURCE слід дозволити встановлення з’єднання на порту "
+"$PORT_NUMBER, вам слід скористатися іншим типом пісочниці, зокрема "
+"sandbox_web_t або sandbox_net_t.  sandbox -X -t sandbox_net_t $SOURCE.\n"
+"    \n"
+"\n"
+"Якщо $SOURCE не повинна була\n"
+"    встановлювати з’єднання на порту $PORT_NUMBER, це може бути ознакою "
+"спроби атаки на систему.\n"
+"    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""

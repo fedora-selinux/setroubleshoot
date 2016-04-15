@@ -11,6 +11,8 @@
 # noriko <noriko@fedoraproject.org>, 2012
 # Noriko Mizumoto <noriko@redhat.com>, 2006, 2008
 # Tomoyuki KATO <tomo@dream.daynight.jp>, 2012-2013
+# Kenzo Moriguchi <kmoriguc@redhat.com>, 2016. #zanata
+# Noriko Mizumoto <noriko@redhat.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -19,13 +21,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-11-19 07:27-0500\n"
-"Last-Translator: Tomoyuki KATO <tomo@dream.daynight.jp>\n"
+"PO-Revision-Date: 2016-03-14 09:56-0400\n"
+"Last-Translator: Kenzo Moriguchi <kmoriguc@redhat.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fedora/language/"
 "ja/)\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.8.3\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -936,6 +938,12 @@ msgid ""
 "the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux は $SOURCE が要求したアクセスを拒否しました。$SOURCE "
+"がこのアクセスを必要とすることは想定されておらず、このアクセスは侵入の試行である可能性があります。アプリケーションの特定のバージョンまたは設定により、追加アクセスが必要となっている可能性もあります。spice-"
+"xpi は、デスクトップへのアクセスを必要とする mozilla-plugins 内でアプリケーションを実行し、mozilla_plugin "
+"ロックダウンは許可されないことから、mozilla_plugin ロックダウンをオフにするか、これらのパッケージを使用しないようにする必要があります。\n"
+" "
 
 #: ../src/chrome.py:35
 msgid ""
@@ -945,6 +953,11 @@ msgid ""
 "plugins. setsebool -P unconfined_chrome_sandbox_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"'yum remove mozplugger spice-xpi' を実行して mozplluger または spice-xpi "
+"のパッケージを削除するか、Chrome プラグインで SELinux の強制をオフにします。setsebool -P "
+"unconfined_chrome_sandbox_transition 0\n"
+"    "
 
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
@@ -1560,8 +1573,8 @@ msgstr ""
 msgid ""
 "You should report this as a bug.  \n"
 "You can generate a local policy module to dontaudit this access."
-msgstr "これをバグとして報告すべきです。  \n"
-"このアクセスを監査しないよう、ローカルポリシーモジュールを生成することが可能です。"
+msgstr "バグとして報告してください。  \n"
+"ローカルのポリシーモジュールを生成すると、このアクセスを監査しないようにすることができます。"
 
 #: ../src/leaks.py:44
 msgid ""
@@ -1689,6 +1702,13 @@ msgid ""
 "to turn off the mozilla_plugin lockdown or not use these packages.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux は $SOURCE が要求したアクセスを拒否しました。$SOURCE "
+"がこのアクセスを必要とすることは想定されておらず、このアクセスは侵入の試行である可能性があります。アプリケーションの特定のバージョンまたは設定により、追加アクセスが必要となっている可能性もあります。mozplugger "
+"および spice-xpi は、デスクトップへのアクセスを必要とする mozilla-plugins "
+"内でアプリケーションを実行し、mozilla_plugin ロックダウンは許可されないことから、mozilla_plugin "
+"ロックダウンをオフにするか、これらのパッケージを使用しないようにする必要があります。\n"
+" "
 
 #: ../src/mozplugger.py:35
 msgid ""
@@ -1698,6 +1718,10 @@ msgid ""
 "plugins. setsebool -P unconfined_mozilla_plugin_transition 0\n"
 "    "
 msgstr ""
+"\n"
+"'yum remove mozplugger spice-xpi' を実行して mozplluger または spice-xpi "
+"のパッケージを削除するか、Firefox プラグインで SELinux の強制をオフにします。setsebool -P "
+"unconfined_mozilla_plugin_transition 0"
 
 #: ../src/mozplugger.py:43
 msgid "you must turn off SELinux controls on the Firefox plugins."
@@ -2186,6 +2210,15 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux は、$SOURCE が sandboxt の中でネットワークポート $PORT_NUMBER に接続することを拒否しました。\n"
+"    $SOURCE による $PORT_NUMBER への接続を許可する場合、他の sandbox_web_t や sandbox_net_t "
+"のようなサンドボックスタイプを使用する必要があります。sandbox -X -t sandbox_net_t $SOURCE を実行してください。\n"
+"    \n"
+"\n"
+"$SOURCE による $PORT_NUMBER への接続が想定されていない場合、\n"
+"    これは侵入の試みである可能性があります。\n"
+"    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
