@@ -86,7 +86,7 @@ name_at_domain_re = re.compile('^([^\s@]+)@([^\s@]+)$')
 audit_decode_re = re.compile(r'^\s*"([^"]+)"\s*$')
 
 log_level="unknown"
-def log_debug(*msg):
+def log_debug(msg):
     global log_level
     if log_level == "unknown":
         log_level = get_config('sealert_log', 'level')
