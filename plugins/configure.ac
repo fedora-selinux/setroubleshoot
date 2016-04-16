@@ -15,12 +15,8 @@ AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
 IT_PROG_INTLTOOL
 ALL_LINGUAS="\
-af am ang ar as ast az az_IR be be@latin bg bn bn_IN br bs ca ca@valencia \
-crh cs cy da de dz el en en_CA en_GB en@shaw eo es et eu fa fi fr ga gl gu \
-he hi hr hu hy ia id io is it ja ka kg kk kn ko ku lg li lt lv mai mi mk \
-ml mn mr ms my nb nds ne nl nn nso oc or pa pl ps pt pt_BR ro ru rw si sk \
-sl sq sr sr@ije sr@latin sv ta te th tk tr tt ug uk ur uz uz@cyrillic vi \
-wa xh yi zh_CN zh_HK zh_TW
+as bg bn bn_IN ca cs da de en_GB es eu fi fr gu hi hu it ja kn ko ml mr nl \
+or pa pl pt pt_BR ru sr sv ta te uk zh_CN zh_TW
 "
 
 AC_PROG_LN_S
