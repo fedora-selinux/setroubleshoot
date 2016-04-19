@@ -37,7 +37,7 @@ Disable IPV6 properly.
 
     fix_cmd = ""
 
-    if_text = _("you want to disable IPV6 on this machine")
+    if_text = _("If you want to disable IPV6 on this machine")
     then_text = _("you need to set /proc/sys/net/ipv6/conf/all/disable_ipv6 to 1 and do not blacklist the module'")
     do_text = _("""Add 
 net.ipv6.conf.all.disable_ipv6 = 1

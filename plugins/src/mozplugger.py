@@ -35,7 +35,7 @@ class plugin(Plugin):
     fix_description = _('''
 Either remove the mozplugger or spice-xpi package by executing 'yum remove mozplugger spice-xpi' or turn off enforcement of SELinux over the Firefox plugins. setsebool -P unconfined_mozilla_plugin_transition 0
     ''')
-    if_text = _("you want to use the %s package")
+    if_text = _("If you want to use the %s package")
 
     def get_if_text(self, avc, args):
         return self.if_text % args[0]

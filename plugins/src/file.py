@@ -46,9 +46,9 @@ home directory from a previous installation that did not use SELinux, 'restoreco
 
     def get_if_text(self, avc, args):
         if args == (1,0):
-            return _('this is caused by a newly created file system.')
+            return _('This is caused by a newly created file system.')
         else:
-            return _('you think this is caused by a badly mislabeled machine.')
+            return _('If you think this is caused by a badly mislabeled machine.')
 
     def get_then_text(self, avc, args):
         if args == (1,0):

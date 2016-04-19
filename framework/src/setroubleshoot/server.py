@@ -575,7 +575,7 @@ Return an alert with summary, audit events, fix suggestions
         plugins = []
         for plugin, args in alert_plugins:
             plugins.append((
-                _("If ") + alert.substitute(plugin.get_if_text(avc, args)),
+                alert.substitute(plugin.get_if_text(avc, args)),
                 alert.substitute(plugin.get_then_text(avc, args)),
                 alert.substitute(plugin.get_do_text(avc, args)),
                 plugin.analysis_id,

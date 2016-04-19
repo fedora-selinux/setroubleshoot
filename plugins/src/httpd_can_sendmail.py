@@ -44,7 +44,7 @@ class plugin(Plugin):
 
     fix_cmd = 'setsebool -P $BOOLEAN=1'
 
-    if_text = _("you want to allow httpd to send mail")
+    if_text = _("If you want to allow httpd to send mail")
     then_text = _("you must setup SELinux to allow this")
     do_text = 'setsebool -P httpd_can_sendmail=1'
 

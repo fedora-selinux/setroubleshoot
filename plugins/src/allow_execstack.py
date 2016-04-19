@@ -86,7 +86,7 @@ file a bug report.
 
     fix_cmd = ""
 
-    if_text = _("you do not think $SOURCE_PATH should need to map stack memory that is both writable and executable.")
+    if_text = _("If you do not think $SOURCE_PATH should need to map stack memory that is both writable and executable.")
     then_text = _("you need to report a bug. \nThis is a potentially dangerous access.")
     do_text = _("Contact your security administrator and report this issue.")
 
@@ -96,7 +96,7 @@ file a bug report.
             if not path:
                 return self.if_text
 
-            return _("you believe that \n%s\nshould not require execstack") % path
+            return _("If you believe that \n%s\nshould not require execstack") % path
         except:
             return self.if_text
 

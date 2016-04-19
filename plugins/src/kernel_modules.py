@@ -41,7 +41,7 @@ class plugin(Plugin):
 
     fix_description = "Contact your security administrator and report this issue."
     fix_cmd = ""
-    if_text = _("you do not think $SOURCE_BASE_PATH should try $ACCESS access on $TARGET_BASE_PATH.")
+    if_text = _("If you do not think $SOURCE_BASE_PATH should try $ACCESS access on $TARGET_BASE_PATH.")
     then_text = _("you may be under attack by a hacker, since confined applications should not need this access.")
     do_text = _("Contact your security administrator and report this issue.")
 

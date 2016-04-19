@@ -54,7 +54,7 @@ class plugin(Plugin):
 
     fix_cmd = 'setsebool -P $BOOLEAN=1'
 
-    if_text = _("you want to allow httpd to execute cgi scripts and to unify HTTPD handling of all content files.")
+    if_text = _("If you want to allow httpd to execute cgi scripts and to unify HTTPD handling of all content files.")
     then_text = _("you must tell SELinux about this by enabling the 'httpd_unified' and 'http_enable_cgi' booleans")
     do_text = "# setsebool -P httpd_unified=1 httpd_enable_cgi=1"
 

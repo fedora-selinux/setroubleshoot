@@ -39,7 +39,7 @@ class plugin(Plugin):
 
     fix_cmd = ""
 
-    if_text = _('you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the $TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this access.')
+    if_text = _("If you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the $TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this access.")
     then_text = _('You should report this as a bug.  \nYou can generate a local policy module to dontaudit this access.')
     do_text = _("""# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE
 # semodule -i my-$SOURCE.pp""")

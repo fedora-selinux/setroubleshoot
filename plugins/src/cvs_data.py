@@ -41,7 +41,7 @@ class plugin(Plugin):
     
     ''')
 
-    if_text = _("$TARGET_BASE_PATH should be shared via the cvs daemon")
+    if_text = _("If $TARGET_BASE_PATH should be shared via the cvs daemon")
     then_text = _("You need to change the label on $TARGET_BASE_PATH'")
     do_text = """# semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""

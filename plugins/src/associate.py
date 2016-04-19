@@ -41,7 +41,7 @@ seinfo -afile_type -x
 
     ''') % args[1]
 
-    if_text = _('you want to change the label of $TARGET_PATH to %s, you are not allowed to since it is not a valid file type.')
+    if_text = _("If you want to change the label of $TARGET_PATH to %s, you are not allowed to since it is not a valid file type.")
 
     def get_if_text(self, avc, args):
         return self.if_text % args[1]

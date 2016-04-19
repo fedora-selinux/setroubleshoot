@@ -35,7 +35,7 @@ class plugin(Plugin):
 
     fix_description = ""
     fix_cmd = ""
-    if_text = _("you want to help identify if domain needs this access or you have a file with the wrong permissions on your system")
+    if_text = _("If you want to help identify if domain needs this access or you have a file with the wrong permissions on your system")
     then_text = _("turn on full auditing to get path information about the offending file and generate the error again.")
     do_text = _("""
 Turn on full auditing

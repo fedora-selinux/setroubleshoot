@@ -63,7 +63,7 @@ executing:
 
     fix_cmd = "/usr/sbin/setsebool -P mmap_low_allowed 1"
 
-    if_text=_("you want to ignore this AVC because it is dangerous and your wine applications are working correctly.")
+    if_text = _("If you want to ignore this AVC because it is dangerous and your wine applications are working correctly.")
     then_text = _("you must tell SELinux about this by enabling the wine_mmap_zero_ignore boolean.")
     do_text = "# setsebool -P wine_mmap_zero_ignore 1"
 

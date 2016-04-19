@@ -47,7 +47,7 @@ class plugin(Plugin):
         Plugin.__init__(self, __name__)
         self.set_priority(8)
 
-    if_text=_("you want to treat $TARGET_BASE_PATH as public content")
+    if_text = _("If you want to treat $TARGET_BASE_PATH as public content")
     then_text = _("You need to change the label on $TARGET_BASE_PATH to public_content_t or public_content_rw_t.")
     do_text = """# semanage fcontext -a -t public_content_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""

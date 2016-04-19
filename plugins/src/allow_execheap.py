@@ -47,7 +47,7 @@ class plugin(Plugin):
     on the system.
     ''')
 
-    if_text = _("you do not think $SOURCE_PATH should need to map heap memory that is both writable and executable.")
+    if_text = _("If you do not think $SOURCE_PATH should need to map heap memory that is both writable and executable.")
     then_text = _("you need to report a bug. This is a potentially dangerous access.")
     do_text = _("Contact your security administrator and report this issue.")
 

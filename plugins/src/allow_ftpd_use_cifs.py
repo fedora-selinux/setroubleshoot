@@ -59,7 +59,7 @@ class plugin(Plugin):
     files and directories on CIFS filesystems.  ''')
 
     rw_fix_cmd = 'setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1'
-    if_text = _("you want to allow ftpd to write to cifs file systems")
+    if_text = _("If you want to allow ftpd to write to cifs file systems")
     then_text = _("you must tell SELinux about this")
     do_text = '# setsebool -P allow_ftpd_use_cifs=1 allow_ftpd_anon_write=1'
 

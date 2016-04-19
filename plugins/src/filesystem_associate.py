@@ -40,7 +40,7 @@ class plugin(Plugin):
     fix_description = _('''
     Use a command like "cp -p" to preserve all permissions except SELinux context.
     ''')
-    if_text = _("you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH files")
+    if_text = _("If you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH files")
     then_text = _("you need to use a different command. You are not allowed to preserve the SELinux context on the target file system.")
 
     do_text = _('use a command like "cp -p" to preserve all permissions except SELinux context.')

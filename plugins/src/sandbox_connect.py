@@ -44,7 +44,7 @@ class plugin(Plugin):
     ''')
 
     fix_cmd = ''
-    if_text = _('you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER')
+    if_text = _("If you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER")
 
     then_text =  _("""you need to modify the sandbox type. sandbox_web_t or sandbox_net_t.
 For example:
