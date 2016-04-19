@@ -44,7 +44,7 @@ class plugin(Plugin):
     ''')
 
     fix_cmd = ''
-    if_text = 'you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER'
+    if_text = _('If you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER')
     then_text = 'you need to modify the port type.'
 
     def get_do_text(self, avc, options):

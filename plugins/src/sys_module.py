@@ -25,7 +25,7 @@ _=translation.gettext
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
 
-if_text = _("you do not believe your $SOURCE_PATH should be modifying the kernel, by loading kernel modules")
+if_text = _("If you do not believe your $SOURCE_PATH should be modifying the kernel, by loading kernel modules")
 then_text = _("You might have been hacked.")
 do_text = _("Contact your security administrator and report this issue.")
 
@@ -43,7 +43,7 @@ class plugin(Plugin):
     ''')
 
     fix_description = "Contact your security administrator and report this issue."
-    if_text = _("you do not believe that $SOURCE_PATH should be attempting to modify the kernel by loading a kernel module.")
+    if_text = _("If you do not believe that $SOURCE_PATH should be attempting to modify the kernel by loading a kernel module.")
     then_text = _("A process might be attempting to hack into your system.")
     do_text = _("Contact your security administrator and report this issue.")
     fix_cmd = ""

@@ -47,10 +47,10 @@ class plugin(Plugin):
 
     def get_if_text(self, avc, args):
         if args[1] == "process":
-            return _('you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on processes labeled $TARGET_TYPE by default.')
+            return _('If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on processes labeled $TARGET_TYPE by default.')
         if args[1] in ["capability", "capability2"]:
-            return _('you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by default.')
-        return _('you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS by default.')
+            return _('If you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by default.')
+        return _('If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS by default.')
 
     then_text = _('You should report this as a bug.\nYou can generate a local policy module to allow this access.')
     do_text = _("""Allow this access for now by executing:

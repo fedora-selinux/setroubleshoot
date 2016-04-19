@@ -24,7 +24,7 @@ _=translation.gettext
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
 
-if_text = _("you did not directly cause this AVC through testing.")
+if_text = _("If you did not directly cause this AVC through testing.")
 then_text = _("if you think that you might have been hacked")
 do_text = _("Contact your security administrator and report this issue.")
 
@@ -45,7 +45,7 @@ class plugin(Plugin):
     fix_description = "Contact your security administrator and report this issue."
     fix_cmd = ""
 
-    if_text = _("you believe $SOURCE_PATH tried to disable SELinux.")
+    if_text = _("If you believe $SOURCE_PATH tried to disable SELinux.")
     then_text = _("you may be under attack by a hacker, since confined applications should never need this access.")
     do_text = _("Contact your security administrator and report this issue.")
 

@@ -36,7 +36,7 @@ class plugin(Plugin):
 
     fix_description = "Fix the cause of the SYS_RESOURCE on your system."
 
-    if_text = _("you do not want processes to require capabilities to use up all the system resources on your system;")
+    if_text = _("If you do not want processes to require capabilities to use up all the system resources on your system;")
     then_text = _("""you need to diagnose why your system is running out of system resources and fix the problem.
 
 According to /usr/include/linux/capability.h, sys_resource is required to:

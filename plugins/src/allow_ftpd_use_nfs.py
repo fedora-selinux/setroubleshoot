@@ -61,7 +61,7 @@ class plugin(Plugin):
 
     rw_fix_cmd = '/usr/sbin/setsebool -P ftpd_use_nfs=1 ftpd_anon_write=1'
 
-    if_text = _("you want to allow ftpd to write to nfs file systems")
+    if_text = _("If you want to allow ftpd to write to nfs file systems")
     then_text = _("you must tell SELinux about this")
     do_text = '# setsebool -P ftpd_use_nfs=1 ftpd_anon_write=1'
 

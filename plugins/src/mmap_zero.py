@@ -43,7 +43,7 @@ class plugin(Plugin):
 
     fix_description = ("Contact your security administrator and report this issue.")
     fix_cmd = ""
-    if_text = _("you do not think $SOURCE_PATH should need to mmap low memory in the kernel.")
+    if_text = _("If you do not think $SOURCE_PATH should need to mmap low memory in the kernel.")
     then_text = _("you may be under attack by a hacker, this is a very dangerous access.")
     do_text = _("Contact your security administrator and report this issue.")
     def __init__(self):

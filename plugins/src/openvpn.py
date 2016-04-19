@@ -46,9 +46,9 @@ class plugin(Plugin):
 
     def get_if_text(self, avc, args):
         if (args[0] == "move"):
-            return _('you want to mv $TARGET_BASE_PATH to standard location so that $SOURCE_BASE_PATH can have $ACCESS access')
+            return _('If you want to mv $TARGET_BASE_PATH to standard location so that $SOURCE_BASE_PATH can have $ACCESS access')
         else:
-            return _('you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH can have $ACCESS access on it')
+            return _('If you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH can have $ACCESS access on it')
 
     def get_then_text(self, avc, args):
         if (args[0] == "move"):

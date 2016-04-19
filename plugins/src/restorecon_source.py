@@ -57,7 +57,7 @@ class plugin(Plugin):
     If you believe this is a bug, please file a bug report against this package.
     ''') % args[1]
 
-    if_text = _('you want to fix the label. \n$SOURCE_PATH default label should be %s.')
+    if_text = _("If you want to fix the label. \n$SOURCE_PATH default label should be %s.")
 
     def get_if_text(self, avc, args):
         return self.if_text % args[1]
