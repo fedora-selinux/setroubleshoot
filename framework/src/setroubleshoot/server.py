@@ -577,7 +577,29 @@ Return an alert with summary, audit events, fix suggestions
                 str(alert.first_seen_date), str(alert.last_seen_date), alert.level or ''
         )
 
+    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='ss', out_signature='b')
+    def set_filter(self, local_id, filter_type, sender):
+        """
+Sets a filter on an alert. The alert can be "always" filtered, "never" filtered or "after_first" filtered.
 
+##### arguments
+
+* `local_id(s)`: an alert id
+* `filter_type(s)`: "always", "never", "after_first"
+
+##### return values
+
+* `success(b)`:
+"""
+        try:
+            username = get_identity(self.connection.get_unix_user(sender))
+            database = get_host_database()
+            alert = self._get_alert(local_id, database)
+            from setroubleshoot.signature import map_filter_name_to_value
+            database.set_filter(alert.sig, username, map_filter_name_to_value[filter_type], None)
+            return True
+        except:
+            return False
 
     @dbus.service.method(dbus_system_interface, in_signature='s',  out_signature='s')
     def avc(self, data):
