@@ -514,6 +514,14 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 """
         return self._get_all_alerts_since('1970-01-01T00:00:00Z', sender)
 
+    def _get_alert(self, local_id, database):
+        try:
+            database_alerts = database.query_alerts(local_id)
+        except ProgramError as e:
+            raise e
+        alert = database_alerts.siginfos().__next__()
+        return alert
+
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ssiasa(ssssbbi)sss')
     def get_alert(self, local_id, sender):
         """
@@ -544,13 +552,7 @@ Return an alert with summary, audit events, fix suggestions
 """
         username = get_identity(self.connection.get_unix_user(sender))
         database = get_host_database()
-        try:
-            database_alerts = database.query_alerts(local_id)
-        except ProgramError as e:
-            if e.errno == ERR_SIGNATURE_ID_NOT_FOUND:
-                return None
-            raise e
-        alert = next(database_alerts.siginfos())
+        alert = self._get_alert(local_id, database)
         alert.update_derived_template_substitutions()
 
         avc = alert.audit_event.records
