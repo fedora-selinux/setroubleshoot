@@ -485,7 +485,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
             
         return count, red
 
-    def _get_all_alerts_since(self, since, sender):
+    def _get_all_alerts_since(self, since, sender, alert_action = "display"):
         username = get_identity(self.connection.get_unix_user(sender))
         database = get_host_database()
         since_alerts = setroubleshoot.util.TimeStamp(since)
@@ -494,7 +494,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
         for alert in database_alerts:
             if alert.last_seen_date < since_alerts:
                 continue
-            if alert.evaluate_filter_for_user(username) != "ignore":
+            if alert.evaluate_filter_for_user(username) == alert_action:
                 alerts.append((alert.local_id, alert.summary(), alert.report_count))
         return alerts
 
@@ -514,12 +514,24 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 """
         return self._get_all_alerts_since('1970-01-01T00:00:00Z', sender)
 
+    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='', out_signature='a(ssi)')
+    def get_all_alerts_ignored(self, sender):
+        """
+        Return array of *local_id*'s, *summary*'s, and *report_count*'s of all alerts which a user set to be ignored by a user
+
+        returns list of:
+        * `local_id(s)`: a report id in a setroubleshoot database
+        * `summary(s)`: a brief description of an alert. E.g. `"SELinux is preventing /usr/bin/bash from ioctl access on the unix_stream_socket unix_stream_socket."`
+        * `report_count(i)`: count of reports of this alert
+"""
+        return self._get_all_alerts_since('1970-01-01T00:00:00Z', sender, alert_action="ignore")
+
     def _get_alert(self, local_id, database):
         try:
             database_alerts = database.query_alerts(local_id)
         except ProgramError as e:
             raise e
-        alert = database_alerts.siginfos().__next__()
+        alert = next(database_alerts.siginfos())
         return alert
 
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ssiasa(ssssbbi)sss')
