@@ -400,6 +400,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         self.template_substitutions["SOURCE"]      = self.source
         self.template_substitutions["SOURCE_PATH"] = self.spath
         self.template_substitutions["SOURCE_BASE_PATH"] = os.path.basename(self.spath)
+        self.template_substitutions["MODULE_NAME"] = re.sub('[^a-zA-Z0-9]', '', self.source)
         if self.spath:
             self.template_substitutions["FIX_SOURCE_PATH"] = re.sub(" ",".",self.spath)
         else:
