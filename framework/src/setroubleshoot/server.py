@@ -620,6 +620,27 @@ Sets a filter on an alert. The alert can be "always" filtered, "never" filtered 
         except:
             return False
 
+    @dbus.service.method(dbus_system_interface, in_signature='s', out_signature='b')
+    def delete_alert(self, local_id, filter_type):
+        """
+Deletes an alert from the database.
+
+##### arguments
+
+* `local_id(s)`: an alert id
+
+##### return values
+
+* `success(b)`:
+"""
+        try:
+            database = get_host_database()
+            alert = self._get_alert(local_id, database)
+            database.delete_signature(alert.sig)
+            return True
+        except:
+            return False
+
     @dbus.service.method(dbus_system_interface, in_signature='s',  out_signature='s')
     def avc(self, data):
         data = str(data)
