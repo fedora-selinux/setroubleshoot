@@ -6,11 +6,13 @@
 
 ### org.fedoraproject.SetroubleshootdIface
 
+***
+
 #### Methods
 
 ##### check_for_new(s: last_seen_id) -> (ii)
 
-Return number of all and red alerts which occurred after last_seen_id.
+Returns number of all and red alerts which occurred after last_seen_id.
 
 ###### arguments
 
@@ -23,38 +25,23 @@ Return number of all and red alerts which occurred after last_seen_id.
 
 ***
 
-##### get_all_alerts() → a(ssi)
+##### delete_alert(s: local_id) -> b
 
-Return array of *local_id*'s, *summary*'s, and *report_count*'s of all current alerts in a
-setroubleshoot database
-
-###### return values
-
-* array of
- * `local_id(s)`: an alert id in a setroubleshoot database
- * `summary(s)`: a brief description of an alert. E.g. `"SELinux is preventing /usr/bin/bash from
-  ioctl access on the unix_stream_socket unix_stream_socket."`
- * `report_count(i)`: count of reports of this alert
-
-***
-
-##### get_all_alerts_since(s: since) → a(ssi)
-
-Return array of alerts as in get_all_alerts() but only since *since* timedate
+Deletes an alert from the database.
 
 ###### arguments
 
-* `since(s)`: timedate since alerts should be returned
+* `local_id(s)`: an alert id
 
-###### return values
+###### return value
 
-see get_all_alerts()
+* `success(b)`: True if the method was succesful
 
 ***
 
 ##### get_alert(s: local_id) -> ssiasa(ssssbbi)sss
 
-Return an alert with summary, audit events, fix suggestions
+Returns an alert with summary, audit events, fix suggestions
 
 ###### arguments
 
@@ -79,6 +66,68 @@ Return an alert with summary, audit events, fix suggestions
 * `first_seen_date(s)`: when the alert was seen for the first time, iso8601 format is used - '%Y-%m-%dT%H:%M:%SZ'
 * `last_seen_date(s)`: when the alert was seen for the last time, iso8601 format is used - '%Y-%m-%dT%H:%M:%SZ'
 * `level(s)`: "green", "yellow" or "red"
+
+***
+
+##### get_all_alerts() -> a(ssi)
+
+Returns an array of *local_id*'s, *summary*'s, and *report_count*'s of all current alerts in a
+setroubleshoot database
+
+###### return values
+
+* array of
+ * `local_id(s)`: an alert id in a setroubleshoot database
+ * `summary(s)`: a brief description of an alert. E.g. `"SELinux is preventing /usr/bin/bash from
+  ioctl access on the unix_stream_socket unix_stream_socket."`
+ * `report_count(i)`: count of reports of this alert
+
+***
+
+##### get_all_alerts_ignored() -> a(ssi)
+
+Returns an array of *local_id*'s, *summary*'s, and *report_count*'s of all alerts which a user set to be ignored by a user
+
+
+###### return values
+
+* array of
+ * `local_id(s)`: an alert id in a setroubleshoot database
+ * `summary(s)`: a brief description of an alert. E.g. `"SELinux is preventing /usr/bin/bash from
+  ioctl access on the unix_stream_socket unix_stream_socket."`
+ * `report_count(i)`: count of reports of this alert
+
+***
+
+##### get_all_alerts_since(s: since) -> a(ssi)
+
+Returns array of alerts as in get_all_alerts() but only since *since* timedate
+
+###### arguments
+
+* `since(s)`: timedate since alerts should be returned
+
+###### return values
+
+see get_all_alerts()
+
+***
+
+##### set_filter(s: local_id, s: filter_type) -> b
+
+Sets a filter on an alert. The alert can be "always" filtered, "never" filtered or "after_first" filtered.
+
+###### arguments
+
+* `local_id(s)`: an alert id
+* `filter_type(s)`: "always", "never", "after_first", see 
+  https://fedorahosted.org/setroubleshoot/wiki/SETroubleShoot%20User%20FAQ#email-alerts
+
+###### return value
+
+* `success(b)`: True if the method was succesful
+
+***
 
 #### Signals
 
