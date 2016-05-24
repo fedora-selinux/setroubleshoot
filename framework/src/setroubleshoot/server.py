@@ -541,7 +541,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
         alert = database_alerts.siginfos().__next__()
         return alert
 
-    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ssiasa(ssssbbi)sss')
+    @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='s', out_signature='ssiasa(ssssbbi)tts')
     def get_alert(self, local_id, sender):
         """
 Return an alert with summary, audit events, fix suggestions
@@ -565,8 +565,8 @@ Return an alert with summary, audit events, fix suggestions
  * `fixable(b)`: True when an alert is fixable by a plugin
  * `report_bug(b)`: True when an alert should be reported to bugzilla
  * `priority(i)`:  An analysis priority. Typically the value is between 1 - 100.
-* `first_seen_date(s)`: when the alert was seen for the first time, iso8601 format is used - '%Y-%m-%dT%H:%M:%SZ'
-* `last_seen_date(s)`: when the alert was seen for the last time, iso8601 format is used - '%Y-%m-%dT%H:%M:%SZ'
+* `first_seen_date(t)`: when the alert was seen for the first time, number of microseconds since the Epoch
+* `last_seen_date(t)`: when the alert was seen for the last time, number of microseconds since the Epoch
 * `level(s)`: "green", "yellow" or "red"
 """
         username = get_identity(self.connection.get_unix_user(sender))
@@ -593,7 +593,9 @@ Return an alert with summary, audit events, fix suggestions
 
         return (alert.local_id, alert.summary(), alert.report_count,
                 audit_events, plugins,
-                str(alert.first_seen_date), str(alert.last_seen_date), alert.level or ''
+                int(alert.first_seen_date.format("%s")) * 1000000,
+                int(alert.last_seen_date.format("%s")) * 1000000,
+                alert.level or ''
         )
 
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='ss', out_signature='b')
