@@ -210,7 +210,8 @@ class AlertPluginReportReceiver(PluginReportReceiver):
             if audit_record.record_type == 'AVC':
                 pid = audit_record.fields["pid"]
                 break;
-        systemd.journal.send(siginfo.format_text(), OBJECT_PID=pid)
+        if get_config('setroubleshootd_log', 'log_full_report', bool):
+            systemd.journal.send(siginfo.format_text(), OBJECT_PID=pid)
 
         for u in siginfo.users:
                 action = siginfo.evaluate_filter_for_user(u.username)
