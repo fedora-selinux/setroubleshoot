@@ -71,10 +71,7 @@ from setroubleshoot.analyze import (PluginReportReceiver,
                                     )
 from setroubleshoot.avc_audit import *
 from setroubleshoot.config import get_config
-if get_config('general', 'use_auparse', bool):
-    from setroubleshoot.avc_auparse import *
-else:
-    from setroubleshoot.avc_audit import AuditRecordReceiver
+from setroubleshoot.avc_audit import AuditRecordReceiver
 
 from setroubleshoot.errcode import (ProgramError,
                                     ERR_NOT_AUTHENTICATED,
