@@ -47,7 +47,7 @@ gettext.install(domain    = domain,
 
 syslog.openlog(sys.argv[0])
 from setroubleshoot.errcode import *
-from setroubleshoot.util import get_identity, load_plugins, log_debug
+from setroubleshoot.util import get_identity, load_plugins, log_init, log_debug
 from setroubleshoot.rpc import *
 
 #------------------------------------------------------------------------------
@@ -62,6 +62,9 @@ dbus_session_object_path = get_config('session_dbus','object_path')
 dbus_session_interface = get_config('session_dbus','interface')
 app = None
 default_status_icon_tooltip = _("SELinux AVC denial, click to view")
+
+log_init("sealert_log")
+
 #------------------------------------------------------------------------------
 def sighandler(signum, frame):
     log_debug("exiting on signal %s" % signum)
