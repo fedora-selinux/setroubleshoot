@@ -95,8 +95,10 @@ from setroubleshoot.rpc_interfaces import (SETroubleshootServerInterface,
 from setroubleshoot.util import (get_hostname,
                                  make_database_filepath,
                                  assure_file_ownership_permissions,
-                                 get_identity, log_debug, syslog_trace
+                                 get_identity, log_init, log_debug, syslog_trace
                                  )
+
+log_init('setroubleshootd_log')
 
 #------------------------------ Utility Functions -----------------------------
 

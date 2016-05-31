@@ -99,12 +99,25 @@ href_re = re.compile('<a\s*href="([^"]+)"[^<]*</a>')
 name_at_domain_re = re.compile('^([^\s@]+)@([^\s@]+)$')
 audit_decode_re = re.compile(r'^\s*"([^"]+)"\s*$')
 
-log_level="unknown"
+log_level = syslog.LOG_WARNING
+
+log_levels = {
+    'CRITICAL': syslog.LOG_CRIT,
+    'ERROR': syslog.LOG_ERR,
+    'WARNING': syslog.LOG_WARNING,
+    'INFO': syslog.LOG_INFO,
+    'DEBUG': syslog.LOG_DEBUG,
+}
+
+def log_init(section):
+    global log_level
+    log_level = log_levels.get(get_config(section, 'level').upper())
+    if log_level is None:
+        log_level = syslog.LOG_WARNING
+
 def log_debug(msg):
     global log_level
-    if log_level == "unknown":
-        log_level = get_config('sealert_log', 'level')
-    if log_level == "debug":
+    if log_level >= syslog.LOG_DEBUG:
         syslog.syslog(syslog.LOG_DEBUG, msg)
 
 def syslog_trace(trace):
