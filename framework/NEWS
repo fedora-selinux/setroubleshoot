@@ -1,3 +1,14 @@
+setroubleshoot 3.2.26                                      2016-06-01
+ - get_alert() and get_all_alerts_since() DBUS APIs change to use
+   number of microseconds instead of date string
+ - level = debug can be set separately for sealert_log and setroubleshootd_log
+ - added new directive to setroubleshootd_log - log_full_report = True|False
+ - added new methods to DBUS API:
+   set_filter(), get_all_alerts_ignored(), delete_alert()
+ - suggest my-<command>.pp modules instead of mypol.pp
+ - setroubleshoot.conf cleanup
+ - bug fixes
+
 setroubleshoot 3.2.25                                      2016-04-15
  - extend DBUS API, see DBUS.md
  - sedispatch uses a timeout when collecting audit events
