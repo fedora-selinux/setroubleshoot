@@ -294,36 +294,6 @@ sealert logging level. Levels are the same as in the python logging
 module, but are case insenstive. The defined levels in severity order are:
 [CRITICAL, ERROR, WARNING, INFO, DEBUG]''',
     },
-    'categories' : {
-        'value'       : '',
-        'description' : '''
-Comma seperated list of logging categories. Each categories may
-optionally be followed by a colon(:) and a logging level, which either
-may be one of the symbolic levels or numeric, e.g. ipc:info. If no
-level is defined the default level is used. If the category name is
-preceded by a tilde (~) the category is not logged at all.
-The list of available categories is: [%s]''' % ', '.join(LOG_CATEGORIES),
-    },
-    'filename' : {
-        'value'       : '',
-        'description' : ''
-    },
-    'filemode' : {
-        'value'       : 'a',
-        'description' : 'should be "w" or "a" for write or append respectively'
-    },
-    'format' : {
-        'value'       : '%(asctime)s [%(name)s.%(levelname)s] %(message)s',
-        'description' : '',
-    },
-    'console' : {
-        'value'       : 'False',
-        'description' : 'True|False, also log to the console',
-    },
-    'profile' : {
-        'value'       : 'False',
-        'description' : 'True|False, gather statistics',
-    },
 },
 'access' : {
     'client_users' : {
