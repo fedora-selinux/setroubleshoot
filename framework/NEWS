@@ -1,3 +1,11 @@
+setroubleshoot 3.3.8                                       2016-06-02
+ - added setroubleshootd_log.log_full=True|False directive
+ - setroubleshootd_log.level and sealert_log.level can be set to
+   different values
+ - get_alert() and get_all_alerts_since() DBUS APIs change to use
+   number of microseconds instead of date string
+ - setroubleshoot.conf cleanup
+
 setroubleshoot 3.3.7                                       2016-05-18
  - added new methods to DBUS API:
    set_filter(), get_all_alerts_ignored(), delete_alert()
