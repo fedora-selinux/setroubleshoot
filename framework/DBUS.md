@@ -99,13 +99,13 @@ Returns an array of *local_id*'s, *summary*'s, and *report_count*'s of all alert
 
 ***
 
-##### get_all_alerts_since(s: since) -> a(ssi)
+##### get_all_alerts_since(t: since) -> a(ssi)
 
 Returns array of alerts as in get_all_alerts() but only since *since* timedate
 
 ###### arguments
 
-* `since(s)`: timedate since alerts should be returned
+* `since(t)`: number of microseconds since the Epoch
 
 ###### return values
 
