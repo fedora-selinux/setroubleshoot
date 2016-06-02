@@ -24,7 +24,6 @@ __all__ = ['config_init',
            'set_config',
            'parse_config_setting',
            'config_has_section',
-           'LOG_CATEGORIES',
           ]
 
 import getopt
@@ -36,10 +35,6 @@ import re
 _cfg = None
 
 CFG_FILE = os.path.join('@pkgconfigdir@', "%s.conf" % '@PACKAGE_NAME@')
-
-LOG_CATEGORIES = ['rpc','xml','cfg','alert','sig','plugin','avc',
-	          'email','gui', 'gui_data', 'program','database','server','dbus',
-                  'stats', 'communication', 'subprocess']
 
 defaults = {
 'general' : {
@@ -116,15 +111,6 @@ defaults = {
     'retry_interval' : {
         'value'       : '60',
         'description' : 'number of seconds to wait before trying to connect to audit socket again in the event of socket failure',
-    },
-},
-'alert' : {
-    'use_notification' : {
-        'value'       : 'always',
-        'description' : '''Control balloon notification. Possible values: always,never,browser_hidden "always" will
-always display the notification. "never" disables notification completely. "browser_hidden" displays the notification
-but only if the alert browser is not visible. Note: individual alerts can be flagged as silent disabling notification
-for a specific alert, this parameter does not override that.''',
     },
 },
 'plugins' : {
@@ -339,12 +325,6 @@ system. The wildcard '*' is NOT allowed.'''
         'value'       : 'False',
         'description' : 'Print plugin report',
         'readOnly'    : True,
-    },
-},
-'fix_cmd' : {
-    'run_fix_cmd_enable' : {
-        'value'       : 'False',
-        'description' : 'Permit running fix commands',
     },
 },
 }
