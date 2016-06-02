@@ -525,7 +525,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
         * `summary(s)`: a brief description of an alert. E.g. `"SELinux is preventing /usr/bin/bash from ioctl access on the unix_stream_socket unix_stream_socket."`
         * `report_count(i)`: count of reports of this alert
 """
-        return self._get_all_alerts_since('1970-01-01T00:00:00Z', sender, alert_action="ignore")
+        return self._get_all_alerts_since(0, sender, alert_action="ignore")
 
     def _get_alert(self, local_id, database):
         try:
