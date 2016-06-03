@@ -501,7 +501,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='t', out_signature='a(ssi)')
     def get_all_alerts_since(self, since, sender):
-        return self._get_all_alerts_since(str(since), sender)
+        return self._get_all_alerts_since(since, sender)
 
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='', out_signature='a(ssi)')
     def get_all_alerts(self, sender):
