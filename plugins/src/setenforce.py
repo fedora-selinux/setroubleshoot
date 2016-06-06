@@ -34,9 +34,9 @@ class plugin(Plugin):
     ''')
 
     problem_description = _('''
-    SELinux has prevented $SOURCE from writing to a file under /selinux.
-    Files under /selinux control the way SELinux is configured.
-    All programs that need to write to files under /selinux should have already had policy
+    SELinux has prevented $SOURCE from writing to a file under /sys/fs/selinux.
+    Files under /sys/fs/selinux control the way SELinux is configured.
+    All programs that need to write to files under /sys/fs/selinux should have already had policy
     written for them. If a compromised application tries to turn off SELinux
     this AVC will be generated. This is a serious issue. Your system may very
     well be compromised.
