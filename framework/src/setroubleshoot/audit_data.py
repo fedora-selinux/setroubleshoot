@@ -864,12 +864,10 @@ class AVC:
             else:
                 if path.startswith("/") == False and inodestr:
                     import subprocess
-                    command = "locate -b '\%s'" % path 
+                    command = ["locate", "-b", "\%s" % path]
                     try:
-                        output = subprocess.check_output(command, 
-                                                         stderr=subprocess.STDOUT,
-                                                         shell=True)
-                        ino = int(inodestr)
+                        output = subprocess.check_output(command,
+                                                         stderr=subprocess.STDOUT)
                         for file in output.split("\n"):
                             try:
                                 if int(os.lstat(file).st_ino) == ino:

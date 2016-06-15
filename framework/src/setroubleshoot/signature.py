@@ -520,11 +520,11 @@ class SEFaultSignatureInfo(XmlSerialize):
             audit2allow = "/usr/bin/audit2allow"
             if os.path.exist(audit2allow):
                 newbuf = "\n\naudit2allow"
-                p =  Popen([audit2allow], shell=True,stdin=PIPE, stdout=PIPE)
+                p =  Popen([audit2allow], stdin=PIPE, stdout=PIPE)
                 newbuf += p.communicate(avcbuf)[0]
                 if os.path.exists("/var/lib/sepolgen/interface_info"):
                     newbuf += "\naudit2allow -R"
-                    p =  Popen(["%s -R" % audit2allow ], shell=True,stdin=PIPE, stdout=PIPE)
+                    p =  Popen([audit2allow, "-R"], stdin=PIPE, stdout=PIPE)
                     newbuf += p.communicate(avcbuf)[0]
                 avcbuf += newbuf
         except:
