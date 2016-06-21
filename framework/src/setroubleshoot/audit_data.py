@@ -868,6 +868,7 @@ class AVC:
                     try:
                         output = subprocess.check_output(command,
                                                          stderr=subprocess.STDOUT)
+                        ino = int(inodestr)
                         for file in output.split("\n"):
                             try:
                                 if int(os.lstat(file).st_ino) == ino:
