@@ -15,8 +15,8 @@ class RunFix(slip.dbus.service.Object):
     @dbus.service.method ("org.fedoraproject.SetroubleshootFixit", in_signature='ss', out_signature='s')
     def run_fix(self, local_id, analysis_id):
         import subprocess
-        command = "sealert -f %s -P %s" % (local_id, analysis_id)
-        return subprocess.getoutput(command)
+        command = ["sealert", "-f", local_id, "-P", analysis_id]
+        return subprocess.check_output(command, universal_newlines=True)
 
 if __name__ == "__main__":
     mainloop = GLib.MainLoop ()
