@@ -30,12 +30,12 @@ def is_execstack(path):
     if path[0] != "/":
         return False
 
-    x = subprocess.getoutput("execstack -q %s" % path).split()
+    x = subprocess.check_output(["execstack",  "-q", path], universal_newlines=True).split()
     return ( x[0] == "X" )
 
 def find_execstack(exe, pid):
     execstacklist = []
-    for path in subprocess.getoutput("ldd %s" % exe).split():
+    for path in subprocess.check_output(["ldd", exe], universal_newlines=True).split():
         if is_execstack(path) and path not in execstacklist:
                 execstacklist.append(path)
     try:
