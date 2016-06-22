@@ -30,14 +30,21 @@ def is_execstack(path):
     if path[0] != "/":
         return False
 
-    x = subprocess.check_output(["execstack",  "-q", path], universal_newlines=True).split()
+    try:
+        x = subprocess.check_output(["execstack",  "-q", path], universal_newlines=True).split()
+    except:
+        return False
     return ( x[0] == "X" )
 
 def find_execstack(exe, pid):
     execstacklist = []
-    for path in subprocess.check_output(["ldd", exe], universal_newlines=True).split():
+    try:
+        paths = subprocess.check_output(["ldd", exe], universal_newlines=True).split()
+    except:
+        return execstacklist
+    for path in paths:
         if is_execstack(path) and path not in execstacklist:
-                execstacklist.append(path)
+            execstacklist.append(path)
     try:
         fd = open("/proc/%s/maps" % pid , "r")
         for rec in fd.readlines():
