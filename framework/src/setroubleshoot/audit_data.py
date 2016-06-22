@@ -878,7 +878,7 @@ class AVC:
                                     break
                             except:
                                 pass
-                    except subprocess.CalledProcessError as e:
+                    except:
                         pass
 
         if path is not None:
