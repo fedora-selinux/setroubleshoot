@@ -160,6 +160,8 @@ def fix_lookup_id(local_id, analysis_id):
                         print _("Successfully ran %s" % ' '.join(command))
                     except subprocess.CalledProcessError as e:
                         print(e.output)
+                    except:
+                        pass
                     cl.main_loop.quit()
                     return
         print _("Plugin %s not valid for %s id") % (analysis_id, local_id)
