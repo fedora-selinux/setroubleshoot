@@ -95,8 +95,11 @@ setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, 
         if avc.has_any_access_in(['execmod']):
             # MATCH
             # from https://docs.python.org/2.7/library/subprocess.html#replacing-shell-pipeline
-            p1 = subprocess.Popen(['eu-readelf', '-d', avc.tpath], stdout=subprocess.PIPE)
-            p2 = subprocess.Popen(["fgrep", "-q", "TEXTREL"], stdin=p1.stdout, stdout=subprocess.PIPE)
+            try:
+                p1 = subprocess.Popen(['eu-readelf', '-d', avc.tpath], stdout=subprocess.PIPE)
+                p2 = subprocess.Popen(["fgrep", "-q", "TEXTREL"], stdin=p1.stdout, stdout=subprocess.PIPE)
+            except:
+                return None
             p1.stdout.close()  # Allow p1 to receive a SIGPIPE if p2 exits.
             p1.wait()
             p2.wait()
