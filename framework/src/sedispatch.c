@@ -103,7 +103,6 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 	struct sigaction sa;
 	fd_set rfds;
 	struct timeval tv;
-	int retval;
 
 	/* Register sighandlers */
 	sa.sa_flags = 0;
