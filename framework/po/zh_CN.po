@@ -11,22 +11,22 @@
 # Wei Liu <LLIU@REDHAT.COM>, 2012-2013
 # Xi Huang <xhuang@redhat.com>, 2006
 # yusuf <yusufma77@yahoo.com>, 2011
-# Leah Liu <lliu@redhat.com>, 2016. #zanata
+# Tian Shixiong <tiansworld@gmail.com>, 2016. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-01-15 16:27+0100\n"
+"POT-Creation-Date: 2016-04-15 20:42+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-03 12:17-0500\n"
-"Last-Translator: Leah Liu <lliu@redhat.com>\n"
+"PO-Revision-Date: 2016-05-28 06:05-0400\n"
+"Last-Translator: Tian Shixiong <tiansworld@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/fedora/"
 "language/zh_CN/)\n"
 "Language: zh-CN\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.8.3\n"
+"X-Generator: Zanata 3.8.4\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -45,9 +45,9 @@ msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgid "port %s"
 msgstr "端口 %s"
 
-#: ../src/setroubleshoot/audit_data.py:905
-#: ../src/setroubleshoot/browser.py:747 ../src/setroubleshoot/browser.py:822
-#: ../src/setroubleshoot/rpc.py:528 ../src/setroubleshoot/util.py:229
+#: ../src/setroubleshoot/audit_data.py:905 ../src/setroubleshoot/browser.py:747
+#: ../src/setroubleshoot/browser.py:822 ../src/setroubleshoot/rpc.py:528
+#: ../src/setroubleshoot/util.py:229
 msgid "Unknown"
 msgstr "未知"
 
@@ -171,9 +171,9 @@ msgstr "对这个"
 
 #: ../src/setroubleshoot/browser.py:270
 msgid "Occurred"
-msgstr "发生"
+msgstr "已发生的"
 
-#: ../src/setroubleshoot/browser.py:270 ../src/run_cmd.py:406
+#: ../src/setroubleshoot/browser.py:270
 msgid "Status"
 msgstr "状态"
 
@@ -201,7 +201,7 @@ msgstr "<b>如果您本来想要...</b>"
 
 #: ../src/setroubleshoot/browser.py:394
 msgid "<b>Then this is the solution.</b>"
-msgstr "<b>那么这些是解决方案。</b>"
+msgstr "<b>那么这是解决方案。</b>"
 
 #: ../src/setroubleshoot/browser.py:413 ../src/setroubleshoot/browser.py:549
 msgid "If "
@@ -222,7 +222,7 @@ msgstr "报告\n"
 #: ../src/setroubleshoot/browser.py:544
 #, python-format
 msgid "Plugin: %s "
-msgstr "插件： %s "
+msgstr "插件：%s "
 
 #: ../src/setroubleshoot/browser.py:611
 msgid "Unable to grant access."
@@ -231,12 +231,12 @@ msgstr "未能准予访问"
 #: ../src/setroubleshoot/browser.py:642 ../src/setroubleshoot/browser.py:784
 #, python-format
 msgid "Alert %d of %d"
-msgstr "警报 %d of %d"
+msgstr "警报 %d，共 %d 个"
 
 #: ../src/setroubleshoot/browser.py:767
 #, python-format
 msgid "On this %s:"
-msgstr "对这个 %s："
+msgstr "关于此 %s："
 
 #: ../src/setroubleshoot/browser.py:815 ../src/setroubleshoot/browser.py:821
 #: ../src/setroubleshoot/signature.py:391
@@ -352,65 +352,7 @@ msgid ""
 "you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"您想要允许 $SOURCE_BASE_PATH 以 $ACCESS 方式访问 $TARGET_BASE_PATH $TARGET_CLASS"
-
-#: ../src/run_cmd.py:172
-msgid "Input: "
-msgstr "输入："
-
-#: ../src/run_cmd.py:255
-msgid "Enter Password"
-msgstr "输入密码"
-
-#: ../src/run_cmd.py:268
-msgid "Password: "
-msgstr "密码："
-
-#: ../src/run_cmd.py:367
-msgid "SELinux Fix"
-msgstr "SELinux 修正"
-
-#: ../src/run_cmd.py:378
-msgid "Command"
-msgstr "命令"
-
-#: ../src/run_cmd.py:388
-msgid "Run Command"
-msgstr "运行命令"
-
-#: ../src/run_cmd.py:391
-msgid "Stop Command"
-msgstr "终止命令"
-
-#: ../src/run_cmd.py:413
-msgid "Warning: You are responsible for verifying this command is correct"
-msgstr "警告：您需要自己确认该命令是正确的"
-
-#: ../src/run_cmd.py:455
-msgid "Not Run Yet"
-msgstr "还没有运行"
-
-#: ../src/run_cmd.py:466
-msgid "Running..."
-msgstr "运行中......"
-
-#: ../src/run_cmd.py:481
-#, python-format
-msgid "Interrupted, exit on signal %d"
-msgstr "中断，在信号 %d 后退出"
-
-#: ../src/run_cmd.py:483
-msgid "Success"
-msgstr "成功"
-
-#: ../src/run_cmd.py:485
-#, python-format
-msgid "Failed, exit status = %d"
-msgstr "失败，退出状态 = %d"
-
-#: ../src/run_cmd.py:487
-msgid "Done: "
-msgstr "完成："
+"您想要允许 $SOURCE_BASE_PATH 在 $TARGET_BASE_PATH $TARGET_CLASS 上拥有 $ACCESS 访问权限"
 
 #: ../src/setroubleshoot/server.py:191
 #, python-format
@@ -420,7 +362,7 @@ msgstr "如需要完整的 SELinux 信息，请运行 sealert -l %s"
 #: ../src/setroubleshoot/server.py:377
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
-msgstr "用户（%s）无法为（%s）修改数据"
+msgstr "用户 (%s) 无法为 (%s) 修改数据"
 
 #: ../src/setroubleshoot/server.py:440 ../src/sealert:291
 msgid "Started"
@@ -436,7 +378,7 @@ msgstr "核查侦听程序"
 
 #: ../src/setroubleshoot/signature.py:74
 msgid "Never Ignore"
-msgstr "永不忽略"
+msgstr "从不忽略"
 
 #: ../src/setroubleshoot/signature.py:75
 msgid "Ignore Always"
@@ -452,11 +394,11 @@ msgstr "目录"
 
 #: ../src/setroubleshoot/signature.py:194
 msgid "semaphore"
-msgstr "信号量"
+msgstr "semaphore"
 
 #: ../src/setroubleshoot/signature.py:195
 msgid "shared memory"
-msgstr "共享存储器"
+msgstr "共享的内存"
 
 #: ../src/setroubleshoot/signature.py:196
 msgid "message queue"
@@ -493,21 +435,21 @@ msgstr "权能"
 #: ../src/setroubleshoot/signature.py:376
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
-msgstr "%s 有一个容许类型 (%s)。此访问未受拒绝。"
+msgstr "%s 有一个容许类型 (%s)。此访问未被拒绝。"
 
 #: ../src/setroubleshoot/signature.py:379
 msgid "SELinux is in permissive mode. This access was not denied."
-msgstr "SELinux 在 permissive 模式。这次访问没有被拒绝。"
+msgstr "SELinux 在 permissive 模式。此访问未被拒绝。"
 
 #: ../src/setroubleshoot/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
-msgstr "SELinux 正在阻止 %s 使用对进程 %s 的访问。"
+msgstr "SELinux 正在阻止 %s 在进程中使用 %s 访问。"
 
 #: ../src/setroubleshoot/signature.py:432
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
-msgstr "SELinux 正在阻止 %s 对某个进程使用 '%s' 访问。"
+msgstr "SELinux 正在阻止 %s 在进程中使用 %s 访问。"
 
 #: ../src/setroubleshoot/signature.py:435
 #, python-format
@@ -522,22 +464,22 @@ msgstr "SELinux 正在阻止 %s 使用 '%s' 功能。"
 #: ../src/setroubleshoot/signature.py:437
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
-msgstr "SELinux 正在阻止 %s 在标记为 %s 的 %s 访问 %s。"
+msgstr "SELinux is preventing %s from %s access on the %s labeled %s."
 
 #: ../src/setroubleshoot/signature.py:437
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
-msgstr "SELinux 正在阻止 %s 在标记为 %s 的 %s 访问 '%s'。"
+msgstr "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 
 #: ../src/setroubleshoot/signature.py:438
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
-msgstr "SELinux 正在阻止 %s 在 %s %s 访问 %s。"
+msgstr "SELinux is preventing %s from %s access on the %s %s."
 
 #: ../src/setroubleshoot/signature.py:438
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
-msgstr "SELinux 正在阻止 %s 在 %s %s 访问 '%s'。"
+msgstr "SELinux is preventing %s from '%s' accesses on the %s %s."
 
 #: ../src/setroubleshoot/signature.py:469
 msgid "Additional Information:\n"
@@ -545,11 +487,11 @@ msgstr "更多信息:\n"
 
 #: ../src/setroubleshoot/signature.py:470
 msgid "Source Context"
-msgstr "源上下文"
+msgstr "源环境 (Context)"
 
 #: ../src/setroubleshoot/signature.py:471
 msgid "Target Context"
-msgstr "目标上下文"
+msgstr "目标环境"
 
 #: ../src/setroubleshoot/signature.py:472
 msgid "Target Objects"
@@ -586,7 +528,7 @@ msgstr "策略 RPM"
 
 #: ../src/setroubleshoot/signature.py:483
 msgid "Selinux Enabled"
-msgstr "Selinux 已经激活"
+msgstr "Selinux 已启用"
 
 #: ../src/setroubleshoot/signature.py:484
 msgid "Policy Type"
@@ -675,7 +617,7 @@ msgstr "当前的： %s "
 #: ../src/updater.py:27
 #, python-format
 msgid "newer: %s "
-msgstr "更新的： %s "
+msgstr "新的： %s "
 
 #: ../src/seapplet.c:189
 msgid "New SELinux security alert"
@@ -683,7 +625,7 @@ msgstr "新 SELinux 安全性警报"
 
 #: ../src/seapplet.c:189
 msgid "AVC denial, click icon to view"
-msgstr "AVC 拒绝，点击图标查看"
+msgstr "AVC 拒绝信息，点击图标查看"
 
 #: ../src/seapplet.c:195 ../src/seapplet.c:246
 msgid "Dismiss"
@@ -696,11 +638,11 @@ msgstr "显示"
 #. set tooltip
 #: ../src/seapplet.c:440 ../src/sealert:64
 msgid "SELinux AVC denial, click to view"
-msgstr "SELinux AVC 拒绝，点击查看"
+msgstr "SELinux AVC 拒绝信息，点击查看"
 
 #: ../src/sealert:103
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SELinux 没有激活，sealert 无法在非 SELinux 系统上运行"
+msgstr "SELinux 没有启用，sealert 无法在非 SELinux 系统上运行"
 
 #: ../src/sealert:150
 msgid "Not fixable."
@@ -718,7 +660,7 @@ msgstr "插件 %s 对 %s id 无效"
 
 #: ../src/setroubleshootd:73
 msgid "SELinux not enabled, setroubleshootd exiting..."
-msgstr "SELinux 没有激活，setroubleshootd 正在退出..."
+msgstr "SELinux 没有启用，setroubleshootd 正在退出..."
 
 #: ../src/setroubleshootd:105
 #, c-format
@@ -761,17 +703,17 @@ msgstr "关闭警报弹出窗口。"
 
 #: ../gui/browser.glade.h:21
 msgid "On this file:"
-msgstr "对这个文件："
+msgstr "关于此文件："
 
 #: ../gui/browser.glade.h:22
 msgid "label"
-msgstr "标签"
+msgstr "标记"
 
 #: ../gui/browser.glade.h:23
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr "阅读警报故障排除信息。可能需要管理员权限才能纠正。"
+msgstr "阅读警报故障排除信息。可能需要管理员权限才能修复。"
 
 #: ../gui/browser.glade.h:25
 msgid "Email alert to system administrator."
@@ -795,11 +737,11 @@ msgstr "列出数据库中所有警报。"
 
 #: ../gui/bug_report.glade.h:1
 msgid "Review and Submit Bug Report"
-msgstr "预览并提交 Bug 报告"
+msgstr "检查并提交 Bug 报告"
 
 #: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
-msgstr "<span size='large' weight='bold'>预览并提交 Bug 报告</span>"
+msgstr "<span size='large' weight='bold'>检查并提交 Bug 报告</span>"
 
 #: ../gui/bug_report.glade.h:3
 msgid ""
