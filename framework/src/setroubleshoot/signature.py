@@ -201,6 +201,7 @@ class_dict['process'] = _("process")
 class_dict['filesystem'] = _("filesystem")
 class_dict['node'] = _("node")
 class_dict['capability'] = _("capability")
+class_dict['capability2'] = _("capability2")
 
 def translate_class(tclass):
     if tclass in class_dict.keys():
@@ -436,7 +437,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         if self.tclass == "process":
             return P_(_("SELinux is preventing %s from using the %s access on a process."), _("SELinux is preventing %s from using the '%s' accesses on a process."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access))
 
-        if self.tclass == "capability":
+        if self.tclass in ["capability", "capability2"]:
             return P_(_("SELinux is preventing %s from using the %s capability."), _("SELinux is preventing %s from using the '%s' capabilities."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access))
         if self.tpath == "(null)":
             return P_(_("SELinux is preventing %s from %s access on the %s labeled %s."), _("SELinux is preventing %s from '%s' accesses on the %s labeled %s."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access), translate_class(self.tclass), self.tcontext.type)
