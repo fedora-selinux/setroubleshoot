@@ -48,7 +48,7 @@ class plugin(Plugin):
     def get_if_text(self, avc, args):
         if args[1] == "process":
             return _('you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on processes labeled $TARGET_TYPE by default.')
-        if args[1] == "capability":
+        if args[1] in ["capability", "capability2"]:
             return _('you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by default.')
         return _('you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS by default.')
 
