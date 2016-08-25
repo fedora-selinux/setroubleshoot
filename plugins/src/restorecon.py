@@ -37,6 +37,15 @@ def customizable(target):
         fd.close()
     return target in customizable_types
 
+
+# List of path prefixes for which this plugin is not executed
+excluded_paths = ["/sys/fs"]
+# Test if the specified path starts with some excluded prefix
+def excluded_path(target_path):
+    for path in excluded_paths:
+        if target_path.startswith(path): return True
+    return False
+
 import selinux
 class plugin(Plugin):
     summary = _('''
@@ -109,6 +118,7 @@ class plugin(Plugin):
             if avc.tpath is None: return None
             if avc.tpath == "/": return None
             if avc.tpath[0] != '/': return None
+            if excluded_path(avc.tpath): return None
             if customizable(avc.tcontext.type):
                 return None
             try:
