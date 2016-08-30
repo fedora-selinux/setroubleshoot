@@ -291,7 +291,7 @@ class BrowserApplet:
         tmsort = Gtk.TreeModelSort(model = self.liststore)
 
         cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occurred"), _("Status")]
-#        self.treeview.set_model(tmsort)
+        self.treeview.set_model(tmsort)
         x = 0
         for c in cols:
             cell = Gtk.CellRendererText()
