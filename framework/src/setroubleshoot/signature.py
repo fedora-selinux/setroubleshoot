@@ -473,6 +473,19 @@ class SEFaultSignatureInfo(XmlSerialize):
 
         plugins.sort(key=cmp_to_key(self.priority_sort))
 
+        # do not show "report bug" button if switching one of the following booleans was suggested
+        noreport_booleans = ["mozilla_read_content", "mozilla_plugin_can_network_connect",
+                             "mozilla_plugin_use_bluejeans", "unconfined_mozilla_plugin_transition"]
+        # suggested commands (from all plugins)
+        do_texts = " ".join([p.get_do_text(self.audit_event.records, a) for p,a in plugins])
+
+        for b in noreport_booleans:
+            if b in do_texts:
+                # remove "report bug" button from all plugins
+                for p,a in plugins:
+                    p.report_bug = False
+                break
+
         return total_priority, plugins
 
     def substitute(self, txt):
