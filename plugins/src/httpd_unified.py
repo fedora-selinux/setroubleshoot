@@ -35,10 +35,10 @@ class plugin(Plugin):
 
     Ordinarily httpd is allowed full access to all files labeled with http file
     context.  This machine has a tightened security policy with the $BOOLEAN
-    turned off,  This requires explicit labeling of all files.  If a file is
+    turned off,  this requires explicit labeling of all files.  If a file is
     a cgi script it needs to be labeled with httpd_TYPE_script_exec_t in order
     to be executed.  If it is read only content, it needs to be labeled
-    httpd_TYPE_content_t, it is writable content. it needs to be labeled
+    httpd_TYPE_content_t. If it is writable content, it needs to be labeled
     httpd_TYPE_script_rw_t or httpd_TYPE_script_ra_t. You can use the
     chcon command to change these context.  Please refer to the man page
     "man httpd_selinux" or

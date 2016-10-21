@@ -42,7 +42,7 @@ class plugin(Plugin):
 
     If this device remains labeled device_t, then this is a bug in SELinux policy.
 
-    Please file a bg report.
+    Please file a bug report.
 
     If you look at the other similar devices labels, ls -lZ /dev/SIMILAR, and find a type that would work for $TARGET_PATH,
     you can use chcon -t SIMILAR_TYPE '$TARGET_PATH', If this fixes the problem, you can make this permanent by executing
