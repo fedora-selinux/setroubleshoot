@@ -467,6 +467,7 @@ class SEFaultSignatureInfo(XmlSerialize):
                 for p  in self.plugins:
                     if solution.analysis_id == p.analysis_id:
                         total_priority += p.priority
+                        p.init_args(tuple(solution.args))
                         plugins.append((p, tuple(solution.args)))
                         break
 

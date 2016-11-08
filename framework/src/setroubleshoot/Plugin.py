@@ -94,6 +94,9 @@ o
         self.fixable = False
         self.button_text = ""
         self.report_bug = False
+
+    def init_args(self, args):
+        pass
         
     def get_problem_description(self, avc, args):
         return self.if_text
