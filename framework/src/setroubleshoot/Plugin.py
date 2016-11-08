@@ -94,7 +94,7 @@ o
         pass
         
     def get_problem_description(self, avc, args):
-        return self.if_text
+        return self.problem_description
 
     def get_if_text(self, avc, args):
         return self.if_text

@@ -545,7 +545,7 @@ class BrowserApplet:
            msg = ""
            for i in plugin.get_problem_description(avc, args).split("\n"):
                msg += alert.substitute(i.strip()) + "\n"
-           message += html_to_text(msg)
+           message += html_to_text(msg) + "\n\n"
            message += alert.substitute(_("If ") + plugin.get_if_text(avc, args)) + "\n"
            message += alert.substitute(plugin.get_then_text(avc, args)) + "\n"
            message += alert.substitute(plugin.get_do_text(avc, args)) + "\n"
