@@ -38,8 +38,7 @@ class plugin(Plugin):
     <a href="http://people.redhat.com/drepper/selinux-mem.html">SELinux Memory Protection Tests</a>
     web page explains how to remove this requirement.  You can configure
     SELinux temporarily to allow $TARGET_PATH to use relocation as a
-    workaround, until the library is fixed. Please file a
-bug report.
+    workaround, until the library is fixed. Please file a bug report.
     ''')
 
     unsafe_problem_description = _('''
@@ -50,7 +49,7 @@ bug report.
     SELinux Memory Protection Tests</a>
     web page explains this check.  This tool examined the library and it looks
     like it was built correctly. So setroubleshoot can not determine if this
-    application is compromized or not.  This could be a serious issue. Your
+    application is compromised or not.  This could be a serious issue. Your
     system may very well be compromised.
 
     Contact your security administrator and report this issue.
@@ -67,14 +66,37 @@ bug report.
 
     ''')
 
-    unsafe_then_text = """
-setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, but can not determine if this application has been compromized.  This alert could be a serious issue and your system could be compromised.
-"""
-    unsafe_do_text = "Contact your security administrator and report this issue."
+    unsafe_if_text = "this issue occurred during normal system operation."
 
-    then_text = "You need to change the label on '$FIX_TARGET_PATH'"
-    do_text = """# semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH'
-# restorecon -v '$FIX_TARGET_PATH'"""
+    unsafe_then_text = """This alert could be a serious issue and your system could be compromised. Setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, but can not determine if this application has been compromised."""
+
+    unsafe_do_text = "Contact your security administrator and report this issue"
+
+    if_text = "you trust $TARGET_PATH to run correctly and want to allow $SOURCE to load it"
+
+    then_text = "You need to change the label on '$FIX_TARGET_PATH' to textrel_shlib_t."
+
+    do_text = """# chcon -t textrel_shlib_t '$FIX_TARGET_PATH'
+If you want this to survive a relabel, execute
+# semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH';restorecon -v '$FIX_TARGET_PATH'
+"""
+
+    fix_cmd = """/usr/sbin/semanage fcontext -a -t textrel_shlib_t '$FIX_TARGET_PATH';/usr/sbin/restorecon -v '$FIX_TARGET_PATH'"""
+
+    def init_args(self, args):
+        if len(args) > 0:
+            self.fixable = False
+            self.report_bug = True
+
+    def get_problem_description(self, avc, args):
+        if len(args) > 0:
+            return self.unsafe_problem_description
+        return self.problem_description
+
+    def get_if_text(self, avc, args):
+        if len(args) > 0:
+            return self.unsafe_if_text
+        return self.if_text
 
     def get_then_text(self, avc, args):
         if len(args) > 0:
@@ -88,6 +110,8 @@ setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, 
 
     def __init__(self):
         Plugin.__init__(self,__name__)
+        self.fixable = True
+        self.button_text = _("Change label on the library.")
         self.set_priority(10)
 
     def analyze(self, avc):
@@ -104,7 +128,7 @@ setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, 
             p1.wait()
             p2.wait()
             if p2.returncode == 1:
-                return self.report(("unsafe"))
+                return self.report(["unsafe"])
 
             mcon = selinux.matchpathcon(avc.tpath.strip('"'), S_IFREG)[1]
             if mcon.split(":")[2] == "lib_t":
