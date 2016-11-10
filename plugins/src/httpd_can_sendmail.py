@@ -33,7 +33,7 @@ class plugin(Plugin):
     SELinux has denied the http daemon from sending mail. An
     httpd script is trying to connect to a mail port or execute the
     sendmail command. If you did not setup httpd to sendmail, this could
-    signal a intrusion attempt.
+    signal an intrusion attempt.
     ''')
 
     fix_description = _('''

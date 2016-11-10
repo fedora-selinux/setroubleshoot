@@ -63,9 +63,9 @@ class plugin(Plugin):
     def get_problem_description(self, avc, args):
         return _('''
     SELinux denied access requested by $SOURCE. $TARGET_PATH may
-    be a mislabeled.  $TARGET_PATH default SELinux type is
+    be mislabeled.  $TARGET_PATH default SELinux type is
     <B>%s</B>, but its current type is <B>$TARGET_TYPE</B>. Changing
-    this file back to the default type, may fix your problem.
+    this file back to the default type may fix your problem.
     <p>
     File contexts can be assigned to a file in the following ways.
     <ul>

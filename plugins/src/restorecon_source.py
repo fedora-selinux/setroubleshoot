@@ -44,9 +44,9 @@ class plugin(Plugin):
     def get_problem_description(self, avc, args):
         return _('''
     SELinux denied access requested by $SOURCE. $SOURCE_PATH may
-    be a mislabeled.  $SOURCE_PATH default SELinux type is
+    be mislabeled.  $SOURCE_PATH default SELinux type is
     <B>%s</B>, but its current type is <B>$SOURCE_TYPE</B>. Changing
-    this file back to the default type, may fix your problem.
+    this file back to the default type may fix your problem.
     <p>
     This file could have been mislabeled either by user error, or if an normally confined application
     was run under the wrong domain.
