@@ -35,13 +35,14 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux denied access requested by $SOURCE. $TARGET_PATH may
-    be a mislabeled. sshd is allowed to read content in /root/.ssh directory if it
+    be mislabeled. sshd is allowed to read content in /root/.ssh directory if it
     is labeled correctly.
     ''')
 
     fix_description = _('''
     You can restore the default system context to this file by executing the
-    restorecon command.  restorecon restore using restorecon -R /root/.ssh.
+    restorecon command.
+    # restorecon -R /root/.ssh
     ''')
 
     then_text = _('you must fix the labels.')

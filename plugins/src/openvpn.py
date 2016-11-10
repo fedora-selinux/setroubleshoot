@@ -34,13 +34,14 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux denied access requested by $SOURCE. $TARGET_PATH may
-    be a mislabeled. openvpn is allowed to read content in home directory if it
+    be mislabeled. openvpn is allowed to read content in home directory if it
     is labeled correctly.
     ''')
 
     fix_description = _('''
     You can restore the default system context to this file by executing the
-    restorecon command.  restorecon restore using restorecon -R /root/.ssh.
+    restorecon command.  
+    # restorecon -R /root/.ssh
     ''')
 
     def get_if_text(self, avc, args):

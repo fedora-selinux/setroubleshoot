@@ -32,7 +32,7 @@ class plugin(Plugin):
     SELinux has denied $SOURCE from connecting to a network port $PORT_NUMBER which does not have an SELinux type associated with it.
     If $SOURCE should be allowed to connect on $PORT_NUMBER, use the <i>semanage</i> command to assign $PORT_NUMBER to a port type that $SOURCE_TYPE can connect to (%s).
     \n\nIf $SOURCE is not supposed
-    to connect to $PORT_NUMBER, this could signal a intrusion attempt.
+    to connect to $PORT_NUMBER, this could signal an intrusion attempt.
     ''')
 
     fix_description = _('''
