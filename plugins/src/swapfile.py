@@ -30,10 +30,9 @@ class plugin(Plugin):
 
     problem_description = _('''
     SELinux denied $SOURCE access to $TARGET_PATH.
-    If this is a swapfile it has to have a file context label of
+    If this is a swapfile, it has to have a file context label of
     swapfile_t. If you did not intend to use
-    $TARGET_PATH as a swapfile it probably indicates a bug, however it could also
-    signal a intrusion attempt.
+    $TARGET_PATH as a swapfile, this message could indicate either a bug or an intrusion attempt.
     ''')
 
     fix_description = _('''

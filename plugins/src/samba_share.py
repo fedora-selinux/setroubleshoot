@@ -31,8 +31,8 @@ class plugin(Plugin):
     problem_description = _('''
     SELinux denied samba access to $TARGET_PATH.
     If you want to share this directory with samba it has to have a file context label of
-    samba_share_t. If you did not intend to use $TARGET_PATH as a samba repository
-    it could indicate either a bug or it could signal a intrusion attempt.
+    samba_share_t. If you did not intend to use $TARGET_PATH as a samba repository,
+    this message could indicate either a bug or an intrusion attempt.
     Please refer to 'man samba_selinux' for more information on setting up Samba and SELinux.
     ''')
 
