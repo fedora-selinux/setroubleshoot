@@ -131,4 +131,4 @@ o
         man_page = name.split("_")[0] + "_selinux"
         if os.path.isfile("/usr/share/man/man8/%s.8.gz" % man_page):
             return man_page
-        return None
+        return ""
