@@ -682,6 +682,10 @@ if __name__ == '__main__':
             except ValueError as e:
                 print(e, file=sys.stderr)
                 sys.exit(3)
+            except dbus.exceptions.DBusException as e:
+                print("Unable to establish connection to setroubleshoot daemon!\n" +
+                      "Check output of 'journalctl -t setroubleshoot' for more details.")
+                sys.exit(3)
 
             sys.exit()
         elif invocation_style == 'analyze':
