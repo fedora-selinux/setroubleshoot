@@ -48,7 +48,7 @@ class plugin(Plugin):
     "setsebool -P $BOOLEAN=1."
     ''')
 
-    fix_cmd = 'setsebool -P $BOOLEAN=1'
+    fix_cmd = '/usr/sbin/setsebool -P ftpd_use_cifs=1 ftpd_anon_write=1'
 
     rw_fix_description = _(''' Changing the "$BOOLEAN" and
     "$WRITE_BOOLEAN" booleans to true will allow this access:
@@ -58,13 +58,15 @@ class plugin(Plugin):
     directories with type public_content_t) in addition to writing to
     files and directories on CIFS filesystems.  ''')
 
-    rw_fix_cmd = 'setsebool -P $BOOLEAN=1 $WRITE_BOOLEAN=1'
+    rw_fix_cmd = '/usr/sbin/setsebool -P ftpd_use_cifs=1 ftpd_anon_write=1'
     if_text = _("you want to allow ftpd to write to cifs file systems")
     then_text = _("you must tell SELinux about this")
-    do_text = '# setsebool -P allow_ftpd_use_cifs=1 allow_ftpd_anon_write=1'
+    do_text = '# setsebool -P ftpd_use_cifs=1 ftpd_anon_write=1'
 
     def __init__(self):
         Plugin.__init__(self, __name__)
+        self.fixable = True
+        self.button_text = _("Enable booleans")
 
     def analyze(self, avc):
         if (avc.matches_source_types(['ftpd_t']) and
@@ -74,7 +76,7 @@ class plugin(Plugin):
             # allow_ftp_use_cifs boolean needs to be set. Write
             # access also requires the allow_ftpd_anon_write
             if avc.all_accesses_are_in(avc.create_file_perms + avc.rw_dir_perms):
-                return self.report(args=("allow_ftpd_use_cifs", "allow_ftpd_anon_write"))
+                return self.report(args=("ftpd_use_cifs", "ftpd_anon_write"))
             else:
                 return None
         else:
