@@ -52,28 +52,6 @@ According to /usr/include/linux/capability.h, sys_resource is required to:
 /* Allow more than 64hz interrupts from the real-time clock */
 /* Override max number of consoles on console allocation */
 /* Override max number of keymaps */
-/* Override resource limits. Set resource limits. */
-/* Override quota limits. */
-/* Override reserved space on ext2 filesystem */
-/* Modify data journaling mode on ext3 filesystem (uses journaling
-   resources) */
-/* NOTE: ext2 honors fsuid when checking for resource overrides, so
-   you can override using fsuid too */
-/* Override size restrictions on IPC message queues */
-/* Allow more than 64hz interrupts from the real-time clock */
-/* Override max number of consoles on console allocation */
-/* Override max number of keymaps */
-/* Override resource limits. Set resource limits. */
-/* Override quota limits. */
-/* Override reserved space on ext2 filesystem */
-/* Modify data journaling mode on ext3 filesystem (uses journaling
-   resources) */
-/* NOTE: ext2 honors fsuid when checking for resource overrides, so
-   you can override using fsuid too */
-/* Override size restrictions on IPC message queues */
-/* Allow more than 64hz interrupts from the real-time clock */
-/* Override max number of consoles on console allocation */
-/* Override max number of keymaps */
 """)
     do_text = "Fix the cause of the SYS_RESOURCE on your system."
 
