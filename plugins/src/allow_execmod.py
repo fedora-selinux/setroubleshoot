@@ -50,7 +50,7 @@ bug report.
     SELinux Memory Protection Tests</a>
     web page explains this check.  This tool examined the library and it looks
     like it was built correctly. So setroubleshoot can not determine if this
-    application is compromized or not.  This could be a serious issue. Your
+    application is compromised or not.  This could be a serious issue. Your
     system may very well be compromised.
 
     Contact your security administrator and report this issue.
@@ -68,7 +68,7 @@ bug report.
     ''')
 
     unsafe_then_text = """
-setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, but can not determine if this application has been compromized.  This alert could be a serious issue and your system could be compromised.
+setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, but can not determine if this application has been compromised.  This alert could be a serious issue and your system could be compromised.
 """
     unsafe_do_text = "Contact your security administrator and report this issue."
 

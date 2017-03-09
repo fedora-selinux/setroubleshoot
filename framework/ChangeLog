@@ -428,7 +428,7 @@ Fix os.exists call in setroubleshoot
 	  permit processing directives in log files
 	  allow multiple client connections
 	  better messages
-	  simplier invocation, improve command line args
+	  simpler invocation, improve command line args
 	
 2008-01-07  John Dennis  <jdennis@redhat.com>
 
@@ -497,7 +497,7 @@ Fix os.exists call in setroubleshoot
 
 2007-12-17    <jdennis@redhat.com>
 	- switch from using int's for audit record types to strings
-	- avoid conversion headaches and possibilty of not being
+	- avoid conversion headaches and possibility of not being
 	  able to convert a new unknown type
 
 2007-12-14    <jdennis@redhat.com>
@@ -1002,7 +1002,7 @@ Fix os.exists call in setroubleshoot
 	- add UI for setting the email addresses alerts are sent to.
 	  Add menu item to edit email list, add email list dialog.
 	  Remove 'recipient' config file entry, now list is stored
-	  in seperate file. Add rpc to query and set the email list,
+	  in separate file. Add rpc to query and set the email list,
 	  the GUI calls this to get the current list from the server
 	  and set it in the server, it is the server which reads and
 	  writes the file. Add 'enable' flag to each email entry.
@@ -1065,7 +1065,7 @@ Fix os.exists call in setroubleshoot
 	  "If view is set to "hide delete" you cannot filter new entries"
 	  Actually, the bug was toggle cell renderer was connected to the
 	  base model instead of the model attached to the view, the sort
-	  model, this meant the toggle was occuring on the wrong row if
+	  model, this meant the toggle was occurring on the wrong row if
 	  the view was sorted differently than the base model.
 
 	- also fix, the server was not emitting a update message when either
@@ -1078,7 +1078,7 @@ Fix os.exists call in setroubleshoot
 	  an invocation of sealert does is to emit a dbus message to an
 	  already running copy of sealert, but in write mode each invocation
 	  would truncate the log file, what really needs to happen is for the
-	  log initialization code to detect if a copy of sealert is allready
+	  log initialization code to detect if a copy of sealert is already
 	  running or only init logging under certain launch modes.
 
 2006-12-01  John Dennis  <jdennis@redhat.com>
@@ -1295,9 +1295,9 @@ Fix os.exists call in setroubleshoot
 	  to invoking the set of plugin's. The plugin.analyze() method
 	  instead of returning True/False now returns a report or
 	  None. Parametrization of the report generation was also modified
-	  to seperate avc info from plugin information and do perform
+	  to separate avc info from plugin information and do perform
 	  template substitution updates only when the report is updated. By
-	  cleanly seperating data elements and computing informaition only
+	  cleanly separating data elements and computing informaition only
 	  once we gained a 147x performance increase.
 
 	- add auto save functionality to database so the database is not
@@ -1399,7 +1399,7 @@ Fix os.exists call in setroubleshoot
 2006-10-12  John Dennis  <jdennis@redhat.com>
 
 	- clean up how rpc calls are sent, formerly error returns were
-	  handled seperately as a special case leading to code duplication,
+	  handled separately as a special case leading to code duplication,
 	  now every rpc interface comes with a pre-defined error_return
 	  method and everything channels though a single set of routines.
 
@@ -1706,7 +1706,7 @@ Fix os.exists call in setroubleshoot
 	  messages, something we were not able to handle previously. This
 	  may have been contributing to splitting what should have been a
 	  single alert into two or more separate alerts because we didn't
-	  recongize the incoming audit events as a single event. Correctly
+	  recognize the incoming audit events as a single event. Correctly
 	  assembling out of order messages introduced a fair amount of extra
 	  complexity as we now maintain a cache of recent audit events, this
 	  is fully documented in dispatcher.py
@@ -1795,7 +1795,7 @@ Fix os.exists call in setroubleshoot
 
 2006-08-23  John Dennis  <jdennis@redhat.com>
 
-	- the config file now has seperate sections for logging for each
+	- the config file now has separate sections for logging for each
 	  process so that logging parameters can be set per process, also
 	  added a filemode property so the log files could be opened in
 	  replace or append mode.
@@ -1870,7 +1870,7 @@ Fix os.exists call in setroubleshoot
 
 	- add support to sealert to listen on a dbus session signal to display
 	  the gui. This is needed for when the status icon is not visible and
-	  the user wants to see the UI. There is now a seperate program
+	  the user wants to see the UI. There is now a separate program
 	  setroubleshoot_launch_gui which emits the signal.
 
 2006-08-21  John Dennis  <jdennis@redhat.com>
@@ -1958,7 +1958,7 @@ Fix os.exists call in setroubleshoot
 
 2006-08-16  John Dennis  <jdennis@redhat.com>
 
-	- fix log file, now there is a seperate log file for each process,
+	- fix log file, now there is a separate log file for each process,
 	  the log dir is now world writable (does this mean we have to move it
 	  from /var/log/?), the logrotate script was updated, change the
 	  default logging level from error to warning.
@@ -1968,7 +1968,7 @@ Fix os.exists call in setroubleshoot
 	- sealert: add config variable to control if we use balloon
 	  notifications
 
-	- fix exception which was occuring in LoadPlugins
+	- fix exception which was occurring in LoadPlugins
 
 2006-08-16  John Dennis  <jdennis@redhat.com>
 
@@ -2168,7 +2168,7 @@ Fix os.exists call in setroubleshoot
 	  display queue even though it should be filtered, moving the decision
 	  to filter to just prior to display will handle the case where the
 	  same alert fires in succession and the user elects to filter the
-	  first instance. It also accomodates the case where the filtering
+	  first instance. It also accommodates the case where the filtering
 	  is modified by an another agent on the server, e.g. the browsing
 	  applet.
 
@@ -2186,7 +2186,7 @@ Fix os.exists call in setroubleshoot
 
 	- Introduce the concept of "privileges" for authorization
 	  after authentication. Once authenticated, does user have the
-	  privilege to perform the action? Needed to seperate authorization
+	  privilege to perform the action? Needed to separate authorization
 	  to connect to server to get information vs. authorization to
 	  perform a root level "fix command"
 
@@ -2276,7 +2276,7 @@ Fix os.exists call in setroubleshoot
 	- Add HACKING to capture basic notes on changing setroubleshoot.
 
 2006-07-14  Dan Walsh  <dwalsh@redhat.com>
-	- Changed default port to 3267 (My UID) Until we get a permanant one
+	- Changed default port to 3267 (My UID) Until we get a permanent one
 
 	- Change location of database.xml to
 	  /var/run/setroubleshoot/database.xml for easier selinux policy
@@ -2306,7 +2306,7 @@ Fix os.exists call in setroubleshoot
 
 2006-07-06  John Dennis  <jdennis@redhat.com>
 
-	- add seperate formatter for syslog messages that includes the
+	- add separate formatter for syslog messages that includes the
 	  package name, remove the 'log_' prefix from the log name, however
 	  the logger object is still prefixed with 'log_', spruce up the
 	  default log format.
@@ -2344,7 +2344,7 @@ Fix os.exists call in setroubleshoot
 2006-06-28  John Dennis  <jdennis@redhat.com>
 
 	- Implement new server which can listen on multiple ports and
-	  serve the client in a seperate thread. This is necessary to
+	  serve the client in a separate thread. This is necessary to
 	  support both communication on the fault server port and http
 	  protocol on an http port, both connected to the same server. This
 	  checkin is a checkpoint, the code in server.py is hacked up, but

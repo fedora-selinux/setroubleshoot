@@ -275,7 +275,7 @@ static void show_alert(char *test) {
 static void receive()
 {
 	DBusConnection *conn = sedbus_receive(show_alert, "Test");
-	// loop listening for messages being emmitted
+	// loop listening for messages being emitted
 	while (1) {
 		// non blocking read of the next available message
 		dbus_connection_read_write(conn, 0);

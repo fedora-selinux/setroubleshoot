@@ -14,7 +14,7 @@ server to receive notifications of new AVC denials and query the
 history of AVC denials on a particular node.
 
 The daemon (server) needs to exist for two fundamental reasons: It
-needs to run with root priveldges to interact with the audit system,
+needs to run with root privileges to interact with the audit system,
 perform system operations, and then to isolate the information it
 manages from user level processes.  In addition by acting as a server
 on a particular node it is possible to build a distributed system
@@ -26,7 +26,7 @@ desktop GUI component or a command line tool.
 
 One can think of the server (setroubleshootd) as the process which
 manages data and the client (sealert) as the process which presents
-the data. Because they are two seperate processes, possibly running on
+the data. Because they are two separate processes, possibly running on
 different nodes, they communnicate via RPC.
 
 === What RPC mechanism does SETroubleshoot use and why? ===
@@ -64,7 +64,7 @@ Because there were several requirements which prompted this decision:
 
     * connection pool (set of connected clients and their sessions)
 
-    * state of asyncronous transactions (e.g. what transactions have
+    * state of asynchronous transactions (e.g. what transactions have
       been initiated, what state are they in, how does one map an
       asynchronous transaction to an action at the receiving end).
 
@@ -112,7 +112,7 @@ commuication remains HTTP to remote nodes.
 The connection is a socket. By default the socket is a local UNIX
 domain socket for enhanced security. However, it is trival to
 configure the client/server code to use INET sockets instead to
-accomodate remote connections. The vast bulk of the code is agnostic
+accommodate remote connections. The vast bulk of the code is agnostic
 with regards to the socket type.
 
 === What is the protocol between the client and server? ===
@@ -122,14 +122,14 @@ HTTP. Each transaction consists of a header and a body.
 
 The header is a series of key/value pairs (e.g. fields). Keys start at
 the beginning of a line and may not contain whitespace or a colon
-(:). The key is seperated from its value by a colon (:) and is
+(:). The key is separated from its value by a colon (:) and is
 terminated by a line ending. Line endings are carriage return, newline
 pairs.
 
-The header is seperated from the body by a blank line.
+The header is separated from the body by a blank line.
 
 The header MUST contain a content-length field which is the octet
-count of the body (beginning after the blank line seperating the
+count of the body (beginning after the blank line separating the
 header from the body).
 
 Fields in the header may be appear in any order.
@@ -236,7 +236,7 @@ instance would have flag_name bound to "bar".
 
 All RPC calls are assumed to succeed. Errors are never part of the
 normal return values. Instead, if a RPC call generates an error a
-seperate callback is invoked known as the errback. Thus when calling
+separate callback is invoked known as the errback. Thus when calling
 an RPC method you may attach a normal callback to it and/or a callback
 to handle an error, the two are distinct. When the RPC returns either
 the attached callbacks are going to be invoked if it is successful or
@@ -289,7 +289,7 @@ is a member of the interface". It's parameter list is defined by the
 python method that was decorated.
 
 Optionally we may define the type of each parameter via the
-@rpc_arg_type() decorator. After the interface defintion comes a list
+@rpc_arg_type() decorator. After the interface definition comes a list
 of Python types, one for every parameter. If the @rpc_arg_type()
 decorator is absent the parameters default to being of type string.
 
@@ -325,7 +325,7 @@ parameters default to being strings.
 
 Because it is a method (as opposed to a signal) it must have an
 associated callback to return its values. The @rpc_callback()
-decorator is binding this callback defintion to the database_bind
+decorator is binding this callback definition to the database_bind
 method in the SETroubleshootServer interface. The callback has one
 parameter which is defined to be an object of the class
 SEDatabaseProperties, this information is provided by the
@@ -408,7 +408,7 @@ SETroubleshootServer. We know from the interface definition
 database_bind_callback() has one parameter called 'properties' and it
 will be a SEDatabaseProperties object.
 
-When the wire representation is decoded we look up the defintion of
+When the wire representation is decoded we look up the definition of
 the method and see we are expecting one parameter and it should be a
 SEDatabaseProperties object. The type attribute in the <arg> element
 says it is encoded as XML, which is how we encode complex objects. The
@@ -431,7 +431,7 @@ implementing an RPC method (callee).
 Objects which want to call a remote method must include somewhere in
 their ancestor classes the RPC interface class which contains the
 method they wish to call (currently all RPC interfaces are defined in
-[source:/src/rpc_interfaces.py]). In addtion the class must derive
+[source:/src/rpc_interfaces.py]). In addition the class must derive
 from RpcChannel so there is a communication pipe. Recall that methods
 defined in the RPC interface class are decorated with things like
 @rpc_method(). These decorators are the magic which transforms a
@@ -542,7 +542,7 @@ found") if it fails.
 No. RPC interfaces are one directional. A RPC interfaces defines what
 can be called on the interface. If you want both ends of the
 connection to be able to call each other you will need an interface
-for each end of the connection so there is a seperate calling
+for each end of the connection so there is a separate calling
 interface on each end. One end calls, the other end implements.
 
 === How do I monitor the state of the connection? ===
@@ -564,7 +564,7 @@ will call you with the new state. Currently the states are:
 
 === What is XML used for? ===
 
-XML is used primarilly for two purposes:
+XML is used primarily for two purposes:
 
 * persistent storage of our data objects
 
@@ -638,10 +638,10 @@ Each member can define it's type, at the moment it is either a class
 or a list. Lists are unordered homogeneous collections. For both
 class and list members their values are a dict which defines their
 properties. For example the 'name' key in a class definition is the
-name of the class. The name key in a list defintion is the (element)
+name of the class. The name key in a list definition is the (element)
 name given to every member of the list.
 
-If the 'default' key is present in a defintion dict it is the default
+If the 'default' key is present in a definition dict it is the default
 value to be assigned, otherwise the default is None. Actually, the
 default value is a function which is called that returns the default
 value, this is much more flexible. For instance it can return an
@@ -652,17 +652,17 @@ object or a list of objects the serialization process is recursive
 yielding surprisingly complex XML representations from simple
 definitions.
 
-The basic process for when an object is serialized procedes like this:
+The basic process for when an object is serialized proceeds like this:
 For every member in my Attr's dict get the value from the object. If
 the value is not None ask it to return it's representation as a xml
 node and add it to my xml node, then return my xml node. It's easy to
 see the recursion in this. Plus it guarantees only members in the
-defintion will be serialized according the definition.
+definition will be serialized according the definition.
 
 When XML is parsed to recreate an object the process begins with the
 definition. For each member in the definition find the XML node in the
 tree which matches it, ask that node to convert itself to a python
-object by it's defintion rules and then assign it to that member of
+object by it's definition rules and then assign it to that member of
 the object. Once again the recursion should be self evident. Also note
 this process is significantly different than "walking" an XML tree. In
 that case the resulting python object would be whatever happened to be
@@ -676,7 +676,7 @@ up with Python object which exacatly match our definitions.
 Plugins are located in the directory /usr/share/setroubleshoot/plugins
 
 The load_plugins() function in [source:src/util.py] will attempt to load any file in the plugin directory with a python suffix as a python module.
-If the module load results in a python exception a diagnositic message is emitted and the plugin module is removed from
+If the module load results in a python exception a diagnostic message is emitted and the plugin module is removed from
 the list of plugins. This allows for the entire system to be brought up even if one or more plugin's are bad.
 
 

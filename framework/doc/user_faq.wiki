@@ -133,7 +133,7 @@ above GUI is modifying. The format of the file is line based, the hash
 of the line, blank lines are ignored.
 
 Addresses are one per line, optionally following the address
-(seperated by whitespace) are options in the form
+(separated by whitespace) are options in the form
 name=value. Currently there is only one option:
 
 filter_type::
@@ -225,10 +225,10 @@ column heading to change the sort order.
 
 == What date is associated with an alert? ==
 
-Alerts store two seperate dates in their description. The date/time
+Alerts store two separate dates in their description. The date/time
 the alert was first seen and the date/time the alert was last seen
-(most recent occurance). The date/time column in the browser shows
-date/time of the most recent occurance (last seen). The alert detail
+(most recent occurrence). The date/time column in the browser shows
+date/time of the most recent occurrence (last seen). The alert detail
 view shows both date/time's.
 
 == I think SELinux is the cause of a problem, how can setroubleshoot help find it? ==
@@ -404,7 +404,7 @@ you close the sealert browser window the process continues to run in
 the background. The reason why it does this is because it is quietly
 waiting for a AVC alert from the setroubleshoot service daemon.
 
-Should it recieve a message from the daemon it will put up the status
+Should it receive a message from the daemon it will put up the status
 icon and notification message and wait for you to click on the icon to
 view the message. However, if you have filtered the AVC (told
 setroubleshoot you don't want to be bothered with a particular alert)
@@ -441,8 +441,8 @@ but not have it appear in the alert browser.
 
 == Does setroubleshoot have a log I can check? == #logging
 
-Yes. The setroubleshootd daemon and the sealert user tool are seperate
-processes and have seperate logging.
+Yes. The setroubleshootd daemon and the sealert user tool are separate
+processes and have separate logging.
 
 The setroubleshoot daemon logs its operations to
 /var/log/setroubleshoot/setroubleshootd.log.
@@ -509,7 +509,7 @@ instances, e.g. this problem occurred 15 times.
 
 An alert is the linking of a [#alert-signature general denial] with
 analysis information and any metadata such as [#alert-environment-info
-environmental information], time stamps, occurance counts, etc.
+environmental information], time stamps, occurrence counts, etc.
 
 Every time a denial event is recognized it is converted to an
 [#alert-signature alert signature], a general way of describing the
@@ -551,7 +551,7 @@ events] called an [#alert-signature alert signature].
 
 == What is environment information and why is it sometimes missing? == #alert-environment-info
 
-Environment infomation describes the "context" in which the
+Environment information describes the "context" in which the
 [#denial-event denial event] occurred. It is the information most
 useful for rectifying a problem, filing a bug report etc. It lists
 items such as the version of the SELinux policy, the version of the
@@ -561,14 +561,14 @@ triggered the denial came from, etc.
 However envionmental information can only be reliably gathered at the
 moment the denial occurred. If one queried the system for
 environmental information at a later point in time, for instance
-during log file scanning, then the enviroment may have changed in the
-interim which would then attach incorrect infomation to the alert. The
+during log file scanning, then the environment may have changed in the
+interim which would then attach incorrect information to the alert. The
 same problem occurs if the log file being scanned was generated on
 another system.
 
 Therefore environment information by default is only gathered when
 alerts enter the system via real time audit monitoring (e.g. audit
-listener). This is the only time enviroment information is guaranteed
+listener). This is the only time environment information is guaranteed
 to be correct. Alerts generated from log file scans do not display
 environment information.
 
