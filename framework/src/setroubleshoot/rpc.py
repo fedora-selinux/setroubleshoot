@@ -58,7 +58,7 @@ __all__ = [
 
 #--------------------------------- Variables ---------------------------------
 
-content_length_re = re.compile("content-length:(\d+)")
+content_length_re = re.compile(r"content-length:(\d+)")
 header_end_re = re.compile("\r\n\r\n")
 header_field_re = re.compile("([a-zA-Z0-9_-]+):(.*)\r\n")
 i18n_encoding = get_config('general', 'i18n_encoding')
@@ -67,12 +67,12 @@ i18n_encoding = get_config('general', 'i18n_encoding')
 
 def parse_socket_address_list(addr_string, default_port=None):
     socket_addresses = []
-    family_re = re.compile('\s*{(unix|inet)}(.+)')
+    family_re = re.compile(r'\s*{(unix|inet)}(.+)')
 
     log_debug("parse_socket_address_list: input='%s'" %  addr_string)
     if not addr_string:
         return socket_addresses
-    addrs = re.split('[\s,]+', addr_string)
+    addrs = re.split(r'[\s,]+', addr_string)
     for cfg_addr in addrs:
         if not cfg_addr: continue
         match = family_re.search(cfg_addr)
@@ -564,7 +564,7 @@ class SocketAddress(object):
             self.parse_inet_addr(addr)
 
     def parse_inet_addr(self, addr):
-        match = re.search('^\s*([^:\s]+)\s*(:\s*([^\s]+))?', addr)
+        match = re.search(r'^\s*([^:\s]+)\s*(:\s*([^\s]+))?', addr)
         if match:
             addr = match.group(1)
             port = match.group(3)

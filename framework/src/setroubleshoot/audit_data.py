@@ -87,7 +87,7 @@ def derive_record_format(socket_path):
 # group 8  is the millisconds component of the timestamp
 # group 9  is the timestamp unique number
 # group 10 is the body of the message appearing after the event id
-audit_input_re = re.compile('(node=(\S+)\s+)?(type=(\S+)\s+)?(msg=)?audit\(((\d+)\.(\d+):(\d+))\):\s*(.*)')
+audit_input_re = re.compile(r'(node=(\S+)\s+)?(type=(\S+)\s+)?(msg=)?audit\(((\d+)\.(\d+):(\d+))\):\s*(.*)')
 
 
 def parse_audit_record_text(input):
@@ -117,7 +117,7 @@ def parse_audit_record_text(input):
 
     return (parse_succeeded, record_type, event_id, body_text)
 
-audit_binary_input_re = re.compile('audit\(((\d+)\.(\d+):(\d+))\):\s*(.*)')
+audit_binary_input_re = re.compile(r'audit\(((\d+)\.(\d+):(\d+))\):\s*(.*)')
 
 def parse_audit_binary_text(input):
     parse_succeeded = False
@@ -249,8 +249,8 @@ class AuditRecord(XmlSerialize):
     binary_version = 0
     binary_header_format="iiii"
     binary_header_size = struct.calcsize(binary_header_format)
-    key_value_pair_re = re.compile("([^ \t]+)\s*=\s*([^ \t]+)")
-    avc_re = re.compile("avc:\s+([^\s]+)\s+{([^}]+)}\s+for\s+")
+    key_value_pair_re = re.compile(r"([^ \t]+)\s*=\s*([^ \t]+)")
+    avc_re = re.compile(r"avc:\s+([^\s]+)\s+{([^}]+)}\s+for\s+")
     exec_arg_re = re.compile(r'^a\d+$')
 
     def __init__(self, record_type, event_id, body_text, fields=None, line_number=None):
@@ -865,7 +865,7 @@ class AVC:
             else:
                 if path.startswith("/") == False and inodestr:
                     import subprocess
-                    command = ["locate", "-b", "\%s" % path]
+                    command = ["locate", "-b", r"\%s" % path]
                     try:
                         output = subprocess.check_output(command,
                                                          stderr=subprocess.STDOUT,

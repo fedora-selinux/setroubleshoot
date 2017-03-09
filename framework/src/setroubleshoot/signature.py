@@ -768,8 +768,8 @@ class SEEmailRecipientSet(XmlSerialize):
     def parse_recipient_file(self, filepath):
         import re
         comment_re = re.compile('#.*')
-        entry_re = re.compile('(\S+)(\s+(.+))?')
-        key_value_re = re.compile("(\w+)\s*=\s*(\S+)")
+        entry_re = re.compile(r'(\S+)(\s+(.+))?')
+        key_value_re = re.compile(r"(\w+)\s*=\s*(\S+)")
 
         map_boolean = {'enabled'  : True,
                        'true'     : True,

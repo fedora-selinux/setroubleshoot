@@ -93,10 +93,10 @@ DATABASE_MINOR_VERSION = 0
 
 redhat_release_path='/etc/redhat-release'
 text_wrapper = textwrap.TextWrapper()
-fix_newline_re = re.compile("\s*\n+\s*")
+fix_newline_re = re.compile(r"\s*\n+\s*")
 hex_re = re.compile('^[A-Fa-f0-9]+$')
-href_re = re.compile('<a\s*href="([^"]+)"[^<]*</a>')
-name_at_domain_re = re.compile('^([^\s@]+)@([^\s@]+)$')
+href_re = re.compile(r'<a\s*href="([^"]+)"[^<]*</a>')
+name_at_domain_re = re.compile(r'^([^\s@]+)@([^\s@]+)$')
 audit_decode_re = re.compile(r'^\s*"([^"]+)"\s*$')
 
 log_level = syslog.LOG_WARNING
@@ -571,7 +571,7 @@ def parse_datetime_offset(text):
        '''
     # Note, this regexp anything to follow the unit except an integer
     # thus plural 's', commas, whitespace
-    datetime_offset_re = re.compile('(\d+)\s*(year|month|week|day|hour|minute|second)')
+    datetime_offset_re = re.compile(r'(\d+)\s*(year|month|week|day|hour|minute|second)')
     found = False
     days    = 0
     hours   = 0

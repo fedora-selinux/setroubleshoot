@@ -30,7 +30,7 @@ from email.utils import formatdate
 from setroubleshoot.config import get_config
 from setroubleshoot.util import *
 
-email_addr_re = re.compile('^\s*([^@ \t]+)(@([^@ \t]+))?\s*$')
+email_addr_re = re.compile(r'^\s*([^@ \t]+)(@([^@ \t]+))?\s*$')
 
 def parse_email_addr(addr):
     match = email_addr_re.search(addr)
