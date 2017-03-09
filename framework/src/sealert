@@ -514,10 +514,10 @@ class ScanLogfile:
 
     def output_results(self):
         sigs = self.analyzer.database.query_alerts('*')
-        seperator = '-'*80 + '\n'
+        separator = '-'*80 + '\n'
         print "\nfound %d alerts in %s" % (len(sigs.signature_list), self.analyzer.logfile_path)
         for siginfo in sigs.signature_list:
-            print seperator
+            print separator
             print siginfo.format_text()
             print siginfo.format_details()
 

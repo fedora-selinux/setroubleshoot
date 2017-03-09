@@ -771,7 +771,7 @@ class AVC:
         contribute meaningful information for our reports. Plus we may use
         the path information to decide if an alert is identical to a
         previous alert, we coalesce them if they are. The presence of an
-        instance specific number in the path confuses this comparision.
+        instance specific number in the path confuses this comparison.
         For these reasons we strip any instance information out of the
         path,
 

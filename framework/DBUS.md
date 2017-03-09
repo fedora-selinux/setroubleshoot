@@ -35,7 +35,7 @@ Deletes an alert from the database.
 
 ###### return value
 
-* `success(b)`: True if the method was succesful
+* `success(b)`: True if the method was successful
 
 ***
 
@@ -125,7 +125,7 @@ Sets a filter on an alert. The alert can be "always" filtered, "never" filtered 
 
 ###### return value
 
-* `success(b)`: True if the method was succesful
+* `success(b)`: True if the method was successful
 
 ***
 
