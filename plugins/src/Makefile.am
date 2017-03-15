@@ -27,6 +27,7 @@ PLUGIN_FILES =				\
 	file.py				\
 	filesystem_associate.py		\
 	httpd_can_sendmail.py		\
+	httpd_unified.py		\
 	httpd_write_content.py		\
 	__init__.py			\
 	kernel_modules.py		\
