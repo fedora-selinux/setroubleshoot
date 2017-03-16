@@ -38,7 +38,7 @@ class plugin(Plugin):
     fix_description = _('''
     You can alter the file context by executing chcon -R -t cvs_data_t '$TARGET_PATH'
     You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'"
-    
+
     ''')
 
     if_text = _("$TARGET_BASE_PATH should be shared via the cvs daemon")
@@ -46,8 +46,12 @@ class plugin(Plugin):
     do_text = """# semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""
 
+    fix_cmd = """/usr/sbin/semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH';/usr/sbin/restorecon -v '$FIX_TARGET_PATH'"""
+
     def __init__(self):
         Plugin.__init__(self, __name__)
+        self.fixable = True
+        self.button_text = _("Change label")
         self.level="green"
 
     def analyze(self, avc):
