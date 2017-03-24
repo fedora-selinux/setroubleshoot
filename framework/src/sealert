@@ -687,6 +687,9 @@ if __name__ == '__main__':
             except ProgramError, e:
                 print >> sys.stderr, e.strerror
                 sys.exit(3)
+            except ValueError, e:
+                print("SELinux is disabled or we can't open a policy file")
+                sys.exit(3)
                 
         elif invocation_style == 'fix':
             use_terminal = True
