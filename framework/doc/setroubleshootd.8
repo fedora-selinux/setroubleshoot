@@ -20,13 +20,12 @@ the denial in the future.
 In a standard configuration setroubleshoot is composed of two
 components, sealert and setroubleshootd.
 .P
-setroubleshootd is a system daemon which runs with root privileges and
-listens for audit events emitted from the kernel related to
-SELinux. When the setroubleshootd daemon sees an SELinux AVC denial it
-runs a series of analysis plugins which examines the audit data
-related to the AVC. It records the results of the analysis and signals
-any clients which have attached to the setroubleshootd daemon that a
-new alert has been seen.
+setroubleshootd is a system daemon which runs under setroubleshoot user and
+listens for audit events emitted from the kernel related to SELinux. When the
+setroubleshootd daemon sees an SELinux AVC denial it runs a series of analysis
+plugins which examines the audit data related to the AVC. It records the
+results of the analysis and signals any clients which have attached to the
+setroubleshootd daemon that a new alert has been seen.
 
 .SH "OPTIONS"
 .TP 
