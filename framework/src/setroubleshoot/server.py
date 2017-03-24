@@ -208,7 +208,7 @@ class AlertPluginReportReceiver(PluginReportReceiver):
         log_debug("sending alert to all clients")
 
         from setroubleshoot.html_util import html_to_text
-        syslog.syslog(syslog.LOG_ERR, siginfo.summary() + _(" For complete SELinux messages. run sealert -l %s") % siginfo.local_id )
+        syslog.syslog(syslog.LOG_ERR, siginfo.summary() + _(" For complete SELinux messages run: sealert -l %s") % siginfo.local_id )
         for audit_record in siginfo.audit_event.records:
             if audit_record.record_type == 'AVC':
                 pid = audit_record.fields["pid"]
