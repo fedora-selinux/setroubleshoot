@@ -785,7 +785,7 @@ class AVC:
         '''
 
         path = None
-        name = None
+        name = self.avc_record.get_field('name')
 
         # First try to get the path from the AVC record, new kernel
         # versions put it there rather than in AVC_PATH
@@ -795,10 +795,20 @@ class AVC:
             path = path.strip('"')
         inodestr = self.avc_record.get_field("ino")
         if path is None:
-            avc_path_record = self.audit_event.get_record_of_type('PATH')
-            if avc_path_record:
+            # No path field in AVC record, try to get path from PATH records
+            avc_path_records = self.audit_event.get_records_of_type('PATH')
+            for avc_path_record in avc_path_records:
+                record_type = avc_path_record.get_field('objtype')
+                #Avoid PARENT records if possible
+                if path and record_type == "PARENT":
+                    continue
+
                 path = avc_path_record.get_field('name')
-            
+                # If there is more non-PARENT PATH records, use the one matching
+                # the name from AVC record... otherwise use the last one
+                if path and name and record_type != "PARENT" and path.endswith(name):
+                    break
+
         if path is None:
             # No path field, so try and use the name field instead
             name = self.avc_record.get_field('name')
