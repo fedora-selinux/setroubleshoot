@@ -92,7 +92,9 @@ class plugin(Plugin):
     def get_if_text(self, avc, args):
         return self.if_text % args[1]
 
-    then_text = _('you can run restorecon.')
+
+    then_text = _('you can run restorecon. The access attempt may have been stopped due to insufficient' \
+         + ' permissions to access a parent directory in which case try to change the following command accordingly.')
     do_text = '# /sbin/restorecon -v $TARGET_PATH'
 
     def __init__(self):
