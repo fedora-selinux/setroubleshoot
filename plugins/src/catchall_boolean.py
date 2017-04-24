@@ -27,7 +27,7 @@ _=translation.gettext
 
 from setroubleshoot.util import *
 from setroubleshoot.Plugin import Plugin
-import seobject
+import sepolicy
 
 class plugin(Plugin):
     summary = _('''
@@ -57,7 +57,7 @@ class plugin(Plugin):
         self.level = "yellow"
 
     def get_if_text(self, avc, args):
-        txt=seobject.boolean_desc(args[0])
+        txt=sepolicy.boolean_desc(args[0])
         if not isinstance(txt, six.text_type):
             txt=six.text_type(txt, encoding="utf8")
         return _("you want to %s") % (txt[0].lower() + txt[1:])
