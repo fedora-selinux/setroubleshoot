@@ -67,7 +67,7 @@ class plugin(Plugin):
     def get_then_text(self, avc, args):
         text = _("You must tell SELinux about this by enabling the '%s' boolean.\n") % args[0]
         try:
-            if args[2]:
+            if args[2] and args[2] != 'None':
                 text += _("You can read '%s' man page for more details.") % args[2]
         except IndexError:
             pass
