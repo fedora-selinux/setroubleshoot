@@ -534,7 +534,7 @@ class BrowserApplet:
             report_button.connect("clicked", self.fix_bug, alert.local_id, plugin.analysis_id)
             vbox.add(report_button)
 
-        elif plugin.report_bug:
+        elif plugin.report_bug and self.hide_report_bug_button(alert,"mozilla_plugin_can_network_connect"):
                report_button = Gtk.Button()
                report_button.set_label(_("Report\nBug"))
                report_button.show()
@@ -915,6 +915,12 @@ class BrowserApplet:
 
     def hide(self):
         self.main_window.hide()
+
+    def hide_report_bug_button(self,alert,boolean_name):
+       if (alert.format_text().find(boolean_name)) != -1:
+		return 1
+       else:
+		return 0
 
 class DBusProxy (object):
     def __init__ (self):
