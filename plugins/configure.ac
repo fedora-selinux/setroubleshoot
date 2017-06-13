@@ -24,7 +24,7 @@ ur uz uz@cyrillic vi wa wo xh yi zh_CN zh_HK zh_TW zu
 "
 
 AC_PROG_LN_S
-AM_PATH_PYTHON
+AM_PATH_PYTHON([3])
 
 pkgdocdir="\${datadir}/doc/$PACKAGE_NAME-$PACKAGE_VERSION"
 
