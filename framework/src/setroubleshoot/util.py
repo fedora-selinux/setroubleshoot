@@ -463,7 +463,8 @@ def load_plugins(filter_glob=None):
             mod_fp, mod_path, mod_description = imp.find_module(plugin_name, [plugin_dir])
             mod = imp.load_module(module_name, mod_fp, mod_path, mod_description)
         except Exception:
-            syslog.syslog(syslog.LOG_ERR, "failed to load %s plugin" % plugin_name)
+            syslog.syslog(syslog.LOG_ERR, "failed to initialize plugins in %s" % plugin_dir)
+            return []
 
         if mod_fp:
             mod_fp.close()
