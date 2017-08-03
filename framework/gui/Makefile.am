@@ -18,6 +18,7 @@ GUI_FILES =              \
 	bug_report.glade        \
 	fail_dialog.glade    \
 	success_dialog.glade \
+	style.css		\
 	$(NULL)
 
 icondir = /usr/share/icons/hicolor/

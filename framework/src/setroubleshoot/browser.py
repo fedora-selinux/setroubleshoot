@@ -441,29 +441,19 @@ class BrowserApplet:
         if not if_text:
             return
 
-        black = Gdk.Color(0,0,0)
-        if plugin.level == "red":
-            color = Gdk.Color(65535,0,0)
-        elif plugin.level == "yellow":
-            color = Gdk.Color(65535,65525,0)
-        elif plugin.level == "green":
-            color = Gdk.Color(0,65535,0)
-
         sev_toggle = Gtk.ToggleButton()
-#        sev_toggle.set_size_request(20,20)
-        sev_toggle.modify_bg(Gtk.StateType.PRELIGHT, color)
-        sev_toggle.modify_bg(Gtk.StateType.SELECTED, black)
-        sev_toggle.modify_bg(Gtk.StateType.ACTIVE, color)
-        sev_toggle.modify_bg(Gtk.StateType.NORMAL, color)
+        if plugin.level == "red":
+            sev_toggle.get_style_context().add_class("red")
+        elif plugin.level == "yellow":
+            sev_toggle.get_style_context().add_class("yellow")
+        elif plugin.level == "green":
+            sev_toggle.get_style_context().add_class("green")
 
-        sev_toggle.modify_fg(Gtk.StateType.PRELIGHT, color)
-        sev_toggle.modify_fg(Gtk.StateType.SELECTED, black)
-        sev_toggle.modify_fg(Gtk.StateType.ACTIVE, black)
-        sev_toggle.modify_fg(Gtk.StateType.NORMAL, color)
-
-        sev_toggle.modify_base(Gtk.StateType.SELECTED, black)
-
-        sev_toggle.set_alignment(0.5, 0.0)
+        cssProvider = Gtk.CssProvider()
+        cssProvider.load_from_path('/usr/share/setroubleshoot/gui/style.css')
+        screen = Gdk.Screen.get_default()
+        styleContext = Gtk.StyleContext()
+        styleContext.add_provider_for_screen(screen, cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self.toggles.append(sev_toggle)
         sev_toggle.show()
