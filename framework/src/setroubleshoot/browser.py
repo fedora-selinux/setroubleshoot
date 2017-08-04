@@ -503,6 +503,7 @@ class BrowserApplet:
         then_scroll.set_sensitive(False)
         then_scroll.set_size_request(450, 90)
         then_scroll.set_hexpand(True)
+        then_scroll.set_vexpand(True)
         # self.table.resize(rows, cols) GtkGrid resize automatically
         sev_toggle.connect("toggled", self.on_sev_togglebutton_activated, rows)
 #        col = 0
