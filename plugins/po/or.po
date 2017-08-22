@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 20:42+0200\n"
+"POT-Creation-Date: 2017-08-22 08:27+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,7 +22,7 @@ msgstr ""
 ")\n"
 "Language: or\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.9.5\n"
+"X-Generator: Zanata 3.9.6\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -79,10 +79,9 @@ msgstr ""
 
 #: ../src/allow_anon_write.py:44
 msgid ""
-"you want to allow $SOURCE_PATH to be able to write to shared public content"
+"If you want to allow $SOURCE_PATH to be able to write to shared public "
+"content"
 msgstr ""
-"ଆପଣ $SOURCE_PATH କୁ ସହଭାଗୀ ସର୍ବସାଧାରଣ ବିଷୟବସ୍ତୁକୁ ଲେଖିବା ପାଇଁ ସକ୍ଷମ କରିବାକୁ "
-"ଅନୁମତି ଦିଅନ୍ତୁ"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
@@ -156,17 +155,15 @@ msgstr ""
 
 #: ../src/allow_execheap.py:50
 msgid ""
-"you do not think $SOURCE_PATH should need to map heap memory that is both "
+"If you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
 msgstr ""
-"ଆପଣ ଭାବୁନାହାନ୍ତି କି $SOURCE_PATH ହିପ ସ୍ମୃତିସ୍ଥାନକୁ ଆବଶ୍ୟକ କରିବା ଉଚିତ ଯାହାକି "
-"ଉଭୟ ଲେଖାଯୋଗ୍ୟ ଏବଂ ନିଷ୍ପାଦନଯୋଗ୍ୟ।"
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr "ଆପଣଙ୍କୁ ଗୋଟିଏ ତ୍ରୁଟି ଖବର କରିବା ଆବଶ୍ୟକ। ଏହା ଗୋଟିଏ ବିପଦଜନକ ଅଭିଗମ୍ୟତା।"
 
-#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:84
+#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:91
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
 #: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
@@ -197,12 +194,11 @@ msgid ""
 "Memory Protection Tests</a>\n"
 "    web page explains how to remove this requirement.  You can configure\n"
 "    SELinux temporarily to allow $TARGET_PATH to use relocation as a\n"
-"    workaround, until the library is fixed. Please file a\n"
-"bug report.\n"
+"    workaround, until the library is fixed. Please file a bug report.\n"
 "    "
 msgstr ""
 
-#: ../src/allow_execmod.py:45
+#: ../src/allow_execmod.py:44
 msgid ""
 "\n"
 "    The $SOURCE application attempted to load $TARGET_PATH which\n"
@@ -213,7 +209,7 @@ msgid ""
 "    web page explains this check.  This tool examined the library and it "
 "looks\n"
 "    like it was built correctly. So setroubleshoot can not determine if this\n"
-"    application is compromized or not.  This could be a serious issue. Your\n"
+"    application is compromised or not.  This could be a serious issue. Your\n"
 "    system may very well be compromised.\n"
 "\n"
 "    Contact your security administrator and report this issue.\n"
@@ -221,7 +217,7 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/allow_execmod.py:62
+#: ../src/allow_execmod.py:61
 msgid ""
 "\n"
 "    If you trust $TARGET_PATH to run correctly, you can change the\n"
@@ -234,7 +230,11 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/allow_execstack.py:53
+#: ../src/allow_execmod.py:114
+msgid "Change label on the library."
+msgstr ""
+
+#: ../src/allow_execstack.py:60
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from making the program stack "
@@ -246,7 +246,7 @@ msgstr ""
 "କରିବାରୁ ଅଟକାଉଛି।\n"
 "    "
 
-#: ../src/allow_execstack.py:57
+#: ../src/allow_execstack.py:64
 msgid ""
 "\n"
 "    The $SOURCE application attempted to make its stack\n"
@@ -265,7 +265,7 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/allow_execstack.py:72
+#: ../src/allow_execstack.py:79
 msgid ""
 "\n"
 "    Sometimes a library is accidentally marked with the execstack flag,\n"
@@ -276,30 +276,26 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/allow_execstack.py:82
+#: ../src/allow_execstack.py:89
 msgid ""
-"you do not think $SOURCE_PATH should need to map stack memory that is both "
-"writable and executable."
+"If you do not think $SOURCE_PATH should need to map stack memory that is "
+"both writable and executable."
 msgstr ""
-"ଆପଣ ଭାବୁନାହାନ୍ତି କି $SOURCE_PATH ଷ୍ଟାକ ସ୍ମୃତିସ୍ଥାନକୁ ଆବଶ୍ୟକ କରିବା ଉଚିତ "
-"ଯାହାକି ଉଭୟ ଲେଖାଯୋଗ୍ୟ ଏବଂ ନିଷ୍ପାଦନଯୋଗ୍ୟ।"
 
-#: ../src/allow_execstack.py:83
+#: ../src/allow_execstack.py:90
 msgid "you need to report a bug. \n"
 "This is a potentially dangerous access."
 msgstr "ଆପଣଙ୍କୁ ଗୋଟିଏ ତ୍ରୁଟି ଖବର କରିବା ଆବଶ୍ୟକ। \n"
 "ଏହା ଗୋଟିଏ ବିପଦଜନକ ଅଭିଗମ୍ୟତା।"
 
-#: ../src/allow_execstack.py:92
+#: ../src/allow_execstack.py:99
 #, python-format
-msgid "you believe that \n"
+msgid "If you believe that \n"
 "%s\n"
 "should not require execstack"
-msgstr "ଆପଣ ବିଶ୍ୱାସ କରନ୍ତି ଯେ \n"
-"%s\n"
-"execstack ଆବଶ୍ୟକ ହୋଇନଥାଏ"
+msgstr ""
 
-#: ../src/allow_execstack.py:101
+#: ../src/allow_execstack.py:108
 #, python-format
 msgid ""
 "you should clear the execstack flag and see if $SOURCE_PATH works correctly.\n"
@@ -311,7 +307,7 @@ msgstr ""
 "%s ରେ ଏହାକୁ ଏକ ତ୍ରୁଟି ଆକାରରେ ଖବର କରନ୍ତୁ।\n"
 "ଆପଣଙ୍କୁ ଏହାକୁ ନିଷ୍ପାଦନ କରି exestack ପତାକାକୁ ହଟାଇ ପାରିବେ:"
 
-#: ../src/allow_execstack.py:111
+#: ../src/allow_execstack.py:118
 #, python-format
 msgid "execstack -c %s"
 msgstr "execstack -c %s"
@@ -379,13 +375,16 @@ msgstr ""
 "    ଫାଇଲ ଏବଂ ଡ଼ିରେକ୍ଟୋରୀଗୁଡ଼ିକୁ ଲେଖିଥାଏ।  "
 
 #: ../src/allow_ftpd_use_cifs.py:62
-msgid "you want to allow ftpd to write to cifs file systems"
+msgid "If you want to allow ftpd to write to cifs file systems"
 msgstr ""
-"ଆପଣ ftpd କୁ cifs ଫାଇଲତନ୍ତ୍ରଗୁଡ଼ିକରେ ଲେଖିବା ପାଇଁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
 msgstr "ଆପଣ SELinux କୁ ଏହା ବିଷୟରେ କହିବା ଉଚିତ"
+
+#: ../src/allow_ftpd_use_cifs.py:69
+msgid "Enable booleans"
+msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -436,32 +435,25 @@ msgstr ""
 #: ../src/allow_ftpd_use_nfs.py:54
 msgid ""
 " Changing the \"allow_ftpd_use_nfs\" and\n"
-"    \"$WRITE_BOOLEAN\" booleans to true will allow this access:\n"
-"    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n"
-"    warning: setting the \"$WRITE_BOOLEAN\" boolean to true will\n"
+"    \"ftpd_anon_write\" booleans to true will allow this access:\n"
+"    \"setsebool -P allow_ftpd_use_nfs=1 ftpd_anon_write=1\".\n"
+"    warning: setting the \"ftpd_anon_write\" boolean to true will\n"
 "    allow the ftp daemon to write to all public content (files and\n"
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
 msgstr ""
-" \"allow_ftpd_use_nfs\" ଏବଂ\n"
-"    \"$WRITE_BOOLEAN\" ବୁଲିଆନଗୁଡ଼ିକୁ true ରେ ପରିବର୍ତ୍ତନ କରିବା ଦ୍ୱାରା ଏହି "
-"ଅଭିଗମ୍ୟକୁ ଅନୁମତି ମିଳିଥାଏ:\n"
-"    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n"
-"    ଚେତାବନୀ: \"$WRITE_BOOLEAN\" ବୁଲିଆନକୁ true କରିବା ଦ୍ୱାରା\n"
-"    ଏହା ftp ଡେମନକୁ ସମସ୍ତ ସାର୍ବଜନୀନ ସୂଚୀକୁ (public_content_t ପ୍ରକାର ବିଶିଷ୍ଟ "
-"ଫାଇଲ ଏବଂ\n"
-"    ଡ଼ିରେକ୍ଟୋରୀ) ଲେଖିବା ପାଇଁ ଅନୁମତି ଦେବା ସହିତ NFS ଫାଇଲ ତନ୍ତ୍ରଗୁଡ଼ିକରେ ଫାଇଲ "
-"ଏବଂ ଡ଼ିରେକ୍ଟୋରୀଗୁଡ଼ିକୁ ଲେଖିବାକୁ\n"
-"    ଅନୁମତି ଦେଇଥାଏ.  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
-msgid "you want to allow ftpd to write to nfs file systems"
+msgid "If you want to allow ftpd to write to nfs file systems"
 msgstr ""
-"ଆପଣ ftpd କୁ nfs ଫାଇଲତନ୍ତ୍ରଗୁଡ଼ିକରେ ଲେଖିବା ପାଇଁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି"
+
+#: ../src/allow_ftpd_use_nfs.py:71
+msgid "Enable booleans."
+msgstr ""
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
-#: ../src/restorecon.py:42 ../src/restorecon_source.py:33
+#: ../src/restorecon.py:51 ../src/restorecon_source.py:33
 #: ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
@@ -497,11 +489,9 @@ msgstr ""
 #: ../src/associate.py:44
 #, python-format
 msgid ""
-"you want to change the label of $TARGET_PATH to %s, you are not allowed to "
-"since it is not a valid file type."
+"If you want to change the label of $TARGET_PATH to %s, you are not allowed "
+"to since it is not a valid file type."
 msgstr ""
-"ଆପଣ $TARGET_PATH ର ନାମପଟିକୁ %s କୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ଚାହୁଁଛନ୍ତି, ଆପଣ ଏହା "
-"କରିବା ପାଇଁ ଅନୁମତି ପ୍ରାପ୍ତ ନୁହଁଯେହେତୁ ଏହା ଏକ ବୈଧ ଫାଇଲ ପ୍ରକାର ନୁହଁ।"
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -556,6 +546,10 @@ msgstr ""
 "ଫାଇଲ ପ୍ରସଙ୍ଗକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ହେବ: \"semanage fcontext -a -t bin_t "
 "'$TARGET_PATH'\" କୁ ନିଷ୍ପାଦନ କରନ୍ତୁ।\n"
 "    "
+
+#: ../src/automount_exec_config.py:57
+msgid "Change file context."
+msgstr ""
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -615,6 +609,10 @@ msgstr ""
 "allow_ypbind=1.\n"
 "    "
 
+#: ../src/bind_ports.py:47
+msgid "If you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER"
+msgstr ""
+
 #: ../src/bind_ports.py:53 ../src/connect_ports.py:51
 #, python-format
 msgid ""
@@ -629,7 +627,7 @@ msgstr ""
 msgid "# semanage port -a -t %s -p %s $PORT_NUMBER"
 msgstr "# semanage port -a -t %s -p %s $PORT_NUMBER"
 
-#: ../src/catchall_boolean.py:32
+#: ../src/catchall_boolean.py:33
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" access on $TARGET_PATH.\n"
@@ -640,7 +638,7 @@ msgstr ""
 "ଅଟକାଉଛି।\n"
 "    "
 
-#: ../src/catchall_boolean.py:36
+#: ../src/catchall_boolean.py:37
 msgid ""
 "\n"
 "\n"
@@ -653,7 +651,7 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/catchall_boolean.py:45
+#: ../src/catchall_boolean.py:46
 msgid ""
 "\n"
 "    Confined processes can be configured to run requiring different access, "
@@ -663,24 +661,24 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/catchall_boolean.py:62
+#: ../src/catchall_boolean.py:63
 #, python-format
-msgid "you want to %s"
-msgstr "ଆପଣ %s କରିବାକୁ ଚାହୁଁଛନ୍ତି କି"
+msgid "If you want to %s"
+msgstr ""
 
-#: ../src/catchall_boolean.py:65
+#: ../src/catchall_boolean.py:66
 #, python-format
 msgid "setsebool -P %s %s"
 msgstr "setsebool -P %s %s"
 
-#: ../src/catchall_boolean.py:68
+#: ../src/catchall_boolean.py:69
 #, python-format
 msgid "You must tell SELinux about this by enabling the '%s' boolean.\n"
 msgstr ""
 "'%s' ବୁଲିଆନକୁ ସକ୍ରିୟ କରି ଆପଣଙ୍କୁ ନିଶ୍ଚିତ ଭାବରେ SELinux କୁ ଏହା ବିଷୟରେ "
 "ଜଣାଇବାକୁ ହେବ। \n"
 
-#: ../src/catchall_boolean.py:71
+#: ../src/catchall_boolean.py:72
 #, python-format
 msgid "You can read '%s' man page for more details."
 msgstr "ଅଧିକ ବିବରଣୀ ପାଇଁ ଆପଣ '%s' man ପୃଷ୍ଠାକୁ ପଢ଼ିପାରିବେ।"
@@ -774,29 +772,21 @@ msgstr ""
 
 #: ../src/catchall.py:50
 msgid ""
-"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
-"ଆପଣ ବିଶ୍ୱାସ କରୁଛନ୍ତି ଯେ $SOURCE_BASE_PATH କୁ ପୂର୍ବନିର୍ଦ୍ଧାରିତ ଭାବରେ ନାମିତ "
-"$TARGET_TYPE କୁ କାର୍ଯ୍ୟକାରୀ କରିବାକୁ $ACCESS ରେ ଅଭିଗମ୍ୟ ପାଇଁ ଅନୁମତି ଦେବା "
-"ଉଚିତ।    "
 
 #: ../src/catchall.py:52
 msgid ""
-"you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
+"If you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
 msgstr ""
-"ଆପଣ ବିଶ୍ୱାସ କରୁଛନ୍ତି ଯେ $SOURCE_BASE_PATH ରେ ପୂର୍ବନିର୍ଦ୍ଧାରିତ ଭାବରେ $ACCESS "
-"କ୍ଷମତା ଅଛି।"
 
 #: ../src/catchall.py:53
 msgid ""
-"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
-"$TARGET_BASE_PATH $TARGET_CLASS by default."
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"the $TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
-"ଆପଣ ବିଶ୍ୱାସ କରୁଛନ୍ତି ଯେ $SOURCE_BASE_PATH କୁ ପୂର୍ବନିର୍ଦ୍ଧାରିତ ଭାବରେ "
-"$TARGET_BASE_PATH $TARGET_CLASS ଉପରେ $ACCESS ରେ ଅଭିଗମ୍ୟ ପାଇଁ ଅନୁମତି ଦେବା "
-"ଉଚିତ।"
 
 #: ../src/catchall.py:55
 msgid ""
@@ -810,8 +800,8 @@ msgstr ""
 #: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
-"# ausearch -c $SOURCE --raw | audit2allow -M mypol\n"
-"# semodule -i mypol.pp"
+"# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
+"# semodule -X 300 -i my-$MODULE_NAME.pp"
 msgstr ""
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
@@ -837,7 +827,7 @@ msgid ""
 "    \n"
 "\n"
 "If $SOURCE is not supposed\n"
-"    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
+"    to connect to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
 
@@ -861,6 +851,11 @@ msgstr ""
 "\n"
 "    ଯେଉଁଠି PORT_TYPE ଟି ନିମ୍ନଲିଖିତ ମଧ୍ଯରୁ ଗୋଟିଏ: %s.\n"
 "    "
+
+#: ../src/connect_ports.py:45 ../src/sandbox_connect.py:47
+msgid ""
+"If you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
+msgstr ""
 
 #: ../src/chrome.py:31
 msgid ""
@@ -886,14 +881,18 @@ msgstr ""
 
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
-msgid "you want to use the %s package"
-msgstr "ଆପଣ %s ପ୍ୟାକେଜକୁ ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁଛନ୍ତି କି"
+msgid "If you want to use the %s package"
+msgstr ""
 
 #: ../src/chrome.py:43
 msgid "you must turn off SELinux controls on the Chrome plugins."
 msgstr ""
 "ଆପଣଙ୍କୁ ନିଶ୍ତିତ ଭାବରେ SELinux ନିୟନ୍ତ୍ରଣଗୁଡ଼ିକୁ Chrome ପ୍ଲଗଇନଗୁଡ଼ିକରେ ଅନ୍‌ "
 "କରିବା ଉଚିତ।"
+
+#: ../src/chrome.py:51
+msgid "Disable SELinux controls on Chrome plugins"
+msgstr ""
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -934,25 +933,21 @@ msgid ""
 "    You must also change the default file context files on the system in "
 "order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
 "cvs_data_t '$FIX_TARGET_PATH'\"\n"
-"    \n"
+"\n"
 "    "
 msgstr ""
-"\n"
-"     chcon -R -t cvs_data_t '$TARGET_PATH' କୁ ନିଷ୍ପାଦନ କରି ଆପଣ ଫାଇଲ "
-"ପ୍ରସଙ୍ଗକୁ ବଦଳାଇପାରିବେ\n"
-"    ଆପଣ ପୂର୍ବନିର୍ଦ୍ଧାରିତ ଫାଇଲ ପ୍ରସଙ୍ଗ ଫାଇଲକୁ ସମ୍ପୂର୍ଣ୍ଣ ପୁନଃ ନାମକରଣରେ "
-"ସଂରକ୍ଷଣ କରିବା ପାଇଁ ତନ୍ତ୍ରରେ ପରିବର୍ତ୍ତନ କରିପାରିବେ। \"semanage fcontext -a -t "
-"cvs_data_t '$FIX_TARGET_PATH'\"\n"
-"    \n"
-"    "
 
 #: ../src/cvs_data.py:44
-msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr "$TARGET_BASE_PATH କୁ cvs ଡେମନ ମାଧ୍ଯମରେ ସହଭାଗ କରିବା ଉଚିତ"
+msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"
+msgstr ""
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
 msgstr "ଆପଣଙ୍କୁ $TARGET_BASE_PATH' ଉପରେ ନାମପଟିକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ହେବ"
+
+#: ../src/cvs_data.py:54
+msgid "Change label"
+msgstr ""
 
 #: ../src/dac_override.py:28
 msgid "\n"
@@ -978,11 +973,9 @@ msgstr ""
 
 #: ../src/dac_override.py:38
 msgid ""
-"you want to help identify if domain needs this access or you have a file "
+"If you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
 msgstr ""
-"ଡମେନ ଏହି ପ୍ରବେଶ ସୁବିଧା ଆବଶ୍ୟକ  କଲେ ଆପଣ ସାହାଯ୍ୟ କରିବାକୁ ଚାହୁଁଛନ୍ତି ଅଥବା "
-"ଆପଣଙ୍କ ତନ୍ତ୍ରରେ ଭୁଲ ଅନୁମତି ବିଶିଷ୍ଟ ଫାଇଲ ଅଛି"
 
 #: ../src/dac_override.py:39
 msgid ""
@@ -1027,7 +1020,7 @@ msgid ""
 "    If this device remains labeled device_t, then this is a bug in SELinux "
 "policy.\n"
 "\n"
-"    Please file a bg report.\n"
+"    Please file a bug report.\n"
 "\n"
 "    If you look at the other similar devices labels, ls -lZ /dev/SIMILAR, "
 "and find a type that would work for $TARGET_PATH,\n"
@@ -1079,8 +1072,8 @@ msgstr "\n"
 "    "
 
 #: ../src/disable_ipv6.py:40
-msgid "you want to disable IPV6 on this machine"
-msgstr "ଏହି ତନ୍ତ୍ରରେ ଆପଣ IPV6 କୁ ନିଷ୍କ୍ରିୟ କରିବାକୁ ଚାହୁଁଛନ୍ତି କି"
+msgid "If you want to disable IPV6 on this machine"
+msgstr ""
 
 #: ../src/disable_ipv6.py:41
 msgid ""
@@ -1148,12 +1141,12 @@ msgstr ""
 "    "
 
 #: ../src/file.py:49
-msgid "this is caused by a newly created file system."
-msgstr "ଏହା ନୂତନ ଭାବରେ ନିର୍ମିତ ଫାଇଲତନ୍ତ୍ର ଦ୍ୱାରା ଘଟିଥାଏ।"
+msgid "This is caused by a newly created file system."
+msgstr ""
 
 #: ../src/file.py:51
-msgid "you think this is caused by a badly mislabeled machine."
-msgstr "ଆପଣ ଭାବୁଛନ୍ତିକି ଏହା ଭୁଲ ଭାବରେ ନାମକରଣ ହୋଇଥିବା ତନ୍ତ୍ର ଦ୍ୱାରା ଘଟିଛି।"
+msgid "If you think this is caused by a badly mislabeled machine."
+msgstr ""
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
@@ -1206,11 +1199,9 @@ msgstr ""
 
 #: ../src/filesystem_associate.py:43
 msgid ""
-"you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
-"files"
+"If you believe $SOURCE_BASE_PATH should be allowed to create "
+"$TARGET_BASE_PATH files"
 msgstr ""
-"ଆପଣ ବିଶ୍ୱାସ କରୁଛନ୍ତି ଯେ $SOURCE_BASE_PATH $TARGET_BASE_PATH କୁ ନିର୍ମାଣ କରିବା "
-"ପାଇଁ ଅନୁମତି ଦେବା ଉଚିତ"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
@@ -1242,7 +1233,7 @@ msgid ""
 "    SELinux has denied the http daemon from sending mail. An\n"
 "    httpd script is trying to connect to a mail port or execute the\n"
 "    sendmail command. If you did not setup httpd to sendmail, this could\n"
-"    signal a intrusion attempt.\n"
+"    signal an intrusion attempt.\n"
 "    "
 msgstr ""
 
@@ -1262,8 +1253,8 @@ msgstr ""
 "    "
 
 #: ../src/httpd_can_sendmail.py:47
-msgid "you want to allow httpd to send mail"
-msgstr "ଆପଣ ମେଲ ପଠାଇବା ପାଇଁ httpd କୁ ଅନୁମତି ଦେବାକୁ ଚାହୁଁଛନ୍ତି କି"
+msgid "If you want to allow httpd to send mail"
+msgstr ""
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
@@ -1287,11 +1278,11 @@ msgid ""
 "    Ordinarily httpd is allowed full access to all files labeled with http "
 "file\n"
 "    context.  This machine has a tightened security policy with the $BOOLEAN\n"
-"    turned off,  This requires explicit labeling of all files.  If a file is\n"
+"    turned off,  this requires explicit labeling of all files.  If a file is\n"
 "    a cgi script it needs to be labeled with httpd_TYPE_script_exec_t in "
 "order\n"
 "    to be executed.  If it is read only content, it needs to be labeled\n"
-"    httpd_TYPE_content_t, it is writable content. it needs to be labeled\n"
+"    httpd_TYPE_content_t. If it is writable content, it needs to be labeled\n"
 "    httpd_TYPE_script_rw_t or httpd_TYPE_script_ra_t. You can use the\n"
 "    chcon command to change these context.  Please refer to the man page\n"
 "    \"man httpd_selinux\" or\n"
@@ -1316,11 +1307,9 @@ msgstr ""
 
 #: ../src/httpd_unified.py:57
 msgid ""
-"you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
-"of all content files."
+"If you want to allow httpd to execute cgi scripts and to unify HTTPD "
+"handling of all content files."
 msgstr ""
-"cgi ସ୍କ୍ରିପ୍ଟଗୁଡ଼ିକୁ ନିଷ୍ପାଦନ କରିବା ପାଇଁ ଆପଣ httpd କୁ ଅନୁମତି ଦେବାକୁ "
-"ଚାହୁଁଛନ୍ତି ଏବଂ ସମସ୍ତ ବିଷୟବସ୍ତୁ ଫାଇଲଗୁଡ଼ିକର HTTPD ନିୟନ୍ତ୍ରଣକୁ ଏକତ୍ର କରିଥାଏ।"
 
 #: ../src/httpd_unified.py:58
 msgid ""
@@ -1344,7 +1333,7 @@ msgid ""
 msgstr ""
 
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
-#: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
+#: ../src/samba_share.py:45 ../src/swapfile.py:45 ../src/xen_image.py:48
 msgid "You need to change the label on '$FIX_TARGET_PATH'"
 msgstr "ଆପଣଙ୍କୁ '$FIX_TARGET_PATH' ଉପରେ ନାମପଟିକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ହେବ'"
 
@@ -1376,11 +1365,9 @@ msgstr ""
 
 #: ../src/kernel_modules.py:44 ../src/selinuxpolicy.py:44
 msgid ""
-"you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
+"If you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
 msgstr ""
-"ଆପଣ ଭାବୁନାହାନ୍ତିକି $SOURCE_BASE_PATH $ACCESS ଅଭିଗମ୍ୟତାକୁ$TARGET_BASE_PATH "
-"ଉପରେ ଚେଷ୍ଟାକରିବା ଉଚିତ।"
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
@@ -1442,13 +1429,10 @@ msgstr ""
 
 #: ../src/leaks.py:42
 msgid ""
-"you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the "
+"If you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the "
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
 "access."
 msgstr ""
-"ଆପଣ $SOURCE_BASE_PATH କୁ ଅଗ୍ରାହ୍ୟ କରିବାକୁ ଚାହୁଁଛନ୍ତି କି ଯିଏକି "
-"$TARGET_BASE_PATH $TARGET_CLASS କୁ $ACCESS ଅଭିଗମ୍ୟ କରିବାକୁ ଚେଷ୍ଟାକରୁଅଛି, "
-"କାରଣ ଆପଣ ବିଶ୍ୱାସ କରୁଛନ୍ତି ଯେ ଏହା ସେହି ଅଭିଗମ୍ୟାତାକୁ ଆବଶ୍ୟକ କରିବା ଉଚିତ ନୁହଁ।"
 
 #: ../src/leaks.py:43
 msgid ""
@@ -1461,8 +1445,8 @@ msgstr ""
 
 #: ../src/leaks.py:44
 msgid ""
-"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M mypol\n"
-"# semodule -i mypol.pp"
+"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
+"# semodule -X 300 -i my-$SOURCE.pp"
 msgstr ""
 
 #: ../src/mmap_zero.py:29
@@ -1482,40 +1466,24 @@ msgid ""
 "\n"
 "    SELinux has denied the $SOURCE the ability to mmap low area of the "
 "kernel \n"
-"    address space.  The ability to mmap a low area of the address space, as \n"
+"    address space.  The ability to mmap a low area of the address space is \n"
 "    configured by /proc/sys/kernel/mmap_min_addr.  Preventing such mappings \n"
 "    helps protect against exploiting null deref bugs in the kernel. All \n"
 "    applications that need this access should have already had policy "
 "written \n"
-"    for them.  If a compromised application tries modify the kernel this AVC "
-"\n"
+"    for them.  If a compromised application tries to modify the kernel, this "
+"AVC \n"
 "    would be generated. This is a serious issue. Your system may very well "
 "be \n"
 "    compromised.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux $SOURCE କୁ ବାରଣ କରିଛି ଯେଉଁଥିରେ କର୍ଣ୍ଣଲର ଠିକଣା ସ୍ଥାନର ନିମ୍ନ "
-"କ୍ଷେତ୍ରକୁmmap କରିବାର\n"
-"    କ୍ଷମତା ଥାଏ।  ଠିକଣା ସ୍ଥାନର ନିମ୍ନ କ୍ଷେତ୍ରକୁ mmap କରିବାର କ୍ଷମତାକୁ, \n"
-"    /proc/sys/kernel/mmap_min_addr ଦ୍ୱାରା ବିନ୍ୟାସ କରାଯାଇଥିବା ପରି।  ଏପରି "
-"ମ୍ୟାପିଙ୍ଗକୁ ବାରଣ କରିବା ଦ୍ୱାରା \n"
-"    ଏହା ଶୂନ୍ୟ deref ତ୍ରୁଟିଗୁଡ଼ିକୁ କର୍ଣ୍ଣଲରେ ଶୋଷଣ କରିବାରୁ ରକ୍ଷା କରିଥାଏ। ସମସ୍ତ "
-"\n"
-"    ପ୍ରୟୋଗଗୁଡ଼ିକ ଯାହାକି ଏହି ଅଭିଗମ୍ୟତା ଆବଶ୍ୟକ କରିଥାଏ ସେଥିରେ ପୂର୍ବରୁ ସେମାନଙ୍କ "
-"ପାଇଁ\n"
-"     ନିତୀ ଲିଖିତ ହୋଇଛି।  ଯଦି ଗୋଟିଏ ହାର ମାନିଥିବା ପ୍ରୟୋଗ କର୍ଣ୍ଣଲକୁ ପରିବର୍ତ୍ତନ "
-"କରିବାକୁ ଚେଷ୍ଟାକରେ ତେବେ ଏହି AVC \n"
-"    ସୃଷ୍ଟି ହୋଇଥାଏ। ଏହା ଏକ ଗୁରୁତର ସମସ୍ୟା। ଆପଣଙ୍କର ତନ୍ତ୍ର ହୁଏତଃ ଭଲ ଭାବରେ \n"
-"    ହାର ମାନିଛି।\n"
-"    "
 
 #: ../src/mmap_zero.py:46
 msgid ""
-"you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
+"If you do not think $SOURCE_PATH should need to mmap low memory in the "
+"kernel."
 msgstr ""
-"ଆପଣ ଭାବୁନାହାନ୍ତି କି $SOURCE_PATH mmap ସ୍ୱଳ୍ପ ସ୍ମୃତିସ୍ଥାନକୁ କର୍ଣ୍ଣଲରେ ଆବଶ୍ୟକ "
-"କରିବା।"
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
@@ -1568,10 +1536,8 @@ msgstr ""
 "    "
 
 #: ../src/mounton.py:48
-msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
+msgid "If you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
 msgstr ""
-"$TARGET_BASE_PATH ଉପରେ ସ୍ଥାପନ କରିବା ପାଇଁ ଆପଣ $SOURCE_BASE_PATH କୁ ଅନୁମତି "
-"ଦେବାକୁ ଚାହୁଁଛନ୍ତି କି।"
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
@@ -1641,11 +1607,9 @@ msgstr ""
 
 #: ../src/mozplugger_remove.py:44
 msgid ""
-"you want to to continue using SELinux Firefox plugin containment rather then "
-"using mozplugger package"
+"If you want to to continue using SELinux Firefox plugin containment rather "
+"then using mozplugger package"
 msgstr ""
-"mozplugger ପ୍ୟାକେଜ ବ୍ୟବହାର କରିବା ପରିବର୍ତ୍ତେ ଆପଣ SELinux Firefox ପ୍ଲଗଇନ "
-"ବ୍ୟବହାର କରି ଆଗକୁ ବଢ଼ିବାକୁ ଚାହୁଁଛନ୍ତି"
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
@@ -1655,49 +1619,40 @@ msgstr "ଆପଣଙ୍କୁ ନିଶ୍ଚିତ ଭାବରେ mozplugger �
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
-"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"    be mislabeled. openvpn is allowed to read content in home directory if "
 "it\n"
 "    is labeled correctly.\n"
 "    "
 msgstr ""
 
-#: ../src/openvpn.py:41 ../src/sshd_root.py:42
+#: ../src/openvpn.py:41
 msgid ""
 "\n"
 "    You can restore the default system context to this file by executing the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    restorecon command.  \n"
+"    # restorecon -R /root/.ssh\n"
 "    "
 msgstr ""
-"\n"
-"    ଆପଣ ପୂର୍ବନିର୍ଦ୍ଧାରିତ ତନ୍ତ୍ର ପ୍ରସଙ୍ଗକୁ ଏହି ଫାଇଲରେ restorecon ନିର୍ଦ୍ଦେଶକୁ "
-"ନିଷ୍ପାଦନ କରି ପୁନଃସ୍ଥାପନ\n"
-"     କରିପାରିବେ।  restorecon -R /root/.ssh କୁ ବ୍ୟବହାର କରି restorecon "
-"ପୁନଃସ୍ଥାପନ କରିପାରିବ।\n"
-"    "
 
-#: ../src/openvpn.py:48
+#: ../src/openvpn.py:49
 msgid ""
-"you want to mv $TARGET_BASE_PATH to standard location so that "
+"If you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
-"$TARGET_BASE_PATH mv କରିବା ପାଇଁ ଚାହୁଁଛନ୍ତି ଯାହା ଫଳରେ $SOURCE_BASE_PATH କୁ "
-"$ACCESS ଅଭିଗମ୍ୟ ଅନୁମତି ମିଳିପାରିବ"
 
-#: ../src/openvpn.py:50
+#: ../src/openvpn.py:51
 msgid ""
-"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
-"can have $ACCESS access on it"
+"If you want to modify the label on $TARGET_BASE_PATH so that "
+"$SOURCE_BASE_PATH can have $ACCESS access on it"
 msgstr ""
-"ଆପଣ $TARGET_BASE_PATH ଉପରେ ନାମପଟିକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ଚାହୁଁଛନ୍ତି ଯାହାଫଳରେ "
-"$SOURCE_BASE_PATH ରେ $ACCESS ଅଭିଗମ୍ୟତା ରହିପାରିବ"
 
-#: ../src/openvpn.py:54
+#: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
 msgstr ""
 "ଆପଣଙ୍କୁ ନିଶ୍ଚିତ ଭାବରେ ପ୍ରମାଣପତ୍ର ଫାଇଲକୁ ~/.cert ଡିରେକ୍ଟୋରୀ ମଧ୍ଯକୁ ପଠାଇବା "
 "ଉଚିତ"
 
-#: ../src/openvpn.py:56 ../src/sshd_root.py:47
+#: ../src/openvpn.py:57 ../src/sshd_root.py:48
 msgid "you must fix the labels."
 msgstr "ଆପଣଙ୍କୁ ନିଶ୍ଚିତ ଭାବରେ ନାମପଟିକୁ ସମାଧାନ କରିବାକୁ ହେବ।"
 
@@ -1743,10 +1698,8 @@ msgstr ""
 "    "
 
 #: ../src/public_content.py:50
-msgid "you want to treat $TARGET_BASE_PATH as public content"
+msgid "If you want to treat $TARGET_BASE_PATH as public content"
 msgstr ""
-"ଆପଣ $TARGET_BASE_PATH କୁ ଏକ ସର୍ବସାଧାରଣ ବିଷୟବସ୍ତୁ ଭାବରେ ଗ୍ରହଣ କରିବାକୁ "
-"ଚାହୁଁଛନ୍ତି କି"
 
 #: ../src/public_content.py:51
 msgid ""
@@ -1847,10 +1800,10 @@ msgstr ""
 "    "
 
 #: ../src/qemu_file_image.py:48
-msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr "$TARGET_BASE_PATH ଟି ଗୋଟିଏ ଆଭାସୀକରଣ ଲକ୍ଷ୍ଯ ଅଟେ"
+msgid "If $TARGET_BASE_PATH is a virtualization target"
+msgstr ""
 
-#: ../src/restorecon.py:48
+#: ../src/restorecon.py:57
 msgid ""
 "\n"
 "    You can restore the default system context to this file by executing the\n"
@@ -1868,14 +1821,14 @@ msgstr ""
 "କରିପୁନଃସ୍ଥାପନ କରିପାରିବେ।\n"
 "    "
 
-#: ../src/restorecon.py:55
+#: ../src/restorecon.py:64
 #, python-format
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
-"    be a mislabeled.  $TARGET_PATH default SELinux type is\n"
+"    be mislabeled.  $TARGET_PATH default SELinux type is\n"
 "    <B>%s</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
-"    this file back to the default type, may fix your problem.\n"
+"    this file back to the default type may fix your problem.\n"
 "    <p>\n"
 "    File contexts can be assigned to a file in the following ways.\n"
 "    <ul>\n"
@@ -1909,19 +1862,21 @@ msgid ""
 "    "
 msgstr ""
 
-#: ../src/restorecon.py:81
+#: ../src/restorecon.py:90
 #, python-format
-msgid "you want to fix the label. \n"
+msgid ""
+"If you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
 msgstr ""
-"ଆପଣ ସେହି ନାମପଟିକୁ ଠିକ କରିବାକୁ ଚାହୁଁଛନ୍ତି।\n"
-"$TARGET_PATH ର ପୂର୍ବନିର୍ଦ୍ଧାରିତ ନାମପଟି %s ହେବା ଉଚିତ।"
 
-#: ../src/restorecon.py:86 ../src/restorecon_source.py:65
-msgid "you can run restorecon."
-msgstr "ଆପଣ restorecon କୁ ଚଲାଇପାରିବେ।"
+#: ../src/restorecon.py:96
+msgid ""
+"you can run restorecon. The access attempt may have been stopped due to "
+"insufficient permissions to access a parent directory in which case try to "
+"change the following command accordingly."
+msgstr ""
 
-#: ../src/restorecon.py:94 ../src/restorecon_source.py:73
+#: ../src/restorecon.py:105 ../src/restorecon_source.py:73
 msgid "Restore\n"
 "Context"
 msgstr "ପୁନସ୍ଥାପନ କରନ୍ତୁ\n"
@@ -1945,9 +1900,9 @@ msgstr ""
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $SOURCE_PATH may\n"
-"    be a mislabeled.  $SOURCE_PATH default SELinux type is\n"
+"    be mislabeled.  $SOURCE_PATH default SELinux type is\n"
 "    <B>%s</B>, but its current type is <B>$SOURCE_TYPE</B>. Changing\n"
-"    this file back to the default type, may fix your problem.\n"
+"    this file back to the default type may fix your problem.\n"
 "    <p>\n"
 "    This file could have been mislabeled either by user error, or if an "
 "normally confined application\n"
@@ -1964,30 +1919,25 @@ msgstr ""
 
 #: ../src/restorecon_source.py:60
 #, python-format
-msgid "you want to fix the label. \n"
+msgid ""
+"If you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
 msgstr ""
-"ଆପଣ ସେହି ନାମପଟିକୁ ଠିକ କରିବାକୁ ଚାହୁଁଛନ୍ତି।\n"
-"$SOURCE_PATH ର ପୂର୍ବନିର୍ଦ୍ଧାରିତ ନାମପଟି %s ହେବା ଉଚିତ।"
+
+#: ../src/restorecon_source.py:65
+msgid "you can run restorecon."
+msgstr "ଆପଣ restorecon କୁ ଚଲାଇପାରିବେ।"
 
 #: ../src/rsync_data.py:31
 msgid ""
 "\n"
-"    SELinux denied rsync access to $TARGET_PATH.\n"
-"    If this is a RSYNC repository it has to have a file context label of\n"
-"    rsync_data_t. If you did not intend to use $TARGET_PATH as a rsync "
-"repository\n"
-"    it could indicate either a bug or it could signal a intrusion attempt.\n"
+"    SELinux denied RSYNC access to $TARGET_PATH.\n"
+"    If this is an RSYNC repository, it has to have a file context label of\n"
+"    rsync_data_t. If you did not intend to use $TARGET_PATH as an RSYNC "
+"repository,\n"
+"    this message could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux $TARGET_PATH କୁ rsync ଅଭିଗମ୍ୟତା ପାଇଁ ବାରଣ କରିଛି।\n"
-"    ଯଦି ଏହା ଏକ RSYNC ସଂଗ୍ରହାଳୟ ତେବେ ଏଥିରେ rsync_data_t ନାମରେ ଫାଇଲ\n"
-"     ପ୍ରସଙ୍ଗ ଥିବା ଉଚିତ। ଯଦି ଆପଣ $TARGET_PATH କୁ rsync ସଂଗ୍ରହାଳୟ ଭାବରେ "
-"ବ୍ୟବହାର କରିବାକୁଚାହୁଁନାହାନ୍ତି\n"
-"    ତେବେ ଏହା ସମ୍ଭବତଃ ଗୋଟିଏ ତ୍ରୁଟିକୁ ସୂଚାଇପାରେ କିମ୍ବା ଏହା ଏକ ବିନାଅନୁମତି "
-"ପ୍ରବେଶକୁ ସୂଚାଇପାରେ।\n"
-"    "
 
 #: ../src/rsync_data.py:38
 msgid ""
@@ -2008,8 +1958,8 @@ msgstr ""
 "    "
 
 #: ../src/rsync_data.py:45
-msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr "$TARGET_BASE_PATH କୁ rsync ଡେମନ ମାଧ୍ଯମରେ ସହଭାଗ କରିବା ଉଚିତ"
+msgid "If $TARGET_BASE_PATH should be shared via the RSYNC daemon"
+msgstr ""
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
@@ -2034,22 +1984,12 @@ msgid ""
 "    If you want to share this directory with samba it has to have a file "
 "context label of\n"
 "    samba_share_t. If you did not intend to use $TARGET_PATH as a samba "
-"repository\n"
-"    it could indicate either a bug or it could signal a intrusion attempt.\n"
+"repository,\n"
+"    this message could indicate either a bug or an intrusion attempt.\n"
 "    Please refer to 'man samba_selinux' for more information on setting up "
 "Samba and SELinux.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux samba କୁ $TARGET_PATH ରେ ଅଭିଗମ୍ୟ କରିବାକୁ ବାରଣ କରିଥାଏ।\n"
-"    ଯଦି ଏହା ଗୋଟିଏ samba ତେବେ ଏଥିରେ samba_share_t ର ଗୋଟିଏ ଫାଇଲ ପ୍ରସଙ୍ଗ ନାମପଟି "
-"ଥିବା ଉଚିତ।\n"
-"    ଯଦି ଆପଣ $TARGET_PATH କୁ samba ଭାବରେ ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁନାହାନ୍ତି, ତେବେ\n"
-"     ଏହା ଏକ ତ୍ରୁଟି ଦର୍ଶାଇଥାଏ, ଏବଂ ଏହା ମଧ୍ଯ\n"
-"    ଗୋଟିଏ ବିନାଅନୁମତିରେ ପ୍ରବେଶ ପାଇଁ ଚେଷ୍ଟାକରିପାରେ।\n"
-"    ଦୟାକରି Samba ଏବଂ SELinux କୁ ସେଟ କରିବା ବିଷୟରେ ଅଧିକ ସୂଚନା ପାଇବା ପାଇଁ 'man "
-"samba_selinux' କୁ ଅନୁସରଣ କରନ୍ତୁ।\n"
-"    "
 
 #: ../src/samba_share.py:39
 msgid ""
@@ -2084,16 +2024,16 @@ msgid ""
 "    SELinux has denied $SOURCE from connecting to a network port "
 "$PORT_NUMBER within a sandbox.\n"
 "    If $SOURCE should be allowed to connect on $PORT_NUMBER, you need to use "
-"a different sandbox type like sandbox_web_t or sandbox_net_t.  sandbox -X -t "
-"sandbox_net_t $SOURCE.\n"
+"a different sandbox type like sandbox_web_t or sandbox_net_t.  \n"
+"    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    \n"
 "\n"
 "If $SOURCE is not supposed\n"
-"    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
+"    to connect to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
 
-#: ../src/sandbox_connect.py:40
+#: ../src/sandbox_connect.py:41
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute "
@@ -2109,13 +2049,7 @@ msgstr ""
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
 
-#: ../src/sandbox_connect.py:46
-msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr ""
-"ଆପଣ $SOURCE_PATH କୁ ନେଟୱର୍କ ପୋର୍ଟ $PORT_NUMBER ସହିତ ସଂଯୋଗ କରିବା ପାଇଁ ଅନୁମତି "
-"ଦିଅନ୍ତି"
-
-#: ../src/sandbox_connect.py:48
+#: ../src/sandbox_connect.py:49
 msgid ""
 "you need to modify the sandbox type. sandbox_web_t or sandbox_net_t.\n"
 "For example:\n"
@@ -2145,8 +2079,8 @@ msgid ""
 msgstr ""
 
 #: ../src/setenforce.py:27
-msgid "you did not directly cause this AVC through testing."
-msgstr "ଆପଣ ପରୀକ୍ଷା ସମୟରେ ସିଧାସଳଖ ଭାବରେ ଏହି AVC କୁ ଘଟାଇ ନାହାନ୍ତି।"
+msgid "If you did not directly cause this AVC through testing."
+msgstr ""
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
@@ -2167,33 +2101,21 @@ msgstr ""
 #: ../src/setenforce.py:36
 msgid ""
 "\n"
-"    SELinux has prevented $SOURCE from writing to a file under /selinux.\n"
-"    Files under /selinux control the way SELinux is configured.\n"
-"    All programs that need to write to files under /selinux should have "
-"already had policy\n"
+"    SELinux has prevented $SOURCE from writing to a file under /sys/fs/"
+"selinux.\n"
+"    Files under /sys/fs/selinux control the way SELinux is configured.\n"
+"    All programs that need to write to files under /sys/fs/selinux should "
+"have already had policy\n"
 "    written for them. If a compromised application tries to turn off SELinux\n"
 "    this AVC will be generated. This is a serious issue. Your system may "
 "very\n"
 "    well be compromised.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux $SOURCE କୁ /selinux ଅନ୍ତର୍ଗତରେ ଫାଇଲ ମଧ୍ଯରେ ଲେଖିବାରୁ ବାରଣ କରିଛି।\n"
-"    /selinux ଅନ୍ତର୍ଗତରେ ଥିବା ଫାଇଲଗୁଡ଼ିକ SELinux ବିନ୍ୟାସିତ ହୋଇଥିବା ଉପାୟରେ "
-"ନିୟନ୍ତ୍ରଣ କରିଥାଏ।\n"
-"    ସମସ୍ତ ପ୍ରଗ୍ରାମଗୁଡ଼ିକ ଯାହାକି /selinux ଅନ୍ତର୍ଗତରେ ଫାଇଲଗୁଡ଼ିକରେ ଲେଖିବା "
-"ଆବଶ୍ୟକ କରେ ସେଥିରେ ପୂର୍ବରୁ ନିତୀ ଲିଖିତ\n"
-"    ଥିବା ଉଚିତ। ଯଦି ଗୋଟିଏ ହାରମାନିଥିବା ପ୍ରୟୋଗ SELinux କୁ ବନ୍ଦ କରିବାକୁ "
-"ଚେଷ୍ଟାକରେ\n"
-"    ତେବେ ଏହି AVC ସୃଷ୍ଟି ହେବ। ଏହା ଏକ ଗୁରୁତର ସମସ୍ୟା ଅଟେ। ଆପଣଙ୍କର ତନ୍ତ୍ର ହୁଏତଃ\n"
-"    ହାରମାନିବ।\n"
-"    "
 
 #: ../src/setenforce.py:48
-msgid "you believe $SOURCE_PATH tried to disable SELinux."
+msgid "If you believe $SOURCE_PATH tried to disable SELinux."
 msgstr ""
-"ଆପଣ ବିଶ୍ୱାସ କରନ୍ତି ଯେ $SOURCE_PATH SELinux କୁ ନିଷ୍କ୍ରିୟ କରିବା ପାଇଁ "
-"ଚେଷ୍ଟାକରିଛି।"
 
 #: ../src/setenforce.py:49
 msgid ""
@@ -2207,13 +2129,22 @@ msgstr ""
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
-"    be a mislabeled. sshd is allowed to read content in /root/.ssh directory "
+"    be mislabeled. sshd is allowed to read content in /root/.ssh directory "
 "if it\n"
 "    is labeled correctly.\n"
 "    "
 msgstr ""
 
-#: ../src/sshd_root.py:54
+#: ../src/sshd_root.py:42
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing the\n"
+"    restorecon command.\n"
+"    # restorecon -R /root/.ssh\n"
+"    "
+msgstr ""
+
+#: ../src/sshd_root.py:55
 msgid "Restore Context"
 msgstr "ପ୍ରସଙ୍ଗକୁ ପୁନସ୍ଥାପନ କରନ୍ତୁ"
 
@@ -2230,24 +2161,14 @@ msgstr "\n"
 msgid ""
 "\n"
 "    SELinux denied $SOURCE access to $TARGET_PATH.\n"
-"    If this is a swapfile it has to have a file context label of\n"
+"    If this is a swapfile, it has to have a file context label of\n"
 "    swapfile_t. If you did not intend to use\n"
-"    $TARGET_PATH as a swapfile it probably indicates a bug, however it could "
-"also\n"
-"    signal a intrusion attempt.\n"
+"    $TARGET_PATH as a swapfile, this message could indicate either a bug or "
+"an intrusion attempt.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux $SOURCE କୁ $TARGET_PATH ରେ ଅଭିଗମ୍ୟ କରିବାକୁ ବାରଣ କରିଥାଏ।\n"
-"    ଯଦି ଏହା ଗୋଟିଏ swapfile ତେବେ ଏଥିରେ swapfile_t ର ଗୋଟିଏ ଫାଇଲ ପ୍ରସଙ୍ଗ ନାମପଟି "
-"ଥିବା ଉଚିତ।\n"
-"    ଯଦି ଆପଣ $TARGET_PATH କୁ swapfile ଭାବରେ ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁନାହାନ୍ତି, "
-"ତେବେ\n"
-"     ଏହା ଏକ ତ୍ରୁଟି ଦର୍ଶାଇଥାଏ, ଏବଂ ଏହା ମଧ୍ଯ\n"
-"    ଗୋଟିଏ ବିନାଅନୁମତିରେ ପ୍ରବେଶ ପାଇଁ ଚେଷ୍ଟାକରିପାରେ।\n"
-"    "
 
-#: ../src/swapfile.py:39
+#: ../src/swapfile.py:38
 msgid ""
 "\n"
 "    You can alter the file context by executing chcon -t swapfile_t "
@@ -2267,11 +2188,9 @@ msgstr ""
 
 #: ../src/sys_module.py:28
 msgid ""
-"you do not believe your $SOURCE_PATH should be modifying the kernel, by "
+"If you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
 msgstr ""
-"ଆପଣ ନିଜର $SOURCE_PATH କର୍ଣ୍ଣଲକୁ ପରିବର୍ତ୍ତନ କରୁଥିବ ବୋଲି ଆପଣ ବିଶ୍ୱାସ କରନ୍ତି "
-"ନାହିଁ, କର୍ଣ୍ଣଲ ଏକକାଂଶଗୁଡ଼ିକୁ ଧାରଣ କରିବା ଦ୍ୱାରା"
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
@@ -2303,11 +2222,9 @@ msgstr ""
 
 #: ../src/sys_module.py:46
 msgid ""
-"you do not believe that $SOURCE_PATH should be attempting to modify the "
+"If you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
 msgstr ""
-"ଆପଣ ନିଜର $SOURCE_PATH କର୍ଣ୍ଣଲକୁ ପରିବର୍ତ୍ତନ କରୁଥିବ ବୋଲି ଆପଣ ବିଶ୍ୱାସ କରନ୍ତି "
-"ନାହିଁ, କର୍ଣ୍ଣଲ ଏକକାଂଶଗୁଡ଼ିକୁ ଧାରଣ କରିବା ଦ୍ୱାରା।"
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
@@ -2335,11 +2252,9 @@ msgstr ""
 
 #: ../src/sys_resource.py:39
 msgid ""
-"you do not want processes to require capabilities to use up all the system "
-"resources on your system;"
+"If you do not want processes to require capabilities to use up all the "
+"system resources on your system;"
 msgstr ""
-"ଆପଣଙ୍କ ତନ୍ତ୍ରରେ ଥିବା ସମସ୍ତ ତନ୍ତ୍ର ଉତ୍ସଗୁଡ଼ିକୁ ବ୍ୟବହାର କରି ଆପଣଙ୍କୁ ଆବଶ୍ୟକ "
-"କ୍ଷମତାକୁ କାର୍ଯ୍ୟକାରୀ କରିବା ଆବଶ୍ୟକ ନାହିଁ;"
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -2348,28 +2263,6 @@ msgid ""
 "\n"
 "According to /usr/include/linux/capability.h, sys_resource is required to:\n"
 "\n"
-"/* Override resource limits. Set resource limits. */\n"
-"/* Override quota limits. */\n"
-"/* Override reserved space on ext2 filesystem */\n"
-"/* Modify data journaling mode on ext3 filesystem (uses journaling\n"
-"   resources) */\n"
-"/* NOTE: ext2 honors fsuid when checking for resource overrides, so\n"
-"   you can override using fsuid too */\n"
-"/* Override size restrictions on IPC message queues */\n"
-"/* Allow more than 64hz interrupts from the real-time clock */\n"
-"/* Override max number of consoles on console allocation */\n"
-"/* Override max number of keymaps */\n"
-"/* Override resource limits. Set resource limits. */\n"
-"/* Override quota limits. */\n"
-"/* Override reserved space on ext2 filesystem */\n"
-"/* Modify data journaling mode on ext3 filesystem (uses journaling\n"
-"   resources) */\n"
-"/* NOTE: ext2 honors fsuid when checking for resource overrides, so\n"
-"   you can override using fsuid too */\n"
-"/* Override size restrictions on IPC message queues */\n"
-"/* Allow more than 64hz interrupts from the real-time clock */\n"
-"/* Override max number of consoles on console allocation */\n"
-"/* Override max number of keymaps */\n"
 "/* Override resource limits. Set resource limits. */\n"
 "/* Override quota limits. */\n"
 "/* Override reserved space on ext2 filesystem */\n"
@@ -2426,11 +2319,9 @@ msgstr ""
 
 #: ../src/vbetool.py:55
 msgid ""
-"you want to ignore this AVC because it is dangerous and your machine seems "
-"to be working correctly."
+"If you want to ignore this AVC because it is dangerous and your machine "
+"seems to be working correctly."
 msgstr ""
-"ଆପଣ ଏହି AVC କୁ ଅଗ୍ରାହ୍ୟ କରିବା ପାଇଁ ଚାହୁଁଛନ୍ତି କାରଣ ଏହା ବିପଦ ଜନକ ଅଟେ ଏବଂ "
-"ଆପଣଙ୍କର ଯନ୍ତ୍ର ସଠିକ ଭାବରେ କାର୍ଯ୍ୟ କରୁଅଛି ପରି ଲାଗୁଛି।"
 
 #: ../src/vbetool.py:56
 msgid ""
@@ -2479,11 +2370,9 @@ msgstr ""
 
 #: ../src/wine.py:66
 msgid ""
-"you want to ignore this AVC because it is dangerous and your wine "
+"If you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
 msgstr ""
-"ଆପଣ ଏହି AVC କୁ ଅଗ୍ରାହ୍ୟ କରିବା ପାଇଁ ଚାହୁଁଛନ୍ତି କାରଣ ଏହା ବିପଦ ଜନକ ଅଟେ ଏବଂ "
-"ଆପଣଙ୍କର wine ପ୍ରୟୋଗଗୁଡ଼ିକ ସଠିକ ଭାବରେ କାର୍ଯ୍ୟ କରୁଅଛି ପରି ଲାଗୁଛି।"
 
 #: ../src/wine.py:67
 msgid ""
