@@ -182,7 +182,7 @@ class BrowserApplet:
 
         self.read_config()
         builder = Gtk.Builder()
-#        builder.set_translation_domain("setroubleshoot")
+        builder.set_translation_domain(domain)
         builder.add_from_file("/usr/share/setroubleshoot/gui/browser.glade")
         self.plugins = load_plugins()
 
