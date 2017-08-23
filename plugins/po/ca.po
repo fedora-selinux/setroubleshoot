@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-03-20 04:51-0400\n"
+"PO-Revision-Date: 2017-08-22 07:37-0400\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/fedora/language/"
 "ca/)\n"
@@ -80,6 +80,8 @@ msgid ""
 "If you want to allow $SOURCE_PATH to be able to write to shared public "
 "content"
 msgstr ""
+"Si voleu  permetre que $SOURCE_PATH pugui escriure al contingut compartit "
+"públicament"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
@@ -154,6 +156,8 @@ msgid ""
 "If you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
 msgstr ""
+"Si no creieu que $SOURCE_PATH necessiti assignar la memòria heap en la que "
+"s'hi pot escriure i executar."
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
@@ -196,6 +200,22 @@ msgid ""
 "    workaround, until the library is fixed. Please file a bug report.\n"
 "    "
 msgstr ""
+"\n"
+"    L'aplicació $SOURCE va intentar de carregar $TARGET_PATH que\n"
+"    requereix la re-ubicació del text.  Aquest és sobretot un problema de "
+"seguretat.\n"
+"    La majoria de les biblioteques no necessiten aquest permís. Alguns cops "
+"les\n"
+"    biblioteques es programen incorrectament i sol·liciten aquest permís.  "
+"La pàgina\n"
+"    web <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">Proves "
+"de protecció de memòria de SELinux</a>\n"
+"    explica com treure aquest requeriment. Podeu configurar temporalment \n"
+"    SELinux per permetre que $TARGET_PATH utilitzi  la re-ubicació del text\n"
+"    com a una solució temporal,  fins que es corregeixi l'aplicació. Ompliu "
+"un informe\n"
+"    d'error de programari.\n"
+"    "
 
 #: ../src/allow_execmod.py:44
 msgid ""
@@ -215,6 +235,21 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"    L'aplicació $SOURCE va intentar de carregar $TARGET_PATH que\n"
+"    requereix la re-ubicació del text.  Aquest és sobretot un problema de\n"
+"    seguretat. La majoria de les biblioteques no necessiten aquest permís.\n"
+"    La pàgina web <a href=\"http://people.redhat.com/drepper/selinux-mem."
+"html\">SELinux Memory Protection Tests</a> explica aquesta\n"
+"    comprovació. Aquesta eina va examinar la biblioteca i pel que sembla\n"
+"    es va construir correctament. Per tant setroubleshoot no pot determinar \n"
+"    si aquesta aplicació es troba en un compromís o no. Això podria ser un\n"
+"    greu problema. El vostre sistema pot molt bé trobar-se en un compromís.\n"
+"\n"
+"    Poseu-vos en contacte amb l'administrador de seguretat i informeu-li\n"
+"    d'aquesta incidència.\n"
+"\n"
+"    "
 
 #: ../src/allow_execmod.py:61
 msgid ""
@@ -317,6 +352,8 @@ msgid ""
 "If you do not think $SOURCE_PATH should need to map stack memory that is "
 "both writable and executable."
 msgstr ""
+"Si no creieu que $SOURCE_PATH necessiti assignar la memòria stack en la que "
+"s'hi pot escriure i executar."
 
 #: ../src/allow_execstack.py:90
 msgid "you need to report a bug. \n"
@@ -330,7 +367,9 @@ msgstr ""
 msgid "If you believe that \n"
 "%s\n"
 "should not require execstack"
-msgstr ""
+msgstr "Si creieu que\n"
+"%s\n"
+"no hauria de requerir execstack"
 
 #: ../src/allow_execstack.py:108
 #, python-format
@@ -431,7 +470,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "If you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "Si voleu permetre que ftpd escrigui als sistemes de fitxers cifs"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
@@ -439,7 +478,7 @@ msgstr "heu de dir-li a SELinux alguna cosa referent a això"
 
 #: ../src/allow_ftpd_use_cifs.py:69
 msgid "Enable booleans"
-msgstr ""
+msgstr "Habilita els booleans"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -516,11 +555,11 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "Si voleu permetre que ftpd escrigui als sistemes de fitxers nfs"
 
 #: ../src/allow_ftpd_use_nfs.py:71
 msgid "Enable booleans."
-msgstr ""
+msgstr "Habilita els booleans."
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -563,6 +602,8 @@ msgid ""
 "If you want to change the label of $TARGET_PATH to %s, you are not allowed "
 "to since it is not a valid file type."
 msgstr ""
+"Si voleu canviar l'etiqueta de $TARGET_PATH a %s, no se us permet fer-ho "
+"perquè no és un tipus vàlid de fitxer."
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -728,7 +769,7 @@ msgstr ""
 #: ../src/catchall_boolean.py:63
 #, python-format
 msgid "If you want to %s"
-msgstr ""
+msgstr "Si voleu %s"
 
 #: ../src/catchall_boolean.py:66
 #, python-format
@@ -838,12 +879,16 @@ msgid ""
 "If you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
 msgstr ""
+"Si creieu que per defecte $SOURCE_BASE_PATH hauria de tenir la capacitat "
+"$ACCESS."
 
 #: ../src/catchall.py:53
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "the $TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
+"Si creieu que per defecte $SOURCE_BASE_PATH pot tenir l'accés $ACCESS al "
+"$TARGET_CLASS $TARGET_BASE_PATH."
 
 #: ../src/catchall.py:55
 msgid ""
@@ -1186,11 +1231,11 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "This is caused by a newly created file system."
-msgstr ""
+msgstr "Això és a causa d'un sistema de fitxers acabat de crear."
 
 #: ../src/file.py:51
 msgid "If you think this is caused by a badly mislabeled machine."
-msgstr ""
+msgstr "Si creieu que això és a causa d'una màquina dolenta mal etiquetada."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
@@ -1295,7 +1340,7 @@ msgstr ""
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "If you want to allow httpd to send mail"
-msgstr ""
+msgstr "Si voleu permetre que httpd enviï correus"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
@@ -1332,6 +1377,27 @@ msgid ""
 "    script types.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux va impedir a httpd l'accés $ACCESS als fitxers http.\n"
+"\n"
+"    Normalment es permet a httpd l'accés complet a tots els fitxers "
+"etiquetats\n"
+"    amb el context de fitxer http. Aquesta màquina té una política de "
+"seguretat\n"
+"    reforçada amb $BOOLEAN engegat.  Això requereix l'etiquetatge explícit "
+"de\n"
+"    tots els fitxers.  Si es tracta d'un fitxer d'un script cgi, aquest cal "
+"que estigui\n"
+"    etiquetat amb httpd_TYPE_script_exec_t per a poder executar-se.  Si es \n"
+"    llegeix només el contingut, necessita etiquetar-se amb \n"
+"    httpd_TYPE_content_t,  si el contingut és d'escriptura. necessita \n"
+"    etiquetar-se amb httpd_TYPE_script_rw_t o httpd_TYPE_script_ra_t.\n"
+"    Podeu utilitzar l'ordre chcon per canviar aquests contexts.  Si us plau,\n"
+"    consulteu la pàgina man \"man httpd_selinux\" o les <a href=\"http://"
+"fedora.redhat.com/docs/selinux-apache-fc3\">PMF</a> \"TYPE\" fa referència\n"
+"    a \"sys\", \"user\" o \"staff\", o als altres tipus potencials de "
+"scripts.\n"
+"    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -1525,6 +1591,8 @@ msgid ""
 "If you do not think $SOURCE_PATH should need to mmap low memory in the "
 "kernel."
 msgstr ""
+"Si no creieu que $SOURCE_PATH necessiti fer mmap en la memòria baixa al "
+"nucli del sistema operatiu."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
@@ -1569,7 +1637,7 @@ msgstr ""
 
 #: ../src/mounton.py:48
 msgid "If you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
-msgstr ""
+msgstr "Si voleu permetre que $SOURCE_BASE_PATH es munti a $TARGET_BASE_PATH."
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
@@ -1633,6 +1701,8 @@ msgid ""
 "If you want to to continue using SELinux Firefox plugin containment rather "
 "then using mozplugger package"
 msgstr ""
+"Si voleu continuar utilitzant la contenció del complement de Firefix de "
+"SELinux en lloc d'utilitzar el paquet mozplugger"
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
@@ -1647,6 +1717,12 @@ msgid ""
 "    is labeled correctly.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux va denegar l'accés que va sol·licitar $SOURCE. $TARGET_PATH pot\n"
+"    estar mal etiquetat. A l'openvpn se li permet llegir el contingut al "
+"directori \n"
+"    inicial si està etiquetat correctament.\n"
+"    "
 
 #: ../src/openvpn.py:41
 msgid ""
@@ -1767,7 +1843,7 @@ msgstr ""
 
 #: ../src/qemu_file_image.py:48
 msgid "If $TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "Si $TARGET_BASE_PATH és un objectiu de virtualització"
 
 #: ../src/restorecon.py:57
 msgid ""
@@ -1834,6 +1910,8 @@ msgid ""
 "If you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
 msgstr ""
+"Si voleu corregir l'etiqueta. \n"
+"L'etiqueta per defecte de $TARGET_PATH hauria de ser %s."
 
 #: ../src/restorecon.py:96
 msgid ""
@@ -1889,6 +1967,8 @@ msgid ""
 "If you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
 msgstr ""
+"Si voleu corregir l'etiqueta. \n"
+"L'etiqueta per defecte de $SOURCE_PATH hauria de ser %s."
 
 #: ../src/restorecon_source.py:65
 msgid "you can run restorecon."
