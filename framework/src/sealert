@@ -699,7 +699,7 @@ if __name__ == '__main__':
             except ProgramError as e:
                 print(e.strerror, file=sys.stderr)
                 sys.exit(3)
-            except ValueError as e:
+            except Exception as e:
                 print("SELinux is disabled or we can't open a policy file")
                 sys.exit(3)
 
