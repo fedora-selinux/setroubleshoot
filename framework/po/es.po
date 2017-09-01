@@ -14,21 +14,24 @@
 # Manuel Ospina <mospina@redhat.com>, 2006
 # Alex Puchades <alex94puchades@gmail.com>, 2015. #zanata
 # Máximo Castañeda Riloba <mcrcctm@gmail.com>, 2015. #zanata
+# Eduard Lucena <x3mboy@fedoraproject.org>, 2017. #zanata
+# Máximo Castañeda Riloba <mcrcctm@gmail.com>, 2017. #zanata
+# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 20:42+0200\n"
+"POT-Creation-Date: 2017-09-01 14:10+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-09-02 03:35-0400\n"
-"Last-Translator: Máximo Castañeda Riloba <mcrcctm@gmail.com>\n"
+"PO-Revision-Date: 2017-09-01 08:31-0400\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Spanish (http://www.transifex.com/projects/p/fedora/language/"
 "es/)\n"
 "Language: es\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.8.4\n"
+"X-Generator: Zanata 3.9.6\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -42,25 +45,25 @@ msgstr "Solucionar negaciones de acceso de SELinux"
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:903
+#: ../src/setroubleshoot/audit_data.py:912
 #, python-format
 msgid "port %s"
 msgstr "puerto %s"
 
-#: ../src/setroubleshoot/audit_data.py:905 ../src/setroubleshoot/browser.py:747
+#: ../src/setroubleshoot/audit_data.py:914 ../src/setroubleshoot/browser.py:747
 #: ../src/setroubleshoot/browser.py:822 ../src/setroubleshoot/rpc.py:528
-#: ../src/setroubleshoot/util.py:229
+#: ../src/setroubleshoot/util.py:242
 msgid "Unknown"
 msgstr "Desconocido"
 
-#: ../src/setroubleshoot/audit_data.py:995
+#: ../src/setroubleshoot/audit_data.py:1004
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
-"**** AVC inválido pero permitido en la política actual ***\n"
+"**** AVC no válida permitida en la política actual ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:997
+#: ../src/setroubleshoot/audit_data.py:1006
 #, python-format
 msgid ""
 "%s \n"
@@ -68,74 +71,74 @@ msgid ""
 "dontaudit rules. ***\n"
 msgstr ""
 "%s \n"
-"**** AVC inválido no auditado en la política actual.  'semodule -B' iniciará "
-"reglas de no auditación. ***\n"
+"**** La AVC no es válida: sin auditoría en la política actual.  'semodule -"
+"B' activará las reglas de no auditación. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:999
+#: ../src/setroubleshoot/audit_data.py:1008
 msgid "Must call policy_init first"
 msgstr "Primero debe invocarse policy_init"
 
-#: ../src/setroubleshoot/audit_data.py:1001
+#: ../src/setroubleshoot/audit_data.py:1010
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
-"**** Contexto AVC de destino incorrecto no válido. ***\n"
+"**** La AVC no es válida: contexto de destino incorrecto. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1003
+#: ../src/setroubleshoot/audit_data.py:1012
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
-"**** Contexto AVC de fuente incorrecta no válido. ***\n"
+"**** La AVC no es válida: contexto de origen incorrecto. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1005
+#: ../src/setroubleshoot/audit_data.py:1014
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
-"**** Clase AVC de tipo incorrecto no válida ***\n"
+"**** La AVC no es válida: clase de tipo incorrecto ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1007
+#: ../src/setroubleshoot/audit_data.py:1016
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
-"**** Permiso incorrecto AVC no válido. ***\n"
+"**** La AVC no es válida: permiso incorrecto. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1009
+#: ../src/setroubleshoot/audit_data.py:1018
 msgid "Error during access vector computation"
 msgstr "Error durante el cómputo del vector de acceso"
 
-#: ../src/setroubleshoot/browser.py:171 ../gui/browser.glade.h:12
+#: ../src/setroubleshoot/browser.py:171 ../gui/browser.glade.h:14
 msgid "SELinux Alert Browser"
 msgstr "Alertas de SELinux"
 
-#: ../src/setroubleshoot/browser.py:175 ../gui/browser.glade.h:19
+#: ../src/setroubleshoot/browser.py:175 ../gui/browser.glade.h:21
 msgid "The source process:"
-msgstr "El proceso fuente:"
+msgstr "El proceso de origen:"
 
-#: ../src/setroubleshoot/browser.py:180 ../gui/browser.glade.h:15
+#: ../src/setroubleshoot/browser.py:180 ../gui/browser.glade.h:17
 msgid "Yes"
 msgstr "Sí"
 
-#: ../src/setroubleshoot/browser.py:182 ../gui/browser.glade.h:17
+#: ../src/setroubleshoot/browser.py:182 ../gui/browser.glade.h:19
 msgid "No"
 msgstr "No"
 
-#: ../src/setroubleshoot/browser.py:187 ../gui/browser.glade.h:20
+#: ../src/setroubleshoot/browser.py:187 ../gui/browser.glade.h:22
 msgid "Attempted this access:"
 msgstr "Ha intentado este acceso:"
 
-#: ../src/setroubleshoot/browser.py:201 ../gui/browser.glade.h:11
+#: ../src/setroubleshoot/browser.py:201 ../gui/browser.glade.h:12
 msgid "SETroubleshoot Details Window"
 msgstr "Ventana de detalles de solución de problemas de SELinux"
 
-#: ../src/setroubleshoot/browser.py:204 ../gui/browser.glade.h:14
+#: ../src/setroubleshoot/browser.py:204 ../gui/browser.glade.h:16
 msgid "Would you like to receive alerts?"
 msgstr "¿Le gustaría recibir alertas?"
 
-#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:24
+#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:26
 msgid "Notify Admin"
 msgstr "Notificar al administrador"
 
@@ -144,7 +147,7 @@ msgstr "Notificar al administrador"
 msgid "Troubleshoot"
 msgstr "Solucionar"
 
-#: ../src/setroubleshoot/browser.py:214 ../gui/browser.glade.h:26
+#: ../src/setroubleshoot/browser.py:214 ../gui/browser.glade.h:28
 msgid "Details"
 msgstr "Detalles"
 
@@ -152,7 +155,7 @@ msgstr "Detalles"
 msgid "SETroubleshoot Alert List"
 msgstr "Lista de alertas de SETroubleshoot"
 
-#: ../src/setroubleshoot/browser.py:223 ../gui/browser.glade.h:33
+#: ../src/setroubleshoot/browser.py:223 ../gui/browser.glade.h:37
 msgid "List All Alerts"
 msgstr "Listar todas las alertas"
 
@@ -190,11 +193,11 @@ msgid "Notify alert in the future."
 msgstr "Notificar alerta en el futuro."
 
 #: ../src/setroubleshoot/browser.py:348 ../src/setroubleshoot/browser.py:788
-#: ../src/setroubleshoot/browser.py:828 ../gui/browser.glade.h:27
+#: ../src/setroubleshoot/browser.py:828 ../gui/browser.glade.h:29
 msgid "Ignore"
 msgstr "Ignorar"
 
-#: ../src/setroubleshoot/browser.py:349 ../gui/browser.glade.h:28
+#: ../src/setroubleshoot/browser.py:349 ../gui/browser.glade.h:30
 msgid "Ignore alert in the future."
 msgstr "Ignorar alerta en el futuro."
 
@@ -205,10 +208,6 @@ msgstr "<b>Si estaba intentando...</b>"
 #: ../src/setroubleshoot/browser.py:394
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Entonces ésta es la solución.</b>"
-
-#: ../src/setroubleshoot/browser.py:413 ../src/setroubleshoot/browser.py:549
-msgid "If "
-msgstr "Si "
 
 #: ../src/setroubleshoot/browser.py:501
 msgid "Plugin\n"
@@ -242,12 +241,12 @@ msgid "On this %s:"
 msgstr "En esta %s:"
 
 #: ../src/setroubleshoot/browser.py:815 ../src/setroubleshoot/browser.py:821
-#: ../src/setroubleshoot/signature.py:391
+#: ../src/setroubleshoot/signature.py:397
 msgid "N/A"
 msgstr "N/A"
 
 #: ../src/setroubleshoot/browser.py:862 ../src/setroubleshoot/browser.py:863
-#: ../gui/browser.glade.h:31
+#: ../gui/browser.glade.h:34
 msgid "No Alerts"
 msgstr "Sin alertas"
 
@@ -341,7 +340,7 @@ msgstr "no autenticado"
 msgid "user lookup failed"
 msgstr "falló la búsqueda de usuario"
 
-#: ../src/setroubleshoot/gui_utils.py:53 ../src/sealert:531
+#: ../src/setroubleshoot/gui_utils.py:53 ../src/sealert:536
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "¡Ups, %s produjo un error!"
@@ -358,25 +357,25 @@ msgstr ""
 "desea permitir que $SOURCE_BASE_PATH tenga acceso $ACCESS al "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 
-#: ../src/setroubleshoot/server.py:191
+#: ../src/setroubleshoot/server.py:211
 #, python-format
-msgid " For complete SELinux messages. run sealert -l %s"
+msgid " For complete SELinux messages run: sealert -l %s"
 msgstr " Si quiere los mensajes de SELinux completos, ejecute sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:377
+#: ../src/setroubleshoot/server.py:398
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "El usuario (%s) no puede modificar los datos de (%s)"
 
-#: ../src/setroubleshoot/server.py:440 ../src/sealert:291
+#: ../src/setroubleshoot/server.py:462 ../src/sealert:296
 msgid "Started"
 msgstr "Iniciado"
 
-#: ../src/setroubleshoot/server.py:487
+#: ../src/setroubleshoot/server.py:660
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:553
+#: ../src/setroubleshoot/server.py:726
 msgid "Audit Listener"
 msgstr "Detectos de avisos"
 
@@ -436,147 +435,151 @@ msgstr "nodo"
 msgid "capability"
 msgstr "capacidad"
 
-#: ../src/setroubleshoot/signature.py:376
+#: ../src/setroubleshoot/signature.py:204
+msgid "capability2"
+msgstr "capacidad2"
+
+#: ../src/setroubleshoot/signature.py:381
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s es un tipo permisivo (%s). Este acceso no fue denegado."
 
-#: ../src/setroubleshoot/signature.py:379
+#: ../src/setroubleshoot/signature.py:384
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr ""
 "SELinux se encuentra funcionando en modo permisivo. Este acceso no fue "
 "denegado."
 
-#: ../src/setroubleshoot/signature.py:432
+#: ../src/setroubleshoot/signature.py:438
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr "SELinux está bloqueando a %s el acceso para %s sobre un proceso."
 
-#: ../src/setroubleshoot/signature.py:432
+#: ../src/setroubleshoot/signature.py:438
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr "SELinux está negando a %s  el acceso '%s' sobre un proceso."
 
-#: ../src/setroubleshoot/signature.py:435
+#: ../src/setroubleshoot/signature.py:441
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "SELinux está negando a %s el uso de la capacidad de %s."
 
-#: ../src/setroubleshoot/signature.py:435
+#: ../src/setroubleshoot/signature.py:441
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux está negando a %s el uso de las capacidades '%s'."
 
-#: ../src/setroubleshoot/signature.py:437
+#: ../src/setroubleshoot/signature.py:443
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr ""
 "SELinux esta previniendo acceso de %s desde %s  a %s etiquetado con %s."
 
-#: ../src/setroubleshoot/signature.py:437
+#: ../src/setroubleshoot/signature.py:443
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr ""
 "SELinux esta previniendo accesos de %s desde '%s' a %s etiquetado con %s."
 
-#: ../src/setroubleshoot/signature.py:438
+#: ../src/setroubleshoot/signature.py:444
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux está negando a %s de %s el acceso a %s %s."
 
-#: ../src/setroubleshoot/signature.py:438
+#: ../src/setroubleshoot/signature.py:444
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux está negando a %s de '%s' el acceso a %s %s."
 
-#: ../src/setroubleshoot/signature.py:469
+#: ../src/setroubleshoot/signature.py:476
 msgid "Additional Information:\n"
 msgstr "Información adicional:\n"
 
-#: ../src/setroubleshoot/signature.py:470
+#: ../src/setroubleshoot/signature.py:477
 msgid "Source Context"
-msgstr "Contexto Fuente"
+msgstr "Contexto de origen"
 
-#: ../src/setroubleshoot/signature.py:471
+#: ../src/setroubleshoot/signature.py:478
 msgid "Target Context"
 msgstr "Contexto Destino"
 
-#: ../src/setroubleshoot/signature.py:472
+#: ../src/setroubleshoot/signature.py:479
 msgid "Target Objects"
 msgstr "Objetos Destino"
 
-#: ../src/setroubleshoot/signature.py:473
+#: ../src/setroubleshoot/signature.py:480
 msgid "Source"
-msgstr "Fuente"
+msgstr "Origen"
 
-#: ../src/setroubleshoot/signature.py:474
+#: ../src/setroubleshoot/signature.py:481
 msgid "Source Path"
-msgstr "Dirección de Fuente"
+msgstr "Dirección de origen"
 
-#: ../src/setroubleshoot/signature.py:475
+#: ../src/setroubleshoot/signature.py:482
 msgid "Port"
 msgstr "Puerto"
 
-#: ../src/setroubleshoot/signature.py:477
-#: ../src/setroubleshoot/signature.py:479
+#: ../src/setroubleshoot/signature.py:484
+#: ../src/setroubleshoot/signature.py:486
 msgid "Host"
 msgstr "Nombre de Equipo"
 
-#: ../src/setroubleshoot/signature.py:480
+#: ../src/setroubleshoot/signature.py:487
 msgid "Source RPM Packages"
 msgstr "Paquetes RPM Fuentes"
 
-#: ../src/setroubleshoot/signature.py:481
+#: ../src/setroubleshoot/signature.py:488
 msgid "Target RPM Packages"
 msgstr "Paquetes RPM Destinos"
 
-#: ../src/setroubleshoot/signature.py:482
+#: ../src/setroubleshoot/signature.py:489
 msgid "Policy RPM"
 msgstr "RPM de Políticas"
 
-#: ../src/setroubleshoot/signature.py:483
+#: ../src/setroubleshoot/signature.py:490
 msgid "Selinux Enabled"
 msgstr "SELinux activado"
 
-#: ../src/setroubleshoot/signature.py:484
+#: ../src/setroubleshoot/signature.py:491
 msgid "Policy Type"
 msgstr "Tipo de política"
 
-#: ../src/setroubleshoot/signature.py:485
+#: ../src/setroubleshoot/signature.py:492
 msgid "Enforcing Mode"
 msgstr "Modo impositivo"
 
-#: ../src/setroubleshoot/signature.py:487
-#: ../src/setroubleshoot/signature.py:489
+#: ../src/setroubleshoot/signature.py:494
+#: ../src/setroubleshoot/signature.py:496
 msgid "Host Name"
 msgstr "Nombre de equipo"
 
-#: ../src/setroubleshoot/signature.py:494
-#: ../src/setroubleshoot/signature.py:496
+#: ../src/setroubleshoot/signature.py:501
+#: ../src/setroubleshoot/signature.py:503
 msgid "Platform"
 msgstr "Plataforma"
 
-#: ../src/setroubleshoot/signature.py:497
+#: ../src/setroubleshoot/signature.py:504
 msgid "Alert Count"
 msgstr "Cantidad de alertas"
 
-#: ../src/setroubleshoot/signature.py:499
+#: ../src/setroubleshoot/signature.py:506
 msgid "First Seen"
 msgstr "Visto por primera vez"
 
-#: ../src/setroubleshoot/signature.py:500
+#: ../src/setroubleshoot/signature.py:507
 msgid "Last Seen"
 msgstr "Visto por última vez"
 
-#: ../src/setroubleshoot/signature.py:501
+#: ../src/setroubleshoot/signature.py:508
 msgid "Local ID"
 msgstr "ID local"
 
-#: ../src/setroubleshoot/signature.py:503
+#: ../src/setroubleshoot/signature.py:510
 msgid "Raw Audit Messages"
 msgstr "Mensajes raw de aviso"
 
-#: ../src/setroubleshoot/signature.py:557
+#: ../src/setroubleshoot/signature.py:564
 #, python-format
 msgid "\n"
 "\n"
@@ -585,33 +588,33 @@ msgstr "\n"
 "\n"
 "*****  El complemento %s (%.4s confidence) sugiere"
 
-#: ../src/setroubleshoot/signature.py:560
+#: ../src/setroubleshoot/signature.py:567
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:561
+#: ../src/setroubleshoot/signature.py:568
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:563
+#: ../src/setroubleshoot/signature.py:570
 msgid "\n"
 "If "
 msgstr "\n"
 "Si "
 
-#: ../src/setroubleshoot/signature.py:565
+#: ../src/setroubleshoot/signature.py:572
 msgid "\n"
 "Then "
 msgstr "\n"
 "Entonces"
 
-#: ../src/setroubleshoot/signature.py:568
+#: ../src/setroubleshoot/signature.py:575
 msgid "\n"
 "Do\n"
 msgstr "\n"
 "Hacer\n"
 
-#: ../src/setroubleshoot/signature.py:570
+#: ../src/setroubleshoot/signature.py:577
 msgid "\n"
 "\n"
 msgstr "\n"
@@ -648,34 +651,34 @@ msgstr "Mostrar"
 msgid "SELinux AVC denial, click to view"
 msgstr "Negación AVC de SELinux, pulse para ver"
 
-#: ../src/sealert:103
+#: ../src/sealert:106
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
 "SELinux no está habilitado, sealert no será ejecutado sobre sistemas que no "
 "ejecuten SELinux"
 
-#: ../src/sealert:150
+#: ../src/sealert:153
 msgid "Not fixable."
 msgstr "No corregible."
 
-#: ../src/sealert:157
+#: ../src/sealert:160
 #, c-format
 msgid "Successfully ran %s"
 msgstr "Ejecutó %s con éxito"
 
-#: ../src/sealert:162
+#: ../src/sealert:167
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "El complemento %s no es válido para el id %s"
 
 #: ../src/setroubleshootd:73
 msgid "SELinux not enabled, setroubleshootd exiting..."
-msgstr "SELinux no está habilitado, setroubleshootd saliendo..."
+msgstr "SELinux no está habilitado, saliendo de setroubleshootd..."
 
 #: ../src/setroubleshootd:105
 #, c-format
 msgid "fork #1 failed: %d (%s)"
-msgstr "fork #1falló: %d (%s)"
+msgstr "fork #1 falló: %d (%s)"
 
 #: ../gui/browser.glade.h:1
 msgid ""
@@ -696,30 +699,38 @@ msgid "Troubleshoot selected alert"
 msgstr "Solucionar la alerta seleccionada"
 
 #: ../gui/browser.glade.h:10
+msgid "Delete"
+msgstr "Eliminar"
+
+#: ../gui/browser.glade.h:11
 msgid "Delete Selected Alerts"
 msgstr "Eliminar las alertas seleccionadas"
 
 #: ../gui/browser.glade.h:13
+msgid "Close"
+msgstr "Cerrar"
+
+#: ../gui/browser.glade.h:15
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux ha detectado un problema.</b>"
 
-#: ../gui/browser.glade.h:16
+#: ../gui/browser.glade.h:18
 msgid "Turn on alert pop-ups."
 msgstr "Activar ventanas emergentes de alerta."
 
-#: ../gui/browser.glade.h:18
+#: ../gui/browser.glade.h:20
 msgid "Turn off alert pop-ups."
 msgstr "Desactivar ventanas emergentes de alerta."
 
-#: ../gui/browser.glade.h:21
+#: ../gui/browser.glade.h:23
 msgid "On this file:"
 msgstr "En este archivo:"
 
-#: ../gui/browser.glade.h:22
+#: ../gui/browser.glade.h:24
 msgid "label"
 msgstr "etiqueta"
 
-#: ../gui/browser.glade.h:23
+#: ../gui/browser.glade.h:25
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
@@ -727,23 +738,31 @@ msgstr ""
 "Leer información de solución de problemas de la alerta.  Solucionarla puede "
 "requerir privilegios de administrador. "
 
-#: ../gui/browser.glade.h:25
+#: ../gui/browser.glade.h:27
 msgid "Email alert to system administrator."
 msgstr "Enviar alerta por correo-e al administrador del sistema."
 
-#: ../gui/browser.glade.h:29
+#: ../gui/browser.glade.h:31
 msgid "Delete current alert from the database."
 msgstr "Eliminar la alerta actual de la base de datos."
 
-#: ../gui/browser.glade.h:30
+#: ../gui/browser.glade.h:32
+msgid "Previous"
+msgstr "Anterior"
+
+#: ../gui/browser.glade.h:33
 msgid "Show previous alert."
 msgstr "Muestra la alerta previa."
 
-#: ../gui/browser.glade.h:32
+#: ../gui/browser.glade.h:35
+msgid "Next"
+msgstr "Siguiente"
+
+#: ../gui/browser.glade.h:36
 msgid "Show next alert."
 msgstr "Mostrar alerta siguiente."
 
-#: ../gui/browser.glade.h:34
+#: ../gui/browser.glade.h:38
 msgid "List all alerts in the database."
 msgstr "Listar todas las alertas en la base de datos."
 

@@ -14,21 +14,22 @@
 # Aiko Sasaki <asasaki@redhat.com>, 2016. #zanata
 # Kenzo Moriguchi <kmoriguc@redhat.com>, 2016. #zanata
 # Noriko Mizumoto <noriko@redhat.com>, 2016. #zanata
+# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 20:42+0200\n"
+"POT-Creation-Date: 2017-09-01 14:11+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-22 03:06-0400\n"
-"Last-Translator: Aiko Sasaki <asasaki@redhat.com>\n"
+"PO-Revision-Date: 2017-09-01 08:32-0400\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fedora/language/"
 "ja/)\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.9.5\n"
+"X-Generator: Zanata 3.9.6\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -79,8 +80,9 @@ msgstr ""
 
 #: ../src/allow_anon_write.py:44
 msgid ""
-"you want to allow $SOURCE_PATH to be able to write to shared public content"
-msgstr "$SOURCE_PATH による共有の公開コンテンツへの書き込みを許可します"
+"If you want to allow $SOURCE_PATH to be able to write to shared public "
+"content"
+msgstr ""
 
 #: ../src/allow_anon_write.py:45
 msgid ""
@@ -149,15 +151,15 @@ msgstr ""
 
 #: ../src/allow_execheap.py:50
 msgid ""
-"you do not think $SOURCE_PATH should need to map heap memory that is both "
+"If you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
-msgstr "$SOURCE_PATH に書き込みと実行の両方が可能となるヒープメモリーのマッピングを行なう必要があるとは思えません。"
+msgstr ""
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
 msgstr "バグをレポートする必要があります。これは危険なアクセスです。"
 
-#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:84
+#: ../src/allow_execheap.py:52 ../src/allow_execstack.py:91
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
 #: ../src/selinuxpolicy.py:46 ../src/setenforce.py:29 ../src/setenforce.py:50
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
@@ -214,24 +216,13 @@ msgid ""
 "    web page explains this check.  This tool examined the library and it "
 "looks\n"
 "    like it was built correctly. So setroubleshoot can not determine if this\n"
-"    application is compromized or not.  This could be a serious issue. Your\n"
+"    application is compromised or not.  This could be a serious issue. Your\n"
 "    system may very well be compromised.\n"
 "\n"
 "    Contact your security administrator and report this issue.\n"
 "\n"
 "    "
 msgstr ""
-"\n"
-"    $SOURCE アプリケーションは、テキスト移動を要求する $TARGET_PATH \n"
-"    のロードを試行しました。 セキュリティー上の問題となる可能性があります。\n"
-"    ほとんどのライブラリーはこの許可を必要としません。 \n"
-"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">\n"
-"    SELinux Memory Protection Tests</a>\n"
-"    のウェブページではこのチェックについて説明しています。 このツールはライブラリーが正しく\n"
-"    構築されたかどうかを調べます。そのため、setroubleshoot "
-"はこのアプリケーションがセキュリティーのリスクにさらされているかどうかを判別できません。これは重大な問題となる可能性があり、お使いのシステムがセキュリティーのリスクにさらされている可能性があります。\n"
-"    セキュリティー管理者に連絡し、この問題をレポートしてください。\n"
-"    "
 
 #: ../src/allow_execmod.py:62
 msgid ""
@@ -255,7 +246,7 @@ msgstr ""
 "    \n"
 "    "
 
-#: ../src/allow_execstack.py:53
+#: ../src/allow_execstack.py:60
 msgid ""
 "\n"
 "    SELinux is preventing $SOURCE_PATH from making the program stack "
@@ -265,7 +256,7 @@ msgstr "\n"
 "    SELinux は $SOURCE_PATH がプログラムスタックを実行可能にすることを阻止しています。\n"
 "    "
 
-#: ../src/allow_execstack.py:57
+#: ../src/allow_execstack.py:64
 msgid ""
 "\n"
 "    The $SOURCE application attempted to make its stack\n"
@@ -299,7 +290,7 @@ msgstr ""
 "    バグレポートを提出してください。\n"
 "    "
 
-#: ../src/allow_execstack.py:72
+#: ../src/allow_execstack.py:79
 msgid ""
 "\n"
 "    Sometimes a library is accidentally marked with the execstack flag,\n"
@@ -315,26 +306,26 @@ msgstr ""
 "を使用してそれを消去できます。その後にアプリケーションを再試行して下さい。アプリケーションが機能しない状態が継続する場合は、⏎ execstack -s "
 "LIBRARY_PATH を使用してフラグを戻すことができます。⏎ "
 
-#: ../src/allow_execstack.py:82
+#: ../src/allow_execstack.py:89
 msgid ""
-"you do not think $SOURCE_PATH should need to map stack memory that is both "
-"writable and executable."
-msgstr "$SOURCE_PATH に書き込みと実行の両方が可能となるスタックメモリーのマッピングを行なう必要があるとは思えません。"
+"If you do not think $SOURCE_PATH should need to map stack memory that is "
+"both writable and executable."
+msgstr ""
 
-#: ../src/allow_execstack.py:83
+#: ../src/allow_execstack.py:90
 msgid "you need to report a bug. \n"
 "This is a potentially dangerous access."
 msgstr "バグをレポートする必要があります。\n"
 "これは危険なアクセスです。"
 
-#: ../src/allow_execstack.py:92
+#: ../src/allow_execstack.py:99
 #, python-format
-msgid "you believe that \n"
+msgid "If you believe that \n"
 "%s\n"
 "should not require execstack"
-msgstr "%s は execstack を必要としないと信じています"
+msgstr ""
 
-#: ../src/allow_execstack.py:101
+#: ../src/allow_execstack.py:108
 #, python-format
 msgid ""
 "you should clear the execstack flag and see if $SOURCE_PATH works correctly.\n"
@@ -345,7 +336,7 @@ msgstr ""
 "これは %s のバグとして報告します。\n"
 "あなたは以下の実行による execstack フラグをクリアすることができます。"
 
-#: ../src/allow_execstack.py:111
+#: ../src/allow_execstack.py:118
 #, python-format
 msgid "execstack -c %s"
 msgstr "execstack -c %s"
@@ -424,8 +415,8 @@ msgstr ""
 "ディレクトリ) への書き込みも ftp デーモンに許可することになります。"
 
 #: ../src/allow_ftpd_use_cifs.py:62
-msgid "you want to allow ftpd to write to cifs file systems"
-msgstr "ftpdが、cifs ファイルシステムに書込むことを、許可したい"
+msgid "If you want to allow ftpd to write to cifs file systems"
+msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
@@ -508,12 +499,12 @@ msgstr ""
 "ftp デーモンに許可することになります。"
 
 #: ../src/allow_ftpd_use_nfs.py:64
-msgid "you want to allow ftpd to write to nfs file systems"
-msgstr "ftpd が、nfs ファイルシステムに書込むことを、許可したい"
+msgid "If you want to allow ftpd to write to nfs file systems"
+msgstr ""
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
-#: ../src/restorecon.py:42 ../src/restorecon_source.py:33
+#: ../src/restorecon.py:51 ../src/restorecon_source.py:33
 #: ../src/rsync_data.py:27 ../src/sshd_root.py:32
 msgid ""
 "\n"
@@ -543,9 +534,9 @@ msgstr ""
 #: ../src/associate.py:44
 #, python-format
 msgid ""
-"you want to change the label of $TARGET_PATH to %s, you are not allowed to "
-"since it is not a valid file type."
-msgstr "$TARGET_PATH のラベルを %s に変更したくても、それは有効なファイルタイプではないため、許可されません。"
+"If you want to change the label of $TARGET_PATH to %s, you are not allowed "
+"to since it is not a valid file type."
+msgstr ""
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -661,6 +652,10 @@ msgstr ""
 "をオンにすると問題を解決するかも知れません。setsebool -P allow_ypbind=1\n"
 "    "
 
+#: ../src/bind_ports.py:47
+msgid "If you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER"
+msgstr ""
+
 #: ../src/bind_ports.py:53 ../src/connect_ports.py:51
 #, python-format
 msgid ""
@@ -724,8 +719,8 @@ msgstr ""
 
 #: ../src/catchall_boolean.py:62
 #, python-format
-msgid "you want to %s"
-msgstr "%s がしたい"
+msgid "If you want to %s"
+msgstr ""
 
 #: ../src/catchall_boolean.py:65
 #, python-format
@@ -831,24 +826,21 @@ msgstr ""
 
 #: ../src/catchall.py:50
 msgid ""
-"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
-"$SOURCE_BASE_PATH に、 $TARGET_TYPE にラベルされている $ACCESS アクセスがデフォルトで許可されるべきです。   "
 
 #: ../src/catchall.py:52
 msgid ""
-"you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
+"If you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
-msgstr "$SOURCE_BASE_PATH には $ACCESS 機能をデフォルトで持たせるべきだと思います。"
+msgstr ""
 
 #: ../src/catchall.py:53
 msgid ""
-"you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the "
-"$TARGET_BASE_PATH $TARGET_CLASS by default."
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"the $TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
-"$SOURCE_BASE_PATH に、 $TARGET_BASE_PATH $TARGET_CLASS の $ACCESS "
-"アクセスがデフォルトで許可されるべきです。   "
 
 #: ../src/catchall.py:55
 msgid ""
@@ -861,12 +853,9 @@ msgstr "バグとして報告してください。 \n"
 #: ../src/catchall.py:56
 msgid ""
 "Allow this access for now by executing:\n"
-"# ausearch -c $SOURCE --raw | audit2allow -M mypol\n"
-"# semodule -i mypol.pp"
+"# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
+"# semodule -i my-$MODULE_NAME.pp"
 msgstr ""
-"このアクセスを一時的に許可するには、以下を実行してください。\n"
-"# ausearch -c $SOURCE --raw | audit2allow -M mypol\n"
-"# semodule -i mypol.pp"
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
@@ -889,19 +878,9 @@ msgid ""
 "    \n"
 "\n"
 "If $SOURCE is not supposed\n"
-"    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
+"    to connect to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
-"\n"
-"    $SOURCE によるポートに関連付けられた SELinux タイプを持たないネットワークポート $PORT_NUMBER "
-"への接続を、SELinux は拒否しました。\n"
-"    $SOURCE の $PORT_NUMBER での接続を許可する必要がある場合、<i>semanage</i> "
-"コマンドを使用して、$PORT_NUMBER を  $SOURCE_TYPE が接続できるポートタイプに割り当てます (%s)。 \n"
-"    \n"
-"\n"
-"$SOURCE による $PORT_NUMBER への接続が想定されていない場合、 \n"
-"    不正侵入の試行が示唆される可能性があります。\n"
-"    "
 
 #: ../src/connect_ports.py:38
 #, python-format
@@ -922,6 +901,11 @@ msgstr ""
 "\n"
 "   ここで、PORT_TYPE は 以下の１つとなります: %s 。\n"
 "    "
+
+#: ../src/connect_ports.py:45 ../src/sandbox_connect.py:47
+msgid ""
+"If you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
+msgstr ""
 
 #: ../src/chrome.py:31
 msgid ""
@@ -958,8 +942,8 @@ msgstr ""
 
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
-msgid "you want to use the %s package"
-msgstr "%s パッケージを使用したいです"
+msgid "If you want to use the %s package"
+msgstr ""
 
 #: ../src/chrome.py:43
 msgid "you must turn off SELinux controls on the Chrome plugins."
@@ -1014,8 +998,8 @@ msgstr ""
 "    "
 
 #: ../src/cvs_data.py:44
-msgid "$TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr "$TARGET_BASE_PATH は cvs デーモンを経由して共有されているべきです。"
+msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"
+msgstr ""
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
@@ -1046,9 +1030,9 @@ msgstr ""
 
 #: ../src/dac_override.py:38
 msgid ""
-"you want to help identify if domain needs this access or you have a file "
+"If you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
-msgstr "ドメインがこのアクセスを必要とするか、又は使用システム上に間違えたパーミッションで ファイルを所有しているかを確認すると良いでしょう"
+msgstr ""
 
 #: ../src/dac_override.py:39
 msgid ""
@@ -1178,8 +1162,8 @@ msgstr "\n"
 "    "
 
 #: ../src/disable_ipv6.py:40
-msgid "you want to disable IPV6 on this machine"
-msgstr "このマシンにおいて IPv6 を無効化したいです"
+msgid "If you want to disable IPV6 on this machine"
+msgstr ""
 
 #: ../src/disable_ipv6.py:41
 msgid ""
@@ -1239,12 +1223,12 @@ msgstr ""
 "    "
 
 #: ../src/file.py:49
-msgid "this is caused by a newly created file system."
-msgstr "これは新規作成されたファイルシステムによって引き起こされたものです。"
+msgid "This is caused by a newly created file system."
+msgstr ""
 
 #: ../src/file.py:51
-msgid "you think this is caused by a badly mislabeled machine."
-msgstr "これは間違ったラベルを付けられたマシンによって起こされました"
+msgid "If you think this is caused by a badly mislabeled machine."
+msgstr ""
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
@@ -1303,9 +1287,9 @@ msgstr "\n"
 
 #: ../src/filesystem_associate.py:43
 msgid ""
-"you believe $SOURCE_BASE_PATH should be allowed to create $TARGET_BASE_PATH "
-"files"
-msgstr "$SOURCE_BASE_PATH は、 $TARGET_BASE_PATH ファイルを作成するために許可されているべきです。"
+"If you believe $SOURCE_BASE_PATH should be allowed to create "
+"$TARGET_BASE_PATH files"
+msgstr ""
 
 #: ../src/filesystem_associate.py:44
 msgid ""
@@ -1334,15 +1318,9 @@ msgid ""
 "    SELinux has denied the http daemon from sending mail. An\n"
 "    httpd script is trying to connect to a mail port or execute the\n"
 "    sendmail command. If you did not setup httpd to sendmail, this could\n"
-"    signal a intrusion attempt.\n"
+"    signal an intrusion attempt.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux は http デーモンによるメール送信を拒否しました。\n"
-"    httpd スクリプトの１つがメールポートへの接続、または sendmail  \n"
-"    コマンドの実行を試行しています。 httpd に sendmail を設定していなかった場合、\n"
-"     不正侵入の試行が示唆される可能性があります。\n"
-"    "
 
 #: ../src/httpd_can_sendmail.py:39
 msgid ""
@@ -1359,8 +1337,8 @@ msgstr ""
 "    "
 
 #: ../src/httpd_can_sendmail.py:47
-msgid "you want to allow httpd to send mail"
-msgstr "httpd が、メール送信することを、許可したい"
+msgid "If you want to allow httpd to send mail"
+msgstr ""
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
@@ -1427,9 +1405,9 @@ msgstr ""
 
 #: ../src/httpd_unified.py:57
 msgid ""
-"you want to allow httpd to execute cgi scripts and to unify HTTPD handling "
-"of all content files."
-msgstr "httpd による cgi スクリプトの実行、 および全コンテンツファイルの HTTPD 処理の統一を許可します。"
+"If you want to allow httpd to execute cgi scripts and to unify HTTPD "
+"handling of all content files."
+msgstr ""
 
 #: ../src/httpd_unified.py:58
 msgid ""
@@ -1462,7 +1440,7 @@ msgstr ""
 "    "
 
 #: ../src/httpd_write_content.py:40 ../src/qemu_blk_image.py:45
-#: ../src/samba_share.py:45 ../src/swapfile.py:46 ../src/xen_image.py:48
+#: ../src/samba_share.py:45 ../src/swapfile.py:45 ../src/xen_image.py:48
 msgid "You need to change the label on '$FIX_TARGET_PATH'"
 msgstr "'$FIX_TARGET_PATH' のラベルを変更する必要があります"
 
@@ -1499,10 +1477,9 @@ msgstr ""
 
 #: ../src/kernel_modules.py:44 ../src/selinuxpolicy.py:44
 msgid ""
-"you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
+"If you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
 msgstr ""
-"$SOURCE_BASE_PATH が $TARGET_BASE_PATH の  $ACCESS access を試みるべきではありません。   "
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
@@ -1558,12 +1535,10 @@ msgstr ""
 
 #: ../src/leaks.py:42
 msgid ""
-"you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the "
+"If you want to ignore $SOURCE_BASE_PATH trying to $ACCESS access the "
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
 "access."
 msgstr ""
-"$SOURCE_BASE_PATH が、 $TARGET_BASE_PATH $TARGET_CLASS へ $ACCESS "
-"アクセスを試みることを、拒否したい。このアクセスが必要とは思えないため。"
 
 #: ../src/leaks.py:43
 msgid ""
@@ -1574,11 +1549,9 @@ msgstr "バグとして報告してください。  \n"
 
 #: ../src/leaks.py:44
 msgid ""
-"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M mypol\n"
-"# semodule -i mypol.pp"
+"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
+"# semodule -i my-$SOURCE.pp"
 msgstr ""
-"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M mypol\n"
-"# semodule -i mypol.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1596,33 +1569,24 @@ msgid ""
 "\n"
 "    SELinux has denied the $SOURCE the ability to mmap low area of the "
 "kernel \n"
-"    address space.  The ability to mmap a low area of the address space, as \n"
+"    address space.  The ability to mmap a low area of the address space is \n"
 "    configured by /proc/sys/kernel/mmap_min_addr.  Preventing such mappings \n"
 "    helps protect against exploiting null deref bugs in the kernel. All \n"
 "    applications that need this access should have already had policy "
 "written \n"
-"    for them.  If a compromised application tries modify the kernel this AVC "
-"\n"
+"    for them.  If a compromised application tries to modify the kernel, this "
+"AVC \n"
 "    would be generated. This is a serious issue. Your system may very well "
 "be \n"
 "    compromised.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux は カーネルアドレススペースの低位置を mmap する $SOURCE の 機能を\n"
-" 拒否しました。アドレススペースの低位置を mmap する機能は、\n"
-"/proc/sys/kernel/mmap_min_addr で設定されます。 このようなマッピングを拒否すると、 \n"
-"カーネル内での null deref バグの悪用を防止する手助けになります。 このアクセスを\n"
-"必要とするアプリケーションはすべて独自のポリシーが記述されているはずです。\n"
-"セキュリティ侵害されたアプリケーションによりカーネルの修正が試行されると、 \n"
-"この AVC が生成されます。 これは深刻な問題となります。 ご使用のシステムは非常に\n"
-"高い確率でセキュリティ侵害されている可能性があります。\n"
-"    "
 
 #: ../src/mmap_zero.py:46
 msgid ""
-"you do not think $SOURCE_PATH should need to mmap low memory in the kernel."
-msgstr "$SOURCE_PATH にカーネル内で低いメモリーの mmap を行なう必要があるとは思えません。"
+"If you do not think $SOURCE_PATH should need to mmap low memory in the "
+"kernel."
+msgstr ""
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
@@ -1679,8 +1643,8 @@ msgstr ""
 "    "
 
 #: ../src/mounton.py:48
-msgid "you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
-msgstr "$SOURCE_BASE_PATH が、 $TARGET_BASE_PATH 上でマウントすることを、許可したい。"
+msgid "If you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
+msgstr ""
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
@@ -1751,9 +1715,9 @@ msgstr ""
 
 #: ../src/mozplugger_remove.py:44
 msgid ""
-"you want to to continue using SELinux Firefox plugin containment rather then "
-"using mozplugger package"
-msgstr "mozplugger パッケージではなく、SELinux Firefox プラグインの内容を続けて使用したいとします。"
+"If you want to to continue using SELinux Firefox plugin containment rather "
+"then using mozplugger package"
+msgstr ""
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
@@ -1763,47 +1727,38 @@ msgstr "mozplugger パッケージを削除する必要があります。"
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
-"    be a mislabeled. openvpn is allowed to read content in home directory if "
+"    be mislabeled. openvpn is allowed to read content in home directory if "
 "it\n"
 "    is labeled correctly.\n"
 "    "
 msgstr ""
-"\n"
-"      SELinux は $SOURCE により要求されたアクセスを拒否しました。$TARGET_PATH \n"
-"     には誤ったラベルが付けられている可能性があります。ラベルが適切に設定されている場合、openvpn はホームディレクトリーの \n"
-"      コンテンツを読み込むことができます。\n"
-"      "
 
-#: ../src/openvpn.py:41 ../src/sshd_root.py:42
+#: ../src/openvpn.py:41
 msgid ""
 "\n"
 "    You can restore the default system context to this file by executing the\n"
-"    restorecon command.  restorecon restore using restorecon -R /root/.ssh.\n"
+"    restorecon command.  \n"
+"    # restorecon -R /root/.ssh\n"
 "    "
 msgstr ""
-"\n"
-"    restorecon コマンドを実行することにより、このファイルへデフォルトのシステムコンテキストを\n"
-"    復元することが出来ます。restorecon は restorecon -R /root/.ssh を使用して \n"
-"復元します。"
 
-#: ../src/openvpn.py:48
+#: ../src/openvpn.py:49
 msgid ""
-"you want to mv $TARGET_BASE_PATH to standard location so that "
+"If you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
-"$SOURCE_BASE_PATH が $ACCESS へアクセスできるよう、 $TARGET_BASE_PATH を標準の場所に移動したい"
 
-#: ../src/openvpn.py:50
+#: ../src/openvpn.py:51
 msgid ""
-"you want to modify the label on $TARGET_BASE_PATH so that $SOURCE_BASE_PATH "
-"can have $ACCESS access on it"
-msgstr "$SOURCE_BASE_PATH が $ACCESS へアクセスできるよう、 $TARGET_BASE_PATH のラベルを編集したい"
+"If you want to modify the label on $TARGET_BASE_PATH so that "
+"$SOURCE_BASE_PATH can have $ACCESS access on it"
+msgstr ""
 
-#: ../src/openvpn.py:54
+#: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
 msgstr "cert ファイルを ~/.cert directory に移動しなければいけません"
 
-#: ../src/openvpn.py:56 ../src/sshd_root.py:47
+#: ../src/openvpn.py:57 ../src/sshd_root.py:48
 msgid "you must fix the labels."
 msgstr "ラベルを修正しなければいけません。"
 
@@ -1844,8 +1799,8 @@ msgstr ""
 "'$FIX_TARGET_PATH'\"    "
 
 #: ../src/public_content.py:50
-msgid "you want to treat $TARGET_BASE_PATH as public content"
-msgstr "$TARGET_BASE_PATH を公開コンテンツとして処理します"
+msgid "If you want to treat $TARGET_BASE_PATH as public content"
+msgstr ""
 
 #: ../src/public_content.py:51
 msgid ""
@@ -1934,10 +1889,10 @@ msgstr ""
 "として使用する意図がなかった場合は、 バグまたは不正侵入の試行を示している可能性があります。"
 
 #: ../src/qemu_file_image.py:48
-msgid "$TARGET_BASE_PATH is a virtualization target"
-msgstr "$TARGET_BASE_PATH は仮想的なターゲットです"
+msgid "If $TARGET_BASE_PATH is a virtualization target"
+msgstr ""
 
-#: ../src/restorecon.py:48
+#: ../src/restorecon.py:57
 msgid ""
 "\n"
 "    You can restore the default system context to this file by executing the\n"
@@ -1953,14 +1908,14 @@ msgstr ""
 "使用して再帰的に復元することができます。\n"
 "    "
 
-#: ../src/restorecon.py:55
+#: ../src/restorecon.py:64
 #, python-format
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
-"    be a mislabeled.  $TARGET_PATH default SELinux type is\n"
+"    be mislabeled.  $TARGET_PATH default SELinux type is\n"
 "    <B>%s</B>, but its current type is <B>$TARGET_TYPE</B>. Changing\n"
-"    this file back to the default type, may fix your problem.\n"
+"    this file back to the default type may fix your problem.\n"
 "    <p>\n"
 "    File contexts can be assigned to a file in the following ways.\n"
 "    <ul>\n"
@@ -1993,45 +1948,22 @@ msgid ""
 "package.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux は $SOURCE により要求されたアクセスを拒否しました。$TARGET_PATH "
-"に誤ったラベルが付けられている可能性があります。 $TARGET_PATH のデフォルト SELinux タイプは\n"
-"    <B>%s</B> ですが、現在のタイプは <B>$TARGET_TYPE</B> です。 このファイルを\n"
-"    デフォルトのタイプに戻すことにより、問題が解決される可能性があります。\n"
-"    <p>\n"
-"    ファイルコンテキストは以下の方法で １つのファイルに割り当てることができます。\n"
-"    <ul>\n"
-"        <li>１つのディレクトリー内で作成されたファイルは、デフォルトで親ディレクトリーのファイルコンテキストを受け取ります。\n"
-"        <li>SELinux ポリシーは、ラベル B が付けられたディレクトリー内にファイルを作成するコンテキスト A "
-"内で実行しているプロセスを指定することにより、\n"
-"            親ディレクトリーから継承したデフォルトのラベルを上書きし、代わりにラベル C を持つファイルを作成するようになります。\n"
-"            この例として、dhclient_t タイプで実行していて、ディレクトリー /etc 内にファイルを作成するような dhcp "
-"クライアントがあります。このファイルは、\n"
-"            通常、親からの継承により etc_t  タイプを受け取りますが、SELinux ポリシーの指定により、このファイルには代わりに "
-"net_conf_t タイプでラベルが付けられます。\n"
-"        <li>ユーザーは、chcon や restorecon などのツールを使用することで、 "
-"ファイル上のファイルコンテキストを変更することができます。\n"
-"    </ul>\n"
-"   "
-"ユーザーエラーか、または通常の制約されたアプリケーションが間違ったドメインで実行されたことにより、このファイルには間違ったラベルが付けられた可能性があります。\n"
-"    <p> \n"
-"    しかし、このファイルにこのタイプのラベルが付けられるはずがないため、これは SELinux 内のバグである可能性もあります。\n"
-"     <p>\n"
-"    これがバグだと思われる場合は、このパッケージについてのバグレポートを作成して下さい。\n"
-"    "
 
-#: ../src/restorecon.py:81
+#: ../src/restorecon.py:90
 #, python-format
-msgid "you want to fix the label. \n"
+msgid ""
+"If you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
-msgstr "ラベルを修正することになります。\n"
-"$TARGET_PATH のデフォルトラベルは %s のはずです。"
+msgstr ""
 
-#: ../src/restorecon.py:86 ../src/restorecon_source.py:65
-msgid "you can run restorecon."
-msgstr "restorecon を実行することができます。"
+#: ../src/restorecon.py:96
+msgid ""
+"you can run restorecon. The access attempt may have been stopped due to "
+"insufficient permissions to access a parent directory in which case try to "
+"change the following command accordingly."
+msgstr ""
 
-#: ../src/restorecon.py:94 ../src/restorecon_source.py:73
+#: ../src/restorecon.py:105 ../src/restorecon_source.py:73
 msgid "Restore\n"
 "Context"
 msgstr "コンテキストの\n"
@@ -2054,9 +1986,9 @@ msgstr ""
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $SOURCE_PATH may\n"
-"    be a mislabeled.  $SOURCE_PATH default SELinux type is\n"
+"    be mislabeled.  $SOURCE_PATH default SELinux type is\n"
 "    <B>%s</B>, but its current type is <B>$SOURCE_TYPE</B>. Changing\n"
-"    this file back to the default type, may fix your problem.\n"
+"    this file back to the default type may fix your problem.\n"
 "    <p>\n"
 "    This file could have been mislabeled either by user error, or if an "
 "normally confined application\n"
@@ -2070,46 +2002,28 @@ msgid ""
 "package.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux により $SOURCE のアクセスが拒否されました。\n"
-"    $SOURCE_PATH に誤ったラベルが付けられている可能性があります。\n"
-"    $SOURCE_PATH のデフォルトの SELinux タイプは <B>%s</B> ですが、\n"
-"    現在のタイプは <B>$SOURCE_TYPE</B> です。\n"
-"    このファイルをデフォルトのタイプに戻すと、問題が解決するかもしれません。\n"
-"    <p>\n"
-"    ユーザーエラーか、または通常の制限されたアプリケーションが誤ったドメイン\n"
-"    で実行されたことにより、このファイルには誤ったラベルが付けられた可能性があります。\n"
-"    <p> \n"
-"    しかし、このファイルにこのタイプでラベルが付けられるはずがないため、\n"
-"    SELinux のバグである可能性もあります。\n"
-"    <p>\n"
-"    これがバグだと思われる場合は、このパッケージについてのバグ報告を提出してください。\n"
-"    "
 
 #: ../src/restorecon_source.py:60
 #, python-format
-msgid "you want to fix the label. \n"
+msgid ""
+"If you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
-msgstr "ラベルを修正することになります。 \n"
-"$SOURCE_PATH の標準ランレベルは %s のはずです。"
+msgstr ""
+
+#: ../src/restorecon_source.py:65
+msgid "you can run restorecon."
+msgstr "restorecon を実行することができます。"
 
 #: ../src/rsync_data.py:31
 msgid ""
 "\n"
-"    SELinux denied rsync access to $TARGET_PATH.\n"
-"    If this is a RSYNC repository it has to have a file context label of\n"
-"    rsync_data_t. If you did not intend to use $TARGET_PATH as a rsync "
-"repository\n"
-"    it could indicate either a bug or it could signal a intrusion attempt.\n"
+"    SELinux denied RSYNC access to $TARGET_PATH.\n"
+"    If this is an RSYNC repository, it has to have a file context label of\n"
+"    rsync_data_t. If you did not intend to use $TARGET_PATH as an RSYNC "
+"repository,\n"
+"    this message could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux は rsync が $TARGET_PATH にアクセスするのを拒否しました。\n"
-"     これが、RSYNC のレポジトリーであるなら、rsync_data_t のファイル \n"
-"    コンテキストラベルを持っている必要があります。$TARGET_PATH を \n"
-"    rsync レポジトリーとして使用する予定でなかった場合、これはバグか、\n"
-"     あるいは、侵入の試みを示します。\n"
-"    "
 
 #: ../src/rsync_data.py:38
 msgid ""
@@ -2128,8 +2042,8 @@ msgstr ""
 "    "
 
 #: ../src/rsync_data.py:45
-msgid "$TARGET_BASE_PATH should be shared via the rsync daemon"
-msgstr "$TARGET_BASE_PATH は rsync デーモンによって共有されるべきです"
+msgid "If $TARGET_BASE_PATH should be shared via the RSYNC daemon"
+msgstr ""
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
@@ -2154,20 +2068,12 @@ msgid ""
 "    If you want to share this directory with samba it has to have a file "
 "context label of\n"
 "    samba_share_t. If you did not intend to use $TARGET_PATH as a samba "
-"repository\n"
-"    it could indicate either a bug or it could signal a intrusion attempt.\n"
+"repository,\n"
+"    this message could indicate either a bug or an intrusion attempt.\n"
 "    Please refer to 'man samba_selinux' for more information on setting up "
 "Samba and SELinux.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux は samba が $TARGET_PATH へアクセスするのを拒否しました。\n"
-"     このディレクトリを samba で共有したい場合、samba_share_t の \n"
-"    ファイルコンテキストラベルを持っている必要があります。$TARGET_PATH を \n"
-"    samba レポジトリとして使用する意図で無かった場合、これはバグか、又は \n"
-"    侵入の試みの形跡を意味します。Samba と SELinux のセットアップに関する 詳細には 'man samba_selinux' "
-"を参照して下さい。    \n"
-"    "
 
 #: ../src/samba_share.py:39
 msgid ""
@@ -2201,25 +2107,16 @@ msgid ""
 "    SELinux has denied $SOURCE from connecting to a network port "
 "$PORT_NUMBER within a sandbox.\n"
 "    If $SOURCE should be allowed to connect on $PORT_NUMBER, you need to use "
-"a different sandbox type like sandbox_web_t or sandbox_net_t.  sandbox -X -t "
-"sandbox_net_t $SOURCE.\n"
+"a different sandbox type like sandbox_web_t or sandbox_net_t.  \n"
+"    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    \n"
 "\n"
 "If $SOURCE is not supposed\n"
-"    to connect to $PORT_NUMBER, this could signal a intrusion attempt.\n"
+"    to connect to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux は、$SOURCE が sandboxt の中でネットワークポート $PORT_NUMBER に接続することを拒否しました。\n"
-"    $SOURCE による $PORT_NUMBER への接続を許可する場合、他の sandbox_web_t や sandbox_net_t "
-"のようなサンドボックスタイプを使用する必要があります。sandbox -X -t sandbox_net_t $SOURCE を実行してください。\n"
-"    \n"
-"\n"
-"$SOURCE による $PORT_NUMBER への接続が想定されていない場合、\n"
-"    これは侵入の試みである可能性があります。\n"
-"    "
 
-#: ../src/sandbox_connect.py:40
+#: ../src/sandbox_connect.py:41
 msgid ""
 "\n"
 "    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute "
@@ -2234,11 +2131,7 @@ msgstr ""
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
 
-#: ../src/sandbox_connect.py:46
-msgid "you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr "$SOURCE_PATH がネットワークポート $PORT_NUMBER に接続したい場合"
-
-#: ../src/sandbox_connect.py:48
+#: ../src/sandbox_connect.py:49
 msgid ""
 "you need to modify the sandbox type. sandbox_web_t or sandbox_net_t.\n"
 "For example:\n"
@@ -2280,8 +2173,8 @@ msgstr ""
 "    "
 
 #: ../src/setenforce.py:27
-msgid "you did not directly cause this AVC through testing."
-msgstr "このAVCはこのテストによって直接起こったものではありません。"
+msgid "If you did not directly cause this AVC through testing."
+msgstr ""
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
@@ -2301,28 +2194,21 @@ msgstr ""
 #: ../src/setenforce.py:36
 msgid ""
 "\n"
-"    SELinux has prevented $SOURCE from writing to a file under /selinux.\n"
-"    Files under /selinux control the way SELinux is configured.\n"
-"    All programs that need to write to files under /selinux should have "
-"already had policy\n"
+"    SELinux has prevented $SOURCE from writing to a file under /sys/fs/"
+"selinux.\n"
+"    Files under /sys/fs/selinux control the way SELinux is configured.\n"
+"    All programs that need to write to files under /sys/fs/selinux should "
+"have already had policy\n"
 "    written for them. If a compromised application tries to turn off SELinux\n"
 "    this AVC will be generated. This is a serious issue. Your system may "
 "very\n"
 "    well be compromised.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux は $SOURCE による /selinux 以下のファイルへの書き込みを阻止しました。\n"
-"    /selinux 下のファイルは SELinux が設定される方法を制御します。\n"
-"    /selinux 下にファイルを書き込む必要のある全てのプログラムはそれ自身用に すでにポリシーを\n"
-"    書かせておくべきでした。侵害されたアプリケーションが SELinux を閉じる 試みをすると\n"
-"    この AVC が生成されるでしょう。これは重大な問題です。ご使用のシステムは 既に\n"
-"    侵害されている可能性があります。\n"
-"    "
 
 #: ../src/setenforce.py:48
-msgid "you believe $SOURCE_PATH tried to disable SELinux."
-msgstr "$SOURCE_PATH が SELinux を無効にしようとしました。"
+msgid "If you believe $SOURCE_PATH tried to disable SELinux."
+msgstr ""
 
 #: ../src/setenforce.py:49
 msgid ""
@@ -2334,18 +2220,22 @@ msgstr "このアクセスが制限したアプリケーションで必要とさ
 msgid ""
 "\n"
 "    SELinux denied access requested by $SOURCE. $TARGET_PATH may\n"
-"    be a mislabeled. sshd is allowed to read content in /root/.ssh directory "
+"    be mislabeled. sshd is allowed to read content in /root/.ssh directory "
 "if it\n"
 "    is labeled correctly.\n"
 "    "
 msgstr ""
-"\n"
-"      SELinux は $SOURCE により要求されたアクセスを拒否しました。$TARGET_PATH に\n"
-"      誤ったラベルが付けられている可能性があります。ラベルが適切に設定されている場合、sshd は /root/.ssh "
-"ディレクトリーのコンテンツを読み込むことができます。\n"
-"      "
 
-#: ../src/sshd_root.py:54
+#: ../src/sshd_root.py:42
+msgid ""
+"\n"
+"    You can restore the default system context to this file by executing the\n"
+"    restorecon command.\n"
+"    # restorecon -R /root/.ssh\n"
+"    "
+msgstr ""
+
+#: ../src/sshd_root.py:55
 msgid "Restore Context"
 msgstr "コンテキストの復元"
 
@@ -2363,22 +2253,14 @@ msgstr ""
 msgid ""
 "\n"
 "    SELinux denied $SOURCE access to $TARGET_PATH.\n"
-"    If this is a swapfile it has to have a file context label of\n"
+"    If this is a swapfile, it has to have a file context label of\n"
 "    swapfile_t. If you did not intend to use\n"
-"    $TARGET_PATH as a swapfile it probably indicates a bug, however it could "
-"also\n"
-"    signal a intrusion attempt.\n"
+"    $TARGET_PATH as a swapfile, this message could indicate either a bug or "
+"an intrusion attempt.\n"
 "    "
 msgstr ""
-"\n"
-"    SELinux は $TARGET_PATH への $SOURCE のアクセスを拒否しました。\n"
-"     これがスワップファイルならば、swapfile_t のファイルコンテキストラベルを \n"
-"    持っている必要があります。$TARGET_PATH をスワップファイルとして \n"
-"    使用する意図でなかった場合は、これは多分バグか、又は不正侵入の 試みの \n"
-"    形跡の可能性があります。\n"
-"     "
 
-#: ../src/swapfile.py:39
+#: ../src/swapfile.py:38
 msgid ""
 "\n"
 "    You can alter the file context by executing chcon -t swapfile_t "
@@ -2397,9 +2279,9 @@ msgstr ""
 
 #: ../src/sys_module.py:28
 msgid ""
-"you do not believe your $SOURCE_PATH should be modifying the kernel, by "
+"If you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
-msgstr "$SOURCE_PATH は kernel module をロードし、kernel を編集すべきではありません。"
+msgstr ""
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
@@ -2436,9 +2318,9 @@ msgstr ""
 
 #: ../src/sys_module.py:46
 msgid ""
-"you do not believe that $SOURCE_PATH should be attempting to modify the "
+"If you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
-msgstr "$SOURCE_PATH は kernel module をロードし、kernel を編集しようとすべきではありません。"
+msgstr ""
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
@@ -2470,9 +2352,9 @@ msgstr ""
 
 #: ../src/sys_resource.py:39
 msgid ""
-"you do not want processes to require capabilities to use up all the system "
-"resources on your system;"
-msgstr "プロセスにシステム上の全システムリソースを消費できる機能を要求させたくない場合;"
+"If you do not want processes to require capabilities to use up all the "
+"system resources on your system;"
+msgstr ""
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -2492,60 +2374,7 @@ msgid ""
 "/* Allow more than 64hz interrupts from the real-time clock */\n"
 "/* Override max number of consoles on console allocation */\n"
 "/* Override max number of keymaps */\n"
-"/* Override resource limits. Set resource limits. */\n"
-"/* Override quota limits. */\n"
-"/* Override reserved space on ext2 filesystem */\n"
-"/* Modify data journaling mode on ext3 filesystem (uses journaling\n"
-"   resources) */\n"
-"/* NOTE: ext2 honors fsuid when checking for resource overrides, so\n"
-"   you can override using fsuid too */\n"
-"/* Override size restrictions on IPC message queues */\n"
-"/* Allow more than 64hz interrupts from the real-time clock */\n"
-"/* Override max number of consoles on console allocation */\n"
-"/* Override max number of keymaps */\n"
-"/* Override resource limits. Set resource limits. */\n"
-"/* Override quota limits. */\n"
-"/* Override reserved space on ext2 filesystem */\n"
-"/* Modify data journaling mode on ext3 filesystem (uses journaling\n"
-"   resources) */\n"
-"/* NOTE: ext2 honors fsuid when checking for resource overrides, so\n"
-"   you can override using fsuid too */\n"
-"/* Override size restrictions on IPC message queues */\n"
-"/* Allow more than 64hz interrupts from the real-time clock */\n"
-"/* Override max number of consoles on console allocation */\n"
-"/* Override max number of keymaps */\n"
 msgstr ""
-"システムリソースが不足している原因を突き止め、 問題を解決する必要があります。⏎ ⏎ \n"
-"/usr/include/linux/capability.h によると、 sys_resource は次のような場合に必要となります。\n"
-"/* リソースの上限を無効にしてから設定する */\n"
-"/* クォータの上限を無効にする */\n"
-"/* ext2 ファイルシステム上の予約領域を無効にする */\n"
-"/* ext3 ファイルシステムのデータジャーナリングモードを変更する (ジャーナリングのリソースを使用)  */\n"
-"/* 注意: ext2 はリソースの無効化チェックの際に fsuid を受け取るため、fsuid を使用しても無効化を行なうことができます*/\n"
-"/* IPC メッセージキューでのサイズ制限を無効にする */\n"
-"/* リアルタイムクロックからの 64hz を超える割り込みを許可する */\n"
-"/* コンソール割り当てでコンソールの最大数を無効にする */\n"
-"/* キーマップの最大数を無効にする */\n"
-"/* リソースの上限を無効にしてから設定する */\n"
-"/* クォータの上限を無効にする */\n"
-"/* ext2 ファイルシステム上の予約領域を無効にする */\n"
-"/* ext3 ファイルシステムのデータジャーナリングモードを変更する (ジャーナリングのリソースを使用) */\n"
-"/* 注意:NOTE: ext2 はリソースの無効化チェックの際に fsuid を受け取るため、fsuid を使用しても無効化を行なうことができます */"
-"\n"
-"/* IPC メッセージキューでのサイズ制限を無効にする */\n"
-"/* リアルタイムクロックからの 64hz を超える割り込みを許可する */\n"
-"/* コンソール割り当てでコンソールの最大数を無効にする */\n"
-"/* キーマップの最大数を無効にする */\n"
-"/* リソースの上限を無効にしてから設定する */\n"
-"/* クォータの上限を無効にする */\n"
-"/* ext2 ファイルシステム上の予約領域を無効にする */\n"
-"/* ext3 ファイルシステムのデータジャーナリングモードを変更する (ジャーナリングのリソースを使用) */\n"
-"/* 注意:NOTE: ext2 はリソースの無効化チェックの際に fsuid を受け取るため、fsuid を使用しても無効化を行なうことができます */"
-"\n"
-"/* IPC メッセージキューでのサイズ制限を無効にする */\n"
-"/* リアルタイムクロックからの 64hz を超える割り込みを許可する */\n"
-"/* コンソール割り当てでコンソールの最大数を無効にする */\n"
-"/* キーマップの最大数を無効にする */\n"
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -2598,9 +2427,9 @@ msgstr ""
 
 #: ../src/vbetool.py:55
 msgid ""
-"you want to ignore this AVC because it is dangerous and your machine seems "
-"to be working correctly."
-msgstr "このAVCを無効にしたい。このAVCは警告だが、マシンは正常に動作しているため。"
+"If you want to ignore this AVC because it is dangerous and your machine "
+"seems to be working correctly."
+msgstr ""
 
 #: ../src/vbetool.py:56
 msgid ""
@@ -2664,9 +2493,9 @@ msgstr ""
 
 #: ../src/wine.py:66
 msgid ""
-"you want to ignore this AVC because it is dangerous and your wine "
+"If you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
-msgstr "この AVC を無効にしたい。この AVC は警告だが、wine アプリケーションは正常に動作しているため。"
+msgstr ""
 
 #: ../src/wine.py:67
 msgid ""
