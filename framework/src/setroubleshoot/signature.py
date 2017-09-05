@@ -24,15 +24,20 @@ from __future__ import print_function
 import six
 import syslog
 from subprocess import *
-import gettext
 from six.moves import range
 from functools import cmp_to_key
-translation=gettext.translation('setroubleshoot-plugins', fallback=True)
+import gettext
+from setroubleshoot.config import parse_config_setting, get_config
+
+translation=gettext.translation(domain    = get_config('general', 'i18n_text_domain'),
+                                localedir = get_config('general', 'i18n_locale_dir'),
+                                fallback  = True)
 
 try:
-    _ = translation.ugettext # This raises exception in Python3, succ. in Py2
+    _ = translation.ugettext # Unicode version of gettext for Py2
 except AttributeError:
-    _ = translation.gettext # Python3
+    _ = translation.gettext # Python3 (uses unicode by default)
+
 
 __all__ = [
            'SignatureMatch',
@@ -56,10 +61,8 @@ __all__ = [
            ]
 
 if __name__ == "__main__":
-    import gettext
-    from setroubleshoot.config import parse_config_setting, get_config
     gettext.install(domain    = get_config('general', 'i18n_text_domain'),
-		    localedir = get_config('general', 'i18n_locale_dir'))
+		            localedir = get_config('general', 'i18n_locale_dir'))
 
 from gettext import ngettext as P_
 from setroubleshoot.config import get_config

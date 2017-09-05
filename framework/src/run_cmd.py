@@ -23,7 +23,6 @@ __all__ = ["RunCmdGUI",
 import syslog
 import os
 import signal
-#import sys
 
 def wait_status(status):
     exit_status = (status >> 8) & 0xFF
@@ -38,10 +37,14 @@ import gobject
 
 if __name__ == "__main__":
     import gettext
+    import sys
     from setroubleshoot.config import parse_config_setting, get_config
+    kwargs = {}
+    if sys.version_info < (3,):
+        kwargs['unicode'] = True
     gettext.install(domain    = get_config('general', 'i18n_text_domain'),
-                    unicode = True,
-		    localedir = get_config('general', 'i18n_locale_dir'))
+                    localedir = get_config('general', 'i18n_locale_dir'),
+                    **kwargs)
 
 #------------------------------------------------------------------------
 

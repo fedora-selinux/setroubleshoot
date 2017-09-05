@@ -29,15 +29,18 @@ from setroubleshoot.config import parse_config_setting, get_config
 import six
 import sys
 domain = get_config('general', 'i18n_text_domain')
+localedir = get_config('general', 'i18n_locale_dir')
 
 kwargs = {}
 if sys.version_info < (3,):
     kwargs['unicode'] = True
 gettext.install(domain    = domain,
-                localedir = get_config('general', 'i18n_locale_dir'),
+                localedir = localedir,
                 **kwargs)
 
-translation=gettext.translation(domain, fallback=True)
+translation=gettext.translation(domain    = domain,
+                                localedir = localedir,
+                                fallback=True)
 
 rows = 1
 

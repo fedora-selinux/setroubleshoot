@@ -17,12 +17,17 @@
 # Foundation, Inc., 675 Mass Ave, Cambridge, MA 02139, USA.
 #
 import gettext
-translation=gettext.translation('setroubleshoot-plugins', fallback=True)
+from setroubleshoot.config import parse_config_setting, get_config
+
+translation=gettext.translation(domain    = get_config('general', 'i18n_text_domain'),
+                                localedir = get_config('general', 'i18n_locale_dir'),
+                                fallback  = True)
 
 try:
-    _ = translation.ugettext # This raises exception in Python3, succ. in Py2
+    _ = translation.ugettext # Unicode version of gettext for Py2
 except AttributeError:
-    _ = translation.gettext # Python3
+    _ = translation.gettext # Python3 (uses unicode by default)
+
 
 __all__ = [
     'ProgramError',
