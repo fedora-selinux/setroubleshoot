@@ -22,8 +22,16 @@ import syslog
 from subprocess import *
 import setroubleshoot.default_encoding_utf8
 import gettext
-translation=gettext.translation('setroubleshoot-plugins', fallback=True)
-_=translation.ugettext
+from setroubleshoot.config import parse_config_setting, get_config
+
+translation=gettext.translation(domain    = get_config('general', 'i18n_text_domain'),
+                                localedir = get_config('general', 'i18n_locale_dir'),
+                                fallback  = True)
+
+try:
+    _ = translation.ugettext # Unicode version of gettext for Py2
+except AttributeError:
+    _ = translation.gettext # Python3 (uses unicode by default)
 
 __all__ = [
            'SignatureMatch',
@@ -47,10 +55,8 @@ __all__ = [
            ]
 
 if __name__ == "__main__":
-    import gettext
-    from setroubleshoot.config import parse_config_setting, get_config
     gettext.install(domain    = get_config('general', 'i18n_text_domain'),
-		    localedir = get_config('general', 'i18n_locale_dir'))
+                    localedir = get_config('general', 'i18n_locale_dir'))
 
 from gettext import ngettext as P_
 from setroubleshoot.config import get_config

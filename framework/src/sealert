@@ -41,9 +41,12 @@ import slip.dbus.service
 
 from setroubleshoot.config import parse_config_setting, get_config
 domain = get_config('general', 'i18n_text_domain')
+kwargs = {}
+if sys.version_info < (3,):
+    kwargs['unicode'] = True
 gettext.install(domain    = domain,
-                unicode = True,
-                localedir = get_config('general', 'i18n_locale_dir'))
+                localedir = get_config('general', 'i18n_locale_dir'),
+                **kwargs)
 
 syslog.openlog(sys.argv[0])
 from setroubleshoot.errcode import *
