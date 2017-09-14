@@ -6,15 +6,16 @@
 # Magnus Larsson <fedoratrans@gmail.com>, 2007-2009
 # Göran Uddeborg <goeran@uddeborg.se>, 2008-2010, 2012, 2014-2015.
 # Göran Uddeborg <goeran@uddeborg.se>, 2016. #zanata
+# Göran Uddeborg <goeran@uddeborg.se>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 08:27+0200\n"
+"POT-Creation-Date: 2017-09-14 17:36+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-08-30 05:28-0400\n"
+"PO-Revision-Date: 2017-08-26 05:10-0400\n"
 "Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
@@ -78,6 +79,7 @@ msgid ""
 "If you want to allow $SOURCE_PATH to be able to write to shared public "
 "content"
 msgstr ""
+"Om du vill tillåta $SOURCE_PATH att kunna skriva till delat publikt innehåll"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
@@ -148,6 +150,8 @@ msgid ""
 "If you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
 msgstr ""
+"Om du inte tror att $SOURCE_PATH borde behöva ladda in minne på heap:en som "
+"är både skrivbart och exekverbart."
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
@@ -187,6 +191,19 @@ msgid ""
 "    workaround, until the library is fixed. Please file a bug report.\n"
 "    "
 msgstr ""
+"\n"
+"    Programmet $SOURCE försökte ladda $TARGET_PATH vilket \n"
+"    kräver text omlokalisering.  Det kan vara ett säkerhetsproblem.\n"
+"    De flesta bibliotek behöver inte denna rättighet.  Bibliotek är\n"
+"    ibland felkodade och behöver denna rättighet.  Webbsidan\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux "
+"minnesskyddstester</a>\n"
+"    förklarar hur man tar bort detta behov.  Du kan konfigurera\n"
+"    SELinux att tillfälligt tillåta $TARGET_PATH att använda omlokalisering "
+"som ett\n"
+"    sätt att gå runt problemet, tills biblioteket är rättat.  Skriv gärna en "
+"felrapport.\n"
+"    "
 
 #: ../src/allow_execmod.py:44
 msgid ""
@@ -206,6 +223,18 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"    Programmet $SOURCE försökte läsa in $TARGET_PATH vilket \n"
+"    kräver textomlokalisering.  Det är ett potentiellt säkerhetsproblem.\n"
+"    De flesta bibliotek behöver inte denna rättighet.  Webbsidan\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux\n"
+"    minnesskyddstester</a>\n"
+"    förklarar denna kontroll.  Detta verktyg undersökte biblioteket och\n"
+"    det ser ut att vara korrekt byggt.  Så setroubleshoot kan inte avgöra\n"
+"    om detta program är komprometterat eller inte.  Detta skulle kunna vara\n"
+"    en allvarlig sak.  Ditt system kan mycket väl vara komprometterat.\n"
+"    Kontakta din säkerhetsadministratör och rapportera händelsen.\n"
+"    "
 
 #: ../src/allow_execmod.py:61
 msgid ""
@@ -230,7 +259,7 @@ msgstr ""
 
 #: ../src/allow_execmod.py:114
 msgid "Change label on the library."
-msgstr ""
+msgstr "Ändra etikett på biblioteket."
 
 #: ../src/allow_execstack.py:60
 msgid ""
@@ -300,6 +329,8 @@ msgid ""
 "If you do not think $SOURCE_PATH should need to map stack memory that is "
 "both writable and executable."
 msgstr ""
+"Om du inte tror att $SOURCE_PATH borde behöva ladda in minne på stacken som "
+"är både skrivbart och exekverbart."
 
 #: ../src/allow_execstack.py:90
 msgid "you need to report a bug. \n"
@@ -313,7 +344,9 @@ msgstr ""
 msgid "If you believe that \n"
 "%s\n"
 "should not require execstack"
-msgstr ""
+msgstr "Om du tror att \n"
+"%s\n"
+"inte borde behöva execstack"
 
 #: ../src/allow_execstack.py:108
 #, python-format
@@ -409,7 +442,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "If you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "Om du vill tillåta ftpd att skriva till cifs-filsystem"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
@@ -417,7 +450,7 @@ msgstr "du måste berätta detta för SELinux"
 
 #: ../src/allow_ftpd_use_cifs.py:69
 msgid "Enable booleans"
-msgstr ""
+msgstr "Aktivera booleaner"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -489,14 +522,21 @@ msgid ""
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
 msgstr ""
+" Att ändra flaggorna ”allow_ftpd_use_nfs” och\n"
+"    \"ftpd_anon_write\" till sant kommer tillåta denna åtkomst:\n"
+"    \"setsebool -P allow_ftpd_use_nfs=1 ftpd_anon_write=1\".\n"
+"    varning: att sätta flaggan \"ftpd_anon_write\" till sant kommer\n"
+"    att tillåta ftp-demonen att skriva till allt publikt innehåll (filer och\n"
+"    kataloger med typ public_content_t) förutom att skriva till \n"
+"    filer och kataloger på NFS-filsystem.  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "Om du vill tillåta ftpd att skriva till nfs-filsystem"
 
 #: ../src/allow_ftpd_use_nfs.py:71
 msgid "Enable booleans."
-msgstr ""
+msgstr "Aktivera booleaner."
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -538,6 +578,8 @@ msgid ""
 "If you want to change the label of $TARGET_PATH to %s, you are not allowed "
 "to since it is not a valid file type."
 msgstr ""
+"Om du vill ändra etiketten på $TARGET_PATH till %s, du får inte det eftersom "
+"det inte är en giltig filtyp."
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -593,7 +635,7 @@ msgstr ""
 
 #: ../src/automount_exec_config.py:57
 msgid "Change file context."
-msgstr ""
+msgstr "Ändra filkontext."
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -665,6 +707,7 @@ msgstr ""
 #: ../src/bind_ports.py:47
 msgid "If you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER"
 msgstr ""
+"Om du vill tillåta $SOURCE_PATH att binda till nätverksport $PORT_NUMBER"
 
 #: ../src/bind_ports.py:53 ../src/connect_ports.py:51
 #, python-format
@@ -731,7 +774,7 @@ msgstr ""
 #: ../src/catchall_boolean.py:63
 #, python-format
 msgid "If you want to %s"
-msgstr ""
+msgstr "Om du vill %s"
 
 #: ../src/catchall_boolean.py:66
 #, python-format
@@ -837,18 +880,23 @@ msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
+"Om du tror att $SOURCE_BASE_PATH borde tillåtas åtkomsten $ACCESS till "
+"processer med etiketten $TARGET_CLASS som standard."
 
 #: ../src/catchall.py:52
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
 msgstr ""
+"Om du tror att $SOURCE_BASE_PATH borde ha förmågan $ACCESS som standard."
 
 #: ../src/catchall.py:53
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "the $TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
+"Om du tror att $SOURCE_BASE_PATH borde tillåtas åtkomsten $ACCESS till "
+"$TARGET_BASE_PATH $TARGET_CLASS som standard."
 
 #: ../src/catchall.py:55
 msgid ""
@@ -864,6 +912,9 @@ msgid ""
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
 "# semodule -X 300 -i my-$MODULE_NAME.pp"
 msgstr ""
+"Tillåt denna åtkomst för tillfället genom att köra:\n"
+"# ausearch -c '$SOURCE' --raw | audit2allow -M min-$MODULE_NAME\n"
+"# semodule -x 300 -i min-$MODULE_NAME.pp"
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
@@ -890,6 +941,17 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux har nekat $SOURCE att ansluta till en nätverksport $PORT_NUMBER "
+"som inte har en SELinuxtyp associerad med sig.\n"
+"    Om $SOURCE skall kunna ansluta till $PORT_NUMBER, använd kommandot "
+"<i>semanage</i> för att tilldela $PORT_NUMBER en porttyp som $SOURCE_TYPE "
+"kan ansluta till (%s).\n"
+"    \n"
+"\n"
+"Om $SOURCE inte skall kunna\n"
+"    ansluta till $PORT_NUMBER, kan detta vara tecken på ett intrångsförsök.\n"
+"    "
 
 #: ../src/connect_ports.py:38
 #, python-format
@@ -915,6 +977,7 @@ msgstr ""
 msgid ""
 "If you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
 msgstr ""
+"Om du vill tillåta $SOURCE_PATH att ansluta till nätverksport $PORT_NUMBER"
 
 #: ../src/chrome.py:31
 msgid ""
@@ -957,7 +1020,7 @@ msgstr ""
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
 msgid "If you want to use the %s package"
-msgstr ""
+msgstr "Om du vill använda paketet %s"
 
 #: ../src/chrome.py:43
 msgid "you must turn off SELinux controls on the Chrome plugins."
@@ -965,7 +1028,7 @@ msgstr "du måste slå av SELinux-styrningen av insticksmodulerna till Chrome."
 
 #: ../src/chrome.py:51
 msgid "Disable SELinux controls on Chrome plugins"
-msgstr ""
+msgstr "Slå av SELinux-styrningen av insticksmodulerna till Chrome"
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -1008,10 +1071,18 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"    Du kan ändra filkontexten genom att köra chcon -R -t cvs_data_t "
+"'$TARGET_PATH'\n"
+"    Du måste också ändra standradfilkontextfilerna på systemet för att "
+"bevara dem även efter en fullständig ometikettering.  \"semanage fcontext -a "
+"-t cvs_data_t '$FIX_TARGET_PATH'\"\n"
+"\n"
+"    "
 
 #: ../src/cvs_data.py:44
 msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "Om $TARGET_BASE_PATH borde delas via cvs-demonen"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
@@ -1019,7 +1090,7 @@ msgstr "Du behöver ändra etiketten på $TARGET_BASE_PATH"
 
 #: ../src/cvs_data.py:54
 msgid "Change label"
-msgstr ""
+msgstr "Ändra etikett"
 
 #: ../src/dac_override.py:28
 msgid "\n"
@@ -1050,6 +1121,8 @@ msgid ""
 "If you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
 msgstr ""
+"Om du vill hjälpa till att identifiera om domänen behöver denna åtkomst "
+"eller om du har en fil med fel rättigheter på ditt system"
 
 #: ../src/dac_override.py:39
 msgid ""
@@ -1119,6 +1192,35 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"    SELinux har nekat $SOURCE \"$ACCESS\"-åtkomst till enheten $TARGET_PATH.\n"
+"    $TARGET_PATH är felmärkt, denna enhet har standardetiketten för "
+"katalogen /dev, och så skall det inte\n"
+"    vara.  Alla tecken- och/eller blockenheter skall ha en etikett.\n"
+"\n"
+"    Du kan försöka att ändra etiketten på filen genom att använda\n"
+"\n"
+"    restorecon -v '$TARGET_PATH'.\n"
+"\n"
+"    Om denna enhet fortsätter vara märkt device_t, så är detta ett fel i "
+"SELinux-policyn.\n"
+"\n"
+"    Skicka gärna en felrapport.\n"
+"\n"
+"    Om du tittar på andra liknande enhetsetiketter, ls -lZ /dev/LIKNANDE, "
+"och hittar en typ som skulle fungera för $TARGET_PATH,\n"
+"    kan du använda chcon -t LIKNANDE_TYP '$TARGET_PATH',  Om detta rättar "
+"problemet, kan du göra detta permanent genom att köra\n"
+"    semanage fcontext -a -t LIKNANDE_TYP '$FIX_TARGET_PATH'\n"
+"\n"
+"    Om restorecon ändrar kontexten, kan detta indikera att programmet som "
+"skapade enheten, skapade den utan\n"
+"    att använda SELinux API:er.  Om du kan lista ut vilket program som "
+"skapade enheten, skicka då gärna en felrapport\n"
+"    mot detta program.\n"
+"\n"
+"    "
 
 #: ../src/device.py:56
 msgid ""
@@ -1156,7 +1258,7 @@ msgstr "\n"
 
 #: ../src/disable_ipv6.py:40
 msgid "If you want to disable IPV6 on this machine"
-msgstr ""
+msgstr "Om du vill avaktivera IPV6 på den här maskinen"
 
 #: ../src/disable_ipv6.py:41
 msgid ""
@@ -1225,11 +1327,12 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "This is caused by a newly created file system."
-msgstr ""
+msgstr "Detta orsakas av ett nyskapat filsystem."
 
 #: ../src/file.py:51
 msgid "If you think this is caused by a badly mislabeled machine."
 msgstr ""
+"Om du tror att detta orsakades av en allvarligt feletiketterad maskin."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
@@ -1298,6 +1401,8 @@ msgid ""
 "If you believe $SOURCE_BASE_PATH should be allowed to create "
 "$TARGET_BASE_PATH files"
 msgstr ""
+"Om du tror att $SOURCE_BASE_PATH borde tillåtas skapa $TARGET_BASE_PATH-"
+"filer"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
@@ -1332,6 +1437,12 @@ msgid ""
 "    signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux har nekat http-demonen från att skicka post.  Ett\n"
+"    httpd-skript försöker ansluta till en postport eller köra kommandot\n"
+"    sendmail.  Om du inte satte upp httpd att skicka post, kan detta vara\n"
+"    tecken på ett intrångsförsök.\n"
+"    "
 
 #: ../src/httpd_can_sendmail.py:39
 msgid ""
@@ -1349,7 +1460,7 @@ msgstr ""
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "If you want to allow httpd to send mail"
-msgstr ""
+msgstr "Om du vill tillåta httpd att skicka post"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
@@ -1386,6 +1497,27 @@ msgid ""
 "    script types.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux nekade httpd åtkomsten $ACCESS till http-filer.\n"
+"\n"
+"    Normalt har httpd full tillgång till alla filer etiketterade med "
+"kontexten\n"
+"    http.  Denna maskin har en strängare säkerhetspolicy med $BOOLEAN\n"
+"    avslaget, detta kräver en uttrycklig etikettering av alla filer.  Om en "
+"fil\n"
+"    är ett cgi-skript behöver den etiketteras med httpd_TYP_script_exec_t "
+"för\n"
+"    att kunna köras.  Om det är endast läsbart innehåll, behöver den\n"
+"    etiketteras httpd_TYP_content_t.  Om det är skrivbart innehåll behöver "
+"den\n"
+"    etiketteras httpd_TYPE_script_rw_t eller httpd_TYP_script_ra_t.  Du kan\n"
+"    använda kommandot chcon för att ändra dessa kontexter.  Se manualsidan\n"
+"    \"man httpd_selinux\" eller \n"
+"    <a href=\"http://fedora.redhat.com/docs/selinux-apache-fc3\">FAQ</a>\n"
+"    \"TYP\" refererar till en av ”sys”, ”user” eller ”staff” eller "
+"potentiellt\n"
+"    andra skripttyper.\n"
+"    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -1404,6 +1536,8 @@ msgid ""
 "If you want to allow httpd to execute cgi scripts and to unify HTTPD "
 "handling of all content files."
 msgstr ""
+"Om du vill tillåta httpd att köra cgi-skript och göra HTTPD:s hantering av "
+"alla innehållsfiler enhetlig."
 
 #: ../src/httpd_unified.py:58
 msgid ""
@@ -1480,6 +1614,8 @@ msgid ""
 "If you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
 msgstr ""
+"Om du tror inte att $SOURCE_PATH skall försöka åtkomsten ”$ACCESS“ till "
+"$TARGET_BASE_PATH."
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
@@ -1545,6 +1681,9 @@ msgid ""
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
 "access."
 msgstr ""
+"Om du vill strunta i om $SOURCE_BASE_PATH försöker åtkomsten $ACCESS på "
+"$TARGET_BASE_PATH $TARGET_CLASS, eftersom du tror att den inte bör behöva "
+"denna åtkomst."
 
 #: ../src/leaks.py:43
 msgid ""
@@ -1559,6 +1698,8 @@ msgid ""
 "# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
 "# semodule -X 300 -i my-$SOURCE.pp"
 msgstr ""
+"# ausearch -x $SOURCE_PATH -raw | audit2allow -D -M min-$SOURCE\n"
+"# semodule -X 300 -i min-$SOURCE.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1589,12 +1730,25 @@ msgid ""
 "    compromised.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux har nekat $SOURCE möjligheten att göra mmap på den låga delen av\n"
+"    kärnans adressrymd.  Möjligheten att göra mmap på en låg del av \n"
+"    adressrymden konfigureras i /proc/sys/kernel/mmap_min_addr.  Att hindra\n"
+"    sådana mappningar hjälper till att skydda mot utnyttjande av\n"
+"    nollreferensfel i kärnan.  Alla program som behöver denna åtkomst skall\n"
+"    redan ha policy skriven för sig.  Om ett komprometterat  program "
+"försökte\n"
+"    ändra kärnan skulle denna AVC genereras.  Detta är en allvarlig sak.  "
+"Ditt\n"
+"    system kan mycket väl vara komprometterat.\n"
+"    "
 
 #: ../src/mmap_zero.py:46
 msgid ""
 "If you do not think $SOURCE_PATH should need to mmap low memory in the "
 "kernel."
 msgstr ""
+"Om du inte tror att $SOURCE_PATH bör behöva mmap:a lågt minne i kärnan."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
@@ -1658,6 +1812,7 @@ msgstr ""
 #: ../src/mounton.py:48
 msgid "If you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
 msgstr ""
+"Om du vill tillåta $SOURCE_BASE_PATH att montera på $TARGET_BASE_PATH."
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
@@ -1742,6 +1897,8 @@ msgid ""
 "If you want to to continue using SELinux Firefox plugin containment rather "
 "then using mozplugger package"
 msgstr ""
+"Om du vill fortsätta använda SELinux begränsning av insticksmoduler till "
+"Firefox istället för att använda paketet mozplugger"
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
@@ -1756,6 +1913,11 @@ msgid ""
 "    is labeled correctly.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux nekade åtkomst begärd av $SOURCE. $TARGET_PATH kan ha fel\n"
+"    etikett.  openvpn tillåts läsa innehåll i katalogen /root/.ssh om den \n"
+"    har rätt etikett.\n"
+"    "
 
 #: ../src/openvpn.py:41
 msgid ""
@@ -1765,18 +1927,27 @@ msgid ""
 "    # restorecon -R /root/.ssh\n"
 "    "
 msgstr ""
+"\n"
+"    Du kan återställa systemets standardkontext för denna fil genom att köra\n"
+"    kommandot restorecon.\n"
+"    # restorecon -R /root/.ssh.\n"
+"    "
 
 #: ../src/openvpn.py:49
 msgid ""
 "If you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"Om du vill flytta $TARGET_BASE_PATH till en standardplats så att "
+"$SOURCE_BASE_PATH kan använda åtkomsten $ACCESS"
 
 #: ../src/openvpn.py:51
 msgid ""
 "If you want to modify the label on $TARGET_BASE_PATH so that "
 "$SOURCE_BASE_PATH can have $ACCESS access on it"
 msgstr ""
+"Om du vill ändra etiketten på $TARGET_BASE_PATH så att $SOURCE_BASE_PATH kan "
+"ha åtkomsten $ACCESS till den"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
@@ -1826,7 +1997,7 @@ msgstr ""
 
 #: ../src/public_content.py:50
 msgid "If you want to treat $TARGET_BASE_PATH as public content"
-msgstr ""
+msgstr "Om du vill hantera $TARGET_BASE_PATH som publikt innehåll"
 
 #: ../src/public_content.py:51
 msgid ""
@@ -1925,7 +2096,7 @@ msgstr ""
 
 #: ../src/qemu_file_image.py:48
 msgid "If $TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "Om $TARGET_BASE_PATH är ett virtualiseringsmål"
 
 #: ../src/restorecon.py:57
 msgid ""
@@ -1983,6 +2154,41 @@ msgid ""
 "package.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux nekade åtkomst som begärdes av $SOURCE.  $TARGET_PATH kan\n"
+"    ha fel etikett.  $TARGET_PATH standard-SELinux-typ är\n"
+"    <B>%s</B>, men dess nuvarande typ är <B>$TARGET_TYPE</B>. Att ändra\n"
+"    detta tillbaka till standardtypen kan kanske lösa ditt problem.\n"
+"    <p>\n"
+"    Filkontexter kan tilldelas till en fil på följande sätt.\n"
+"    <ul>\n"
+"        <li>Filer som skapas i en katalog får föräldrakatalogens kontext som "
+"standard.\n"
+"        <li>SELinux-policyn kan åsidosätta standardetiketten som ärvs från "
+"föräldrakatalogen\n"
+"            genom att ange en process som kör i kontext A som skapar en fil "
+"i en katalog med etikett B\n"
+"            istället skall skapa en fil med etikett C.  Ett exempel på detta "
+"vore dhcp-klienten som kör\n"
+"            med typen dhclient_t och skapar en fil i katalogen /etc.  Denna "
+"skulle normalt\n"
+"            få typen etc_t på grund av arv från föräldern men får filen en "
+"etikett\n"
+"            med typen net_conf_t för att SELinux-policyn anger detta.\n"
+"        <li>Användare kan ändra filkontexten på en fil genom att använda "
+"verktyg som chcon eller restorecon.\n"
+"    </ul>\n"
+"    Denna fil kan ha fått fel etikett antingen på grund av ett användarfel, "
+"eller om ett normalt\n"
+"    begränsat program kördes i fel domän.\n"
+"    <p> \n"
+"    Dock kan det också indikera ett fel i SELinux för att filen inte borde "
+"ha blivit etiketterad\n"
+"    med denna typ.\n"
+"    <p>\n"
+"    Om du tror att det är ett fel, skicka gärna en felrapport mot detta "
+"paket.\n"
+"    "
 
 #: ../src/restorecon.py:90
 #, python-format
@@ -1990,6 +2196,8 @@ msgid ""
 "If you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
 msgstr ""
+"Om du vill rätta etiketten.\n"
+"Standardetiketten för $TARGET_PATH skall vara %s."
 
 #: ../src/restorecon.py:96
 msgid ""
@@ -1997,6 +2205,9 @@ msgid ""
 "insufficient permissions to access a parent directory in which case try to "
 "change the following command accordingly."
 msgstr ""
+"kan du köra restorecon.  Åtkomstförsöket kan ha stoppats på grund av "
+"otillräckliga rättigheter för att komma åt en föräldrakatalog.  Försök i så "
+"fall ändra följande kommando i enlighet med det."
 
 #: ../src/restorecon.py:105 ../src/restorecon_source.py:73
 msgid "Restore\n"
@@ -2037,6 +2248,23 @@ msgid ""
 "package.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux nekade åtkomst som begärdes av $SOURCE.  $SOURCE_PATH kan\n"
+"    ha fel etikett.  $SOURCE_PATH standard-SELinux-typ är\n"
+"    <B>%s</B>, men dess nuvarande typ är <B>$SOURCE_TYPE</B>. Att ändra\n"
+"    detta tillbaka till standardtypen kan kanske lösa ditt problem.\n"
+"    <p>\n"
+"    Denna fil kan ha fått fel etikett antingen på grund av ett användarfel, "
+"eller om ett normalt\n"
+"    begränsat program kördes i fel domän.\n"
+"    <p> \n"
+"    Dock kan det också indikera ett fel i SELinux för att filen inte borde "
+"ha blivit etiketterad\n"
+"    med denna typ.\n"
+"    <p>\n"
+"    Om du tror att det är ett fel, skicka gärna en felrapport mot detta "
+"paket.\n"
+"    "
 
 #: ../src/restorecon_source.py:60
 #, python-format
@@ -2044,6 +2272,8 @@ msgid ""
 "If you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
 msgstr ""
+"Om du vill rätta etiketten.\n"
+"$SOURCE_PATH standardetikett skall vara %s."
 
 #: ../src/restorecon_source.py:65
 msgid "you can run restorecon."
@@ -2059,6 +2289,14 @@ msgid ""
 "    this message could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux förhindrade RSYNC åtkomst till $TARGET_PATH.\n"
+"    Om detta är ett rsync-förråd måste det ha en filkontextmärkning med \n"
+"    rsync_data_t. Om du inte avsåg att använda $TARGET_PATH som ett rsync-"
+"förråd\n"
+"    kan detta meddelande vara ett tecken på antingen ett fel eller ett "
+"intrångsförsök.\n"
+"    "
 
 #: ../src/rsync_data.py:38
 msgid ""
@@ -2080,7 +2318,7 @@ msgstr ""
 
 #: ../src/rsync_data.py:45
 msgid "If $TARGET_BASE_PATH should be shared via the RSYNC daemon"
-msgstr ""
+msgstr "Om $TARGET_BASE_PATH skall delas via RSYNC-demonen"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
@@ -2111,6 +2349,17 @@ msgid ""
 "Samba and SELinux.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux förhindrade samba åtkomst till $TARGET_PATH.\n"
+"    Om du vill dela denna katalog med samba måste den ha en "
+"filkontextmärkning med \n"
+"    samba_share_t. Om du inte avsåg att använda $TARGET_PATH som ett samba-"
+"datalager\n"
+"    kan detta meddelande vara ett tecken på antingen ett fel eller ett "
+"intrångsförsök.\n"
+"    Se \"man samba_selinux\" för mer information om att ställa in Samba och "
+"SELinux.\n"
+"    "
 
 #: ../src/samba_share.py:39
 msgid ""
@@ -2153,6 +2402,17 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux har nekat $SOURCE att ansluta till en nätverksport $PORT_NUMBER "
+"inuti en sandlåda.\n"
+"    Om $SOURCE skall kunna ansluta till $PORT_NUMBER behöver du använda en "
+"annan sandlådetyp som sandbox_web_t eller sandbox_net_t.\n"
+"    # sandbox -X -t sandbox_net_t $SOURCE\n"
+"    \n"
+"\n"
+"Om $SOURCE inte skall kunna\n"
+"    ansluta till $PORT_NUMBER, kan detta vara tecken på ett intrångsförsök.\n"
+"    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -2212,7 +2472,7 @@ msgstr ""
 
 #: ../src/setenforce.py:27
 msgid "If you did not directly cause this AVC through testing."
-msgstr ""
+msgstr "Om du inte direkt orsakade denna AVC genom testning."
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
@@ -2244,10 +2504,20 @@ msgid ""
 "    well be compromised.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux hindrade $SOURCE från att skriva till en fil under /sys/fs/"
+"selinux.\n"
+"    Filer under /sys/fs/selinux styr hur SELinux är konfigurerat.\n"
+"    Alla program som behöver skriva till filer under /sys/fs/selinux skall "
+"redan ha en policy\n"
+"    skriven för sig.  Om ett angripet program försöker slå av SELinux\n"
+"    kommer denna AVC genereras.  Detta är en allvarlig sak.  Ditt system kan\n"
+"    mycket väl vara angripet.\n"
+"    "
 
 #: ../src/setenforce.py:48
 msgid "If you believe $SOURCE_PATH tried to disable SELinux."
-msgstr ""
+msgstr "Om du tror att $SOURCE_PATH försökte avaktivera SELinux."
 
 #: ../src/setenforce.py:49
 msgid ""
@@ -2266,6 +2536,11 @@ msgid ""
 "    is labeled correctly.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux nekade åtkomst begärd av $SOURCE. $TARGET_PATH kan ha fel\n"
+"    etikett.  sshd tillåts läsa innehåll i katalogen /root/.ssh directory \n"
+"    om den har rätt etikett.\n"
+"    "
 
 #: ../src/sshd_root.py:42
 msgid ""
@@ -2275,6 +2550,11 @@ msgid ""
 "    # restorecon -R /root/.ssh\n"
 "    "
 msgstr ""
+"\n"
+"    Du kan återställa systemets standardkontext för denna fil genom att köra\n"
+"    kommandot restorecon.\n"
+"    # restorecon -R /root/.ssh.\n"
+"    "
 
 #: ../src/sshd_root.py:55
 msgid "Restore Context"
@@ -2299,6 +2579,13 @@ msgid ""
 "an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux nekade $SOURCE åtkomst till $TARGET_PATH.\n"
+"    Om detta är en växlingsfil måste den ha en filkontextetikett \n"
+"    swapfile_t.  Om du inte avsåg att använda\n"
+"    $TARGET_PATH som en växlingsfil kan detta meddelande vara ett tecken "
+"antingen på ett fel eller ett intrångsförsök.\n"
+"    "
 
 #: ../src/swapfile.py:38
 msgid ""
@@ -2323,6 +2610,8 @@ msgid ""
 "If you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
 msgstr ""
+"Om du inte tror att $SOURCE_PATH skall modifiera kärnan genom att ladda "
+"kärnmoduler"
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
@@ -2364,6 +2653,8 @@ msgid ""
 "If you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
 msgstr ""
+"Om du inte tror att $SOURCE_PATH borde försöka ändra kärnan genom att ladda "
+"en kärnmodul."
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
@@ -2401,6 +2692,8 @@ msgid ""
 "If you do not want processes to require capabilities to use up all the "
 "system resources on your system;"
 msgstr ""
+"Om du inte vill att processer skall begära förmågan att använda alla "
+"systemresurser i ditt system;"
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -2421,6 +2714,21 @@ msgid ""
 "/* Override max number of consoles on console allocation */\n"
 "/* Override max number of keymaps */\n"
 msgstr ""
+"du behöver diagnostisera varför ditt system får slut på systemresurser och "
+"rätta problemet.  \n"
+"\n"
+"Enligt /usr/include/linux/capability.h behövs sys_resource för att:\n"
+"\n"
+"/* Åsidosätta resursbegränsningar.  Sätta resursbegränsningar. */\n"
+"/* Åsidosätta kvotgränser. */\n"
+"/* Åsidosätta reserverat utrymme på ext2-filsystem */\n"
+"/* Ändra datajournalläge på ext3-filsystem (använder journalresurser) */\n"
+"/* OBS: ext2 tar hänsyn till fsuid när den kontrollerar åsidosättandet av\n"
+"   resurser, så du kan åsidosätta fsuid också */\n"
+"/* Åsidosätta storleksbegränsningar på IPC-meddelandeköer */\n"
+"/* Tillåta mer än 64 Hz avbrott från realtidsklockan */\n"
+"/* Åsidosätta maxantalet konsoler vid konsolallokering */\n"
+"/* Åsidosätta maxantalet tangenbordsbindningar */\n"
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -2479,6 +2787,8 @@ msgid ""
 "If you want to ignore this AVC because it is dangerous and your machine "
 "seems to be working correctly."
 msgstr ""
+"Om du vill ignorera denna AVC för att den är farlig och din maskin verkar "
+"fungera normalt."
 
 #: ../src/vbetool.py:56
 msgid ""
@@ -2551,6 +2861,8 @@ msgid ""
 "If you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
 msgstr ""
+"Om du vill ignorera denna AVC för att den är farlig och dina wine-program "
+"fungerar normalt."
 
 #: ../src/wine.py:67
 msgid ""
