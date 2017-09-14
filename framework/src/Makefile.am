@@ -107,7 +107,8 @@ python-build:
 	$(PYTHON) setup.py build
 
 install-exec-hook:
-	$(PYTHON) setup.py install `test -n "$(DESTDIR)" && echo --root $(DESTDIR)`
+	$(PYTHON) setup.py install `test -n "$(DESTDIR)" && echo --root $(DESTDIR)` \
+	`test -n "$(PREFIX)" && echo --prefix $(PREFIX)`
 
 uninstall-hook:
 	$(PYTHON) setup.py uninstall `test -n "$(DESTDIR)" && echo --root $(DESTDIR)`
