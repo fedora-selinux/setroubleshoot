@@ -113,8 +113,6 @@ def sighandler(signum, frame):
         log_debug("reloading configuration file")
         config.config_init()
         return
-    import sys
-    sys.exit()
 
 def make_instance_id():
     import time
@@ -710,9 +708,6 @@ def RunFaultServer(timeout=10):
     global host_database, analysis_queue, email_recipients
 
     signal.signal(signal.SIGHUP, sighandler)
-    signal.signal(signal.SIGQUIT, sighandler)
-    signal.signal(signal.SIGTERM, sighandler)
-    signal.signal(signal.SIGALRM, sighandler)
 
     #interface_registry.dump_interfaces()
 
