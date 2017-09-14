@@ -121,7 +121,7 @@ Sets a filter on an alert. The alert can be "always" filtered, "never" filtered 
 
 * `local_id(s)`: an alert id
 * `filter_type(s)`: "always", "never", "after_first", see 
-  https://fedorahosted.org/setroubleshoot/wiki/SETroubleShoot%20User%20FAQ#email-alerts
+  https://docs.pagure.org/setroubleshoot/SETroubleShootUserFAQ.html#email-alerts
 
 ###### return value
 
