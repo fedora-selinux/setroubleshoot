@@ -180,8 +180,8 @@ class BrowserApplet:
     def __init__(self, username=None, server=None, list=False, domain=None):
         self.RECT_SIZE = 20
         size = Gdk.Screen().get_default().get_monitor_geometry(0)
-        self.width = min(900, int(size.width * .90))
-        self.height = min(500, int(size.height * .90))
+        self.width = min(1350, int(size.width * .90))
+        self.height = min(750, int(size.height * .90))
 
         self.read_config()
         builder = Gtk.Builder()
