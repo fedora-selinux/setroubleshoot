@@ -434,7 +434,7 @@ class BrowserApplet:
         lines += line
         return lines
 
-    def add_row(self, plugin, alert, args):
+    def add_row(self, plugin, alert, args, highlight = True):
         global rows
         avc = alert.audit_event.records
         if_text = alert.substitute(plugin.get_if_text(avc, args))
@@ -493,7 +493,7 @@ class BrowserApplet:
         then_scroll.set_policy(Gtk.PolicyType.AUTOMATIC, Gtk.PolicyType.AUTOMATIC)
         then_scroll.add_with_viewport(then_label)
         then_scroll.show()
-        then_scroll.set_sensitive(False)
+        then_scroll.set_sensitive(highlight)
         then_scroll.set_size_request(450, 90)
         then_scroll.set_hexpand(True)
         then_scroll.set_vexpand(True)
@@ -535,7 +535,7 @@ class BrowserApplet:
                report_button.connect("clicked", self.report_bug, alert)
                vbox.add(report_button)
 
-        vbox.set_sensitive(False)
+        vbox.set_sensitive(highlight)
         vbox.show()
         self.table.attach(vbox, 2, rows, 1, 1)
 
@@ -790,12 +790,19 @@ class BrowserApplet:
         alert.update_derived_template_substitutions()
 
         self.toggles=[]
-        for p, args in plugins:
-               rb = self.add_row(p, alert, args)
 
         if len(plugins) == 1:
+               rb = self.add_row(p, alert, args)
                rb.set_active(True)
                self.on_sev_togglebutton_activated(rb, 1)
+        
+        if len(plugins) > 1:
+               highest_priority = plugins[0][0].priority
+               for p, args in plugins:
+                    if p.priority != highest_priority:
+                        rb = self.add_row(p, alert, args, False)
+                    else:
+                        rb = self.add_row(p, alert, args)
 
         self.show_date(alert)
 
