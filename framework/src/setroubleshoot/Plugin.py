@@ -87,7 +87,7 @@ o
         """
     summary = ""
     problem_description = ""
-    if_text = _('you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS')
+    if_text = _('If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS')
     then_text = "No default"
     do_text = "No default"
         
