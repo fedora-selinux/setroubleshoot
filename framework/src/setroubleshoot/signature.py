@@ -204,6 +204,7 @@ class_dict['msg']     = _("message")
 class_dict['file']    = _("file")
 class_dict['socket']  = _("socket")
 class_dict['process'] = _("process")
+class_dict['process2'] = _("process2")
 class_dict['filesystem'] = _("filesystem")
 class_dict['node'] = _("node")
 class_dict['capability'] = _("capability")
@@ -440,7 +441,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         return cmp(y[0].priority,x[0].priority)
 
     def summary(self):
-        if self.tclass == "process":
+        if self.tclass in ["process", "process2"]:
             return P_(_("SELinux is preventing %s from using the %s access on a process."), _("SELinux is preventing %s from using the '%s' accesses on a process."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access))
 
         if self.tclass in ["capability", "capability2"]:
