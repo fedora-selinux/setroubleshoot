@@ -16,17 +16,18 @@
 # Thomas Spura <tomspur@fedoraproject.org>, 2008, 2009
 # Hedda Peters <hpeters@redhat.com>, 2016. #zanata
 # Lisa Stemmler <lstemmle@redhat.com>, 2016. #zanata
+# Roman Spirgi <rspirgi@gmail.com>, 2017. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-01 14:11+0200\n"
+"POT-Creation-Date: 2017-10-31 20:57+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 08:32-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2017-10-02 03:32-0400\n"
+"Last-Translator: Roman Spirgi <rspirgi@gmail.com>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/fedora/language/"
 "de/)\n"
 "Language: de\n"
@@ -93,6 +94,8 @@ msgid ""
 "If you want to allow $SOURCE_PATH to be able to write to shared public "
 "content"
 msgstr ""
+"Sie möchten, dass $SOURCE_PATH in gemeinsam genutzte, öffentliche Inhalte "
+"schreiben darf. "
 
 #: ../src/allow_anon_write.py:45
 msgid ""
@@ -170,6 +173,8 @@ msgid ""
 "If you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
 msgstr ""
+"Sie nicht glauben, dass $SOURCE_PATH auf Heap-Speicher verweisen sollte, der "
+"sowohl beschreibbar als auch ausführbar ist."
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
@@ -247,6 +252,25 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"    Die Anwendung $SOURCE versuchte $TARGET_PATH zu laden, was\n"
+"    Textverschiebung benötigt. Dies ist ein mögliches Sicherheitsproblem.\n"
+"    Die meisten Bibliotheken benötigen diese Erlaubnis nicht.\n"
+"    Die Webseite <a href=\"http://people.redhat.com/drepper/selinux-mem."
+"html\">\n"
+"    SELinux Memory Protection Tests</a> erklärt diesen Test. Dieses Tool "
+"führte eine\n"
+"    Untersuchung der Bibliothek aus und stellte fest, dass diese korrekt "
+"aufgebaut ist.\n"
+"    Setroubleshoot kann also nicht feststellen, ob diese Anwendung "
+"kompromittiert\n"
+"    wurde oder nicht.  Dies ist unter Umständen ein schwerwiegendes Problem.\n"
+"    Ihr System wurde womöglich kompromittiert.\n"
+"\n"
+"    Kontaktieren Sie Ihren Sicherheitsadministrator und melden diesen Fehler."
+"\n"
+"\n"
+"    "
 
 #: ../src/allow_execmod.py:62
 msgid ""
@@ -346,6 +370,8 @@ msgid ""
 "If you do not think $SOURCE_PATH should need to map stack memory that is "
 "both writable and executable."
 msgstr ""
+"Sie nicht glauben, dass $SOURCE_PATH auf Stack-Speicher verweisen sollte, "
+"der sowohl beschreibbar als auch ausführbar ist."
 
 #: ../src/allow_execstack.py:90
 msgid "you need to report a bug. \n"
@@ -359,7 +385,9 @@ msgstr ""
 msgid "If you believe that \n"
 "%s\n"
 "should not require execstack"
-msgstr ""
+msgstr "Sie glauben, dass \n"
+"%s\n"
+"keinen execstack benötigen sollte"
 
 #: ../src/allow_execstack.py:108
 #, python-format
@@ -462,7 +490,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "If you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "Sie möchten ftpd erlauben, auf cifs-Dateisysteme zu schreiben"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
@@ -554,7 +582,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "Sie möchten ftpd erlauben, auf nfs-Dateisysteme zu schreiben"
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -596,6 +624,8 @@ msgid ""
 "If you want to change the label of $TARGET_PATH to %s, you are not allowed "
 "to since it is not a valid file type."
 msgstr ""
+"Sie möchten das Label von $TARGET_PATH ändern zu %s, dies ist nicht erlaubt, "
+"da es kein gültiger Dateityp ist."
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -725,6 +755,8 @@ msgstr ""
 #: ../src/bind_ports.py:47
 msgid "If you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER"
 msgstr ""
+"Sie möchten $SOURCE erlauben, mit dem Netzwerk-Port $​​PORT_NUMBER zu "
+"verbinden"
 
 #: ../src/bind_ports.py:53 ../src/connect_ports.py:51
 #, python-format
@@ -793,7 +825,7 @@ msgstr ""
 #: ../src/catchall_boolean.py:62
 #, python-format
 msgid "If you want to %s"
-msgstr ""
+msgstr "Sie folgendes tun möchten: %s"
 
 #: ../src/catchall_boolean.py:65
 #, python-format
