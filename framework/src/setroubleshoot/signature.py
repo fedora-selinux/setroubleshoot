@@ -574,7 +574,7 @@ class SEFaultSignatureInfo(XmlSerialize):
                 text +=  _("*")
             text +=  _("\n")
             txt = self.substitute(p.get_if_text(self.audit_event.records, args)).decode('utf-8')
-            text +=  _("\n") + txt[0].lower() + txt[1:]
+            text +=  _("\n") + txt
             txt = self.substitute(p.get_then_text(self.audit_event.records, args)).decode('utf-8')
             text +=  _("\nThen ") + txt[0].lower() + txt[1:]
 
