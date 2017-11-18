@@ -16,7 +16,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-08-22 07:37-0400\n"
+"PO-Revision-Date: 2017-10-15 02:58-0400\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/fedora/language/"
 "ca/)\n"
@@ -276,7 +276,7 @@ msgstr ""
 
 #: ../src/allow_execmod.py:114
 msgid "Change label on the library."
-msgstr ""
+msgstr "Canvia l'etiqueta a la biblioteca."
 
 #: ../src/allow_execstack.py:60
 msgid ""
@@ -419,16 +419,16 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    El SELinux ha evitat que el dimoni ftp $ACCESS fitxers emmagatzemats a "
-"un sistema de fitxers CIFS.\n"
+"   SELinux ha evitat que el dimoni ftp $ACCESS fitxers emmagatzemats a un "
+"sistema de fitxers CIFS.\n"
 "    CIFS (Comment Internet File System) és un sistema de fitxers de xarxa "
 "semblant a\n"
 "    SMB (<a href=\"http://www.microsoft.com/mind/1196/cifs.asp\">http://www."
 "microsoft.com/mind/1196/cifs.asp</a>)\n"
 "    El dimoni ftp ha intentat llegir un o més fitxers o directoris d'un\n"
-"    sistema de fitxers muntat d'aquest tipus. Degut a què els sistemes de "
-"fitxers CIFS\n"
-"    no suporten la granularitat de l'etiquetatge del SELinux, tots els "
+"    sistema de fitxers muntat d'aquest tipus. A causa del fet que els "
+"sistemes de fitxers CIFS\n"
+"    no admeten la granularitat de l'etiquetatge del SELinux, tots els "
 "fitxers i directoris del\n"
 "    sistema de fitxers tindran el mateix context de seguretat.\n"
 "    \n"
@@ -512,14 +512,14 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    El SELinux ha evitat que el dimoni ftp $ACCESS fitxers desats en un "
-"sistema de fitxers NFS.\n"
+"   SELinux ha evitat que el dimoni ftp $ACCESS fitxers desats en un sistema "
+"de fitxers NFS.\n"
 "    NFS (Network Filesystem) és un sistema de fitxers de xarxa molt "
 "utilitzat en sistemes Unix / Linux\n"
 "    \n"
 "    El dimoni ftp ha intentat de llegir un o més fitxers o directoris d'un\n"
-"    sistema de fitxers muntat d'aquest tipus. Degut a què el sistema de "
-"fitxers NFS\n"
+"    sistema de fitxers muntat d'aquest tipus. A causa del fet que el sistema "
+"de fitxers NFS\n"
 "    no disposa d'etiquetació amb granularitat del SELinux, tots els fitxers\n"
 "    i directoris del sistema  de fitxers tindran el mateix context de "
 "seguretat.\n"
@@ -645,7 +645,7 @@ msgstr ""
 
 #: ../src/automount_exec_config.py:57
 msgid "Change file context."
-msgstr ""
+msgstr "Canvia el context del fitxer."
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -708,6 +708,7 @@ msgstr ""
 #: ../src/bind_ports.py:47
 msgid "If you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER"
 msgstr ""
+"Si voleu permetre que $SOURCE_PATH es vinculi al port de xarxa $PORT_NUMBER"
 
 #: ../src/bind_ports.py:53 ../src/connect_ports.py:51
 #, python-format
@@ -748,9 +749,9 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"    El SELinux ha denegat la sol·licitud d'accés de $SOURCE. Els paràmetres\n"
-"    booleans \n"
-"    no permeten aquest accés. Si no heu configurat $SOURCE per\n"
+"   SELinux ha denegat la sol·licitud d'accés de $SOURCE. Els ajusts booleans "
+"\n"
+"    actuals no permeten aquest accés. Si no heu configurat $SOURCE per\n"
 "    sol·licitar aquest accés, això podria indicar un intent d'intrusió.\n"
 "    Si teniu la intenció de permetre aquest accés, necessiteu canviar els\n"
 "    booleans del sistema.\n"
@@ -873,6 +874,8 @@ msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
+"Si creieu que per defecte $SOURCE_BASE_PATH pot accedir al $ACCESS en els "
+"processos etiquetats $TARGET_TYPE."
 
 #: ../src/catchall.py:52
 msgid ""
@@ -904,6 +907,9 @@ msgid ""
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
 "# semodule -X 300 -i my-$MODULE_NAME.pp"
 msgstr ""
+"Permeteu-ho per ara amb l'execució de:\n"
+"# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
+"# semodule -X 300 -i my-$MODULE_NAME.pp"
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
@@ -957,6 +963,7 @@ msgstr ""
 msgid ""
 "If you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
 msgstr ""
+"Si voleu permetre que $SOURCE_PATH es connecti al port de xarxa $PORT_NUMBER"
 
 #: ../src/chrome.py:31
 msgid ""
@@ -983,15 +990,15 @@ msgstr ""
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
 msgid "If you want to use the %s package"
-msgstr ""
+msgstr "Si voleu utilitzar el paquet %s"
 
 #: ../src/chrome.py:43
 msgid "you must turn off SELinux controls on the Chrome plugins."
-msgstr "heu d'aturar els controls de SELinux als complements de Chrome."
+msgstr "heu d'aturar els controls de SELinux als connectors de Chrome."
 
 #: ../src/chrome.py:51
 msgid "Disable SELinux controls on Chrome plugins"
-msgstr ""
+msgstr "Inhabilita els controls de SELinux als connectors de Chrome"
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -1031,6 +1038,7 @@ msgstr ""
 #: ../src/cvs_data.py:44
 msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"
 msgstr ""
+"Si $TARGET_BASE_PATH hauria de compartir-se a través del dimoni de cvs"
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
@@ -1038,7 +1046,7 @@ msgstr "Necessiteu canviar l'etiqueta a $TARGET_BASE_PATH'"
 
 #: ../src/cvs_data.py:54
 msgid "Change label"
-msgstr ""
+msgstr "Canvia l'etiqueta"
 
 #: ../src/dac_override.py:28
 msgid "\n"
@@ -1065,6 +1073,8 @@ msgid ""
 "If you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
 msgstr ""
+"Si voleu ajudar a identificar si el domini necessita aquest accés o si teniu "
+"un fitxer amb permisos incorrectes al vostre sistema"
 
 #: ../src/dac_override.py:39
 msgid ""
@@ -1136,6 +1146,37 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"    SELinux ha denegat $SOURCE l'accés \"$ACCESS\" al dispositiu "
+"$TARGET_PATH.\n"
+"    $TARGET_PATH està mal etiquetat, aquest dispositiu té el tipus "
+"d'etiqueta per defecte del directori /dev, que no hauria\n"
+"    d'ocórrer. Tots els dispositius de caràcters i/o de blocs haurien de "
+"tenir una etiqueta.\n"
+"\n"
+"    Podeu intentar de canviar l'etiqueta del fitxer mitjançant\n"
+"\n"
+"    restorecon -v '$TARGET_PATH'.\n"
+"\n"
+"    Si el dispositiu segueix estant etiquetat amb device_t, aleshores és un "
+"error de programari en la política de SELinux.\n"
+"\n"
+"    Si us plau, ompliu un informe d'error de programari.\n"
+"\n"
+"    Si mireu les altres etiquetes dels dispositius similars, ls -lZ /dev/"
+"SIMILAR, i trobeu un tipus que podria funcionar amb $TARGET_PATH,\n"
+"    podeu utilitzar chcon -t TIPUS_SIMILAR '$TARGET_PATH', si això corregeix "
+"el problema, ho podeu fer permanent amb l'execució de\n"
+"    semanage fcontext -a -t TIPUS_SIMILAR '$FIX_TARGET_PATH'\n"
+"\n"
+"    Si restorecon canvia el context, això indica que l'aplicació que va "
+"crear el dispositiu, el va crear sense\n"
+"    l'ús de les API de SELinux.  Si podeu esbrinar quina aplicació va crear "
+"el dispositiu, si us plau, ompli un informe d'error de programari contra "
+"aquesta aplicació.\n"
+"    \n"
+"    "
 
 #: ../src/device.py:56
 msgid ""
@@ -1174,7 +1215,7 @@ msgstr "\n"
 
 #: ../src/disable_ipv6.py:40
 msgid "If you want to disable IPV6 on this machine"
-msgstr ""
+msgstr "Si voleu inhabilitar IPV6 en aquesta màquina"
 
 #: ../src/disable_ipv6.py:41
 msgid ""
@@ -1291,6 +1332,8 @@ msgid ""
 "If you believe $SOURCE_BASE_PATH should be allowed to create "
 "$TARGET_BASE_PATH files"
 msgstr ""
+"Si creieu que $SOURCE_BASE_PATH pot crear els fitxers $TARGET_BASE_PATH "
+"files"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
@@ -1416,6 +1459,8 @@ msgid ""
 "If you want to allow httpd to execute cgi scripts and to unify HTTPD "
 "handling of all content files."
 msgstr ""
+"Si voleu permetre que httpd executi els scripts cgi i unificar el tractament "
+"HTTPD de tots els fitxers de continguts."
 
 #: ../src/httpd_unified.py:58
 msgid ""
@@ -1452,8 +1497,7 @@ msgid ""
 msgstr ""
 "\n"
 "    El vostre sistema pot trobar-se seriosament en un compromís! "
-"$SOURCE_PATH va intentar de modificar la configuració del nucli del sistema "
-"operatiu.\n"
+"$SOURCE_PATH va intentar de modificar la configuració del kernel.\n"
 "    "
 
 #: ../src/kernel_modules.py:33
@@ -1475,6 +1519,8 @@ msgid ""
 "If you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
 msgstr ""
+"Si no creieu que $SOURCE_PATH hagi d'internar l'accés $ACCESS en "
+"$TARGET_BASE_PATH."
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
@@ -1541,6 +1587,9 @@ msgid ""
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
 "access."
 msgstr ""
+"Si voleu ignorar $SOURCE_BASE_PATH que intenti l'accés $ACCESS "
+"al$TARGET_BASE_PATH $TARGET_CLASS, perquè creieu que no hauria de necessitar "
+"aquest accés."
 
 #: ../src/leaks.py:43
 msgid ""
@@ -1555,6 +1604,8 @@ msgid ""
 "# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
 "# semodule -X 300 -i my-$SOURCE.pp"
 msgstr ""
+"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
+"# semodule -X 300 -i my-$SOURCE.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1565,7 +1616,7 @@ msgid ""
 msgstr ""
 "\n"
 "    El vostre sistema pot trobar-se seriosament en un compromís! "
-"$SOURCE_PATH va intentar mmap la memòria baixa del sistema operatiu.\n"
+"$SOURCE_PATH va intentar mmap la memòria baixa del kernel.\n"
 "    "
 
 #: ../src/mmap_zero.py:33
@@ -1592,7 +1643,7 @@ msgid ""
 "kernel."
 msgstr ""
 "Si no creieu que $SOURCE_PATH necessiti fer mmap en la memòria baixa al "
-"nucli del sistema operatiu."
+"kernel."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
@@ -1667,7 +1718,7 @@ msgstr ""
 
 #: ../src/mozplugger.py:43
 msgid "you must turn off SELinux controls on the Firefox plugins."
-msgstr "heu d'aturar els controls de SELinux als complements de Firefox."
+msgstr "heu d'aturar els controls de SELinux als connectors de Firefox."
 
 #: ../src/mozplugger_remove.py:31
 msgid ""
@@ -1701,7 +1752,7 @@ msgid ""
 "If you want to to continue using SELinux Firefox plugin containment rather "
 "then using mozplugger package"
 msgstr ""
-"Si voleu continuar utilitzant la contenció del complement de Firefix de "
+"Si voleu continuar utilitzant la contenció del connector de Firefox de "
 "SELinux en lloc d'utilitzar el paquet mozplugger"
 
 #: ../src/mozplugger_remove.py:45
@@ -1732,18 +1783,28 @@ msgid ""
 "    # restorecon -R /root/.ssh\n"
 "    "
 msgstr ""
+"\n"
+"    Podeu restaurar el context per defecte de sistema d'aquest fitxer amb "
+"l'execució\n"
+"    de l'ordre restorecon.\n"
+"    # restorecon -R /root/.ssh\n"
+"    "
 
 #: ../src/openvpn.py:49
 msgid ""
 "If you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"Si voleu mv $TARGET_BASE_PATH a una ubicació estàndard perquè "
+"$SOURCE_BASE_PATH pugui tenir l'accés $ACCESS"
 
 #: ../src/openvpn.py:51
 msgid ""
 "If you want to modify the label on $TARGET_BASE_PATH so that "
 "$SOURCE_BASE_PATH can have $ACCESS access on it"
 msgstr ""
+"Si voleu modificar l'etiqueta $TARGET_BASE_PATH perquè així "
+"$SOURCE_BASE_PATH hi pugui tenir l'accés $ACCESS"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
@@ -1778,7 +1839,7 @@ msgstr ""
 
 #: ../src/public_content.py:50
 msgid "If you want to treat $TARGET_BASE_PATH as public content"
-msgstr ""
+msgstr "Si voleu tractar $TARGET_BASE_PATH com a un contingut públic"
 
 #: ../src/public_content.py:51
 msgid ""
@@ -1998,7 +2059,7 @@ msgstr ""
 
 #: ../src/rsync_data.py:45
 msgid "If $TARGET_BASE_PATH should be shared via the RSYNC daemon"
-msgstr ""
+msgstr "Si $TARGET_BASE_PATH ha de compartir-se a través del dimoni de RSYNC"
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
@@ -2147,7 +2208,7 @@ msgstr ""
 
 #: ../src/setenforce.py:48
 msgid "If you believe $SOURCE_PATH tried to disable SELinux."
-msgstr ""
+msgstr "Si crieu que $SOURCE_PATH va intentar inhabilitar SELinux."
 
 #: ../src/setenforce.py:49
 msgid ""
@@ -2173,6 +2234,12 @@ msgid ""
 "    # restorecon -R /root/.ssh\n"
 "    "
 msgstr ""
+"\n"
+"    Podeu restaurar el context per defecte de sistema d'aquest fitxer amb "
+"l'execució\n"
+"    de l'ordre restorecon.\n"
+"    # restorecon -R /root/.ssh\n"
+"    "
 
 #: ../src/sshd_root.py:55
 msgid "Restore Context"
@@ -2184,6 +2251,10 @@ msgid ""
 "    SELinux is preventing $SOURCE_PATH \"$ACCESS\" to $TARGET_PATH.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux està impedint que en $SOURCE_PATH es tingui l'accés \"$ACCESS\" "
+"a $TARGET_PATH.\n"
+"    "
 
 #: ../src/swapfile.py:31
 msgid ""
@@ -2212,6 +2283,8 @@ msgid ""
 "If you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
 msgstr ""
+"Si no creieu que el vostre $SOURCE_PATH hagi d'estar modificant el kernel "
+"amb la càrrega de mòduls del kernel"
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
@@ -2226,8 +2299,7 @@ msgid ""
 msgstr ""
 "\n"
 "    El vostre sistema pot trobar-se seriosament en un compromís! "
-"$SOURCE_PATH va intentar de carregar un mòdul del nucli del sistema operatiu."
-"\n"
+"$SOURCE_PATH va intentar de carregar un mòdul del kernel.\n"
 "    "
 
 #: ../src/sys_module.py:37
@@ -2247,6 +2319,8 @@ msgid ""
 "If you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
 msgstr ""
+"Si no creieu que $SOURCE_PATH hagi d'intentar de modificar el kernel amb la "
+"càrrega d'un mòdul del kernel."
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
