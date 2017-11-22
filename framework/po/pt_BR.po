@@ -17,15 +17,16 @@
 # Teseu <tuliomac@gmail.com>, 2013
 # vitorvilas <vitor@vitorvilasboas.com.br>, 2009
 # Daniel Lara <danniel@fedoraproject.org>, 2016. #zanata
+# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-14 17:36+0200\n"
+"POT-Creation-Date: 2017-11-22 12:19+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-09-05 07:54-0400\n"
+"PO-Revision-Date: 2017-11-22 06:33-0500\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/"
 "fedora/language/pt_BR/)\n"
@@ -241,7 +242,7 @@ msgid "On this %s:"
 msgstr "Em %s:"
 
 #: ../src/setroubleshoot/browser.py:833 ../src/setroubleshoot/browser.py:839
-#: ../src/setroubleshoot/signature.py:411
+#: ../src/setroubleshoot/signature.py:412
 msgid "N/A"
 msgstr "N/A"
 
@@ -351,10 +352,10 @@ msgstr "Erro"
 
 #: ../src/setroubleshoot/Plugin.py:90
 msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"Você quer permitir que $SOURCE_BASE_PATH tenha acesso $ACCESS no "
+"Se você quer permitir que $SOURCE_BASE_PATH tenha acesso $ACCESS no "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:175
@@ -418,7 +419,7 @@ msgstr "Concluído: "
 #: ../src/setroubleshoot/server.py:212
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
-msgstr ""
+msgstr " Para obter mensagens completas do SELinux, execute: sealert -I%s"
 
 #: ../src/setroubleshoot/server.py:399
 #, python-format
@@ -482,160 +483,164 @@ msgid "process"
 msgstr "processo"
 
 #: ../src/setroubleshoot/signature.py:215
+msgid "process2"
+msgstr "process2"
+
+#: ../src/setroubleshoot/signature.py:216
 msgid "filesystem"
 msgstr "sistema de arquivos"
 
-#: ../src/setroubleshoot/signature.py:216
+#: ../src/setroubleshoot/signature.py:217
 msgid "node"
 msgstr "nó"
 
-#: ../src/setroubleshoot/signature.py:217
+#: ../src/setroubleshoot/signature.py:218
 msgid "capability"
 msgstr "capacidade"
 
-#: ../src/setroubleshoot/signature.py:218
+#: ../src/setroubleshoot/signature.py:219
 msgid "capability2"
-msgstr ""
+msgstr "capability2"
 
-#: ../src/setroubleshoot/signature.py:395
+#: ../src/setroubleshoot/signature.py:396
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s tem um tipo permissivo (%s). Esse acesso não foi negado."
 
-#: ../src/setroubleshoot/signature.py:398
+#: ../src/setroubleshoot/signature.py:399
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "O SELinux está em modo permissivo. Esse acesso não foi negado."
 
-#: ../src/setroubleshoot/signature.py:452
+#: ../src/setroubleshoot/signature.py:453
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr "O SELinux está impedindo que o %s use o acesso ao %s em um processo."
 
-#: ../src/setroubleshoot/signature.py:452
+#: ../src/setroubleshoot/signature.py:453
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr ""
 "O SELinux está impedindo que o %s use o acesso ao \"%s\" em um processo."
 
-#: ../src/setroubleshoot/signature.py:455
+#: ../src/setroubleshoot/signature.py:456
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "O SELinux está impedindo que o %s use um recurso do %s."
 
-#: ../src/setroubleshoot/signature.py:455
+#: ../src/setroubleshoot/signature.py:456
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "O SELinux está impedindo que o %s use os recursos do \"%s\""
 
-#: ../src/setroubleshoot/signature.py:457
+#: ../src/setroubleshoot/signature.py:458
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr "SELinux está impedindo que %s de  %s de acessar %s rotulados como %s."
 
-#: ../src/setroubleshoot/signature.py:457
+#: ../src/setroubleshoot/signature.py:458
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr ""
 "SELinux está impedindo que %s de '%s' de acessar em %s rotulados como %s."
 
-#: ../src/setroubleshoot/signature.py:458
+#: ../src/setroubleshoot/signature.py:459
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "O SELinux está impedindo que o %s acesse o %s no %s %s."
 
-#: ../src/setroubleshoot/signature.py:458
+#: ../src/setroubleshoot/signature.py:459
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "O SELinux está impedindo que o %s acesse os \"%s\" no %s %s."
 
-#: ../src/setroubleshoot/signature.py:503
+#: ../src/setroubleshoot/signature.py:504
 msgid "Additional Information:\n"
 msgstr "Informação adicional:\n"
 
-#: ../src/setroubleshoot/signature.py:504
+#: ../src/setroubleshoot/signature.py:505
 msgid "Source Context"
 msgstr "Contexto de origem"
 
-#: ../src/setroubleshoot/signature.py:505
+#: ../src/setroubleshoot/signature.py:506
 msgid "Target Context"
 msgstr "Contexto de destino"
 
-#: ../src/setroubleshoot/signature.py:506
+#: ../src/setroubleshoot/signature.py:507
 msgid "Target Objects"
 msgstr "Objetos de destino"
 
-#: ../src/setroubleshoot/signature.py:507
+#: ../src/setroubleshoot/signature.py:508
 msgid "Source"
 msgstr "Origem"
 
-#: ../src/setroubleshoot/signature.py:508
+#: ../src/setroubleshoot/signature.py:509
 msgid "Source Path"
 msgstr "Caminho da origem"
 
-#: ../src/setroubleshoot/signature.py:509
+#: ../src/setroubleshoot/signature.py:510
 msgid "Port"
 msgstr "Porta"
 
-#: ../src/setroubleshoot/signature.py:511
-#: ../src/setroubleshoot/signature.py:513
+#: ../src/setroubleshoot/signature.py:512
+#: ../src/setroubleshoot/signature.py:514
 msgid "Host"
 msgstr "Máquina"
 
-#: ../src/setroubleshoot/signature.py:514
+#: ../src/setroubleshoot/signature.py:515
 msgid "Source RPM Packages"
 msgstr "Pacotes RPM de origem"
 
-#: ../src/setroubleshoot/signature.py:515
+#: ../src/setroubleshoot/signature.py:516
 msgid "Target RPM Packages"
 msgstr "Pacotes RPM de destino"
 
-#: ../src/setroubleshoot/signature.py:516
+#: ../src/setroubleshoot/signature.py:517
 msgid "Policy RPM"
 msgstr "RPM da política"
 
-#: ../src/setroubleshoot/signature.py:517
+#: ../src/setroubleshoot/signature.py:518
 msgid "Selinux Enabled"
 msgstr "Selinux habilitado"
 
-#: ../src/setroubleshoot/signature.py:518
+#: ../src/setroubleshoot/signature.py:519
 msgid "Policy Type"
 msgstr "Tipo de política"
 
-#: ../src/setroubleshoot/signature.py:519
+#: ../src/setroubleshoot/signature.py:520
 msgid "Enforcing Mode"
 msgstr "Modo reforçado"
 
-#: ../src/setroubleshoot/signature.py:521
-#: ../src/setroubleshoot/signature.py:523
+#: ../src/setroubleshoot/signature.py:522
+#: ../src/setroubleshoot/signature.py:524
 msgid "Host Name"
 msgstr "Nome da máquina"
 
-#: ../src/setroubleshoot/signature.py:528
-#: ../src/setroubleshoot/signature.py:530
+#: ../src/setroubleshoot/signature.py:529
+#: ../src/setroubleshoot/signature.py:531
 msgid "Platform"
 msgstr "Plataforma"
 
-#: ../src/setroubleshoot/signature.py:531
+#: ../src/setroubleshoot/signature.py:532
 msgid "Alert Count"
 msgstr "Contador de alertas"
 
-#: ../src/setroubleshoot/signature.py:533
+#: ../src/setroubleshoot/signature.py:534
 msgid "First Seen"
 msgstr "Visto pela primeira vez em"
 
-#: ../src/setroubleshoot/signature.py:534
+#: ../src/setroubleshoot/signature.py:535
 msgid "Last Seen"
 msgstr "Visto pela última vez em"
 
-#: ../src/setroubleshoot/signature.py:535
+#: ../src/setroubleshoot/signature.py:536
 msgid "Local ID"
 msgstr "ID local"
 
-#: ../src/setroubleshoot/signature.py:537
+#: ../src/setroubleshoot/signature.py:538
 msgid "Raw Audit Messages"
 msgstr "Mensagens de auditoria não processadas"
 
-#: ../src/setroubleshoot/signature.py:591
+#: ../src/setroubleshoot/signature.py:592
 #, python-format
 msgid "\n"
 "\n"
@@ -644,33 +649,28 @@ msgstr "\n"
 "\n"
 "*****  Plugin %s (confiança %.4s) sugere  "
 
-#: ../src/setroubleshoot/signature.py:594
+#: ../src/setroubleshoot/signature.py:595
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:595
+#: ../src/setroubleshoot/signature.py:596
+#: ../src/setroubleshoot/signature.py:598
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:597
-msgid "\n"
-"If "
-msgstr "\n"
-"Se"
-
-#: ../src/setroubleshoot/signature.py:599
+#: ../src/setroubleshoot/signature.py:600
 msgid "\n"
 "Then "
 msgstr "\n"
 "Então"
 
-#: ../src/setroubleshoot/signature.py:602
+#: ../src/setroubleshoot/signature.py:603
 msgid "\n"
 "Do\n"
 msgstr "\n"
 "Faça\n"
 
-#: ../src/setroubleshoot/signature.py:604
+#: ../src/setroubleshoot/signature.py:605
 msgid "\n"
 "\n"
 msgstr "\n"
@@ -750,7 +750,7 @@ msgstr "Solucionar alertas selecionados"
 
 #: ../gui/browser.glade.h:10
 msgid "Delete"
-msgstr ""
+msgstr "Remover"
 
 #: ../gui/browser.glade.h:11
 msgid "Delete Selected Alerts"
@@ -758,7 +758,7 @@ msgstr "Deletar os alertas selecionados"
 
 #: ../gui/browser.glade.h:13
 msgid "Close"
-msgstr ""
+msgstr "Encerrar"
 
 #: ../gui/browser.glade.h:15
 msgid "<b>SELinux has detected a problem.</b>"
@@ -798,7 +798,7 @@ msgstr "Apagar o alerta atual da base de dados"
 
 #: ../gui/browser.glade.h:32
 msgid "Previous"
-msgstr ""
+msgstr "Anterior"
 
 #: ../gui/browser.glade.h:33
 msgid "Show previous alert."
@@ -806,7 +806,7 @@ msgstr "Mostra alerta anterior"
 
 #: ../gui/browser.glade.h:35
 msgid "Next"
-msgstr ""
+msgstr "Próximo"
 
 #: ../gui/browser.glade.h:36
 msgid "Show next alert."

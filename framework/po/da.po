@@ -12,11 +12,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-14 17:36+0200\n"
+"POT-Creation-Date: 2017-11-22 12:19+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-15 08:22-0400\n"
+"PO-Revision-Date: 2017-11-18 06:46-0500\n"
 "Last-Translator: scootergrisen <scootergrisen@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/fedora/language/"
 "da/)\n"
@@ -232,9 +232,9 @@ msgid "On this %s:"
 msgstr "På denne %s:"
 
 #: ../src/setroubleshoot/browser.py:833 ../src/setroubleshoot/browser.py:839
-#: ../src/setroubleshoot/signature.py:411
+#: ../src/setroubleshoot/signature.py:412
 msgid "N/A"
-msgstr "N/A"
+msgstr "-"
 
 #: ../src/setroubleshoot/browser.py:880 ../src/setroubleshoot/browser.py:881
 #: ../gui/browser.glade.h:34
@@ -342,11 +342,9 @@ msgstr "Fejl"
 
 #: ../src/setroubleshoot/Plugin.py:90
 msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"vil du tillade $SOURCE_BASE_PATH til at have $ACCESS-adgang til "
-"$TARGET_BASE_PATH $TARGET_CLASS"
 
 #: ../src/run_cmd.py:175
 msgid "Input: "
@@ -474,158 +472,162 @@ msgid "process"
 msgstr "proces"
 
 #: ../src/setroubleshoot/signature.py:215
+msgid "process2"
+msgstr ""
+
+#: ../src/setroubleshoot/signature.py:216
 msgid "filesystem"
 msgstr "filsystem"
 
-#: ../src/setroubleshoot/signature.py:216
+#: ../src/setroubleshoot/signature.py:217
 msgid "node"
 msgstr "knude"
 
-#: ../src/setroubleshoot/signature.py:217
+#: ../src/setroubleshoot/signature.py:218
 msgid "capability"
 msgstr "mulighed"
 
-#: ../src/setroubleshoot/signature.py:218
+#: ../src/setroubleshoot/signature.py:219
 msgid "capability2"
 msgstr "capability2"
 
-#: ../src/setroubleshoot/signature.py:395
+#: ../src/setroubleshoot/signature.py:396
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s har en eftergivende type (%s). Denne adgang blev ikke afslået."
 
-#: ../src/setroubleshoot/signature.py:398
+#: ../src/setroubleshoot/signature.py:399
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux er i eftergivende tilstand. Denne adgang blev ikke afslået."
 
-#: ../src/setroubleshoot/signature.py:452
+#: ../src/setroubleshoot/signature.py:453
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr "SELinux forhindrer %s fra at bruge %s-adgangen på en proces."
 
-#: ../src/setroubleshoot/signature.py:452
+#: ../src/setroubleshoot/signature.py:453
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr "SELinux forhindrer %s fra at bruge \"%s\"-adgangene på en proces."
 
-#: ../src/setroubleshoot/signature.py:455
+#: ../src/setroubleshoot/signature.py:456
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "SELinux forhindrer %s fra at bruge %s-muligheden."
 
-#: ../src/setroubleshoot/signature.py:455
+#: ../src/setroubleshoot/signature.py:456
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux forhindrer %s fra at bruge \"%s\"-mulighederne."
 
-#: ../src/setroubleshoot/signature.py:457
+#: ../src/setroubleshoot/signature.py:458
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr "SELinux forhindre %s fra %s adgang på %s med etiketten %s."
 
-#: ../src/setroubleshoot/signature.py:457
+#: ../src/setroubleshoot/signature.py:458
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr "SELinux forhindre %s fra '%s' adgang på %s med etiketten %s."
 
-#: ../src/setroubleshoot/signature.py:458
+#: ../src/setroubleshoot/signature.py:459
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux forhindrer %s fra %s-adgang til %s %s."
 
-#: ../src/setroubleshoot/signature.py:458
+#: ../src/setroubleshoot/signature.py:459
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux forhindrer %s fra %s-adgangene til %s %s."
 
-#: ../src/setroubleshoot/signature.py:503
+#: ../src/setroubleshoot/signature.py:504
 msgid "Additional Information:\n"
 msgstr "Yderligere information:\n"
 
-#: ../src/setroubleshoot/signature.py:504
+#: ../src/setroubleshoot/signature.py:505
 msgid "Source Context"
 msgstr "Kildekontekst"
 
-#: ../src/setroubleshoot/signature.py:505
+#: ../src/setroubleshoot/signature.py:506
 msgid "Target Context"
 msgstr "Målkontekst"
 
-#: ../src/setroubleshoot/signature.py:506
+#: ../src/setroubleshoot/signature.py:507
 msgid "Target Objects"
 msgstr "Målobjekt"
 
-#: ../src/setroubleshoot/signature.py:507
+#: ../src/setroubleshoot/signature.py:508
 msgid "Source"
 msgstr "Kilde"
 
-#: ../src/setroubleshoot/signature.py:508
+#: ../src/setroubleshoot/signature.py:509
 msgid "Source Path"
 msgstr "Kildesti"
 
-#: ../src/setroubleshoot/signature.py:509
+#: ../src/setroubleshoot/signature.py:510
 msgid "Port"
 msgstr "Port"
 
-#: ../src/setroubleshoot/signature.py:511
-#: ../src/setroubleshoot/signature.py:513
+#: ../src/setroubleshoot/signature.py:512
+#: ../src/setroubleshoot/signature.py:514
 msgid "Host"
 msgstr "Vært"
 
-#: ../src/setroubleshoot/signature.py:514
+#: ../src/setroubleshoot/signature.py:515
 msgid "Source RPM Packages"
 msgstr "Kilde-RPM-pakker"
 
-#: ../src/setroubleshoot/signature.py:515
+#: ../src/setroubleshoot/signature.py:516
 msgid "Target RPM Packages"
 msgstr "Berørte RPM-pakker"
 
-#: ../src/setroubleshoot/signature.py:516
+#: ../src/setroubleshoot/signature.py:517
 msgid "Policy RPM"
 msgstr "RPM-regelsæt"
 
-#: ../src/setroubleshoot/signature.py:517
+#: ../src/setroubleshoot/signature.py:518
 msgid "Selinux Enabled"
 msgstr "SELinux aktiveret"
 
-#: ../src/setroubleshoot/signature.py:518
+#: ../src/setroubleshoot/signature.py:519
 msgid "Policy Type"
 msgstr "Regelsætstype"
 
-#: ../src/setroubleshoot/signature.py:519
+#: ../src/setroubleshoot/signature.py:520
 msgid "Enforcing Mode"
 msgstr "Gennemtvingende tilstand"
 
-#: ../src/setroubleshoot/signature.py:521
-#: ../src/setroubleshoot/signature.py:523
+#: ../src/setroubleshoot/signature.py:522
+#: ../src/setroubleshoot/signature.py:524
 msgid "Host Name"
 msgstr "Værtsnavn"
 
-#: ../src/setroubleshoot/signature.py:528
-#: ../src/setroubleshoot/signature.py:530
+#: ../src/setroubleshoot/signature.py:529
+#: ../src/setroubleshoot/signature.py:531
 msgid "Platform"
 msgstr "Platform"
 
-#: ../src/setroubleshoot/signature.py:531
+#: ../src/setroubleshoot/signature.py:532
 msgid "Alert Count"
 msgstr "Advarselstæller"
 
-#: ../src/setroubleshoot/signature.py:533
+#: ../src/setroubleshoot/signature.py:534
 msgid "First Seen"
 msgstr "Først set"
 
-#: ../src/setroubleshoot/signature.py:534
+#: ../src/setroubleshoot/signature.py:535
 msgid "Last Seen"
 msgstr "Sidst set"
 
-#: ../src/setroubleshoot/signature.py:535
+#: ../src/setroubleshoot/signature.py:536
 msgid "Local ID"
 msgstr "Lokal ID"
 
-#: ../src/setroubleshoot/signature.py:537
+#: ../src/setroubleshoot/signature.py:538
 msgid "Raw Audit Messages"
 msgstr "Rå overvågningsbeskeder"
 
-#: ../src/setroubleshoot/signature.py:591
+#: ../src/setroubleshoot/signature.py:592
 #, python-format
 msgid "\n"
 "\n"
@@ -634,33 +636,28 @@ msgstr "\n"
 "\n"
 "*****  Plugin %s (%.4s fortrolighed) foreslår   "
 
-#: ../src/setroubleshoot/signature.py:594
+#: ../src/setroubleshoot/signature.py:595
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:595
+#: ../src/setroubleshoot/signature.py:596
+#: ../src/setroubleshoot/signature.py:598
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:597
-msgid "\n"
-"If "
-msgstr "\n"
-"Hvis "
-
-#: ../src/setroubleshoot/signature.py:599
+#: ../src/setroubleshoot/signature.py:600
 msgid "\n"
 "Then "
 msgstr "\n"
 "Derefter "
 
-#: ../src/setroubleshoot/signature.py:602
+#: ../src/setroubleshoot/signature.py:603
 msgid "\n"
 "Do\n"
 msgstr "\n"
 "Gør\n"
 
-#: ../src/setroubleshoot/signature.py:604
+#: ../src/setroubleshoot/signature.py:605
 msgid "\n"
 "\n"
 msgstr "\n"

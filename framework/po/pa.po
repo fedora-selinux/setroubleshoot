@@ -11,11 +11,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-14 17:36+0200\n"
+"POT-Creation-Date: 2017-11-22 12:19+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2015-02-20 02:16-0500\n"
+"PO-Revision-Date: 2017-09-01 08:30-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Panjabi (Punjabi) (http://www.transifex.com/projects/p/fedora/"
 "language/pa/)\n"
@@ -231,7 +231,7 @@ msgid "On this %s:"
 msgstr "ਇਸ %s ਉੱਪਰ:"
 
 #: ../src/setroubleshoot/browser.py:833 ../src/setroubleshoot/browser.py:839
-#: ../src/setroubleshoot/signature.py:411
+#: ../src/setroubleshoot/signature.py:412
 msgid "N/A"
 msgstr "N/A"
 
@@ -341,11 +341,9 @@ msgstr "ਗਲਤੀ"
 
 #: ../src/setroubleshoot/Plugin.py:90
 msgid ""
-"you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
+"If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"ਤੁਸੀਂ $SOURCE_BASE_PATH ਨੂੰ $ACCESS ਪਹੁੰਚ $TARGET_BASE_PATH $TARGET_CLASS "
-"ਉੱਪਰ ਮਨਜੂਰ ਕਰਨਾ ਚਾਹੁੰਦੇ ਹੋ"
 
 #: ../src/run_cmd.py:175
 msgid "Input: "
@@ -472,158 +470,162 @@ msgid "process"
 msgstr "ਤਰੱਕੀ"
 
 #: ../src/setroubleshoot/signature.py:215
+msgid "process2"
+msgstr ""
+
+#: ../src/setroubleshoot/signature.py:216
 msgid "filesystem"
 msgstr "ਫਾਇਲਸਿਸਟਮ"
 
-#: ../src/setroubleshoot/signature.py:216
+#: ../src/setroubleshoot/signature.py:217
 msgid "node"
 msgstr "ਨੋਡ"
 
-#: ../src/setroubleshoot/signature.py:217
+#: ../src/setroubleshoot/signature.py:218
 msgid "capability"
 msgstr "ਸਮਰੱਥਾ"
 
-#: ../src/setroubleshoot/signature.py:218
+#: ../src/setroubleshoot/signature.py:219
 msgid "capability2"
 msgstr ""
 
-#: ../src/setroubleshoot/signature.py:395
+#: ../src/setroubleshoot/signature.py:396
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s ਦੀ ਇੱਕ ਚੇਤਾਵਨੀ ਕਿਸਮ (%s) ਹੈ। ਇਹ ਪਹੁੰਚ ਰੱਦ ਨਹੀਂ ਕੀਤੀ ਗਈ ਸੀ।"
 
-#: ../src/setroubleshoot/signature.py:398
+#: ../src/setroubleshoot/signature.py:399
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux ਚੇਤਾਵਨੀ ਮੋਡ ਵਿੱਚ ਹੈ। ਇਹ ਪਹੁੰਚ ਰੱਦ ਨਹੀਂ ਕੀਤੀ ਗਈ ਸੀ।"
 
-#: ../src/setroubleshoot/signature.py:452
+#: ../src/setroubleshoot/signature.py:453
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr "SELinux %s ਨੂੰ ਇੱਕ ਕਾਰਜ ਉੱਪਰ %s ਪਹੁੰਚ ਤੋਂ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: ../src/setroubleshoot/signature.py:452
+#: ../src/setroubleshoot/signature.py:453
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr "SELinux %s ਨੂੰ ਇੱਕ ਕਾਰਜ ਉੱਪਰ '%s' ਪਹੁੰਚ ਤੋਂ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: ../src/setroubleshoot/signature.py:455
+#: ../src/setroubleshoot/signature.py:456
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "SELinux %s ਨੂੰ %s ਸਮਰੱਥਾ ਵਰਤਣ ਤੋਂ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: ../src/setroubleshoot/signature.py:455
+#: ../src/setroubleshoot/signature.py:456
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux %s ਨੂੰ '%s' ਸਮਰੱਥਾ ਵਰਤਣ ਤੋਂ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: ../src/setroubleshoot/signature.py:457
+#: ../src/setroubleshoot/signature.py:458
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr "SELinux %s ਨੂੰ %s ਦਖਲ ਤੋਂ %s ਲੇਬਲ ਵਾਲੇ %s ਉੱਤੇ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: ../src/setroubleshoot/signature.py:457
+#: ../src/setroubleshoot/signature.py:458
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr "SELinux %s ਨੂੰ '%s' ਦਖਲਾਂ ਤੋਂ  %s ਲੇਬਲ ਕੀਤੇ %s ਉੱਤੇ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: ../src/setroubleshoot/signature.py:458
+#: ../src/setroubleshoot/signature.py:459
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux %s ਨੂੰ %s %s ਉੱਪਰ %s ਪਹੁੰਚ ਤੋਂ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: ../src/setroubleshoot/signature.py:458
+#: ../src/setroubleshoot/signature.py:459
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux %s ਨੂੰ %s %s ਉੱਪਰ '%s' ਪਹੁੰਚ ਤੋਂ ਰੋਕ ਰਿਹਾ ਹੈ।"
 
-#: ../src/setroubleshoot/signature.py:503
+#: ../src/setroubleshoot/signature.py:504
 msgid "Additional Information:\n"
 msgstr "ਵਾਧੂ ਜਾਣਕਾਰੀ:\n"
 
-#: ../src/setroubleshoot/signature.py:504
+#: ../src/setroubleshoot/signature.py:505
 msgid "Source Context"
 msgstr "ਸਰੋਤ ਪ੍ਰਸੰਗ"
 
-#: ../src/setroubleshoot/signature.py:505
+#: ../src/setroubleshoot/signature.py:506
 msgid "Target Context"
 msgstr "ਟਾਰਗਿਟ ਪ੍ਰਸੰਗ"
 
-#: ../src/setroubleshoot/signature.py:506
+#: ../src/setroubleshoot/signature.py:507
 msgid "Target Objects"
 msgstr "ਟਾਰਗਿਟ ਆਬਜੈਕਟ"
 
-#: ../src/setroubleshoot/signature.py:507
+#: ../src/setroubleshoot/signature.py:508
 msgid "Source"
 msgstr "ਸਰੋਤ"
 
-#: ../src/setroubleshoot/signature.py:508
+#: ../src/setroubleshoot/signature.py:509
 msgid "Source Path"
 msgstr "ਸਰੋਤ ਮਾਰਗ"
 
-#: ../src/setroubleshoot/signature.py:509
+#: ../src/setroubleshoot/signature.py:510
 msgid "Port"
 msgstr "ਪੋਰਟ"
 
-#: ../src/setroubleshoot/signature.py:511
-#: ../src/setroubleshoot/signature.py:513
+#: ../src/setroubleshoot/signature.py:512
+#: ../src/setroubleshoot/signature.py:514
 msgid "Host"
 msgstr "ਮੇਜ਼ਬਾਨ"
 
-#: ../src/setroubleshoot/signature.py:514
+#: ../src/setroubleshoot/signature.py:515
 msgid "Source RPM Packages"
 msgstr "ਸਰੋਤ RPM ਪੈਕੇਜ"
 
-#: ../src/setroubleshoot/signature.py:515
+#: ../src/setroubleshoot/signature.py:516
 msgid "Target RPM Packages"
 msgstr "ਟਾਰਗਿਟ RPM ਪੈਕੇਜ"
 
-#: ../src/setroubleshoot/signature.py:516
+#: ../src/setroubleshoot/signature.py:517
 msgid "Policy RPM"
 msgstr "ਪਾਲਿਸੀ RPM"
 
-#: ../src/setroubleshoot/signature.py:517
+#: ../src/setroubleshoot/signature.py:518
 msgid "Selinux Enabled"
 msgstr "Selinux ਯੋਗ ਕੀਤਾ"
 
-#: ../src/setroubleshoot/signature.py:518
+#: ../src/setroubleshoot/signature.py:519
 msgid "Policy Type"
 msgstr "ਪਾਲਿਸੀ ਕਿਸਮ"
 
-#: ../src/setroubleshoot/signature.py:519
+#: ../src/setroubleshoot/signature.py:520
 msgid "Enforcing Mode"
 msgstr "ਮਜਬੂਰ ਢੰਗ"
 
-#: ../src/setroubleshoot/signature.py:521
-#: ../src/setroubleshoot/signature.py:523
+#: ../src/setroubleshoot/signature.py:522
+#: ../src/setroubleshoot/signature.py:524
 msgid "Host Name"
 msgstr "ਮੇਜ਼ਬਾਨ ਨਾਂ"
 
-#: ../src/setroubleshoot/signature.py:528
-#: ../src/setroubleshoot/signature.py:530
+#: ../src/setroubleshoot/signature.py:529
+#: ../src/setroubleshoot/signature.py:531
 msgid "Platform"
 msgstr "ਪਲੇਟਫਾਰਮ"
 
-#: ../src/setroubleshoot/signature.py:531
+#: ../src/setroubleshoot/signature.py:532
 msgid "Alert Count"
 msgstr "ਚੇਤਾਵਨੀ ਗਿਣਤੀ"
 
-#: ../src/setroubleshoot/signature.py:533
+#: ../src/setroubleshoot/signature.py:534
 msgid "First Seen"
 msgstr "ਪਹਿਲੀ ਝਲਕ"
 
-#: ../src/setroubleshoot/signature.py:534
+#: ../src/setroubleshoot/signature.py:535
 msgid "Last Seen"
 msgstr "ਆਖਰੀ ਝਲਕ"
 
-#: ../src/setroubleshoot/signature.py:535
+#: ../src/setroubleshoot/signature.py:536
 msgid "Local ID"
 msgstr "ਲੋਕਲ ID"
 
-#: ../src/setroubleshoot/signature.py:537
+#: ../src/setroubleshoot/signature.py:538
 msgid "Raw Audit Messages"
 msgstr "ਕੱਚੇ ਆਡਿਟ ਸੁਨੇਹੇ"
 
-#: ../src/setroubleshoot/signature.py:591
+#: ../src/setroubleshoot/signature.py:592
 #, python-format
 msgid "\n"
 "\n"
@@ -632,33 +634,28 @@ msgstr "\n"
 "\n"
 "***** ਪਲੱਗਇਨ %s (%.4s confidence) ਸਲਾਹ ਦਿੰਦਾ ਹੈ"
 
-#: ../src/setroubleshoot/signature.py:594
+#: ../src/setroubleshoot/signature.py:595
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:595
+#: ../src/setroubleshoot/signature.py:596
+#: ../src/setroubleshoot/signature.py:598
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:597
-msgid "\n"
-"If "
-msgstr "\n"
-"ਜੇ "
-
-#: ../src/setroubleshoot/signature.py:599
+#: ../src/setroubleshoot/signature.py:600
 msgid "\n"
 "Then "
 msgstr "\n"
 "ਫਿਰ "
 
-#: ../src/setroubleshoot/signature.py:602
+#: ../src/setroubleshoot/signature.py:603
 msgid "\n"
 "Do\n"
 msgstr "\n"
 "ਕਰੋ\n"
 
-#: ../src/setroubleshoot/signature.py:604
+#: ../src/setroubleshoot/signature.py:605
 msgid "\n"
 "\n"
 msgstr "\n"
