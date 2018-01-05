@@ -1,0 +1,120 @@
+#!/usr/bin/python3
+
+# Author: Petr Lautrbach <plautrba@redhat.com>
+# Copyright (C) 2018 Red Hat, Inc.
+#
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 2
+# of the License, or (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import gettext
+import gi
+from gi.repository import GLib
+from gi.repository import GObject
+from gi.repository import Gio
+gi.require_version('Gtk', '3.0')
+from gi.repository import Gtk
+gi.require_version('Notify', '0.7')
+from gi.repository import Notify
+
+from pydbus import SystemBus
+
+from setroubleshoot.config import get_config
+
+class SEApplet(GObject.Object):
+    notifications = {}
+    notifications_number = 0
+
+    def __init__(self):
+
+        bus = SystemBus()
+        self.bus_signal = bus.subscribe(
+            iface='org.fedoraproject.SetroubleshootdIface',
+            signal='alert',
+            signal_fired=self.send_notification
+        )
+
+        super(SEApplet, self).__init__()
+        Notify.init("seapplet")
+
+        self.status_icon = Gtk.StatusIcon.new_from_file(
+            "/usr/share/icons/hicolor/scalable/apps/setroubleshoot_icon.svg"
+        )
+        self.status_icon.connect("activate", self.status_show)
+        self.status_icon.set_visible(True)
+        # lets initialise with the application name
+
+        # FIXME:
+        # if (check_for_avcs(&local_id)  == TRUE) {
+        # 	sedbus_send_check_new(conn, (void *) &alert, local_id);
+        # }
+
+    def dismiss(self, notification, action_name, data):
+        del self.notifications[notification]
+        self.status_icon.set_visible(False)
+
+    def _close_notifications(self):
+        for n in self.notifications.keys():
+            n.close()
+
+    def status_show(self, status_icon):
+        self._close_notifications()
+        self.notifications.clear()
+        self.notifications_number = 0
+        self.launch_desktop()
+
+    def show(self, notification, action_name, data):
+        self._close_notifications()
+        self.notifications.clear()
+        self.notifications_number = 0
+        self.launch_desktop()
+
+    def launch_desktop(self):
+        launcher = Gio.DesktopAppInfo.new("setroubleshoot.desktop")
+        launcher.launch()
+        self.status_icon.set_visible(False)
+
+    def send_notification(self, sender, dobject, iface, signal, params):
+
+        # FIXME:
+        # AVC can be already ignored by a user
+
+        # keep only one alert notification opened
+        self._close_notifications()
+        self.notifications_number += 1
+        n = Notify.Notification.new(
+            _("New SELinux security alert"),
+            _("AVC denial, click icon to view"),
+            "/usr/share/icons/hicolor/scalable/apps/setroubleshoot_icon.svg"
+        )
+        n.add_action("dismiss", _("Dismiss"), self.dismiss, None)
+        n.add_action("show", _("Show"), self.show, None)
+        n.add_action("default", _("Show"), self.show, None)
+        n.connect("closed", self.notification_closed)
+        n.show()
+        self.notifications[n] = params
+
+        self.status_icon.set_visible(True)
+
+    def notification_closed(self, notification):
+        del self.notifications[notification]
+
+
+if __name__ == '__main__':
+    gettext.bindtextdomain(domain = get_config('general', 'i18n_text_domain'),
+                           localedir = get_config('general', 'i18n_locale_dir'))
+    gettext.textdomain(domain = get_config('general', 'i18n_text_domain'))
+    _ = gettext.gettext
+
+    my = SEApplet()
+    loop = GLib.MainLoop()
+    loop.run()
