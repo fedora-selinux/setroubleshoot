@@ -10,7 +10,8 @@ AM_MAINTAINER_MODE
 PKG_CHECK_MODULES([DBUS], [dbus-1])
 PKG_CHECK_MODULES([GIO], [gio-unix-2.0])
 PKG_CHECK_MODULES([NOTIFY], [libnotify])
-PKG_CHECK_MODULES([SEAPPLET], [gtk+-2.0 gio-unix-2.0 libnotify dbus-glib-1])
+PKG_CHECK_MODULES([SEAPPLETLEGACY], [gtk+-2.0 gio-unix-2.0 libnotify dbus-glib-1],
+				    [seappletlegacy=yes], [seappletlegacy=no])
 
 # make sure we keep ACLOCAL_FLAGS around for maintainer builds to work
 AC_SUBST(ACLOCAL_AMFLAGS, "\${ACLOCAL_FLAGS}")
@@ -54,6 +55,18 @@ AC_ARG_WITH([plugindir], AC_HELP_STRING([--with-plugindir=DIR],
                                         [plugin installation directory]),
             [plugindir="$with_plugindir"],
             [plugindir="\${datadir}/setroubleshoot/plugins"])
+
+
+AC_ARG_ENABLE([seappletlegacy],
+    [AC_HELP_STRING([--enable-seappletlegacy], [build seappletlegacy (default=no)])],
+    [case "${enableval}" in
+      yes) seappletlegacy=yes ;;
+      no)  seappletlegacy=no ;;
+      *) AC_MSG_ERROR([bad value ${enableval} for --enable-seappletlegacy]) ;;
+    esac],[seappletlegacy=no])
+
+AM_CONDITIONAL([ENABLE_SEAPPLETLEGACY], test "$seappletlegacy" = yes)
+
 
 AC_SUBST(pkgconfigdir)
 AC_SUBST(pkgdocdir)

@@ -1,27 +1,30 @@
 bin_SCRIPTS =				\
 	sealert				\
+	seapplet			\
 	$(NULL)
 
+sedispatch_CFLAGS = $(DBUS_CFLAGS)
 sedispatch_LDADD = $(CAPNG_LDADD) $(DBUS_LIBS) -lauparse -lselinux
 sedispatch_SOURCES = 			\
 	sedispatch.c			\
 	sedbus.c
 
-seapplet_LDADD = $(SEAPPLET_LIBS) -lauparse -lselinux
-seapplet_SOURCES = 			\
-	sedbus.h			\
-	seapplet.c			\
-	sedbus.c
 
-bin_PROGRAMS = 				\
-	seapplet			\
-	$(NULL)
+if ENABLE_SEAPPLETLEGACY
+seappletlegacy_LDADD = $(SEAPPLETLEGACY_LIBS) -lauparse -lselinux
+seappletlegacy_SOURCES = 	\
+	sedbus.h		\
+	seappletlegacy.c	\
+	sedbus.c
+AM_CPPFLAGS =  $(SEAPPLETLEGACY_CFLAGS)
+bin_PROGRAMS = seappletlegacy
+endif
+
 
 sbin_PROGRAMS = 			\
 	sedispatch			\
 	$(NULL)
 
-AM_CPPFLAGS =  $(SEAPPLET_CFLAGS)
 
 DEFS = @DEFS@ -DLOCALEDIR=\"$(localedir)\"
 
