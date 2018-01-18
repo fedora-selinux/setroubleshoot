@@ -676,6 +676,7 @@ if __name__ == '__main__':
                 iface.finish()
             except ValueError, e:
                 print >> sys.stderr, e
+                iface.finish()
                 sys.exit(3)
             except dbus.exceptions.DBusException as e:
                 print("Unable to establish connection to setroubleshoot daemon!\n" +
