@@ -12,6 +12,7 @@ PKG_CHECK_MODULES([GIO], [gio-unix-2.0])
 PKG_CHECK_MODULES([NOTIFY], [libnotify])
 PKG_CHECK_MODULES([SEAPPLETLEGACY], [gtk+-2.0 gio-unix-2.0 libnotify dbus-glib-1],
 				    [seappletlegacy=yes], [seappletlegacy=no])
+PKG_CHECK_MODULES([SEAPPLET], [gtk+-3.0])
 
 # make sure we keep ACLOCAL_FLAGS around for maintainer builds to work
 AC_SUBST(ACLOCAL_AMFLAGS, "\${ACLOCAL_FLAGS}")
@@ -31,8 +32,53 @@ ur uz uz@cyrillic vi wa wo xh yi zh_CN zh_HK zh_TW zu
 "
 
 AC_PROG_LN_S
-AM_PATH_PYTHON([3])
 LIBCAP_NG_PATH
+
+AM_PATH_PYTHON([3])
+AC_MSG_CHECKING([for the selinux python3 module])
+python_module_result=`$PYTHON -c "import selinux" 2>&1`
+if test -z "$python_module_result"; then
+	AC_MSG_RESULT([yes])
+else
+	AC_MSG_RESULT([no])
+	AC_MSG_ERROR([cannot import Python3 module selinux
+                   Please check your Python3 installation. The error was:
+                   $python_module_result])
+fi
+
+AC_MSG_CHECKING([for the gi python3 module])
+python_module_result=`$PYTHON -c "import gi" 2>&1`
+if test -z "$python_module_result"; then
+	AC_MSG_RESULT([yes])
+else
+	AC_MSG_RESULT([no])
+	AC_MSG_ERROR([cannot import Python3 module gi.
+                   Please check your Python3 installation. The error was:
+                   $python_module_result])
+fi
+
+AC_MSG_CHECKING([for the Notify python3 module])
+python_module_result=`$PYTHON -c "import gi; gi.require_version('Notify', '0.7'); from gi.repository import Notify" 2>&1`
+if test -z "$python_module_result"; then
+	AC_MSG_RESULT([yes])
+else
+	AC_MSG_RESULT([no])
+	AC_MSG_ERROR([cannot import Python3 module Notify.
+                   Please check your Python3 installation. The error was:
+                   $python_module_result])
+fi
+
+AC_MSG_CHECKING([for the pydbus python3 module])
+python_module_result=`$PYTHON -c "import pydbus" 2>&1`
+if test -z "$python_module_result"; then
+	AC_MSG_RESULT([yes])
+else
+	AC_MSG_RESULT([no])
+	AC_MSG_ERROR([cannot import Python3 module pydbus.
+                   Please check your Python3 installation. The error was:
+                   $python_module_result])
+fi
+
 
 AC_PATH_PROGS([html_browser_open], [xdg-open htmlview])
 if test -z $html_browser_open; then
