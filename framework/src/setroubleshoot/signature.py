@@ -454,9 +454,10 @@ class SEFaultSignatureInfo(XmlSerialize):
 
         if self.tclass in ["capability", "capability2"]:
             return P_(_("SELinux is preventing %s from using the %s capability."), _("SELinux is preventing %s from using the '%s' capabilities."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access))
-        if self.tpath == "(null)":
+        if self.tpath in ["(null)", "Unknown"] :
             return P_(_("SELinux is preventing %s from %s access on the %s labeled %s."), _("SELinux is preventing %s from '%s' accesses on the %s labeled %s."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access), translate_class(self.tclass), self.tcontext.type)
         return P_(_("SELinux is preventing %s from %s access on the %s %s."), _("SELinux is preventing %s from '%s' accesses on the %s %s."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access), translate_class(self.tclass), self.tpath)
+
 
     def get_plugins(self, all = False):
         self.plugins = load_plugins()
