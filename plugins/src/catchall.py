@@ -50,6 +50,8 @@ class plugin(Plugin):
             return _('If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on processes labeled $TARGET_TYPE by default.')
         if args[1] in ["capability", "capability2"]:
             return _('If you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by default.')
+        if (len(args) >= 3) and (args[2] in ["(null)", "Unknown"]):
+            return _('If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on $TARGET_CLASS labeled $TARGET_TYPE by default.')
         return _('If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS by default.')
 
     then_text = _('You should report this as a bug.\nYou can generate a local policy module to allow this access.')
@@ -68,4 +70,4 @@ class plugin(Plugin):
         else:
             summary = self.summary + "."
 
-        return self.report((0,avc.tclass))
+        return self.report((0, avc.tclass, avc.tpath))
