@@ -64,6 +64,7 @@ class plugin(Plugin):
                 avc.has_any_access_in(['name_bind'])):
                 # MATCH
             target_types = ", ".join(avc.allowed_target_types())
-            return self.report((avc.tclass.split("_")[0], target_types))
+            if target_types != "":
+                return self.report((avc.tclass.split("_")[0], target_types))
 
         return None
