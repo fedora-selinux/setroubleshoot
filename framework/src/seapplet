@@ -30,9 +30,22 @@ from pydbus import SystemBus
 
 from setroubleshoot.config import get_config
 
+
 class SEApplet(GObject.Object):
     notifications = {}
     notifications_number = 0
+    status_icon = None
+
+    def __init_status_icon(self):
+        if self.status_icon is not None:
+            return self.status_icon
+
+        self.status_icon = Gtk.StatusIcon.new_from_file(
+            "/usr/share/icons/hicolor/scalable/apps/setroubleshoot_icon.svg"
+        )
+        self.status_icon.connect("activate", self.status_show)
+        self.status_icon.set_visible(True)
+        return self.status_icon
 
     def __init__(self):
 
@@ -45,22 +58,40 @@ class SEApplet(GObject.Object):
 
         super(SEApplet, self).__init__()
         Notify.init("seapplet")
-
-        self.status_icon = Gtk.StatusIcon.new_from_file(
-            "/usr/share/icons/hicolor/scalable/apps/setroubleshoot_icon.svg"
-        )
-        self.status_icon.connect("activate", self.status_show)
-        self.status_icon.set_visible(True)
         # lets initialise with the application name
 
         # FIXME:
         # if (check_for_avcs(&local_id)  == TRUE) {
         # 	sedbus_send_check_new(conn, (void *) &alert, local_id);
         # }
+        # read last from ~/.config/sealert.conf
+        # GLib.get_user_config_dir() + "/sealert.conf
+        last_id = ''
+        try:
+            with open(GLib.get_user_config_dir() + "/sealert.conf") as f:
+                for line in f:
+                    (key, value) = line.split('=')
+                    if key == 'last':
+                        last_id = value.rstrip()
+                        break
+        except:
+            pass
+
+        Setroubleshootd = bus.get(
+            'org.fedoraproject.Setroubleshootd',
+            '/org/fedoraproject/Setroubleshootd'
+        )
+
+        (count, red) = Setroubleshootd.check_for_new(last_id)
+
+        if count > 0:
+            status_icon = self.__init_status_icon()
+            status_icon.set_visible(True)
 
     def dismiss(self, notification, action_name, data):
         del self.notifications[notification]
-        self.status_icon.set_visible(False)
+        status_icon = self.__init_status_icon()
+        status_icon.set_visible(False)
 
     def _close_notifications(self):
         for n in self.notifications.keys():
@@ -103,7 +134,8 @@ class SEApplet(GObject.Object):
         n.show()
         self.notifications[n] = params
 
-        self.status_icon.set_visible(True)
+        status_icon = self.__init_status_icon()
+        status_icon.set_visible(True)
 
     def notification_closed(self, notification):
         del self.notifications[notification]
