@@ -142,9 +142,9 @@ class SEApplet(GObject.Object):
 
 
 if __name__ == '__main__':
-    gettext.bindtextdomain(domain = get_config('general', 'i18n_text_domain'),
-                           localedir = get_config('general', 'i18n_locale_dir'))
-    gettext.textdomain(domain = get_config('general', 'i18n_text_domain'))
+    gettext.bindtextdomain(domain=get_config('general', 'i18n_text_domain'),
+                           localedir=get_config('general', 'i18n_locale_dir'))
+    gettext.textdomain(domain=get_config('general', 'i18n_text_domain'))
     _ = gettext.gettext
 
     my = SEApplet()
