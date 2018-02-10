@@ -114,7 +114,8 @@ class SEApplet(GObject.Object):
 
     def launch_desktop(self):
         launcher = Gio.DesktopAppInfo.new("setroubleshoot.desktop")
-        launcher.launch()
+        context = Gio.AppLaunchContext()
+        launcher.launch(None, context)
         self.status_icon.set_visible(False)
 
     def send_notification(self, sender, dobject, iface, signal, params):
