@@ -28,6 +28,9 @@ from gi.repository import Notify
 
 from pydbus import SystemBus
 
+import selinux
+import sys
+
 from setroubleshoot.config import get_config
 
 
@@ -146,6 +149,10 @@ if __name__ == '__main__':
                            localedir=get_config('general', 'i18n_locale_dir'))
     gettext.textdomain(domain=get_config('general', 'i18n_text_domain'))
     _ = gettext.gettext
+
+    if selinux.is_selinux_enabled() != 1:
+        print(_("SELinux Troubleshooter: Applet requires SELinux be enabled to run"), file=sys.stderr)
+        sys.exit(1)
 
     my = SEApplet()
     loop = GLib.MainLoop()
