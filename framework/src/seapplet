@@ -98,18 +98,19 @@ class SEApplet(GObject.Object):
 
     def _close_notifications(self):
         for n in self.notifications.keys():
-            n.close()
+            try:
+                n.close()
+            except Exception as e:
+                print("seapplet: Can't close a notification: %s" % str(e), file=sys.stderr)
+        self.notifications.clear()
+        self.notifications_number = 0
 
     def status_show(self, status_icon):
         self._close_notifications()
-        self.notifications.clear()
-        self.notifications_number = 0
         self.launch_desktop()
 
     def show(self, notification, action_name, data):
         self._close_notifications()
-        self.notifications.clear()
-        self.notifications_number = 0
         self.launch_desktop()
 
     def launch_desktop(self):
@@ -125,7 +126,6 @@ class SEApplet(GObject.Object):
 
         # keep only one alert notification opened
         self._close_notifications()
-        self.notifications_number += 1
         n = Notify.Notification.new(
             _("New SELinux security alert"),
             _("AVC denial, click icon to view"),
