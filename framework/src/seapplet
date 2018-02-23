@@ -135,8 +135,13 @@ class SEApplet(GObject.Object):
         n.add_action("show", _("Show"), self.show, None)
         n.add_action("default", _("Show"), self.show, None)
         n.connect("closed", self.notification_closed)
-        n.show()
-        self.notifications[n] = params
+        try:
+            n.show()
+            self.notifications[n] = params
+        except Exception as e:
+            # maybe no notification daemon is running
+            # see https://bugzilla.redhat.com/show_bug.cgi?id=1541624
+            print("seapplet: Can't show a notification: %s" % str(e), file=sys.stderr)
 
         status_icon = self.__init_status_icon()
         status_icon.set_visible(True)
