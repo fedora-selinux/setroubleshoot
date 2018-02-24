@@ -121,6 +121,9 @@ class SEApplet(GObject.Object):
 
     def send_notification(self, sender, dobject, iface, signal, params):
 
+        status_icon = self.__init_status_icon()
+        status_icon.set_visible(True)
+
         # FIXME:
         # AVC can be already ignored by a user
 
@@ -143,8 +146,6 @@ class SEApplet(GObject.Object):
             # see https://bugzilla.redhat.com/show_bug.cgi?id=1541624
             print("seapplet: Can't show a notification: %s" % str(e), file=sys.stderr)
 
-        status_icon = self.__init_status_icon()
-        status_icon.set_visible(True)
 
     def notification_closed(self, notification):
         del self.notifications[notification]
