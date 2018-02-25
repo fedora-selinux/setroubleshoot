@@ -275,7 +275,7 @@ class SETroubleshootDatabase(object):
         self.lock = threading.Lock()
         self.file_exists = False
         self.modified_count = 0
-        self.auto_save_interval = 30   # auto save after this many seconds
+        self.auto_save_interval = 5   # auto save after this many seconds
         self.auto_save_threshold = 200 # auto save after this many changes
         self.auto_save_timer = None
         self.max_alerts = get_config('database','max_alerts', int)
