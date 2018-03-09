@@ -18,7 +18,7 @@ import fcntl
 
 from setroubleshoot.config import parse_config_setting, get_config
 
-from setroubleshoot.rpc import RpcChannel,ConnectionState
+from setroubleshoot.rpc import RpcChannel, ConnectionState
 from setroubleshoot.rpc_interfaces import SETroubleshootServerInterface
 from setroubleshoot.rpc_interfaces import SETroubleshootDatabaseInterface
 from setroubleshoot.util import Retry, get_error_from_socket_exception
@@ -27,6 +27,7 @@ __all__ = [
     "ServerConnectionHandler"
 ]
 
+
 class ServerConnectionHandler(RpcChannel,
                               SETroubleshootServerInterface,
                               SETroubleshootDatabaseInterface,
@@ -34,26 +35,26 @@ class ServerConnectionHandler(RpcChannel,
     __gsignals__ = {
         'alert':
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT,)),
-        'connection_state_changed': # callback(connection_state, flags, flags_added, flags_removed):
+        'connection_state_changed':  # callback(connection_state, flags, flags_added, flags_removed):
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_INT, GObject.TYPE_INT, GObject.TYPE_INT)),
         'signatures_updated':
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
         'database_bind':
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
-        'async-error': # callback(method, errno, strerror)
+        'async-error':  # callback(method, errno, strerror)
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_STRING, GObject.TYPE_INT, GObject.TYPE_STRING)),
-        }
+    }
 
     def __init__(self, username):
-        RpcChannel.__init__(self, channel_type = 'sealert')
+        RpcChannel.__init__(self, channel_type='sealert')
         GObject.GObject.__init__(self)
         self.connection_state.connect('changed', self.on_connection_state_change)
 
         self.connect_rpc_interface('SEAlert', self)
         self.connect_rpc_interface('SETroubleshootDatabaseNotify', self)
 
-        self.pkg_version = get_config('general','pkg_version')
-        self.rpc_version = get_config('general','rpc_version')
+        self.pkg_version = get_config('general', 'pkg_version')
+        self.rpc_version = get_config('general', 'rpc_version')
         self.username = username
         self.retry_connection_if_closed = False
         self.connection_retry = Retry(self.retry_connection, self.get_connection_retry_interval, notify_interval=1.0)
@@ -76,7 +77,7 @@ class ServerConnectionHandler(RpcChannel,
     # 1) successful open
     # 2) deliberate close
 
-    def open(self, socket_address = None):
+    def open(self, socket_address=None):
         if socket_address is not None:
             self.socket_address = socket_address
 

@@ -25,9 +25,10 @@ __all__ = [
     'SETroubleshootDatabaseInterface',
     'SETroubleshootDatabaseNotifyInterface',
     'SEAlertInterface',
-    ]
+]
 
 #-----------------------------------------------------------------------------
+
 
 class SETroubleshootServerInterface:
 
@@ -54,7 +55,6 @@ class SETroubleshootServerInterface:
     def logon_callback(pkg_version, rpc_version):
         pass
 
-
     #
     # email_recipients
     #
@@ -79,6 +79,7 @@ class SETroubleshootDatabaseInterface:
     #
     # delete_signature
     #
+
     @rpc_method('SETroubleshootDatabase')
     @rpc_arg_type('SETroubleshootDatabase', SEFaultSignature)
     def delete_signature(self, sig):
@@ -154,11 +155,13 @@ class SETroubleshootDatabaseNotifyInterface:
     #
     # signatures_updated
     #
+
     @rpc_signal('SETroubleshootDatabaseNotify')
     def signatures_updated(type, item):
         pass
 
 #-----------------------------------------------------------------------------
+
 
 class SEAlertInterface:
 
@@ -169,5 +172,3 @@ class SEAlertInterface:
     @rpc_arg_type('SEAlert', SEFaultSignatureInfo)
     def alert(siginfo):
         pass
-
-

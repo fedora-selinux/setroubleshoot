@@ -35,7 +35,8 @@ __all__ = ['derive_record_format',
 import six
 import audit
 import struct
-import os,errno
+import os
+import errno
 import re
 import selinux
 import base64
@@ -58,12 +59,14 @@ standard_directories = get_standard_directories()
 
 #-----------------------------------------------------------------------------
 
+
 def audit_record_from_text(text):
     parse_succeeded, record_type, event_id, body_text = parse_audit_record_text(text)
     audit_record = AuditRecord(record_type, event_id, body_text)
     return audit_record
 
 #-----------------------------------------------------------------------------
+
 
 def derive_record_format(socket_path):
     if re.search('/audispd_events$', socket_path):
@@ -109,8 +112,8 @@ def parse_audit_record_text(input):
 
         if match.group(6):
             seconds = int(match.group(7))
-            milli   = int(match.group(8))
-            serial  = int(match.group(9))
+            milli = int(match.group(8))
+            serial = int(match.group(9))
             event_id = AuditEventID(seconds, milli, serial, host)
 
         body_text = match.group(10)
@@ -118,6 +121,7 @@ def parse_audit_record_text(input):
     return (parse_succeeded, record_type, event_id, body_text)
 
 audit_binary_input_re = re.compile(r'audit\(((\d+)\.(\d+):(\d+))\):\s*(.*)')
+
 
 def parse_audit_binary_text(input):
     parse_succeeded = False
@@ -130,8 +134,8 @@ def parse_audit_binary_text(input):
 
         if match.group(1):
             seconds = int(match.group(2))
-            milli   = int(match.group(3))
-            serial  = int(match.group(4))
+            milli = int(match.group(3))
+            serial = int(match.group(4))
             event_id = AuditEventID(seconds, milli, serial)
 
         body_text = match.group(5)
@@ -141,6 +145,8 @@ def parse_audit_binary_text(input):
 #------------------------------------------------------------------------
 
 import string
+
+
 def printable(s):
     if s:
         filtered_path = [x for x in s if x in string.printable]
@@ -148,13 +154,15 @@ def printable(s):
             return True
     return False
 
+
 class AvcContext(XmlSerialize):
     _xml_info = {
-    'user'      : {'XMLForm'     : 'attribute' },
-    'role'      : {'XMLForm'     : 'attribute' },
-    'type'      : {'XMLForm'     : 'attribute' },
-    'mls'       : {'XMLForm'     : 'attribute' },
+        'user': {'XMLForm': 'attribute'},
+        'role': {'XMLForm': 'attribute'},
+        'type': {'XMLForm': 'attribute'},
+        'mls': {'XMLForm': 'attribute'},
     }
+
     def __init__(self, data):
         super(AvcContext, self).__init__()
         if isinstance(data, six.string_types):
@@ -190,34 +198,40 @@ class AvcContext(XmlSerialize):
 
 class AuditEventID(XmlSerialize):
     _xml_info = {
-    'seconds' : {'XMLForm':'attribute', 'import_typecast':int },
-    'milli'   : {'XMLForm':'attribute', 'import_typecast':int },
-    'serial'  : {'XMLForm':'attribute', 'import_typecast':int },
-    'host'    : {'XMLForm':'attribute' },
+        'seconds': {'XMLForm': 'attribute', 'import_typecast': int},
+        'milli': {'XMLForm': 'attribute', 'import_typecast': int},
+        'serial': {'XMLForm': 'attribute', 'import_typecast': int},
+        'host': {'XMLForm': 'attribute'},
     }
 
     def __init__(self, seconds, milli, serial, host=None):
         super(AuditEventID, self).__init__()
         self.seconds = seconds
-        self.milli   = milli
-        self.serial  = serial
+        self.milli = milli
+        self.serial = serial
         if host is not None:
-            self.host    = host
+            self.host = host
 
     def __eq__(self, other):
-        if self.host    != other.host:          return False
-        if self.seconds != other.seconds:       return False
-        if self.milli   != other.milli:         return False
-        if self.serial  != other.serial:        return False
+        if self.host != other.host:
+            return False
+        if self.seconds != other.seconds:
+            return False
+        if self.milli != other.milli:
+            return False
+        if self.serial != other.serial:
+            return False
         return True
 
     def __lt__(self, other):
         if self.host != other.host:
-            raise ValueError("cannot compare two %s objects whose host values differ (%s!=%s)" \
+            raise ValueError("cannot compare two %s objects whose host values differ (%s!=%s)"
                              % (self.__class__.__name__, self.host, other.host))
 
-        if self.seconds != other.seconds: return self.seconds < other.seconds
-        if self.milli != other.milli: return self.milli < other.milli
+        if self.seconds != other.seconds:
+            return self.seconds < other.seconds
+        if self.milli != other.milli:
+            return self.milli < other.milli
 
         return self.serial < other.serial
 
@@ -231,23 +245,27 @@ class AuditEventID(XmlSerialize):
         return "audit(%d.%d:%d)" % (self.seconds, self.milli, self.serial)
 
     def is_valid(self):
-        if self.seconds is None: return False
-        if self.milli   is None: return False
-        if self.serial  is None: return False
+        if self.seconds is None:
+            return False
+        if self.milli is None:
+            return False
+        if self.serial is None:
+            return False
         return True
 
 #-----------------------------------------------------------------------------
 
+
 class AuditRecord(XmlSerialize):
     _xml_info = {
-    'record_type'   : {'XMLForm':'attribute', },
-    'event_id'      : {'XMLForm':'element', 'import_typecast':AuditEventID },
-    'body_text'     : {'XMLForm':'element' },
-    'line_number'   : {'XMLForm':'attribute', 'import_typecast':int },
+        'record_type': {'XMLForm': 'attribute', },
+        'event_id': {'XMLForm': 'element', 'import_typecast': AuditEventID},
+        'body_text': {'XMLForm': 'element'},
+        'line_number': {'XMLForm': 'attribute', 'import_typecast': int},
     }
 
     binary_version = 0
-    binary_header_format="iiii"
+    binary_header_format = "iiii"
     binary_header_size = struct.calcsize(binary_header_format)
     key_value_pair_re = re.compile(r"([^ \t]+)\s*=\s*([^ \t]+)")
     avc_re = re.compile(r"avc:\s+([^\s]+)\s+{([^}]+)}\s+for\s+")
@@ -286,19 +304,23 @@ class AuditRecord(XmlSerialize):
             self.event_id.host = get_hostname()
 
     def is_valid(self):
-        if not self.event_id.is_valid(): return False
-        if self.record_type is None:     return False
-        if self.message is None:         return False
+        if not self.event_id.is_valid():
+            return False
+        if self.record_type is None:
+            return False
+        if self.message is None:
+            return False
         return True
 
     def decode_fields(self):
         encoded_fields = ['acct', 'cmd', 'comm', 'cwd', 'data', 'dir', 'exe',
-                'file', 'host', 'key', 'msg', 'name', 'new', 'ocomm'
-                'old', 'path', 'watch']
+                          'file', 'host', 'key', 'msg', 'name', 'new', 'ocomm'
+                          'old', 'path', 'watch']
 
         for field in encoded_fields:
             if field in self.fields:
-                if self.record_type == 'AVC' and field == 'saddr': continue
+                if self.record_type == 'AVC' and field == 'saddr':
+                    continue
                 value = self.fields[field]
                 decoded_value = audit_msg_decode(value)
                 self.fields[field] = decoded_value
@@ -309,7 +331,6 @@ class AuditRecord(XmlSerialize):
                     value = self.fields[field]
                     decoded_value = audit_msg_decode(value)
                     self.fields[field] = decoded_value
-
 
     def translate_path(self, path):
         try:
@@ -333,12 +354,12 @@ class AuditRecord(XmlSerialize):
         self.fields = {}
 
         for match in AuditRecord.key_value_pair_re.finditer(body_text):
-            key   = match.group(1)
+            key = match.group(1)
             value = match.group(2)
             value = value.strip('"')
             try:
                 if key == "arch":
-                    i = audit.audit_elf_to_machine(int(value,16))
+                    i = audit.audit_elf_to_machine(int(value, 16))
                     value = audit.audit_machine_to_name(i)
 
                 if key == "path":
@@ -351,7 +372,7 @@ class AuditRecord(XmlSerialize):
                         pass
 
                 if key == "syscall":
-                    syscall_name = audit.audit_syscall_to_name(int(value),audit.audit_detect_machine())
+                    syscall_name = audit.audit_syscall_to_name(int(value), audit.audit_detect_machine())
                     if syscall_name:
                         value = syscall_name
 
@@ -369,13 +390,15 @@ class AuditRecord(XmlSerialize):
                            AuditRecord.binary_header_size, self.record_type, msg_length)
 
     def fields_to_text(self):
-        if self.fields is None: return ''
+        if self.fields is None:
+            return ''
         if self.record_type == 'AVC':
             buf = "type=%s msg=%s: avc: denied { %s } " % (self.record_type, self.event_id, ' '.join(self.access))
         else:
             buf = "type=%s msg=%s: " % (self.record_type, self.event_id)
         buf += ' '.join(["%s=%s" % (k, self.fields[k]) for k in self.fields_ord]) + "\n"
         return buf
+
     def to_text(self):
         return "type=%s msg=%s: %s\n" % (self.record_type, self.event_id, self.body_text)
 
@@ -391,6 +414,7 @@ class AuditRecord(XmlSerialize):
         return self.get_binary_header(record) + record
 
 #-----------------------------------------------------------------------------
+
 
 class AuditRecordReader:
     BINARY_FORMAT = 1
@@ -424,8 +448,8 @@ class AuditRecordReader:
                 return
 
             binary_version, binary_header_size, record_type, msg_length = \
-                            struct.unpack(AuditRecord.binary_header_format,
-                                          self._input_buffer[0:AuditRecord.binary_header_size])
+                struct.unpack(AuditRecord.binary_header_format,
+                              self._input_buffer[0:AuditRecord.binary_header_size])
 
             total_len = AuditRecord.binary_header_size + msg_length
 
@@ -468,16 +492,17 @@ class AuditRecordReader:
 
 #-----------------------------------------------------------------------------
 
+
 class AuditEvent(XmlSerialize):
     _xml_info = {
-    'records'      : {'XMLForm':'element', 'list':'audit_record', 'import_typecast':AuditRecord, },
-    'event_id'     : {'XMLForm':'element', 'import_typecast':AuditEventID },
+        'records': {'XMLForm': 'element', 'list': 'audit_record', 'import_typecast': AuditRecord, },
+        'event_id': {'XMLForm': 'element', 'import_typecast': AuditEventID},
     }
 
     def __init__(self):
         super(AuditEvent, self).__init__()
-        self.event_id     = None
-        self.records      = []
+        self.event_id = None
+        self.records = []
         self.record_types = {}
         self.timestamp = None
 
@@ -514,7 +539,7 @@ class AuditEvent(XmlSerialize):
             self.timestamp = float(self.event_id.seconds) + (self.event_id.milli / 1000.0)
         else:
             if not self.event_id == record.event_id:
-                raise ValueError("cannot add audit record to audit event, event_id mismatch %s != %s" % \
+                raise ValueError("cannot add audit record to audit event, event_id mismatch %s != %s" %
                                  (self.event_id, record.event_id))
 
         record_list = self.record_types.setdefault(record.record_type, [])
@@ -534,7 +559,8 @@ class AuditEvent(XmlSerialize):
 
         for record in records:
             value = record.fields.get(name)
-            if value is None: continue
+            if value is None:
+                continue
             items.append((value, record.type))
 
         return items
@@ -542,7 +568,8 @@ class AuditEvent(XmlSerialize):
     def get_record_of_type(self, type):
         record = None
         records = self.record_types.get(type)
-        if records: record = records[0]
+        if records:
+            record = records[0]
         return record
 
     def get_records_of_type(self, type):
@@ -571,41 +598,42 @@ class AuditEvent(XmlSerialize):
 
 #------------------------------------------------------------------------------
 
+
 class AVC:
     # These are the perm sets from the reference policy for file, dirs, and filesystems.
     # They are here to be used below in the access matching functions.
-    stat_file_perms     = ['getattr']
-    x_file_perms        = ['getattr', 'execute']
-    r_file_perms        = ['open', 'read', 'getattr', 'lock', 'ioctl']
-    rx_file_perms       = ['open', 'read', 'getattr', 'lock', 'execute', 'ioctl']
-    ra_file_perms       = ['open', 'ioctl', 'read', 'getattr', 'lock', 'append']
-    link_file_perms     = ['getattr', 'link', 'unlink', 'rename']
-    create_lnk_perms    = ['create', 'read', 'getattr', 'setattr', 'link', 'unlink', 'rename']
-    create_file_perms   = ['open', 'create', 'ioctl', 'read', 'getattr', 'lock', 'write', 'setattr', 'append',
-                           'link', 'unlink', 'rename']
-    r_dir_perms         = ['open', 'read', 'getattr', 'lock', 'search', 'ioctl']
-    rw_dir_perms        = ['open', 'read', 'getattr', 'lock', 'search', 'ioctl', 'add_name', 'remove_name', 'write']
-    ra_dir_perms        = ['open', 'read', 'getattr', 'lock', 'search', 'ioctl', 'add_name', 'write']
-    create_dir_perms    = ['open', 'create', 'read', 'getattr', 'lock', 'setattr', 'ioctl', 'link', 'unlink',
-                           'rename', 'search', 'add_name', 'remove_name', 'reparent', 'write', 'rmdir']
-    mount_fs_perms      = ['mount', 'remount', 'unmount', 'getattr']
-    search_dir_perms    = ['getattr', 'search']
-    getattr_dir_perms   = ['getattr']
-    setattr_dir_perms   = ['setattr']
-    list_dir_perms      = ['open', 'getattr', 'search', 'read', 'lock', 'ioctl']
+    stat_file_perms = ['getattr']
+    x_file_perms = ['getattr', 'execute']
+    r_file_perms = ['open', 'read', 'getattr', 'lock', 'ioctl']
+    rx_file_perms = ['open', 'read', 'getattr', 'lock', 'execute', 'ioctl']
+    ra_file_perms = ['open', 'ioctl', 'read', 'getattr', 'lock', 'append']
+    link_file_perms = ['getattr', 'link', 'unlink', 'rename']
+    create_lnk_perms = ['create', 'read', 'getattr', 'setattr', 'link', 'unlink', 'rename']
+    create_file_perms = ['open', 'create', 'ioctl', 'read', 'getattr', 'lock', 'write', 'setattr', 'append',
+                         'link', 'unlink', 'rename']
+    r_dir_perms = ['open', 'read', 'getattr', 'lock', 'search', 'ioctl']
+    rw_dir_perms = ['open', 'read', 'getattr', 'lock', 'search', 'ioctl', 'add_name', 'remove_name', 'write']
+    ra_dir_perms = ['open', 'read', 'getattr', 'lock', 'search', 'ioctl', 'add_name', 'write']
+    create_dir_perms = ['open', 'create', 'read', 'getattr', 'lock', 'setattr', 'ioctl', 'link', 'unlink',
+                        'rename', 'search', 'add_name', 'remove_name', 'reparent', 'write', 'rmdir']
+    mount_fs_perms = ['mount', 'remount', 'unmount', 'getattr']
+    search_dir_perms = ['getattr', 'search']
+    getattr_dir_perms = ['getattr']
+    setattr_dir_perms = ['setattr']
+    list_dir_perms = ['open', 'getattr', 'search', 'read', 'lock', 'ioctl']
     add_entry_dir_perms = ['open', 'getattr', 'search', 'lock', 'ioctl', 'write', 'add_name']
     del_entry_dir_perms = ['open', 'getattr', 'search', 'lock', 'ioctl', 'write', 'remove_name']
-    manage_dir_perms    = ['open', 'create', 'getattr', 'setattr', 'read', 'write', 'link', 'unlink', 'rename',
-                           'search', 'add_name', 'remove_name', 'reparent', 'rmdir', 'lock', 'ioctl']
-    getattr_file_perms  = ['getattr']
-    setattr_file_perms  = ['setattr']
-    read_file_perms     = ['open', 'getattr', 'read', 'lock', 'ioctl']
-    append_file_perms   = ['open', 'getattr', 'append', 'lock', 'ioctl']
-    write_file_perms    = ['open', 'getattr', 'write', 'append', 'lock', 'ioctl']
-    rw_file_perms       = ['open', 'getattr', 'read', 'write', 'append', 'ioctl', 'lock']
-    delete_file_perms   = ['getattr', 'unlink']
-    manage_file_perms   = ['open', 'create', 'getattr', 'setattr', 'read', 'write', 'append', 'rename', 'link',
-                           'unlink', 'ioctl', 'lock']
+    manage_dir_perms = ['open', 'create', 'getattr', 'setattr', 'read', 'write', 'link', 'unlink', 'rename',
+                        'search', 'add_name', 'remove_name', 'reparent', 'rmdir', 'lock', 'ioctl']
+    getattr_file_perms = ['getattr']
+    setattr_file_perms = ['setattr']
+    read_file_perms = ['open', 'getattr', 'read', 'lock', 'ioctl']
+    append_file_perms = ['open', 'getattr', 'append', 'lock', 'ioctl']
+    write_file_perms = ['open', 'getattr', 'write', 'append', 'lock', 'ioctl']
+    rw_file_perms = ['open', 'getattr', 'read', 'write', 'append', 'ioctl', 'lock']
+    delete_file_perms = ['getattr', 'unlink']
+    manage_file_perms = ['open', 'create', 'getattr', 'setattr', 'read', 'write', 'append', 'rename', 'link',
+                         'unlink', 'ioctl', 'lock']
 
     pipe_instance_path_re = re.compile(r'^(\w+):\[([^\]]*)\]')
     proc_pid_instance_re = re.compile(r'^(/proc/)(\d+)(.*)')
@@ -625,8 +653,8 @@ class AVC:
         self.tcontext = None
         self.tclass = None
         self.port = None
-        self.src_rpms=[]
-        self.tgt_rpms=[]
+        self.src_rpms = []
+        self.tgt_rpms = []
         self.host = None
         self.pid = None
         self.kmod = None
@@ -642,9 +670,9 @@ class AVC:
         text = ''
         text += 'scontext=%s ' % self.scontext
         text += 'tcontext=%s ' % self.tcontext
-        text += 'access=%s '   % self.access
-        text += 'tclass=%s '   % self.tclass
-        text += 'tpath=%s '    % self.tpath
+        text += 'access=%s ' % self.access
+        text += 'tclass=%s ' % self.tclass
+        text += 'tpath=%s ' % self.tpath
 
         return text
 
@@ -654,7 +682,8 @@ class AVC:
     def has_any_access_in(self, access_list):
         'Returns true if the AVC contains _any_ of the permissions in the access list.'
 
-        if self.access is None: return False
+        if self.access is None:
+            return False
         for a in self.access:
             if a in access_list:
                 return True
@@ -665,7 +694,8 @@ class AVC:
         """Returns true if _every_ access in the AVC matches at
         least one of the permissions in the access list."""
 
-        if self.access is None: return False
+        if self.access is None:
+            return False
         for a in self.access:
             if a not in access_list:
                 return False
@@ -700,7 +730,6 @@ class AVC:
                 pass
         return False
 
-
     def __typeMatch(self, context, type_list):
         for type in type_list:
             if re.match(type, context.type):
@@ -710,18 +739,20 @@ class AVC:
     def matches_source_types(self, type_list):
         """Returns true if the type in the source context of the
         avc regular expression matches any of the types in the type list."""
-        if self.scontext is None: return False
+        if self.scontext is None:
+            return False
         return self.__typeMatch(self.scontext, type_list)
 
     def matches_target_types(self, type_list):
         """Returns true if the type in the target context of the
         avc regular expression matches any of the types in the type list."""
-        if self.tcontext is None: return False
+        if self.tcontext is None:
+            return False
         return self.__typeMatch(self.tcontext, type_list)
 
-
     def has_tclass_in(self, tclass_list):
-        if self.tclass is None: return False
+        if self.tclass is None:
+            return False
         return self.tclass in tclass_list
 
     def update(self):
@@ -729,10 +760,11 @@ class AVC:
         self.update_derived_template_substitutions()
 
     def path_is_not_standard_directory(self):
-        if self.tpath is None: return True
+        if self.tpath is None:
+            return True
         return self.tpath not in standard_directories
 
-    def decodehex(self,path):
+    def decodehex(self, path):
         try:
             t = path.decode("hex")
             if t[0].encode("hex") == "00":
@@ -816,7 +848,7 @@ class AVC:
             if name is not None:
                 # Use the class to be smart about formatting the name
                 tclass = self.avc_record.get_field('tclass')
-                if tclass   == 'file':
+                if tclass == 'file':
                     # file name is not a full path so make it appear relative
                     path = '%s' % name
                 elif tclass == 'dir':
@@ -832,16 +864,16 @@ class AVC:
 
         if path is not None:
 
-            if path == "/"  and inodestr:
+            if path == "/" and inodestr:
                 matches = []
                 try:
                     dev_rdev = 0
                     dev = self.avc_record.get_field('dev')
-                    if os.path.exists("/dev/"+dev):
-                        dev_rdev = os.lstat("/dev/"+dev).st_rdev
+                    if os.path.exists("/dev/" + dev):
+                        dev_rdev = os.lstat("/dev/" + dev).st_rdev
 
                     ino = int(inodestr)
-                    fd=open("/proc/mounts", "r")
+                    fd = open("/proc/mounts", "r")
                     for i in fd.read().split("\n"):
                         x = i.split()
                         if len(x) and x[1][0] == '/':
@@ -855,16 +887,16 @@ class AVC:
                         path = matches[0][1]
                     elif len(matches) > 1:
                         for i in matches:
-                             if i[0] == ("/dev/%s" % dev) or i[2] == dev:
-                                 path = i[1]
-                                 break
-                             else:
-                                 try:
-                                     if dev_rdev != 0 and os.lstat(i[0]).st_rdev == dev_rdev:
-                                         path = i[1]
-                                         break
-                                 except OSError:
-                                     pass
+                            if i[0] == ("/dev/%s" % dev) or i[2] == dev:
+                                path = i[1]
+                                break
+                            else:
+                                try:
+                                    if dev_rdev != 0 and os.lstat(i[0]).st_rdev == dev_rdev:
+                                        path = i[1]
+                                        break
+                                except OSError:
+                                    pass
                 except TypeError:
                     path = "unknown mountpoint"
                     pass
@@ -950,12 +982,12 @@ class AVC:
         # exe, cwd, name, path, key, dir, comm, ocomm, key_desc
 
         if syscall_record:
-            exe     = syscall_record.get_field('exe')
+            exe = syscall_record.get_field('exe')
             try:
                 exe.decode("hex")
             except:
                 pass
-            comm    = syscall_record.get_field('comm')
+            comm = syscall_record.get_field('comm')
             self.syscall = syscall_record.get_field('syscall')
             self.success = (syscall_record.get_field('success') == "yes")
             self.a1 = syscall_record.get_field('a1')
@@ -995,17 +1027,16 @@ class AVC:
             else:
                 self.syscall_paths.append(os.path.join(cwd, path))
 
-
-        self.src_rpms=[]
-        self.tgt_rpms=[]
+        self.src_rpms = []
+        self.tgt_rpms = []
 
         self.host = self.audit_event.event_id.host
 
         self.why, bools = audit2why.analyze(str(self.scontext), str(self.tcontext), str(self.tclass), self.access)
         if self.why == audit2why.ALLOW:
-            raise ValueError(_("%s \n**** Invalid AVC allowed in current policy ***\n") %  self.avc_record)
+            raise ValueError(_("%s \n**** Invalid AVC allowed in current policy ***\n") % self.avc_record)
         if self.why == audit2why.DONTAUDIT:
-            raise ValueError(_("%s \n**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n") %  self.avc_record)
+            raise ValueError(_("%s \n**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n") % self.avc_record)
         if self.why == audit2why.NOPOLICY:
             raise ValueError(_("Must call policy_init first"))
         if self.why == audit2why.BADTCON:
@@ -1033,7 +1064,6 @@ class AVC:
                 if rpm:
                     self.tgt_rpms.append(rpm)
 
-
     def set_alt_path(self, path):
         if self.tpath is None:
             self.tpath = path
@@ -1046,13 +1076,13 @@ class AVC:
     def update_derived_template_substitutions(self):
         self.template_substitutions["SOURCE_TYPE"] = escape_html(self.scontext.type)
         self.template_substitutions["TARGET_TYPE"] = escape_html(self.tcontext.type)
-        self.template_substitutions["SOURCE"]      = escape_html(self.source)
+        self.template_substitutions["SOURCE"] = escape_html(self.source)
         self.template_substitutions["SOURCE_PATH"] = escape_html(self.spath)
         if self.spath:
-            self.template_substitutions["FIX_SOURCE_PATH"] = re.sub(" ",".",escape_html(self.spath))
+            self.template_substitutions["FIX_SOURCE_PATH"] = re.sub(" ", ".", escape_html(self.spath))
         self.template_substitutions["TARGET_PATH"] = escape_html(self.tpath)
         if self.tpath:
-            self.template_substitutions["FIX_TARGET_PATH"] = re.sub(" ",".",escape_html(self.tpath))
+            self.template_substitutions["FIX_TARGET_PATH"] = re.sub(" ", ".", escape_html(self.tpath))
 
         if self.tpath is None:
             self.template_substitutions["TARGET_DIR"] = None
@@ -1073,7 +1103,6 @@ class AVC:
 
         self.template_substitutions["SOURCE_PACKAGE"] = escape_html(self.source_pkg)
         self.template_substitutions["PORT_NUMBER"] = escape_html(self.port)
-
 
     def validate_template_substitutions(self):
         # validate, replace any None values with friendly string

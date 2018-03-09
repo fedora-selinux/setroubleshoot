@@ -22,14 +22,14 @@
 import gettext
 from setroubleshoot.config import parse_config_setting, get_config
 
-translation=gettext.translation(domain    = get_config('general', 'i18n_text_domain'),
-                                localedir = get_config('general', 'i18n_locale_dir'),
-                                fallback  = True)
+translation = gettext.translation(domain=get_config('general', 'i18n_text_domain'),
+                                  localedir=get_config('general', 'i18n_locale_dir'),
+                                  fallback=True)
 
 try:
-    _ = translation.ugettext # Unicode version of gettext for Py2
+    _ = translation.ugettext  # Unicode version of gettext for Py2
 except AttributeError:
-    _ = translation.gettext # Python3 (uses unicode by default)
+    _ = translation.gettext  # Python3 (uses unicode by default)
 
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
@@ -39,6 +39,8 @@ import os.path
 import re
 
 #------------------------------------------------------------------------------
+
+
 class Plugin(object):
     """
     Each plugin object recognizes one or more access denials and
@@ -90,7 +92,7 @@ o
     if_text = _('If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the $TARGET_BASE_PATH $TARGET_CLASS')
     then_text = "No default"
     do_text = "No default"
-        
+
     def __init__(self, name):
         self.analysis_id = re.sub(r'^plugins\.', '', name)
         self.priority = 10
@@ -101,7 +103,7 @@ o
 
     def init_args(self, args):
         pass
-        
+
     def get_problem_description(self, avc, args):
         return self.problem_description
 
@@ -120,21 +122,21 @@ o
     def get_if_text(self, avc, args):
         return self.if_text
 
-    def report(self,args=()):
+    def report(self, args=()):
         """
         Report a denial and solution to the fault server.
         """
 
         return SEPlugin(self.analysis_id, args)
-        
+
     def analyze(self, avc):
         return False
 
     def set_priority(self, priority):
         self.priority = priority
-        
+
     def get_priority(self):
-        return self.priority 
+        return self.priority
 
     def check_for_man(self, name):
         man_page = name.split("_")[0] + "_selinux"

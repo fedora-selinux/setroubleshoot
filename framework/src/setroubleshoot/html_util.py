@@ -42,7 +42,9 @@ from types import *
 
 #------------------------------------------------------------------------------
 
+
 class TextWriter(Formatter.DumbWriter):
+
     def __init__(self, file=None, maxcol=80, indent_width=4):
         Formatter.DumbWriter.__init__(self, file, maxcol)
         self.indent_level = 0
@@ -66,7 +68,8 @@ class TextWriter(Formatter.DumbWriter):
             self.send_literal_data(' ' * offset + data)
 
     def send_flowing_data(self, data):
-        if not data: return
+        if not data:
+            return
         atbreak = self.atbreak or data[0] in string.whitespace
         col = self.col
         maxcol = self.maxcol
@@ -91,6 +94,7 @@ class TextWriter(Formatter.DumbWriter):
 
 if sys.version_info > (3,):
     class HTMLParserAnchor(html.parser.HTMLParser):
+
         def __init__(self, formatter, strict=False, convert_charrefs=False):
             super(HTMLParserAnchor, self).__init__()
             self.formatter = formatter
@@ -127,10 +131,12 @@ else:
 
 #------------------------------------------------------------------------------
 
+
 def escape_html(s):
-    if s is None: return None
+    if s is None:
+        return None
     try:
-        s = s.replace("&", "&amp;") # Must be done first!
+        s = s.replace("&", "&amp;")  # Must be done first!
         s = s.replace("<", "&lt;")
         s = s.replace(">", "&gt;")
         s = s.replace("'", "&apos;")
@@ -141,15 +147,17 @@ def escape_html(s):
 
 
 def unescape_html(s):
-    if s is None: return None
+    if s is None:
+        return None
     if '&' not in s:
         return s
     s = s.replace("&lt;", "<")
     s = s.replace("&gt;", ">")
     s = s.replace("&apos;", "'")
     s = s.replace("&quot;", '"')
-    s = s.replace("&amp;", "&") # Must be last
+    s = s.replace("&amp;", "&")  # Must be last
     return s
+
 
 def html_to_text(html, maxcol=80):
     try:
@@ -164,6 +172,7 @@ def html_to_text(html, maxcol=80):
     except Exception as e:
         syslog.syslog(syslog.LOG_ERR, 'cannot convert html to text: %s' % e)
         return None
+
 
 def html_document(*body_components):
     '''Wrap the body components in a HTML document structure with a valid header.
@@ -195,4 +204,3 @@ def html_document(*body_components):
 
     doc += tail
     return doc
-

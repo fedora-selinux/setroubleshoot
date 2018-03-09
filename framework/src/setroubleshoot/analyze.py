@@ -26,7 +26,7 @@ __all__ = ['AnalyzeThread',
            'SETroubleshootDatabase',
            'SETroubleshootDatabaseLocal',
            'LogfileAnalyzer',
-          ]
+           ]
 
 import syslog
 from gi.repository import GObject, GLib
@@ -53,7 +53,9 @@ cmp = lambda x, y: (x > y) - (x < y)
 
 #------------------------------------------------------------------------------
 
+
 class PluginStatistics(object):
+
     def __init__(self, plugin):
         self.name = plugin.analysis_id
         self.analyze_start_time = None
@@ -69,7 +71,7 @@ class PluginStatistics(object):
         if self.report_elapsed_time is None:
             return "%s: %s elapsed" % (self.name, analyze_elapsed_time)
         else:
-            total_elapsed_time = format_elapsed_time(self.report_end_time-self.analyze_start_time)
+            total_elapsed_time = format_elapsed_time(self.report_end_time - self.analyze_start_time)
             report_elapsed_time = format_elapsed_time(self.report_elapsed_time)
 
             return "%s: %s elapsed, %s analyze elapsed, %s report elapsed" % \
@@ -91,7 +93,9 @@ class PluginStatistics(object):
 
 #------------------------------------------------------------------------------
 
+
 class AnalyzeStatistics(object):
+
     def __init__(self, num_plugins):
         self.num_plugins = num_plugins
         self.cur_plugin = None
@@ -130,7 +134,9 @@ class AnalyzeStatistics(object):
 
 #------------------------------------------------------------------------------
 
+
 class Analyze(object):
+
     def __init__(self):
         self.plugins = load_plugins()
         log_debug("Number of Plugins = %d" % len(self.plugins))
@@ -143,12 +149,12 @@ class Analyze(object):
 
     def get_signature(self, avc, environment):
         sig = SEFaultSignature(
-            host        = avc.host,
-            access      = avc.access,
-            scontext    = avc.scontext,
-            tcontext    = avc.tcontext,
-            tclass      = avc.tclass,
-            tpath       = avc.tpath)
+            host=avc.host,
+            access=avc.access,
+            scontext=avc.scontext,
+            tcontext=avc.tcontext,
+            tclass=avc.tclass,
+            tpath=avc.tpath)
         return sig
 
     def analyze_avc(self, avc, report_receiver, query_environment=True):
@@ -164,24 +170,24 @@ class Analyze(object):
             avc.audit_event.line_numbers.sort()
 
         siginfo = SEFaultSignatureInfo(
-            audit_event    = avc.audit_event,
-            source         = avc.source,
-            spath          = avc.spath,
-            tpath          = avc.tpath,
-            src_rpm_list   = avc.src_rpms,
-            tgt_rpm_list   = avc.tgt_rpms,
-            scontext       = avc.scontext,
-            tcontext       = avc.tcontext,
-            tclass         = avc.tclass,
-            port           = avc.port,
-            host           = avc.host,
-            sig            = self.get_signature(avc, environment),
-            environment    = environment,
-            line_numbers   = avc.audit_event.line_numbers,
-            last_seen_date = TimeStamp(avc.audit_event.timestamp),
-            local_id = report_receiver.generate_id(),
-            level = "yellow"
-            )
+            audit_event=avc.audit_event,
+            source=avc.source,
+            spath=avc.spath,
+            tpath=avc.tpath,
+            src_rpm_list=avc.src_rpms,
+            tgt_rpm_list=avc.tgt_rpms,
+            scontext=avc.scontext,
+            tcontext=avc.tcontext,
+            tclass=avc.tclass,
+            port=avc.port,
+            host=avc.host,
+            sig=self.get_signature(avc, environment),
+            environment=environment,
+            line_numbers=avc.audit_event.line_numbers,
+            last_seen_date=TimeStamp(avc.audit_event.timestamp),
+            local_id=report_receiver.generate_id(),
+            level="yellow"
+        )
 
         for plugin in self.plugins:
             try:
@@ -189,7 +195,7 @@ class Analyze(object):
                 if report is not None:
                     if plugin.level == "white":
                         log_debug("plugin level white, not reporting")
-                        return;
+                        return
 
                     # "yellow" is default
                     # "green" overrides "yellow"
@@ -213,13 +219,15 @@ class Analyze(object):
 
 #------------------------------------------------------------------------------
 
+
 class AnalyzeThread(Analyze, threading.Thread):
-    def __init__(self,queue):
+
+    def __init__(self, queue):
         # parent class constructors
         threading.Thread.__init__(self)
         Analyze.__init__(self)
 
-        self.queue=queue
+        self.queue = queue
 
     def run(self):
         while True:
@@ -233,7 +241,9 @@ class AnalyzeThread(Analyze, threading.Thread):
 
 #------------------------------------------------------------------------------
 
+
 class PluginReportReceiver(object):
+
     def __init__(self, database):
         self.database = database
 
@@ -258,6 +268,7 @@ class PluginReportReceiver(object):
 
 
 class TestPluginReportReceiver(object):
+
     def __init__(self, database):
         super(TestPluginReportReceiver, self).__init__(database)
 
@@ -268,6 +279,7 @@ class TestPluginReportReceiver(object):
 #------------------------------------------------------------------------------
 
 class SETroubleshootDatabase(object):
+
     def __init__(self, filepath, name, friendly_name=None):
         self.filepath = filepath
         self.notify = None
@@ -276,11 +288,11 @@ class SETroubleshootDatabase(object):
         self.file_exists = False
         self.modified_count = 0
         self.auto_save_interval = 5   # auto save after this many seconds
-        self.auto_save_threshold = 200 # auto save after this many changes
+        self.auto_save_threshold = 200  # auto save after this many changes
         self.auto_save_timer = None
-        self.max_alerts = get_config('database','max_alerts', int)
+        self.max_alerts = get_config('database', 'max_alerts', int)
         self.max_alert_age = None
-        max_alert_age = get_config('database','max_alert_age')
+        max_alert_age = get_config('database', 'max_alert_age')
         if max_alert_age is not None:
             max_alert_age = max_alert_age.strip()
             if max_alert_age:
@@ -291,10 +303,11 @@ class SETroubleshootDatabase(object):
         self.load()
 
     def prune(self):
-        if not (self.max_alerts or self.max_alert_age): return False
+        if not (self.max_alerts or self.max_alert_age):
+            return False
 
         # Sort oldest to youngest by last_seen_date
-        self.sigs.signature_list.sort(key=cmp_to_key(lambda a,b: cmp(a.last_seen_date, b.last_seen_date)))
+        self.sigs.signature_list.sort(key=cmp_to_key(lambda a, b: cmp(a.last_seen_date, b.last_seen_date)))
 
         if self.max_alert_age:
             # Find the first alert younger than the age threshold, prune everything before that
@@ -308,7 +321,7 @@ class SETroubleshootDatabase(object):
 
             if keep > 0:
                 log_debug("prune by age: max_alert_age=%s min_time_to_survive=%s" % (self.max_alert_age, min_time_to_survive.format()))
-                log_debug("prune by age: pruning [%s - %s]" % (self.sigs.signature_list[0].last_seen_date.format(), self.sigs.signature_list[keep-1].last_seen_date.format()))
+                log_debug("prune by age: pruning [%s - %s]" % (self.sigs.signature_list[0].last_seen_date.format(), self.sigs.signature_list[keep - 1].last_seen_date.format()))
                 log_debug("prune by age: keeping [%s - %s]" % (self.sigs.signature_list[keep].last_seen_date.format(), self.sigs.signature_list[-1].last_seen_date.format()))
                 sigs = [siginfo.sig for siginfo in self.sigs.signature_list[:keep]]
                 for sig in sigs:
@@ -340,10 +353,10 @@ class SETroubleshootDatabase(object):
             return
 
         if os.path.exists(self.filepath):
-           stat_info = os.stat(self.filepath)
-           if stat_info[ST_SIZE] > 0:
-               if self.sigs.read_xml_file(self.filepath, 'sigs', validate_database_doc):
-                   self.file_exists = True
+            stat_info = os.stat(self.filepath)
+            if stat_info[ST_SIZE] > 0:
+                if self.sigs.read_xml_file(self.filepath, 'sigs', validate_database_doc):
+                    self.file_exists = True
 
         self.validate()
         self.prune()
@@ -372,7 +385,7 @@ class SETroubleshootDatabase(object):
             self.save(prune)
         elif self.auto_save_timer is None:
             self.auto_save_timer = \
-                GLib.timeout_add(self.auto_save_interval*1000,
+                GLib.timeout_add(self.auto_save_interval * 1000,
                                  self.auto_save_callback)
 
     def auto_save_callback(self):
@@ -463,7 +476,7 @@ class SETroubleshootDatabase(object):
         user_data.update_item(item, data)
         self.modify_siginfo(siginfo)
 
-    def set_filter(self, sig, username, filter_type, data = "" ):
+    def set_filter(self, sig, username, filter_type, data=""):
         log_debug("set_filter: username=%s filter_type=%s sig=\n%s" % (username, filter_type, sig))
 
         siginfo = self.lookup_signature(sig)
@@ -479,6 +492,7 @@ class SETroubleshootDatabase(object):
 
 #------------------------------------------------------------------------------
 
+
 class SETroubleshootDatabaseLocal(RpcManage,
                                   SETroubleshootDatabaseInterface,
                                   SETroubleshootDatabaseNotifyInterface,
@@ -487,10 +501,9 @@ class SETroubleshootDatabaseLocal(RpcManage,
     __gsignals__ = {
         'signatures_updated':
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT, GObject.TYPE_PYOBJECT)),
-        'async-error': # callback(method, errno, strerror)
+        'async-error':  # callback(method, errno, strerror)
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_STRING, GObject.TYPE_INT, GObject.TYPE_STRING)),
-        }
-
+    }
 
     def __init__(self, database):
         GObject.GObject.__init__(self)
@@ -520,7 +533,6 @@ class SETroubleshootDatabaseLocal(RpcManage,
         if async_rpc.return_args is not None:
             GObject.idle_add(self.process_async_return, async_rpc)
 
-
     def signatures_updated(self, type, item):
         log_debug('signatures_updated() database local: type=%s item=%s' % (type, item))
         self.emit('signatures_updated', type, item)
@@ -529,13 +541,14 @@ GObject.type_register(SETroubleshootDatabaseLocal)
 
 #------------------------------------------------------------------------------
 
+
 class LogfileAnalyzer(GObject.GObject):
     __gsignals__ = {
         'progress':
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_FLOAT,)),
         'state-changed':
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_PYOBJECT,)),
-        }
+    }
 
     def __init__(self, logfile_path=None):
         GObject.GObject.__init__(self)
@@ -660,7 +673,6 @@ class LogfileAnalyzer(GObject.GObject):
 
             self.analyzer.analyze_avc(avc, self.report_receiver, False)
 
-
     def new_audit_record_handler(self, record_type, event_id, body_text, fields, line_number):
         'called to enter a new audit record'
         log_debug('new_audit_record_handler() record_type=%s event_id=%s body_text=%s' % (record_type, event_id, body_text))
@@ -676,4 +688,3 @@ class LogfileAnalyzer(GObject.GObject):
 
 
 GObject.type_register(LogfileAnalyzer)
-

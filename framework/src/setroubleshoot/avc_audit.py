@@ -21,7 +21,7 @@ __all__ = [
     'AuditSocketReceiverThread',
     'AuditRecordReceiver',              # FIXME, do we really want to export this?
     'verify_avc',
-    ]
+]
 
 from builtins import str
 from builtins import object
@@ -50,6 +50,8 @@ except AttributeError:
 #------------------------------------------------------------------------------
 
 my_context = AvcContext(selinux.getcon()[1])
+
+
 def verify_avc(avc):
     if avc.scontext.type == None or avc.tcontext.type == None:
         return False
@@ -63,6 +65,7 @@ def verify_avc(avc):
     return True
 
 #------------------------------------------------------------------------------
+
 
 class AuditRecordReceiver(object):
     """
@@ -206,7 +209,7 @@ class AuditRecordReceiver(object):
             return
 
         # flush old events
-        event_ids.sort(key=cmp_to_key(lambda a,b: self.cache[a].timestamp < self.cache[b].timestamp))
+        event_ids.sort(key=cmp_to_key(lambda a, b: self.cache[a].timestamp < self.cache[b].timestamp))
         if threshold_age is None:
             threshold_age = self.cache[event_ids[-1]].timestamp - self.cache_time_to_live
 
@@ -247,26 +250,27 @@ class AuditRecordReceiver(object):
 
 #------------------------------------------------------------------------------
 
+
 class AuditSocketReceiverThread(threading.Thread):
+
     def __init__(self, queue, report_receiver):
         # parent class constructor
         threading.Thread.__init__(self)
         self.queue = queue
         self.report_receiver = report_receiver
         self.record_receiver = AuditRecordReceiver()
-        self.retry_interval = get_config('audit','retry_interval', int)
+        self.retry_interval = get_config('audit', 'retry_interval', int)
         self.get_socket_paths()
         self.timeout_interval = 2
         self.has_audit_eoe = False
 
-
     def get_socket_paths(self):
         self.audit_socket_paths = []
 
-        audit_socket_path = get_config('audit','text_protocol_socket_path')
+        audit_socket_path = get_config('audit', 'text_protocol_socket_path')
         self.audit_socket_paths.append(audit_socket_path)
 
-        audit_socket_path = get_config('audit','binary_protocol_socket_path')
+        audit_socket_path = get_config('audit', 'binary_protocol_socket_path')
         self.audit_socket_paths.append(audit_socket_path)
 
     def connect(self):
@@ -277,7 +281,7 @@ class AuditSocketReceiverThread(threading.Thread):
                         try:
                             record_format = derive_record_format(self.audit_socket_path)
                             self.record_reader = AuditRecordReader(record_format)
-                            self.audit_socket=Socket.socket(Socket.AF_UNIX,Socket.SOCK_STREAM)
+                            self.audit_socket = Socket.socket(Socket.AF_UNIX, Socket.SOCK_STREAM)
                             fcntl.fcntl(self.audit_socket.fileno(), fcntl.F_SETFD, fcntl.FD_CLOEXEC)
                             self.audit_socket.connect(self.audit_socket_path)
                             self.audit_socket_fd = self.audit_socket.makefile()
@@ -312,13 +316,12 @@ class AuditSocketReceiverThread(threading.Thread):
             if verify_avc(avc):
                 self.queue.put((avc, self.report_receiver))
 
-
     def run(self):
         self.connect()
 
         timeout = self.timeout_interval
         while True:
-            inList, outList, errList = select.select([self.audit_socket],[], [], timeout)
+            inList, outList, errList = select.select([self.audit_socket], [], [], timeout)
             try:
                 if self.audit_socket in inList:
                     import os
@@ -337,7 +340,7 @@ class AuditSocketReceiverThread(threading.Thread):
                             self.new_audit_record_handler(record_type, event_id, body_text, fields, line_number)
                 else:
                     # timeout, anything waiting in our event cache?
-                    for audit_event in self.record_receiver.flush(time.time()-self.timeout_interval):
+                    for audit_event in self.record_receiver.flush(time.time() - self.timeout_interval):
                         self.new_audit_event_handler(audit_event)
                     if self.record_receiver.num_cached_events() == 0:
                         timeout = None
@@ -355,4 +358,3 @@ class AuditSocketReceiverThread(threading.Thread):
                 syslog_trace(traceback.format_exc())
                 syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
                 return
-

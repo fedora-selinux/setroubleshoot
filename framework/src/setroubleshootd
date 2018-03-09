@@ -34,11 +34,12 @@ import syslog
 from setroubleshoot.config import parse_config_setting, get_config
 from setroubleshoot.util import log_debug
 import gettext
-gettext.install(domain    = get_config('general', 'i18n_text_domain'),
-                localedir = get_config('general', 'i18n_locale_dir'))
+gettext.install(domain=get_config('general', 'i18n_text_domain'),
+                localedir=get_config('general', 'i18n_locale_dir'))
 
-pkg_name = get_config('general','pkg_name')
+pkg_name = get_config('general', 'pkg_name')
 syslog.openlog(pkg_name)
+
 
 def usage():
     print('''
@@ -52,7 +53,7 @@ fork = True
 timeout = 10
 
 try:
-    opts, args = getopt.getopt(sys.argv[1:], "dfc:h", ["debug", "nofork","config=","help"])
+    opts, args = getopt.getopt(sys.argv[1:], "dfc:h", ["debug", "nofork", "config=", "help"])
 except getopt.GetoptError:
     # print help information and exit:
     usage()
@@ -96,8 +97,8 @@ try:
         os.umask(os.umask(0o077) | 0o022)
 
         # write the pid file
-        pid_file = get_config('general','pid_file')
-        f=open(pid_file, "w")
+        pid_file = get_config('general', 'pid_file')
+        f = open(pid_file, "w")
         f.write(str(os.getpid()))
         f.close()
 

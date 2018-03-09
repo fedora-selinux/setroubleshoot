@@ -30,7 +30,7 @@ from gi.repository import Gtk, Gdk
 
 __all__ = ['get_display',
            'display_traceback',
-          ]
+           ]
 
 
 #------------------------------------------------------------------------------
@@ -45,7 +45,8 @@ def get_display():
 
     # --- Interaction Dialogs ---
 
-def display_traceback(who,  parent=None):
+
+def display_traceback(who, parent=None):
     if get_display() is None:
         return None
 
@@ -54,13 +55,13 @@ def display_traceback(who,  parent=None):
     stacktrace = traceback.format_exc()
     message = _("Opps, %s hit an error!" % who)
 
-    title= who + ' ' + _("Error")
+    title = who + ' ' + _("Error")
     dlg = Gtk.Dialog(title, parent, 0, (Gtk.STOCK_OK, Gtk.ResponseType.OK))
     dlg.set_position(Gtk.WindowPosition.CENTER)
     dlg.set_default_size(600, 400)
 
     text_buffer = Gtk.TextBuffer()
-    text_buffer.set_text(message+'\n\n'+stacktrace)
+    text_buffer.set_text(message + '\n\n' + stacktrace)
 
     text_view = Gtk.TextView(text_buffer)
     text_view.set_editable(False)

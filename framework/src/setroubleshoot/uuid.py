@@ -56,9 +56,10 @@ RESERVED_NCS, RFC_4122, RESERVED_MICROSOFT, RESERVED_FUTURE = [
 
 import sys
 if sys.version_info > (3,):
-    long = int # Python 2 compatibility
+    long = int  # Python 2 compatibility
 
 cmp = lambda x, y: (x > y) - (x < y)
+
 
 class UUID(object):
     """Instances of the UUID class represent UUIDs as specified in RFC 4122.
@@ -103,7 +104,7 @@ class UUID(object):
     """
 
     def __init__(self, hex=None, bytes=None, fields=None, int=None,
-                       version=None):
+                 version=None):
         r"""Create a UUID from either a string of 32 hexadecimal digits,
         a string of 16 bytes as the 'bytes' argument, a tuple of six
         integers (32-bit time_low, 16-bit time_mid, 16-bit time_hi_version,
@@ -137,29 +138,29 @@ class UUID(object):
         if bytes is not None:
             if len(bytes) != 16:
                 raise ValueError('bytes is not a 16-char string')
-            int = long(('%02x'*16) % tuple(map(ord, bytes)), 16)
+            int = long(('%02x' * 16) % tuple(map(ord, bytes)), 16)
         if fields is not None:
             if len(fields) != 6:
                 raise ValueError('fields is not a 6-tuple')
             (time_low, time_mid, time_hi_version,
              clock_seq_hi_variant, clock_seq_low, node) = fields
-            if not 0 <= time_low < long(1<<32):
+            if not 0 <= time_low < long(1 << 32):
                 raise ValueError('field 1 out of range (need a 32-bit value)')
-            if not 0 <= time_mid < long(1<<16):
+            if not 0 <= time_mid < long(1 << 16):
                 raise ValueError('field 2 out of range (need a 16-bit value)')
-            if not 0 <= time_hi_version < long(1<<16):
+            if not 0 <= time_hi_version < long(1 << 16):
                 raise ValueError('field 3 out of range (need a 16-bit value)')
-            if not 0 <= clock_seq_hi_variant < long(1<<8):
+            if not 0 <= clock_seq_hi_variant < long(1 << 8):
                 raise ValueError('field 4 out of range (need an 8-bit value)')
-            if not 0 <= clock_seq_low < long(1<<8):
+            if not 0 <= clock_seq_low < long(1 << 8):
                 raise ValueError('field 5 out of range (need an 8-bit value)')
-            if not 0 <= node < long(1<<48):
+            if not 0 <= node < long(1 << 48):
                 raise ValueError('field 6 out of range (need a 48-bit value)')
             clock_seq = (clock_seq_hi_variant << long(8)) | clock_seq_low
             int = ((time_low << long(96)) | (time_mid << long(80)) |
                    (time_hi_version << long(64)) | (clock_seq << long(48)) | node)
         if int is not None:
-            if not 0 <= int < 1<<long(128):
+            if not 0 <= int < 1 << long(128):
                 raise ValueError('int is out of range (need a 128-bit value)')
         if version is not None:
             if not 1 <= version <= 5:
@@ -279,6 +280,7 @@ class UUID(object):
 
     version = property(get_version)
 
+
 def _ifconfig_getnode():
     """Get the hardware address on Unix by running ifconfig."""
     import os
@@ -293,9 +295,11 @@ def _ifconfig_getnode():
                 if words[i] in ['hwaddr', 'ether']:
                     return int(words[i + 1].replace(':', ''), 16)
 
+
 def _ipconfig_getnode():
     """Get the hardware address on Windows by running ipconfig.exe."""
-    import os, re
+    import os
+    import re
     dirs = ['', r'c:\windows\system32', r'c:\winnt\system32']
     try:
         import ctypes
@@ -314,10 +318,12 @@ def _ipconfig_getnode():
             if re.match('([0-9a-f][0-9a-f]-){5}[0-9a-f][0-9a-f]', value):
                 return int(value.replace('-', ''), 16)
 
+
 def _netbios_getnode():
     """Get the hardware address on Windows using NetBIOS calls.
     See http://support.microsoft.com/kb/118623 for details."""
-    import win32wnet, netbios
+    import win32wnet
+    import netbios
     ncb = netbios.NCB()
     ncb.Command = netbios.NCBENUM
     ncb.Buffer = adapters = netbios.LANA_ENUM()
@@ -340,28 +346,32 @@ def _netbios_getnode():
             continue
         status._unpack()
         bytes = map(ord, status.adapter_address)
-        return ((bytes[0]<<long(40)) + (bytes[1]<<long(32)) +
-                (bytes[2]<<long(24)) + (bytes[3]<<long(16)) +
-                (bytes[4]<<long(8))  + bytes[5])
+        return ((bytes[0] << long(40)) + (bytes[1] << long(32)) +
+                (bytes[2] << long(24)) + (bytes[3] << long(16)) +
+                (bytes[4] << long(8)) + bytes[5])
 
 _uuid_generate_random = _uuid_generate_time = _UuidCreate = None
+
 
 def _unixdll_getnode():
     """Get the hardware address on Unix using ctypes."""
     _uuid_generate_time(_buffer)
     return UUID(bytes=_buffer.raw).node
 
+
 def _windll_getnode():
     """Get the hardware address on Windows using ctypes."""
     if _UuidCreate(_buffer) == 0:
         return UUID(bytes=_buffer.raw).node
 
+
 def _random_getnode():
     """Get a random node ID, with eighth bit set as suggested by RFC 4122."""
     import random
-    return random.randrange(0, 1<<long(48)) | long(0x010000000000)
+    return random.randrange(0, 1 << long(48)) | long(0x010000000000)
 
 _node = None
+
 
 def getnode():
     """Get the hardware address as a 48-bit integer.  The first time this
@@ -387,6 +397,7 @@ def getnode():
         if _node is not None:
             return _node
 
+
 def uuid1(node=None, clock_seq=None):
     """Generate a UUID from a host ID, sequence number, and the current time.
     If 'node' is not given, getnode() is used to obtain the hardware
@@ -403,10 +414,10 @@ def uuid1(node=None, clock_seq=None):
     nanoseconds = int(time.time() * 1e9)
     # 0x01b21dd213814000 is the number of 100-ns intervals between the
     # UUID epoch 1582-10-15 00:00:00 and the Unix epoch 1970-01-01 00:00:00.
-    timestamp = int(nanoseconds/100) + long(0x01b21dd213814000)
+    timestamp = int(nanoseconds / 100) + long(0x01b21dd213814000)
     if clock_seq is None:
         import random
-        clock_seq = random.randrange(1<<long(14)) # instead of stable storage
+        clock_seq = random.randrange(1 << long(14))  # instead of stable storage
     time_low = timestamp & long(0xffffffff)
     time_mid = (timestamp >> long(32)) & long(0xffff)
     time_hi_version = (timestamp >> long(48)) & long(0x0fff)
@@ -417,11 +428,13 @@ def uuid1(node=None, clock_seq=None):
     return UUID(fields=(time_low, time_mid, time_hi_version,
                         clock_seq_hi_variant, clock_seq_low, node), version=1)
 
+
 def uuid3(namespace, name):
     """Generate a UUID from the MD5 hash of a namespace UUID and a name."""
     import md5
     my_hash = md5.md5(namespace.bytes + name).digest()
     return UUID(bytes=my_hash[:16], version=3)
+
 
 def uuid4():
     """Generate a random UUID."""
@@ -438,6 +451,7 @@ def uuid4():
         import random
         bytes = [chr(random.randrange(256)) for i in range(16)]
         return UUID(bytes=bytes, version=4)
+
 
 def uuid5(namespace, name):
     """Generate a UUID from the SHA-1 hash of a namespace UUID and a name."""

@@ -19,20 +19,20 @@
 import gettext
 from setroubleshoot.config import parse_config_setting, get_config
 
-translation=gettext.translation(domain    = get_config('general', 'i18n_text_domain'),
-                                localedir = get_config('general', 'i18n_locale_dir'),
-                                fallback  = True)
+translation = gettext.translation(domain=get_config('general', 'i18n_text_domain'),
+                                  localedir=get_config('general', 'i18n_locale_dir'),
+                                  fallback=True)
 
 try:
-    _ = translation.ugettext # Unicode version of gettext for Py2
+    _ = translation.ugettext  # Unicode version of gettext for Py2
 except AttributeError:
-    _ = translation.gettext # Python3 (uses unicode by default)
+    _ = translation.gettext  # Python3 (uses unicode by default)
 
 
 __all__ = [
     'ProgramError',
     'get_strerror'
-    ]
+]
 
 #-----------------------------------------------------------------------------
 
@@ -42,12 +42,14 @@ ERROR_BASE = 1000
 
 #-----------------------------------------------------------------------------
 
+
 def get_strerror(errno):
     str = strerror.get(errno, None)
     if str is None:
         import os
         str = os.strerror(errno)
     return str
+
 
 def err(num, name, str):
     global errcode, strerror
@@ -62,6 +64,7 @@ def err(num, name, str):
 #-----------------------------------------------------------------------------
 
 class ProgramError(Exception):
+
     def __init__(self, errno, strerror=None, detail=None):
         self.errno = errno
         if strerror is None:
@@ -77,25 +80,25 @@ class ProgramError(Exception):
 
 #-----------------------------------------------------------------------------
 
-err(  1, 'ERR_NO_SIGNATURE_MATCH',       _('signature not found'))
-err(  2, 'ERR_MULTIPLE_SIGNATURE_MATCH', _('multiple signatures matched'))
-err(  3, 'ERR_SIGNATURE_ID_NOT_FOUND',   _('id not found'))
-err(  4, 'ERR_DATABASE_NOT_FOUND',       _('database not found'))
-err(  5, 'ERR_NOT_MEMBER',               _('item is not a member'))
-err(  6, 'ERR_ILLEGAL_USER_CHANGE',      _('illegal to change user'))
-err(  7, 'ERR_METHOD_NOT_FOUND',         _('method not found'))
-err(  8, 'ERR_CANNOT_CREATE_GUI',        _('cannot create GUI'))
-err(  9, 'ERR_UNKNOWN_VALUE',            _('value unknown'))
-err( 10, 'ERR_FILE_OPEN',                _('cannot open file'))
-err( 11, 'ERR_INVALID_EMAIL_ADDR',       _('invalid email address'))
+err(1, 'ERR_NO_SIGNATURE_MATCH', _('signature not found'))
+err(2, 'ERR_MULTIPLE_SIGNATURE_MATCH', _('multiple signatures matched'))
+err(3, 'ERR_SIGNATURE_ID_NOT_FOUND', _('id not found'))
+err(4, 'ERR_DATABASE_NOT_FOUND', _('database not found'))
+err(5, 'ERR_NOT_MEMBER', _('item is not a member'))
+err(6, 'ERR_ILLEGAL_USER_CHANGE', _('illegal to change user'))
+err(7, 'ERR_METHOD_NOT_FOUND', _('method not found'))
+err(8, 'ERR_CANNOT_CREATE_GUI', _('cannot create GUI'))
+err(9, 'ERR_UNKNOWN_VALUE', _('value unknown'))
+err(10, 'ERR_FILE_OPEN', _('cannot open file'))
+err(11, 'ERR_INVALID_EMAIL_ADDR', _('invalid email address'))
 
 # gobject IO Errors
-err( 12, 'ERR_SOCKET_ERROR',             _('socket error'))
-err( 13, 'ERR_SOCKET_HUP',               _('connection has been broken'))
-err( 14, 'ERR_IO_INVALID',               _('Invalid request. The file descriptor is not open'))
+err(12, 'ERR_SOCKET_ERROR', _('socket error'))
+err(13, 'ERR_SOCKET_HUP', _('connection has been broken'))
+err(14, 'ERR_IO_INVALID', _('Invalid request. The file descriptor is not open'))
 
-err( 15, 'ERR_USER_PERMISSION',          _('insufficient permission to modify user'))
-err( 16, 'ERR_AUTHENTICATION_FAILED',    _('authentication failed'))
-err( 17, 'ERR_USER_PROHIBITED',          _('user prohibited'))
-err( 18, 'ERR_NOT_AUTHENTICATED',        _('not authenticated'))
-err( 19, 'ERR_USER_LOOKUP',              _('user lookup failed'))
+err(15, 'ERR_USER_PERMISSION', _('insufficient permission to modify user'))
+err(16, 'ERR_AUTHENTICATION_FAILED', _('authentication failed'))
+err(17, 'ERR_USER_PROHIBITED', _('user prohibited'))
+err(18, 'ERR_NOT_AUTHENTICATED', _('not authenticated'))
+err(19, 'ERR_USER_LOOKUP', _('user lookup failed'))

@@ -36,10 +36,10 @@ import subprocess
 prog_name = 'test_setroubleshootd'
 
 from setroubleshoot.config import parse_config_setting, get_config
-gettext.install(domain = prog_name, unicode = False, codeset = 'utf-8')
+gettext.install(domain=prog_name, unicode=False, codeset='utf-8')
 from setroubleshoot.log import log_init
-log_init(sys.argv[0], {'console':True,
-                       'level':'error'})
+log_init(sys.argv[0], {'console': True,
+                       'level': 'error'})
 from setroubleshoot.log import *
 
 from setroubleshoot.errcode import *
@@ -79,23 +79,24 @@ audit_socket_path = text_audit_socket_path
 
 output_dst = 'unix'
 record_format_map = {
-    'text'      : AuditRecordReader.TEXT_FORMAT,
-    'host_text' : AuditRecordReader.TEXT_FORMAT,
-    'binary'    : AuditRecordReader.BINARY_FORMAT
-    }
+    'text': AuditRecordReader.TEXT_FORMAT,
+    'host_text': AuditRecordReader.TEXT_FORMAT,
+    'binary': AuditRecordReader.BINARY_FORMAT
+}
 record_formatter_map = {
-    'text'      : AuditRecord.to_text,
-    'host_text' : AuditRecord.to_host_text,
-    'binary'    : AuditRecord.to_binary,
-    }
+    'text': AuditRecord.to_text,
+    'host_text': AuditRecord.to_host_text,
+    'binary': AuditRecord.to_binary,
+}
 protocol_formats_to_text = {
-    AuditRecordReader.TEXT_FORMAT   : 'text',
-    AuditRecordReader.BINARY_FORMAT : 'binary',
-    }
+    AuditRecordReader.TEXT_FORMAT: 'text',
+    AuditRecordReader.BINARY_FORMAT: 'binary',
+}
 
 last_audit_record = None        # FIXME: should be passed as parameter, not global
 
 #-----------------------------------------------------------------------------
+
 
 class SubProcess(gobject.GObject):
         #def on_exit(subprocess, status):
@@ -108,13 +109,14 @@ class SubProcess(gobject.GObject):
         #subprocess.run()
 
     __gsignals__ = {
-        'exit': # callback(subprocess, status)
+        'exit':  # callback(subprocess, status)
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_INT,)),
-        'readline': # callback(subprocess, io_name, line)
+        'readline':  # callback(subprocess, io_name, line)
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_STRING, gobject.TYPE_STRING,)),
-        }
+    }
 
     class IO:
+
         def __init__(self):
             self.watch_id = None
             self.buf = ''
@@ -160,7 +162,6 @@ class SubProcess(gobject.GObject):
 
         return True
 
-
     def process_data(self, io_name, data):
         start = 0
         end = data.find('\n', start)
@@ -181,7 +182,7 @@ class SubProcess(gobject.GObject):
 
         self.io['stdout'].watch_id = gobject.io_add_watch(self.sub_process.stdout,
                                                           gobject.IO_IN | gobject.IO_HUP | gobject.IO_ERR,
-                                                          self.handle_io,  'stdout')
+                                                          self.handle_io, 'stdout')
         self.io['stderr'].watch_id = gobject.io_add_watch(self.sub_process.stderr,
                                                           gobject.IO_IN | gobject.IO_HUP | gobject.IO_ERR,
                                                           self.handle_io, 'stderr')
@@ -190,6 +191,7 @@ class SubProcess(gobject.GObject):
 gobject.type_register(SubProcess)
 
 #================================== AuParse ==================================
+
 
 def auparse_feed_callback(au, cb_event_type, audit_event_handler):
     if debug:
@@ -219,21 +221,25 @@ def auparse_feed_callback(au, cb_event_type, audit_event_handler):
 
                 while True:
                     fields[au.get_field_name()] = au.get_field_str()
-                    if not au.next_field(): break
+                    if not au.next_field():
+                        break
 
                 audit_event_handler(record_type, event_id, body_text, fields, line_number)
 
-                if not au.next_record(): break
+                if not au.next_record():
+                    break
 
     except Exception, e:
-        log_avc.exception("auparse_feed_callback() exception %s: %s",e.__class__.__name__, str(e))
+        log_avc.exception("auparse_feed_callback() exception %s: %s", e.__class__.__name__, str(e))
         return
 
 #================================== AuParse ==================================
 
 #-----------------------------------------------------------------------------
 
+
 class AuditClientConnectionHandler(ClientConnectionHandler):
+
     def __init__(self, socket_address):
         ClientConnectionHandler.__init__(self, socket_address)
 
@@ -251,20 +257,23 @@ class AuditClientConnectionHandler(ClientConnectionHandler):
             #idle_proc_id = gobject.idle_add(feed_clients().next)
 
 #-----------------------------------------------------------------------------
+
+
 def get_test_files_in_dir(dir, filter_glob=None, extension='.log'):
 
     #log_program.debug("get_test_files_in_dir: filter_glob=%s, extension=%s dir=%s", filter_glob, extension, dir)
 
     if filter_glob is None:
         filter_glob = '*'
-    filter_glob = re.sub(extension,'',filter_glob)
+    filter_glob = re.sub(extension, '', filter_glob)
 
     files = []
-    for file in glob.glob(os.path.join(dir, filter_glob+extension)):
+    for file in glob.glob(os.path.join(dir, filter_glob + extension)):
         files.append(file)
 
     files.sort()
     return files
+
 
 def send_log_file(filepath, out_fd):
     global last_audit_record
@@ -274,7 +283,8 @@ def send_log_file(filepath, out_fd):
 
     def new_input_line(f):
         new_data = f.readline()
-        if new_data == '': return None
+        if new_data == '':
+            return None
         new_data = comment_re.sub('', new_data)
         match = directive_re.search(new_data)
         if match:
@@ -309,7 +319,8 @@ def send_log_file(filepath, out_fd):
 
         while True:
             new_data = new_input_line(f)
-            if new_data is None: break
+            if new_data is None:
+                break
             auparser.feed(new_data)
 
         # All done, flush all buffered events out
@@ -320,7 +331,8 @@ def send_log_file(filepath, out_fd):
 
         while True:
             new_data = new_input_line(f)
-            if new_data is None: break
+            if new_data is None:
+                break
             for (record_type, event_id, body_text, fields, line_number) in record_reader.feed(new_data):
                 new_audit_record_handler(record_type, event_id, body_text, fields, line_number)
 
@@ -332,6 +344,7 @@ def send_log_file(filepath, out_fd):
 
     f.close
 
+
 def feed_clients():
     for client in connection_pool.clients():
         out_fd = client.out_fd
@@ -342,6 +355,7 @@ def feed_clients():
             time.sleep(4)           # FIXME, when AUDIT_EOE works we won't need this
             yield True
         yield False
+
 
 def send_file_names(file_names):
     if output_dst == 'stdout':
@@ -359,23 +373,27 @@ def send_file_names_to_clients(file_names):
         out_fd = client.out_fd
         send_file_names_to_fd(file_names, out_fd)
 
+
 def send_file_names_to_fd(file_names, out_fd):
     for filename in file_names:
         filepath = test_files[filename]
         send_log_file(filepath, out_fd)
         #time.sleep(4)           # FIXME, when AUDIT_EOE works we won't need this
 
+
 def input_prompt():
     if prev_command:
-        print >> sys.stdout, prompt+"[%s] " % prev_command,
+        print >> sys.stdout, prompt + "[%s] " % prev_command,
     else:
         print >> sys.stdout, prompt,
     sys.stdout.flush()
+
 
 def handle_stdin(file, io_condition):
     process_command_input(file.readline())
     input_prompt()
     return True
+
 
 def process_command_input(line):
     global test_file_index, prev_command
@@ -392,7 +410,7 @@ def process_command_input(line):
     prev_command = line
     cmd = words.pop(0)
 
-    if cmd == 'send' or cmd =='s':
+    if cmd == 'send' or cmd == 's':
         if len(words) == 0:
             send_file_names(test_file_names)
         else:
@@ -441,6 +459,7 @@ help|h                   print this information
 
 test_file_dir = 'data/audit'
 
+
 def usage():
     print '''
 -a --audit-socket	audit message socket (default=%(audit_socket_path)s)
@@ -457,12 +476,12 @@ setroubleshootd -f -c audit.text_protocol_socket_path=/tmp/audispd_events
 
 ''' % {'audit_socket_path'   : audit_socket_path,
        'valid_record_formats': '|'.join(record_format_map.keys()),
-       'test_file_dir'       : test_file_dir
+       'test_file_dir': test_file_dir
        }
 try:
     opts, args = getopt.getopt(sys.argv[1:],
                                "a:o:s:f:c:hD:v",
-                               ["audit-socket=","out=","srcfiles=","format=","config=","help","test-file-dir","verbose"])
+                               ["audit-socket=", "out=", "srcfiles=", "format=", "config=", "help", "test-file-dir", "verbose"])
 except getopt.GetoptError:
     # print help information and exit:
     usage()
@@ -492,7 +511,7 @@ for o, a in opts:
     if o in ("-f", "--format"):
         if a not in record_format_map:
             print >> sys.stderr, "ERROR: record format (%s) invalid, must be one of %s" % \
-                  (a, ','.join(record_format_map.keys()))
+                (a, ','.join(record_format_map.keys()))
             sys.exit(1)
         record_format_name = a
 
@@ -547,8 +566,3 @@ elif output_dst == 'unix':
 
 else:
     log_program.error("unknown output destination (%s)", output_dst)
-    
-
-
-
-

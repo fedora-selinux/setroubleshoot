@@ -31,10 +31,12 @@ from setroubleshoot.rpc_interfaces import *
 from setroubleshoot.signature import *
 from setroubleshoot.util import *
 
+
 class TestDatabaseInterface:
     #
     # bogus
     #
+
     @rpc_method('SETroubleshootDatabase')
     def bogus(self):
         pass
@@ -123,26 +125,26 @@ class ServerConnectionHandler(RpcChannel,
     __gsignals__ = {
         'alert':
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT,)),
-        'connection_state_changed': # callback(connection_state, flags, flags_added, flags_removed):
+        'connection_state_changed':  # callback(connection_state, flags, flags_added, flags_removed):
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_INT, gobject.TYPE_INT, gobject.TYPE_INT)),
-        'signatures_updated': 
+        'signatures_updated':
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
-        'database_bind': 
+        'database_bind':
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_PYOBJECT, gobject.TYPE_PYOBJECT)),
-        'async-error': # callback(method, errno, strerror)
+        'async-error':  # callback(method, errno, strerror)
         (gobject.SIGNAL_RUN_LAST, gobject.TYPE_NONE, (gobject.TYPE_STRING, gobject.TYPE_INT, gobject.TYPE_STRING)),
-        }
+    }
 
     def __init__(self, username):
-        RpcChannel.__init__(self, channel_type = 'sealert')
+        RpcChannel.__init__(self, channel_type='sealert')
         gobject.GObject.__init__(self)
         self.connection_state.connect('changed', self.on_connection_state_change)
 
         self.connect_rpc_interface('SEAlert', self)
         self.connect_rpc_interface('SETroubleshootDatabaseNotify', self)
 
-        self.pkg_version = get_config('general','pkg_version')
-        self.rpc_version = get_config('general','rpc_version')
+        self.pkg_version = get_config('general', 'pkg_version')
+        self.rpc_version = get_config('general', 'rpc_version')
         self.username = username
         self.retry_connection_if_closed = False
         self.connection_retry = Retry(self.retry_connection, self.get_connection_retry_interval, notify_interval=1.0)
@@ -170,7 +172,7 @@ class ServerConnectionHandler(RpcChannel,
     # 1) successful open
     # 2) deliberate close
 
-    def open(self, socket_address = None):
+    def open(self, socket_address=None):
         if debug:
             log_communication.debug("%s.open: new addr = %s, existing %s %s",
                                     self.__class__.__name__, socket_address, self.socket_address, self.connection_state)
@@ -205,13 +207,13 @@ class ServerConnectionHandler(RpcChannel,
             self.close_connection(add_flags, ConnectionState.CONNECTING, errno, strerror)
             return False
         return True
-            
+
     def retry_connection(self, retry, user_data):
         if self.open(self.socket_address):
             return True
         else:
             return False
-        
+
     def get_connection_retry_interval(self, retry, user_data):
         if retry.failed_attempts < 5:
             return 10
@@ -266,6 +268,5 @@ class ServerConnectionHandler(RpcChannel,
         if debug:
             log_rpc.debug('signatures_updated() alert client: type=%s item=%s', type, item)
         self.emit('signatures_updated', type, item)
-        
-gobject.type_register(ServerConnectionHandler)
 
+gobject.type_register(ServerConnectionHandler)

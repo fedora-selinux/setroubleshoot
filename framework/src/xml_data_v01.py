@@ -57,7 +57,7 @@ __all__ = ['XMLNotFoundException',
 import syslog
 import libuser
 global VALID_EXES
-INVALID_EXES=libuser.get_user_shells() + [ "/usr/bin/perl" , "/usr/bin/python" ]
+INVALID_EXES = libuser.get_user_shells() + ["/usr/bin/perl", "/usr/bin/python"]
 
 from setroubleshoot.config import get_config
 from setroubleshoot.errcode import *
@@ -76,14 +76,14 @@ import exceptions
 i18n_encoding = get_config('general', 'i18n_encoding')
 
 # Don't reuse the numeric values!
-FILTER_NEVER              = 0
-FILTER_TILL_FIX           = 1
-FILTER_TILL_RPM_CHANGE    = 2
+FILTER_NEVER = 0
+FILTER_TILL_FIX = 1
+FILTER_TILL_RPM_CHANGE = 2
 FILTER_TILL_POLICY_CHANGE = 3
-FILTER_ALWAYS             = 4
-FILTER_DAY                = 5
-FILTER_WEEK               = 6
-FILTER_AFTER_FIRST        = 8
+FILTER_ALWAYS = 4
+FILTER_DAY = 5
+FILTER_WEEK = 6
+FILTER_AFTER_FIRST = 8
 
 # internal value so keep it well away from the other numerical values
 FILTER_TILL_DATE = 1000
@@ -92,310 +92,311 @@ instance_path_re = re.compile('^(\w+):\[([^\]]*)\]')
 
 
 filter_text = {
-    FILTER_NEVER              : _("Never Ignore"),
-    FILTER_TILL_FIX           : _("Ignore Until Fix Released"),
-    FILTER_TILL_RPM_CHANGE    : _("Ignore Until RPM Updated"),
-    FILTER_TILL_POLICY_CHANGE : _("Ignore Until Policy Updated"),
-    FILTER_ALWAYS             : _("Ignore Always"),
-    FILTER_DAY                : _("Ignore For 1 Day"),
-    FILTER_WEEK               : _("Ignore For 1 Week"),
-    FILTER_AFTER_FIRST        : _("Ignore After First Alert"),
-    }
+    FILTER_NEVER: _("Never Ignore"),
+    FILTER_TILL_FIX: _("Ignore Until Fix Released"),
+    FILTER_TILL_RPM_CHANGE: _("Ignore Until RPM Updated"),
+    FILTER_TILL_POLICY_CHANGE: _("Ignore Until Policy Updated"),
+    FILTER_ALWAYS: _("Ignore Always"),
+    FILTER_DAY: _("Ignore For 1 Day"),
+    FILTER_WEEK: _("Ignore For 1 Week"),
+    FILTER_AFTER_FIRST: _("Ignore After First Alert"),
+}
 
 map_filter_value_to_name = {
-    FILTER_NEVER              : 'never',
-    FILTER_TILL_FIX           : 'till_fix',
-    FILTER_TILL_RPM_CHANGE    : 'till_rpm_change',
-    FILTER_TILL_POLICY_CHANGE : 'till_policy_change',
-    FILTER_ALWAYS             : 'always',
-    FILTER_DAY                : 'day',
-    FILTER_WEEK               : 'week',
-    FILTER_AFTER_FIRST        : 'after_first',
-    }
+    FILTER_NEVER: 'never',
+    FILTER_TILL_FIX: 'till_fix',
+    FILTER_TILL_RPM_CHANGE: 'till_rpm_change',
+    FILTER_TILL_POLICY_CHANGE: 'till_policy_change',
+    FILTER_ALWAYS: 'always',
+    FILTER_DAY: 'day',
+    FILTER_WEEK: 'week',
+    FILTER_AFTER_FIRST: 'after_first',
+}
 
 map_filter_name_to_value = {
-    'never'                   : FILTER_NEVER,
-    'till_fix'                : FILTER_TILL_FIX,
-    'till_rpm_change'         : FILTER_TILL_RPM_CHANGE,
-    'till_policy_change'      : FILTER_TILL_POLICY_CHANGE,
-    'always'                  : FILTER_ALWAYS,
-    'day'                     : FILTER_DAY,
-    'week'                    : FILTER_WEEK,
-    'after_first'             : FILTER_AFTER_FIRST,
-    }
+    'never': FILTER_NEVER,
+    'till_fix': FILTER_TILL_FIX,
+    'till_rpm_change': FILTER_TILL_RPM_CHANGE,
+    'till_policy_change': FILTER_TILL_POLICY_CHANGE,
+    'always': FILTER_ALWAYS,
+    'day': FILTER_DAY,
+    'week': FILTER_WEEK,
+    'after_first': FILTER_AFTER_FIRST,
+}
 
 AvcContextAttrs = {
-    'user'      : {'XMLForm'     : 'attribute'},
-    'role'      : {'XMLForm'     : 'attribute'},
-    'type'      : {'XMLForm'     : 'attribute'},
-    'mls'       : {'XMLForm'     : 'attribute'},
+    'user': {'XMLForm': 'attribute'},
+    'role': {'XMLForm': 'attribute'},
+    'type': {'XMLForm': 'attribute'},
+    'mls': {'XMLForm': 'attribute'},
 }
 
 AVCAttrs = {
-    'a0'	: {'description' : "alphanumeric, the first argument to a syscall",
-                   'XMLForm'     : 'attribute'},
-    'a1'	: {'description' : "alphanumeric, the second arguments to a syscall",
-                   'XMLForm'     : 'attribute'},
-    'a2'	: {'description' : "alphanumeric, the third argument to a syscall",
-                   'XMLForm'     : 'attribute'},
-    'a3'	: {'description' : "alphanumeric, the fourth argument to a syscall",
-                   'XMLForm'     : 'attribute'},
-    'access'    : {'description' : "list, list of operations which triggered the AVC",
-                   'XMLForm'     : 'element',
-                   'list'        : {'name' : 'operation', 'text':None}},
-    'acct'	: {'description' : "alphanumeric, a user's account name",
-                   'XMLForm'     : 'attribute'},
-    'addr'	: {'description' : "the remote address that the user is connecting from",
-                   'XMLForm'     : 'attribute'},
-    'arch'	: {'description' : "numeric, the elf architecture flags",
-                   'XMLForm'     : 'attribute'},
-    'auid'	: {'description' : "numeric, login user id",
-                   'XMLForm'     : 'attribute'},
-    'comm'	: {'description' : "alphanumeric, command line program name",
-                   'XMLForm'     : 'attribute'},
-    'cwd'	: {'description' : "path name, the current working directory",
-                   'XMLForm'     : 'attribute'},
-    'dest'	: {'description' : "numeric, port number",
-                   'XMLForm'     : 'attribute'},
-    'dev'	: {'description' : "numeric, in path records, major and minor for device",
-                   'XMLForm'     : 'attribute'},
-    'dev'	: {'description' : "in avc records, device name as found in /dev",
-                   'XMLForm'     : 'attribute'},
-    'egid'	: {'description' : "numeric, effective group id",
-                   'XMLForm'     : 'attribute'},
-    'euid'	: {'description' : "numeric, effective user id",
-                   'XMLForm'     : 'attribute'},
-    'exe'	: {'description' : "path name, executable name",
-                   'XMLForm'     : 'attribute'},
-    'exit'	: {'description' : "numeric, syscall exit code",
-                   'XMLForm'     : 'attribute'},
-    'file'	: {'description' : "file name",
-                   'XMLForm'     : 'attribute'},
-    'flags'	: {'description' : "numeric, file system namei flags",
-                   'XMLForm'     : 'attribute'},
-    'format'	: {'description' : "alphanumeric, audit log's format",
-                   'XMLForm'     : 'attribute'},
-    'fsgid'	: {'description' : "numeric, file system group id",
-                   'XMLForm'     : 'attribute'},
-    'fsuid'	: {'description' : "numeric, file system user id",
-                   'XMLForm'     : 'attribute'},
-    'gid'	: {'description' : "numeric, group id",
-                   'XMLForm'     : 'attribute'},
-    'hostname'	: {'description' : "alphanumeric, the hostname that the user is connecting from",
-                   'XMLForm'     : 'attribute'},
-    'id'	: {'description' : "numeric, during account changes, the user id of the account",
-                   'XMLForm'     : 'attribute'},
-    'igid'	: {'description' : "numeric, ipc object's group id",
-                   'XMLForm'     : 'attribute'},
-    'inode'	: {'description' : "numeric, inode number",
-                   'XMLForm'     : 'attribute'},
-    'inode_gid'	: {'description' : "numeric, group id of the inode's owner",
-                   'XMLForm'     : 'attribute'},
-    'inode_uid'	: {'description' : "numeric, user id of the inode's owner",
-                   'XMLForm'     : 'attribute'},
-    'item'	: {'description' : "numeric, which item is being recorded",
-                   'XMLForm'     : 'attribute'},
-    'items'	: {'description' : "numeric, the number of path records in the event",
-                   'XMLForm'     : 'attribute'},
-    'iuid'	: {'description' : "numeric, ipc object's user id",
-                   'XMLForm'     : 'attribute'},
-    'list'	: {'description' : "numeric, the audit system's filter list number",
-                   'XMLForm'     : 'attribute'},
-    'mode'	: {'description' : "numeric, mode flags on a file",
-                   'XMLForm'     : 'attribute'},
-    'msg'	: {'description' : "alphanumeric, the payload of the audit record",
-                   'XMLForm'     : 'attribute'},
-    'nargs'	: {'description' : "numeric, the number of arguments to a socket call",
-                   'XMLForm'     : 'attribute'},
-    'name'	: {'description' : "file name in avcs",
-                   'XMLForm'     : 'attribute'},
-    'obj'	: {'description' : "alphanumeric, lspp object context string",
-                   'XMLForm'     : 'attribute'},
-    'ogid'	: {'description' : "numeric, file owner group id",
-                   'XMLForm'     : 'attribute'},
-    'old'	: {'description' : "numeric, old audit_enabled, audit_backlog, or audit_failure value",
-                   'XMLForm'     : 'attribute'},
-    'old_prom'	: {'description' : "numeric, network promiscuity flag",
-                   'XMLForm'     : 'attribute'},
-    'op'	: {'description' : "alphanumeric, the operation being performed that is audited",
-                   'XMLForm'     : 'attribute'},
-    'ouid'	: {'description' : "numeric, file owner user id",
-                   'XMLForm'     : 'attribute'},
-    'parent'	: {'description' : "numeric, the inode number of the parent file",
-                   'XMLForm'     : 'attribute'},
-    'path'	: {'description' : "file system path name",
-                   'XMLForm'     : 'attribute'},
-    'perm'	: {'description' : "numeric, the file permission being used",
-                   'XMLForm'     : 'attribute'},
-    'perm_mask'	: {'description' : "numeric, file permission audit mask that triggered a watch event",
-                   'XMLForm'     : 'attribute'},
-    'pid'	: {'description' : "numeric, process id",
-                   'XMLForm'     : 'attribute'},
-    'prom'	: {'description' : "numeric, network promiscuity flag",
-                   'XMLForm'     : 'attribute'},
-    'qbytes'	: {'description' : "numeric, ipc objects quantity of bytes",
-                   'XMLForm'     : 'attribute'},
-    'range'	: {'description' : "alphanumeric, user's SE Linux range",
-                   'XMLForm'     : 'attribute'},
-    'rdev'	: {'description' : "numeric, the device identifier (special files only)",
-                   'XMLForm'     : 'attribute'},
-    'result'	: {'description' : "alphanumeric, result of the audited operation (success/fail)",
-                   'XMLForm'     : 'attribute'},
-    'role'	: {'description' : "alphanumeric, user's SE linux role",
-                   'XMLForm'     : 'attribute'},
-    'saddr'	: {'description' : "alphanumeric, socket address",
-                   'XMLForm'     : 'attribute'},
-    'sauid'	: {'description' : "numeric, sending login user id",
-                   'XMLForm'     : 'attribute'},
-    'scontext'	: {'description' : "alphanumeric, the subject's context string",
-                   'XMLForm'     : 'element',  'class':{'name':'AvcContext'}},
-    'seuser'	: {'description' : "alphanumeric, user's SE Linux user acct",
-                   'XMLForm'     : 'attribute'},
-    'sgid'	: {'description' : "numeric, set group id",
-                   'XMLForm'     : 'attribute'},
-    'spid'	: {'description' : "numeric, sending process id",
-                   'XMLForm'     : 'attribute'},
-    'src'	: {'description' : "numeric, port number",
-                   'XMLForm'     : 'attribute'},
-    'subj'	: {'description' : "alphanumeric, lspp subject's context string",
-                   'XMLForm'     : 'attribute'},
-    'success'	: {'description' : "alphanumeric, whether the syscall was successful or not",
-                   'XMLForm'     : 'attribute'},
-    'suid'	: {'description' : "numeric, sending user id",
-                   'XMLForm'     : 'attribute'},
-    'syscall'	: {'description' : "numeric, the syscall number in effect when the event occurred",
-                   'XMLForm'     : 'attribute'},
-    'tclass'	: {'description' : "alphanumeric, target's object classification",
-                   'XMLForm'     : 'attribute'},
-    'tcontext'	: {'description' : "alphanumeric, the target's or object's context string",
-                   'XMLForm'     : 'element',  'class':{'name':'AvcContext'}},
-    'terminal'	: {'description' : "alphanumeric, terminal name the user is running programs on",
-                   'XMLForm'     : 'attribute'},
-    'tty'	: {'description' : "alphanumeric, tty interface that the user is running programs on",
-                   'XMLForm'     : 'attribute'},
-    'type'	: {'description' : "alphanumeric, the audit record's type",
-                   'XMLForm'     : 'attribute'},
-    'uid'	: {'description' : "numeric, user id",
-                   'XMLForm'     : 'attribute'},
-    'user'	: {'description' : "alphanumeric, account the user claims to be prior to authentication",
-                   'XMLForm'     : 'attribute'},
-    'ver'	: {'description' : "numeric, audit daemon's version number",
-                   'XMLForm'     : 'attribute'},
-    'watch'	: {'description' : "the file name in a watch record",
-                   'XMLForm'     : 'attribute'},
+    'a0'	: {'description': "alphanumeric, the first argument to a syscall",
+            'XMLForm': 'attribute'},
+    'a1'	: {'description': "alphanumeric, the second arguments to a syscall",
+            'XMLForm': 'attribute'},
+    'a2'	: {'description': "alphanumeric, the third argument to a syscall",
+            'XMLForm': 'attribute'},
+    'a3'	: {'description': "alphanumeric, the fourth argument to a syscall",
+            'XMLForm': 'attribute'},
+    'access': {'description': "list, list of operations which triggered the AVC",
+               'XMLForm': 'element',
+               'list': {'name': 'operation', 'text': None}},
+    'acct'	: {'description': "alphanumeric, a user's account name",
+              'XMLForm': 'attribute'},
+    'addr'	: {'description': "the remote address that the user is connecting from",
+              'XMLForm': 'attribute'},
+    'arch'	: {'description': "numeric, the elf architecture flags",
+              'XMLForm': 'attribute'},
+    'auid'	: {'description': "numeric, login user id",
+              'XMLForm': 'attribute'},
+    'comm'	: {'description': "alphanumeric, command line program name",
+              'XMLForm': 'attribute'},
+    'cwd'	: {'description': "path name, the current working directory",
+             'XMLForm': 'attribute'},
+    'dest'	: {'description': "numeric, port number",
+              'XMLForm': 'attribute'},
+    'dev'	: {'description': "numeric, in path records, major and minor for device",
+             'XMLForm': 'attribute'},
+    'dev'	: {'description': "in avc records, device name as found in /dev",
+             'XMLForm': 'attribute'},
+    'egid'	: {'description': "numeric, effective group id",
+              'XMLForm': 'attribute'},
+    'euid'	: {'description': "numeric, effective user id",
+              'XMLForm': 'attribute'},
+    'exe'	: {'description': "path name, executable name",
+             'XMLForm': 'attribute'},
+    'exit'	: {'description': "numeric, syscall exit code",
+              'XMLForm': 'attribute'},
+    'file'	: {'description': "file name",
+              'XMLForm': 'attribute'},
+    'flags'	: {'description': "numeric, file system namei flags",
+               'XMLForm': 'attribute'},
+    'format'	: {'description': "alphanumeric, audit log's format",
+                'XMLForm': 'attribute'},
+    'fsgid'	: {'description': "numeric, file system group id",
+               'XMLForm': 'attribute'},
+    'fsuid'	: {'description': "numeric, file system user id",
+               'XMLForm': 'attribute'},
+    'gid'	: {'description': "numeric, group id",
+             'XMLForm': 'attribute'},
+    'hostname'	: {'description': "alphanumeric, the hostname that the user is connecting from",
+                  'XMLForm': 'attribute'},
+    'id'	: {'description': "numeric, during account changes, the user id of the account",
+            'XMLForm': 'attribute'},
+    'igid'	: {'description': "numeric, ipc object's group id",
+              'XMLForm': 'attribute'},
+    'inode'	: {'description': "numeric, inode number",
+               'XMLForm': 'attribute'},
+    'inode_gid'	: {'description': "numeric, group id of the inode's owner",
+                   'XMLForm': 'attribute'},
+    'inode_uid'	: {'description': "numeric, user id of the inode's owner",
+                   'XMLForm': 'attribute'},
+    'item'	: {'description': "numeric, which item is being recorded",
+              'XMLForm': 'attribute'},
+    'items'	: {'description': "numeric, the number of path records in the event",
+               'XMLForm': 'attribute'},
+    'iuid'	: {'description': "numeric, ipc object's user id",
+              'XMLForm': 'attribute'},
+    'list'	: {'description': "numeric, the audit system's filter list number",
+              'XMLForm': 'attribute'},
+    'mode'	: {'description': "numeric, mode flags on a file",
+              'XMLForm': 'attribute'},
+    'msg'	: {'description': "alphanumeric, the payload of the audit record",
+             'XMLForm': 'attribute'},
+    'nargs'	: {'description': "numeric, the number of arguments to a socket call",
+               'XMLForm': 'attribute'},
+    'name'	: {'description': "file name in avcs",
+              'XMLForm': 'attribute'},
+    'obj'	: {'description': "alphanumeric, lspp object context string",
+             'XMLForm': 'attribute'},
+    'ogid'	: {'description': "numeric, file owner group id",
+              'XMLForm': 'attribute'},
+    'old'	: {'description': "numeric, old audit_enabled, audit_backlog, or audit_failure value",
+             'XMLForm': 'attribute'},
+    'old_prom'	: {'description': "numeric, network promiscuity flag",
+                  'XMLForm': 'attribute'},
+    'op'	: {'description': "alphanumeric, the operation being performed that is audited",
+            'XMLForm': 'attribute'},
+    'ouid'	: {'description': "numeric, file owner user id",
+              'XMLForm': 'attribute'},
+    'parent'	: {'description': "numeric, the inode number of the parent file",
+                'XMLForm': 'attribute'},
+    'path'	: {'description': "file system path name",
+              'XMLForm': 'attribute'},
+    'perm'	: {'description': "numeric, the file permission being used",
+              'XMLForm': 'attribute'},
+    'perm_mask'	: {'description': "numeric, file permission audit mask that triggered a watch event",
+                   'XMLForm': 'attribute'},
+    'pid'	: {'description': "numeric, process id",
+             'XMLForm': 'attribute'},
+    'prom'	: {'description': "numeric, network promiscuity flag",
+              'XMLForm': 'attribute'},
+    'qbytes'	: {'description': "numeric, ipc objects quantity of bytes",
+                'XMLForm': 'attribute'},
+    'range'	: {'description': "alphanumeric, user's SE Linux range",
+               'XMLForm': 'attribute'},
+    'rdev'	: {'description': "numeric, the device identifier (special files only)",
+              'XMLForm': 'attribute'},
+    'result'	: {'description': "alphanumeric, result of the audited operation (success/fail)",
+                'XMLForm': 'attribute'},
+    'role'	: {'description': "alphanumeric, user's SE linux role",
+              'XMLForm': 'attribute'},
+    'saddr'	: {'description': "alphanumeric, socket address",
+               'XMLForm': 'attribute'},
+    'sauid'	: {'description': "numeric, sending login user id",
+               'XMLForm': 'attribute'},
+    'scontext'	: {'description': "alphanumeric, the subject's context string",
+                  'XMLForm': 'element', 'class': {'name': 'AvcContext'}},
+    'seuser'	: {'description': "alphanumeric, user's SE Linux user acct",
+                'XMLForm': 'attribute'},
+    'sgid'	: {'description': "numeric, set group id",
+              'XMLForm': 'attribute'},
+    'spid'	: {'description': "numeric, sending process id",
+              'XMLForm': 'attribute'},
+    'src'	: {'description': "numeric, port number",
+             'XMLForm': 'attribute'},
+    'subj'	: {'description': "alphanumeric, lspp subject's context string",
+              'XMLForm': 'attribute'},
+    'success'	: {'description': "alphanumeric, whether the syscall was successful or not",
+                 'XMLForm': 'attribute'},
+    'suid'	: {'description': "numeric, sending user id",
+              'XMLForm': 'attribute'},
+    'syscall'	: {'description': "numeric, the syscall number in effect when the event occurred",
+                 'XMLForm': 'attribute'},
+    'tclass'	: {'description': "alphanumeric, target's object classification",
+                'XMLForm': 'attribute'},
+    'tcontext'	: {'description': "alphanumeric, the target's or object's context string",
+                  'XMLForm': 'element', 'class': {'name': 'AvcContext'}},
+    'terminal'	: {'description': "alphanumeric, terminal name the user is running programs on",
+                  'XMLForm': 'attribute'},
+    'tty'	: {'description': "alphanumeric, tty interface that the user is running programs on",
+             'XMLForm': 'attribute'},
+    'type'	: {'description': "alphanumeric, the audit record's type",
+              'XMLForm': 'attribute'},
+    'uid'	: {'description': "numeric, user id",
+             'XMLForm': 'attribute'},
+    'user'	: {'description': "alphanumeric, account the user claims to be prior to authentication",
+              'XMLForm': 'attribute'},
+    'ver'	: {'description': "numeric, audit daemon's version number",
+             'XMLForm': 'attribute'},
+    'watch'	: {'description': "the file name in a watch record",
+               'XMLForm': 'attribute'},
 }
 
 
 SEFaultSignatureAttrs = {
-    'version'          : {'XMLForm':'attribute','default':lambda: '1.0'                       },
-    'analysis_id'      : {'XMLForm':'element'                                                 },
-    'avc_list'         : {'XMLForm':'element',  'list' :{'name':'avc', 'class':{'name':'AVC'}}},
-    'environment'      : {'XMLForm':'element',  'class':{'name':'SEEnvironment'}              },
-    'object_path'      : {'XMLForm':'element'                                                 },
-    'rpm'              : {'XMLForm':'element'                                                 },
-    'host'             : {'XMLForm':'element'                                                 },
-    }
+    'version': {'XMLForm': 'attribute', 'default': lambda: '1.0'},
+    'analysis_id': {'XMLForm': 'element'},
+    'avc_list': {'XMLForm': 'element', 'list': {'name': 'avc', 'class': {'name': 'AVC'}}},
+    'environment': {'XMLForm': 'element', 'class': {'name': 'SEEnvironment'}},
+    'object_path': {'XMLForm': 'element'},
+    'rpm': {'XMLForm': 'element'},
+    'host': {'XMLForm': 'element'},
+}
 
 SEFaultSignatureSetAttrs = {
-    'version'          : {'XMLForm':'attribute','default':lambda: '1.2'                       },
-    'users'            : {'XMLForm':'element', 'class':{'name':'SEFaultUserSet'}, 'default': lambda: SEFaultUserSet()},
-    'signature_list'   : {'XMLForm':'element',
-                          'list'   :{'name':'siginfo', 'class': {'name':'SEFaultSignatureInfo'}},
-                          'default': lambda: []                                        },
-    }
+    'version': {'XMLForm': 'attribute', 'default': lambda: '1.2'},
+    'users': {'XMLForm': 'element', 'class': {'name': 'SEFaultUserSet'}, 'default': lambda: SEFaultUserSet()},
+    'signature_list': {'XMLForm': 'element',
+                       'list': {'name': 'siginfo', 'class': {'name': 'SEFaultSignatureInfo'}},
+                       'default': lambda: []},
+}
 
 SEFilterAttrs = {
-    'filter_type'      : {'XMLForm':'element', 'class': {'name':'int', 'is_xml':False}, 'default':lambda: FILTER_NEVER},
-    'till_date'        : {'XMLForm':'element'},
-    'rpm_watch_list'   : {'XMLForm':'element','list':{'name':'rpm', 'text':None}},
-    'count'            : {'XMLForm':'element', 'class': {'name':'int', 'is_xml':False}, 'default':lambda: 0},
+    'filter_type': {'XMLForm': 'element', 'class': {'name': 'int', 'is_xml': False}, 'default': lambda: FILTER_NEVER},
+    'till_date': {'XMLForm': 'element'},
+    'rpm_watch_list': {'XMLForm': 'element', 'list': {'name': 'rpm', 'text': None}},
+    'count': {'XMLForm': 'element', 'class': {'name': 'int', 'is_xml': False}, 'default': lambda: 0},
 }
 
 SEFaultSignatureUserAttrs = {
-    'username'         : {'XMLForm':'attribute'},
-    'seen_flag'        : {'XMLForm':'attribute', 'class': {'name':'boolean', 'is_xml':False}, 'default': lambda: False},
-    'delete_flag'      : {'XMLForm':'attribute', 'class': {'name':'boolean', 'is_xml':False}, 'default': lambda: False},
-    'filter'           : {'XMLForm':'element', 'class' : {'name':'SEFilter'}, 'default': lambda: SEFilter()},
-    }
+    'username': {'XMLForm': 'attribute'},
+    'seen_flag': {'XMLForm': 'attribute', 'class': {'name': 'boolean', 'is_xml': False}, 'default': lambda: False},
+    'delete_flag': {'XMLForm': 'attribute', 'class': {'name': 'boolean', 'is_xml': False}, 'default': lambda: False},
+    'filter': {'XMLForm': 'element', 'class': {'name': 'SEFilter'}, 'default': lambda: SEFilter()},
+}
 
 SEFaultSignatureInfoAttrs = {
-    'analysis_id'      : {'XMLForm':'element'                                                 },
-    'sig'              : {'XMLForm':'element', 'class': {'name':'SEFaultSignature'}},
-    'solution'         : {'XMLForm':'element', 'class': {'name':'SEFaultSolution'} },
-    'first_seen_date'  : {'XMLForm':'element', 'class': {'name':'TimeStamp', 'is_xml':False}},
-    'last_seen_date'   : {'XMLForm':'element', 'class': {'name':'TimeStamp', 'is_xml':False}},
-    'report_count'     : {'XMLForm':'element', 'class': {'name':'int', 'is_xml':False}, 'default':lambda: 0},
-    'local_id'         : {'XMLForm':'element'},
-    'category'         : {'XMLForm':'element'                                    },
-    'environment'      : {'XMLForm':'element',  'class':{'name':'SEEnvironment'}              },
-    'avc_list'         : {'XMLForm':'element',  'list' :{'name':'avc', 'class':{'name':'AVC'}}},
-    'src_rpm_list'     : {'XMLForm':'element', 'list':{'name':'rpm', 'text':None}, 'default': lambda: []},
-    'tgt_rpm_list'     : {'XMLForm':'element', 'list':{'name':'rpm', 'text':None}, 'default': lambda: []},
-    'object_path'      : {'XMLForm':'element'                                                 },
-    'users'            : {'XMLForm':'element', 'list' : {'name':'user', 'class':{'name':'SEFaultSignatureUser'}},
-                          'default': lambda: []},
-    'line_numbers'     : {'XMLForm':'element', 'list':{'name':'line', 'class':{'name':'int', 'is_xml':False}}, 'default': lambda: []},
+    'analysis_id': {'XMLForm': 'element'},
+    'sig': {'XMLForm': 'element', 'class': {'name': 'SEFaultSignature'}},
+    'solution': {'XMLForm': 'element', 'class': {'name': 'SEFaultSolution'}},
+    'first_seen_date': {'XMLForm': 'element', 'class': {'name': 'TimeStamp', 'is_xml': False}},
+    'last_seen_date': {'XMLForm': 'element', 'class': {'name': 'TimeStamp', 'is_xml': False}},
+    'report_count': {'XMLForm': 'element', 'class': {'name': 'int', 'is_xml': False}, 'default': lambda: 0},
+    'local_id': {'XMLForm': 'element'},
+    'category': {'XMLForm': 'element'},
+    'environment': {'XMLForm': 'element', 'class': {'name': 'SEEnvironment'}},
+    'avc_list': {'XMLForm': 'element', 'list': {'name': 'avc', 'class': {'name': 'AVC'}}},
+    'src_rpm_list': {'XMLForm': 'element', 'list': {'name': 'rpm', 'text': None}, 'default': lambda: []},
+    'tgt_rpm_list': {'XMLForm': 'element', 'list': {'name': 'rpm', 'text': None}, 'default': lambda: []},
+    'object_path': {'XMLForm': 'element'},
+    'users': {'XMLForm': 'element', 'list': {'name': 'user', 'class': {'name': 'SEFaultSignatureUser'}},
+              'default': lambda: []},
+    'line_numbers': {'XMLForm': 'element', 'list': {'name': 'line', 'class': {'name': 'int', 'is_xml': False}}, 'default': lambda: []},
 
-    }
+}
 
 SEFaultSolutionAttrs = {
-    'version'             : {'XMLForm':'attribute', 'default': lambda: '1.0'        },
-    'summary'             : {'XMLForm':'element'                                    },
-    'problem_description' : {'XMLForm':'element',   'is_cdata':True                 },
-    'fix_description'     : {'XMLForm':'element',   'is_cdata':True                 },
-    'fix_cmd'             : {'XMLForm':'element'                                    },
-    'rpm_list'            : {'XMLForm':'element', 'list':{'name':'rpm', 'text':None}, 'default': lambda: []},
-    'rpm_version'         : {'XMLForm':'element'                                    },
-    'policy_version'      : {'XMLForm':'element'                                    },
-    }
+    'version': {'XMLForm': 'attribute', 'default': lambda: '1.0'},
+    'summary': {'XMLForm': 'element'},
+    'problem_description': {'XMLForm': 'element', 'is_cdata': True},
+    'fix_description': {'XMLForm': 'element', 'is_cdata': True},
+    'fix_cmd': {'XMLForm': 'element'},
+    'rpm_list': {'XMLForm': 'element', 'list': {'name': 'rpm', 'text': None}, 'default': lambda: []},
+    'rpm_version': {'XMLForm': 'element'},
+    'policy_version': {'XMLForm': 'element'},
+}
 
 SEEnvironmentAttrs = {
-    'version'             : {'XMLForm':'attribute','default':lambda: '1.0'                       },
-    'platform'            : {'XMLForm':'element'},
-    'kernel'              : {'XMLForm':'element'},
-    'policy_type'         : {'XMLForm':'element'},
-    'policy_rpm'          : {'XMLForm':'element'},
-    'enforce'             : {'XMLForm':'element'},
-    'selinux_enabled'     : {'XMLForm':'element', 'class': {'name':'boolean', 'is_xml':False}},
-    'selinux_mls_enabled' : {'XMLForm':'element', 'class': {'name':'boolean', 'is_xml':False}},
-    'policyvers'          : {'XMLForm':'element'},
-    'hostname'            : {'XMLForm':'element'},
-    'uname'               : {'XMLForm':'element'},
-    }
+    'version': {'XMLForm': 'attribute', 'default': lambda: '1.0'},
+    'platform': {'XMLForm': 'element'},
+    'kernel': {'XMLForm': 'element'},
+    'policy_type': {'XMLForm': 'element'},
+    'policy_rpm': {'XMLForm': 'element'},
+    'enforce': {'XMLForm': 'element'},
+    'selinux_enabled': {'XMLForm': 'element', 'class': {'name': 'boolean', 'is_xml': False}},
+    'selinux_mls_enabled': {'XMLForm': 'element', 'class': {'name': 'boolean', 'is_xml': False}},
+    'policyvers': {'XMLForm': 'element'},
+    'hostname': {'XMLForm': 'element'},
+    'uname': {'XMLForm': 'element'},
+}
 
 SEDatabasePropertiesAttrs = {
-    'name'          : {'XMLForm':'element' },
-    'friendly_name' : {'XMLForm':'element' },
-    'filepath'      : {'XMLForm':'element' },
-    }
+    'name': {'XMLForm': 'element'},
+    'friendly_name': {'XMLForm': 'element'},
+    'filepath': {'XMLForm': 'element'},
+}
 
 
 SEFaultUserInfoAttrs = {
-    'version'            : {'XMLForm':'attribute','default':lambda: '1.0'                       },
-    'username'           : {'XMLForm':'attribute'},
-    'email_alert'        : {'XMLForm':'element', 'class': {'name':'boolean', 'is_xml':False}, 'default': lambda: False},
-    'email_address_list' : {'XMLForm':'element', 'list':{'name':'email_address', 'text':None}, 'default': lambda: []},
-    }
+    'version': {'XMLForm': 'attribute', 'default': lambda: '1.0'},
+    'username': {'XMLForm': 'attribute'},
+    'email_alert': {'XMLForm': 'element', 'class': {'name': 'boolean', 'is_xml': False}, 'default': lambda: False},
+    'email_address_list': {'XMLForm': 'element', 'list': {'name': 'email_address', 'text': None}, 'default': lambda: []},
+}
 
 SEFaultUserSetAttrs = {
-    'version'      : {'XMLForm':'attribute','default':lambda: '1.0' },
-    'user_list'    : {'XMLForm':'element',
-                      'list'   :{'name':'user', 'class': {'name':'SEFaultUserInfo'}},
-                      'default': lambda: [] },
-    }
+    'version': {'XMLForm': 'attribute', 'default': lambda: '1.0'},
+    'user_list': {'XMLForm': 'element',
+                  'list': {'name': 'user', 'class': {'name': 'SEFaultUserInfo'}},
+                  'default': lambda: []},
+}
 
 
 SEEmailRecipientAttrs = {
-    'address'          : {'XMLForm':'element'},
-    'filter_type'      : {'XMLForm':'element', 'class': {'name':'int', 'is_xml':False}, 'default':lambda: FILTER_AFTER_FIRST},
-    }
+    'address': {'XMLForm': 'element'},
+    'filter_type': {'XMLForm': 'element', 'class': {'name': 'int', 'is_xml': False}, 'default': lambda: FILTER_AFTER_FIRST},
+}
 
 SEEmailRecipientSetAttrs = {
-    'version'         : {'XMLForm':'attribute','default':lambda: '1' },
-    'recipient_list'  : {'XMLForm':'element',
-                         'list'   :{'name':'recipient', 'class': {'name':'SEEmailRecipient'}},
-                         'default': lambda: [] },
-    }
+    'version': {'XMLForm': 'attribute', 'default': lambda: '1'},
+    'recipient_list': {'XMLForm': 'element',
+                       'list': {'name': 'recipient', 'class': {'name': 'SEEmailRecipient'}},
+                       'default': lambda: []},
+}
+
 
 def boolean(value):
     'convert value to bool'
@@ -415,7 +416,10 @@ def boolean(value):
         raise ValueError("cannot convert (%s) to boolean" % value)
 
 # FIXME
+
+
 class XMLNotFoundException(exceptions.Exception):
+
     def __init__(self, name, class_name, scope, location):
         self.name = name
         self.class_name = class_name
@@ -425,6 +429,7 @@ class XMLNotFoundException(exceptions.Exception):
     def __str__(self):
         return "element '%s' not found with scope '%s' at node '%s'" % (self.name, self.scope, self.location.name)
 
+
 def GetElements(xml_node, xpath_expr):
     doc = xml_node.get_doc()
     context = doc.xpathNewContext()
@@ -432,7 +437,7 @@ def GetElements(xml_node, xpath_expr):
     elements = context.xpathEval(xpath_expr)
     context.xpathFreeContext()
     return elements
-    
+
 
 def BuildSchema(xml_info):
     schema = {}
@@ -462,6 +467,7 @@ def BuildSchema(xml_info):
             schema[name] = None
     return schema
 
+
 def PrintSchema(schema, level):
     indent = '    '
 
@@ -471,14 +477,15 @@ def PrintSchema(schema, level):
         value = schema[name]
         if type(value) == DictType:
             print '%s%s' % ('    ' * level, name)
-            PrintSchema(value, level+1)
+            PrintSchema(value, level + 1)
         else:
             print '%s%s' % ('    ' * level, name)
-    
+
 
 #------------------------------------------------------------------------
 
 class SignatureMatch(object):
+
     def __init__(self, siginfo, score):
         self.siginfo = siginfo
         self.score = score
@@ -487,6 +494,7 @@ class SignatureMatch(object):
 #------------------------------------------------------------------------
 
 class XmlSerialize(object):
+
     def __init__(self, xml_info, data, obj_name=None, **kwds):
         '''The @data parameter is used to initialize the AVC object, it may
         be passed as:
@@ -532,9 +540,9 @@ class XmlSerialize(object):
             for (name, value) in data.items():
                 self.__dict__[name] = value
         elif type(data) is ListType or \
-             type(data) is TupleType:
+                type(data) is TupleType:
             for pair in data:
-                name  = pair[0]
+                name = pair[0]
                 value = pair[1]
                 self.__dict__[name] = value
         elif isinstance(data, libxml2.xmlNode):
@@ -542,28 +550,25 @@ class XmlSerialize(object):
         for (name, value) in kwds.items():
             self.__dict__[name] = value
 
-
     def __str__(self):
         return self.get_xml_text_doc()
 
     def set_default_xml_names(self, xml_info):
         self._xml_info = xml_info
         self._elements = \
-        [x for x in xml_info.keys() if xml_info[x]['XMLForm'] == 'element']
+            [x for x in xml_info.keys() if xml_info[x]['XMLForm'] == 'element']
         self._attributes = \
-        [x for x in xml_info.keys() if xml_info[x]['XMLForm'] == 'attribute']
+            [x for x in xml_info.keys() if xml_info[x]['XMLForm'] == 'attribute']
         self._names = self._elements + self._attributes
 
         self._elements.sort()
         self._attributes.sort()
         self._names.sort()
 
-
     def get_elements_and_attributes(self):
-        elements   = self._elements
+        elements = self._elements
         attributes = self._attributes
         return(elements, attributes)
-
 
     def get_xml_doc(self, obj_name=None):
         doc = libxml2.newDoc("1.0")
@@ -609,7 +614,7 @@ class XmlSerialize(object):
             if doc is not None:
                 doc.freeDoc()
 
-    def write_xml(self, obj_name=None, f = None):
+    def write_xml(self, obj_name=None, f=None):
         need_to_close = 0
         if f is None:
             f = sys.stdout
@@ -680,7 +685,7 @@ class XmlSerialize(object):
                                 root.newChild(None, name, value)
             except Exception, e:
                 syslog.syslog(syslog.LOG_ERR, "%s.%s value=%s" % (self.__class__.__name__, name, value))
-                
+
         return root
 
     def init_from_xml_node(self, xml_node, scope='base', obj_name=None):
@@ -742,7 +747,7 @@ class XmlSerialize(object):
                 item_name = list_info['name']
                 self.__dict__[name] = []
                 # Iterate over children, e.g. list elements
-                list = context.xpathEval("%s/%s" % (name,item_name))
+                list = context.xpathEval("%s/%s" % (name, item_name))
                 if list_info.has_key('class'):
                     class_info = list_info['class']
                     class_name = class_info['name']
@@ -777,7 +782,9 @@ class XmlSerialize(object):
 
 #------------------------------------------------------------------------
 
+
 class AvcContext(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         if type(data) is StringType:
             fields = data.split(':')
@@ -791,7 +798,7 @@ class AvcContext(XmlSerialize):
                 else:
                     data['mls'] = 's0'
         super(AvcContext, self).__init__(AvcContextAttrs, data, **kwds)
-        
+
     def __str__(self):
         return '%s:%s:%s:%s' % (self.user, self.role, self.type, self.mls)
 
@@ -803,13 +810,13 @@ class AvcContext(XmlSerialize):
             if self.__dict__[name] != other.__dict__[name]:
                 return False
         return True
-        
+
 
 class AVC(XmlSerialize):
     # These are the perm sets from the reference policy for file, dirs, and filesystems.
     # They are here to be used below in the access matching functions. The trailing
     # space is important - makes it simple to concatenate the strings.
-    stat_file_perms =  "getattr "
+    stat_file_perms = "getattr "
     x_file_perms = "getattr execute "
     r_file_perms = "read getattr lock ioctl "
     rx_file_perms = "read getattr lock execute ioctl "
@@ -840,7 +847,6 @@ class AVC(XmlSerialize):
     delete_file_perms = "getattr unlink "
     manage_file_perms = "create getattr setattr read write append rename link unlink ioctl lock "
 
-
     def __init__(self, data=None, **kwds):
         super(AVC, self).__init__(AVCAttrs, data, **kwds)
 
@@ -849,7 +855,7 @@ class AVC(XmlSerialize):
 
         if self.tcontext is not None and not isinstance(self.tcontext, AvcContext):
             self.tcontext = AvcContext(self.tcontext)
-        
+
     def __str__(self):
         return self.format_avc()
 
@@ -867,10 +873,10 @@ class AVC(XmlSerialize):
                 continue
             s = s + "%s=%s " % (name, fmt_obj(getattr(self, name)))
         return s
-                           
+
     # Below are helper functions to get values that might be
     # stored in one or more fields in an AVC.
-    
+
     def get_binary(self):
         if self.exe is not None and self.exe.strip('"') not in INVALID_EXES:
             return audit_msg_decode(self.exe)
@@ -880,15 +886,16 @@ class AVC(XmlSerialize):
 
     def get_path(self):
         '''Examine the 'path' fields, look to see if the string begins with a
-	  slash for a fully qualified path, if not it look to see if its a 
-	  pseudo path such as 'pipe[12345]' or 'socket[12345]' and if so strip out
-	  the instance information inside the brackets and return just the type of 
-	  the pseudo path. This is done because we do not want path information
-	  in the signature to be unique for each instance of the denial.'''
-        
+          slash for a fully qualified path, if not it look to see if its a 
+          pseudo path such as 'pipe[12345]' or 'socket[12345]' and if so strip out
+          the instance information inside the brackets and return just the type of 
+          the pseudo path. This is done because we do not want path information
+          in the signature to be unique for each instance of the denial.'''
+
         if self.path is not None:
             path = audit_msg_decode(self.path)
-            if path.startswith('/'): return path
+            if path.startswith('/'):
+                return path
             match = instance_path_re.search(path)
             if match:
                 return match.group(1)
@@ -904,11 +911,11 @@ class AVC(XmlSerialize):
         separated by space.
         """
         targets = self.__accessStrToList(access_list)
-        
+
         for a in self.access:
             if a in targets:
                 return True
-                
+
         return False
 
     def accessMatchOne(self, access_list):
@@ -923,7 +930,7 @@ class AVC(XmlSerialize):
         for a in self.access:
             if a not in targets:
                 return False
-                
+
         return True
 
     def __typeMatch(self, context, type_list):
@@ -950,7 +957,6 @@ class AVC(XmlSerialize):
         """
         return self.__typeMatch(self.tcontext, type_list)
 
-
     def __ne__(self, other):
         return not self.__eq__(other)
 
@@ -960,22 +966,23 @@ class AVC(XmlSerialize):
                 return False
         return True
 
+
 class SEFaultSignature(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEFaultSignature, self).__init__(SEFaultSignatureAttrs, data, **kwds)
-        
+
+
 class SEFaultSignatureInfo(XmlSerialize):
     merge_include = ['solution', 'category', 'environment', 'avc_list',
                      'src_rpm_list', 'tgt_rpm_list', 'object_path', 'last_seen_date']
 
-
     def __init__(self, data=None, **kwds):
         super(SEFaultSignatureInfo, self).__init__(SEFaultSignatureInfoAttrs, data, **kwds)
-        
+
     def update_merge(self, siginfo):
         for name in self.merge_include:
             self.__dict__[name] = siginfo.__dict__[name]
-        
 
     def get_user_data(self, username):
         for user in self.users:
@@ -988,7 +995,7 @@ class SEFaultSignatureInfo(XmlSerialize):
 
     def find_filter_by_username(self, username):
         syslog.syslog(syslog.LOG_DEBUG, "find_filter_by_username %s" % username)
-        
+
         filter = None
         user_data = self.get_user_data(username)
         if user_data is not None:
@@ -1009,10 +1016,10 @@ class SEFaultSignatureInfo(XmlSerialize):
             action = self.evaluate_filter(f)
             syslog.syslog(syslog.LOG_DEBUG, "evaluate_filter_for_user: found filter for %s: %s\n%s" % (username, action, f))
         return action
-        
+
     def evaluate_filter(self, filter):
         filter_type = filter.filter_type
-        
+
         action = 'display'
 
         if filter_type == FILTER_NEVER:
@@ -1025,7 +1032,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         elif filter_type == FILTER_TILL_FIX:
             pass
         elif filter_type == FILTER_TILL_RPM_CHANGE or \
-             filter_type == FILTER_TILL_POLICY_CHANGE:
+                filter_type == FILTER_TILL_POLICY_CHANGE:
             action = 'ignore'
             for rpmNVR in filter.rpm_watch_list:
                 rpmName = split_rpm_nvr(rpmNVR)[0]
@@ -1092,7 +1099,6 @@ class SEFaultSignatureInfo(XmlSerialize):
         else:
             line_numbers = ','.join([str(x) for x in self.line_numbers])
 
-
         tr1_fmt = '<tr bgcolor="%s"><td><font color="%s">%%s</font></td></tr>\n' % \
                   (foreground_color, background_color)
         tr2_fmt = '<tr><td><font color="%s">%%s</font></td></tr>\n' % \
@@ -1102,7 +1108,7 @@ class SEFaultSignatureInfo(XmlSerialize):
         avcs = ''
         for avc in self.format_avcs():
             avcs += p_fmt % avc
-            
+
         if fixcmd:
             fix += '<br><br>%s<pre>%s</pre>' % (_("The following command will allow this access:"), fixcmd)
 
@@ -1131,33 +1137,32 @@ class SEFaultSignatureInfo(XmlSerialize):
 
         # 2nd table: supplementary information
 
-
         tr1_fmt = '<tr><td><font color="%s">%%s:&nbsp;&nbsp;</td><td>%%s</font></td></tr>\n' % \
                   (foreground_color)
         html += '<table border="0" cellspacing="1" cellpadding="1">\n'
 
-        html += tr1_fmt % (_("Source Context"),        self.format_unique_contexts('scontext'))
-        html += tr1_fmt % (_("Target Context"),        self.format_unique_contexts('tcontext'))
-        html += tr1_fmt % (_("Target Objects"),        self.format_unique_objs())
+        html += tr1_fmt % (_("Source Context"), self.format_unique_contexts('scontext'))
+        html += tr1_fmt % (_("Target Context"), self.format_unique_contexts('tcontext'))
+        html += tr1_fmt % (_("Target Objects"), self.format_unique_objs())
         html += tr1_fmt % (_("Affected RPM Packages"), default_text(self.format_rpms()))
-        html += tr1_fmt % (_("Policy RPM"),            default_text(env.policy_rpm))
-        html += tr1_fmt % (_("Selinux Enabled"),       default_text(env.selinux_enabled))
-        html += tr1_fmt % (_("Policy Type"),           default_text(env.policy_type))
-        html += tr1_fmt % (_("MLS Enabled"),           default_text(env.selinux_mls_enabled))
-        html += tr1_fmt % (_("Enforcing Mode"),        default_text(env.enforce))
-        html += tr1_fmt % (_("Plugin Name"),           default_text(self.sig.analysis_id))
-        html += tr1_fmt % (_("Host Name"),             default_text(env.hostname))
-        html += tr1_fmt % (_("Platform"),              default_text(env.uname))
-        html += tr1_fmt % (_("Alert Count"),           default_text(self.report_count))
-        html += tr1_fmt % (_("First Seen"),            default_date_text(self.first_seen_date))
-        html += tr1_fmt % (_("Last Seen"),             default_date_text(self.last_seen_date))
-        html += tr1_fmt % (_("Local ID"),              default_text(self.local_id))
-        html += tr1_fmt % (_("Line Numbers"),          default_text(line_numbers))
+        html += tr1_fmt % (_("Policy RPM"), default_text(env.policy_rpm))
+        html += tr1_fmt % (_("Selinux Enabled"), default_text(env.selinux_enabled))
+        html += tr1_fmt % (_("Policy Type"), default_text(env.policy_type))
+        html += tr1_fmt % (_("MLS Enabled"), default_text(env.selinux_mls_enabled))
+        html += tr1_fmt % (_("Enforcing Mode"), default_text(env.enforce))
+        html += tr1_fmt % (_("Plugin Name"), default_text(self.sig.analysis_id))
+        html += tr1_fmt % (_("Host Name"), default_text(env.hostname))
+        html += tr1_fmt % (_("Platform"), default_text(env.uname))
+        html += tr1_fmt % (_("Alert Count"), default_text(self.report_count))
+        html += tr1_fmt % (_("First Seen"), default_date_text(self.first_seen_date))
+        html += tr1_fmt % (_("Last Seen"), default_date_text(self.last_seen_date))
+        html += tr1_fmt % (_("Local ID"), default_text(self.local_id))
+        html += tr1_fmt % (_("Line Numbers"), default_text(line_numbers))
         html += '</table>'
 
         html += p_fmt % _("Raw Audit Messages") + ':'
         html += avcs
-            
+
         # close the entire encapsultating table
         html += '</td></tr></table>\n'
 
@@ -1195,26 +1200,25 @@ class SEFaultSignatureInfo(XmlSerialize):
             text += ' ' * indent + _("The following command will allow this access:") + '\n'
             text += ' ' * indent + fixcmd + '\n\n'
 
-
         text += format_2_column_name_value(_("Additional Information"), '\n')
 
-        text += format_2_column_name_value(_("Source Context"),        self.format_unique_contexts('scontext'))
-        text += format_2_column_name_value(_("Target Context"),        self.format_unique_contexts('tcontext'))
-        text += format_2_column_name_value(_("Target Objects"),        self.format_unique_objs())
+        text += format_2_column_name_value(_("Source Context"), self.format_unique_contexts('scontext'))
+        text += format_2_column_name_value(_("Target Context"), self.format_unique_contexts('tcontext'))
+        text += format_2_column_name_value(_("Target Objects"), self.format_unique_objs())
         text += format_2_column_name_value(_("Affected RPM Packages"), default_text(self.format_rpms()))
-        text += format_2_column_name_value(_("Policy RPM"),            default_text(env.policy_rpm))
-        text += format_2_column_name_value(_("Selinux Enabled"),       default_text(env.selinux_enabled))
-        text += format_2_column_name_value(_("Policy Type"),           default_text(env.policy_type))
-        text += format_2_column_name_value(_("MLS Enabled"),           default_text(env.selinux_mls_enabled))
-        text += format_2_column_name_value(_("Enforcing Mode"),        default_text(env.enforce))
-        text += format_2_column_name_value(_("Plugin Name"),           default_text(self.sig.analysis_id))
-        text += format_2_column_name_value(_("Host Name"),             default_text(env.hostname))
-        text += format_2_column_name_value(_("Platform"),              default_text(env.uname))
-        text += format_2_column_name_value(_("Alert Count"),           default_text(self.report_count))
-        text += format_2_column_name_value(_("First Seen"),            default_date_text(self.first_seen_date))
-        text += format_2_column_name_value(_("Last Seen"),             default_date_text(self.last_seen_date))
-        text += format_2_column_name_value(_("Local ID"),              default_text(self.local_id))
-        text += format_2_column_name_value(_("Line Numbers"),          default_text(line_numbers))
+        text += format_2_column_name_value(_("Policy RPM"), default_text(env.policy_rpm))
+        text += format_2_column_name_value(_("Selinux Enabled"), default_text(env.selinux_enabled))
+        text += format_2_column_name_value(_("Policy Type"), default_text(env.policy_type))
+        text += format_2_column_name_value(_("MLS Enabled"), default_text(env.selinux_mls_enabled))
+        text += format_2_column_name_value(_("Enforcing Mode"), default_text(env.enforce))
+        text += format_2_column_name_value(_("Plugin Name"), default_text(self.sig.analysis_id))
+        text += format_2_column_name_value(_("Host Name"), default_text(env.hostname))
+        text += format_2_column_name_value(_("Platform"), default_text(env.uname))
+        text += format_2_column_name_value(_("Alert Count"), default_text(self.report_count))
+        text += format_2_column_name_value(_("First Seen"), default_date_text(self.first_seen_date))
+        text += format_2_column_name_value(_("Last Seen"), default_date_text(self.last_seen_date))
+        text += format_2_column_name_value(_("Local ID"), default_text(self.local_id))
+        text += format_2_column_name_value(_("Line Numbers"), default_text(line_numbers))
 
         text += '\n'
         text += format_2_column_name_value(_("Raw Audit Messages"), '\n')
@@ -1224,12 +1228,15 @@ class SEFaultSignatureInfo(XmlSerialize):
         text += '\n'
         return text
 
+
 class SEFilter(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEFilter, self).__init__(SEFilterAttrs, data, **kwds)
-        
+
 
 class SEFaultUserInfo(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEFaultUserInfo, self).__init__(SEFaultUserInfoAttrs, data, **kwds)
 
@@ -1237,7 +1244,9 @@ class SEFaultUserInfo(XmlSerialize):
         if not email_address in self.email_address_list:
             self.email_address_list.append(email_address)
 
+
 class SEFaultUserSet(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEFaultUserSet, self).__init__(SEFaultUserSetAttrs, data, **kwds)
 
@@ -1254,17 +1263,19 @@ class SEFaultUserSet(XmlSerialize):
         self.user_list.append(user)
         return user
 
+
 class SEFaultSignatureUser(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEFaultSignatureUser, self).__init__(SEFaultSignatureUserAttrs, data, **kwds)
-        
+
     def update_item(self, item, data):
         if not item in self._names:
             raise ProgramError(ERR_NOT_MEMBER, 'item (%s) is not a defined member' % item)
 
         if item == 'username':
             raise ProgramError(ERR_ILLEGAL_USER_CHANGE, 'changing the username is illegal')
-            
+
         self.__dict__[item] = data
 
     def update_filter(self, filter_type, data=None):
@@ -1277,12 +1288,12 @@ class SEFaultSignatureUser(XmlSerialize):
             self.filter = SEFilter(filter_type=filter_type)
             return True
         elif filter_type == FILTER_TILL_RPM_CHANGE or \
-             filter_type == FILTER_TILL_POLICY_CHANGE:
+                filter_type == FILTER_TILL_POLICY_CHANGE:
             # FIXME: should rpm_watch_list be merged instead of overwrittten?
             self.filter = SEFilter(filter_type=filter_type)
             return True
         elif filter_type == FILTER_DAY or \
-             filter_type == FILTER_WEEK:
+                filter_type == FILTER_WEEK:
 
             timestamp = TimeStamp()
 
@@ -1296,10 +1307,12 @@ class SEFaultSignatureUser(XmlSerialize):
         else:
             raise ValueError("Bad filter_type (%s)" % filter_type)
 
+
 class SEFaultSignatureSet(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEFaultSignatureSet, self).__init__(SEFaultSignatureSetAttrs, data, **kwds)
-        
+
     def siginfos(self):
         for siginfo in self.signature_list:
             yield siginfo
@@ -1313,7 +1326,6 @@ class SEFaultSignatureSet(XmlSerialize):
 
     def clear(self):
         self.signature_list = []
-        
 
     def generate_local_id(self):
         return str(uuid.uuid4())
@@ -1338,7 +1350,7 @@ class SEFaultSignatureSet(XmlSerialize):
             score_per_match_target = 1.0 / num_match_targets
         else:
             raise ValueError("unknown criteria = %s" % criteria)
-        
+
         matches = []
         for siginfo in self.signature_list:
             score = 0.0
@@ -1359,14 +1371,18 @@ class SEFaultSignatureSet(XmlSerialize):
             else:
                 if score >= criteria:
                     matches.append(SignatureMatch(siginfo, score))
-        matches.sort((lambda a,b: cmp(b.score, a.score)))
+        matches.sort((lambda a, b: cmp(b.score, a.score)))
         return matches
 
+
 class SEFaultSolution(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEFaultSolution, self).__init__(SEFaultSolutionAttrs, data, **kwds)
-        
+
+
 class SEEnvironment(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEEnvironment, self).__init__(SEEnvironmentAttrs, data, **kwds)
 
@@ -1401,18 +1417,22 @@ class SEEnvironment(XmlSerialize):
 
 
 class SEDatabaseProperties(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEDatabaseProperties, self).__init__(SEDatabasePropertiesAttrs, data, **kwds)
 
 
 class SEEmailRecipient(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEEmailRecipient, self).__init__(SEEmailRecipientAttrs, data, **kwds)
 
     def __str__(self):
         return "%s:%s" % (self.address, map_filter_value_to_name.get(self.filter_type, 'unknown'))
 
+
 class SEEmailRecipientSet(XmlSerialize):
+
     def __init__(self, data=None, **kwds):
         super(SEEmailRecipientSet, self).__init__(SEEmailRecipientSetAttrs, data, **kwds)
 
@@ -1445,16 +1465,15 @@ class SEEmailRecipientSet(XmlSerialize):
         entry_re = re.compile('(\S+)(\s+(.+))?')
         key_value_re = re.compile("(\w+)\s*=\s*(\S+)")
 
-        map_boolean = {'enabled'  : True,
-                       'true'     : True,
-                       'yes'      : True,
-                       'on'       : True,
-                       'disabled' : False,
-                       'false'    : False,
-                       'no'       : False,
-                       'off'      : False,
+        map_boolean = {'enabled': True,
+                       'true': True,
+                       'yes': True,
+                       'on': True,
+                       'disabled': False,
+                       'false': False,
+                       'no': False,
+                       'off': False,
                        }
-
 
         try:
             f = open(filepath)
@@ -1476,17 +1495,16 @@ class SEEmailRecipientSet(XmlSerialize):
                     if options:
                         for match in key_value_re.finditer(options):
                             option = match.group(1)
-                            value  = match.group(2)
-
+                            value = match.group(2)
 
                             if option == 'filter_type':
                                 filter_type = map_filter_name_to_value.get(value.lower(), None)
                                 if filter_type is None:
                                     syslog.syslog(syslog.LOG_DEBUG, "unknown email filter (%s) for address %s" % (option, address))
-                                    
+
                             else:
                                 syslog.syslog(syslog.LOG_DEBUG, "unknown email option (%s) for address %s" % (option, address))
-                                
+
                     try:
                         self.add_address(address, filter_type)
                     except ProgramError, e:
@@ -1494,7 +1512,6 @@ class SEEmailRecipientSet(XmlSerialize):
                             syslog.syslog(syslog.LOG_DEBUG, e.strerror)
                         else:
                             raise e
-
 
         f.close()
 
@@ -1507,7 +1524,7 @@ class SEEmailRecipientSet(XmlSerialize):
         for recipient in self.recipient_list:
             filter_type = map_filter_value_to_name[recipient.filter_type]
             f.write("%-40s filter_type=%s\n" % (recipient.address, filter_type))
-        
+
         f.close()
 
 # --- Main ---
@@ -1526,4 +1543,3 @@ if __name__ == "__main__":
     f = open('siginfo.html', 'w')
     f.write(html)
     f.close()
-

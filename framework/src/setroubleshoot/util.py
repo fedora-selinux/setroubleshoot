@@ -60,7 +60,7 @@ __all__ = [
 
     'TimeStamp',
     'Retry',
-    ]
+]
 
 import six
 import datetime
@@ -82,6 +82,7 @@ from setroubleshoot.errcode import *
 
 cmp = lambda x, y: (x > y) - (x < y)
 
+
 def is_type(obj):
     try:
         return isinstance(obj, TypeType)
@@ -91,7 +92,7 @@ def is_type(obj):
 DATABASE_MAJOR_VERSION = 3
 DATABASE_MINOR_VERSION = 0
 
-redhat_release_path='/etc/redhat-release'
+redhat_release_path = '/etc/redhat-release'
 text_wrapper = textwrap.TextWrapper()
 fix_newline_re = re.compile(r"\s*\n+\s*")
 hex_re = re.compile('^[A-Fa-f0-9]+$')
@@ -109,16 +110,19 @@ log_levels = {
     'DEBUG': syslog.LOG_DEBUG,
 }
 
+
 def log_init(section):
     global log_level
     log_level = log_levels.get(get_config(section, 'level').upper())
     if log_level is None:
         log_level = syslog.LOG_WARNING
 
+
 def log_debug(msg):
     global log_level
     if log_level >= syslog.LOG_DEBUG:
         syslog.syslog(syslog.LOG_DEBUG, msg)
+
 
 def syslog_trace(trace):
     log_lines = trace.split('\n')
@@ -126,11 +130,14 @@ def syslog_trace(trace):
         if len(line):
             syslog.syslog(line)
 
+
 def database_version_compatible(version):
     major = minor = None
     components = version.split('.')
-    if len(components) >= 1: major = int(components[0])
-    if len(components) >= 2: minor = int(components[1])
+    if len(components) >= 1:
+        major = int(components[0])
+    if len(components) >= 2:
+        minor = int(components[1])
 
     if major < DATABASE_MAJOR_VERSION:
         log_debug("database version %s not compatible with current %d.%d version" % (version, DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION))
@@ -148,28 +155,30 @@ def format_elapsed_time(elapsed_time):
     fraction, whole = math.modf(elapsed_time)
     whole = int(whole)
 
-    days = whole/86400
-    whole = whole - days*86400
+    days = whole / 86400
+    whole = whole - days * 86400
 
-    hours = whole/3600
-    whole = whole - hours*3600
+    hours = whole / 3600
+    whole = whole - hours * 3600
 
-    minutes = whole/60
-    seconds = whole - minutes*60
+    minutes = whole / 60
+    seconds = whole - minutes * 60
 
     if days:
-        return "%dd:%dh:%dm:%.3fs" % (days,hours,minutes,seconds+fraction)
+        return "%dd:%dh:%dm:%.3fs" % (days, hours, minutes, seconds + fraction)
     if hours:
-        return "%dh:%dm:%.3fs" % (hours,minutes,seconds+fraction)
+        return "%dh:%dm:%.3fs" % (hours, minutes, seconds + fraction)
     if minutes:
-        return "%dm:%.3fs" % (minutes,seconds+fraction)
-    return "%.3fs" % (seconds+fraction)
+        return "%dm:%.3fs" % (minutes, seconds + fraction)
+    return "%.3fs" % (seconds + fraction)
+
 
 def is_hex(str):
     if hex_re.match(str):
         return True
     else:
         return False
+
 
 def audit_msg_decode(msg):
     if msg is None:
@@ -184,21 +193,27 @@ def audit_msg_decode(msg):
             decoded = msg
     return decoded
 
-def merge_lists(a,b):
+
+def merge_lists(a, b):
     'return a list containing the unique members of a+b'
-    if not b: return a
-    if not a: return b
+    if not b:
+        return a
+    if not a:
+        return b
     d = {}
-    for i in a: d[i] = None
-    for i in b: d[i] = None
+    for i in a:
+        d[i] = None
+    for i in b:
+        d[i] = None
     m = list(d.keys())
     return m
+
 
 def preextend_list(requested_length, _list=None, default=None):
     if _list is None:
         _list = []
     cur_length = len(_list)
-    delta = requested_length-cur_length
+    delta = requested_length - cur_length
     if delta > 0:
         if is_type(default):
             _list.extend([default() for x in range(delta)])
@@ -206,49 +221,53 @@ def preextend_list(requested_length, _list=None, default=None):
             _list.extend([default] * delta)
     return _list
 
+
 def fmt_obj(obj):
     if isinstance(obj, six.string_types):
         return obj
     elif isinstance(obj, (list, tuple)):
-        return "["+" ".join(["%s" % fmt_obj(x) for x in obj])+"]"
+        return "[" + " ".join(["%s" % fmt_obj(x) for x in obj]) + "]"
     elif isinstance(obj, dict):
         keys = list(obj.keys())
         keys.sort()
-        return "{"+" ".join(["%s=%s" % (fmt_obj(key), fmt_obj(obj[key])) for key in keys])+"}"
+        return "{" + " ".join(["%s=%s" % (fmt_obj(key), fmt_obj(obj[key])) for key in keys]) + "}"
     else:
         return str(obj)
 
+
 def format_2_column_name_value(name, value, value_indent=30, page_width=80):
     if len(name) >= value_indent:
-        initial_indent = name[0:value_indent-1] + ' '
+        initial_indent = name[0:value_indent - 1] + ' '
     else:
         initial_indent = name + ' ' * (value_indent - len(name))
-
 
     if not value or value.isspace():
         return initial_indent + value + '\n'
     else:
-        text_wrapper.initial_indent    = initial_indent
+        text_wrapper.initial_indent = initial_indent
         text_wrapper.subsequent_indent = ' ' * value_indent
         text_wrapper.width = page_width
         return text_wrapper.fill(value) + '\n'
 
+
 def wrap_text(s, width=80, indent=0):
     prefix = ' ' * indent
-    text_wrapper.initial_indent    = prefix
+    text_wrapper.initial_indent = prefix
     text_wrapper.subsequent_indent = prefix
     text_wrapper.width = width
     return text_wrapper.fill(s) + '\n'
+
 
 def format_msg(title, msg, indent=4):
     if msg is None:
         msg = ''
     msg = msg.strip()
     indentString = " " * indent
-    text_wrapper.initial_indent    = indentString
+    text_wrapper.initial_indent = indentString
     text_wrapper.subsequent_indent = indentString
     text_wrapper.width = 80
     return title + "\n" + text_wrapper.fill(msg) + "\n\n"
+
 
 def remove_linebreaks(str):
     new_str = fix_newline_re.sub(" ", str).strip()
@@ -257,15 +276,18 @@ def remove_linebreaks(str):
     else:
         return new_str
 
+
 def default_text(val):
     if val is None:
-        val = '<'+_('Unknown')+'>'
+        val = '<' + _('Unknown') + '>'
     return str(val)
+
 
 def default_date_text(date):
     if date is None:
         return default_text(date)
     return date.format()
+
 
 def get_standard_directories():
     lst = []
@@ -280,9 +302,10 @@ def get_standard_directories():
 
     return lst
 
+
 def get_rpm_nvr_from_header(hdr):
     'Given an RPM header return the package NVR as a string'
-    name    = hdr['name']
+    name = hdr['name']
     version = hdr['version']
     release = hdr['release']
 
@@ -290,13 +313,14 @@ def get_rpm_nvr_from_header(hdr):
 
 ### these functions are for now until rpm memory leak gets a fix
 
+
 def get_rpm_nvr_by_name_temporary(name):
     if name is None:
         return None
 
     nvr = None
     try:
-        import  subprocess
+        import subprocess
         nvr = subprocess.check_output(["rpm", "-q", name], universal_newlines=True).rstrip()
     except:
         syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
@@ -323,9 +347,10 @@ def get_rpm_nvr_by_file_path_temporary(name):
 
 from sepolicy import get_all_file_types
 try:
-    file_types =  get_all_file_types()
+    file_types = get_all_file_types()
 except ValueError:
     file_types = []
+
 
 def get_rpm_nvr_by_name(name):
     return get_rpm_nvr_by_name_temporary(name)
@@ -344,6 +369,7 @@ def get_rpm_nvr_by_name(name):
         syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
     return nvr
 
+
 def get_rpm_nvr_by_file_path(path):
     return get_rpm_nvr_by_file_path_temporary(path)
     if path is None:
@@ -361,11 +387,12 @@ def get_rpm_nvr_by_file_path(path):
         syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % path)
     return nvr
 
+
 def split_rpm_nvr(nvr):
     components = nvr.split('-')
     release = components[-1]
     version = components[-2]
-    name    = '-'.join(components[:-2])
+    name = '-'.join(components[:-2])
     return (name, version, release)
 
 
@@ -378,6 +405,7 @@ def get_user_home_dir():
     home_dir = pw.pw_dir
     return home_dir
 
+
 def valid_email_address(address):
     match = name_at_domain_re.search(address)
     if match:
@@ -385,9 +413,11 @@ def valid_email_address(address):
     else:
         return False
 
+
 def launch_web_browser_on_url(url):
     web_browser_launcher = get_config('helper_apps', 'web_browser_launcher')
     os.spawnl(os.P_NOWAIT, web_browser_launcher, web_browser_launcher, url)
+
 
 def get_error_from_socket_exception(e):
     args = getattr(e, 'args', None)
@@ -398,6 +428,7 @@ def get_error_from_socket_exception(e):
         errno = ERR_SOCKET_ERROR
         strerror = get_strerror(errno)
     return errno, strerror
+
 
 def assure_file_ownership_permissions(filepath, mode, owner, group=None):
     result = True
@@ -422,7 +453,8 @@ def assure_file_ownership_permissions(filepath, mode, owner, group=None):
         else:
             uid = pwd.getpwnam(owner)[2]
 
-        if group is None: group = owner
+        if group is None:
+            group = owner
 
         if isinstance(group, int):
             gid = group
@@ -439,6 +471,7 @@ def assure_file_ownership_permissions(filepath, mode, owner, group=None):
 
     return result
 
+
 def abstract(obj):
     import inspect
     method = inspect.getouterframes(inspect.currentframe())[1][3]
@@ -448,15 +481,16 @@ def abstract(obj):
 
 #-----------------------------------------------------------------------------
 
+
 def get_plugin_names(filter_glob=None):
     if filter_glob is None:
         filter_glob = '*'
     else:
-        filter_glob = re.sub('.py$','',filter_glob)
+        filter_glob = re.sub('.py$', '', filter_glob)
 
-    plugin_dir = get_config('plugins','plugin_dir')
+    plugin_dir = get_config('plugins', 'plugin_dir')
     plugin_names = []
-    for p in glob.glob(os.path.join(plugin_dir, filter_glob+".py")):
+    for p in glob.glob(os.path.join(plugin_dir, filter_glob + ".py")):
         p = os.path.basename(p)
         if p in ['__init__.py']:
             continue
@@ -464,11 +498,13 @@ def get_plugin_names(filter_glob=None):
         plugin_names.append(plugin_name)
     return plugin_names
 
-def sort_plugins(x,y):
-    return x.get_priority()-y.get_priority()
+
+def sort_plugins(x, y):
+    return x.get_priority() - y.get_priority()
+
 
 def load_plugins(filter_glob=None):
-    plugin_dir = get_config('plugins','plugin_dir')
+    plugin_dir = get_config('plugins', 'plugin_dir')
     plugin_base = os.path.basename(plugin_dir)
     plugins = []
     plugin_names = get_plugin_names(filter_glob)
@@ -510,6 +546,7 @@ def load_plugins(filter_glob=None):
     plugins.sort(key=cmp_to_key(sort_plugins))
     return plugins
 
+
 def get_os_environment():
     try:
         myplatform = open(redhat_release_path).readlines()[0].strip()
@@ -521,10 +558,11 @@ def get_os_environment():
     # uname returns (sysname, nodename, release, version, machine)
     uname = os.uname()
     kernel_release = uname[2]
-    cpu            = uname[4]
+    cpu = uname[4]
 
     os_desc = "%s %s" % (kernel_release, cpu)
     return (myplatform, os_desc)
+
 
 def get_identity(uid=None):
     if uid is None:
@@ -537,6 +575,7 @@ def get_identity(uid=None):
     username = pwd_entry[0]
     return username
 
+
 def get_hostname():
     try:
         import socket as Socket
@@ -546,24 +585,27 @@ def get_hostname():
         syslog.syslog(syslog.LOG_ERR, "cannot lookup hostname: %s" % e)
         return None
 
+
 def find_program(prog):
     if os.path.isabs(prog):
         return prog
     basename = os.path.basename(prog)
-    search_path = get_config('fix_command','prog_search_path').split(':')
+    search_path = get_config('fix_command', 'prog_search_path').split(':')
     for d in search_path:
         path = os.path.join(d, basename)
         if os.path.exists(path):
             return path
     return None
 
+
 def make_database_filepath(name):
-    database_dir = get_config('database','database_dir')
+    database_dir = get_config('database', 'database_dir')
     # strip off extension if one was provided
     name = re.sub('\\.xml$', '', name)
     filename = name + '_database.xml'
     filepath = os.path.join(database_dir, filename)
     return filepath
+
 
 def parse_datetime_offset(text):
     '''The time offset may be specified as a sequence of integer unit pairs.
@@ -574,8 +616,8 @@ def parse_datetime_offset(text):
     # thus plural 's', commas, whitespace
     datetime_offset_re = re.compile(r'(\d+)\s*(year|month|week|day|hour|minute|second)')
     found = False
-    days    = 0
-    hours   = 0
+    days = 0
+    hours = 0
     minutes = 0
     seconds = 0
 
@@ -587,13 +629,20 @@ def parse_datetime_offset(text):
             unit = match.group(2)
 
             if unit is not None:
-                if unit == 'year':   days    += quantity * 365
-                if unit == 'month':  days    += quantity * 31
-                if unit == 'week':   days    += quantity * 7
-                if unit == 'day':    days    += quantity
-                if unit == 'hour':   hours   += quantity
-                if unit == 'minute': minutes += quantity
-                if unit == 'second': seconds += quantity
+                if unit == 'year':
+                    days += quantity * 365
+                if unit == 'month':
+                    days += quantity * 31
+                if unit == 'week':
+                    days += quantity * 7
+                if unit == 'day':
+                    days += quantity
+                if unit == 'hour':
+                    hours += quantity
+                if unit == 'minute':
+                    minutes += quantity
+                if unit == 'second':
+                    seconds += quantity
 
     if found:
         td = datetime.timedelta(days=days, hours=hours, minutes=minutes, seconds=seconds)
@@ -605,9 +654,9 @@ def parse_datetime_offset(text):
 
 #------------------------------------------------------------------------------
 
-STDOFFSET = datetime.timedelta(seconds = -time.timezone)
+STDOFFSET = datetime.timedelta(seconds=-time.timezone)
 if time.daylight:
-    DSTOFFSET = datetime.timedelta(seconds = -time.altzone)
+    DSTOFFSET = datetime.timedelta(seconds=-time.altzone)
 else:
     DSTOFFSET = STDOFFSET
 
@@ -642,6 +691,7 @@ class LocalTimezone(datetime.tzinfo):
         tt = time.localtime(stamp)
         return tt.tm_isdst > 0
 
+
 class UTC(datetime.tzinfo):
     """UTC"""
 
@@ -653,6 +703,7 @@ class UTC(datetime.tzinfo):
 
     def dst(self, dt):
         return datetime.timedelta(0)
+
 
 class TimeStamp:
     # class variables
@@ -722,12 +773,12 @@ class TimeStamp:
 
     def parse(self, str):
         (year, month, day, hour, minute, second, weekday, yearday, dst) = \
-               time.strptime(str, self.iso8601_fmt)
+            time.strptime(str, self.iso8601_fmt)
         self._dt = datetime.datetime(year, month, day, hour, minute, second,
                                      0, self.utc_tz)
         return self._dt
 
-    def add(self,days=0, hours=0, minutes=0, seconds=0):
+    def add(self, days=0, hours=0, minutes=0, seconds=0):
         self._dt += datetime.timedelta(days=days, hours=hours,
                                        minutes=minutes, seconds=seconds)
 
@@ -754,6 +805,7 @@ class TimeStamp:
             return self._dt.strftime(fmt)
 
 #------------------------------------------------------------------------------
+
 
 class Retry(GObject.GObject):
     '''
@@ -795,7 +847,7 @@ class Retry(GObject.GObject):
     __gsignals__ = {
         'pending_retry':                # callback(retry_object, seconds_pending, user_data)
         (GObject.SignalFlags.RUN_LAST, None, (GObject.TYPE_FLOAT, GObject.TYPE_PYOBJECT,)),
-        }
+    }
 
     def __init__(self, callback, retry_interval, user_data=None, notify_interval=None):
         GObject.GObject.__init__(self)
@@ -812,7 +864,7 @@ class Retry(GObject.GObject):
             GLib.source_remove(self.timeout_id)
             self.timeout_id = None
 
-    def start(self,  retry_interval=None, user_data=None, notify_interval=None):
+    def start(self, retry_interval=None, user_data=None, notify_interval=None):
         if retry_interval is not None:
             self.retry_interval = retry_interval
         if user_data is not None:
@@ -834,7 +886,7 @@ class Retry(GObject.GObject):
             alarm_time = min(self.notify_interval, seconds_pending)
         else:
             alarm_time = seconds_pending
-        self.timeout_id = GObject.timeout_add(int(alarm_time*1000), self._alarm_callback)
+        self.timeout_id = GObject.timeout_add(int(alarm_time * 1000), self._alarm_callback)
 
     def _alarm_callback(self):
         self.timeout_id = None
@@ -871,5 +923,3 @@ class Retry(GObject.GObject):
 GObject.type_register(Retry)
 
 #-----------------------------------------------------------------------------
-
-

@@ -34,24 +34,25 @@ localedir = get_config('general', 'i18n_locale_dir')
 kwargs = {}
 if sys.version_info < (3,):
     kwargs['unicode'] = True
-gettext.install(domain    = domain,
-                localedir = localedir,
+gettext.install(domain=domain,
+                localedir=localedir,
                 **kwargs)
 
-translation=gettext.translation(domain    = domain,
-                                localedir = localedir,
-                                fallback=True)
+translation = gettext.translation(domain=domain,
+                                  localedir=localedir,
+                                  fallback=True)
 
 rows = 1
 
 try:
-    _ = translation.ugettext # This raises exception in Python3, succ. in Py2
+    _ = translation.ugettext  # This raises exception in Python3, succ. in Py2
 except AttributeError:
-    _ = translation.gettext # Python3
+    _ = translation.gettext  # Python3
 
-import sys, os
+import sys
+import os
 from xml.dom import minidom
-from six.moves.xmlrpc_client  import ProtocolError
+from six.moves.xmlrpc_client import ProtocolError
 
 import gi
 gi.require_version('Gdk', '3.0')
@@ -80,18 +81,19 @@ OLD_PATH = os.environ['HOME'] + "/.setroubleshoot"
 PREF_PATH = GLib.get_user_config_dir() + "/sealert.conf"
 UPDATE_PROGRAM = "/usr/bin/gpk-update-viewer"
 
-dict = { "file": "text-x-generic",
-         "dir":"inode/directory",
-         "chr_file":"inode/chardevice",
-         "blk_file":"inode/blockdevice",
-         "lnk_file":"inode/symlink",
-         "sock_file":"inode/socket",
-         "executable":"application/x-executable",
-         "socket":"text-x-generic",
-         "capability":"text-x-generic",
-         "process":"text-x-generic",
-         "*":"text-x-generic",
- }
+dict = {"file": "text-x-generic",
+        "dir": "inode/directory",
+        "chr_file": "inode/chardevice",
+        "blk_file": "inode/blockdevice",
+        "lnk_file": "inode/symlink",
+        "sock_file": "inode/socket",
+        "executable": "application/x-executable",
+        "socket": "text-x-generic",
+        "capability": "text-x-generic",
+        "process": "text-x-generic",
+        "*": "text-x-generic",
+        }
+
 
 def msg(message):
     dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.INFO,
@@ -102,15 +104,17 @@ def msg(message):
     dlg.run()
     dlg.destroy()
 
+
 def fullpath(cmd):
-       for i in [ "/", "./", "../" ]:
-              if cmd.startswith(i):
-                     return cmd
-       for i in  os.environ["PATH"].split(':'):
-              f = "%s/%s" % (i, cmd)
-              if os.access(f, os.X_OK):
-                     return f
-       return cmd
+    for i in ["/", "./", "../"]:
+        if cmd.startswith(i):
+            return cmd
+    for i in os.environ["PATH"].split(':'):
+        f = "%s/%s" % (i, cmd)
+        if os.access(f, os.X_OK):
+            return f
+    return cmd
+
 
 def old():
     sealert_app_info = None
@@ -122,13 +126,14 @@ def old():
             if rpmver in desktop_icon_dict:
                 desktop_icon_dict[rpmver].append(desktop_app_info)
             else:
-                desktop_icon_dict[rpmver] = [ desktop_app_info ]
+                desktop_icon_dict[rpmver] = [desktop_app_info]
 
         basename = os.path.basename(exe)
         if basename in desktop_icon_dict:
             desktop_icon_dict[basename].append(desktop_app_info)
         else:
-            desktop_icon_dict[basename] = [ desktop_app_info ]
+            desktop_icon_dict[basename] = [desktop_app_info]
+
 
 def get_icon(path, tclass="*"):
     try:
@@ -163,6 +168,8 @@ def get_icon(path, tclass="*"):
 
 package_list = set()
 # The main security alert window
+
+
 class BrowserApplet:
     """Security Alert Browser"""
 
@@ -170,7 +177,7 @@ class BrowserApplet:
         widget.set_sensitive(False)
         self.solutions_pane.show()
         self.troubleshoot_visible = True
-        self.window.set_size_request(self.width,self.height)
+        self.window.set_size_request(self.width, self.height)
 
     def empty_load(self):
         self.clear_rows()
@@ -268,7 +275,7 @@ class BrowserApplet:
         self.load_data()
         self.liststore = Gtk.ListStore(int, str, str, str, int, str)
         self.make_treeview()
-        self.troubleshoot_visible=False
+        self.troubleshoot_visible = False
         self.current_alert = -1
         self.accounts = report.accountmanager.AccountManager()
 
@@ -280,8 +287,8 @@ class BrowserApplet:
             return None
 
     def itemSelected(self, widget):
-           self.troubleshoot_list_button.set_sensitive(widget.count_selected_rows() == 1)
-           self.delete_list_button.set_sensitive(widget.count_selected_rows() > 0)
+        self.troubleshoot_list_button.set_sensitive(widget.count_selected_rows() == 1)
+        self.delete_list_button.set_sensitive(widget.count_selected_rows() > 0)
 
     def install_button_clicked(self, widget):
         if not os.access(UPDATE_PROGRAM, os.X_OK):
@@ -291,7 +298,7 @@ class BrowserApplet:
             os.execv(UPDATE_PROGRAM, [UPDATE_PROGRAM])
 
     def make_treeview(self):
-        tmsort = Gtk.TreeModelSort(model = self.liststore)
+        tmsort = Gtk.TreeModelSort(model=self.liststore)
 
         cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occurred"), _("Status")]
         self.treeview.set_model(tmsort)
@@ -305,7 +312,7 @@ class BrowserApplet:
             col.set_sort_column_id(x)
             col.set_resizable(True)
             self.treeview.append_column(col)
-            x +=1
+            x += 1
         self.treeview.set_headers_clickable(True)
         self.treeview.connect("row-activated", self.row_activated)
 
@@ -345,18 +352,18 @@ class BrowserApplet:
         outfile.close()
 
     def alert_disabled(self):
-           import re
-           desktop_file = os.path.expanduser("~/.config/autostart/sealertauto.desktop")
-           try:
-                  infile = open(desktop_file , "r")
-                  buf = infile.readlines()
-                  infile.close()
-                  for line in buf:
-                         if re.search("X-GNOME-Autostart-enabled *= *false", line):
-                                return True
-           except:
-                  pass
-           return False
+        import re
+        desktop_file = os.path.expanduser("~/.config/autostart/sealertauto.desktop")
+        try:
+            infile = open(desktop_file, "r")
+            buf = infile.readlines()
+            infile.close()
+            for line in buf:
+                if re.search("X-GNOME-Autostart-enabled *= *false", line):
+                    return True
+        except:
+            pass
+        return False
 
     def on_report_button_clicked(self, widget):
         alert = self.get_current_alert()
@@ -392,7 +399,7 @@ class BrowserApplet:
             self.alert_list.append(alert)
 
         if self.current_alert < 0:
-            self.current_alert = len(self.alert_list) -1
+            self.current_alert = len(self.alert_list) - 1
 
         self.show_current_alert()
 
@@ -401,7 +408,7 @@ class BrowserApplet:
         pass
 
     def clear_rows(self):
-        self.radio = Gtk.RadioButton(label = None)
+        self.radio = Gtk.RadioButton(label=None)
         for child in self.table.get_children():
             self.table.remove(child)
         global rows
@@ -422,11 +429,11 @@ class BrowserApplet:
         label.show()
         self.table.attach(label, 1, 0, 1, 1)
 
-    def wrap(self,if_text):
+    def wrap(self, if_text):
         lines = ""
         line = ""
         for i in if_text.split():
-            if len(line) + len(i) >  40:
+            if len(line) + len(i) > 40:
                 lines += line.strip() + "\n"
                 line = ""
             line += i.strip() + " "
@@ -434,7 +441,7 @@ class BrowserApplet:
         lines += line
         return lines
 
-    def add_row(self, plugin, alert, args, highlight = False):
+    def add_row(self, plugin, alert, args, highlight=False):
         global rows
         avc = alert.audit_event.records
         if_text = alert.substitute(plugin.get_if_text(avc, args))
@@ -469,9 +476,9 @@ class BrowserApplet:
         if_label.show()
 
         if_button = Gtk.Button()
-        if_box = Gtk.Box(homogeneous = False,
-                    orientation = Gtk.Orientation.HORIZONTAL,
-                    spacing = 5)
+        if_box = Gtk.Box(homogeneous=False,
+                         orientation=Gtk.Orientation.HORIZONTAL,
+                         spacing=5)
         if_box.add(sev_toggle)
         if_box.set_child_packing(sev_toggle, expand=False, fill=False, padding=0, pack_type=0)
         if_box.add(if_label)
@@ -504,7 +511,7 @@ class BrowserApplet:
 
         if_button.connect("clicked", self.on_sev_togglebutton_activated, rows)
         self.table.insert_row(rows)
-        self.table.attach(if_button, 0, rows, 1,  1) # xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL) #yoptions=Gtk.AttachOptions.FILL)
+        self.table.attach(if_button, 0, rows, 1, 1)  # xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL) #yoptions=Gtk.AttachOptions.FILL)
 
         self.table.attach(then_scroll, 1, rows, 1, 1)
 #, col, col+1, rows, rows + 1, xoptions=Gtk.AttachOptions.EXPAND|Gtk.AttachOptions.FILL,
@@ -529,11 +536,11 @@ class BrowserApplet:
             vbox.add(report_button)
 
         elif plugin.report_bug:
-               report_button = Gtk.Button()
-               report_button.set_label(_("Report\nBug"))
-               report_button.show()
-               report_button.connect("clicked", self.report_bug, alert)
-               vbox.add(report_button)
+            report_button = Gtk.Button()
+            report_button.set_label(_("Report\nBug"))
+            report_button.show()
+            report_button.connect("clicked", self.report_bug, alert)
+            vbox.add(report_button)
 
         vbox.set_sensitive(highlight)
         vbox.show()
@@ -541,6 +548,7 @@ class BrowserApplet:
 
         rows += 1
         return sev_toggle
+
     def on_sev_togglebutton_activated(self, widget, row):
         for child in self.table.get_children():
             r, c = self.table.child_get(child, "top_attach", "left_attach")
@@ -557,28 +565,28 @@ class BrowserApplet:
                 pass
 
     def details(self, widget, alert, plugin, args):
-           avc = alert.audit_event.records
-           message = alert.substitute(alert.summary()) + "\n\n"
-           message += _("Plugin: %s ") % plugin.analysis_id + "\n"
-           msg = ""
-           for i in plugin.get_problem_description(avc, args).split("\n"):
-               msg += alert.substitute(i.strip()) + "\n"
-           message += html_to_text(msg) + "\n\n"
-           message += alert.substitute(plugin.get_if_text(avc, args)) + "\n"
-           message += alert.substitute(plugin.get_then_text(avc, args)) + "\n"
-           message += alert.substitute(plugin.get_do_text(avc, args)) + "\n"
+        avc = alert.audit_event.records
+        message = alert.substitute(alert.summary()) + "\n\n"
+        message += _("Plugin: %s ") % plugin.analysis_id + "\n"
+        msg = ""
+        for i in plugin.get_problem_description(avc, args).split("\n"):
+            msg += alert.substitute(i.strip()) + "\n"
+        message += html_to_text(msg) + "\n\n"
+        message += alert.substitute(plugin.get_if_text(avc, args)) + "\n"
+        message += alert.substitute(plugin.get_then_text(avc, args)) + "\n"
+        message += alert.substitute(plugin.get_do_text(avc, args)) + "\n"
 #           message += alert.substitute(alert.format_details()) + "\n"
 
-           self.details_textview.get_buffer().set_text(message)
-           self.details_window.show_all()
+        self.details_textview.get_buffer().set_text(message)
+        self.details_window.show_all()
 
     def on_close_details_button_clicked(self, widget, args=None):
-           self.details_window.hide()
-           return True
+        self.details_window.hide()
+        return True
 
     def read_config(self):
         filename = PREF_PATH
-        self.checkonlogin=1
+        self.checkonlogin = 1
         if not os.path.exists(filename):
             if os.path.exists(OLD_PATH):
                 fd = open(OLD_PATH, "r")
@@ -591,9 +599,9 @@ class BrowserApplet:
         try:
             fd = open(filename, "r")
             for i in fd.readlines():
-                rec=i.split("=")
+                rec = i.split("=")
                 if rec[0] == "checkonlogin":
-                    self.checkonlogin=int(rec[1])
+                    self.checkonlogin = int(rec[1])
                     fd.close()
         except IOError:
             pass
@@ -612,7 +620,7 @@ class BrowserApplet:
         else:
             fd.write("last=")
 
-        fd.write("\n");
+        fd.write("\n")
         fd.write("checkonlogin=%d\n" % self.checkonlogin)
         fd.close()
         Gtk.main_quit()
@@ -657,40 +665,40 @@ class BrowserApplet:
         if empty is True:
             self.alert_count_label.set_text("")
             return
-        self.alert_count_label.set_text(_("Alert %d of %d") % (self.current_alert+1, len(self.alert_list)))
+        self.alert_count_label.set_text(_("Alert %d of %d") % (self.current_alert + 1, len(self.alert_list)))
 
     def foreach(self, model, path, iter, selected):
-           selected.append(model.get_value(iter, 0))
+        selected.append(model.get_value(iter, 0))
 
     def on_delete_list_button_clicked(self, widget):
-           selected = []
-           self.treeview.get_selection().selected_foreach(self.foreach, selected)
-           if len(selected) == 0:
-               return
+        selected = []
+        self.treeview.get_selection().selected_foreach(self.foreach, selected)
+        if len(selected) == 0:
+            return
 
-           alert = self.get_current_alert()
-           selected.sort(reverse=True)
-           for i in selected:
-               key = self.alert_list[i - 1]
-               self.database.delete_signature(key.sig)
-               del self.alert_list[i - 1]
-           try:
-               self.current_alert = self.alert_list.index(alert)
-           except ValueError:
-               self.current_alert = 0
-           self.update_list_all()
-           self.show_current_alert()
+        alert = self.get_current_alert()
+        selected.sort(reverse=True)
+        for i in selected:
+            key = self.alert_list[i - 1]
+            self.database.delete_signature(key.sig)
+            del self.alert_list[i - 1]
+        try:
+            self.current_alert = self.alert_list.index(alert)
+        except ValueError:
+            self.current_alert = 0
+        self.update_list_all()
+        self.show_current_alert()
 
     def on_troubleshoot_list_button_clicked(self, widget):
-           selected = []
-           self.treeview.get_selection().selected_foreach(self.foreach, selected)
-           if len(selected) != 1:
-                  return
+        selected = []
+        self.treeview.get_selection().selected_foreach(self.foreach, selected)
+        if len(selected) != 1:
+            return
 
-           self.current_alert = selected[0] - 1
-           self.alert_list_window.hide()
-           self.show_current_alert()
-           self.on_troubleshoot_button_clicked(self.troubleshoot_button)
+        self.current_alert = selected[0] - 1
+        self.alert_list_window.hide()
+        self.show_current_alert()
+        self.on_troubleshoot_button_clicked(self.troubleshoot_button)
 
     def on_details_button_clicked(self, widget):
         alert = self.get_current_alert()
@@ -713,8 +721,8 @@ class BrowserApplet:
             if len(self.alert_list) == 0:
                 self.empty_load()
             else:
-                if self.current_alert > len(self.alert_list)-1:
-                    self.current_alert = len(self.alert_list)-1
+                if self.current_alert > len(self.alert_list) - 1:
+                    self.current_alert = len(self.alert_list) - 1
                     self.show_current_alert()
             self.update_list_all()
         except ValueError:
@@ -737,7 +745,7 @@ class BrowserApplet:
         size = len(self.alert_list)
         self.update_button_visibility()
 
-        if size  == 0:
+        if size == 0:
             return
 
         size = size - 1
@@ -789,7 +797,7 @@ class BrowserApplet:
 
         alert.update_derived_template_substitutions()
 
-        self.toggles=[]
+        self.toggles = []
         highest_priority = plugins[0][0].priority
         for p, args in plugins:
             if p.priority == highest_priority:
@@ -821,7 +829,7 @@ class BrowserApplet:
             self.show_current_alert()
 
     def on_next_button_clicked(self, widget):
-        if self.current_alert < len(self.alert_list)-1:
+        if self.current_alert < len(self.alert_list) - 1:
             self.current_alert += 1
             self.show_current_alert()
 
@@ -910,17 +918,22 @@ class BrowserApplet:
     def hide(self):
         self.main_window.hide()
 
+
 class DBusProxy (object):
-    def __init__ (self):
-        self.bus = dbus.SystemBus ()
-        self.dbus_object = self.bus.get_object ("org.fedoraproject.SetroubleshootFixit", "/org/fedoraproject/SetroubleshootFixit/object")
+
+    def __init__(self):
+        self.bus = dbus.SystemBus()
+        self.dbus_object = self.bus.get_object("org.fedoraproject.SetroubleshootFixit", "/org/fedoraproject/SetroubleshootFixit/object")
 
     @polkit.enable_proxy
-    def run_fix (self, local_id, plugin_name):
-        return self.dbus_object.run_fix (local_id, plugin_name, dbus_interface = "org.fedoraproject.SetroubleshootFixit")
+    def run_fix(self, local_id, plugin_name):
+        return self.dbus_object.run_fix(local_id, plugin_name, dbus_interface="org.fedoraproject.SetroubleshootFixit")
 
 # BugReport is the window that pops up when you press the Report Bug button
+
+
 class BugReport:
+
     def __init__(self, parent, alert):
 
         self.parent = parent
@@ -944,15 +957,15 @@ class BugReport:
         self.error_submit_text = self.widget("error_submit_text")
 
         # Construct and connect the dictionary
-        dic = { "on_cancel_button_clicked" : self.cancel_button_clicked,
-                "on_submit_button_clicked" : self.submit_button_clicked}
+        dic = {"on_cancel_button_clicked": self.cancel_button_clicked,
+               "on_submit_button_clicked": self.submit_button_clicked}
 
         self.main_window.connect("destroy", self.destroy)
         self.builder.connect_signals(dic)
 
         text_buf = Gtk.TextBuffer()
-        text = self.alert.untranslated(self.alert.format_text, replace = True)
-        text += self.alert.untranslated(self.alert.format_details, replace = True)
+        text = self.alert.untranslated(self.alert.format_text, replace=True)
+        text += self.alert.untranslated(self.alert.format_details, replace=True)
         text_buf.set_text(text)
         self.error_submit_text.set_buffer(text_buf)
 
@@ -983,7 +996,7 @@ class BugReport:
     def submit(self):
         text_buf = self.error_submit_text.get_buffer()
         content = text_buf.get_text(text_buf.get_start_iter(),
-                    text_buf.get_end_iter(), False)
+                                    text_buf.get_end_iter(), False)
         signature = report.createAlertSignature("selinux-policy",
                                                 "setroubleshoot",
                                                 self.alert.get_hash(),
@@ -1000,7 +1013,9 @@ class BugReport:
     def widget(self, name):
         return self.builder.get_object(name)
 
+
 class FailDialog():
+
     def __init__(self, message):
         dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.ERROR,
                                 Gtk.ButtonsType.OK,
@@ -1011,7 +1026,9 @@ class FailDialog():
         rc = dlg.run()
         dlg.destroy()
 
+
 class MessageDialog():
+
     def __init__(self, message):
         dlg = Gtk.MessageDialog(None, 0, Gtk.MessageType.INFO,
                                 Gtk.ButtonsType.OK,
@@ -1021,6 +1038,7 @@ class MessageDialog():
         dlg.show_all()
         rc = dlg.run()
         dlg.destroy()
+
 
 def compare_alert(a, b):
     return cmp(a.last_seen_date, b.last_seen_date)

@@ -19,7 +19,7 @@ from __future__ import absolute_import
 #
 
 __all__ = ['email_alert',
-          ]
+           ]
 
 import syslog
 import re
@@ -32,6 +32,7 @@ from setroubleshoot.util import *
 
 email_addr_re = re.compile(r'^\s*([^@ \t]+)(@([^@ \t]+))?\s*$')
 
+
 def parse_email_addr(addr):
     match = email_addr_re.search(addr)
     user = None
@@ -40,11 +41,12 @@ def parse_email_addr(addr):
         user = match.group(1)
         domain = match.group(3)
     return (user, domain)
-    
+
+
 def email_alert(siginfo, to_addrs):
-    smtp_host    = get_config('email','smtp_host')
-    smtp_port    = get_config('email','smtp_port', int)
-    from_address = get_config('email','from_address')
+    smtp_host = get_config('email', 'smtp_host')
+    smtp_port = get_config('email', 'smtp_port', int)
+    from_address = get_config('email', 'from_address')
 
     from_user, from_domain = parse_email_addr(from_address)
     if from_user is None:
@@ -57,14 +59,14 @@ def email_alert(siginfo, to_addrs):
 
     siginfo.update_derived_template_substitutions()
     summary = siginfo.substitute(siginfo.summary())
-    subject = '[%s] %s' % (get_config('email','subject'), summary)
-    text = siginfo.format_text() + siginfo.format_details() 
+    subject = '[%s] %s' % (get_config('email', 'subject'), summary)
+    text = siginfo.format_text() + siginfo.format_details()
 
-    email_msg            = MIMEMultipart('alternative')
+    email_msg = MIMEMultipart('alternative')
     email_msg['Subject'] = subject
-    email_msg['From']    = from_address
-    email_msg['To']      = ', '.join(to_addrs)
-    email_msg['Date']    = formatdate()
+    email_msg['From'] = from_address
+    email_msg['To'] = ', '.join(to_addrs)
+    email_msg['Date'] = formatdate()
 
     email_msg.attach(MIMEText(text))
 

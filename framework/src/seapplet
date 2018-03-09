@@ -146,7 +146,6 @@ class SEApplet(GObject.Object):
             # see https://bugzilla.redhat.com/show_bug.cgi?id=1541624
             print("seapplet: Can't show a notification: %s" % str(e), file=sys.stderr)
 
-
     def notification_closed(self, notification):
         del self.notifications[notification]
 

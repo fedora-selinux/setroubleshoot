@@ -58,6 +58,7 @@ i18n_encoding = get_config('general', 'i18n_encoding')
 
 #------------------------------------------------------------------------
 
+
 def validate_database_doc(doc):
     if doc is None:
         log_debug("validate_database_doc: doc is empty, validate fails")
@@ -72,6 +73,7 @@ def validate_database_doc(doc):
         return False
     else:
         return database_version_compatible(version)
+
 
 def boolean(value):
     'convert value to bool'
@@ -94,6 +96,7 @@ def boolean(value):
 def string_to_xmlnode(doc, value):
     return libxml2.newText(str(value))
 
+
 def string_to_cdata_xmlnode(doc, value):
     return doc.newCDataBlock(value, len(value))
 
@@ -109,6 +112,7 @@ def string_to_cdata_xmlnode(doc, value):
 # xmlEncodeSpecialChars called from xmlNodeListGetRawString
 #------------------------------------------------------------------------
 
+
 def xml_attributes(node):
     prop = node.get_properties()
     while prop:
@@ -122,6 +126,7 @@ def xml_attribute_dict(node):
         props[name] = value
     return props
 
+
 def xml_child_elements_iter(node):
     child = node.get_children()
     while child:
@@ -129,28 +134,35 @@ def xml_child_elements_iter(node):
             yield child
         child = child.get_next()
 
+
 def xml_get_child_element_by_name(node, name):
     child = node.get_children()
     while child:
         if child.get_type() == 'element':
-            if child.get_name() == name: return child
+            if child.get_name() == name:
+                return child
         child = child.get_next()
     return None
+
 
 def xml_get_child_elements_by_name(node, name):
     elements = []
     child = node.get_children()
     while child:
         if child.get_type() == 'element':
-            if child.get_name() == name: elements.append(child)
+            if child.get_name() == name:
+                elements.append(child)
         child = child.get_next()
     return elements
+
 
 def xml_child_elements(node):
     return list(xml_child_elements_iter(node))
 
+
 def xml_child_element_names(node):
     return [e.get_name() for e in xml_child_elements_iter(node)]
+
 
 def xml_has_child_elements(node):
     child = node.get_children()
@@ -162,7 +174,9 @@ def xml_has_child_elements(node):
 
 #------------------------------------------------------------------------
 
+
 class XmlSerializeMetaData(type):
+
     def __new__(cls, classname, bases, classdict):
         #print "new: cls=%s, name=%s bases=%s dict=%s" % (cls, classname, bases, classdict)
 
@@ -183,7 +197,6 @@ class XmlSerializeMetaData(type):
             pass
             #print "found in class %s" % classname
 
-
         def wrapped_init(*args, **kwds):
             if len(args) == 2 and isinstance(args[1], libxml2.xmlNode):
                 xml_init(*args, **kwds)
@@ -200,7 +213,8 @@ class XmlSerializeMetaData(type):
         super(XmlSerializeMetaData, cls).__init__(classname, bases, classdict)
 
         xml_info = classdict.get('_xml_info')
-        if not xml_info: return
+        if not xml_info:
+            return
         if xml_info == 'unstructured':
             cls._unstructured = True
         else:
@@ -213,8 +227,10 @@ class XmlSerializeMetaData(type):
             cls._attributes.sort()
             cls._names.sort()
 
+
 @add_metaclass(XmlSerializeMetaData)
 class XmlSerialize(object):
+
     def __init__(self):
         self._init_defaults()
 
@@ -223,7 +239,8 @@ class XmlSerialize(object):
 
     def _init_defaults(self):
         # Initialize each known class variable to avoid KeyError on access
-        if self._xml_info == 'unstructured': return
+        if self._xml_info == 'unstructured':
+            return
         for name in self._names:
             name_info = self._xml_info[name]
             default = name_info.get('default', None)
@@ -240,10 +257,9 @@ class XmlSerialize(object):
             elements = [x for x in list(self.__dict__.keys()) if not x.startswith('_')]
             attributes = []
         else:
-            elements   = self._elements
+            elements = self._elements
             attributes = self._attributes
         return(elements, attributes)
-
 
     def get_xml_doc(self, obj_name=None):
         doc = libxml2.newDoc("1.0")
@@ -281,7 +297,8 @@ class XmlSerialize(object):
             try:
                 doc = libxml2.parseFile(xmlfile)
                 if validate_doc:
-                    if not validate_doc(doc): return False
+                    if not validate_doc(doc):
+                        return False
                 self.init_from_xml_node(doc, obj_name)
             except libxml2.parserError as e:
                 syslog.syslog(syslog.LOG_ERR, "read_xml_file() libxml2.parserError: %s" % e)
@@ -294,7 +311,7 @@ class XmlSerialize(object):
                 doc.freeDoc()
         return True
 
-    def write_xml(self, obj_name=None, f = None):
+    def write_xml(self, obj_name=None, f=None):
         try:
             need_to_close = False
             if f is None:
@@ -337,7 +354,8 @@ class XmlSerialize(object):
                     list_item_name = name_info.get('list')
 
                 value = getattr(self, name)
-                if value is None or isinstance(value, list) and len(value) == 0: continue
+                if value is None or isinstance(value, list) and len(value) == 0:
+                    continue
 
                 if list_item_name:
                     # Element is list container, iterate over list items
@@ -410,7 +428,7 @@ class XmlSerialize(object):
                     log_debug("unknown element (%s) found in xml element (%s)" % (name, root.get_name()))
                     continue
                 name_info = self._xml_info[name]
-                typecast =  name_info.get('import_typecast', str)
+                typecast = name_info.get('import_typecast', str)
                 # Does this node have substructure?
                 list_item_name = name_info.get('list')
                 if list_item_name:
@@ -429,6 +447,3 @@ class XmlSerialize(object):
                     else:
                         value = element_node.getContent()
                         self.__setattr__(name, typecast(value))
-
-
-

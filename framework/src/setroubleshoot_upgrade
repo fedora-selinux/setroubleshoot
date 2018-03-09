@@ -29,10 +29,11 @@ import os
 import re
 import sys
 
+
 def rename_alert_database():
-    database_dir = cfg.get('database','database_dir')
+    database_dir = cfg.get('database', 'database_dir')
     old_database = os.path.join(database_dir, 'database.xml')
-    new_database = make_database_filepath(cfg.get('database','filename'))
+    new_database = make_database_filepath(cfg.get('database', 'filename'))
 
     if os.path.exists(new_database):
         log_program.info("new database exists, skipping (%s)", new_database)

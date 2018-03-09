@@ -25,7 +25,7 @@ __all__ = ['RunFaultServer',
            'get_host_database',
            'send_alert_notification',
            'ConnectionPool',
-          ]
+           ]
 
 
 from gi.repository import GObject, GLib
@@ -52,18 +52,18 @@ localedir = get_config('general', 'i18n_locale_dir')
 kwargs = {}
 if sys.version_info < (3,):
     kwargs['unicode'] = True
-gettext.install(domain    = domain,
-                localedir = localedir,
+gettext.install(domain=domain,
+                localedir=localedir,
                 **kwargs)
 
-translation=gettext.translation(domain    = domain,
-                                localedir = localedir,
-                                fallback  = True)
+translation = gettext.translation(domain=domain,
+                                  localedir=localedir,
+                                  fallback=True)
 
 try:
-    _ = translation.ugettext # This raises exception in Python3, succ. in Py2
+    _ = translation.ugettext  # This raises exception in Python3, succ. in Py2
 except AttributeError:
-    _ = translation.gettext # Python3
+    _ = translation.gettext  # Python3
 
 
 from setroubleshoot.access_control import ServerAccess
@@ -114,6 +114,7 @@ def sighandler(signum, frame):
         config.config_init()
         return
 
+
 def make_instance_id():
     import time
     hostname = get_hostname()
@@ -121,19 +122,22 @@ def make_instance_id():
     stamp = str(time.time())
     return '%s:%s:%s' % (hostname, pid, stamp)
 
+
 def get_host_database():
     return host_database
 
-dbus_system_bus_name = get_config('system_dbus','bus_name')
-dbus_system_object_path = get_config('system_dbus','object_path')
-dbus_system_interface = get_config('system_dbus','interface')
+dbus_system_bus_name = get_config('system_dbus', 'bus_name')
+dbus_system_object_path = get_config('system_dbus', 'object_path')
+dbus_system_interface = get_config('system_dbus', 'interface')
 
 system_bus = dbus.SystemBus()
 system_bus.request_name(dbus_system_bus_name)
 
 # FIXME: this should be part of ClientNotifier
+
+
 def send_alert_notification(siginfo):
-    alert=dbus.lowlevel.SignalMessage(dbus_system_object_path, dbus_system_interface, "alert");
+    alert = dbus.lowlevel.SignalMessage(dbus_system_object_path, dbus_system_interface, "alert")
     alert.append(siginfo.level)
     alert.append(siginfo.local_id)
     system_bus.send_message(alert)
@@ -147,14 +151,15 @@ host_database = None
 analysis_queue = None
 email_recipients = None
 email_recipients_filepath = get_config('email', 'recipients_filepath')
-pkg_version = get_config('general','pkg_version')
-rpc_version = get_config('general','rpc_version')
+pkg_version = get_config('general', 'pkg_version')
+rpc_version = get_config('general', 'rpc_version')
 instance_id = make_instance_id()
 
 
 #-----------------------------------------------------------------------------
 
 class ConnectionPool(object):
+
     def __init__(self):
         self.client_pool = {}
 
@@ -186,7 +191,9 @@ connection_pool = ConnectionPool()
 
 #------------------------------------------------------------------------------
 
+
 class AlertPluginReportReceiver(PluginReportReceiver):
+
     def __init__(self, database):
         super(AlertPluginReportReceiver, self).__init__(database)
 
@@ -209,25 +216,27 @@ class AlertPluginReportReceiver(PluginReportReceiver):
         log_debug("sending alert to all clients")
 
         from setroubleshoot.html_util import html_to_text
-        syslog.syslog(syslog.LOG_ERR, siginfo.summary() + _(" For complete SELinux messages run: sealert -l %s") % siginfo.local_id )
+        syslog.syslog(syslog.LOG_ERR, siginfo.summary() + _(" For complete SELinux messages run: sealert -l %s") % siginfo.local_id)
         for audit_record in siginfo.audit_event.records:
             if audit_record.record_type == 'AVC':
                 pid = audit_record.fields["pid"]
-                break;
+                break
         if get_config('setroubleshootd_log', 'log_full_report', bool):
             systemd.journal.send(siginfo.format_text(), OBJECT_PID=pid)
 
         for u in siginfo.users:
-                action = siginfo.evaluate_filter_for_user(u.username)
-                if action == "ignore":
-                    return siginfo
+            action = siginfo.evaluate_filter_for_user(u.username)
+            if action == "ignore":
+                return siginfo
 
         send_alert_notification(siginfo)
         return siginfo
 
 #-----------------------------------------------------------------------------
 
+
 class ClientConnectionHandler(RpcChannel):
+
     def __init__(self, socket_address):
         RpcChannel.__init__(self, 'sealert')
         self.socket_address = socket_address.copy()
@@ -257,6 +266,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
                                              SETroubleshootDatabaseNotifyInterface,
                                              SEAlertInterface,
                                              ):
+
     def __init__(self, socket_address):
         ClientConnectionHandler.__init__(self, socket_address)
 
@@ -271,7 +281,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         self.gid = None
 
     def on_connection_state_change(self, connection_state, flags, flags_added, flags_removed):
-        log_debug("%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" % (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed),self.socket_address))
+        log_debug("%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" % (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed), self.socket_address))
 
         if flags_removed & ConnectionState.OPEN:
             connection_pool.remove_client(self)
@@ -288,7 +298,6 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         self.connection_state.update(ConnectionState.OPEN)
         self.io_watch_add(self.handle_client_io)
 
-
     # ---- SETroubleshootServerInterface Methods ----
 
     def database_bind(self, database_name):
@@ -299,7 +308,6 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         if host_database.properties.name == database_name:
             return [host_database.properties]
         raise ProgramError(ERR_DATABASE_NOT_FOUND, "database (%s) not found" % database_name)
-
 
     def logon(self, type, username, password):
         log_debug("logon(%s) type=%s username=%s" % (self, type, username))
@@ -389,7 +397,7 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
         sigs = self.database.query_alerts(criteria)
         return [sigs]
 
-    def set_filter(self, sig, username, filter_type, data = "" ):
+    def set_filter(self, sig, username, filter_type, data=""):
         log_debug("set_filter: username=%s filter_type=%s sig=\n%s" % (username, filter_type, sig))
 
         if not (self.connection_state.flags & ConnectionState.AUTHENTICATED):
@@ -400,7 +408,6 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
 
         self.database.set_filter(sig, username, filter_type, data)
         return None
-
 
     def set_user_data(self, sig, username, item, data):
         log_debug("set_user_data: username=%s item=%s data=%s sig=\n%s" % (username, item, data, sig))
@@ -413,7 +420,9 @@ class SetroubleshootdClientConnectionHandler(ClientConnectionHandler,
 
 #------------------------------------------------------------------------------
 
+
 class ClientNotifier(object):
+
     def __init__(self, connection_pool):
         self.connection_pool = connection_pool
 
@@ -424,15 +433,16 @@ class ClientNotifier(object):
             client.signatures_updated(type, item)
 
 
-
 #------------------------------------------------------------------------------
 from setroubleshoot.audit_data import *
 import setroubleshoot.util
 
+
 class SetroubleshootdDBusObject(dbus.service.Object):
-    def __init__(self, object_path, analysis_queue, alert_receiver, timeout = 10):
+
+    def __init__(self, object_path, analysis_queue, alert_receiver, timeout=10):
         dbus.service.Object.__init__(self, dbus.SystemBus(), object_path)
-        self.conn_ctr=0
+        self.conn_ctr = 0
         self.timeout = timeout
         self.alarm(self.timeout)
         log_debug('dbus __init__ %s called' % object_path)
@@ -446,7 +456,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
             # FIXME: do not hardcode /var/lib/selinux/ store_path
             policy_type = selinux.selinux_getpolicytype()[1]
             for store_path in [
-                "%s%s/modules/active/disable_dontaudit" % (selinux.selinux_path(),policy_type),
+                "%s%s/modules/active/disable_dontaudit" % (selinux.selinux_path(), policy_type),
                 "/var/lib/selinux/%s/active/disable_dontaudit" % policy_type
             ]:
                 if os.path.exists(store_path):
@@ -474,7 +484,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
         database = get_host_database()
         s = ""
         signatures = []
-        for sig in  database.query_alerts("*").siginfos():
+        for sig in database.query_alerts("*").siginfos():
             action = sig.evaluate_filter_for_user(username)
             if action != "ignore":
                 signatures.append(sig)
@@ -493,7 +503,7 @@ class SetroubleshootdDBusObject(dbus.service.Object):
 
         return count, red
 
-    def _get_all_alerts_since(self, since, sender, alert_action = "display"):
+    def _get_all_alerts_since(self, since, sender, alert_action="display"):
         username = get_identity(self.connection.get_unix_user(sender))
         database = get_host_database()
         since_alerts = setroubleshoot.util.TimeStamp(float(since / 1000000))
@@ -591,13 +601,12 @@ Return an alert with summary, audit events, fix suggestions
                 plugin.priority)
             )
 
-
         return (alert.local_id, alert.summary(), alert.report_count,
                 audit_events, plugins,
                 int(alert.first_seen_date.format("%s")) * 1000000,
                 int(alert.last_seen_date.format("%s")) * 1000000,
                 alert.level or ''
-        )
+                )
 
     @dbus.service.method(dbus_system_interface, sender_keyword="sender", in_signature='ss', out_signature='b')
     def set_filter(self, local_id, filter_type, sender):
@@ -644,7 +653,7 @@ Deletes an alert from the database.
         except:
             return False
 
-    @dbus.service.method(dbus_system_interface, in_signature='s',  out_signature='s')
+    @dbus.service.method(dbus_system_interface, in_signature='s', out_signature='s')
     def avc(self, data):
         data = str(data)
         self.alarm(0)
@@ -674,14 +683,17 @@ Deletes an alert from the database.
         self.alarm(self.timeout)
         return ""
 
-    def alarm(self, timeout = 10):
+    def alarm(self, timeout=10):
         if self.conn_ctr == 0:
             signal.alarm(timeout)
+
 
 def compare_sig(a):
     return a.last_seen_date
 
+
 class SetroubleshootdDBus:
+
     def __init__(self, analysis_queue, alert_receiver, timeout):
         try:
             log_debug("creating system dbus: bus_name=%s object_path=%s interface=%s" % (dbus_system_bus_name, dbus_system_object_path, dbus_system_interface))
@@ -698,9 +710,11 @@ class SetroubleshootdDBus:
 import selinux
 import selinux.audit2why as audit2why
 
+
 def goodbye(database):
     database.save()
     audit2why.finish()
+
 
 def RunFaultServer(timeout=10):
     # FIXME
@@ -716,7 +730,7 @@ def RunFaultServer(timeout=10):
         # currently syslog is only used for putting an alert into
         # the syslog with it's id
 
-        pkg_name = get_config('general','pkg_name')
+        pkg_name = get_config('general', 'pkg_name')
         syslog.openlog(pkg_name)
 
         # Create an object responsible for sending notifications to clients
@@ -724,7 +738,7 @@ def RunFaultServer(timeout=10):
 
         # Create a database local to this host
 
-        database_filename = get_config('database','filename')
+        database_filename = get_config('database', 'filename')
         database_filepath = make_database_filepath(database_filename)
         assure_file_ownership_permissions(database_filepath, 0o600, 'setroubleshoot')
         host_database = SETroubleshootDatabase(database_filepath, database_filename,
@@ -741,7 +755,7 @@ def RunFaultServer(timeout=10):
                     reason = "allowed"
                 else:
                     reason = "dontaudit'd"
-                syslog.syslog(syslog.LOG_ERR, "Deleting alert %s, it is %s in current policy" % (i.local_id, reason) )
+                syslog.syslog(syslog.LOG_ERR, "Deleting alert %s, it is %s in current policy" % (i.local_id, reason))
                 deleted = True
                 host_database.delete_signature(i.sig)
         if deleted:
@@ -816,5 +830,5 @@ def RunFaultServer(timeout=10):
         syslog_trace(traceback.format_exc())
         syslog.syslog(syslog.LOG_ERR, "exception %s: %s" % (e.__class__.__name__, str(e)))
 
-if __name__=='__main__':
+if __name__ == '__main__':
     RunFaultServer()

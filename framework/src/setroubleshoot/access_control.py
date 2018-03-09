@@ -30,7 +30,7 @@ from setroubleshoot.util import syslog_trace
 
 __all__ = [
     'ServerAccess',
-    ]
+]
 
 
 # SO_PEERCRED is not defined by the socket class unless patched
@@ -46,13 +46,20 @@ except AttributeError:
     import os
     import re
     machine = os.uname()[4]
-    if   re.search(r'^i\d86',           machine): SO_PEERCRED = 17     # i386,i486,i586,i686, etc.
-    elif re.search(r'^x86_64',          machine): SO_PEERCRED = 17     # x86_64
-    elif re.search(r'^(ppc|powerpc)',   machine): SO_PEERCRED = 21     # ppc
-    elif re.search(r'^(alpha|mips)',    machine): SO_PEERCRED = 18     # alpha, mips
-    elif re.search(r'^sparc',           machine): SO_PEERCRED = 0x0040 # sparc
-    elif re.search(r'^parisc',          machine): SO_PEERCRED = 0x4011 # parisc
-    else: SO_PEERCRED = 17
+    if re.search(r'^i\d86', machine):
+        SO_PEERCRED = 17     # i386,i486,i586,i686, etc.
+    elif re.search(r'^x86_64', machine):
+        SO_PEERCRED = 17     # x86_64
+    elif re.search(r'^(ppc|powerpc)', machine):
+        SO_PEERCRED = 21     # ppc
+    elif re.search(r'^(alpha|mips)', machine):
+        SO_PEERCRED = 18     # alpha, mips
+    elif re.search(r'^sparc', machine):
+        SO_PEERCRED = 0x0040  # sparc
+    elif re.search(r'^parisc', machine):
+        SO_PEERCRED = 0x4011  # parisc
+    else:
+        SO_PEERCRED = 17
     #print "hardcoding SO_PEERCRED=%s" % SO_PEERCRED
 
 
@@ -62,9 +69,9 @@ class ServerAccess:
     on the configuration file.
     """
 
-    privileges = {'client' : {'wildcard':True},
-                  'fix_cmd': {'wildcard':False},
-                 }
+    privileges = {'client': {'wildcard': True},
+                  'fix_cmd': {'wildcard': False},
+                  }
 
     def __init__(self):
         # No attempt is made to validate the user name is valid. This
@@ -78,18 +85,20 @@ class ServerAccess:
             self.privileges[privilege] = self.init_privilege(privilege)
 
     def init_privilege(self, privilege):
-        cfg_names = [name.strip() for name in \
+        cfg_names = [name.strip() for name in
                      get_config('access', '%s_users' % privilege).split(',')]
         return cfg_names
 
     def valid_privilege(self, privilege):
         valid = privilege in ServerAccess.privileges
-        if valid: return True
+        if valid:
+            return True
         syslog.syslog(syslog.LOG_ERR, "unknown access privilege (%s)" % privilege)
         return False
 
     def unrestricted_privilege(self, privilege):
-        if not self.valid_privilege(privilege): return False
+        if not self.valid_privilege(privilege):
+            return False
 
         if not ServerAccess.privileges[privilege]['wildcard']:
             return False
@@ -100,7 +109,8 @@ class ServerAccess:
         Determine if the given user name is allowed access.
         Returns True if access should be given, False if not.
         """
-        if not self.valid_privilege(privilege): return False
+        if not self.valid_privilege(privilege):
+            return False
 
         if self.unrestricted_privilege(privilege):
             return True
@@ -116,7 +126,8 @@ class ServerAccess:
         Returns True if access should be given, False if not.
         """
 
-        if not self.valid_privilege(privilege): return False
+        if not self.valid_privilege(privilege):
+            return False
 
         if self.unrestricted_privilege(privilege):
             return True
@@ -146,15 +157,18 @@ class ServerAccess:
             # rely on pid,uid,gid being -1 if family is not AF_UNIX
             pass
 
-        format_ucred = 'III' # pid_t, uid_t, gid_t
+        format_ucred = 'III'  # pid_t, uid_t, gid_t
         sizeof_ucred = struct.calcsize(format_ucred)
 
         try:
             ucred = sock.getsockopt(Socket.SOL_SOCKET, SO_PEERCRED, sizeof_ucred)
             pid, uid, gid = struct.unpack(format_ucred, ucred)
-            if pid == -1: pid = None
-            if uid == -1: uid = None
-            if gid == -1: gid = None
+            if pid == -1:
+                pid = None
+            if uid == -1:
+                uid = None
+            if gid == -1:
+                gid = None
         except Exception as e:
             pid = uid = gid = None
             import traceback
@@ -162,5 +176,3 @@ class ServerAccess:
             syslog.syslog(syslog.LOG_ERR, "get_credentials(): %s" % e)
 
         return uid, gid
-
-

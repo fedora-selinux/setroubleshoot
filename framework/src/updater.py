@@ -4,8 +4,8 @@
 import yum
 import gettext
 from setroubleshoot.config import parse_config_setting, get_config
-gettext.install(domain    = get_config('general', 'i18n_text_domain'),
-                localedir = get_config('general', 'i18n_locale_dir'))
+gettext.install(domain=get_config('general', 'i18n_text_domain'),
+                localedir=get_config('general', 'i18n_locale_dir'))
 
 installed = []
 try:

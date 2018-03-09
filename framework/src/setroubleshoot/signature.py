@@ -29,40 +29,40 @@ from functools import cmp_to_key
 import gettext
 from setroubleshoot.config import parse_config_setting, get_config
 
-translation=gettext.translation(domain    = get_config('general', 'i18n_text_domain'),
-                                localedir = get_config('general', 'i18n_locale_dir'),
-                                fallback  = True)
+translation = gettext.translation(domain=get_config('general', 'i18n_text_domain'),
+                                  localedir=get_config('general', 'i18n_locale_dir'),
+                                  fallback=True)
 
 try:
-    _ = translation.ugettext # Unicode version of gettext for Py2
+    _ = translation.ugettext  # Unicode version of gettext for Py2
 except AttributeError:
-    _ = translation.gettext # Python3 (uses unicode by default)
+    _ = translation.gettext  # Python3 (uses unicode by default)
 
 
 __all__ = [
-           'SignatureMatch',
-           'SEFilter',
-           'SEFaultSignature',
-           'SEFaultSignatureInfo',
-           'SEFaultSignatureSet',
-           'SEFaultSignatureUser',
-           'SEEnvironment',
-           'SEDatabaseProperties',
-           'SEFaultUserInfo',
-           'SEFaultUserSet',
-           'SEPlugin',
-           'SEEmailRecipient',
-           'SEEmailRecipientSet',
+    'SignatureMatch',
+    'SEFilter',
+    'SEFaultSignature',
+    'SEFaultSignatureInfo',
+    'SEFaultSignatureSet',
+    'SEFaultSignatureUser',
+    'SEEnvironment',
+    'SEDatabaseProperties',
+    'SEFaultUserInfo',
+    'SEFaultUserSet',
+    'SEPlugin',
+    'SEEmailRecipient',
+    'SEEmailRecipientSet',
 
-           'FILTER_NEVER',
-           'FILTER_ALWAYS',
-           'FILTER_AFTER_FIRST',
-           'filter_text'
-           ]
+    'FILTER_NEVER',
+    'FILTER_ALWAYS',
+    'FILTER_AFTER_FIRST',
+    'filter_text'
+]
 
 if __name__ == "__main__":
-    gettext.install(domain    = get_config('general', 'i18n_text_domain'),
-		            localedir = get_config('general', 'i18n_locale_dir'))
+    gettext.install(domain=get_config('general', 'i18n_text_domain'),
+                    localedir=get_config('general', 'i18n_locale_dir'))
 
 from gettext import ngettext as P_
 from setroubleshoot.config import get_config
@@ -75,36 +75,39 @@ from setroubleshoot.audit_data import *
 import hashlib
 from types import *
 from string import Template
-import re, os
+import re
+import os
 
 cmp = lambda x, y: (x > y) - (x < y)
 
 # Don't reuse the numeric values!
-FILTER_NEVER              = 0
-FILTER_ALWAYS             = 4
-FILTER_AFTER_FIRST        = 8
+FILTER_NEVER = 0
+FILTER_ALWAYS = 4
+FILTER_AFTER_FIRST = 8
 
 filter_text = {
-    FILTER_NEVER              : _("Never Ignore"),
-    FILTER_ALWAYS             : _("Ignore Always"),
-    FILTER_AFTER_FIRST        : _("Ignore After First Alert"),
-    }
+    FILTER_NEVER: _("Never Ignore"),
+    FILTER_ALWAYS: _("Ignore Always"),
+    FILTER_AFTER_FIRST: _("Ignore After First Alert"),
+}
 
 map_filter_value_to_name = {
-    FILTER_NEVER              : 'never',
-    FILTER_ALWAYS             : 'always',
-    FILTER_AFTER_FIRST        : 'after_first',
-    }
+    FILTER_NEVER: 'never',
+    FILTER_ALWAYS: 'always',
+    FILTER_AFTER_FIRST: 'after_first',
+}
 
 map_filter_name_to_value = {
-    'never'                   : FILTER_NEVER,
-    'always'                  : FILTER_ALWAYS,
-    'after_first'             : FILTER_AFTER_FIRST,
-    }
+    'never': FILTER_NEVER,
+    'always': FILTER_ALWAYS,
+    'after_first': FILTER_AFTER_FIRST,
+}
 
 #------------------------------------------------------------------------
 
+
 class SignatureMatch(object):
+
     def __init__(self, siginfo, score):
         self.siginfo = siginfo
         self.score = score
@@ -112,17 +115,17 @@ class SignatureMatch(object):
 
 class SEEnvironment(XmlSerialize):
     _xml_info = {
-    'version'             : {'XMLForm':'attribute','default':lambda: '1.0' },
-    'platform'            : {'XMLForm':'element' },
-    'kernel'              : {'XMLForm':'element' },
-    'policy_type'         : {'XMLForm':'element' },
-    'policy_rpm'          : {'XMLForm':'element' },
-    'enforce'             : {'XMLForm':'element' },
-    'selinux_enabled'     : {'XMLForm':'element', 'import_typecast':boolean, },
-    'selinux_mls_enabled' : {'XMLForm':'element', 'import_typecast':boolean, },
-    'policyvers'          : {'XMLForm':'element' },
-    'hostname'            : {'XMLForm':'element' },
-    'uname'               : {'XMLForm':'element' },
+        'version': {'XMLForm': 'attribute', 'default': lambda: '1.0'},
+        'platform': {'XMLForm': 'element'},
+        'kernel': {'XMLForm': 'element'},
+        'policy_type': {'XMLForm': 'element'},
+        'policy_rpm': {'XMLForm': 'element'},
+        'enforce': {'XMLForm': 'element'},
+        'selinux_enabled': {'XMLForm': 'element', 'import_typecast': boolean, },
+        'selinux_mls_enabled': {'XMLForm': 'element', 'import_typecast': boolean, },
+        'policyvers': {'XMLForm': 'element'},
+        'hostname': {'XMLForm': 'element'},
+        'uname': {'XMLForm': 'element'},
     }
 
     def __init__(self):
@@ -160,12 +163,12 @@ class SEEnvironment(XmlSerialize):
         return True
 
 
-
 class SEFilter(XmlSerialize):
     _xml_info = {
-    'filter_type'      : {'XMLForm':'element', 'import_typecast':int, 'default':lambda: FILTER_NEVER },
-    'count'            : {'XMLForm':'element', 'import_typecast':int, 'default':lambda: 0 },
+        'filter_type': {'XMLForm': 'element', 'import_typecast': int, 'default': lambda: FILTER_NEVER},
+        'count': {'XMLForm': 'element', 'import_typecast': int, 'default': lambda: 0},
     }
+
     def __init__(self, filter_type=FILTER_NEVER):
         super(SEFilter, self).__init__()
         self.filter_type = filter_type
@@ -173,11 +176,12 @@ class SEFilter(XmlSerialize):
 
 class SEFaultSignatureUser(XmlSerialize):
     _xml_info = {
-    'username'         : {'XMLForm':'attribute' },
-    'seen_flag'        : {'XMLForm':'attribute', 'import_typecast':boolean, 'default': lambda: False },
-    'delete_flag'      : {'XMLForm':'attribute', 'import_typecast':boolean, 'default': lambda: False },
-    'filter'           : {'XMLForm':'element', 'import_typecast':SEFilter, 'default': lambda: SEFilter() },
+        'username': {'XMLForm': 'attribute'},
+        'seen_flag': {'XMLForm': 'attribute', 'import_typecast': boolean, 'default': lambda: False},
+        'delete_flag': {'XMLForm': 'attribute', 'import_typecast': boolean, 'default': lambda: False},
+        'filter': {'XMLForm': 'element', 'import_typecast': SEFilter, 'default': lambda: SEFilter()},
     }
+
     def __init__(self, username):
         super(SEFaultSignatureUser, self).__init__()
         self.username = username
@@ -204,19 +208,20 @@ class SEFaultSignatureUser(XmlSerialize):
 
 
 class_dict = {}
-class_dict['dir']     = _("directory")
-class_dict['sem']     = _("semaphore")
-class_dict['shm']     = _("shared memory")
-class_dict['msgq']    = _("message queue")
-class_dict['msg']     = _("message")
-class_dict['file']    = _("file")
-class_dict['socket']  = _("socket")
+class_dict['dir'] = _("directory")
+class_dict['sem'] = _("semaphore")
+class_dict['shm'] = _("shared memory")
+class_dict['msgq'] = _("message queue")
+class_dict['msg'] = _("message")
+class_dict['file'] = _("file")
+class_dict['socket'] = _("socket")
 class_dict['process'] = _("process")
 class_dict['process2'] = _("process2")
 class_dict['filesystem'] = _("filesystem")
 class_dict['node'] = _("node")
 class_dict['capability'] = _("capability")
 class_dict['capability2'] = _("capability2")
+
 
 def translate_class(tclass):
     if tclass in list(class_dict.keys()):
@@ -225,69 +230,75 @@ def translate_class(tclass):
 
 # --
 
+
 class AttributeValueDictionary(XmlSerialize):
     _xml_info = 'unstructured'
+
     def __init__(self):
         super(AttributeValueDictionary, self).__init__()
 
+
 class SEFaultSignature(XmlSerialize):
     _xml_info = {
-    'version'          : {'XMLForm':'attribute','default':lambda: '4.0', },
-    'host'             : {'XMLForm':'element', },
-    'access'           : {'XMLForm':'element', 'list':'operation', },
-    'scontext'         : {'XMLForm':'element', 'import_typecast':AvcContext },
-    'tcontext'         : {'XMLForm':'element', 'import_typecast':AvcContext },
-    'tclass'           : {'XMLForm':'element', },
-    'port'             : {'XMLForm':'element', 'import_typecast':int, },
+        'version': {'XMLForm': 'attribute', 'default': lambda: '4.0', },
+        'host': {'XMLForm': 'element', },
+        'access': {'XMLForm': 'element', 'list': 'operation', },
+        'scontext': {'XMLForm': 'element', 'import_typecast': AvcContext},
+        'tcontext': {'XMLForm': 'element', 'import_typecast': AvcContext},
+        'tclass': {'XMLForm': 'element', },
+        'port': {'XMLForm': 'element', 'import_typecast': int, },
     }
+
     def __init__(self, **kwds):
         super(SEFaultSignature, self).__init__()
-        for k,v in list(kwds.items()):
+        for k, v in list(kwds.items()):
             setattr(self, k, v)
+
 
 class SEPlugin(XmlSerialize):
     _xml_info = {
-    'analysis_id'          : {'XMLForm':'element'},
-    'args'                 : {'XMLForm':'element', 'list':'arg', },
+        'analysis_id': {'XMLForm': 'element'},
+        'args': {'XMLForm': 'element', 'list': 'arg', },
     }
 
     def __init__(self, analysis_id, args):
         super(SEPlugin, self).__init__()
-        self.analysis_id = analysis_id;
-        self.args = args;
+        self.analysis_id = analysis_id
+        self.args = args
 
     def __str__(self):
         return str((self.analysis_id, self.args))
 
+
 class SEFaultSignatureInfo(XmlSerialize):
     _xml_info = {
-        'plugin_list'       : {'XMLForm':'element', 'list':'plugin', 'import_typecast':SEPlugin },
-        'audit_event'      : {'XMLForm':'element', 'import_typecast':AuditEvent },
-        'source'           : {'XMLForm':'element' },
-        'spath'            : {'XMLForm':'element' },
-        'tpath'            : {'XMLForm':'element' },
-        'src_rpm_list'     : {'XMLForm':'element', 'list':'rpm', },
-        'tgt_rpm_list'     : {'XMLForm':'element', 'list':'rpm', },
-        'scontext'         : {'XMLForm':'element', 'import_typecast':AvcContext },
-        'tcontext'         : {'XMLForm':'element', 'import_typecast':AvcContext },
-        'tclass'           : {'XMLForm':'element', },
-        'port'             : {'XMLForm':'element', 'import_typecast':int, },
+        'plugin_list': {'XMLForm': 'element', 'list': 'plugin', 'import_typecast': SEPlugin},
+        'audit_event': {'XMLForm': 'element', 'import_typecast': AuditEvent},
+        'source': {'XMLForm': 'element'},
+        'spath': {'XMLForm': 'element'},
+        'tpath': {'XMLForm': 'element'},
+        'src_rpm_list': {'XMLForm': 'element', 'list': 'rpm', },
+        'tgt_rpm_list': {'XMLForm': 'element', 'list': 'rpm', },
+        'scontext': {'XMLForm': 'element', 'import_typecast': AvcContext},
+        'tcontext': {'XMLForm': 'element', 'import_typecast': AvcContext},
+        'tclass': {'XMLForm': 'element', },
+        'port': {'XMLForm': 'element', 'import_typecast': int, },
 
-        'sig'              : {'XMLForm':'element', 'import_typecast':SEFaultSignature },
-        'if_text'          : {'XMLForm':'element' },
-        'then_text'        : {'XMLForm':'element' },
-        'do_text'          : {'XMLForm':'element' },
-        'environment'      : {'XMLForm':'element',  'import_typecast':SEEnvironment },
+        'sig': {'XMLForm': 'element', 'import_typecast': SEFaultSignature},
+        'if_text': {'XMLForm': 'element'},
+        'then_text': {'XMLForm': 'element'},
+        'do_text': {'XMLForm': 'element'},
+        'environment': {'XMLForm': 'element', 'import_typecast': SEEnvironment},
 
-        'first_seen_date'  : {'XMLForm':'element', 'import_typecast':TimeStamp },
-        'last_seen_date'   : {'XMLForm':'element', 'import_typecast':TimeStamp },
-        'report_count'     : {'XMLForm':'element', 'import_typecast':int, 'default':lambda: 0 },
-        'local_id'         : {'XMLForm':'element' },
-        'users'            : {'XMLForm':'element', 'list':'user', 'import_typecast':SEFaultSignatureUser, },
-        'level'         : {'XMLForm':'element' },
-        'fixable'       : {'XMLForm':'element' },
-        'button_text'   : {'XMLForm':'element' },
-        }
+        'first_seen_date': {'XMLForm': 'element', 'import_typecast': TimeStamp},
+        'last_seen_date': {'XMLForm': 'element', 'import_typecast': TimeStamp},
+        'report_count': {'XMLForm': 'element', 'import_typecast': int, 'default': lambda: 0},
+        'local_id': {'XMLForm': 'element'},
+        'users': {'XMLForm': 'element', 'list': 'user', 'import_typecast': SEFaultSignatureUser, },
+        'level': {'XMLForm': 'element'},
+        'fixable': {'XMLForm': 'element'},
+        'button_text': {'XMLForm': 'element'},
+    }
 
     merge_include = ['audit_event', 'tpath', 'src_rpm_list', 'tgt_rpm_list',
                      'scontext', 'tcontext', 'tclass', 'port',
@@ -295,10 +306,9 @@ class SEFaultSignatureInfo(XmlSerialize):
                      'last_seen_date'
                      ]
 
-
     def __init__(self, **kwds):
         super(SEFaultSignatureInfo, self).__init__()
-        for k,v in list(kwds.items()):
+        for k, v in list(kwds.items()):
             setattr(self, k, v)
         self.report_count = 1
         self.plugin_list = []
@@ -316,10 +326,10 @@ class SEFaultSignatureInfo(XmlSerialize):
             self.level = siginfo.level
 
     def get_policy_rpm(self):
-        return self.environment.policy_rpm;
+        return self.environment.policy_rpm
 
     def get_hash_str(self):
-        return  "%s,%s,%s,%s,%s" % (self.source, self.scontext.type, self.tcontext.type, self.tclass, ",".join(self.sig.access))
+        return "%s,%s,%s,%s,%s" % (self.source, self.scontext.type, self.tcontext.type, self.tclass, ",".join(self.sig.access))
 
     def get_hash(self):
         hash = hashlib.sha256(self.get_hash_str().encode('utf-8'))
@@ -379,7 +389,7 @@ class SEFaultSignatureInfo(XmlSerialize):
 
     def format_rpm_list(self, rpm_list):
         if isinstance(rpm_list, list):
-            if  len(rpm_list) > 0:
+            if len(rpm_list) > 0:
                 return " ".join(rpm_list)
             else:
                 return ""
@@ -402,19 +412,19 @@ class SEFaultSignatureInfo(XmlSerialize):
         self.template_substitutions = {}
         self.template_substitutions["SOURCE_TYPE"] = self.scontext.type
         self.template_substitutions["TARGET_TYPE"] = self.tcontext.type
-        self.template_substitutions["SOURCE"]      = self.source
+        self.template_substitutions["SOURCE"] = self.source
         self.template_substitutions["SOURCE_PATH"] = self.spath
         self.template_substitutions["SOURCE_BASE_PATH"] = os.path.basename(self.spath)
         self.template_substitutions["MODULE_NAME"] = re.sub('[^a-zA-Z0-9]', '', self.source)
         if self.spath:
-            self.template_substitutions["FIX_SOURCE_PATH"] = re.sub(" ",".",self.spath)
+            self.template_substitutions["FIX_SOURCE_PATH"] = re.sub(" ", ".", self.spath)
         else:
             self.spath = _("N/A")
 
         self.template_substitutions["TARGET_PATH"] = self.tpath
         self.template_substitutions["TARGET_BASE_PATH"] = os.path.basename(self.tpath)
         if self.tpath:
-            self.template_substitutions["FIX_TARGET_PATH"] = re.sub(" ",".",self.tpath)
+            self.template_substitutions["FIX_TARGET_PATH"] = re.sub(" ", ".", self.tpath)
 
         if self.tpath is None:
             self.template_substitutions["TARGET_DIR"] = None
@@ -446,7 +456,7 @@ class SEFaultSignatureInfo(XmlSerialize):
                 self.template_substitutions[key] = default_text(value)
 
     def priority_sort(self, x, y):
-        return cmp(y[0].priority,x[0].priority)
+        return cmp(y[0].priority, x[0].priority)
 
     def summary(self):
         if self.tclass in ["process", "process2"]:
@@ -458,17 +468,17 @@ class SEFaultSignatureInfo(XmlSerialize):
             return P_(_("SELinux is preventing %s from %s access on the %s labeled %s."), _("SELinux is preventing %s from '%s' accesses on the %s labeled %s."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access), translate_class(self.tclass), self.tcontext.type)
         return P_(_("SELinux is preventing %s from %s access on the %s %s."), _("SELinux is preventing %s from '%s' accesses on the %s %s."), len(self.sig.access)) % (self.spath, ", ".join(self.sig.access), translate_class(self.tclass), self.tpath)
 
-    def get_plugins(self, all = False):
+    def get_plugins(self, all=False):
         self.plugins = load_plugins()
         plugins = []
         total_priority = 0
         if all:
-            for p  in self.plugins:
+            for p in self.plugins:
                 total_priority += p.priority
                 plugins.append((p, ("allow_ypbind", "1")))
         else:
             for solution in self.plugin_list:
-                for p  in self.plugins:
+                for p in self.plugins:
                     if solution.analysis_id == p.analysis_id:
                         total_priority += p.priority
                         p.init_args(tuple(solution.args))
@@ -481,12 +491,12 @@ class SEFaultSignatureInfo(XmlSerialize):
         noreport_booleans = ["mozilla_read_content", "mozilla_plugin_can_network_connect",
                              "mozilla_plugin_use_bluejeans", "unconfined_mozilla_plugin_transition"]
         # suggested commands (from all plugins)
-        do_texts = " ".join([p.get_do_text(self.audit_event.records, a) for p,a in plugins])
+        do_texts = " ".join([p.get_do_text(self.audit_event.records, a) for p, a in plugins])
 
         for b in noreport_booleans:
             if b in do_texts:
                 # remove "report bug" button from all plugins
-                for p,a in plugins:
+                for p, a in plugins:
                     p.report_bug = False
                 break
 
@@ -502,38 +512,38 @@ class SEFaultSignatureInfo(XmlSerialize):
         env = self.environment
 
         text = _("Additional Information:\n")
-        text += format_2_column_name_value(_("Source Context"),        self.scontext.format())
-        text += format_2_column_name_value(_("Target Context"),        self.tcontext.format())
-        text += format_2_column_name_value(_("Target Objects"),        self.format_target_object())
-        text += format_2_column_name_value(_("Source"),                default_text(self.source))
-        text += format_2_column_name_value(_("Source Path"),           default_text(self.spath))
-        text += format_2_column_name_value(_("Port"),                  default_text(self.port))
+        text += format_2_column_name_value(_("Source Context"), self.scontext.format())
+        text += format_2_column_name_value(_("Target Context"), self.tcontext.format())
+        text += format_2_column_name_value(_("Target Objects"), self.format_target_object())
+        text += format_2_column_name_value(_("Source"), default_text(self.source))
+        text += format_2_column_name_value(_("Source Path"), default_text(self.spath))
+        text += format_2_column_name_value(_("Port"), default_text(self.port))
         if (replace):
-            text += format_2_column_name_value(_("Host"),              "(removed)")
+            text += format_2_column_name_value(_("Host"), "(removed)")
         else:
-            text += format_2_column_name_value(_("Host"),                  default_text(self.sig.host))
-        text += format_2_column_name_value(_("Source RPM Packages"),   default_text(self.format_rpm_list(self.src_rpm_list)))
-        text += format_2_column_name_value(_("Target RPM Packages"),   default_text(self.format_rpm_list(self.tgt_rpm_list)))
-        text += format_2_column_name_value(_("Policy RPM"),            default_text(env.policy_rpm))
-        text += format_2_column_name_value(_("Selinux Enabled"),       default_text(env.selinux_enabled))
-        text += format_2_column_name_value(_("Policy Type"),           default_text(env.policy_type))
-        text += format_2_column_name_value(_("Enforcing Mode"),        default_text(env.enforce))
+            text += format_2_column_name_value(_("Host"), default_text(self.sig.host))
+        text += format_2_column_name_value(_("Source RPM Packages"), default_text(self.format_rpm_list(self.src_rpm_list)))
+        text += format_2_column_name_value(_("Target RPM Packages"), default_text(self.format_rpm_list(self.tgt_rpm_list)))
+        text += format_2_column_name_value(_("Policy RPM"), default_text(env.policy_rpm))
+        text += format_2_column_name_value(_("Selinux Enabled"), default_text(env.selinux_enabled))
+        text += format_2_column_name_value(_("Policy Type"), default_text(env.policy_type))
+        text += format_2_column_name_value(_("Enforcing Mode"), default_text(env.enforce))
         if replace:
-            text += format_2_column_name_value(_("Host Name"),"(removed)")
+            text += format_2_column_name_value(_("Host Name"), "(removed)")
         else:
-            text += format_2_column_name_value(_("Host Name"),         default_text(env.hostname))
+            text += format_2_column_name_value(_("Host Name"), default_text(env.hostname))
 
         if replace:
             uname = env.uname.split()
             uname[1] = "(removed)"
-            text += format_2_column_name_value(_("Platform"),          default_text(" ".join(uname)))
+            text += format_2_column_name_value(_("Platform"), default_text(" ".join(uname)))
         else:
-            text += format_2_column_name_value(_("Platform"),              default_text(env.uname))
-        text += format_2_column_name_value(_("Alert Count"),           default_text(self.report_count))
+            text += format_2_column_name_value(_("Platform"), default_text(env.uname))
+        text += format_2_column_name_value(_("Alert Count"), default_text(self.report_count))
         date_format = "%Y-%m-%d %H:%M:%S %Z"
-        text += format_2_column_name_value(_("First Seen"),            self.first_seen_date.format(date_format))
-        text += format_2_column_name_value(_("Last Seen"),             self.last_seen_date.format(date_format))
-        text += format_2_column_name_value(_("Local ID"),              default_text(self.local_id))
+        text += format_2_column_name_value(_("First Seen"), self.first_seen_date.format(date_format))
+        text += format_2_column_name_value(_("Last Seen"), self.last_seen_date.format(date_format))
+        text += format_2_column_name_value(_("Local ID"), default_text(self.local_id))
 
         text += '\n' + _("Raw Audit Messages")
         avcbuf = ""
@@ -542,7 +552,7 @@ class SEFaultSignatureInfo(XmlSerialize):
                 avcbuf += "\n" + audit_record.to_text() + "\n"
             else:
                 avcbuf += "\ntype=%s msg=%s: " % (audit_record.record_type, audit_record.event_id)
-                avcbuf += ' '.join(["%s=%s" % (k, audit_record.fields[k]) for k in audit_record.fields_ord]) +"\n"
+                avcbuf += ' '.join(["%s=%s" % (k, audit_record.fields[k]) for k in audit_record.fields_ord]) + "\n"
 
         avcbuf += "\nHash: " + self.get_hash_str()
 
@@ -550,11 +560,11 @@ class SEFaultSignatureInfo(XmlSerialize):
             audit2allow = "/usr/bin/audit2allow"
             if os.path.exist(audit2allow):
                 newbuf = "\n\naudit2allow"
-                p =  Popen([audit2allow], stdin=PIPE, stdout=PIPE)
+                p = Popen([audit2allow], stdin=PIPE, stdout=PIPE)
                 newbuf += p.communicate(avcbuf)[0]
                 if os.path.exists("/var/lib/sepolgen/interface_info"):
                     newbuf += "\naudit2allow -R"
-                    p =  Popen([audit2allow, "-R"], stdin=PIPE, stdout=PIPE)
+                    p = Popen([audit2allow, "-R"], stdin=PIPE, stdout=PIPE)
                     newbuf += p.communicate(avcbuf)[0]
                 avcbuf += newbuf
         except:
@@ -574,14 +584,14 @@ class SEFaultSignatureInfo(XmlSerialize):
         saved_translate_ = _
 
         try:
-            P_ = lambda x,y,z: x if z > 1 else y
-            _ = lambda x:x
+            P_ = lambda x, y, z: x if z > 1 else y
+            _ = lambda x: x
             return func(*args, **kwargs)
         finally:
             P_ = saved_translateP_
             _ = saved_translate_
 
-    def format_text(self, all = False, replace = False):
+    def format_text(self, all=False, replace=False):
         self.update_derived_template_substitutions()
 
         text = self.summary()
@@ -590,28 +600,30 @@ class SEFaultSignatureInfo(XmlSerialize):
 
         for p, args in plugins:
             title = _("\n\n*****  Plugin %s (%.4s confidence) suggests   ") % (p.analysis_id, ((float(p.priority) / float(total_priority)) * 100 + .5))
-            text +=  title
-            for i in range(len(title),80):
-                text +=  _("*")
-            text +=  _("\n")
+            text += title
+            for i in range(len(title), 80):
+                text += _("*")
+            text += _("\n")
             txt = self.substitute(p.get_if_text(self.audit_event.records, args))
-            text +=  _("\n") + txt
+            text += _("\n") + txt
             txt = self.substitute(p.get_then_text(self.audit_event.records, args))
-            text +=  _("\nThen ") + txt[0].lower() + txt[1:]
+            text += _("\nThen ") + txt[0].lower() + txt[1:]
 
             txt = self.substitute(p.get_do_text(self.audit_event.records, args))
-            text +=  _("\nDo\n") + txt[0].lower() + txt[1:]
+            text += _("\nDo\n") + txt[0].lower() + txt[1:]
 
         text += _('\n\n')
         return text
 
+
 class SEFaultUserInfo(XmlSerialize):
     _xml_info = {
-    'version'            : {'XMLForm':'attribute','default':lambda: '1.0' },
-    'username'           : {'XMLForm':'attribute' },
-    'email_alert'        : {'XMLForm':'element', 'import_typecast':boolean, 'default': lambda: False },
-    'email_address_list' : {'XMLForm':'element', 'list':'email_address', },
+        'version': {'XMLForm': 'attribute', 'default': lambda: '1.0'},
+        'username': {'XMLForm': 'attribute'},
+        'email_alert': {'XMLForm': 'element', 'import_typecast': boolean, 'default': lambda: False},
+        'email_address_list': {'XMLForm': 'element', 'list': 'email_address', },
     }
+
     def __init__(self, username):
         super(SEFaultUserInfo, self).__init__()
         self.username = username
@@ -621,12 +633,12 @@ class SEFaultUserInfo(XmlSerialize):
             self.email_address_list.append(email_address)
 
 
-
 class SEFaultUserSet(XmlSerialize):
     _xml_info = {
-    'version'      : {'XMLForm':'attribute','default':lambda: '1.0' },
-    'user_list'    : {'XMLForm':'element', 'list':'user', 'import_typecast':SEFaultUserInfo, },
+        'version': {'XMLForm': 'attribute', 'default': lambda: '1.0'},
+        'user_list': {'XMLForm': 'element', 'list': 'user', 'import_typecast': SEFaultUserInfo, },
     }
+
     def __init__(self):
         super(SEFaultUserSet, self).__init__()
 
@@ -644,13 +656,13 @@ class SEFaultUserSet(XmlSerialize):
         return user
 
 
-
 class SEFaultSignatureSet(XmlSerialize):
     _xml_info = {
-    'version'          : {'XMLForm':'attribute','default':lambda: '%d.%d' %  (DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION)},
-    'users'            : {'XMLForm':'element', 'import_typecast':SEFaultUserSet, 'default': lambda: SEFaultUserSet() },
-    'signature_list'   : {'XMLForm':'element', 'list':'siginfo', 'import_typecast':SEFaultSignatureInfo, },
+        'version': {'XMLForm': 'attribute', 'default': lambda: '%d.%d' % (DATABASE_MAJOR_VERSION, DATABASE_MINOR_VERSION)},
+        'users': {'XMLForm': 'element', 'import_typecast': SEFaultUserSet, 'default': lambda: SEFaultUserSet()},
+        'signature_list': {'XMLForm': 'element', 'list': 'siginfo', 'import_typecast': SEFaultSignatureInfo, },
     }
+
     def __init__(self):
         super(SEFaultSignatureSet, self).__init__()
 
@@ -667,7 +679,6 @@ class SEFaultSignatureSet(XmlSerialize):
 
     def clear(self):
         self.signature_list = []
-
 
     def generate_local_id(self):
         return str(uuid.uuid4())
@@ -713,18 +724,17 @@ class SEFaultSignatureSet(XmlSerialize):
             else:
                 if score >= criteria:
                     matches.append(SignatureMatch(siginfo, score))
-        matches.sort(key=cmp_to_key(lambda a,b: cmp(b.score, a.score)))
+        matches.sort(key=cmp_to_key(lambda a, b: cmp(b.score, a.score)))
         return matches
-
-
 
 
 class SEDatabaseProperties(XmlSerialize):
     _xml_info = {
-    'name'          : {'XMLForm':'element' },
-    'friendly_name' : {'XMLForm':'element' },
-    'filepath'      : {'XMLForm':'element' },
+        'name': {'XMLForm': 'element'},
+        'friendly_name': {'XMLForm': 'element'},
+        'filepath': {'XMLForm': 'element'},
     }
+
     def __init__(self, name=None, friendly_name=None, filepath=None):
         super(SEDatabaseProperties, self).__init__()
         if name is not None:
@@ -734,11 +744,13 @@ class SEDatabaseProperties(XmlSerialize):
         if filepath is not None:
             self.filepath = filepath
 
+
 class SEEmailRecipient(XmlSerialize):
     _xml_info = {
-    'address'          : {'XMLForm':'element' },
-    'filter_type'      : {'XMLForm':'element', 'import_typecast':int, 'default':lambda: FILTER_AFTER_FIRST },
+        'address': {'XMLForm': 'element'},
+        'filter_type': {'XMLForm': 'element', 'import_typecast': int, 'default': lambda: FILTER_AFTER_FIRST},
     }
+
     def __init__(self, address, filter_type=None):
         super(SEEmailRecipient, self).__init__()
         self.address = address
@@ -751,9 +763,10 @@ class SEEmailRecipient(XmlSerialize):
 
 class SEEmailRecipientSet(XmlSerialize):
     _xml_info = {
-    'version'         : {'XMLForm':'attribute','default':lambda: '1' },
-    'recipient_list'  : {'XMLForm':'element', 'list':'recipient', 'import_typecast':SEEmailRecipient, },
+        'version': {'XMLForm': 'attribute', 'default': lambda: '1'},
+        'recipient_list': {'XMLForm': 'element', 'list': 'recipient', 'import_typecast': SEEmailRecipient, },
     }
+
     def __init__(self, recipient_list=None):
         super(SEEmailRecipientSet, self).__init__()
         if recipient_list is not None:
@@ -789,16 +802,15 @@ class SEEmailRecipientSet(XmlSerialize):
         entry_re = re.compile(r'(\S+)(\s+(.+))?')
         key_value_re = re.compile(r"(\w+)\s*=\s*(\S+)")
 
-        map_boolean = {'enabled'  : True,
-                       'true'     : True,
-                       'yes'      : True,
-                       'on'       : True,
-                       'disabled' : False,
-                       'false'    : False,
-                       'no'       : False,
-                       'off'      : False,
+        map_boolean = {'enabled': True,
+                       'true': True,
+                       'yes': True,
+                       'on': True,
+                       'disabled': False,
+                       'false': False,
+                       'no': False,
+                       'off': False,
                        }
-
 
         try:
             f = open(filepath)
@@ -820,8 +832,7 @@ class SEEmailRecipientSet(XmlSerialize):
                     if options:
                         for match in key_value_re.finditer(options):
                             option = match.group(1)
-                            value  = match.group(2)
-
+                            value = match.group(2)
 
                             if option == 'filter_type':
                                 filter_type = map_filter_name_to_value.get(value.lower(), None)
@@ -838,7 +849,6 @@ class SEEmailRecipientSet(XmlSerialize):
                             log_debug(e.strerror)
                         else:
                             raise e
-
 
         f.close()
 
