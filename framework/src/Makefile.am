@@ -44,7 +44,7 @@ pkgconfig_DATA =			\
 	setroubleshoot.conf		\
 	$(NULL)
 
-audisp_DATA =				\
+auditplugins_DATA =				\
 	sedispatch.conf			\
 	$(NULL)
 
@@ -76,7 +76,7 @@ EXTRA_DIST =				\
 	$(pkg_SCRIPTS)			\
 	$(sbin_SCRIPTS)			\
 	$(bin_SCRIPTS)			\
-	$(audisp_DATA)			\
+	$(auditplugins_DATA)			\
 	config.py.in			\
 	$(NULL)
 

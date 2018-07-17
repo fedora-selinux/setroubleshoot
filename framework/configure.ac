@@ -93,7 +93,6 @@ pkglogdir="\${localstatedir}/log/$PACKAGE_NAME"
 pkgvardatadir="\${localstatedir}/lib/$PACKAGE_NAME"
 pkgrundir="\${localstatedir}/run/$PACKAGE_NAME"
 auditlibdir="\${libdir}/audit"
-audispdir="\${sysconfdir}/audisp/plugins.d"
 daemon_name="\${PACKAGE_NAME}d"
 pid_file="\${localstatedir}/run/\${daemon_name}.pid"
 
@@ -101,6 +100,11 @@ AC_ARG_WITH([plugindir], AC_HELP_STRING([--with-plugindir=DIR],
                                         [plugin installation directory]),
             [plugindir="$with_plugindir"],
             [plugindir="\${datadir}/setroubleshoot/plugins"])
+
+AC_ARG_WITH([auditpluginsdir], AC_HELP_STRING([--with-auditpluginsdir=DIR],
+[audit plugins installation directory (default=/etc/audisp/plugins.d/)]),
+[auditpluginsdir="$with_auditpluginsdir"],
+[auditpluginsdir="\${sysconfdir}/auditsp/plugins.d"])
 
 
 AC_ARG_ENABLE([seappletlegacy],
@@ -123,7 +127,7 @@ AC_SUBST(plugindir)
 AC_SUBST(pkgvardatadir)
 AC_SUBST(pkgrundir)
 AC_SUBST(auditlibdir)
-AC_SUBST(audispdir)
+AC_SUBST(auditpluginsdir)
 AC_SUBST(daemon_name)
 AC_SUBST(pid_file)
 AC_SUBST(html_browser_open)
