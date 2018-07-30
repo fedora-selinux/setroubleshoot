@@ -8,20 +8,21 @@
 # Göran Uddeborg <goeran@uddeborg.se>, 2016. #zanata
 # Göran Uddeborg <goeran@uddeborg.se>, 2017. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
+# Göran Uddeborg <goeran@uddeborg.se>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-20 17:16+0100\n"
+"POT-Creation-Date: 2018-05-18 16:24+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 08:33-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2018-02-23 02:17+0000\n"
+"Last-Translator: Göran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.5.0\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -875,7 +876,13 @@ msgid ""
 msgstr ""
 "Om du tror att $SOURCE_BASE_PATH borde ha förmågan $ACCESS som standard."
 
-#: ../src/catchall.py:53
+#: ../src/catchall.py:54
+msgid ""
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"$TARGET_CLASS labeled $TARGET_TYPE by default."
+msgstr ""
+
+#: ../src/catchall.py:55
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "the $TARGET_BASE_PATH $TARGET_CLASS by default."
@@ -883,7 +890,7 @@ msgstr ""
 "Om du tror att $SOURCE_BASE_PATH borde tillåtas åtkomsten $ACCESS till "
 "$TARGET_BASE_PATH $TARGET_CLASS som standard."
 
-#: ../src/catchall.py:55
+#: ../src/catchall.py:57
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
@@ -891,12 +898,15 @@ msgstr ""
 "Du bör rapportera detta som ett fel.\n"
 "Du kan generera en lokal policymodul för att tillåta denna åtkomst."
 
-#: ../src/catchall.py:56
+#: ../src/catchall.py:58
 msgid ""
 "Allow this access for now by executing:\n"
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
 "# semodule -i my-$MODULE_NAME.pp"
 msgstr ""
+"Tillåt denna åtkomst för tillfället genom att köra:\n"
+"# ausearch -c '$SOURCE' --raw | audit2allow -M min-$MODULE_NAME\n"
+"# semodule -i min-$MODULE_NAME.pp"
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
@@ -1671,6 +1681,8 @@ msgid ""
 "# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
 "# semodule -i my-$SOURCE.pp"
 msgstr ""
+"# ausearch -x $SOURCE_PATH -raw | audit2allow -D -M min-$SOURCE\n"
+"# semodule -i min-$SOURCE.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""

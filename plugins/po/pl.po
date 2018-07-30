@@ -8,22 +8,23 @@
 # Piotr Drąg <piotrdrag@gmail.com>, 2016. #zanata
 # Piotr Drąg <piotrdrag@gmail.com>, 2017. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
+# Piotr Drąg <piotrdrag@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-20 17:16+0100\n"
+"POT-Creation-Date: 2018-05-18 16:24+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 11:40-0400\n"
+"PO-Revision-Date: 2018-05-22 03:45+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/fedora/language/"
 "pl/)\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.5.0\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -877,7 +878,15 @@ msgid ""
 "default."
 msgstr "Jeśli $SOURCE_BASE_PATH powinno mieć domyślnie możliwość $ACCESS."
 
-#: ../src/catchall.py:53
+#: ../src/catchall.py:54
+msgid ""
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"$TARGET_CLASS labeled $TARGET_TYPE by default."
+msgstr ""
+"Jeśli $SOURCE_BASE_PATH powinno mieć domyślnie $ACCESS dostęp do "
+"$TARGET_CLASS z etykietami $TARGET_TYPE."
+
+#: ../src/catchall.py:55
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "the $TARGET_BASE_PATH $TARGET_CLASS by default."
@@ -885,7 +894,7 @@ msgstr ""
 "Aby $SOURCE_BASE_PATH powinno mieć domyślnie $ACCESS dostęp do "
 "$TARGET_BASE_PATH $TARGET_CLASS."
 
-#: ../src/catchall.py:55
+#: ../src/catchall.py:57
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
@@ -893,7 +902,7 @@ msgstr ""
 "Proszę to zgłosić jako błąd.\n"
 "Można utworzyć lokalny moduł polityki, aby umożliwić ten dostęp."
 
-#: ../src/catchall.py:56
+#: ../src/catchall.py:58
 msgid ""
 "Allow this access for now by executing:\n"
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"

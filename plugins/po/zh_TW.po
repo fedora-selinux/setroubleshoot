@@ -10,21 +10,22 @@
 # Walter Cheuk <wwycheuk@gmail.com>, 2006
 # Terry Chuang <tchuang@redhat.com>, 2016. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
+# Peter Pan <pan93412@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-11-20 17:16+0100\n"
+"POT-Creation-Date: 2018-05-18 16:24+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-11-08 05:31-0500\n"
+"PO-Revision-Date: 2018-06-27 05:02+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/fedora/"
 "language/zh_TW/)\n"
-"Language: zh-TW\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.5.0\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -836,7 +837,15 @@ msgid ""
 "default."
 msgstr "若您相信 $SOURCE_BASE_PATH 應該預設有 $ACCESS 能力。"
 
-#: ../src/catchall.py:53
+#: ../src/catchall.py:54
+msgid ""
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"$TARGET_CLASS labeled $TARGET_TYPE by default."
+msgstr ""
+"如果你認為預設值 $SOURCE_BASE_PATH 應該在 $TARGET_CLASS （標籤  $TARGET_TYPE）上允許 $ACCESS "
+"存取權限"
+
+#: ../src/catchall.py:55
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "the $TARGET_BASE_PATH $TARGET_CLASS by default."
@@ -844,19 +853,22 @@ msgstr ""
 "若您相信 $SOURCE_BASE_PATH 應該預設允許在 $TARGET_BASE_PATH $TARGET_CLASS 上作 $ACCESS "
 "存取。"
 
-#: ../src/catchall.py:55
+#: ../src/catchall.py:57
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr "您應將此回報為錯誤。\n"
 "您可產生本機模組，以允許這項存取。"
 
-#: ../src/catchall.py:56
+#: ../src/catchall.py:58
 msgid ""
 "Allow this access for now by executing:\n"
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
 "# semodule -i my-$MODULE_NAME.pp"
 msgstr ""
+"現在允許此存取，只需透過執行：\n"
+"# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
+"# semodule -i my-$MODULE_NAME.pp"
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
@@ -1555,6 +1567,8 @@ msgid ""
 "# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
 "# semodule -i my-$SOURCE.pp"
 msgstr ""
+"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
+"# semodule -i my-$SOURCE.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
