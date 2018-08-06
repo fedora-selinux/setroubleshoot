@@ -62,9 +62,9 @@ class plugin(Plugin):
     def analyze(self, avc):
         if (avc.matches_target_types(['hi_reserved_port_t','reserved_port_t', 'port_t', 'unreserved_port_t', ]) and
                 avc.has_any_access_in(['name_bind'])):
-                # MATCH
-            target_types = ", ".join(avc.allowed_target_types())
-            if target_types != "":
-                return self.report((avc.tclass.split("_")[0], target_types))
+            # MATCH
+            allowed_types = avc.allowed_target_types()
+            if allowed_types:
+                return self.report((avc.tclass.split("_")[0], ", ".join(allowed_types)))
 
         return None
