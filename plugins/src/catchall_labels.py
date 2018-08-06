@@ -50,5 +50,7 @@ restorecon -v '$FIX_TARGET_PATH'
     def analyze(self, avc):
         if (avc.syscall != 'execve' and avc.matches_target_types(['file_t', 'unlabeled_t', 'usr_t', 'etc_t', 'mnt_t', 'var_t', 'var_lib_t', 'default_t']) and
                 avc.has_tclass_in(['dir', 'file', 'lnk_file', 'sock_file'])):
-            return self.report(avc.allowed_target_types())
+            allowed_types = avc.allowed_target_types()
+            if allowed_types:
+                return self.report(allowed_types)
         return None
