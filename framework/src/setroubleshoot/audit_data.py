@@ -677,7 +677,10 @@ class AVC:
         all_attributes = get_all_attributes()
         all_attributes.sort()
         allowed_types = []
-        wtypes = [x[TARGET] for x in [y for y in search([ALLOW], {SOURCE: self.scontext.type, CLASS: self.tclass, PERMS: self.access}) if y["enabled"]]]
+        allow_rules = search([ALLOW], {SOURCE: self.scontext.type, CLASS: self.tclass, PERMS: self.access})
+        if not allow_rules:
+            return []
+        wtypes = [x[TARGET] for x in [y for y in allow_rules if y["enabled"]]]
         types = wtypes
         for t in types:
             if t in all_attributes:
