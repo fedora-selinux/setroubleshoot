@@ -65,6 +65,6 @@ class plugin(Plugin):
             # MATCH
             allowed_types = avc.allowed_target_types()
             if allowed_types:
-                return self.report((avc.tclass.split("_")[0], ", ".join(allowed_types))
+                return self.report((avc.tclass.split("_")[0], ", ".join(allowed_types)))
 
         return None
