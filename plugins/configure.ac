@@ -1,4 +1,4 @@
-AC_INIT([setroubleshoot-plugins], [3.3.9],
+AC_INIT([setroubleshoot-plugins], [3.3.10],
         [http://bugzilla.redhat.com/bugzilla/enter_bug.cgi?product=setroubleshoot])
 AC_CONFIG_SRCDIR(src/Makefile.am)
 AC_CONFIG_AUX_DIR([.])
