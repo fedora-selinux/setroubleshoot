@@ -550,10 +550,12 @@ def load_plugins(filter_glob=None):
 def get_os_environment():
     try:
         myplatform = open(redhat_release_path).readlines()[0].strip()
-    except IOError:
-        # dist returns (distname, version, id)
-        import platform
-        myplatform = ' '.join(platform.dist())
+    except:
+        try:
+            import distro
+            myplatform = ' '.join(distro.linux_distribution())
+        except:
+            myplatform = "unknown"
 
     # uname returns (sysname, nodename, release, version, machine)
     uname = os.uname()
