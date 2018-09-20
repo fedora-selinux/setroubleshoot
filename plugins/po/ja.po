@@ -14,6 +14,7 @@
 # Aiko Sasaki <asasaki@redhat.com>, 2016. #zanata
 # Kenzo Moriguchi <kmoriguc@redhat.com>, 2016. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
+# Ludek Janda <ljanda@redhat.com>, 2018. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2018. #zanata
 msgid ""
 msgstr ""
@@ -23,13 +24,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-02 02:21+0000\n"
+"PO-Revision-Date: 2018-09-14 01:43+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fedora/language/"
 "ja/)\n"
 "Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -191,6 +192,18 @@ msgid ""
 "    workaround, until the library is fixed. Please file a bug report.\n"
 "    "
 msgstr ""
+"\n"
+"    $SOURCE アプリケーションは、テキスト移動を要求する $TARGET_PATH \n"
+"    のロードを試行しました。 セキュリティーの問題となる可能性があります。\n"
+"    ほとんどのライブラリーはこの許可を必要としません。 ライブラリーは\n"
+"    誤って記述されることがあり、 この許可を要求することがあります。\n"
+"    <a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux "
+"Memory Protection Tests</a>\n"
+"    の Web ページで、この要求の削除方法について説明しています。 ライブラリーが\n"
+"    修正されるまでの間の回避策として、SELinux で、一時的に $TARGET_PATH が\n"
+"    移動を使用できるようにすることができます。 このパッケージに関するバグレポート\n"
+"    を提出してください。\n"
+"    "
 
 #: ../src/allow_execmod.py:44
 msgid ""
@@ -245,7 +258,7 @@ msgstr ""
 
 #: ../src/allow_execmod.py:114
 msgid "Change label on the library."
-msgstr ""
+msgstr "ライブラリーのラベルを変更します。"
 
 #: ../src/allow_execstack.py:60
 msgid ""
@@ -430,7 +443,7 @@ msgstr "これについては、SELinux に設定をしなければいけませ�
 
 #: ../src/allow_ftpd_use_cifs.py:69
 msgid "Enable booleans"
-msgstr ""
+msgstr "ブール値を有効にします"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -499,6 +512,14 @@ msgid ""
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
 msgstr ""
+"\"allow_ftpd_use_nfs\" と \"ftpd_anon_write\" のブール値を\n"
+"true に変更すると、 このアクセスが許可されます:\n"
+"\"setsebool -P allow_ftpd_use_nfs=1 ftpd_anon_write=1\"\n"
+"警告: \"ftpd_anon_write\" のブール値を true に設定すると、 \n"
+"NFS ファイルシステム上のファイルやディレクトリーへの\n"
+"書き込みのほかに、 すべての公開コンテンツ (タイプが \n"
+"public_content_t のファイルとディレクトリー) への書き込みも \n"
+"ftp デーモンに許可することになります。"
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
@@ -506,7 +527,7 @@ msgstr "ftpd が、nfs ファイルシステムに書込むことを許可した
 
 #: ../src/allow_ftpd_use_nfs.py:71
 msgid "Enable booleans."
-msgstr ""
+msgstr "ブール値を有効にします。"
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -600,7 +621,7 @@ msgstr ""
 
 #: ../src/automount_exec_config.py:57
 msgid "Change file context."
-msgstr ""
+msgstr "ファイルコンテキストを変更します。"
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -857,6 +878,8 @@ msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "$TARGET_CLASS labeled $TARGET_TYPE by default."
 msgstr ""
+"$SOURCE_BASE_PATH に、$TARGET_TYPE とラベルされている $TARGET_CLASS への $ACCESS "
+"アクセスが、デフォルトで許可されるべきだと考える場合。"
 
 #: ../src/catchall.py:55
 msgid ""
@@ -880,6 +903,9 @@ msgid ""
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
 "# semodule -X 300 -i my-$MODULE_NAME.pp"
 msgstr ""
+"以下を実行して、このアクセスを許可します:\n"
+"# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
+"# semodule -X 300 -i my-$MODULE_NAME.pp"
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
@@ -985,7 +1011,7 @@ msgstr "Chrome プラグインにおいて SELinux 制御を無効化する必�
 
 #: ../src/chrome.py:51
 msgid "Disable SELinux controls on Chrome plugins"
-msgstr ""
+msgstr "Chrome プラグインにおいて SELinux 制御を無効化"
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -1027,6 +1053,12 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"    chcon -R -t cvs_data_t '$TARGET_PATH' を実行すると、ファイルコンテキストを変更することができます。\n"
+"    また、完全な再ラベルの後でもそれらを維持できるようにするには、システム上のデフォルトのファイルコンテキストファイルの変更もしなければなりません。 "
+" \"semanage fcontext -a -t cvs_data_t '$FIX_TARGET_PATH'\"\n"
+"\n"
+"    "
 
 #: ../src/cvs_data.py:44
 msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"
@@ -1038,7 +1070,7 @@ msgstr "$TARGET_BASE_PATH' のラベルを変更する必要があります。"
 
 #: ../src/cvs_data.py:54
 msgid "Change label"
-msgstr ""
+msgstr "ラベルの変更"
 
 #: ../src/dac_override.py:28
 msgid "\n"
@@ -1136,6 +1168,31 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"    SELinux は、デバイス $TARGET_PATH への $SOURCE による \"$ACCESS\" アクセスを拒否しています。\n"
+"    $TARGET_PATH には誤ったラベルが付けられています。このデバイスには /dev "
+"ディレクトリーのデフォルトラベルがありますが、これは誤った設定です。すべてのキャラクターデバイスおよびブロックデバイス、またはどちらか一方にはラベルがなければなりません。\n"
+"\n"
+"    以下を実行してファイルのラベル変更を試行することができます。\n"
+"\n"
+"    restorecon -v $TARGET_PATH\n"
+"\n"
+"    このデバイスのラベルが device_t のままである場合、これは SELinux ポリシーのバグということになります。\n"
+"\n"
+"    バグレポートを提出してください。\n"
+"\n"
+"    他にも同様のデバイスラベルを確認するために  ls -lZ /dev/SIMILAR を実行し、 $TARGET_PATH "
+"に対して動作すると想定されるタイプを見つけたら\n"
+"    chcon -t SIMILAR_TYPE $TARGET_PATH "
+"を使用します。これで問題が解決する場合は、以下を実行して永続的に変更します。\n"
+"    emanage fcontext -a -t SIMILAR_TYPE $FIX_TARGET_PATH\n"
+"\n"
+"    restorecon がコンテキストを変更する場合は、 デバイスを作成したアプリケーションが SELinux API "
+"を使用せずに作成したということを示しています。\n"
+"    デバイスを作成したアプリケーションを判別できる場合は、そのアプリケーションについてのバグレポートを提出してください。\n"
+"\n"
+"    "
 
 #: ../src/device.py:56
 msgid ""
@@ -1390,6 +1447,21 @@ msgid ""
 "    script types.\n"
 "    "
 msgstr ""
+"\n"
+"SELinux により、http ファイルへの  httpd $ACCESS アクセスが阻止されました。\n"
+"\n"
+"通常の httpd の場合、 http ファイルコンテキストのラベルが付けられたファイルには完全アクセスが\n"
+"許可されます。 このマシンでは、 $BOOLEAN がオフに設定され、 セキュリティーポリシーが\n"
+"強化されています。このため、 すべてのファイルに明示的なラベル付けを行う必要があります。\n"
+"ファイルが cgi スクリプトの場合は、 スクリプトを実行するために httpd_TYPE_script_exec_t のラベル\n"
+"を付ける必要があります。読み取り専用のコンテンツの場合は、 httpd_TYPE_content_t のラベルを\n"
+"付けます。 書込み可能なコンテンツなら、 httpd_TYPE_script_rw_t または httpd_TYPE_script_ra_t の\n"
+"ラベルを付ける必要があります。 コンテキストは、chcon コマンドを使用して変更できます。\n"
+"man ページの \"man httpd_selinux\" を参照するか、 <a href=\"http://fedora.redhat.com/"
+"docs/selinux-apache-fc3\">FAQ</a> \n"
+"をご覧ください。 \"TYPE\" は \"sys\"、 \"user\"、 \"staff\" \n"
+"を参照しているか、他のスクリプトタイプのいずれかを参照している場合があります。\n"
+"    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -1557,6 +1629,8 @@ msgid ""
 "# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
 "# semodule -X 300 -i my-$SOURCE.pp"
 msgstr ""
+"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
+"# semodule -X 300 -i my-$SOURCE.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1994,7 +2068,7 @@ msgstr ""
 "        <li>ディレクトリーに作成されたファイルは、デフォルトで親ディレクトリーのファイルコンテキストを受け取ります。\n"
 "        <li>SELinux ポリシーは、ラベル B が付けられたディレクトリーにファイルを作成するコンテキスト A "
 "で実行しているプロセスを指定することにより、\n"
-"            親ディレクトリーから継承したデフォルトのラベルを上書きし、代わりにラベル C を持つファイルを作成するようになります。\n"
+"            親ディレクトリーから継承したデフォルトのラベルをオーバーライドし、代わりにラベル C を持つファイルを作成するようになります。\n"
 "            この例として、dhclient_t タイプで実行していて、ディレクトリー /etc 内にファイルを作成するような dhcp "
 "クライアントがあります。このファイルは、\n"
 "            通常、親からの継承により etc_t タイプを受け取りますが、SELinux ポリシーの指定により、このファイルには代わりに "
