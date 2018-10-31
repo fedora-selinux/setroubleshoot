@@ -434,7 +434,15 @@ class SETroubleshootDatabase(object):
     def delete_signature(self, sig, prune=False):
         log_debug("delete_signature: sig=%s" % sig)
 
-        siginfo = self.lookup_signature(sig)
+        try:
+            siginfo = self.lookup_signature(sig)
+        except ProgramError as e:
+            if e.errno == ERR_NO_SIGNATURE_MATCH:
+                log_debug("Signature not found!")
+                return
+            else:
+                raise
+
         self.sigs.remove_siginfo(siginfo)
         if self.notify:
             self.notify.signatures_updated('delete', siginfo.local_id)
@@ -448,14 +456,30 @@ class SETroubleshootDatabase(object):
     def evaluate_alert_filter(self, sig, username):
         log_debug("evaluate_alert_filter: username=%s sig=%s" % (username, sig))
 
-        siginfo = self.lookup_signature(sig)
+        try:
+            siginfo = self.lookup_signature(sig)
+        except ProgramError as e:
+            if e.errno == ERR_NO_SIGNATURE_MATCH:
+                log_debug("Signature not found!")
+                return "ignore"
+            else:
+                raise
+
         action = siginfo.evaluate_filter_for_user(username)
         return action
 
     def set_user_data(self, sig, username, item, data):
         log_debug("set_user_data: username=%s item=%s data=%s sig=\n%s" % (username, item, data, sig))
 
-        siginfo = self.lookup_signature(sig)
+        try:
+            siginfo = self.lookup_signature(sig)
+        except ProgramError as e:
+            if e.errno == ERR_NO_SIGNATURE_MATCH:
+                log_debug("Signature not found!")
+                return
+            else:
+                raise
+
         user_data = siginfo.get_user_data(username)
         user_data.update_item(item, data)
         self.modify_siginfo(siginfo)
@@ -463,7 +487,15 @@ class SETroubleshootDatabase(object):
     def set_filter(self, sig, username, filter_type, data = "" ):
         log_debug("set_filter: username=%s filter_type=%s sig=\n%s" % (username, filter_type, sig))
 
-        siginfo = self.lookup_signature(sig)
+        try:
+            siginfo = self.lookup_signature(sig)
+        except ProgramError as e:
+            if e.errno == ERR_NO_SIGNATURE_MATCH:
+                log_debug("Signature not found!")
+                return
+            else:
+                raise
+
         siginfo.update_user_filter(username, filter_type, data)
         self.modify_siginfo(siginfo)
 
