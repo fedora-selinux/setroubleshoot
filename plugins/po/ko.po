@@ -8,6 +8,7 @@
 # Hyunsok Oh <hoh@redhat.com>, 2010,2013
 # Eun-Ju Kim <eukim@redhat.com>, 2016. #zanata
 # Petr Lautrbach <plautrba@fedoraproject.org>, 2016. #zanata
+# Ludek Janda <ljanda@redhat.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -16,13 +17,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 12:32+0000\n"
+"PO-Revision-Date: 2018-11-20 03:12+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/fedora/language/"
 "ko/)\n"
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -75,7 +76,7 @@ msgstr ""
 msgid ""
 "If you want to allow $SOURCE_PATH to be able to write to shared public "
 "content"
-msgstr ""
+msgstr "허용하려는 경우 $SOURCE공동 공개 콘텐츠에 쓸 수있는 _PATH"
 
 #: ../src/allow_anon_write.py:45
 msgid ""
@@ -143,7 +144,7 @@ msgstr ""
 msgid ""
 "If you do not think $SOURCE_PATH should need to map heap memory that is both "
 "writable and executable."
-msgstr ""
+msgstr "생각하지 않는다면 $SOURCE_PATH는 쓰기 가능하고 실행 가능한 힙 메모리를 맵핑해야합니다."
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
@@ -181,6 +182,13 @@ msgid ""
 "    workaround, until the library is fixed. Please file a bug report.\n"
 "    "
 msgstr ""
+"\n"
+"    그만큼 $SOURCE 응용 프로그램을로드하려고했습니다. $TARGET텍스트 재배치가 필요한 _PATH. 이는 잠재적 인 보안 "
+"문제입니다. 대부분의 도서관에는이 허가가 필요하지 않습니다. 라이브러리가 잘못 코딩되는 경우가 있으며이 권한을 요청하십시오. 그만큼    "
+"<a href=\"http://people.redhat.com/drepper/selinux-mem.html\">SELinux 메모리 보호 "
+"테스트</a>웹 페이지는이 요구 사항을 제거하는 방법을 설명합니다. SELinux를 일시적으로 허용하도록 구성 할 수 있습니다. "
+"$TARGET_PATH는 라이브러리가 수정 될 때까지 재배치를 임시 해결책으로 사용합니다. 버그 보고서를 제출하십시오.\n"
+"    "
 
 #: ../src/allow_execmod.py:44
 msgid ""
@@ -200,6 +208,14 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"    그만큼 $SOURCE 응용 프로그램을로드하려고했습니다. $TARGET텍스트 재배치가 필요한 _PATH. 이는 잠재적 인 보안 "
+"문제입니다. 대부분의 도서관에는이 허가가 필요하지 않습니다. 그만큼    <a href=\"http://people.redhat.com/"
+"drepper/selinux-mem.html\">SELinux 메모리 보호 테스트</a>웹 페이지에서이 수표를 설명합니다. 이 도구는 "
+"라이브러리를 검사하여 올바르게 빌드 된 것처럼 보입니다. 그래서 setroubleshoot는이 응용 프로그램이 손상되었는지 여부를 판단 "
+"할 수 없습니다. 이것은 심각한 문제 일 수 있습니다. 시스템이 손상 될 수 있습니다. 보안 관리자에게 문의하여이 문제점을보고하십시오.\n"
+"\n"
+"    "
 
 #: ../src/allow_execmod.py:61
 msgid ""
@@ -224,7 +240,7 @@ msgstr ""
 
 #: ../src/allow_execmod.py:114
 msgid "Change label on the library."
-msgstr ""
+msgstr "라이브러리에서 레이블을 변경하십시오."
 
 #: ../src/allow_execstack.py:60
 msgid ""
@@ -291,7 +307,7 @@ msgstr ""
 msgid ""
 "If you do not think $SOURCE_PATH should need to map stack memory that is "
 "both writable and executable."
-msgstr ""
+msgstr "생각하지 않는다면 $SOURCE_PATH는 쓰기 가능하고 실행 가능한 스택 메모리를 맵핑해야합니다."
 
 #: ../src/allow_execstack.py:90
 msgid "you need to report a bug. \n"
@@ -304,7 +320,7 @@ msgstr "버그를 보고해야 합니다. \n"
 msgid "If you believe that \n"
 "%s\n"
 "should not require execstack"
-msgstr ""
+msgstr "네가 그렇게 생각하면%sexecstack이 필요하지 않아야한다."
 
 #: ../src/allow_execstack.py:108
 #, python-format
@@ -396,7 +412,7 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:62
 msgid "If you want to allow ftpd to write to cifs file systems"
-msgstr ""
+msgstr "ftpd가 cifs 파일 시스템에 쓸 수 있도록하려면"
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
@@ -404,7 +420,7 @@ msgstr "이에 대해 SELinux에 알려야 합니다 "
 
 #: ../src/allow_ftpd_use_cifs.py:69
 msgid "Enable booleans"
-msgstr ""
+msgstr "불리언 사용"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -471,14 +487,18 @@ msgid ""
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
 msgstr ""
+" \"allow_ftpd_use_nfs\"및 \"ftpd_anon_write\"boolean을 true로 변경하면 \"setsebool -"
+"P allow_ftpd_use_nfs = 1 ftpd_anon_write = 1\"액세스가 허용됩니다. 경고 : "
+"\"ftpd_anon_write\"부울을 true로 설정하면 ftp 데몬이 NFS 파일 시스템의 파일 및 디렉토리에 기록하는 것 외에도 "
+"모든 공용 컨텐츠 (public_content_t 유형의 파일 및 디렉토리)에 쓸 수 있습니다.  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "ftpd가 nfs 파일 시스템에 쓸 수있게하려면"
 
 #: ../src/allow_ftpd_use_nfs.py:71
 msgid "Enable booleans."
-msgstr ""
+msgstr "불리언을 활성화하십시오."
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -518,7 +538,7 @@ msgstr ""
 msgid ""
 "If you want to change the label of $TARGET_PATH to %s, you are not allowed "
 "to since it is not a valid file type."
-msgstr ""
+msgstr "라벨을 변경하려는 경우 $TARGET_PATH에 %s, 유효한 파일 유형이 아니기 때문에 허용되지 않습니다."
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
@@ -571,7 +591,7 @@ msgstr ""
 
 #: ../src/automount_exec_config.py:57
 msgid "Change file context."
-msgstr ""
+msgstr "파일 컨텍스트를 변경하십시오."
 
 #: ../src/bind_ports.py:27
 msgid ""
@@ -640,7 +660,7 @@ msgstr ""
 
 #: ../src/bind_ports.py:47
 msgid "If you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER"
-msgstr ""
+msgstr "허용하려는 경우 $SOURCE_PATH를 사용하여 네트워크 포트에 바인딩 $PORT_번호"
 
 #: ../src/bind_ports.py:53 ../src/connect_ports.py:51
 #, python-format
@@ -704,7 +724,7 @@ msgstr ""
 #: ../src/catchall_boolean.py:63
 #, python-format
 msgid "If you want to %s"
-msgstr ""
+msgstr "네가 원한다면 %s"
 
 #: ../src/catchall_boolean.py:66
 #, python-format
@@ -810,24 +830,30 @@ msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "processes labeled $TARGET_TYPE by default."
 msgstr ""
+"네가 그렇게 생각하면 $SOURCE_BASE_PATH가 허용되어야합니다. $ACCESS 라벨이 지정된 프로세스에 대한 액세스 "
+"$TARGET기본적으로 _TYPE입니다."
 
 #: ../src/catchall.py:52
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should have the $ACCESS capability by "
 "default."
-msgstr ""
+msgstr "네가 그렇게 생각하면 $SOURCE_BASE_PATH에 $ACCESS 기능이 기본적으로 제공됩니다."
 
 #: ../src/catchall.py:54
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "$TARGET_CLASS labeled $TARGET_TYPE by default."
 msgstr ""
+"네가 그렇게 생각하면 $SOURCE_BASE_PATH가 허용되어야합니다. $ACCESS 액세스 권한 $TARGET_CLASS 레이블이 "
+"붙음 $TARGET기본적으로 _TYPE입니다."
 
 #: ../src/catchall.py:55
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "the $TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
+"네가 그렇게 생각하면 $SOURCE_BASE_PATH가 허용되어야합니다. $ACCESS 에 대한 액세스 $TARGET_BASE_PATH "
+"$TARGET_CLASS 기본적으로."
 
 #: ../src/catchall.py:57
 msgid ""
@@ -842,6 +868,8 @@ msgid ""
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
 "# semodule -X 300 -i my-$MODULE_NAME.pp"
 msgstr ""
+"다음을 실행하여 지금이 액세스를 허용하십시오 : # ausearch -c '$SOURCE- - | audit2allow -M my-"
+"$MODULE_NAME # semodule -X 300 -i my-$MODULE_NAME.pp"
 
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
@@ -867,6 +895,12 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 거부되었습니다. $SOURCE 네트워크 포트에 연결하는 중 $PORT_NUMBER에는 SELinux 유형이 "
+"연결되어 있지 않습니다. 만약 $SOURCE 연결을 허용해야한다. $PORT_NUMBER, <i>준 학사</i> 할당 할 명령 "
+"$PORT_NUMBER을 (를) 해당 포트 유형으로 변경 $SOURCE_TYPE은에 연결할 수 있습니다 (%s). 만약 $SOURCE 에 "
+"연결되어 있지 않다. $PORT_NUMBER, 이것은 침입 시도를 알릴 수 있습니다.\n"
+"    "
 
 #: ../src/connect_ports.py:38
 #, python-format
@@ -891,7 +925,7 @@ msgstr ""
 #: ../src/connect_ports.py:45 ../src/sandbox_connect.py:47
 msgid ""
 "If you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
-msgstr ""
+msgstr "허용하려는 경우 $SOURCE_PATH를 사용하여 네트워크 포트에 연결 $PORT_번호"
 
 #: ../src/chrome.py:31
 msgid ""
@@ -929,7 +963,7 @@ msgstr ""
 #: ../src/chrome.py:38 ../src/mozplugger.py:38
 #, python-format
 msgid "If you want to use the %s package"
-msgstr ""
+msgstr "당신이 %s 꾸러미"
 
 #: ../src/chrome.py:43
 msgid "you must turn off SELinux controls on the Chrome plugins."
@@ -937,7 +971,7 @@ msgstr "Chrome 플러그인에서 SELinux 제어를 비활성화해야 합니다
 
 #: ../src/chrome.py:51
 msgid "Disable SELinux controls on Chrome plugins"
-msgstr ""
+msgstr "Chrome 플러그인에서 SELinux 컨트롤을 사용 중지합니다."
 
 #: ../src/cvs_data.py:27
 msgid ""
@@ -978,10 +1012,16 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"    chcon -R -t cvs_data_t '를 실행하여 파일 컨텍스트를 변경할 수 있습니다.$TARGET_PATH '전체 "
+"relabel에서도 파일을 보존하려면 시스템의 기본 파일 컨텍스트 파일을 변경해야합니다. \"semanage fcontext -a -t "
+"cvs_data_t '$FIX_TARGET_PATH ' \"\n"
+"\n"
+"    "
 
 #: ../src/cvs_data.py:44
 msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"
-msgstr ""
+msgstr "만약 $TARGET_BASE_PATH는 cvs 데몬을 통해 공유되어야합니다."
 
 #: ../src/cvs_data.py:45 ../src/qemu_file_image.py:49
 msgid "You need to change the label on $TARGET_BASE_PATH'"
@@ -989,7 +1029,7 @@ msgstr "$TARGET_BASE_PATH'의 레이블을 변경해야 합니다 "
 
 #: ../src/cvs_data.py:54
 msgid "Change label"
-msgstr ""
+msgstr "라벨 변경"
 
 #: ../src/dac_override.py:28
 msgid "\n"
@@ -1009,7 +1049,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"\tdac_override 및 dac_read_search 기능은 일반적으로 root 프로세스가 권한 플래그를 기반으로 하는 파일에 "
+"\\tdac_override 및 dac_read_search 기능은 일반적으로 root 프로세스가 권한 플래그를 기반으로 하는 파일에 "
 "액세스할 수 없는 것을 표시합니다. 이는 일반적으로 사용자가 일부 파일에 대해 잘못된 소유권/권한을 가지고 있음을 의미합니다. \n"
 "    "
 
@@ -1017,7 +1057,7 @@ msgstr ""
 msgid ""
 "If you want to help identify if domain needs this access or you have a file "
 "with the wrong permissions on your system"
-msgstr ""
+msgstr "도메인에이 액세스가 필요한지 또는 시스템에 잘못된 사용 권한을 가진 파일이 있는지 확인하려는 경우"
 
 #: ../src/dac_override.py:39
 msgid ""
@@ -1085,6 +1125,19 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"    SELinux가 거부되었습니다. $SOURCE \"$ACCESS\"장치에 대한 액세스 $TARGET_통로.    "
+"$TARGET_PATH의 레이블이 잘못 지정되면이 장치는 / dev 디렉토리의 기본 레이블을 갖습니다. 모든 문자 및 / 또는 블록 "
+"장치에는 레이블이 있어야합니다. restorecon -v '를 사용하여 파일의 레이블을 변경할 수 있습니다.$TARGET_통로'. 이 "
+"장치에 device_t라는 레이블이 지정되어 있으면 SELinux 정책의 버그입니다. 버그 보고서를 제출하십시오. 다른 비슷한 장치 "
+"레이블 인 ls -lZ / dev / simil을보고 다음과 같은 유형의 장치를 찾으십시오. $TARGET_PATH를 사용하면 chcon "
+"-t SIMILAR_TYPE '$TARGET_PATH ',이 문제가 해결되면 semanage fcontext -a -t "
+"SIMILAR_TYPE'을 실행하여이 문제를 해결할 수 있습니다.$FIX_TARGET_PATH 'restorecon이 컨텍스트를 변경하면 "
+"장치를 작성한 응용 프로그램이 SELinux API를 사용하지 않고 작성되었음을 나타냅니다. 어떤 응용 프로그램이 장치를 만들 었는지 알 "
+"수 있다면이 응용 프로그램에 대한 버그 보고서를 제출하십시오.\n"
+"\n"
+"    "
 
 #: ../src/device.py:56
 msgid ""
@@ -1120,7 +1173,7 @@ msgstr "\n"
 
 #: ../src/disable_ipv6.py:40
 msgid "If you want to disable IPV6 on this machine"
-msgstr ""
+msgstr "이 컴퓨터에서 IPV6을 비활성화하려면"
 
 #: ../src/disable_ipv6.py:41
 msgid ""
@@ -1184,11 +1237,11 @@ msgstr ""
 
 #: ../src/file.py:49
 msgid "This is caused by a newly created file system."
-msgstr ""
+msgstr "이는 새로 생성 된 파일 시스템에 의해 발생합니다."
 
 #: ../src/file.py:51
 msgid "If you think this is caused by a badly mislabeled machine."
-msgstr ""
+msgstr "이것이 잘못 라벨이 붙은 기계로 인한 것이라고 생각한다면."
 
 #: ../src/file.py:55
 msgid "you need to add labels to it."
@@ -1247,7 +1300,7 @@ msgstr "\n"
 msgid ""
 "If you believe $SOURCE_BASE_PATH should be allowed to create "
 "$TARGET_BASE_PATH files"
-msgstr ""
+msgstr "네가 믿으면 $SOURCE_BASE_PATH는 (는) 생성이 허용되어야합니다. $TARGET_BASE_PATH 파일"
 
 #: ../src/filesystem_associate.py:44
 msgid ""
@@ -1278,6 +1331,10 @@ msgid ""
 "    signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 http 데몬이 메일을 보내는 것을 거부했습니다. httpd 스크립트가 메일 포트에 연결하거나 sendmail "
+"명령을 실행하려고합니다. sendmail에 httpd를 설정하지 않으면 침입 시도를 알릴 수 있습니다.\n"
+"    "
 
 #: ../src/httpd_can_sendmail.py:39
 msgid ""
@@ -1295,7 +1352,7 @@ msgstr ""
 
 #: ../src/httpd_can_sendmail.py:47
 msgid "If you want to allow httpd to send mail"
-msgstr ""
+msgstr "httpd가 메일을 보내도록 허용하려면"
 
 #: ../src/httpd_can_sendmail.py:48
 msgid "you must setup SELinux to allow this"
@@ -1331,6 +1388,16 @@ msgid ""
 "    script types.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 httpd를 막았습니다. $ACCESS http 파일에 대한 액세스. 일반적으로 httpd는 http 파일 "
+"컨텍스트로 레이블 된 모든 파일에 대한 전체 액세스가 허용됩니다. 이 기계는 $BOOLEAN모든 파일을 명시 적으로 레이블링해야합니다. "
+"파일이 cgi 스크립트이면 실행될 수 있도록 httpd_TYPE_script_exec_t로 ​​레이블되어야합니다. 읽기 전용 콘텐트 인 "
+"경우 httpd_TYPE_content_t라는 레이블이 있어야합니다. 쓰기 가능한 내용이면 httpd_TYPE_script_rw_t 또는 "
+"httpd_TYPE_script_ra_t라는 레이블이 있어야합니다. chcon 명령을 사용하여 이러한 컨텍스트를 변경할 수 있습니다. "
+"man 페이지 \"man httpd_selinux\"또는    <a href=\"http://fedora.redhat.com/docs/"
+"selinux-apache-fc3\">자주하는 질문</a>\"TYPE\"은 \"sys\", \"user\"또는 \"staff\"또는 "
+"잠재적으로 다른 스크립트 유형 중 하나를 나타냅니다.\n"
+"    "
 
 #: ../src/httpd_unified.py:50
 msgid ""
@@ -1348,7 +1415,7 @@ msgstr ""
 msgid ""
 "If you want to allow httpd to execute cgi scripts and to unify HTTPD "
 "handling of all content files."
-msgstr ""
+msgstr "httpd가 cgi 스크립트를 실행하고 모든 컨텐트 파일의 HTTPD 처리를 통합하도록 허용하려는 경우."
 
 #: ../src/httpd_unified.py:58
 msgid ""
@@ -1419,7 +1486,7 @@ msgstr ""
 msgid ""
 "If you do not think $SOURCE_BASE_PATH should try $ACCESS access on "
 "$TARGET_BASE_PATH."
-msgstr ""
+msgstr "생각하지 않는다면 $SOURCE_BASE_PATH가 시도해야 함 $ACCESS 액세스 권한 $TARGET_BASE_PATH."
 
 #: ../src/kernel_modules.py:45 ../src/selinuxpolicy.py:45
 msgid ""
@@ -1479,6 +1546,8 @@ msgid ""
 "$TARGET_BASE_PATH $TARGET_CLASS, because you believe it should not need this "
 "access."
 msgstr ""
+"무시하고 싶다면 $SOURCE시도중인 _BASE_PATH $ACCESS 그 $TARGET_BASE_PATH $TARGET_CLASS,이 "
+"액세스가 필요하지 않아야한다고 생각하기 때문입니다."
 
 #: ../src/leaks.py:43
 msgid ""
@@ -1492,6 +1561,8 @@ msgid ""
 "# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE\n"
 "# semodule -X 300 -i my-$SOURCE.pp"
 msgstr ""
+"# ausearch -x $SOURCE_PATH --raw | audit2allow -D -M my-$SOURCE# semodule -X "
+"300 -i my-$SOURCE.pp"
 
 #: ../src/mmap_zero.py:29
 msgid ""
@@ -1521,12 +1592,18 @@ msgid ""
 "    compromised.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux는 $SOURCE 커널 주소 공간의 낮은 영역을 mmap 할 수있는 능력. 주소 공간의 낮은 영역을 mmap 할 "
+"수있는 능력은 / proc / sys / kernel / mmap_min_addr에 의해 설정됩니다. 이러한 매핑을 방지하면 커널에서 "
+"null deref 버그를 악용하지 않아도됩니다. 이 액세스가 필요한 모든 응용 프로그램에는 정책이 이미 작성되어 있어야합니다. 손상된 "
+"응용 프로그램이 커널을 수정하려고하면이 AVC가 생성됩니다. 이것은 심각한 문제입니다. 시스템이 손상 될 수 있습니다.\n"
+"    "
 
 #: ../src/mmap_zero.py:46
 msgid ""
 "If you do not think $SOURCE_PATH should need to mmap low memory in the "
 "kernel."
-msgstr ""
+msgstr "생각하지 않는다면 $SOURCE_PATH는 커널의 메모리를 적게 mmap해야합니다."
 
 #: ../src/mmap_zero.py:47
 msgid "you may be under attack by a hacker, this is a very dangerous access."
@@ -1584,7 +1661,7 @@ msgstr ""
 
 #: ../src/mounton.py:48
 msgid "If you want to allow $SOURCE_BASE_PATH to mount on $TARGET_BASE_PATH."
-msgstr ""
+msgstr "허용하려는 경우 $SOURCE마운트 할 _BASE_PATH $TARGET_BASE_PATH."
 
 #: ../src/mounton.py:49
 msgid "you must change the labeling on $TARGET_PATH."
@@ -1662,7 +1739,7 @@ msgstr ""
 msgid ""
 "If you want to to continue using SELinux Firefox plugin containment rather "
 "then using mozplugger package"
-msgstr ""
+msgstr "mozplugger 패키지를 사용하지 않고 SELinux Firefox 플러그인 봉쇄를 계속 사용하려면"
 
 #: ../src/mozplugger_remove.py:45
 msgid "you must remove the mozplugger package."
@@ -1677,6 +1754,10 @@ msgid ""
 "    is labeled correctly.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 요청한 액세스를 거부했습니다. $SOURCE. $TARGET_PATH가 잘못 표시 될 수 있습니다. "
+"openvpn은 올바르게 레이블 된 경우 홈 디렉토리의 내용을 읽을 수 있습니다.\n"
+"    "
 
 #: ../src/openvpn.py:41
 msgid ""
@@ -1686,18 +1767,26 @@ msgid ""
 "    # restorecon -R /root/.ssh\n"
 "    "
 msgstr ""
+"\n"
+"    restorecon 명령을 실행하여 기본 시스템 컨텍스트를이 파일로 복원 할 수 있습니다. # restorecon -R /root/"
+".ssh\n"
+"    "
 
 #: ../src/openvpn.py:49
 msgid ""
 "If you want to mv $TARGET_BASE_PATH to standard location so that "
 "$SOURCE_BASE_PATH can have $ACCESS access"
 msgstr ""
+"당신이 mv에 원하면 $TARGET_BASE_PATH를 표준 위치로 설정하면 $SOURCE_BASE_PATH는 가질 수 있음 "
+"$ACCESS 접속하다"
 
 #: ../src/openvpn.py:51
 msgid ""
 "If you want to modify the label on $TARGET_BASE_PATH so that "
 "$SOURCE_BASE_PATH can have $ACCESS access on it"
 msgstr ""
+"라벨을 수정하려면 $TARGET_BASE_PATH 이렇게 $SOURCE_BASE_PATH는 가질 수 있음 $ACCESS 그것에 대한 "
+"액세스"
 
 #: ../src/openvpn.py:55
 msgid "you must move the cert file to the ~/.cert directory"
@@ -1744,7 +1833,7 @@ msgstr ""
 
 #: ../src/public_content.py:50
 msgid "If you want to treat $TARGET_BASE_PATH as public content"
-msgstr ""
+msgstr "치료하고 싶다면 $TARGET_BASE_PATH (공개 콘텐츠)"
 
 #: ../src/public_content.py:51
 msgid ""
@@ -1833,7 +1922,7 @@ msgstr ""
 
 #: ../src/qemu_file_image.py:48
 msgid "If $TARGET_BASE_PATH is a virtualization target"
-msgstr ""
+msgstr "만약 $TARGET_BASE_PATH는 가상화 대상입니다."
 
 #: ../src/restorecon.py:57
 msgid ""
@@ -1890,13 +1979,27 @@ msgid ""
 "package.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 요청한 액세스를 거부했습니다. $SOURCE. $TARGET_PATH가 잘못 표시 될 수 있습니다.  "
+"$TARGET_PATH 기본 SELinux 유형    <B>%s</B>, 그러나 그것의 현재 유형은이다 <B>$TARGET_유형</B>. "
+"이 파일을 기본 유형으로 다시 변경하면 문제가 해결 될 수 있습니다.    <p>파일 컨텍스트는 다음과 같은 방법으로 파일에 할당 할 수 "
+"있습니다.    <ul>        <li>디렉토리에서 작성된 파일은 기본적으로 상위 디렉토리의 파일 컨텍스트를 수신합니다.       "
+" <li>SELinux 정책은 컨텍스트 A로 실행되는 프로세스를 지정하여 부모 디렉토리에서 상속 된 기본 레이블을 무시할 수 있습니다.이 "
+"프로세스는 B라는 레이블이 지정된 디렉토리에 파일을 생성하고 대신 C라는 레이블로 파일을 생성합니다.이 예는 실행중인 dhcp "
+"클라이언트입니다 dhclient_t 유형 및 / etc 디렉토리에 파일 작성. 이 파일은 보통 부모 상속으로 인해 etc_t 유형을 "
+"수신하지만 SELinux 정책이이를 지정하기 때문에 파일은 net_conf_t 유형으로 레이블됩니다.        <li>사용자는 "
+"chcon 또는 restorecon과 같은 도구를 사용하여 파일의 파일 컨텍스트를 변경할 수 있습니다.    </ul>이 파일은 사용자 "
+"오류 또는 일반적으로 제한된 응용 프로그램이 잘못된 도메인에서 실행 된 경우 잘못 표시 될 수 있습니다.    <p>그러나 이것은 "
+"파일이이 유형으로 분류되어서는 안되기 때문에 SELinux의 버그를 나타낼 수도 있습니다.    <p>이것이 버그라고 생각되면이 패키지에 "
+"대한 버그 리포트를 제출하십시오.\n"
+"    "
 
 #: ../src/restorecon.py:90
 #, python-format
 msgid ""
 "If you want to fix the label. \n"
 "$TARGET_PATH default label should be %s."
-msgstr ""
+msgstr "라벨을 고치려면.$TARGET_PATH 기본 라벨이 있어야합니다. %s."
 
 #: ../src/restorecon.py:96
 msgid ""
@@ -1904,6 +2007,8 @@ msgid ""
 "insufficient permissions to access a parent directory in which case try to "
 "change the following command accordingly."
 msgstr ""
+"restorecon을 실행할 수 있습니다. 상위 디렉토리에 액세스 할 권한이 없기 때문에 액세스 시도가 중지되었을 수 있습니다.이 경우 "
+"다음 명령을 적절하게 변경하십시오."
 
 #: ../src/restorecon.py:105 ../src/restorecon_source.py:73
 msgid "Restore\n"
@@ -1944,13 +2049,20 @@ msgid ""
 "package.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 요청한 액세스를 거부했습니다. $SOURCE. $SOURCE_PATH가 잘못 표시 될 수 있습니다.  "
+"$SOURCE_PATH 기본 SELinux 유형    <B>%s</B>, 그러나 그것의 현재 유형은이다 <B>$SOURCE_유형</B>. "
+"이 파일을 기본 유형으로 다시 변경하면 문제가 해결 될 수 있습니다.    <p>이 파일은 사용자 오류 또는 일반적으로 제한된 응용 "
+"프로그램이 잘못된 도메인에서 실행 된 경우 잘못 표시 될 수 있습니다.    <p>그러나 이것은 파일이이 유형으로 분류되어서는 안되기 "
+"때문에 SELinux의 버그를 나타낼 수도 있습니다.    <p>이것이 버그라고 생각되면이 패키지에 대한 버그 리포트를 제출하십시오.\n"
+"    "
 
 #: ../src/restorecon_source.py:60
 #, python-format
 msgid ""
 "If you want to fix the label. \n"
 "$SOURCE_PATH default label should be %s."
-msgstr ""
+msgstr "라벨을 고치려면.$SOURCE_PATH 기본 라벨이 있어야합니다. %s."
 
 #: ../src/restorecon_source.py:65
 msgid "you can run restorecon."
@@ -1966,6 +2078,11 @@ msgid ""
 "    this message could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 RSYNC에 대한 액세스를 거부했습니다. $TARGET_통로. RSYNC 저장소 인 경우 "
+"rsync_data_t라는 파일 컨텍스트 레이블이 있어야합니다. 당신이 사용하려고하지 않았다면 $TARGET_PATH를 RSYNC "
+"저장소로 사용하는 경우이 메시지는 버그 또는 침입 시도를 나타낼 수 있습니다.\n"
+"    "
 
 #: ../src/rsync_data.py:38
 msgid ""
@@ -1985,7 +2102,7 @@ msgstr ""
 
 #: ../src/rsync_data.py:45
 msgid "If $TARGET_BASE_PATH should be shared via the RSYNC daemon"
-msgstr ""
+msgstr "만약 $TARGET_BASE_PATH는 RSYNC 데몬을 통해 공유해야합니다."
 
 #: ../src/rsync_data.py:46
 msgid "You need to change the label on $TARGET_BASE_PATH"
@@ -2015,6 +2132,12 @@ msgid ""
 "Samba and SELinux.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 Samba에 대한 액세스를 거부했습니다. $TARGET_통로. 이 디렉토리를 samba와 공유하려면 파일 컨텍스트 "
+"레이블 samba_share_t가 있어야합니다. 당신이 사용하려고하지 않았다면 $TARGET_PATH를 samba 저장소로 사용하는 "
+"경우이 메시지는 버그 또는 침입 시도를 나타낼 수 있습니다. Samba 및 SELinux 설정에 대한 자세한 내용은 'man "
+"samba_selinux'를 참조하십시오.\n"
+"    "
 
 #: ../src/samba_share.py:39
 msgid ""
@@ -2055,6 +2178,12 @@ msgid ""
 "    to connect to $PORT_NUMBER, this could signal an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 거부되었습니다. $SOURCE 네트워크 포트에 연결하는 중 $PORT모래 상자 내 _NUMBER. 만약 "
+"$SOURCE 연결을 허용해야한다. $PORT_NUMBER, sandbox_web_t 또는 sandbox_net_t와 같은 다른 샌드 "
+"박스 유형을 사용해야합니다. # sandbox -X -t sandbox_net_t $SOURCE만약 $SOURCE 에 연결되어 있지 않다."
+" $PORT_NUMBER, 이것은 침입 시도를 알릴 수 있습니다.\n"
+"    "
 
 #: ../src/sandbox_connect.py:41
 msgid ""
@@ -2115,7 +2244,7 @@ msgstr ""
 
 #: ../src/setenforce.py:27
 msgid "If you did not directly cause this AVC through testing."
-msgstr ""
+msgstr "테스트를 통해이 AVC를 직접 일으키지 않은 경우."
 
 #: ../src/setenforce.py:28
 msgid "if you think that you might have been hacked"
@@ -2146,10 +2275,16 @@ msgid ""
 "    well be compromised.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 막았습니다. $SOURCE / sys / fs / selinux 아래에 파일을 쓰는 것에서. / sys / fs /"
+" selinux 아래의 파일은 SELinux가 구성된 방식을 제어합니다. / sys / fs / selinux 아래에있는 파일에 쓸 "
+"필요가있는 모든 프로그램에는 이미 정책이 작성되어 있어야합니다. 손상된 응용 프로그램이 SELinux를 끄려고하면이 AVC가 생성됩니다. "
+"이것은 심각한 문제입니다. 시스템이 손상 될 수 있습니다.\n"
+"    "
 
 #: ../src/setenforce.py:48
 msgid "If you believe $SOURCE_PATH tried to disable SELinux."
-msgstr ""
+msgstr "네가 믿으면 $SOURCE_PATH가 SELinux를 비활성화하려고했습니다."
 
 #: ../src/setenforce.py:49
 msgid ""
@@ -2166,6 +2301,10 @@ msgid ""
 "    is labeled correctly.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 요청한 액세스를 거부했습니다. $SOURCE. $TARGET_PATH가 잘못 표시 될 수 있습니다. sshd는 "
+"올바르게 레이블 된 경우 /root/.ssh 디렉토리의 내용을 읽을 수 있습니다.\n"
+"    "
 
 #: ../src/sshd_root.py:42
 msgid ""
@@ -2175,6 +2314,10 @@ msgid ""
 "    # restorecon -R /root/.ssh\n"
 "    "
 msgstr ""
+"\n"
+"    restorecon 명령을 실행하여 기본 시스템 컨텍스트를이 파일로 복원 할 수 있습니다. # restorecon -R /root/"
+".ssh\n"
+"    "
 
 #: ../src/sshd_root.py:55
 msgid "Restore Context"
@@ -2200,6 +2343,11 @@ msgid ""
 "an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux가 거부되었습니다. $SOURCE 액세스 $TARGET_통로. 이 파일이 스왑 파일이면 swapfile_t라는 파일 "
+"컨텍스트 레이블이 있어야합니다. 당신이 사용하려고하지 않았다면    $TARGET_ 스왑 파일로 _PATH,이 메시지는 버그 또는 침입 "
+"시도를 나타낼 수 있습니다.\n"
+"    "
 
 #: ../src/swapfile.py:38
 msgid ""
@@ -2221,7 +2369,7 @@ msgstr ""
 msgid ""
 "If you do not believe your $SOURCE_PATH should be modifying the kernel, by "
 "loading kernel modules"
-msgstr ""
+msgstr "당신이 당신을 믿지 않는다면 $SOURCE_PATH는 커널 모듈을로드하여 커널을 수정해야합니다."
 
 #: ../src/sys_module.py:29
 msgid "You might have been hacked."
@@ -2260,7 +2408,7 @@ msgstr ""
 msgid ""
 "If you do not believe that $SOURCE_PATH should be attempting to modify the "
 "kernel by loading a kernel module."
-msgstr ""
+msgstr "네가 그렇게 생각하지 않는다면 $SOURCE_PATH는 커널 모듈을로드하여 커널을 수정하려고 시도해야합니다."
 
 #: ../src/sys_module.py:47
 msgid "A process might be attempting to hack into your system."
@@ -2295,7 +2443,7 @@ msgstr ""
 msgid ""
 "If you do not want processes to require capabilities to use up all the "
 "system resources on your system;"
-msgstr ""
+msgstr "프로세스가 시스템의 모든 시스템 자원을 사용하는 기능을 필요로하지 않도록하려면,"
 
 #: ../src/sys_resource.py:40
 msgid ""
@@ -2316,6 +2464,12 @@ msgid ""
 "/* Override max number of consoles on console allocation */\n"
 "/* Override max number of keymaps */\n"
 msgstr ""
+"시스템 리소스가 부족한 이유를 진단하고 문제를 해결해야합니다. /usr/include/linux/capability.h에 따르면 "
+"sys_resource는 다음을 수행해야합니다. / * 리소스 제한을 무시합니다. 자원 제한을 설정하십시오. * / / * 할당량 한도를 "
+"재정의합니다. * / / * ext2 파일 시스템의 데이터 저널링 모드 수정 (저널링 리소스 사용) * / / * 참고 : ext2는 "
+"리소스 오버라이드를 확인할 때 fsuid를 기하여 fsuid를 사용하여 재정의 할 수도 있습니다. * / / * IPC 메시지 대기열의 "
+"크기 제한 무시 * / / * 실시간 클럭에서 64hz 이상의 인터럽트 허용 * / / * 콘솔 할당시 콘솔의 최대 수 무시 * / / "
+"* 키맵 최대 무시 * / /\n"
 
 #: ../src/vbetool.py:30
 msgid ""
@@ -2369,7 +2523,7 @@ msgstr ""
 msgid ""
 "If you want to ignore this AVC because it is dangerous and your machine "
 "seems to be working correctly."
-msgstr ""
+msgstr "위험하기 때문에이 AVC를 무시하고 컴퓨터가 제대로 작동하는 것 같습니다."
 
 #: ../src/vbetool.py:56
 msgid ""
@@ -2436,7 +2590,7 @@ msgstr ""
 msgid ""
 "If you want to ignore this AVC because it is dangerous and your wine "
 "applications are working correctly."
-msgstr ""
+msgstr "위험하고 와인 어플리케이션이 올바르게 작동하기 때문에이 AVC를 무시하고 싶습니다."
 
 #: ../src/wine.py:67
 msgid ""
