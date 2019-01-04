@@ -115,6 +115,13 @@ def sighandler(signum, frame):
         return
 
 
+def polling_failed_handler(signum, frame):
+    log_debug("received signal=%s" % signum)
+    syslog.syslog(syslog.LOG_ERR, "/sys/fs/selinux/policy is in use by another process. Exiting!")
+    os._exit(1)
+    # TODO: change to sys.exit(1) when the bug in audti2why is fixed
+
+
 def make_instance_id():
     import time
     hostname = get_hostname()
@@ -717,10 +724,33 @@ def goodbye(database):
 
 
 def RunFaultServer(timeout=10):
-    # FIXME
-    audit2why.init()
+    signal.alarm(timeout)
+    sigalrm_handler = signal.signal(signal.SIGALRM, polling_failed_handler)
+    # polling for /sys/fs/selinux/policy file
+    while True:
+        try:
+            audit2why.init()
+            signal.alarm(0)
+            break
+        # retry if init() failed to open /sys/fs/selinux/policy
+        except ValueError as e:
+            # The value error contains the following error message,
+            # followed by strerror string (which can differ with localization)
+            if "unable to open /sys/fs/selinux/policy" in str(e):
+                continue
+            raise e
+        except SystemError as e:
+            # As a result of a bug in audit2why.c, SystemError is raised instead of ValueError.
+            # Python reports: "SystemError occurs as a direct cause of ValueError"
+            # Error message of the ValueError is stored in __context__
+            # TODO: remove this except clause when the bug in audti2why is fixed
+            if "unable to open /sys/fs/selinux/policy" in str(getattr(e, "__context__", "")):
+                continue
+            raise e
+
     global host_database, analysis_queue, email_recipients
 
+    signal.signal(signal.SIGALRM, sigalrm_handler)
     signal.signal(signal.SIGHUP, sighandler)
 
     #interface_registry.dump_interfaces()
