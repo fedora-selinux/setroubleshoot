@@ -1,6 +1,7 @@
 from __future__ import absolute_import
 import six
 from six.moves import range
+import sys
 # Authors: John Dennis <jdennis@redhat.com>
 #          Thomas Liu <tliu@redhat.com
 # Copyright (C) 2007-2010 Red Hat, Inc.
@@ -332,22 +333,20 @@ class AuditRecord(XmlSerialize):
                     decoded_value = audit_msg_decode(value)
                     self.fields[field] = decoded_value
 
-    def translate_path(self, path):
+    def translate_hex(self, path):
         try:
-            t = path.decode("hex")
-            if t[0].encode("hex") == "00":
-                tpath = "@"
+            if sys.version_info[0] < 3:
+                # Produces normal string instead of unicode string which is not
+                # accepted by libselinux functions.
+                # This means that len(path) will return inaccurate results when
+                # the string contains special characters. Also individual bytes
+                # of path may not be printable.
+                return path.decode('hex')
             else:
-                tpath = t[0]
-
-            for i in range(len(t))[1:]:
-                if t[i].encode("hex") != "00":
-                    tpath = tpath + t[i]
-                else:
-                    break
+                # produces str in python 3 and unicode string in python 2
+                return bytearray.fromhex(path).decode('utf-8')
         except:
             return path
-        return tpath
 
     def set_fields_from_text(self, body_text):
         self.fields_ord = []
@@ -362,8 +361,10 @@ class AuditRecord(XmlSerialize):
                     i = audit.audit_elf_to_machine(int(value, 16))
                     value = audit.audit_machine_to_name(i)
 
-                if key == "path":
-                    value = '"%s"' % self.translate_path(value)
+                if key in ["name", "path", "comm", "cmd", "exe", "cwd"]:
+                    # audit uses " to distinguish plain text from hex in listed keys
+                    if not match.group(2).startswith('"'):
+                        value = self.translate_hex(value)
 
                 if key == "exit":
                     try:
@@ -764,31 +765,6 @@ class AVC:
             return True
         return self.tpath not in standard_directories
 
-    def decodehex(self, path):
-        try:
-            t = path.decode("hex")
-            if t[0].encode("hex") == "00":
-                tpath = "@"
-            else:
-                tpath = t[0]
-
-            for i in range(len(t))[1:]:
-                if t[i].encode("hex") != "00":
-                    tpath = tpath + t[i]
-                else:
-                    break
-
-            if not printable(tpath):
-                tpath = path
-
-        except:
-            tpath = path
-
-        if not printable(tpath):
-            return ""
-
-        return tpath
-
     def _set_tpath(self):
         '''Derive the target path.
 
@@ -824,8 +800,7 @@ class AVC:
         # versions put it there rather than in AVC_PATH
 
         path = self.avc_record.get_field('path')
-        if path:
-            path = path.strip('"')
+
         inodestr = self.avc_record.get_field("ino")
         if path is None:
             # No path field in AVC record, try to get path from PATH records
@@ -935,9 +910,7 @@ class AVC:
                 if match:
                     path = self.tclass
 
-        self.tpath = self.decodehex(path)
-        if self.tpath == '':
-            self.tpath = path
+        self.tpath = path
 
         if self.tpath is None:
             if self.tclass == "filesystem":
@@ -983,10 +956,6 @@ class AVC:
 
         if syscall_record:
             exe = syscall_record.get_field('exe')
-            try:
-                exe.decode("hex")
-            except:
-                pass
             comm = syscall_record.get_field('comm')
             self.syscall = syscall_record.get_field('syscall')
             self.success = (syscall_record.get_field('success') == "yes")
@@ -997,10 +966,7 @@ class AVC:
         if exe is None:
             exe = self.avc_record.get_field('exe')
 
-        try:
-            self.spath = exe.decode("hex")
-        except:
-            self.spath = exe
+        self.spath = exe
 
         if comm:
             self.source = comm

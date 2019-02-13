@@ -188,7 +188,16 @@ def audit_msg_decode(msg):
         decoded = match.group(1)
     else:
         try:
-            decoded = msg.decode('hex')
+            if sys.version_info[0] < 3:
+                # Produces normal string instead of unicode string which is not
+                # accepted by libselinux functions.
+                # This means that len(path) will return inaccurate results when
+                # the string contains special characters. Also individual bytes
+                # of path may not be printable.
+                decoded = msg.decode('hex')
+            else:
+                # produces str in python 3 and unicode string in python 2
+                decoded = bytearray.fromhex(msg).decode('utf-8')
         except:
             decoded = msg
     return decoded
