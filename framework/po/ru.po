@@ -17,23 +17,24 @@
 # Игорь Горбунов <igor.gorbounov@gmail.com>, 2011,2013
 # yuliya <ypoyarko@redhat.com>, 2015. #zanata
 # yuliya <ypoyarko@redhat.com>, 2016. #zanata
-# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
+# Ludek Janda <ljanda@redhat.com>, 2018. #zanata
+# Vit Mojzis <vmojzis@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-18 16:24+0200\n"
+"POT-Creation-Date: 2019-06-06 09:47+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-08 11:35+0000\n"
+"PO-Revision-Date: 2019-05-14 05:16+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/fedora/language/"
 "ru/)\n"
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -47,25 +48,25 @@ msgstr "Диагностика отказов SELinux"
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:912
+#: ../src/setroubleshoot/audit_data.py:897
 #, python-format
 msgid "port %s"
 msgstr "порт %s"
 
-#: ../src/setroubleshoot/audit_data.py:914 ../src/setroubleshoot/browser.py:759
+#: ../src/setroubleshoot/audit_data.py:899 ../src/setroubleshoot/browser.py:759
 #: ../src/setroubleshoot/browser.py:834 ../src/setroubleshoot/rpc.py:528
-#: ../src/setroubleshoot/util.py:242
+#: ../src/setroubleshoot/util.py:251
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: ../src/setroubleshoot/audit_data.py:1004
+#: ../src/setroubleshoot/audit_data.py:982
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
 "**** Неверный AVC допускается текущим регламентом ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1006
+#: ../src/setroubleshoot/audit_data.py:984
 #, python-format
 msgid ""
 "%s \n"
@@ -76,39 +77,39 @@ msgstr ""
 "**** Неверный AVC пропускается текущим регламентом. Команда «semodule -B» "
 "включает аудит правил с флагом «dontaudit». ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1008
+#: ../src/setroubleshoot/audit_data.py:986
 msgid "Must call policy_init first"
 msgstr "Сначала требуется вызвать policy_init"
 
-#: ../src/setroubleshoot/audit_data.py:1010
+#: ../src/setroubleshoot/audit_data.py:988
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
 "**** Неверный AVC плохой целевой контекст. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1012
+#: ../src/setroubleshoot/audit_data.py:990
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
 "**** Неверный AVC плохой исходный контекст. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1014
+#: ../src/setroubleshoot/audit_data.py:992
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** Неверный AVC плохой тип класса ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1016
+#: ../src/setroubleshoot/audit_data.py:994
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** Неверный AVC плохие права доступа ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1018
+#: ../src/setroubleshoot/audit_data.py:996
 msgid "Error during access vector computation"
 msgstr "Ошибка при вычислении вектора доступа"
 
@@ -356,26 +357,28 @@ msgid ""
 "If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
+"Если вы хотите разрешить $SOURCE_BASE_PATH иметь $ACCESS доступ к "
+"$TARGET_BASE_PATH $TARGET_УЧЕБНЫЙ КЛАСС"
 
-#: ../src/setroubleshoot/server.py:214
+#: ../src/setroubleshoot/server.py:220
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
-msgstr ""
+msgstr " Для выполнения всех сообщений SELinux: sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:401
+#: ../src/setroubleshoot/server.py:407
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Пользователь (%s) не может изменять данные для (%s)"
 
-#: ../src/setroubleshoot/server.py:465 ../src/sealert:299
+#: ../src/setroubleshoot/server.py:471 ../src/sealert:299
 msgid "Started"
 msgstr "Началось"
 
-#: ../src/setroubleshoot/server.py:663
+#: ../src/setroubleshoot/server.py:669
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:729
+#: ../src/setroubleshoot/server.py:750
 msgid "Audit Listener"
 msgstr "Прослушивает аудит"
 
@@ -425,7 +428,7 @@ msgstr "процесс"
 
 #: ../src/setroubleshoot/signature.py:207
 msgid "process2"
-msgstr ""
+msgstr "Process2"
 
 #: ../src/setroubleshoot/signature.py:208
 msgid "filesystem"
@@ -441,7 +444,7 @@ msgstr "возможность"
 
 #: ../src/setroubleshoot/signature.py:211
 msgid "capability2"
-msgstr ""
+msgstr "capability2"
 
 #: ../src/setroubleshoot/signature.py:388
 #, python-format
@@ -695,15 +698,16 @@ msgstr "Диагностика выбранного предупреждения
 
 #: ../gui/browser.glade.h:10
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 #: ../gui/browser.glade.h:11
 msgid "Delete Selected Alerts"
 msgstr "Удалить выбранные оповещения"
 
+# translation auto-copied from project subscription-manager, version 1.11.X, document keys
 #: ../gui/browser.glade.h:13
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: ../gui/browser.glade.h:15
 msgid "<b>SELinux has detected a problem.</b>"
@@ -743,7 +747,7 @@ msgstr "Удалить текущее оповещение из базы дан�
 
 #: ../gui/browser.glade.h:32
 msgid "Previous"
-msgstr ""
+msgstr "Назад"
 
 #: ../gui/browser.glade.h:33
 msgid "Show previous alert."
@@ -751,7 +755,7 @@ msgstr "Показать предыдущее предупреждение."
 
 #: ../gui/browser.glade.h:35
 msgid "Next"
-msgstr ""
+msgstr "Далее"
 
 #: ../gui/browser.glade.h:36
 msgid "Show next alert."
