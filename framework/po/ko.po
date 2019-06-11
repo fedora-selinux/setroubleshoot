@@ -9,22 +9,23 @@
 # bardisch <kwb0128@gmail.com>, 2011
 #   <raypoatssium@gmail.com>, 2011,2013
 # Eun-Ju Kim <eukim@redhat.com>, 2016. #zanata
-# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
+# Ludek Janda <ljanda@redhat.com>, 2018. #zanata
+# Vit Mojzis <vmojzis@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-18 16:24+0200\n"
+"POT-Creation-Date: 2019-06-06 09:47+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-08 11:35+0000\n"
+"PO-Revision-Date: 2019-05-14 05:16+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/fedora/language/"
 "ko/)\n"
 "Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -38,25 +39,25 @@ msgstr "SELinux 액세스 거부 문제 해결 "
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:912
+#: ../src/setroubleshoot/audit_data.py:897
 #, python-format
 msgid "port %s"
 msgstr "포트 %s"
 
-#: ../src/setroubleshoot/audit_data.py:914 ../src/setroubleshoot/browser.py:759
+#: ../src/setroubleshoot/audit_data.py:899 ../src/setroubleshoot/browser.py:759
 #: ../src/setroubleshoot/browser.py:834 ../src/setroubleshoot/rpc.py:528
-#: ../src/setroubleshoot/util.py:242
+#: ../src/setroubleshoot/util.py:251
 msgid "Unknown"
 msgstr "알려지지 않음"
 
-#: ../src/setroubleshoot/audit_data.py:1004
+#: ../src/setroubleshoot/audit_data.py:982
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
 "**** 잘못된 AVC가 현재 정책에서 허용되어 있습니다 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1006
+#: ../src/setroubleshoot/audit_data.py:984
 #, python-format
 msgid ""
 "%s \n"
@@ -67,39 +68,39 @@ msgstr ""
 "**** 잘못된 AVC가 현재 정책에서 dontaudit되었습니다. 'semodule -B'는 dontaudit 규칙을 활성화하게 됩니다."
 " ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1008
+#: ../src/setroubleshoot/audit_data.py:986
 msgid "Must call policy_init first"
 msgstr "반드시 policy_init이 먼저 호출돼야합니다."
 
-#: ../src/setroubleshoot/audit_data.py:1010
+#: ../src/setroubleshoot/audit_data.py:988
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
 "**** 잘못된 AVC 잘못된 대상 문맥. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1012
+#: ../src/setroubleshoot/audit_data.py:990
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
 "**** 잘못된 AVC 잘못된 소스 문맥  ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1014
+#: ../src/setroubleshoot/audit_data.py:992
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** 잘못된 AVC 잘못된 유형 클래스 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1016
+#: ../src/setroubleshoot/audit_data.py:994
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** 잘못된 AVC 잘못된 권한 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1018
+#: ../src/setroubleshoot/audit_data.py:996
 msgid "Error during access vector computation"
 msgstr "액세스 벡터 연산시 오류 발생 "
 
@@ -347,26 +348,27 @@ msgid ""
 "If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
+"허용하려는 경우 $SOURCE가질 _BASE_PATH $ACCESS 에 대한 액세스 $TARGET_BASE_PATH $TARGET_수업"
 
-#: ../src/setroubleshoot/server.py:214
+#: ../src/setroubleshoot/server.py:220
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
-msgstr ""
+msgstr " 완전한 SELinux 메시지를 실행하려면 : sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:401
+#: ../src/setroubleshoot/server.py:407
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "사용자 (%s)는 (%s)에 대한 데이터를 수정할 수 없습니다  "
 
-#: ../src/setroubleshoot/server.py:465 ../src/sealert:299
+#: ../src/setroubleshoot/server.py:471 ../src/sealert:299
 msgid "Started"
 msgstr "시작 "
 
-#: ../src/setroubleshoot/server.py:663
+#: ../src/setroubleshoot/server.py:669
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:729
+#: ../src/setroubleshoot/server.py:750
 msgid "Audit Listener"
 msgstr "청취자 감사 "
 
@@ -416,7 +418,7 @@ msgstr "프로세스"
 
 #: ../src/setroubleshoot/signature.py:207
 msgid "process2"
-msgstr ""
+msgstr "process2"
 
 #: ../src/setroubleshoot/signature.py:208
 msgid "filesystem"
@@ -432,7 +434,7 @@ msgstr "기능 "
 
 #: ../src/setroubleshoot/signature.py:211
 msgid "capability2"
-msgstr ""
+msgstr "능력 2"
 
 #: ../src/setroubleshoot/signature.py:388
 #, python-format
@@ -684,7 +686,7 @@ msgstr "문제 해결이 경고 선택 "
 
 #: ../gui/browser.glade.h:10
 msgid "Delete"
-msgstr ""
+msgstr "삭제 "
 
 #: ../gui/browser.glade.h:11
 msgid "Delete Selected Alerts"
@@ -692,7 +694,7 @@ msgstr "선택된 경고 "
 
 #: ../gui/browser.glade.h:13
 msgid "Close"
-msgstr ""
+msgstr "닫기"
 
 #: ../gui/browser.glade.h:15
 msgid "<b>SELinux has detected a problem.</b>"
@@ -730,7 +732,7 @@ msgstr "데이터베이스에서 현재 경고 "
 
 #: ../gui/browser.glade.h:32
 msgid "Previous"
-msgstr ""
+msgstr "이전"
 
 #: ../gui/browser.glade.h:33
 msgid "Show previous alert."
@@ -738,7 +740,7 @@ msgstr "이전 통지 보기"
 
 #: ../gui/browser.glade.h:35
 msgid "Next"
-msgstr ""
+msgstr "다음"
 
 #: ../gui/browser.glade.h:36
 msgid "Show next alert."

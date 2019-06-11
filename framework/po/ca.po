@@ -7,22 +7,22 @@
 # Xavier Conde Rueda <xavi.conde@gmail.com>, 2006
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015. #zanata
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017. #zanata
-# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-18 16:24+0200\n"
+"POT-Creation-Date: 2019-06-06 09:47+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-10-26 09:43+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2018-02-27 05:31+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/projects/p/fedora/language/"
 "ca/)\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -36,25 +36,25 @@ msgstr "Solucioneu els problemes dels accessos denegats del SELinux"
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "política;seguretat;selinux;avc;permisos;mac;alerta;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:912
+#: ../src/setroubleshoot/audit_data.py:897
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/setroubleshoot/audit_data.py:914 ../src/setroubleshoot/browser.py:759
+#: ../src/setroubleshoot/audit_data.py:899 ../src/setroubleshoot/browser.py:759
 #: ../src/setroubleshoot/browser.py:834 ../src/setroubleshoot/rpc.py:528
-#: ../src/setroubleshoot/util.py:242
+#: ../src/setroubleshoot/util.py:251
 msgid "Unknown"
 msgstr "Desconegut"
 
-#: ../src/setroubleshoot/audit_data.py:1004
+#: ../src/setroubleshoot/audit_data.py:982
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
 "**** L'AVC no és vàlida i està permesa en la política actual ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1006
+#: ../src/setroubleshoot/audit_data.py:984
 #, python-format
 msgid ""
 "%s \n"
@@ -65,11 +65,11 @@ msgstr ""
 "**** L'AVC no és vàlida, sense dontaudit en les polítiques actuals.  "
 "'semodule -B' activarà les regles dontaudit. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1008
+#: ../src/setroubleshoot/audit_data.py:986
 msgid "Must call policy_init first"
 msgstr "Primer s'ha de cridar policy_init"
 
-#: ../src/setroubleshoot/audit_data.py:1010
+#: ../src/setroubleshoot/audit_data.py:988
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
@@ -77,7 +77,7 @@ msgstr ""
 "%s \n"
 "****L'AVC no és vàlida, el context de l'objectiu està malament. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1012
+#: ../src/setroubleshoot/audit_data.py:990
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
@@ -85,21 +85,21 @@ msgstr ""
 "%s \n"
 "**** L'AVC no és vàlida, el context de l'origen està malament. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1014
+#: ../src/setroubleshoot/audit_data.py:992
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** L'AVC no és vàlida, la classe del tipus està malament ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1016
+#: ../src/setroubleshoot/audit_data.py:994
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** L'AVC no és vàlida, els permisos estan malament ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1018
+#: ../src/setroubleshoot/audit_data.py:996
 msgid "Error during access vector computation"
 msgstr "S'ha produït un error en l'AVC"
 
@@ -347,26 +347,28 @@ msgid ""
 "If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
+"Si voleu permetre que $SOURCE_BASE_PATH tingui accés de $ACCESS a "
+"$TARGET_BASE_PATH $TARGET_CLASS"
 
-#: ../src/setroubleshoot/server.py:214
+#: ../src/setroubleshoot/server.py:220
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
 msgstr "Per als missatges complets de SELinux executeu: sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:401
+#: ../src/setroubleshoot/server.py:407
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "L'usuari (%s) no pot modificar les dades de (%s)"
 
-#: ../src/setroubleshoot/server.py:465 ../src/sealert:299
+#: ../src/setroubleshoot/server.py:471 ../src/sealert:299
 msgid "Started"
 msgstr "Iniciat"
 
-#: ../src/setroubleshoot/server.py:663
+#: ../src/setroubleshoot/server.py:669
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:729
+#: ../src/setroubleshoot/server.py:750
 msgid "Audit Listener"
 msgstr "Escoltador d'auditoria"
 
@@ -416,7 +418,7 @@ msgstr "procés"
 
 #: ../src/setroubleshoot/signature.py:207
 msgid "process2"
-msgstr ""
+msgstr "procés2"
 
 #: ../src/setroubleshoot/signature.py:208
 msgid "filesystem"
@@ -674,11 +676,6 @@ msgid ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
-"Copyright (c) 2010 \n"
-"Thomas Liu <tliu@redhat.com>\n"
-"Máirín Duffy <duffy@redhat.com>\n"
-"Daniel Walsh <dwalsh@redhat.com>\n"
-"John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"

@@ -10,22 +10,21 @@
 # Shankar Prasad <svenkte@redhat.com>, 2013
 # shankar <svenkate@redhat.com>, 2006,2013
 # shanky <prasad.mvs@gmail.com>, 2012
-# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-18 16:24+0200\n"
+"POT-Creation-Date: 2019-06-06 09:59+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 08:32+0000\n"
+"PO-Revision-Date: 2017-09-01 12:32+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Kannada (http://www.transifex.com/projects/p/fedora/language/"
 "kn/)\n"
 "Language: kn\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -437,13 +436,6 @@ msgid ""
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
 msgstr ""
-"  \"allow_ftpd_use_nfs\" ಹಾಗು \"$WRITE_BOOLEAN\"\n"
-"     ಬೂಲಿಯನ್‍ಗಳನ್ನು ನಿಜಕ್ಕೆ ಬದಲಾಯಿಸುವುದರಿಂದ ಅದು ಈ ನಿಲುಕನ್ನು ಅನುಮತಿಸುತ್ತದೆ:\n"
-"    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n"
-"    ಎಚ್ಚರಿಕೆ: \"$WRITE_BOOLEAN\" ಬೂಲಿಯನ್‍ಗಳನ್ನು ನಿಜಕ್ಕೆ ಹೊಂದಿಸುವುದರಿಂದ\n"
-"    ftp ಡೆಮನ್‍ಗೆ NFS ಕಡತ ವ್ಯವಸ್ಥೆಗಳಲ್ಲಿನ ಕಡತಗಳು ಹಾಗು ಕಡತಕೋಶಗಳ ಜೊತೆಗೆ ಎಲ್ಲಾ\n"
-"    ಸಾರ್ವಜನಿಕ ವಿಷಯಗಳನ್ನು (public_content_t ಬಗೆಯ ಕಡತಗಳು ಹಾಗು ಕಡತಕೋಶಗಳು)\n"
-"    ಬರೆಯಲು ಅನುಮತಿಯನ್ನು ಒದಗಿಸುತ್ತದೆ.  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
@@ -922,13 +914,6 @@ msgid ""
 "    \n"
 "    "
 msgstr ""
-"\n"
-"    chcon -R -t cvs_data_t '$TARGET_PATH' ಅನ್ನು ಕಾರ್ಯಗತಗೊಳಿಸುವ ಮೂಲಕ ಕಡತದ "
-"ಸನ್ನಿವೇಶವನ್ನು ಬದಲಾಯಿಸಬಹುದು\n"
-"   ಒಂದು ಸಂಪೂರ್ಣ ಮರುಲೇಬಲ್ ನಂತರವೂ ಗಣಕಗಳ ಕಡತವನ್ನು ಉಳಿಸಿಕೊಳ್ಳಲು ಅವುಗಳ "
-"ಪೂರ್ವನಿಯೋಜಿತ ಸಂರಚನೆಯನ್ನು ಬದಲಾಯಿಸಬೇಕಾಗುತ್ತದೆ.  \"semanage fcontext -a -t "
-"cvs_data_t '$FIX_TARGET_PATH'\"\n"
-"    "
 
 #: ../src/cvs_data.py:44
 msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"

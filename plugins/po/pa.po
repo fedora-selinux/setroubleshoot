@@ -7,22 +7,21 @@
 # A S Alam <apbrar@gmail.com>, 2006
 # Jaswinder Singh <phulewala.j@gmail.com>, 2012
 # Jaswinder Singh <jsingh@redhat.com>, 2007-2012
-# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-18 16:24+0200\n"
+"POT-Creation-Date: 2019-06-06 09:59+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 08:32+0000\n"
+"PO-Revision-Date: 2017-09-01 12:32+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Panjabi (Punjabi) (http://www.transifex.com/projects/p/fedora/"
 "language/pa/)\n"
 "Language: pa\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -427,13 +426,6 @@ msgid ""
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
 msgstr ""
-" Changing the \"allow_ftpd_use_nfs\" and\n"
-"    \"$WRITE_BOOLEAN\" booleans to true will allow this access:\n"
-"    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n"
-"    warning: setting the \"$WRITE_BOOLEAN\" boolean to true will\n"
-"    allow the ftp daemon to write to all public content (files and\n"
-"    directories with type public_content_t) in addition to writing to\n"
-"    files and directories on NFS filesystems.  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
@@ -906,14 +898,6 @@ msgid ""
 "    \n"
 "    "
 msgstr ""
-"\n"
-"    You can alter the file context by executing chcon -R -t cvs_data_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"cvs_data_t '$FIX_TARGET_PATH'\"\n"
-"    \n"
-"    "
 
 #: ../src/cvs_data.py:44
 msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"

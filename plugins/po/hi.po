@@ -10,22 +10,21 @@
 # rajesh <rajesh>, 2012
 # Rajesh Ranjan <rajesh672@gmail.com>, 2009
 # Rajesh Ranjan <rranjan@redhat.com>, 2006-2008,2010,2012-2013
-# Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-18 16:24+0200\n"
+"POT-Creation-Date: 2019-06-06 09:59+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 08:32+0000\n"
+"PO-Revision-Date: 2017-09-01 12:32+0000\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Hindi (http://www.transifex.com/projects/p/fedora/language/hi/"
 ")\n"
 "Language: hi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -432,14 +431,6 @@ msgid ""
 "    directories with type public_content_t) in addition to writing to\n"
 "    files and directories on NFS filesystems.  "
 msgstr ""
-" \"allow_ftpd_use_nfs\" और\n"
-"    \"$WRITE_BOOLEAN\" बुलियन को सही में बदलना इस अभिगम के लिये अनुमति देगा:\n"
-"    \"setsebool -P allow_ftpd_use_nfs=1 $WRITE_BOOLEAN=1\".\n"
-"    चेतावनी: \"$WRITE_BOOLEAN\" बुलियन को सही पर सेट करना \n"
-"    ftp डेमॉन को सार्वजनिक फाइल में लिखने के लिये अनुमति देगा (फाइल व "
-"निर्देशिका \n"
-"    public_content_t प्रकार का) \n"
-"    NFS फाइळ सिस्टम पर निर्देशिका व फाइल सिस्टम के अलावा.  "
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
@@ -915,14 +906,6 @@ msgid ""
 "    \n"
 "    "
 msgstr ""
-"\n"
-"    You can alter the file context by executing chcon -R -t cvs_data_t "
-"'$TARGET_PATH'\n"
-"    You must also change the default file context files on the system in "
-"order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
-"cvs_data_t '$FIX_TARGET_PATH'\"\n"
-"    \n"
-"    "
 
 #: ../src/cvs_data.py:44
 msgid "If $TARGET_BASE_PATH should be shared via the cvs daemon"
