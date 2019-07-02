@@ -6,6 +6,7 @@ DOC_FILES =					\
 	$(NULL)
 
 man_MANS =					\
+	seapplet.1				\
 	sealert.8				\
 	setroubleshootd.8			\
 	sedispatch.8				\
