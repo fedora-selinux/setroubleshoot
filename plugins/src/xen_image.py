@@ -43,7 +43,7 @@ class plugin(Plugin):
     You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t xen_image_t '$FIX_TARGET_PATH'"
     ''')
 
-    fix_cmd = "chcon -t xen_image_t '$TARGET_PATH'"
+    fix_cmd = "/usr/bin/chcon -t xen_image_t '$TARGET_PATH'"
 
     then_text = _("You need to change the label on '$FIX_TARGET_PATH'")
 
@@ -52,9 +52,11 @@ class plugin(Plugin):
 
     def __init__(self):
         Plugin.__init__(self, __name__)
+        self.fixable=True
+        self.button_text = _("Change the file label to xen_image_t.")
 
     def analyze(self, avc):
-        if (avc.matches_source_types(['xend_t', 'xm_t'])                 and
+        if (avc.matches_source_types(['xend_t', 'virsh_t'])              and
             avc.all_accesses_are_in(avc.r_file_perms + avc.r_dir_perms)  and
             avc.has_tclass_in(['file', 'dir'])                           and
             avc.path_is_not_standard_directory()):
