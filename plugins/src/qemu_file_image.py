@@ -29,12 +29,12 @@ class plugin(Plugin):
     ''')
 
     problem_description = _('''
-    SELinux denied qemu access to $TARGET_PATH.
+    SELinux denied svirt access to $TARGET_PATH.
     If this is a virtualization image, it has to have a file context label of
     virt_image_t. The system is setup to label image files in directory./var/lib/libvirt/images
     correctly.  We recommend that you copy your image file to /var/lib/libvirt/images.
-    If you really want to have your qemu image files in the current directory, you can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add this
-    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu
+    If you really want to have your image files in the current directory, you can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add this
+    new path to the system defaults. If you did not intend to use $TARGET_PATH as a virtualization
     image it could indicate either a bug or an intrusion attempt.
     ''')
 
@@ -43,17 +43,21 @@ class plugin(Plugin):
     You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'"
     ''')
 
-    fix_cmd = "chcon -t virt_image_t '$TARGET_PATH'"
+    fix_cmd = "/usr/bin/chcon -t virt_image_t '$TARGET_PATH'"
 
     if_text = _("If $TARGET_BASE_PATH is a virtualization target")
     then_text = _("You need to change the label on $TARGET_BASE_PATH'")
     do_text = """# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'
 # restorecon -v '$FIX_TARGET_PATH'"""
+
     def __init__(self):
         Plugin.__init__(self, __name__)
+        self.set_priority(60)
+        self.fixable=True
+        self.button_text = _("Set the image label to virt_image_t.")
 
     def analyze(self, avc):
-        if (avc.matches_source_types(['qemu_t']) and
+        if (avc.matches_source_types(['svirt_t']) and
             avc.all_accesses_are_in(avc.rw_file_perms + avc.r_dir_perms) and
             avc.has_tclass_in(['file', 'dir']) and
             avc.path_is_not_standard_directory()):

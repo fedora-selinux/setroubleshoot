@@ -29,9 +29,9 @@ class plugin(Plugin):
     ''')
 
     problem_description = _('''
-    SELinux denied qemu access to the block device $TARGET_PATH.
+    SELinux denied svirt access to the block device $TARGET_PATH.
     If this is a virtualization image, it needs to be labeled with a virtualization file context (virt_image_t). You can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add this
-    new path to the system defaults. If you did not intend to use $TARGET_PATH as a qemu
+    new path to the system defaults. If you did not intend to use $TARGET_PATH as a virtualization
     image it could indicate either a bug or an intrusion attempt.
     ''')
 
@@ -40,7 +40,7 @@ class plugin(Plugin):
     You must also change the default file context files on the system in order to preserve them even on a full relabel.  "semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'"
     ''')
 
-    fix_cmd = "chcon -t virt_image_t '$TARGET_PATH'"
+    fix_cmd = "/usr/bin/chcon -t virt_image_t '$TARGET_PATH'"
 
     then_text = _("You need to change the label on '$FIX_TARGET_PATH'")
     do_text = _("""# semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH'
@@ -48,9 +48,12 @@ class plugin(Plugin):
 
     def __init__(self):
         Plugin.__init__(self, __name__)
+        self.set_priority(60)
+        self.fixable=True
+        self.button_text = _("Set the image label to virt_image_t.")
 
     def analyze(self, avc):
-        if (avc.matches_source_types(['qemu_t']) and
+        if (avc.matches_source_types(['svirt_t']) and
            avc.all_accesses_are_in(avc.rw_file_perms + avc.r_dir_perms) and
            avc.has_tclass_in(['blk_file'])):
             # MATCH
