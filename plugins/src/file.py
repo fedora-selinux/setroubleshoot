@@ -25,16 +25,16 @@ from setroubleshoot.Plugin import Plugin
 
 class plugin(Plugin):
     summary =_('''
-    SELinux is preventing access to files with the label, file_t.
+    SELinux is preventing access to a file labeled unlabeled_t.
     ''')
 
     problem_description = _('''
-    SELinux permission checks on files labeled file_t are being
-    denied.  file_t is the context the SELinux kernel gives to files
+    SELinux permission checks on files labeled unlabeled_t are being
+    denied. unlabeled_t is a context the SELinux kernel gives to files
     that do not have a label. This indicates a serious labeling
-    problem. No files on an SELinux box should ever be labeled file_t.
-    If you have just added a disk drive to the system you can
-    relabel it using the restorecon command.  For example if you saved the
+    problem. No files on an SELinux box should ever be labeled unlabeled_t.
+    If you have just added a disk drive to the system, you can
+    relabel it using the restorecon command. For example if you saved the
 home directory from a previous installation that did not use SELinux, 'restorecon -R -v /home' will fix the labels.  Otherwise you should
     relabel the entire file system.
     ''')
@@ -62,13 +62,27 @@ home directory from a previous installation that did not use SELinux, 'restoreco
         else:
             return 'touch /.autorelabel; reboot'
 
+    def get_fix_cmd(self, avc, args):
+        if args == (1,0):
+            return '/sbin/restorecon -R -v $TARGET_PATH'
+        else:
+            return 'touch /.autorelabel; reboot'
+
+    def init_args(self, args):
+        if args == (1,0):
+            self.button_text = _("Try to fix the label.")
+            self.set_priority(70)
+        else:
+            self.button_text = _("Relabel the whole file system. Includes reboot!")
+            self.set_priority(30)
+
     def __init__(self):
         Plugin.__init__(self,__name__)
         self.level="green"
-        self.set_priority(8)
+        self.fixable=True
 
     def analyze(self, avc):
-        if avc.matches_target_types(['file_t']):
+        if avc.matches_target_types(['unlabeled_t']):
             # MATCH
             reports = []
             reports.append(self.report((1,0)))
