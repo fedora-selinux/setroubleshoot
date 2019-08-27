@@ -29,7 +29,6 @@ from gi.repository import GObject, GLib
 GLib.set_prgname('setroubleshoot')
 
 import dbus
-import dbus.glib
 import dbus.service
 import errno as Errno
 import gettext
@@ -41,6 +40,9 @@ import socket as Socket
 import fcntl
 import sys
 import slip.dbus.service
+
+from dbus.mainloop.glib import DBusGMainLoop
+DBusGMainLoop(set_as_default=True)
 
 from setroubleshoot.config import parse_config_setting, get_config
 domain = get_config('general', 'i18n_text_domain')
