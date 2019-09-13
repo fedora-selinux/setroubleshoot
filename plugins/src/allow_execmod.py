@@ -66,13 +66,13 @@ class plugin(Plugin):
 
     ''')
 
-    unsafe_if_text = "this issue occurred during normal system operation."
+    unsafe_if_text = "If this issue occurred during normal system operation."
 
     unsafe_then_text = """This alert could be a serious issue and your system could be compromised. Setroubleshoot examined '$FIX_TARGET_PATH' to make sure it was built correctly, but can not determine if this application has been compromised."""
 
     unsafe_do_text = "Contact your security administrator and report this issue"
 
-    if_text = "you trust $TARGET_PATH to run correctly and want to allow $SOURCE to load it"
+    if_text = "If you trust $TARGET_PATH to run correctly and want to allow $SOURCE to load it"
 
     then_text = "You need to change the label on '$FIX_TARGET_PATH' to textrel_shlib_t."
 

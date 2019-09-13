@@ -42,7 +42,7 @@ class plugin(Plugin):
 
     fix_cmd = """/usr/sbin/semanage fcontext -a -t bin_t '$FIX_TARGET_PATH';/usr/sbin/restorecon -v '$FIX_TARGET_PATH'"""
 
-    if_text = 'you want to allow automounter to execute $TARGET_PATH'
+    if_text = 'If you want to allow automounter to execute $TARGET_PATH'
 
     then_text = "Change the file context of '$TARGET_PATH' to bin_t."
 
