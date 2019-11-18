@@ -8,6 +8,7 @@ install-data-local:
 PLUGIN_FILES =				\
 	allow_anon_write.py		\
 	allow_execheap.py		\
+	allow_execmem.py                \
 	allow_execmod.py		\
 	allow_execstack.py		\
 	allow_ftpd_use_cifs.py		\
