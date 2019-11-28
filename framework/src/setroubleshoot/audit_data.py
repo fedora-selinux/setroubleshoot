@@ -918,6 +918,10 @@ class AVC:
                 match = self.pipe_instance_path_re.search(path)
                 if match:
                     path = self.tclass
+                # abstract socket paths start with '\0'
+                if path[0] == '\0':
+                    path = "@" + path.strip('\0')
+
 
         self.tpath = path
 
