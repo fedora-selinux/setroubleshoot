@@ -33,6 +33,7 @@ from gi.repository import GObject, GLib
 import os
 import time
 import threading
+import traceback
 from stat import *
 import sys
 from functools import cmp_to_key
@@ -213,6 +214,8 @@ class Analyze(object):
             except Exception as e:
                 print(e, file=sys.stderr)
                 syslog.syslog(syslog.LOG_ERR, "Plugin Exception %s " % plugin.analysis_id)
+                (v1, v2, v3) = sys.exc_info()
+                log_debug(join(traceback.format_tb(v3)))
                 self.plugins.remove(plugin)
 
         report_receiver.report_problem(siginfo)
