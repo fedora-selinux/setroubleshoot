@@ -713,7 +713,7 @@ class AVC:
         types = wtypes
         for t in types:
             if t in all_attributes:
-                wtypes.extend(info(ATTRIBUTE, t)[0]["types"])
+                wtypes.extend(next(info(ATTRIBUTE, t))["types"])
 
         for t in wtypes:
             if t in all_types:
