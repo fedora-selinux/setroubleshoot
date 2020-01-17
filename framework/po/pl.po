@@ -10,22 +10,23 @@
 # Piotr Drąg <piotrdrag@gmail.com>, 2017. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 # Piotr Drąg <piotrdrag@gmail.com>, 2018. #zanata
+# Piotr Drąg <piotrdrag@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-03 10:39+0200\n"
+"POT-Creation-Date: 2019-11-29 14:13+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-05-22 03:43+0000\n"
+"PO-Revision-Date: 2019-12-02 12:45+0000\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/projects/p/fedora/language/"
 "pl/)\n"
 "Language: pl\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -33,32 +34,32 @@ msgstr "Rozwiązywanie problemów z SELinuksem"
 
 #: ../setroubleshoot.desktop.in.h:2
 msgid "Troubleshoot SELinux access denials"
-msgstr "Rozwiązywanie problemów z odmówieniami dostępu SELinuksa"
+msgstr "Rozwiązywanie problemów z odmowami dostępu SELinuksa"
 
 #: ../setroubleshoot.desktop.in.h:3
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr ""
 "polityka;bezpieczeństwo;zabezpieczenia;selinux;avc;uprawnienia;mac;alarm;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:946
+#: ../src/setroubleshoot/audit_data.py:932
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/setroubleshoot/audit_data.py:948 ../src/setroubleshoot/browser.py:773
+#: ../src/setroubleshoot/audit_data.py:934 ../src/setroubleshoot/browser.py:773
 #: ../src/setroubleshoot/browser.py:848 ../src/setroubleshoot/rpc.py:558
-#: ../src/setroubleshoot/util.py:282
+#: ../src/setroubleshoot/util.py:291
 msgid "Unknown"
 msgstr "Nieznane"
 
-#: ../src/setroubleshoot/audit_data.py:1037
+#: ../src/setroubleshoot/audit_data.py:1016
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
 "**** Zezwolono nieprawidłowe AVC w bieżącej polityce ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1039
+#: ../src/setroubleshoot/audit_data.py:1018
 #, python-format
 msgid ""
 "%s \n"
@@ -69,39 +70,39 @@ msgstr ""
 "**** Nieprawidłowe AVC „dontaudited” w bieżącej polityce. Polecenie "
 "„semodule -B” włączy reguły „dontaudit”. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1041
+#: ../src/setroubleshoot/audit_data.py:1020
 msgid "Must call policy_init first"
 msgstr "Należy najpierw wywołać policy_init"
 
-#: ../src/setroubleshoot/audit_data.py:1043
+#: ../src/setroubleshoot/audit_data.py:1022
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
 "**** Nieprawidłowe AVC: błędny kontekst docelowy. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1045
+#: ../src/setroubleshoot/audit_data.py:1024
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
 "**** Nieprawidłowe AVC: błędny kontekst źródłowy. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1047
+#: ../src/setroubleshoot/audit_data.py:1026
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** Nieprawidłowe AVC: błędna klasa typu ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1049
+#: ../src/setroubleshoot/audit_data.py:1028
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** Nieprawidłowe AVC: błędne uprawnienie ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1051
+#: ../src/setroubleshoot/audit_data.py:1030
 msgid "Error during access vector computation"
 msgstr "Błąd podczas uzyskiwania dostępu do obliczeń wektorowych"
 
@@ -335,7 +336,7 @@ msgstr "nie uwierzytelniono"
 msgid "user lookup failed"
 msgstr "wyszukanie użytkownika się nie powiodło"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:564
+#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:566
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "%s wyrzucił błąd."
@@ -352,26 +353,26 @@ msgstr ""
 "Aby zezwolić $SOURCE_BASE_PATH na dostęp $ACCESS w $TARGET_BASE_PATH "
 "$TARGET_CLASS"
 
-#: ../src/setroubleshoot/server.py:219
+#: ../src/setroubleshoot/server.py:226
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
 msgstr ""
 " Aby uzyskać pełne komunikaty SELinuksa, należy wykonać: sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:407
+#: ../src/setroubleshoot/server.py:414
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Użytkownik (%s) nie może zmodyfikować danych dla (%s)"
 
-#: ../src/setroubleshoot/server.py:479 ../src/sealert:317
+#: ../src/setroubleshoot/server.py:486 ../src/sealert:319
 msgid "Started"
 msgstr "Uruchomiono"
 
-#: ../src/setroubleshoot/server.py:677
+#: ../src/setroubleshoot/server.py:684
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:745
+#: ../src/setroubleshoot/server.py:775
 msgid "Audit Listener"
 msgstr "Nasłuchiwanie audytu"
 
@@ -639,7 +640,7 @@ msgid "Show"
 msgstr "Wyświetl"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:70
+#: ../src/seappletlegacy.c:440 ../src/sealert:72
 msgid "SELinux AVC denial, click to view"
 msgstr "Odmowa AVC SELinuksa. Kliknij, aby ją wyświetlić."
 
@@ -649,22 +650,22 @@ msgstr ""
 "Rozwiązywanie problemów z SELinuksem: aplet do działania wymaga włączonego "
 "SELinuksa"
 
-#: ../src/sealert:120
+#: ../src/sealert:122
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
 "SELinux nie jest włączony, program sealert nie może być uruchamiany "
 "w systemach bez SELinuksa"
 
-#: ../src/sealert:170
+#: ../src/sealert:172
 msgid "Not fixable."
 msgstr "Niemożliwe do naprawienia."
 
-#: ../src/sealert:177
+#: ../src/sealert:179
 #, c-format
 msgid "Successfully ran %s"
 msgstr "Pomyślnie wykonano %s"
 
-#: ../src/sealert:184
+#: ../src/sealert:186
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "Wtyczka %s nie jest prawidłowa dla identyfikatora %s"

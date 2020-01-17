@@ -1,22 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-#
-# Translators:
+# Lukas Vrabec <lvrabec@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: setroubleshoot\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 08:27+0200\n"
-"PO-Revision-Date: 2013-11-20 12:27+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/"
-"sk/)\n"
-"Language: sk\n"
+"POT-Creation-Date: 2019-11-29 14:19+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"PO-Revision-Date: 2019-07-04 01:33+0000\n"
+"Last-Translator: Lukas Vrabec <lvrabec@redhat.com>\n"
+"Language-Team: Slovak\n"
+"Language: sk\n"
+"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -25,6 +21,9 @@ msgid ""
 "    directory.\n"
 "    "
 msgstr ""
+"\n"
+"SELinux politika zabránila httpd skriptu k zapisovaniu do verejného\n"
+"adresára"
 
 #: ../src/allow_anon_write.py:32
 msgid ""
@@ -44,8 +43,8 @@ msgid ""
 "    man page for further information:\n"
 "    \"setsebool -P $BOOLEAN=1; chcon -t public_content_rw_t <path>\"\n"
 "    You must also change the default file context labeling files on the "
-"system in order to preserve public directory labeling even on a full "
-"relabel.  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
+"system in order to preserve public directory labeling even on a full relabel."
+"  \"semanage fcontext -a -t public_content_rw_t <path>\"\n"
 "    "
 msgstr ""
 
@@ -54,12 +53,15 @@ msgid ""
 "If you want to allow $SOURCE_PATH to be able to write to shared public "
 "content"
 msgstr ""
+"Ak chcete povolit $SOURCE_PATH aby mohol zapisovať do zdielaného obsahu. "
 
 #: ../src/allow_anon_write.py:45
 msgid ""
 "you need to change the label on $TARGET_PATH to public_content_rw_t, and "
 "potentially turn on the allow_httpd_sys_script_anon_write boolean."
 msgstr ""
+"potrebujete zmeniť SELinux kontext $TARGET_PATH na public_content_rw_t, a "
+"potencionálne zapnúť SELinux boolean allow_httpd_sys_script_anon_write."
 
 #: ../src/allow_execheap.py:27
 msgid ""
@@ -104,7 +106,7 @@ msgstr ""
 
 #: ../src/allow_execheap.py:51
 msgid "you need to report a bug. This is a potentially dangerous access."
-msgstr ""
+msgstr "Nahláste chybu. Toto je potencionálne nebezepečný prístup."
 
 #: ../src/allow_execheap.py:52 ../src/allow_execstack.py:91
 #: ../src/kernel_modules.py:46 ../src/mmap_zero.py:48
@@ -112,6 +114,7 @@ msgstr ""
 #: ../src/sys_module.py:30 ../src/sys_module.py:48
 msgid "Contact your security administrator and report this issue."
 msgstr ""
+"Kontaktujte Vášho Bezpečnostného administrátora a nahláste tuto chybu."
 
 #: ../src/allow_execmod.py:29
 msgid ""
@@ -146,8 +149,7 @@ msgid ""
 "    SELinux Memory Protection Tests</a>\n"
 "    web page explains this check.  This tool examined the library and it "
 "looks\n"
-"    like it was built correctly. So setroubleshoot can not determine if "
-"this\n"
+"    like it was built correctly. So setroubleshoot can not determine if this\n"
 "    application is compromised or not.  This could be a serious issue. Your\n"
 "    system may very well be compromised.\n"
 "\n"
@@ -171,7 +173,7 @@ msgstr ""
 
 #: ../src/allow_execmod.py:114
 msgid "Change label on the library."
-msgstr ""
+msgstr "Zmeňte kontext na knižnici."
 
 #: ../src/allow_execstack.py:60
 msgid ""
@@ -218,15 +220,13 @@ msgid ""
 msgstr ""
 
 #: ../src/allow_execstack.py:90
-msgid ""
-"you need to report a bug. \n"
+msgid "you need to report a bug. \n"
 "This is a potentially dangerous access."
 msgstr ""
 
 #: ../src/allow_execstack.py:99
 #, python-format
-msgid ""
-"If you believe that \n"
+msgid "If you believe that \n"
 "%s\n"
 "should not require execstack"
 msgstr ""
@@ -234,8 +234,7 @@ msgstr ""
 #: ../src/allow_execstack.py:108
 #, python-format
 msgid ""
-"you should clear the execstack flag and see if $SOURCE_PATH works "
-"correctly.\n"
+"you should clear the execstack flag and see if $SOURCE_PATH works correctly.\n"
 "Report this as a bug on %s.\n"
 "You can clear the exestack flag by executing:"
 msgstr ""
@@ -243,7 +242,7 @@ msgstr ""
 #: ../src/allow_execstack.py:118
 #, python-format
 msgid "execstack -c %s"
-msgstr ""
+msgstr "execstack -c %s"
 
 #: ../src/allow_ftpd_use_cifs.py:29
 msgid ""
@@ -252,6 +251,8 @@ msgid ""
 "filesystem.\n"
 "    "
 msgstr ""
+"\n"
+"SELinux odmietol prístup ftp démonovi k $ACCESS súborom na CIFS filesystéme."
 
 #: ../src/allow_ftpd_use_cifs.py:33
 msgid ""
@@ -297,11 +298,11 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_cifs.py:63 ../src/allow_ftpd_use_nfs.py:65
 msgid "you must tell SELinux about this"
-msgstr ""
+msgstr "musíte povedať SELinuxu o tomto"
 
 #: ../src/allow_ftpd_use_cifs.py:69
 msgid "Enable booleans"
-msgstr ""
+msgstr "Povoliť booleany"
 
 #: ../src/allow_ftpd_use_nfs.py:29
 msgid ""
@@ -353,11 +354,11 @@ msgstr ""
 
 #: ../src/allow_ftpd_use_nfs.py:64
 msgid "If you want to allow ftpd to write to nfs file systems"
-msgstr ""
+msgstr "Ak chcete povoliť fttpd k zapisovaniu na nfs súborový systém."
 
 #: ../src/allow_ftpd_use_nfs.py:71
 msgid "Enable booleans."
-msgstr ""
+msgstr "Povoliť booleany."
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -391,7 +392,7 @@ msgstr ""
 
 #: ../src/associate.py:49
 msgid "you must pick a valid file label."
-msgstr ""
+msgstr "musíte si vybrať validný suborový systém."
 
 #: ../src/automount_exec_config.py:27
 msgid ""
@@ -419,8 +420,7 @@ msgid ""
 "    If you want to change the file context of $TARGET_PATH so that the "
 "automounter can execute it you can execute \"chcon -t bin_t $TARGET_PATH\".  "
 "If you want this to survive a relabel, you need to permanently change the "
-"file context: execute  \"semanage fcontext -a -t bin_t "
-"'$FIX_TARGET_PATH'\".\n"
+"file context: execute  \"semanage fcontext -a -t bin_t '$FIX_TARGET_PATH'\".\n"
 "    "
 msgstr ""
 
@@ -472,6 +472,7 @@ msgstr ""
 #: ../src/bind_ports.py:47
 msgid "If you want to allow $SOURCE_PATH to bind to network port $PORT_NUMBER"
 msgstr ""
+"Ak chcete povoliť $SOURCE_PATH k spojeniu sietového portu $PORT_NUMBER"
 
 #: ../src/bind_ports.py:53 ../src/connect_ports.py:51
 #, python-format
@@ -518,7 +519,7 @@ msgstr ""
 #: ../src/catchall_boolean.py:63
 #, python-format
 msgid "If you want to %s"
-msgstr ""
+msgstr "Ak chcete %s"
 
 #: ../src/catchall_boolean.py:66
 #, python-format
@@ -604,19 +605,27 @@ msgid ""
 "default."
 msgstr ""
 
-#: ../src/catchall.py:53
+#: ../src/catchall.py:54
+msgid ""
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"$TARGET_CLASS labeled $TARGET_TYPE by default."
+msgstr ""
+
+#: ../src/catchall.py:55
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "the $TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
 
-#: ../src/catchall.py:55
+#: ../src/catchall.py:57
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
+"Mali by ste to nahlásiť ako chybu.\n"
+"Môžete vygenerovať lokálny modul pre povolenie tohto prístupu."
 
-#: ../src/catchall.py:56
+#: ../src/catchall.py:58
 msgid ""
 "Allow this access for now by executing:\n"
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
@@ -626,8 +635,7 @@ msgstr ""
 #: ../src/connect_ports.py:27 ../src/sandbox_connect.py:29
 msgid ""
 "\n"
-"    SELinux is preventing $SOURCE_PATH from connecting to port "
-"$PORT_NUMBER.\n"
+"    SELinux is preventing $SOURCE_PATH from connecting to port $PORT_NUMBER.\n"
 "    "
 msgstr ""
 
@@ -651,8 +659,8 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can "
-"execute \n"
+"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute "
+"\n"
 "\n"
 "    # semanage port -a -t PORT_TYPE -p %s $PORT_NUMBER\n"
 "\n"
@@ -664,6 +672,7 @@ msgstr ""
 msgid ""
 "If you want to allow $SOURCE_PATH to connect to network port $PORT_NUMBER"
 msgstr ""
+"Ak chcete povoliť $SOURCE_PATH k pripojeniu na sietový port $PORT_NUMBER"
 
 #: ../src/chrome.py:31
 msgid ""
@@ -744,8 +753,7 @@ msgid "Change label"
 msgstr ""
 
 #: ../src/dac_override.py:28
-msgid ""
-"\n"
+msgid "\n"
 "    SELinux is preventing $SOURCE_PATH the \"$ACCESS\" capability.\n"
 "    "
 msgstr ""
@@ -843,8 +851,7 @@ msgid ""
 msgstr ""
 
 #: ../src/disable_ipv6.py:30
-msgid ""
-"\n"
+msgid "\n"
 "Disable IPV6 properly.\n"
 "    "
 msgstr ""
@@ -860,28 +867,26 @@ msgid ""
 msgstr ""
 
 #: ../src/disable_ipv6.py:42
-msgid ""
-"Add \n"
+msgid "Add \n"
 "net.ipv6.conf.all.disable_ipv6 = 1\n"
 "to /etc/sysctl.conf\n"
 msgstr ""
 
 #: ../src/file.py:27
-msgid ""
-"\n"
-"    SELinux is preventing access to files with the label, file_t.\n"
+msgid "\n"
+"    SELinux is preventing access to a file labeled unlabeled_t.\n"
 "    "
 msgstr ""
 
 #: ../src/file.py:31
 msgid ""
 "\n"
-"    SELinux permission checks on files labeled file_t are being\n"
-"    denied.  file_t is the context the SELinux kernel gives to files\n"
+"    SELinux permission checks on files labeled unlabeled_t are being\n"
+"    denied. unlabeled_t is a context the SELinux kernel gives to files\n"
 "    that do not have a label. This indicates a serious labeling\n"
-"    problem. No files on an SELinux box should ever be labeled file_t.\n"
-"    If you have just added a disk drive to the system you can\n"
-"    relabel it using the restorecon command.  For example if you saved the\n"
+"    problem. No files on an SELinux box should ever be labeled unlabeled_t.\n"
+"    If you have just added a disk drive to the system, you can\n"
+"    relabel it using the restorecon command. For example if you saved the\n"
 "home directory from a previous installation that did not use SELinux, "
 "'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
@@ -910,6 +915,14 @@ msgstr ""
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
+msgstr ""
+
+#: ../src/file.py:73
+msgid "Try to fix the label."
+msgstr ""
+
+#: ../src/file.py:76
+msgid "Relabel the whole file system. Includes reboot!"
 msgstr ""
 
 #: ../src/filesystem_associate.py:27
@@ -964,8 +977,7 @@ msgid ""
 msgstr ""
 
 #: ../src/httpd_can_sendmail.py:28
-msgid ""
-"\n"
+msgid "\n"
 "    SELinux is preventing the http daemon from sending mail.\n"
 "    "
 msgstr ""
@@ -998,8 +1010,7 @@ msgid "you must setup SELinux to allow this"
 msgstr ""
 
 #: ../src/httpd_unified.py:29
-msgid ""
-"\n"
+msgid "\n"
 "    SELinux prevented httpd $ACCESS access to http files.\n"
 "    "
 msgstr ""
@@ -1011,10 +1022,8 @@ msgid ""
 "\n"
 "    Ordinarily httpd is allowed full access to all files labeled with http "
 "file\n"
-"    context.  This machine has a tightened security policy with the "
-"$BOOLEAN\n"
-"    turned off,  this requires explicit labeling of all files.  If a file "
-"is\n"
+"    context.  This machine has a tightened security policy with the $BOOLEAN\n"
+"    turned off,  this requires explicit labeling of all files.  If a file is\n"
 "    a cgi script it needs to be labeled with httpd_TYPE_script_exec_t in "
 "order\n"
 "    to be executed.  If it is read only content, it needs to be labeled\n"
@@ -1165,8 +1174,7 @@ msgid ""
 "    SELinux has denied the $SOURCE the ability to mmap low area of the "
 "kernel \n"
 "    address space.  The ability to mmap a low area of the address space is \n"
-"    configured by /proc/sys/kernel/mmap_min_addr.  Preventing such "
-"mappings \n"
+"    configured by /proc/sys/kernel/mmap_min_addr.  Preventing such mappings \n"
 "    helps protect against exploiting null deref bugs in the kernel. All \n"
 "    applications that need this access should have already had policy "
 "written \n"
@@ -1297,8 +1305,7 @@ msgstr ""
 #: ../src/openvpn.py:41
 msgid ""
 "\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
+"    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  \n"
 "    # restorecon -R /root/.ssh\n"
 "    "
@@ -1360,13 +1367,13 @@ msgstr ""
 #: ../src/qemu_blk_image.py:31
 msgid ""
 "\n"
-"    SELinux denied qemu access to the block device $TARGET_PATH.\n"
+"    SELinux denied svirt access to the block device $TARGET_PATH.\n"
 "    If this is a virtualization image, it needs to be labeled with a "
 "virtualization file context (virt_image_t). You can relabel $TARGET_PATH to "
 "be virt_image_t using chcon.  You also need to execute semanage fcontext -a -"
 "t virt_image_t '$FIX_TARGET_PATH' to add this\n"
 "    new path to the system defaults. If you did not intend to use "
-"$TARGET_PATH as a qemu\n"
+"$TARGET_PATH as a virtualization\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
@@ -1388,22 +1395,26 @@ msgid ""
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
 
+#: ../src/qemu_blk_image.py:53 ../src/qemu_file_image.py:57
+msgid "Set the image label to virt_image_t."
+msgstr ""
+
 #: ../src/qemu_file_image.py:31
 msgid ""
 "\n"
-"    SELinux denied qemu access to $TARGET_PATH.\n"
+"    SELinux denied svirt access to $TARGET_PATH.\n"
 "    If this is a virtualization image, it has to have a file context label "
 "of\n"
 "    virt_image_t. The system is setup to label image files in directory./var/"
 "lib/libvirt/images\n"
 "    correctly.  We recommend that you copy your image file to /var/lib/"
 "libvirt/images.\n"
-"    If you really want to have your qemu image files in the current "
-"directory, you can relabel $TARGET_PATH to be virt_image_t using chcon.  You "
-"also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' "
-"to add this\n"
+"    If you really want to have your image files in the current directory, "
+"you can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need "
+"to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add "
+"this\n"
 "    new path to the system defaults. If you did not intend to use "
-"$TARGET_PATH as a qemu\n"
+"$TARGET_PATH as a virtualization\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
@@ -1415,8 +1426,7 @@ msgstr ""
 #: ../src/restorecon.py:57
 msgid ""
 "\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
+"    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon '$TARGET_PATH', if this file is a "
 "directory,\n"
 "    you can recursively restore using restorecon -R '$TARGET_PATH'.\n"
@@ -1479,16 +1489,14 @@ msgid ""
 msgstr ""
 
 #: ../src/restorecon.py:105 ../src/restorecon_source.py:73
-msgid ""
-"Restore\n"
+msgid "Restore\n"
 "Context"
 msgstr ""
 
 #: ../src/restorecon_source.py:39
 msgid ""
 "\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
+"    You can restore the default system context to this file by executing the\n"
 "    restorecon command.  restorecon '$SOURCE_PATH'.\n"
 "    "
 msgstr ""
@@ -1614,8 +1622,8 @@ msgstr ""
 #: ../src/sandbox_connect.py:41
 msgid ""
 "\n"
-"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can "
-"execute \n"
+"    If you want to allow $SOURCE to connect to $PORT_NUMBER, you can execute "
+"\n"
 "\n"
 "    # sandbox -X -t sandbox_net_t $SOURCE\n"
 "    "
@@ -1630,8 +1638,7 @@ msgid ""
 msgstr ""
 
 #: ../src/selinuxpolicy.py:29
-msgid ""
-"\n"
+msgid "\n"
 "    Your system may be seriously compromised!\n"
 "    "
 msgstr ""
@@ -1640,8 +1647,7 @@ msgstr ""
 msgid ""
 "\n"
 "    SELinux has prevented $SOURCE from modifying $TARGET.  This denial\n"
-"    indicates $SOURCE was trying to modify the selinux policy "
-"configuration.\n"
+"    indicates $SOURCE was trying to modify the selinux policy configuration.\n"
 "    All applications that need this access should have already had policy\n"
 "    written for them.  If a compromised application tries to modify the "
 "SELinux\n"
@@ -1674,8 +1680,7 @@ msgid ""
 "    Files under /sys/fs/selinux control the way SELinux is configured.\n"
 "    All programs that need to write to files under /sys/fs/selinux should "
 "have already had policy\n"
-"    written for them. If a compromised application tries to turn off "
-"SELinux\n"
+"    written for them. If a compromised application tries to turn off SELinux\n"
 "    this AVC will be generated. This is a serious issue. Your system may "
 "very\n"
 "    well be compromised.\n"
@@ -1705,8 +1710,7 @@ msgstr ""
 #: ../src/sshd_root.py:42
 msgid ""
 "\n"
-"    You can restore the default system context to this file by executing "
-"the\n"
+"    You can restore the default system context to this file by executing the\n"
 "    restorecon command.\n"
 "    # restorecon -R /root/.ssh\n"
 "    "
@@ -1770,8 +1774,7 @@ msgid ""
 "    All confined programs that need to load kernel modules should have "
 "already had policy\n"
 "    written for them. If a compromised application\n"
-"    tries to modify the kernel this AVC will be generated. This is a "
-"serious\n"
+"    tries to modify the kernel this AVC will be generated. This is a serious\n"
 "    issue. Your system may very well be compromised.\n"
 "    "
 msgstr ""
@@ -1833,8 +1836,8 @@ msgstr ""
 #: ../src/vbetool.py:30
 msgid ""
 "\n"
-"    SELinux has prevented vbetool from performing an unsafe memory "
-"operation.\n"
+"    SELinux has prevented vbetool from performing an unsafe memory operation."
+"\n"
 "    "
 msgstr ""
 
@@ -1957,4 +1960,8 @@ msgid ""
 "order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
 "xen_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
+msgstr ""
+
+#: ../src/xen_image.py:56
+msgid "Change the file label to xen_image_t."
 msgstr ""

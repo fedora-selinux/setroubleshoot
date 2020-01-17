@@ -12,7 +12,7 @@
 # Noriko Mizumoto <noriko@redhat.com>, 2006, 2008
 # Tomoyuki KATO <tomo@dream.daynight.jp>, 2011-2013
 # 高一人参 @欠陥遺伝子 <www.carrotsoft@gmail.com>, 2011
-# Noriko Mizumoto <noriko@redhat.com>, 2016. #zanata
+# Noriko Mizumoto <noriko.mizumoto@gmail.com>, 2016. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 # Ludek Janda <ljanda@redhat.com>, 2018. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2018. #zanata
@@ -20,7 +20,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-03 10:39+0200\n"
+"POT-Creation-Date: 2019-11-29 14:13+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -44,25 +44,25 @@ msgstr "SELinux アクセス拒否のトラブルシューティング"
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:946
+#: ../src/setroubleshoot/audit_data.py:932
 #, python-format
 msgid "port %s"
 msgstr "ポート %s"
 
-#: ../src/setroubleshoot/audit_data.py:948 ../src/setroubleshoot/browser.py:773
+#: ../src/setroubleshoot/audit_data.py:934 ../src/setroubleshoot/browser.py:773
 #: ../src/setroubleshoot/browser.py:848 ../src/setroubleshoot/rpc.py:558
-#: ../src/setroubleshoot/util.py:282
+#: ../src/setroubleshoot/util.py:291
 msgid "Unknown"
 msgstr "不明"
 
-#: ../src/setroubleshoot/audit_data.py:1037
+#: ../src/setroubleshoot/audit_data.py:1016
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
 "**** 無効な AVC が現在のポリシーで許可されています ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1039
+#: ../src/setroubleshoot/audit_data.py:1018
 #, python-format
 msgid ""
 "%s \n"
@@ -73,39 +73,39 @@ msgstr ""
 "**** 無効な AVC が現在のポリシーで dontaudit されています。  'semodule -B' が dontaudit "
 "ルールをオンにします。 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1041
+#: ../src/setroubleshoot/audit_data.py:1020
 msgid "Must call policy_init first"
 msgstr "policy_init を最初にコールしなければなりません"
 
-#: ../src/setroubleshoot/audit_data.py:1043
+#: ../src/setroubleshoot/audit_data.py:1022
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
 "**** 無効な AVC 不正ターゲットコンテキストです。 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1045
+#: ../src/setroubleshoot/audit_data.py:1024
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
 "**** 無効な AVC 不正ソースコンテキストです。 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1047
+#: ../src/setroubleshoot/audit_data.py:1026
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** 無効な AVC 不正タイプクラスです ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1049
+#: ../src/setroubleshoot/audit_data.py:1028
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** 無効な AVC 不正認可です ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1051
+#: ../src/setroubleshoot/audit_data.py:1030
 msgid "Error during access vector computation"
 msgstr "アクセスベクターの演算時にエラーが発生しました"
 
@@ -339,7 +339,7 @@ msgstr "認証されていません"
 msgid "user lookup failed"
 msgstr "ユーザーの検索に失敗しました"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:564
+#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:566
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "%s  がエラーです!"
@@ -355,25 +355,25 @@ msgid ""
 msgstr ""
 "$TARGET_BASE_PATH $TARGET_CLASS で、$SOURCE_BASE_PATH が $ACCESS アクセスするのを許可する場合"
 
-#: ../src/setroubleshoot/server.py:219
+#: ../src/setroubleshoot/server.py:226
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
 msgstr "完全な SELinux メッセージを見るには、sealert -l %s を実行します"
 
-#: ../src/setroubleshoot/server.py:407
+#: ../src/setroubleshoot/server.py:414
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "ユーザー(%s) は (%s) 用のデータを修正できません"
 
-#: ../src/setroubleshoot/server.py:479 ../src/sealert:317
+#: ../src/setroubleshoot/server.py:486 ../src/sealert:319
 msgid "Started"
 msgstr "開始済み"
 
-#: ../src/setroubleshoot/server.py:677
+#: ../src/setroubleshoot/server.py:684
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:745
+#: ../src/setroubleshoot/server.py:775
 msgid "Audit Listener"
 msgstr "リスナーの監査"
 
@@ -641,7 +641,7 @@ msgid "Show"
 msgstr "表示"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:70
+#: ../src/seappletlegacy.c:440 ../src/sealert:72
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC 拒否、クリックして表示"
 
@@ -649,20 +649,20 @@ msgstr "SELinux AVC 拒否、クリックして表示"
 msgid "SELinux Troubleshooter: Applet requires SELinux be enabled to run"
 msgstr "SELinux Troubleshooter: アプレットでは、SELinux が実行するように有効化されている必要があります。"
 
-#: ../src/sealert:120
+#: ../src/sealert:122
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux が有効化されていません。sealert は SELinux が有効なシステム以外では動作しません。"
 
-#: ../src/sealert:170
+#: ../src/sealert:172
 msgid "Not fixable."
 msgstr "修正不可です。"
 
-#: ../src/sealert:177
+#: ../src/sealert:179
 #, c-format
 msgid "Successfully ran %s"
 msgstr "%s を正常に実行しました"
 
-#: ../src/sealert:184
+#: ../src/sealert:186
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "プラグイン %s は %s id には認められていません"

@@ -5,21 +5,22 @@
 # Translators:
 # Dušan Kazik <prescott66@gmail.com>, 2011
 # feonsu <feonsu@gmail.com>, 2017. #zanata
+# Lukas Vrabec <lvrabec@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-03 10:39+0200\n"
+"POT-Creation-Date: 2019-11-29 14:13+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 12:31+0000\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"PO-Revision-Date: 2019-07-04 01:03+0000\n"
+"Last-Translator: Lukas Vrabec <lvrabec@redhat.com>\n"
 "Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/"
 "sk/)\n"
 "Language: sk\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -33,25 +34,25 @@ msgstr "Vyhľadanie SELinux porúch zamietnutých prístupov"
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "politika;bezpečnosť;selinux;avc;oprávnenie;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:946
+#: ../src/setroubleshoot/audit_data.py:932
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/setroubleshoot/audit_data.py:948 ../src/setroubleshoot/browser.py:773
+#: ../src/setroubleshoot/audit_data.py:934 ../src/setroubleshoot/browser.py:773
 #: ../src/setroubleshoot/browser.py:848 ../src/setroubleshoot/rpc.py:558
-#: ../src/setroubleshoot/util.py:282
+#: ../src/setroubleshoot/util.py:291
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: ../src/setroubleshoot/audit_data.py:1037
+#: ../src/setroubleshoot/audit_data.py:1016
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
 "**** Neplatné AVC povolené v aktuálnej politike ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1039
+#: ../src/setroubleshoot/audit_data.py:1018
 #, python-format
 msgid ""
 "%s \n"
@@ -62,39 +63,39 @@ msgstr ""
 "**** Neplatné AVC nepovolené v aktuálne politike.  'semodule -B' zapne "
 "pravidlá dontaudit. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1041
+#: ../src/setroubleshoot/audit_data.py:1020
 msgid "Must call policy_init first"
 msgstr "Najskôr musí byť zavolané policy_init"
 
-#: ../src/setroubleshoot/audit_data.py:1043
+#: ../src/setroubleshoot/audit_data.py:1022
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
 "**** Neplatné AVC zlý cieľový kontext. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1045
+#: ../src/setroubleshoot/audit_data.py:1024
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
 "**** Neplatné AVC zlá zdrojový kontext. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1047
+#: ../src/setroubleshoot/audit_data.py:1026
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** Neplatné AVC zlá typová trieda ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1049
+#: ../src/setroubleshoot/audit_data.py:1028
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** Neplatné AVC zlé oprávnenie ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1051
+#: ../src/setroubleshoot/audit_data.py:1030
 msgid "Error during access vector computation"
 msgstr "Chyba počas prístupu k vektorovému výpočtu"
 
@@ -328,7 +329,7 @@ msgstr "neautorizovaný"
 msgid "user lookup failed"
 msgstr "hľadanie používateľa zlyhalo"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:564
+#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:566
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Ale nie, %s nastala chyba!"
@@ -342,26 +343,28 @@ msgid ""
 "If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
+"Ak chcete povoliť $SOURCE_BASE_PATH prístup $ACCESS k $TARGET_BASE_PATH  "
+"triedy $TARGET_CLASS"
 
-#: ../src/setroubleshoot/server.py:219
+#: ../src/setroubleshoot/server.py:226
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
-msgstr ""
+msgstr "Pre kompletnú SELinux správu spusti: sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:407
+#: ../src/setroubleshoot/server.py:414
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Užívateľ (%s) nemôže meniť údaje pre (%s)"
 
-#: ../src/setroubleshoot/server.py:479 ../src/sealert:317
+#: ../src/setroubleshoot/server.py:486 ../src/sealert:319
 msgid "Started"
 msgstr "Spustené"
 
-#: ../src/setroubleshoot/server.py:677
+#: ../src/setroubleshoot/server.py:684
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:745
+#: ../src/setroubleshoot/server.py:775
 msgid "Audit Listener"
 msgstr "Sledovanie auditu"
 
@@ -411,7 +414,7 @@ msgstr "proces"
 
 #: ../src/setroubleshoot/signature.py:219
 msgid "process2"
-msgstr ""
+msgstr "process2"
 
 #: ../src/setroubleshoot/signature.py:220
 msgid "filesystem"
@@ -427,7 +430,7 @@ msgstr "schopnosť"
 
 #: ../src/setroubleshoot/signature.py:223
 msgid "capability2"
-msgstr ""
+msgstr "capability2"
 
 #: ../src/setroubleshoot/signature.py:406
 #, python-format
@@ -633,29 +636,29 @@ msgid "Show"
 msgstr "Zobraziť"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:70
+#: ../src/seappletlegacy.c:440 ../src/sealert:72
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC odmietnutie, kliknite na zobrazenie"
 
 #: ../src/seapplet:160
 msgid "SELinux Troubleshooter: Applet requires SELinux be enabled to run"
-msgstr ""
+msgstr "SELinux Troubleshooter: Aplikácia vyžaduje povolený SELinux"
 
-#: ../src/sealert:120
+#: ../src/sealert:122
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
 "SELinux nie je povolený, sealert sa nespúšťa na systémoch bez SELinuxu."
 
-#: ../src/sealert:170
+#: ../src/sealert:172
 msgid "Not fixable."
 msgstr "Neopraviteľné."
 
-#: ../src/sealert:177
+#: ../src/sealert:179
 #, c-format
 msgid "Successfully ran %s"
 msgstr "Úspešne spustené %s"
 
-#: ../src/sealert:184
+#: ../src/sealert:186
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "Zásuvný modul %s nie je platný pre %s id"
@@ -677,6 +680,11 @@ msgid ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
+"Copyright (c) 2010\n"
+"Thomas Liu <tliu@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 
 #: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
@@ -684,7 +692,7 @@ msgstr "Riešiť vybranú výstrahu"
 
 #: ../gui/browser.glade.h:10
 msgid "Delete"
-msgstr ""
+msgstr "Zmazať"
 
 #: ../gui/browser.glade.h:11
 msgid "Delete Selected Alerts"
@@ -692,7 +700,7 @@ msgstr "Zmazať zvolené výstrahy"
 
 #: ../gui/browser.glade.h:13
 msgid "Close"
-msgstr ""
+msgstr "Zavrieť"
 
 #: ../gui/browser.glade.h:15
 msgid "<b>SELinux has detected a problem.</b>"
@@ -730,7 +738,7 @@ msgstr "Zmazať aktuálnu výstrahu z databázy."
 
 #: ../gui/browser.glade.h:32
 msgid "Previous"
-msgstr ""
+msgstr "Predchádzajúci"
 
 #: ../gui/browser.glade.h:33
 msgid "Show previous alert."
@@ -738,7 +746,7 @@ msgstr "Zobraziť predošlú výstrahu."
 
 #: ../gui/browser.glade.h:35
 msgid "Next"
-msgstr ""
+msgstr "Ďalej"
 
 #: ../gui/browser.glade.h:36
 msgid "Show next alert."

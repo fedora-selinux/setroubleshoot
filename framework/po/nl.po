@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-03 10:39+0200\n"
+"POT-Creation-Date: 2019-11-29 14:13+0100\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,7 +24,7 @@ msgstr ""
 ")\n"
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Zanata 4.5.0\n"
+"X-Generator: Zanata 4.6.2\n"
 
 #: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
@@ -38,25 +38,25 @@ msgstr "Los SELinux toegangsweigeringen op"
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:946
+#: ../src/setroubleshoot/audit_data.py:932
 #, python-format
 msgid "port %s"
 msgstr "poort %s"
 
-#: ../src/setroubleshoot/audit_data.py:948 ../src/setroubleshoot/browser.py:773
+#: ../src/setroubleshoot/audit_data.py:934 ../src/setroubleshoot/browser.py:773
 #: ../src/setroubleshoot/browser.py:848 ../src/setroubleshoot/rpc.py:558
-#: ../src/setroubleshoot/util.py:282
+#: ../src/setroubleshoot/util.py:291
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: ../src/setroubleshoot/audit_data.py:1037
+#: ../src/setroubleshoot/audit_data.py:1016
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC allowed in current policy ***\n"
 msgstr "%s \n"
 "**** Ongeldige AVC toegestaan in huidige tactiek ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1039
+#: ../src/setroubleshoot/audit_data.py:1018
 #, python-format
 msgid ""
 "%s \n"
@@ -67,39 +67,39 @@ msgstr ""
 "**** Ongeldige AVC dontaudited in huidige tactiek.  'semodule -B' zal "
 "dontaudit-regels aanzetten. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1041
+#: ../src/setroubleshoot/audit_data.py:1020
 msgid "Must call policy_init first"
 msgstr "policy_init moet eerst aangeroepen worden"
 
-#: ../src/setroubleshoot/audit_data.py:1043
+#: ../src/setroubleshoot/audit_data.py:1022
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad target context. ***\n"
 msgstr "%s \n"
 "**** Ongeldige AVC slechte doelcontext. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1045
+#: ../src/setroubleshoot/audit_data.py:1024
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad source context. ***\n"
 msgstr "%s \n"
 "**** Ongeldig AVC slechte broncontext. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1047
+#: ../src/setroubleshoot/audit_data.py:1026
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad type class ***\n"
 msgstr "%s \n"
 "**** Ongeldige AVC slecht typeklasse ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1049
+#: ../src/setroubleshoot/audit_data.py:1028
 #, python-format
 msgid "%s \n"
 "**** Invalid AVC bad permission ***\n"
 msgstr "%s \n"
 "**** Ongeldige AVC slechte toestemming ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1051
+#: ../src/setroubleshoot/audit_data.py:1030
 msgid "Error during access vector computation"
 msgstr "Fout tijdens toegangsvectorberekening"
 
@@ -333,7 +333,7 @@ msgstr "niet geauthenticeerd"
 msgid "user lookup failed"
 msgstr "opzoeken gebruiker faalde"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:564
+#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:566
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Oeps, %s loopt tegen een fout aan!"
@@ -350,25 +350,25 @@ msgstr ""
 "Als je $SOURCE_BASE_PATH wilt toestaan om $ACCESS toegang te hebben tot de "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 
-#: ../src/setroubleshoot/server.py:219
+#: ../src/setroubleshoot/server.py:226
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
 msgstr " Voor complete SELinux boodschappen voer uit: sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:407
+#: ../src/setroubleshoot/server.py:414
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "De gebruiker (%s) kan geen data veranderen voor (%s)"
 
-#: ../src/setroubleshoot/server.py:479 ../src/sealert:317
+#: ../src/setroubleshoot/server.py:486 ../src/sealert:319
 msgid "Started"
 msgstr "Gestart"
 
-#: ../src/setroubleshoot/server.py:677
+#: ../src/setroubleshoot/server.py:684
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:745
+#: ../src/setroubleshoot/server.py:775
 msgid "Audit Listener"
 msgstr "Audit luisteraar"
 
@@ -636,7 +636,7 @@ msgid "Show"
 msgstr "Laat zien"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:70
+#: ../src/seappletlegacy.c:440 ../src/sealert:72
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC-weigering, klik om te bekijken"
 
@@ -646,20 +646,20 @@ msgstr ""
 "SELinux Troubleshooter: Om te draaien vereist de applet dat SELinux aangezet "
 "is."
 
-#: ../src/sealert:120
+#: ../src/sealert:122
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux niet aangezet, sealert draait niet op niet-SELinux systemen"
 
-#: ../src/sealert:170
+#: ../src/sealert:172
 msgid "Not fixable."
 msgstr "Niet te repareren."
 
-#: ../src/sealert:177
+#: ../src/sealert:179
 #, c-format
 msgid "Successfully ran %s"
 msgstr "%s succesvol uitgevoerd"
 
-#: ../src/sealert:184
+#: ../src/sealert:186
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "Plug-in %s niet geldig voor %s id"
