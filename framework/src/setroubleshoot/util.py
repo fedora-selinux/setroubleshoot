@@ -35,6 +35,8 @@ __all__ = [
     'get_rpm_nvr_from_header',
     'get_rpm_nvr_by_name',
     'get_rpm_nvr_by_file_path',
+    'get_rpm_nvr_by_type',
+    'get_rpm_nvr_by_scontext',
     'is_hex',
     'split_rpm_nvr',
     'file_types',
@@ -62,6 +64,7 @@ __all__ = [
     'Retry',
 ]
 
+import bz2
 import six
 import datetime
 import glob
@@ -69,6 +72,7 @@ from gi.repository import GObject
 import os
 import pwd
 import re
+import selinux
 import sys
 import textwrap
 import time
@@ -404,6 +408,81 @@ def split_rpm_nvr(nvr):
     name = '-'.join(components[:-2])
     return (name, version, release)
 
+def get_rpm_nvr_by_type(selinux_type):
+    """
+Finds an SELinux module which defines given SELinux type
+
+##### arguments
+
+* `selinux_type(s)`: an SELinux type
+
+##### return values
+
+* `nvr(s)`: nvr of rpm which ships module where `selinux_type` is defined
+
+##### usage
+
+>>> get_rpm_nvr_by_type("sshd_t")
+selinux-policy-
+
+>>> get_rpm_nvr_by_type("mysqld_log_t")
+mysqld-selinux
+
+    """
+    retval, policytype = selinux.selinux_getpolicytype()
+    if retval != 0:
+        return None
+    typedef = "(type {})\n".format(selinux_type)
+    modules = []
+    for (dirpath, dirnames, filenames) in os.walk("/var/lib/selinux/{}/active/modules".format(policytype)):
+        if "cil" in filenames:
+            try:
+                defined = False
+                try:
+                    # cil files are bzip2'ed by default
+                    defined = typedef.encode() in bz2.open("{}/cil".format(dirpath))
+                except:
+                    # maybe cil file is not bzip2'ed, try plain text
+                    defined = typedef in open("{}/cil".format(dirpath))
+
+                if defined:
+                    modules.append(dirpath)
+            except:
+                # something's wrong, move on
+                # FIXME: log a problem?
+                pass
+
+    if len(modules) > 0:
+        return get_rpm_nvr_by_file_path(sorted(modules)[-1])
+
+    return None
+
+def get_rpm_nvr_by_scontext(scontext):
+    """
+Finds an SELinux module which defines given SELinux context
+
+##### arguments
+
+* `scontext(s)`: an SELinux context
+
+##### return values
+
+* `nvr(s)`: nvr of rpm which ships module where SELinux type used in `scontext` is defined
+
+##### usage
+
+>>> get_rpm_nvr_by_scontext("system_u:system_r:syslogd_t:s0")
+selinux-policy-
+
+>>> get_rpm_nvr_by_scontext("system_u:system_r:mysqld_log_t:s0")
+mysqld-selinux-
+
+>>> get_rpm_nvr_by_scontext("system_u:system_r:timedatex_t:s0")
+selinux-policy-
+
+    """
+    context = selinux.context_new(str(scontext))
+    return get_rpm_nvr_by_type(str(selinux.context_type_get(context)))
 
 def get_user_home_dir():
     uid = os.getuid()
