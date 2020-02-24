@@ -14,12 +14,15 @@ dbus_session_DATA = sealert.service
 dbus_systemservicedir = $(datadir)/dbus-1/system-services
 dbus_systemservice_DATA = \
 			org.fedoraproject.Setroubleshootd.service \
-			org.fedoraproject.SetroubleshootFixit.service 
+			org.fedoraproject.SetroubleshootFixit.service \
+			org.fedoraproject.SetroubleshootPrivileged.service
 
 dbus_systemdir = $(sysconfdir)/dbus-1/system.d
 dbus_system_DATA = \
 			org.fedoraproject.Setroubleshootd.conf \
-			org.fedoraproject.SetroubleshootFixit.conf
+			org.fedoraproject.SetroubleshootFixit.conf \
+			org.fedoraproject.SetroubleshootPrivileged.conf
+
 
 polkit_systemdir = $(datadir)/polkit-1/actions
 polkit_system_DATA = \

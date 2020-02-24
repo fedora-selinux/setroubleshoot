@@ -38,7 +38,8 @@ pkglibexec_SCRIPTS =            	\
 pkgdir = $(datarootdir)/setroubleshoot
 pkg_SCRIPTS =			\
 	SetroubleshootFixit.py		\
-	updater.py
+	updater.py \
+	SetroubleshootPrivileged.py
 
 pkgconfig_DATA =			\
 	setroubleshoot.conf		\
