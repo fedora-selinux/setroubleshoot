@@ -120,6 +120,7 @@ class SEEnvironment(XmlSerialize):
         'kernel': {'XMLForm': 'element'},
         'policy_type': {'XMLForm': 'element'},
         'policy_rpm': {'XMLForm': 'element'},
+        'local_policy_rpm': {'XMLForm': 'element'},
         'enforce': {'XMLForm': 'element'},
         'selinux_enabled': {'XMLForm': 'element', 'import_typecast': boolean, },
         'selinux_mls_enabled': {'XMLForm': 'element', 'import_typecast': boolean, },
@@ -141,6 +142,7 @@ class SEEnvironment(XmlSerialize):
         self.platform, self.kernel = get_os_environment()
         self.policy_type = selinux.selinux_getpolicytype()[1]
         self.policy_rpm = get_rpm_nvr_by_name("selinux-policy")
+        self.local_policy_rpm = self.policy_rpm
         self.policyvers = str(selinux.security_policyvers())
         enforce = selinux.security_getenforce()
         if enforce == 0:
@@ -312,6 +314,7 @@ class SEFaultSignatureInfo(XmlSerialize):
             setattr(self, k, v)
         self.report_count = 1
         self.plugin_list = []
+        self.environment.local_policy_rpm = get_rpm_nvr_by_scontext(self.scontext, use_dbus=True)
 
     def update_merge(self, siginfo):
         if siginfo.last_seen_date != self.last_seen_date:
@@ -524,7 +527,8 @@ class SEFaultSignatureInfo(XmlSerialize):
             text += format_2_column_name_value(_("Host"), default_text(self.sig.host))
         text += format_2_column_name_value(_("Source RPM Packages"), default_text(self.format_rpm_list(self.src_rpm_list)))
         text += format_2_column_name_value(_("Target RPM Packages"), default_text(self.format_rpm_list(self.tgt_rpm_list)))
-        text += format_2_column_name_value(_("Policy RPM"), default_text(env.policy_rpm))
+        text += format_2_column_name_value(_("SELinux Policy RPM"), default_text(env.policy_rpm))
+        text += format_2_column_name_value(_("Local Policy RPM"), default_text(env.local_policy_rpm))
         text += format_2_column_name_value(_("Selinux Enabled"), default_text(env.selinux_enabled))
         text += format_2_column_name_value(_("Policy Type"), default_text(env.policy_type))
         text += format_2_column_name_value(_("Enforcing Mode"), default_text(env.enforce))
