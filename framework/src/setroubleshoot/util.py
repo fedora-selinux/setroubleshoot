@@ -67,6 +67,7 @@ __all__ = [
 import bz2
 import six
 import datetime
+import dbus
 import glob
 from gi.repository import GObject
 import os
@@ -423,10 +424,10 @@ Finds an SELinux module which defines given SELinux type
 ##### usage
 
 >>> get_rpm_nvr_by_type("sshd_t")
-selinux-policy-
+'selinux-policy-...
 
 >>> get_rpm_nvr_by_type("mysqld_log_t")
-mysqld-selinux
+'mysql-selinux-...
 
     """
     retval, policytype = selinux.selinux_getpolicytype()
@@ -457,7 +458,7 @@ mysqld-selinux
 
     return None
 
-def get_rpm_nvr_by_scontext(scontext):
+def get_rpm_nvr_by_scontext(scontext, use_dbus=False):
     """
 Finds an SELinux module which defines given SELinux context
 
@@ -472,17 +473,31 @@ Finds an SELinux module which defines given SELinux context
 ##### usage
 
 >>> get_rpm_nvr_by_scontext("system_u:system_r:syslogd_t:s0")
-selinux-policy-
+'selinux-policy-...
 
 >>> get_rpm_nvr_by_scontext("system_u:system_r:mysqld_log_t:s0")
-mysqld-selinux-
+'mysql-selinux-...
 
->>> get_rpm_nvr_by_scontext("system_u:system_r:timedatex_t:s0")
-selinux-policy-
+>>> get_rpm_nvr_by_scontext("system_u:system_r:timedatex_t:s0", use_dbus=True)
+'selinux-policy-...
 
     """
-    context = selinux.context_new(str(scontext))
-    return get_rpm_nvr_by_type(str(selinux.context_type_get(context)))
+    if use_dbus:
+        bus = dbus.SystemBus()
+
+        try:
+            remote_object = bus.get_object("org.fedoraproject.SetroubleshootPrivileged",
+                                       "/org/fedoraproject/SetroubleshootPrivileged/object")
+
+            return str(remote_object.get_rpm_nvr_by_scontext(str(scontext),
+                    dbus_interface = "org.fedoraproject.SetroubleshootPrivileged"))
+        except dbus.DBusException:
+            from traceback import print_exc
+            print_exc()
+            return None
+    else:
+        context = selinux.context_new(str(scontext))
+        return get_rpm_nvr_by_type(str(selinux.context_type_get(context)))
 
 def get_user_home_dir():
     uid = os.getuid()
