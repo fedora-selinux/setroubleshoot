@@ -37,6 +37,7 @@ __all__ = [
     'get_rpm_nvr_by_file_path',
     'get_rpm_nvr_by_type',
     'get_rpm_nvr_by_scontext',
+    'get_rpm_source_package',
     'is_hex',
     'split_rpm_nvr',
     'file_types',
@@ -498,6 +499,29 @@ Finds an SELinux module which defines given SELinux context
     else:
         context = selinux.context_new(str(scontext))
         return get_rpm_nvr_by_type(str(selinux.context_type_get(context)))
+
+def get_rpm_source_package(name):
+    """
+    Find a source package for `name` rpm
+    
+    >>> get_rpm_source_package("policycoreutils-python-utils")
+    'policycoreutils'
+
+    >>> get_rpm_source_package("selinux-policy-targeted")
+    'selinux-policy'
+
+    """
+    if name is None:
+        return None
+
+    src = None
+    try:
+        import subprocess
+        src = subprocess.check_output(["rpm", "-q", "--qf", "%{SOURCERPM}", name], universal_newlines=True).rsplit('-',2)[0]
+    except:
+        syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
+    return src
+
 
 def get_user_home_dir():
     uid = os.getuid()
