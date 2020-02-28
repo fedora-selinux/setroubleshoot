@@ -18,31 +18,35 @@
 # with this program; if not, write to the Free Software Foundation, Inc.,
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
-import dbus
-import dbus.service
-from dbus.mainloop.glib import DBusGMainLoop
 from gi.repository import GLib
+from pydbus import SystemBus
 import setroubleshoot.util
 import signal
 
-DBusGMainLoop(set_as_default=True)
+loop = GLib.MainLoop()
 
-class Privileged(dbus.service.Object):
+class Privileged(object):
+    """
+		<node>
+			<interface name='org.fedoraproject.SetroubleshootPrivileged'>
+				<method name='get_rpm_nvr_by_scontext'>
+					<arg type='s' name='scontext' direction='in'/>
+    				<arg type='s' name='rpmnvr' direction='out'/>
+				</method>
+				<method name='finish'/>
+			</interface>
+		</node>
+    """
 
     def __init__(self, timeout=10):
         self.timeout = timeout
         self.alarm(self.timeout)
 
-        bus = dbus.SystemBus()
-        bus.request_name("org.fedoraproject.SetroubleshootPrivileged")
-        bus_name = dbus.service.BusName("org.fedoraproject.SetroubleshootPrivileged", bus=bus)
-        dbus.service.Object.__init__(self, bus_name, "/org/fedoraproject/SetroubleshootPrivileged/object")
-
     def alarm(self, timeout=10):
         signal.alarm(timeout)
 
-    @dbus.service.method("org.fedoraproject.SetroubleshootPrivileged", in_signature='s', out_signature='s')
     def get_rpm_nvr_by_scontext(self, scontext):
+        """Finds an SELinux module which defines given SELinux context"""
         signal.alarm(self.timeout)
         rpmnvr = setroubleshoot.util.get_rpm_nvr_by_scontext(scontext)
         if rpmnvr is None:
@@ -50,8 +54,10 @@ class Privileged(dbus.service.Object):
 
         return rpmnvr
 
-if __name__ == "__main__":
-    privileged = Privileged()
+    def finish(self):
+        loop.quit()
 
-    loop = GLib.MainLoop()
+if __name__ == "__main__":
+    bus = SystemBus()
+    bus.publish("org.fedoraproject.SetroubleshootPrivileged", Privileged())
     loop.run()
