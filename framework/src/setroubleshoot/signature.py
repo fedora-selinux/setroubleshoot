@@ -314,7 +314,16 @@ class SEFaultSignatureInfo(XmlSerialize):
             setattr(self, k, v)
         self.report_count = 1
         self.plugin_list = []
-        self.environment.local_policy_rpm = get_rpm_nvr_by_scontext(self.scontext, use_dbus=True)
+
+        use_dbus=True
+        if os.getuid() == 0:
+            # root doesn't need to use dbus
+            use_dbus=False
+        try:
+            self.environment.local_policy_rpm = get_rpm_nvr_by_scontext(self.scontext, use_dbus=use_dbus)
+        except:
+            # leave it as it is
+            pass
 
     def update_merge(self, siginfo):
         if siginfo.last_seen_date != self.last_seen_date:
