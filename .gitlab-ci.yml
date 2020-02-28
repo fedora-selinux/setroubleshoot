@@ -1,0 +1,46 @@
+# This file is a template, and might need editing before it works on your project.
+# see https://docs.gitlab.com/ce/ci/yaml/README.html for all available options
+
+# you can delete this line if you're not using Docker
+image: debian:testing
+
+include:
+  - template: Code-Quality.gitlab-ci.yml
+
+code_quality:
+  artifacts:
+    paths: [gl-code-quality-report.json]
+
+stages:
+  - build
+  - test
+
+before_script:
+  - echo "Before script section"
+  - echo "For example you might run an update here or install a build dependency"
+  - echo "Or perhaps you might print out some debugging details"
+
+after_script:
+  - echo "After script section"
+  - echo "For example you might do some cleanup here"
+
+build1:
+  stage: build
+  script:
+    - echo "Do your build here"
+    - apt-get update
+    - apt-get -y install autoconf automake libglib2.0-dev libdbus-glib-1-dev libnotify-dev libgtk-3-dev gcc
+    - apt-get -y install python3-selinux python3-gi python3-pydbus python3-dbus python3-six python3-sepolicy
+    - apt-get -y install  xdg-utils make intltool libaudit-dev libauparse-dev
+    - cd framework
+    - ./autogen.sh
+    - make
+    - make install
+
+# test1:
+#   stage: test
+#   script:
+#     - echo "Do a test here"
+#     - echo "For example run a test suite"
+#     - /usr/bin/sealert -h
+
