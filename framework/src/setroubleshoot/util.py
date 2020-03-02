@@ -390,11 +390,10 @@ def get_package_nvr_by_file_path(name):
     return nvr
 
 ###
-
-from sepolicy import get_all_file_types
 try:
+    from sepolicy import get_all_file_types
     file_types = get_all_file_types()
-except ValueError:
+except:
     file_types = []
 
 
