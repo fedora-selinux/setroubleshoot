@@ -33,8 +33,8 @@ __all__ = [
     'default_date_text',
     'get_standard_directories',
     'get_rpm_nvr_from_header',
-    'get_rpm_nvr_by_name',
-    'get_rpm_nvr_by_file_path',
+    'get_package_nvr_by_name',
+    'get_package_nvr_by_file_path',
     'get_rpm_nvr_by_type',
     'get_rpm_nvr_by_scontext',
     'get_rpm_source_package',
@@ -63,6 +63,7 @@ __all__ = [
 
     'TimeStamp',
     'Retry',
+    'PACKAGE_MANAGER',
 ]
 
 import bz2
@@ -74,7 +75,9 @@ from gi.repository import GObject
 import os
 import pwd
 import re
+import shutil
 import selinux
+import subprocess
 import sys
 import textwrap
 import time
@@ -97,6 +100,12 @@ def is_type(obj):
 
 DATABASE_MAJOR_VERSION = 3
 DATABASE_MINOR_VERSION = 0
+
+PACKAGE_MANAGER = None
+if shutil.which('rpm'):
+    PACKAGE_MANAGER = 'rpm'
+elif shutil.which('dpkg'):
+    PACKAGE_MANAGER = 'deb'
 
 redhat_release_path = '/etc/redhat-release'
 text_wrapper = textwrap.TextWrapper()
@@ -305,15 +314,19 @@ def default_date_text(date):
 
 
 def get_standard_directories():
+    """
+>>> get_standard_directories()
+[...'/bin'...]
+    """
     lst = []
-    import rpm
     try:
-        ts = rpm.ts()
-        h = next(ts.dbMatch("name", "filesystem"))
-        for i in h.fiFromHeader():
-            lst.append(i[0])
+        if PACKAGE_MANAGER == "rpm":
+            lst = subprocess.check_output(["rpm", "-ql", "filesystem"], universal_newlines=True).rstrip().split("\n")
+        if PACKAGE_MANAGER == "deb":
+            lst = subprocess.check_output(["dpkg", "-L", "base-files"], universal_newlines=True).rstrip().split("\n")
+
     except:
-        syslog.syslog(syslog.LOG_ERR, "failed to get filesystem list from rpm")
+        syslog.syslog(syslog.LOG_ERR, "failed to get list from {}".format(PACKAGE_MANAGER))
 
     return lst
 
@@ -326,23 +339,33 @@ def get_rpm_nvr_from_header(hdr):
 
     return "%s-%s-%s" % (name, version, release)
 
-### these functions are for now until rpm memory leak gets a fix
-
-
-def get_rpm_nvr_by_name_temporary(name):
+def get_package_nvr_by_name(name):
+    """
+>>> get_package_nvr_by_name("coreutils")
+'coreutils-8.30-3+b1:amd64'
+    """
     if name is None:
         return None
 
     nvr = None
     try:
-        import subprocess
-        nvr = subprocess.check_output(["rpm", "-q", name], universal_newlines=True).rstrip()
+        if PACKAGE_MANAGER == 'rpm':
+            nvr = subprocess.check_output(["rpm", "-q", name], universal_newlines=True).rstrip()
+        if PACKAGE_MANAGER == 'deb':
+            # dpkg-query -f='${Package}_${Version}:${Architecture}\n' -W
+            nvr = subprocess.check_output(
+                ["dpkg-query", "-f=${Package}-${Version}:${Architecture}", "-W", name], universal_newlines=True
+            ).rstrip()
     except:
         syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
     return nvr
 
 
-def get_rpm_nvr_by_file_path_temporary(name):
+def get_package_nvr_by_file_path(name):
+    """
+>>> get_package_nvr_by_file_path("/bin/ls")
+'coreutils-8.30-3+b1:amd64'
+    """
     if name is None:
         return None
 
@@ -352,8 +375,16 @@ def get_rpm_nvr_by_file_path_temporary(name):
 
     nvr = None
     try:
-        import subprocess
-        nvr = subprocess.check_output(["rpm", "-qf", name], universal_newlines=True).rstrip()
+        if PACKAGE_MANAGER == 'rpm':
+            nvr = subprocess.check_output(["rpm", "-qf", name], universal_newlines=True).rstrip()
+        if PACKAGE_MANAGER == 'deb':
+            # dpkg -S foo |cut -d: -1f
+            # dpkg-query -f='${Package}_${Version}:${Architecture}\n' -W
+            package_name = subprocess.check_output(["dpkg", "-S", name]).decode().split(": ")[0]
+            nvr = subprocess.check_output(
+                ["dpkg-query", "-f=${Package}-${Version}:${Architecture}", "-W", package_name], universal_newlines=True
+            ).rstrip()
+
     except:
         syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
     return nvr
@@ -365,42 +396,6 @@ try:
     file_types = get_all_file_types()
 except ValueError:
     file_types = []
-
-
-def get_rpm_nvr_by_name(name):
-    return get_rpm_nvr_by_name_temporary(name)
-    if name is None:
-        return None
-
-    import rpm
-    nvr = None
-    try:
-        ts = rpm.ts()
-        mi = ts.dbMatch(rpm.RPMTAG_NAME, name)
-        for h in mi:
-            nvr = get_rpm_nvr_from_header(h)
-            break
-    except:
-        syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % name)
-    return nvr
-
-
-def get_rpm_nvr_by_file_path(path):
-    return get_rpm_nvr_by_file_path_temporary(path)
-    if path is None:
-        return None
-
-    import rpm
-    nvr = None
-    try:
-        ts = rpm.ts()
-        mi = ts.dbMatch(rpm.RPMTAG_BASENAMES, path)
-        for h in mi:
-            nvr = get_rpm_nvr_from_header(h)
-            break
-    except:
-        syslog.syslog(syslog.LOG_ERR, "failed to retrieve rpm info for %s" % path)
-    return nvr
 
 
 def split_rpm_nvr(nvr):
@@ -455,7 +450,7 @@ Finds an SELinux module which defines given SELinux type
                 pass
 
     if len(modules) > 0:
-        return get_rpm_nvr_by_file_path(sorted(modules)[-1])
+        return get_package_nvr_by_file_path(sorted(modules)[-1])
 
     return None
 
