@@ -732,18 +732,9 @@ class AVC:
         return False
 
     def __typeMatch(self, context, type_list):
-        # get array of context type and it's aliases
-        try:
-            _info = info(TYPE, context.type)[0]
-            ctypes = _info.get('aliases', [])
-            ctypes.append(_info['name'])
-        except (RuntimeError, IndexError):
-            ctypes = [context.type]
-
         for type in type_list:
-            for t in ctypes:
-                if re.match(type, t):
-                    return True
+            if re.match(type, context.type):
+                return True
         return False
 
     def matches_source_types(self, type_list):
