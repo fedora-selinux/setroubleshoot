@@ -734,10 +734,10 @@ class AVC:
     def __typeMatch(self, context, type_list):
         # get array of context type and it's aliases
         try:
-            _info = next(info(TYPE, context.type))
+            _info = info(TYPE, context.type)[0]
             ctypes = _info.get('aliases', [])
             ctypes.append(_info['name'])
-        except (RuntimeError, IndexError, StopIteration):
+        except (RuntimeError, IndexError):
             ctypes = [context.type]
 
         for type in type_list:
