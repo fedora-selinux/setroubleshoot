@@ -73,7 +73,7 @@ class plugin(Plugin):
         <li>The SELinux policy might override the default label inherited from the parent directory by
             specifying a process running in context A which creates a file in a directory labeled B
             will instead create the file with label C. An example of this would be the dhcp client running
-            with the dhclient_t type and creating a file in the directory /etc. This file would normally
+            with the dhcpc_t type and creating a file in the directory /etc. This file would normally
             receive the etc_t type due to parental inheritance but instead the file
             is labeled with the net_conf_t type because the SELinux policy specifies this.
         <li>Users can change the file context on a file using tools such as chcon, or restorecon.

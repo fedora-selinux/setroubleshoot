@@ -55,7 +55,7 @@ class plugin(Plugin):
                                      'default_context_t',
                                      'file_context_t',
                                      'semanage_store_t',
-                                     'semange_read_lock_t',
+                                     'semanage_read_lock_t',
                                      'semanage_trans_lock_t',
                                      'load_policy_exec_t',
                                      'setfiles_exec_t',

@@ -54,10 +54,10 @@ class plugin(Plugin):
            avc.matches_target_types(['modules_object_t',
                                      'modules_conf_t',
                                      'modules_dep_t',
-                                     'insmod_exec_t',
-                                     'depmod_exec_t',
-                                     'update_modules_exec_t',
-                                     'update_modules_tmp_t',
+                                     'kmod_exec_t',
+                                     'kmod_exec_t',
+                                     'kmod_exec_t',
+                                     'kmod_tmp_t',
                                      'boot_t',
                                      'system_map_t'
                                     ])):
