@@ -2,7 +2,7 @@
 # see https://docs.gitlab.com/ce/ci/yaml/README.html for all available options
 
 # you can delete this line if you're not using Docker
-image: debian:testing
+
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -24,7 +24,8 @@ after_script:
   - echo "After script section"
   - echo "For example you might do some cleanup here"
 
-build1:
+build:debian:
+  image: debian:testing
   stage: build
   script:
     - echo "Do your build here"
@@ -37,10 +38,14 @@ build1:
     - make
     - make install
 
-# test1:
-#   stage: test
-#   script:
-#     - echo "Do a test here"
-#     - echo "For example run a test suite"
-#     - /usr/bin/sealert -h
-
+build:fedora:
+  image: fedora:latest
+  stage: build
+  script:
+    - echo "Do your build here"
+    - dnf -y install 'dnf-command(builddep)' make gcc automake autoconf
+    - dnf -y builddep setroubleshoot
+    - cd framework
+    - ./autogen.sh
+    - make
+    - make install
