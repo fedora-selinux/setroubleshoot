@@ -322,10 +322,11 @@ class BrowserApplet:
     def show_date(self, alert):
         from setroubleshoot.util import TimeStamp
         # Format the data that we get and display it in the appropriate places
-        date_format = "%a %b %e, %Y %R %Z"
         alert_date = alert.last_seen_date
         start_date = alert.first_seen_date
-        self.date_label.set_label(alert_date.format(date_format))
+        # %c - Locale’s approrpiate date and time representation
+        date_formated = alert_date.format("%c")
+        self.date_label.set_label(date_formated)
 
     def on_receive_button_changed(self, widget):
         found = False
