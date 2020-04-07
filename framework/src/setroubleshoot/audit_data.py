@@ -1004,19 +1004,19 @@ class AVC:
 
         self.why, bools = audit2why.analyze(str(self.scontext), str(self.tcontext), str(self.tclass), self.access)
         if self.why == audit2why.ALLOW:
-            raise ValueError(_("%s \n**** Invalid AVC allowed in current policy ***\n") % self.avc_record)
+            raise ValueError(_("%s \n**** Recorded AVC is allowed in current policy ****\n") % self.avc_record)
         if self.why == audit2why.DONTAUDIT:
-            raise ValueError(_("%s \n**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on dontaudit rules. ***\n") % self.avc_record)
+            raise ValueError(_("%s \n**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn on dontaudit rules ****\n") % self.avc_record)
         if self.why == audit2why.NOPOLICY:
             raise ValueError(_("Must call policy_init first"))
         if self.why == audit2why.BADTCON:
-            raise ValueError(_("%s \n**** Invalid AVC bad target context. ***\n") % self.avc_record)
+            raise ValueError(_("%s \n**** Invalid AVC: bad target context ****\n") % self.avc_record)
         if self.why == audit2why.BADSCON:
-            raise ValueError(_("%s \n**** Invalid AVC bad source context. ***\n") % self.avc_record)
-        if self.why == audit2why.BADSCON:
-            raise ValueError(_("%s \n**** Invalid AVC bad type class ***\n") % self.avc_record)
+            raise ValueError(_("%s \n**** Invalid AVC: bad source context ****\n") % self.avc_record)
+        if self.why == audit2why.BADTCLASS:
+            raise ValueError(_("%s \n**** Invalid AVC: bad type class ****\n") % self.avc_record)
         if self.why == audit2why.BADPERM:
-            raise ValueError(_("%s \n**** Invalid AVC bad permission ***\n") % self.avc_record)
+            raise ValueError(_("%s \n**** Invalid AVC: bad permission ****\n") % self.avc_record)
         if self.why == audit2why.BADCOMPUTE:
             raise ValueError(_("Error during access vector computation"))
         if self.why == audit2why.BOOLEAN:
