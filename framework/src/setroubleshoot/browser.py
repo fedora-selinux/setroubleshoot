@@ -186,10 +186,14 @@ class BrowserApplet:
 
     def __init__(self, username=None, server=None, list=False, domain=None):
         self.RECT_SIZE = 20
-        size = Gdk.Screen().get_default().get_monitor_geometry(0)
-        self.width = min(1350, int(size.width * .90))
-        self.height = min(750, int(size.height * .90))
-
+        default_screen = Gdk.Screen().get_default()
+        if default_screen:
+            size = default_screen.get_monitor_geometry(0)
+            self.width = min(1350, int(size.width * .90))
+            self.height = min(750, int(size.height * .90))
+        else:
+            print("ERROR (Gdk): couldn't connect to display.", file=sys.stderr)
+            exit(1)
         self.read_config()
         builder = Gtk.Builder()
         builder.set_translation_domain(domain)
@@ -464,7 +468,8 @@ class BrowserApplet:
         cssProvider.load_from_path('/usr/share/setroubleshoot/gui/style.css')
         screen = Gdk.Screen.get_default()
         styleContext = Gtk.StyleContext()
-        styleContext.add_provider_for_screen(screen, cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
+        if screen:
+            styleContext.add_provider_for_screen(screen, cssProvider, Gtk.STYLE_PROVIDER_PRIORITY_USER)
 
         self.toggles.append(sev_toggle)
         sev_toggle.show()
