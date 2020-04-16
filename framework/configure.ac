@@ -1,4 +1,4 @@
-AC_INIT([setroubleshoot], [3.3.22],
+AC_INIT([setroubleshoot], [3.3.23],
         [http://bugzilla.redhat.com/bugzilla/enter_bug.cgi?product=setroubleshoot])
 
 AC_CONFIG_SRCDIR(src/setroubleshoot/__init__.py)

@@ -1,3 +1,27 @@
+setroubleshoot 3.3.23                                      2020-04-16
+ - sepolicy.info() returns a generator, not a list
+ - Log plugin exception traceback when log level is DEBUG
+ - Update translations
+ - Drop old unused files
+ - Add get_rpm_nvr_by_type() and get_rpm_nvr_by_scontext()
+ - Export setroubleshoot.utils.get_rpm_nvr_by_scontext via DBUS
+ - get_rpm_nvr_by_scontext add option to use DBUS method
+ - Add Local SELinux policy package version to analyses reports
+ - Report bug on a package which owns the related SELinux domain
+ - Use pydbus, a modern Python dbus API, for SetroubleshootPrivileged
+ - Root user doesn't need to use SetroubleshootPrivileged API
+ - Drop updater.py - it's not used and doesn't work
+ - sealert: Drop unused import slib.dbus.service
+ - browser: Do not try to report a bug on None package
+ - Revert "sepolicy.info() returns a generator, not a list"
+ - Revert "Fix AVC.__typeMatch to handle aliases properly"
+ - Make date/time format locale specific
+ - Do not refer to hardcoded selinux-policy rpm in signature
+ - Add dpkg support
+ - setroubleshoot.util: Catch exceptions from sepolicy import
+ - Improve and unify error messages
+ - browser: Check return value of Gdk.Screen().get_default()
+
 setroubleshoot 3.3.22                                      2020-01-02
  - sepolicy.info() returns a generator, not a list
 
