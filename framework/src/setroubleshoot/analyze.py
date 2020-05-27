@@ -31,6 +31,7 @@ __all__ = ['AnalyzeThread',
 import syslog
 from gi.repository import GObject, GLib
 import os
+import signal
 import time
 import threading
 import traceback
@@ -225,22 +226,27 @@ class Analyze(object):
 
 class AnalyzeThread(Analyze, threading.Thread):
 
-    def __init__(self, queue):
+    def __init__(self, queue, timeout=10):
         # parent class constructors
         threading.Thread.__init__(self)
         Analyze.__init__(self)
 
         self.queue = queue
+        self.timeout = timeout
 
     def run(self):
         while True:
             try:
                 avc, report_receiver = self.queue.get()
+                syslog.syslog(syslog.LOG_DEBUG, "AnalyzeThread.run(): Cancel pending alarm")
+                signal.alarm(0)
                 self.analyze_avc(avc, report_receiver)
             except Exception as e:
                 syslog.syslog(syslog.LOG_ERR, "Exception during AVC analysis: %s" % e)
             except ValueError as e:
                 syslog.syslog(syslog.LOG_ERR, "Exception during AVC analysis: %s" % e)
+            syslog.syslog(syslog.LOG_DEBUG, "AnalyzeThread.run(): Set alarm timeout to {}".format(self.timeout))
+            signal.alarm(self.timeout)
 
 #------------------------------------------------------------------------------
 

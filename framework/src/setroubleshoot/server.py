@@ -810,7 +810,7 @@ def RunFaultServer(timeout=10):
         # results of the analysis are to go) are included in the queued
         # object along with the data to analyze.
 
-        analyze_thread = AnalyzeThread(analysis_queue)
+        analyze_thread = AnalyzeThread(analysis_queue, timeout)
         analyze_thread.setDaemon(True)
         analyze_thread.start()
 
