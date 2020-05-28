@@ -158,6 +158,7 @@ host_database = None
 analysis_queue = None
 email_recipients = None
 email_recipients_filepath = get_config('email', 'recipients_filepath')
+pkg_name = get_config('general', 'pkg_name')
 pkg_version = get_config('general', 'pkg_version')
 rpc_version = get_config('general', 'rpc_version')
 instance_id = make_instance_id()
@@ -229,7 +230,8 @@ class AlertPluginReportReceiver(PluginReportReceiver):
                 pid = audit_record.fields["pid"]
                 break
         if get_config('setroubleshootd_log', 'log_full_report', bool):
-            systemd.journal.send(siginfo.format_text(), OBJECT_PID=pid)
+            global pkg_name
+            systemd.journal.send(siginfo.format_text(), OBJECT_PID=pid, SYSLOG_IDENTIFIER=pkg_name)
 
         for u in siginfo.users:
             action = siginfo.evaluate_filter_for_user(u.username)
@@ -760,7 +762,7 @@ def RunFaultServer(timeout=10):
         # currently syslog is only used for putting an alert into
         # the syslog with it's id
 
-        pkg_name = get_config('general', 'pkg_name')
+        global pkg_name
         syslog.openlog(pkg_name)
 
         # Create an object responsible for sending notifications to clients
