@@ -16,15 +16,16 @@
 # Vit Mojzis <vmojzis@redhat.com>, 2017. #zanata
 # Ludek Janda <ljanda@redhat.com>, 2018. #zanata
 # Vit Mojzis <vmojzis@redhat.com>, 2018. #zanata
+# Ludek Janda <ljanda@redhat.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-29 14:13+0100\n"
+"POT-Creation-Date: 2020-06-30 17:47+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-09-14 01:43+0000\n"
+"PO-Revision-Date: 2020-07-24 04:26-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Japanese (http://www.transifex.com/projects/p/fedora/language/"
 "ja/)\n"
@@ -44,220 +45,219 @@ msgstr "SELinux アクセス拒否のトラブルシューティング"
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:932
+#: ../src/setroubleshoot/audit_data.py:923
 #, python-format
 msgid "port %s"
 msgstr "ポート %s"
 
-#: ../src/setroubleshoot/audit_data.py:934 ../src/setroubleshoot/browser.py:773
-#: ../src/setroubleshoot/browser.py:848 ../src/setroubleshoot/rpc.py:558
-#: ../src/setroubleshoot/util.py:291
+#: ../src/setroubleshoot/audit_data.py:925 ../src/setroubleshoot/browser.py:779
+#: ../src/setroubleshoot/browser.py:854 ../src/setroubleshoot/rpc.py:558
+#: ../src/setroubleshoot/util.py:306
 msgid "Unknown"
 msgstr "不明"
 
-#: ../src/setroubleshoot/audit_data.py:1016
+#: ../src/setroubleshoot/audit_data.py:1007
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC allowed in current policy ***\n"
+"**** Recorded AVC is allowed in current policy ****\n"
 msgstr "%s \n"
-"**** 無効な AVC が現在のポリシーで許可されています ***\n"
+"**** 記録した AVC は現行のポリシーで許可されています。 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1018
+#: ../src/setroubleshoot/audit_data.py:1009
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn "
+"on dontaudit rules ****\n"
 msgstr ""
 "%s \n"
-"**** 無効な AVC が現在のポリシーで dontaudit されています。  'semodule -B' が dontaudit "
+"**** 記録した AVC が現在のポリシーで dontaudit されています。 'semodule -B' が dontaudit "
 "ルールをオンにします。 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1020
+#: ../src/setroubleshoot/audit_data.py:1011
 msgid "Must call policy_init first"
 msgstr "policy_init を最初にコールしなければなりません"
 
-#: ../src/setroubleshoot/audit_data.py:1022
+#: ../src/setroubleshoot/audit_data.py:1013
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC bad target context. ***\n"
+"**** Invalid AVC: bad target context ****\n"
 msgstr "%s \n"
-"**** 無効な AVC 不正ターゲットコンテキストです。 ***\n"
+"**** 無効な AVC: 不正ターゲットコンテキストです。 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1024
+#: ../src/setroubleshoot/audit_data.py:1015
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC bad source context. ***\n"
+"**** Invalid AVC: bad source context ****\n"
 msgstr "%s \n"
-"**** 無効な AVC 不正ソースコンテキストです。 ***\n"
+"**** 無効な AVC: 不正ソースコンテキストです。 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1026
+#: ../src/setroubleshoot/audit_data.py:1017
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC bad type class ***\n"
+"**** Invalid AVC: bad type class ****\n"
 msgstr "%s \n"
-"**** 無効な AVC 不正タイプクラスです ***\n"
+"**** 無効な AVC: 不正タイプクラスです ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1028
+#: ../src/setroubleshoot/audit_data.py:1019
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC bad permission ***\n"
-msgstr "%s \n"
-"**** 無効な AVC 不正認可です ***\n"
+"**** Invalid AVC: bad permission ****\n"
+msgstr "%s **** 無効な AVC: 不正認可です ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1030
+#: ../src/setroubleshoot/audit_data.py:1021
 msgid "Error during access vector computation"
 msgstr "アクセスベクターの演算時にエラーが発生しました"
 
-#: ../src/setroubleshoot/browser.py:204 ../gui/browser.glade.h:14
+#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:14
 msgid "SELinux Alert Browser"
 msgstr "SELinux 通知ブラウザー"
 
-#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:21
+#: ../src/setroubleshoot/browser.py:212 ../gui/browser.glade.h:21
 msgid "The source process:"
 msgstr "原因プロセス:"
 
-#: ../src/setroubleshoot/browser.py:213 ../gui/browser.glade.h:17
+#: ../src/setroubleshoot/browser.py:217 ../gui/browser.glade.h:17
 msgid "Yes"
 msgstr "はい"
 
-#: ../src/setroubleshoot/browser.py:215 ../gui/browser.glade.h:19
+#: ../src/setroubleshoot/browser.py:219 ../gui/browser.glade.h:19
 msgid "No"
 msgstr "いいえ"
 
-#: ../src/setroubleshoot/browser.py:220 ../gui/browser.glade.h:22
+#: ../src/setroubleshoot/browser.py:224 ../gui/browser.glade.h:22
 msgid "Attempted this access:"
 msgstr "試行したアクセス:"
 
-#: ../src/setroubleshoot/browser.py:234 ../gui/browser.glade.h:12
+#: ../src/setroubleshoot/browser.py:238 ../gui/browser.glade.h:12
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshoot の詳細のウィンドウ"
 
-#: ../src/setroubleshoot/browser.py:237 ../gui/browser.glade.h:16
+#: ../src/setroubleshoot/browser.py:241 ../gui/browser.glade.h:16
 msgid "Would you like to receive alerts?"
 msgstr "通知を受け取りますか？"
 
-#: ../src/setroubleshoot/browser.py:241 ../gui/browser.glade.h:26
+#: ../src/setroubleshoot/browser.py:245 ../gui/browser.glade.h:26
 msgid "Notify Admin"
 msgstr "管理者に通知"
 
-#: ../src/setroubleshoot/browser.py:244 ../src/setroubleshoot/browser.py:250
+#: ../src/setroubleshoot/browser.py:248 ../src/setroubleshoot/browser.py:254
 #: ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "トラブルシュート"
 
-#: ../src/setroubleshoot/browser.py:247 ../gui/browser.glade.h:28
+#: ../src/setroubleshoot/browser.py:251 ../gui/browser.glade.h:28
 msgid "Details"
 msgstr "詳細"
 
-#: ../src/setroubleshoot/browser.py:254 ../gui/browser.glade.h:7
+#: ../src/setroubleshoot/browser.py:258 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot 通知リスト"
 
-#: ../src/setroubleshoot/browser.py:256 ../gui/browser.glade.h:37
+#: ../src/setroubleshoot/browser.py:260 ../gui/browser.glade.h:37
 msgid "List All Alerts"
 msgstr "すべての通知の一覧"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "#"
 msgstr "#"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "Source Process"
 msgstr "ソースプロセス"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "Attempted Access"
 msgstr "試行したアクセス"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "On this"
 msgstr "試行の対象"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "Occurred"
 msgstr "発生回数"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "Status"
 msgstr "ステータス"
 
-#: ../src/setroubleshoot/browser.py:377 ../src/setroubleshoot/browser.py:812
-#: ../src/setroubleshoot/browser.py:856
+#: ../src/setroubleshoot/browser.py:382 ../src/setroubleshoot/browser.py:818
+#: ../src/setroubleshoot/browser.py:862
 msgid "Notify"
 msgstr "通知する"
 
-#: ../src/setroubleshoot/browser.py:378
+#: ../src/setroubleshoot/browser.py:383
 msgid "Notify alert in the future."
 msgstr "後ほど警告を表示します。"
 
-#: ../src/setroubleshoot/browser.py:381 ../src/setroubleshoot/browser.py:814
-#: ../src/setroubleshoot/browser.py:854 ../gui/browser.glade.h:29
+#: ../src/setroubleshoot/browser.py:386 ../src/setroubleshoot/browser.py:820
+#: ../src/setroubleshoot/browser.py:860 ../gui/browser.glade.h:29
 msgid "Ignore"
 msgstr "無視"
 
-#: ../src/setroubleshoot/browser.py:382 ../gui/browser.glade.h:30
+#: ../src/setroubleshoot/browser.py:387 ../gui/browser.glade.h:30
 msgid "Ignore alert in the future."
 msgstr "次回から警告を無視します。"
 
-#: ../src/setroubleshoot/browser.py:419
+#: ../src/setroubleshoot/browser.py:424
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>次を試行していた場合...</b>"
 
-#: ../src/setroubleshoot/browser.py:428
+#: ../src/setroubleshoot/browser.py:433
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>これが解決策です</b>"
 
-#: ../src/setroubleshoot/browser.py:525
+#: ../src/setroubleshoot/browser.py:531
 msgid "Plugin\n"
 "Details"
 msgstr "プラグイン\n"
 "詳細"
 
-#: ../src/setroubleshoot/browser.py:540
+#: ../src/setroubleshoot/browser.py:546
 msgid "Report\n"
 "Bug"
 msgstr "バグ\n"
 "報告"
 
-#: ../src/setroubleshoot/browser.py:570
+#: ../src/setroubleshoot/browser.py:576
 #, python-format
 msgid "Plugin: %s "
 msgstr "プラグイン: %s "
 
-#: ../src/setroubleshoot/browser.py:637
+#: ../src/setroubleshoot/browser.py:643
 msgid "Unable to grant access."
 msgstr "アクセスを認可できません"
 
-#: ../src/setroubleshoot/browser.py:668 ../src/setroubleshoot/browser.py:810
+#: ../src/setroubleshoot/browser.py:674 ../src/setroubleshoot/browser.py:816
 #, python-format
 msgid "Alert %d of %d"
 msgstr "通知 %d / %d"
 
-#: ../src/setroubleshoot/browser.py:793
+#: ../src/setroubleshoot/browser.py:799
 #, python-format
 msgid "On this %s:"
 msgstr "対象 %s:"
 
-#: ../src/setroubleshoot/browser.py:841 ../src/setroubleshoot/browser.py:847
-#: ../src/setroubleshoot/signature.py:422
+#: ../src/setroubleshoot/browser.py:847 ../src/setroubleshoot/browser.py:853
+#: ../src/setroubleshoot/signature.py:434
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/setroubleshoot/browser.py:888 ../src/setroubleshoot/browser.py:889
+#: ../src/setroubleshoot/browser.py:894 ../src/setroubleshoot/browser.py:895
 #: ../gui/browser.glade.h:34
 msgid "No Alerts"
 msgstr "通知なし"
 
-#: ../src/setroubleshoot/browser.py:907
+#: ../src/setroubleshoot/browser.py:913
 msgid "SELinux has detected a problem."
 msgstr "SELinux は問題を検出しました。"
 
-#: ../src/setroubleshoot/browser.py:1023
+#: ../src/setroubleshoot/browser.py:1032
 msgid "Sealert Error"
 msgstr "Sealert エラー"
 
-#: ../src/setroubleshoot/browser.py:1036
+#: ../src/setroubleshoot/browser.py:1045
 msgid "Sealert Message"
 msgstr "Sealert メッセージ"
 
@@ -339,7 +339,7 @@ msgstr "認証されていません"
 msgid "user lookup failed"
 msgstr "ユーザーの検索に失敗しました"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:566
+#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:565
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "%s  がエラーです!"
@@ -365,7 +365,7 @@ msgstr "完全な SELinux メッセージを見るには、sealert -l %s を実�
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "ユーザー(%s) は (%s) 用のデータを修正できません"
 
-#: ../src/setroubleshoot/server.py:486 ../src/sealert:319
+#: ../src/setroubleshoot/server.py:486 ../src/sealert:318
 msgid "Started"
 msgstr "開始済み"
 
@@ -389,195 +389,199 @@ msgstr "常に無視する"
 msgid "Ignore After First Alert"
 msgstr "最初の通知以後は無視"
 
-#: ../src/setroubleshoot/signature.py:211
+#: ../src/setroubleshoot/signature.py:213
 msgid "directory"
 msgstr "ディレクトリー"
 
-#: ../src/setroubleshoot/signature.py:212
+#: ../src/setroubleshoot/signature.py:214
 msgid "semaphore"
 msgstr "セマフォ"
 
-#: ../src/setroubleshoot/signature.py:213
+#: ../src/setroubleshoot/signature.py:215
 msgid "shared memory"
 msgstr "共有メモリー"
 
-#: ../src/setroubleshoot/signature.py:214
+#: ../src/setroubleshoot/signature.py:216
 msgid "message queue"
 msgstr "メッセージキュー"
 
-#: ../src/setroubleshoot/signature.py:215
+#: ../src/setroubleshoot/signature.py:217
 msgid "message"
 msgstr "メッセージ"
 
-#: ../src/setroubleshoot/signature.py:216
+#: ../src/setroubleshoot/signature.py:218
 msgid "file"
 msgstr "ファイル"
 
-#: ../src/setroubleshoot/signature.py:217
+#: ../src/setroubleshoot/signature.py:219
 msgid "socket"
 msgstr "ソケット"
 
-#: ../src/setroubleshoot/signature.py:218
+#: ../src/setroubleshoot/signature.py:220
 msgid "process"
 msgstr "プロセス"
 
-#: ../src/setroubleshoot/signature.py:219
+#: ../src/setroubleshoot/signature.py:221
 msgid "process2"
 msgstr "process2"
 
-#: ../src/setroubleshoot/signature.py:220
+#: ../src/setroubleshoot/signature.py:222
 msgid "filesystem"
 msgstr "ファイルシステム"
 
-#: ../src/setroubleshoot/signature.py:221
+#: ../src/setroubleshoot/signature.py:223
 msgid "node"
 msgstr "ノード"
 
-#: ../src/setroubleshoot/signature.py:222
+#: ../src/setroubleshoot/signature.py:224
 msgid "capability"
 msgstr "機能"
 
-#: ../src/setroubleshoot/signature.py:223
+#: ../src/setroubleshoot/signature.py:225
 msgid "capability2"
 msgstr "capability2"
 
-#: ../src/setroubleshoot/signature.py:406
+#: ../src/setroubleshoot/signature.py:418
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s には許容タイプ (%s) があります。このアクセスは拒否されませんでした。"
 
-#: ../src/setroubleshoot/signature.py:409
+#: ../src/setroubleshoot/signature.py:421
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux は permissive モードです。このアクセスは拒否されませんでした。"
 
-#: ../src/setroubleshoot/signature.py:463
+#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr "SELinux により、%s がプロセスにおいて %s アクセスを使用できません。"
 
-#: ../src/setroubleshoot/signature.py:463
+#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr "SELinux により、%s がプロセスにおいて '%s' アクセスを使用できません。"
 
-#: ../src/setroubleshoot/signature.py:466
+#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "SELinux により、%s が %s 能力を使用できません。"
 
-#: ../src/setroubleshoot/signature.py:466
+#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux により、%s が '%s' 能力を使用できません。"
 
-#: ../src/setroubleshoot/signature.py:468
+#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr "SELinux により、%s による %s アクセスが、%s ラベルの付いた %s で拒否されました。"
 
-#: ../src/setroubleshoot/signature.py:468
+#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr "SELinux により、%s による '%s' アクセスが、%s のラベルが付いた %s で拒否されました。"
 
-#: ../src/setroubleshoot/signature.py:469
+#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux により、%s による %s アクセスが、%s %s で拒否されました。"
 
-#: ../src/setroubleshoot/signature.py:469
+#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux により、%s による '%s' アクセスが、%s %s で拒否されました。"
 
-#: ../src/setroubleshoot/signature.py:514
+#: ../src/setroubleshoot/signature.py:526
 msgid "Additional Information:\n"
 msgstr "追加情報:\n"
 
-#: ../src/setroubleshoot/signature.py:515
+#: ../src/setroubleshoot/signature.py:527
 msgid "Source Context"
 msgstr "ソースコンテキスト"
 
-#: ../src/setroubleshoot/signature.py:516
+#: ../src/setroubleshoot/signature.py:528
 msgid "Target Context"
 msgstr "ターゲットコンテキスト"
 
-#: ../src/setroubleshoot/signature.py:517
+#: ../src/setroubleshoot/signature.py:529
 msgid "Target Objects"
 msgstr "ターゲットオブジェクト"
 
-#: ../src/setroubleshoot/signature.py:518
+#: ../src/setroubleshoot/signature.py:530
 msgid "Source"
 msgstr "ソース"
 
-#: ../src/setroubleshoot/signature.py:519
+#: ../src/setroubleshoot/signature.py:531
 msgid "Source Path"
 msgstr "ソースパス"
 
-#: ../src/setroubleshoot/signature.py:520
+#: ../src/setroubleshoot/signature.py:532
 msgid "Port"
 msgstr "ポート"
 
-#: ../src/setroubleshoot/signature.py:522
-#: ../src/setroubleshoot/signature.py:524
+#: ../src/setroubleshoot/signature.py:534
+#: ../src/setroubleshoot/signature.py:536
 msgid "Host"
 msgstr "ホスト"
 
-#: ../src/setroubleshoot/signature.py:525
+#: ../src/setroubleshoot/signature.py:537
 msgid "Source RPM Packages"
 msgstr "ソース RPM パッケージ"
 
-#: ../src/setroubleshoot/signature.py:526
+#: ../src/setroubleshoot/signature.py:538
 msgid "Target RPM Packages"
 msgstr "ターゲット RPM パッケージ"
 
-#: ../src/setroubleshoot/signature.py:527
-msgid "Policy RPM"
-msgstr "ポリシー RPM"
+#: ../src/setroubleshoot/signature.py:539
+msgid "SELinux Policy RPM"
+msgstr "SELinux Policy RPM"
 
-#: ../src/setroubleshoot/signature.py:528
+#: ../src/setroubleshoot/signature.py:540
+msgid "Local Policy RPM"
+msgstr "ローカルポリシー RPM"
+
+#: ../src/setroubleshoot/signature.py:541
 msgid "Selinux Enabled"
 msgstr "Selinux 有効化"
 
-#: ../src/setroubleshoot/signature.py:529
+#: ../src/setroubleshoot/signature.py:542
 msgid "Policy Type"
 msgstr "ポリシータイプ"
 
-#: ../src/setroubleshoot/signature.py:530
+#: ../src/setroubleshoot/signature.py:543
 msgid "Enforcing Mode"
 msgstr "強制モード"
 
-#: ../src/setroubleshoot/signature.py:532
-#: ../src/setroubleshoot/signature.py:534
+#: ../src/setroubleshoot/signature.py:545
+#: ../src/setroubleshoot/signature.py:547
 msgid "Host Name"
 msgstr "ホスト名"
 
-#: ../src/setroubleshoot/signature.py:539
-#: ../src/setroubleshoot/signature.py:541
+#: ../src/setroubleshoot/signature.py:552
+#: ../src/setroubleshoot/signature.py:554
 msgid "Platform"
 msgstr "プラットフォーム"
 
-#: ../src/setroubleshoot/signature.py:542
+#: ../src/setroubleshoot/signature.py:555
 msgid "Alert Count"
 msgstr "通知カウント"
 
-#: ../src/setroubleshoot/signature.py:544
+#: ../src/setroubleshoot/signature.py:557
 msgid "First Seen"
 msgstr "最初の画面"
 
-#: ../src/setroubleshoot/signature.py:545
+#: ../src/setroubleshoot/signature.py:558
 msgid "Last Seen"
 msgstr "最後の画面"
 
-#: ../src/setroubleshoot/signature.py:546
+#: ../src/setroubleshoot/signature.py:559
 msgid "Local ID"
 msgstr "ローカル ID"
 
-#: ../src/setroubleshoot/signature.py:548
+#: ../src/setroubleshoot/signature.py:561
 msgid "Raw Audit Messages"
 msgstr "生の監査メッセージ"
 
-#: ../src/setroubleshoot/signature.py:602
+#: ../src/setroubleshoot/signature.py:615
 #, python-format
 msgid "\n"
 "\n"
@@ -586,42 +590,32 @@ msgstr "\n"
 "\n"
 "*****  プラグイン %s (%.4s 信頼性) による示唆"
 
-#: ../src/setroubleshoot/signature.py:605
+#: ../src/setroubleshoot/signature.py:618
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:606
-#: ../src/setroubleshoot/signature.py:608
+#: ../src/setroubleshoot/signature.py:619
+#: ../src/setroubleshoot/signature.py:621
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:610
+#: ../src/setroubleshoot/signature.py:623
 msgid "\n"
 "Then "
 msgstr "\n"
 "このようにします: "
 
-#: ../src/setroubleshoot/signature.py:613
+#: ../src/setroubleshoot/signature.py:626
 msgid "\n"
 "Do\n"
 msgstr "\n"
 "そして、以下を実行します: \n"
 
-#: ../src/setroubleshoot/signature.py:615
+#: ../src/setroubleshoot/signature.py:628
 msgid "\n"
 "\n"
 msgstr "\n"
 "\n"
-
-#: ../src/updater.py:18
-#, python-format
-msgid "current: %s "
-msgstr "現在: %s"
-
-#: ../src/updater.py:27
-#, python-format
-msgid "newer: %s "
-msgstr "最新: %s"
 
 #: ../src/seappletlegacy.c:189 ../src/seapplet:133
 msgid "New SELinux security alert"
@@ -641,7 +635,7 @@ msgid "Show"
 msgstr "表示"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:72
+#: ../src/seappletlegacy.c:440 ../src/sealert:71
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC 拒否、クリックして表示"
 
@@ -649,20 +643,20 @@ msgstr "SELinux AVC 拒否、クリックして表示"
 msgid "SELinux Troubleshooter: Applet requires SELinux be enabled to run"
 msgstr "SELinux Troubleshooter: アプレットでは、SELinux が実行するように有効化されている必要があります。"
 
-#: ../src/sealert:122
+#: ../src/sealert:121
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr "SELinux が有効化されていません。sealert は SELinux が有効なシステム以外では動作しません。"
 
-#: ../src/sealert:172
+#: ../src/sealert:171
 msgid "Not fixable."
 msgstr "修正不可です。"
 
-#: ../src/sealert:179
+#: ../src/sealert:178
 #, c-format
 msgid "Successfully ran %s"
 msgstr "%s を正常に実行しました"
 
-#: ../src/sealert:186
+#: ../src/sealert:185
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "プラグイン %s は %s id には認められていません"

@@ -7,17 +7,17 @@
 # eukim <eukim@redhat.com>, 2012
 # Hyunsok Oh <hoh@redhat.com>, 2010,2013
 # Eun-Ju Kim <eukim@redhat.com>, 2016. #zanata
-# Petr Lautrbach <plautrba@fedoraproject.org>, 2016. #zanata
 # Ludek Janda <ljanda@redhat.com>, 2018. #zanata
+# Ludek Janda <ljanda@redhat.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-29 14:19+0100\n"
+"POT-Creation-Date: 2020-06-30 17:48+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-11-20 03:12+0000\n"
+"PO-Revision-Date: 2020-07-24 04:30-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Korean (http://www.transifex.com/projects/p/fedora/language/"
 "ko/)\n"
@@ -498,7 +498,7 @@ msgstr "ftpd가 nfs 파일 시스템에 쓸 수있게하려면"
 
 #: ../src/allow_ftpd_use_nfs.py:71
 msgid "Enable booleans."
-msgstr "불리언을 활성화하십시오."
+msgstr "부울을 활성화하십시오."
 
 #: ../src/associate.py:32 ../src/openvpn.py:31 ../src/public_content.py:27
 #: ../src/qemu_blk_image.py:27 ../src/qemu_file_image.py:27
@@ -1193,7 +1193,9 @@ msgstr "net.ipv6.conf.all.disable_ipv6 = 1을\n"
 msgid "\n"
 "    SELinux is preventing access to a file labeled unlabeled_t.\n"
 "    "
-msgstr ""
+msgstr "\n"
+"    SELinux가 unlabeled_t로 레이블된 파일에 대한 액세스를 금지하고 있습니다.\n"
+"    "
 
 #: ../src/file.py:31
 msgid ""
@@ -1209,6 +1211,13 @@ msgid ""
 "    relabel the entire file system.\n"
 "    "
 msgstr ""
+"\n"
+"    unlabeled_t로 레이블 된 파일에 대한 SELinux 권한 검사가 거부되었습니다. unlabeled_t는 SELinux "
+"커널이 레이블이 없는 파일에 제공하는 컨텍스트입니다. 이는 심각한 레이블 문제를 보여줍니다. SELinux 상자의 어떤 파일도 "
+"unlabeled_t로 레이블되지 않아야합니다. 시스템에 디스크 드라이브를 추가 한 경우 restorecon 명령을 사용하여 레이블을 "
+"다시 지정할 수 있습니다. 예를 들어 SELinux를 사용하지 않은 이전 설치에서 홈 디렉토리를 저장 한 경우 'restorecon -R "
+"-v / home'은 레이블을 수정합니다. 그렇지 않으면 전체 파일 시스템의 레이블을 다시 지정해야합니다.\n"
+"    "
 
 #: ../src/file.py:42
 msgid ""
@@ -1240,11 +1249,11 @@ msgstr "모두 다시 레이블해야 합니다. "
 
 #: ../src/file.py:73
 msgid "Try to fix the label."
-msgstr ""
+msgstr "레이블을 수정하십시오."
 
 #: ../src/file.py:76
 msgid "Relabel the whole file system. Includes reboot!"
-msgstr ""
+msgstr "재부팅을 포함하여 전체 파일 시스템의 레이블을 다시 지정하십시오."
 
 #: ../src/filesystem_associate.py:27
 msgid ""
@@ -1850,6 +1859,13 @@ msgid ""
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux는 블록 장치 $TARGET_PATH에 대한 Svirt 액세스가 거부되었습니다. 이 이미지가 가상화 이미지 인경우 "
+"가상화 파일 컨텍스트 (virt_image_t)로 레이블이 지정되어야합니다. chcon을 사용하여 $TARGET_PATH이 "
+"virt_image_t가 되도록 레이블을 다시 지정할 수 있습니다. 또한 semanage fcontext -a -t "
+"virt_image_t '$FIX_TARGET_PATH를 실행하여 새로운 경로를 시스템 기본값에 추가해야 합니다. "
+"$TARGET_PATH를 가상화 이미지로 사용하지 않으려는 경우 버그 또는 침입 시도를 나타낼 수 있습니다.\n"
+"    "
 
 #: ../src/qemu_blk_image.py:38 ../src/qemu_file_image.py:41
 msgid ""
@@ -1877,7 +1893,7 @@ msgstr ""
 
 #: ../src/qemu_blk_image.py:53 ../src/qemu_file_image.py:57
 msgid "Set the image label to virt_image_t."
-msgstr ""
+msgstr "이미지 레이블을 virt_image_t로 설정하십시오."
 
 #: ../src/qemu_file_image.py:31
 msgid ""
@@ -1898,6 +1914,18 @@ msgid ""
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
+"\n"
+"    SELinux는 $TARGET_PATH로의 svirt 액세스를 거부했습니다.\n"
+"    이것이 가상화 이미지인 경우virt_image_t로 레이블된 파일 문맥을 가지고\n"
+"    있어야 합니다. 이 시스템은 디렉토리 /var/lib/libvirt/images에 있는 이미지 파일을 올바르게 레이블할 수 있도록 "
+"설정되어 있습니다.\n"
+"     이미지 파일을 /var/lib/libvirt/images에 복사하실 것을 권장합니다.\n"
+"     현재 디렉토리에 이미지 파일을 보관하도록 하려면, chcon을 사용하여 $TARGET_PATH를 virt_image_t로 다시 "
+"레이블할 수 있습니다. 또한 새 경로를 시스템 기본값으로 추가하기 위해 semanage fcontext -a -t virt_image_t "
+"'$FIX_TARGET_PATH'를 실행해야 합니다.\n"
+"    가상화 이미지로서 $TARGET_PATH를 사용하려고 한 경우가 아니라면,\n"
+"    이것은 버그나 침입 시도를 나타내는 신호일 수 있습니다.\n"
+"    "
 
 #: ../src/qemu_file_image.py:48
 msgid "If $TARGET_BASE_PATH is a virtualization target"
@@ -1937,8 +1965,8 @@ msgid ""
 "in a directory labeled B\n"
 "            will instead create the file with label C. An example of this "
 "would be the dhcp client running\n"
-"            with the dhclient_t type and creating a file in the directory /"
-"etc. This file would normally\n"
+"            with the dhcpc_t type and creating a file in the directory /etc. "
+"This file would normally\n"
 "            receive the etc_t type due to parental inheritance but instead "
 "the file\n"
 "            is labeled with the net_conf_t type because the SELinux policy "
@@ -1959,18 +1987,17 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"    SELinux가 요청한 액세스를 거부했습니다. $SOURCE. $TARGET_PATH가 잘못 표시 될 수 있습니다.  "
-"$TARGET_PATH 기본 SELinux 유형    <B>%s</B>, 그러나 그것의 현재 유형은이다 <B>$TARGET_유형</B>. "
-"이 파일을 기본 유형으로 다시 변경하면 문제가 해결 될 수 있습니다.    <p>파일 컨텍스트는 다음과 같은 방법으로 파일에 할당 할 수 "
-"있습니다.    <ul>        <li>디렉토리에서 작성된 파일은 기본적으로 상위 디렉토리의 파일 컨텍스트를 수신합니다.       "
-" <li>SELinux 정책은 컨텍스트 A로 실행되는 프로세스를 지정하여 부모 디렉토리에서 상속 된 기본 레이블을 무시할 수 있습니다.이 "
-"프로세스는 B라는 레이블이 지정된 디렉토리에 파일을 생성하고 대신 C라는 레이블로 파일을 생성합니다.이 예는 실행중인 dhcp "
-"클라이언트입니다 dhclient_t 유형 및 / etc 디렉토리에 파일 작성. 이 파일은 보통 부모 상속으로 인해 etc_t 유형을 "
-"수신하지만 SELinux 정책이이를 지정하기 때문에 파일은 net_conf_t 유형으로 레이블됩니다.        <li>사용자는 "
-"chcon 또는 restorecon과 같은 도구를 사용하여 파일의 파일 컨텍스트를 변경할 수 있습니다.    </ul>이 파일은 사용자 "
-"오류 또는 일반적으로 제한된 응용 프로그램이 잘못된 도메인에서 실행 된 경우 잘못 표시 될 수 있습니다.    <p>그러나 이것은 "
-"파일이이 유형으로 분류되어서는 안되기 때문에 SELinux의 버그를 나타낼 수도 있습니다.    <p>이것이 버그라고 생각되면이 패키지에 "
-"대한 버그 리포트를 제출하십시오.\n"
+"    SELinux가 요청한 액세스를 거부했습니다. $SOURCE. $TARGET_PATH에 잘못된 레이블이 표시될 수 있습니다. "
+"$TARGET_PATH의 기본 SELinux 유형 <B>%s</B>, 하지만 현재의 유형은 <B>$TARGET_TYPE</B>입니다. 이 "
+"파일을 기본 유형으로 다시 변경하면 문제가 해결될 수 있습니다. <p>파일 컨텍스트는 다음과 같은 방법으로 파일에 할당 할 수 있습니다. "
+"<ul> <li>디렉토리에서 작성된 파일은 기본적으로 상위 디렉토리의 파일 컨텍스트를 수신합니다. <li>SELinux 정책은 컨텍스트 "
+"A로 실행되는 프로세스를 지정하여 부모 디렉토리에서 상속 된 기본 레이블을 무시할 수 있습니다.이 프로세스는 B라는 레이블이 지정된 "
+"디렉토리에 파일을 생성하고 대신 C라는 레이블로 파일을 생성합니다.이 예는 실행중인 dhcp 클라이언트입니다 dhclient_t 유형 및 "
+"/ etc 디렉토리에 파일 작성. 이 파일은 보통 부모 상속으로 인해 etc_t 유형을 수신하지만 SELinux 정책이 이를 지정하기 "
+"때문에 파일은 net_conf_t 유형으로 레이블됩니다. <li>사용자는 chcon 또는 restorecon과 같은 도구를 사용하여 "
+"파일의 파일 컨텍스트를 변경할 수 있습니다. </ul>이 파일은 사용자 오류 또는 일반적으로 제한된 응용 프로그램이 잘못된 도메인에서 "
+"실행 된 경우 잘못 표시 될 수 있습니다. <p>그러나 이것은 파일이이 유형으로 분류되어서는 안되기 때문에 SELinux의 버그일 수도 "
+"있습니다. <p>이것이 버그라고 생각되면이 패키지에 대한 버그 리포트를 제출하십시오.\n"
 "    "
 
 #: ../src/restorecon.py:90
@@ -2637,4 +2664,4 @@ msgstr ""
 
 #: ../src/xen_image.py:56
 msgid "Change the file label to xen_image_t."
-msgstr ""
+msgstr "파일 레이블을 xen_image_t로 변경하십시오."

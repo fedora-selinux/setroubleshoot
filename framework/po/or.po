@@ -13,11 +13,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-29 14:13+0100\n"
+"POT-Creation-Date: 2020-06-30 17:47+0200\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-09-01 12:30+0000\n"
+"PO-Revision-Date: 2017-08-31 08:30-0400\n"
 "Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Oriya (http://www.transifex.com/projects/p/fedora/language/or/"
 ")\n"
@@ -37,220 +37,212 @@ msgstr "ତ୍ରୁଟି ନିବାରକ SELinux ପ୍ରବେଶ ନି�
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "ନିତୀ;ସୁରକ୍ଷା;selinux;avc;ଅନୁମତି;mac;ସତର୍କ ସୂଚନା;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:932
+#: ../src/setroubleshoot/audit_data.py:923
 #, python-format
 msgid "port %s"
 msgstr "ପୋର୍ଟ %s"
 
-#: ../src/setroubleshoot/audit_data.py:934 ../src/setroubleshoot/browser.py:773
-#: ../src/setroubleshoot/browser.py:848 ../src/setroubleshoot/rpc.py:558
-#: ../src/setroubleshoot/util.py:291
+#: ../src/setroubleshoot/audit_data.py:925 ../src/setroubleshoot/browser.py:779
+#: ../src/setroubleshoot/browser.py:854 ../src/setroubleshoot/rpc.py:558
+#: ../src/setroubleshoot/util.py:306
 msgid "Unknown"
 msgstr "ଅଜଣା"
 
-#: ../src/setroubleshoot/audit_data.py:1016
+#: ../src/setroubleshoot/audit_data.py:1007
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC allowed in current policy ***\n"
-msgstr "%s \n"
-"**** ଅବୈଧ AVC ପ୍ରଚଳିତ ନିତୀରେ ଅନୁମୋଦିତ ***\n"
+"**** Recorded AVC is allowed in current policy ****\n"
+msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1018
+#: ../src/setroubleshoot/audit_data.py:1009
 #, python-format
 msgid ""
 "%s \n"
-"**** Invalid AVC dontaudited in current policy.  'semodule -B' will turn on "
-"dontaudit rules. ***\n"
+"**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn "
+"on dontaudit rules ****\n"
 msgstr ""
-"%s \n"
-"**** ଅବୈଧ AVC ପ୍ରଚଳିତ ନିତୀରେ ପରୀକ୍ଷଣ ହୋଇନାହିଁ।  'semodule -B' ପରୀକ୍ଷଣ କରନ୍ତୁ "
-"ନାହିଁ ନିତୀକୁ ଅନ କରିବ। ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1020
+#: ../src/setroubleshoot/audit_data.py:1011
 msgid "Must call policy_init first"
 msgstr "ନିଶ୍ଚିତ ଭାବରେ policy_init କୁ ପ୍ରଥମେ ଡାକନ୍ତୁ"
 
-#: ../src/setroubleshoot/audit_data.py:1022
+#: ../src/setroubleshoot/audit_data.py:1013
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC bad target context. ***\n"
-msgstr "%s \n"
-"**** ଅବୈଧ AVC ଖରାପ ଲକ୍ଷ୍ଯସ୍ଥଳ ପ୍ରସଙ୍ଗ। ***\n"
+"**** Invalid AVC: bad target context ****\n"
+msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1024
+#: ../src/setroubleshoot/audit_data.py:1015
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC bad source context. ***\n"
-msgstr "%s \n"
-"**** ଅବୈଧ AVC ଖରାପ ଉତ୍ସ ପ୍ରସଙ୍ଗ। ***\n"
+"**** Invalid AVC: bad source context ****\n"
+msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1026
+#: ../src/setroubleshoot/audit_data.py:1017
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC bad type class ***\n"
-msgstr "%s \n"
-"**** ଅବୈଧ AVC ଖରାପ ପ୍ରକାର ଶ୍ରେଣୀ ***\n"
+"**** Invalid AVC: bad type class ****\n"
+msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1028
+#: ../src/setroubleshoot/audit_data.py:1019
 #, python-format
 msgid "%s \n"
-"**** Invalid AVC bad permission ***\n"
-msgstr "%s \n"
-"**** ଅବୈଧ AVC ଖରାପ ଅନୁମତି ***\n"
+"**** Invalid AVC: bad permission ****\n"
+msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1030
+#: ../src/setroubleshoot/audit_data.py:1021
 msgid "Error during access vector computation"
 msgstr "ଭେକ୍ଟର ଗଣନାରେ ଅଭିଗମ୍ୟ କରିବା ସମୟରେ ତ୍ରୁଟି"
 
-#: ../src/setroubleshoot/browser.py:204 ../gui/browser.glade.h:14
+#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:14
 msgid "SELinux Alert Browser"
 msgstr "SELinux ସତର୍କ ସୂଚନା ବ୍ରାଉଜର"
 
-#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:21
+#: ../src/setroubleshoot/browser.py:212 ../gui/browser.glade.h:21
 msgid "The source process:"
 msgstr "ଉତ୍ସ ପଦ୍ଧତି:"
 
-#: ../src/setroubleshoot/browser.py:213 ../gui/browser.glade.h:17
+#: ../src/setroubleshoot/browser.py:217 ../gui/browser.glade.h:17
 msgid "Yes"
 msgstr "ହଁ"
 
-#: ../src/setroubleshoot/browser.py:215 ../gui/browser.glade.h:19
+#: ../src/setroubleshoot/browser.py:219 ../gui/browser.glade.h:19
 msgid "No"
 msgstr "ନାଁ"
 
-#: ../src/setroubleshoot/browser.py:220 ../gui/browser.glade.h:22
+#: ../src/setroubleshoot/browser.py:224 ../gui/browser.glade.h:22
 msgid "Attempted this access:"
 msgstr "ଏହି ଅଭିଗମ୍ୟତାକୁ ପ୍ରୟାସ କରାଯାଇଛି:"
 
-#: ../src/setroubleshoot/browser.py:234 ../gui/browser.glade.h:12
+#: ../src/setroubleshoot/browser.py:238 ../gui/browser.glade.h:12
 msgid "SETroubleshoot Details Window"
 msgstr "SETroubleshoot ବିବରଣୀ ୱିଣ୍ଡୋ"
 
-#: ../src/setroubleshoot/browser.py:237 ../gui/browser.glade.h:16
+#: ../src/setroubleshoot/browser.py:241 ../gui/browser.glade.h:16
 msgid "Would you like to receive alerts?"
 msgstr "ସତର୍କ ସୂଚନା ଗ୍ରହଣ କରିବା ପାଇଁ ଚାହୁଁଛନ୍ତି କି?"
 
-#: ../src/setroubleshoot/browser.py:241 ../gui/browser.glade.h:26
+#: ../src/setroubleshoot/browser.py:245 ../gui/browser.glade.h:26
 msgid "Notify Admin"
 msgstr "ପ୍ରଶାସକଙ୍କୁ ସୂଚାନ୍ତୁ"
 
-#: ../src/setroubleshoot/browser.py:244 ../src/setroubleshoot/browser.py:250
+#: ../src/setroubleshoot/browser.py:248 ../src/setroubleshoot/browser.py:254
 #: ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "ତ୍ରୁଟି ନିବାରଣ କରନ୍ତୁ"
 
-#: ../src/setroubleshoot/browser.py:247 ../gui/browser.glade.h:28
+#: ../src/setroubleshoot/browser.py:251 ../gui/browser.glade.h:28
 msgid "Details"
 msgstr "ବିସ୍ତୃତ ବିବରଣୀ"
 
-#: ../src/setroubleshoot/browser.py:254 ../gui/browser.glade.h:7
+#: ../src/setroubleshoot/browser.py:258 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot ଚେତାବନୀ ତାଲିକା"
 
-#: ../src/setroubleshoot/browser.py:256 ../gui/browser.glade.h:37
+#: ../src/setroubleshoot/browser.py:260 ../gui/browser.glade.h:37
 msgid "List All Alerts"
 msgstr "ସମସ୍ତ ସତର୍କ ସୂଚନାକୁ ତାଲିକାଭୁକ୍ତ କରନ୍ତୁ"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "#"
 msgstr "#"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "Source Process"
 msgstr "ଉତ୍ସ ପଦ୍ଧତି"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "Attempted Access"
 msgstr "ପ୍ରୟାସ କରାଯାଇଥିବା ଅଭିଗମ୍ୟତା"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "On this"
 msgstr "ଏହା ଉପରେ"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "Occurred"
 msgstr "ଘଟିଛି"
 
-#: ../src/setroubleshoot/browser.py:303
+#: ../src/setroubleshoot/browser.py:307
 msgid "Status"
 msgstr "ଅବସ୍ଥିତି"
 
-#: ../src/setroubleshoot/browser.py:377 ../src/setroubleshoot/browser.py:812
-#: ../src/setroubleshoot/browser.py:856
+#: ../src/setroubleshoot/browser.py:382 ../src/setroubleshoot/browser.py:818
+#: ../src/setroubleshoot/browser.py:862
 msgid "Notify"
 msgstr "ସୂଚାନ୍ତୁ"
 
-#: ../src/setroubleshoot/browser.py:378
+#: ../src/setroubleshoot/browser.py:383
 msgid "Notify alert in the future."
 msgstr "ଭବିଷ୍ୟତରେ ସତର୍କ ସୂଚନା ଦିଅନ୍ତୁ।"
 
-#: ../src/setroubleshoot/browser.py:381 ../src/setroubleshoot/browser.py:814
-#: ../src/setroubleshoot/browser.py:854 ../gui/browser.glade.h:29
+#: ../src/setroubleshoot/browser.py:386 ../src/setroubleshoot/browser.py:820
+#: ../src/setroubleshoot/browser.py:860 ../gui/browser.glade.h:29
 msgid "Ignore"
 msgstr "ଆଗ୍ରହ୍ଯ କରନ୍ତୁ"
 
-#: ../src/setroubleshoot/browser.py:382 ../gui/browser.glade.h:30
+#: ../src/setroubleshoot/browser.py:387 ../gui/browser.glade.h:30
 msgid "Ignore alert in the future."
 msgstr "ଭବିଷ୍ୟତରେ ସତର୍କ ସୂଚନାକୁ ଅଗ୍ରାହ୍ୟ କରନ୍ତୁ।"
 
-#: ../src/setroubleshoot/browser.py:419
+#: ../src/setroubleshoot/browser.py:424
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>ଯଦି ଆପଣମାନେ ଚେଷ୍ଟା କରୁଛନ୍ତି...</b>"
 
-#: ../src/setroubleshoot/browser.py:428
+#: ../src/setroubleshoot/browser.py:433
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>ତେବେ ଏହା ହେଉଛି ତାହାର ସମାଧାନ।</b>"
 
-#: ../src/setroubleshoot/browser.py:525
+#: ../src/setroubleshoot/browser.py:531
 msgid "Plugin\n"
 "Details"
 msgstr "ପ୍ଲଗଇନ\n"
 "ବିବରଣୀ"
 
-#: ../src/setroubleshoot/browser.py:540
+#: ../src/setroubleshoot/browser.py:546
 msgid "Report\n"
 "Bug"
 msgstr "ତ୍ରୁଟିକୁ\n"
 "ଖବର କରନ୍ତୁ"
 
-#: ../src/setroubleshoot/browser.py:570
+#: ../src/setroubleshoot/browser.py:576
 #, python-format
 msgid "Plugin: %s "
 msgstr "ପ୍ଲଗଇନ: %s "
 
-#: ../src/setroubleshoot/browser.py:637
+#: ../src/setroubleshoot/browser.py:643
 msgid "Unable to grant access."
 msgstr "ଅଭିଗମ୍ୟତା ଅନୁମତି ପାଇବାରେ ଅସମର୍ଥ।"
 
-#: ../src/setroubleshoot/browser.py:668 ../src/setroubleshoot/browser.py:810
+#: ../src/setroubleshoot/browser.py:674 ../src/setroubleshoot/browser.py:816
 #, python-format
 msgid "Alert %d of %d"
 msgstr "ଚେତାବନୀ %d ର %d"
 
-#: ../src/setroubleshoot/browser.py:793
+#: ../src/setroubleshoot/browser.py:799
 #, python-format
 msgid "On this %s:"
 msgstr "ଏହି %s ଉପରେ:"
 
-#: ../src/setroubleshoot/browser.py:841 ../src/setroubleshoot/browser.py:847
-#: ../src/setroubleshoot/signature.py:422
+#: ../src/setroubleshoot/browser.py:847 ../src/setroubleshoot/browser.py:853
+#: ../src/setroubleshoot/signature.py:434
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/setroubleshoot/browser.py:888 ../src/setroubleshoot/browser.py:889
+#: ../src/setroubleshoot/browser.py:894 ../src/setroubleshoot/browser.py:895
 #: ../gui/browser.glade.h:34
 msgid "No Alerts"
 msgstr "କୌଣସି ସତର୍କ ସୂଚନା ନାହିଁ"
 
-#: ../src/setroubleshoot/browser.py:907
+#: ../src/setroubleshoot/browser.py:913
 msgid "SELinux has detected a problem."
 msgstr "SELinux ଗୋଟିଏ ସମସ୍ୟାକୁ ଚିହ୍ନିପାରିଛି।"
 
-#: ../src/setroubleshoot/browser.py:1023
+#: ../src/setroubleshoot/browser.py:1032
 msgid "Sealert Error"
 msgstr "Sealert ତ୍ରୁଟି"
 
-#: ../src/setroubleshoot/browser.py:1036
+#: ../src/setroubleshoot/browser.py:1045
 msgid "Sealert Message"
 msgstr "Sealert ସନ୍ଦେଶ"
 
@@ -332,7 +324,7 @@ msgstr "ବୈଧିକରଣ କରାଯାଇନାହିଁ"
 msgid "user lookup failed"
 msgstr "ଚାଳକ ଅବଲୋକନ ବିଫଳ"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:566
+#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:565
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "ଓହୋ, %s ଗୋଟିଏ ତୃଟିକୁ ଦବାଇଲା"
@@ -357,7 +349,7 @@ msgstr ""
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "(%s) ପାଇଁ ଚାଳକ (%s) ତଥ୍ୟପରିବର୍ତ୍ତନ କରିପାରିବନାହିଁ"
 
-#: ../src/setroubleshoot/server.py:486 ../src/sealert:319
+#: ../src/setroubleshoot/server.py:486 ../src/sealert:318
 msgid "Started"
 msgstr "ଆରମ୍ଭ ହେଲା"
 
@@ -381,197 +373,201 @@ msgstr "ସବୁବେଳେ ଏଡାନ୍ତୁ"
 msgid "Ignore After First Alert"
 msgstr "ପ୍ରଥମ ସତର୍କତା ପରେ ଏଡାଇଯାଆନ୍ତୁ"
 
-#: ../src/setroubleshoot/signature.py:211
+#: ../src/setroubleshoot/signature.py:213
 msgid "directory"
 msgstr "ଡିରେକ୍ଟୋରି"
 
-#: ../src/setroubleshoot/signature.py:212
+#: ../src/setroubleshoot/signature.py:214
 msgid "semaphore"
 msgstr "semaphore"
 
-#: ../src/setroubleshoot/signature.py:213
+#: ../src/setroubleshoot/signature.py:215
 msgid "shared memory"
 msgstr "ସହଭାଗୀ ସ୍ମୃତିସ୍ଥାନ"
 
-#: ../src/setroubleshoot/signature.py:214
+#: ../src/setroubleshoot/signature.py:216
 msgid "message queue"
 msgstr "ସଂଦେଶ କ୍ରମ"
 
-#: ../src/setroubleshoot/signature.py:215
+#: ../src/setroubleshoot/signature.py:217
 msgid "message"
 msgstr "ସଂଦେଶ"
 
-#: ../src/setroubleshoot/signature.py:216
+#: ../src/setroubleshoot/signature.py:218
 msgid "file"
 msgstr "ଫାଇଲ"
 
-#: ../src/setroubleshoot/signature.py:217
+#: ../src/setroubleshoot/signature.py:219
 msgid "socket"
 msgstr "ସକେଟ"
 
-#: ../src/setroubleshoot/signature.py:218
+#: ../src/setroubleshoot/signature.py:220
 msgid "process"
 msgstr "ପଦ୍ଧତି"
 
-#: ../src/setroubleshoot/signature.py:219
+#: ../src/setroubleshoot/signature.py:221
 msgid "process2"
 msgstr ""
 
-#: ../src/setroubleshoot/signature.py:220
+#: ../src/setroubleshoot/signature.py:222
 msgid "filesystem"
 msgstr "ଫାଇଲ ତନ୍ତ୍ର"
 
-#: ../src/setroubleshoot/signature.py:221
+#: ../src/setroubleshoot/signature.py:223
 msgid "node"
 msgstr "ନୋଡ"
 
-#: ../src/setroubleshoot/signature.py:222
+#: ../src/setroubleshoot/signature.py:224
 msgid "capability"
 msgstr "କ୍ଷମତା"
 
-#: ../src/setroubleshoot/signature.py:223
+#: ../src/setroubleshoot/signature.py:225
 msgid "capability2"
 msgstr ""
 
-#: ../src/setroubleshoot/signature.py:406
+#: ../src/setroubleshoot/signature.py:418
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr ""
 "%s ରେ ଗୋଟିଏ ଅନୁମୋଦିତ ପ୍ରକାର ଅଛି (%s)। ଏହି ଅଭିଗମ୍ୟତାକୁ ବାରଣ କରାହୋଇନାହିଁ।"
 
-#: ../src/setroubleshoot/signature.py:409
+#: ../src/setroubleshoot/signature.py:421
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux ଅନୁମୋଦିତ ଅବସ୍ଥାରେ ଅଛି। ଏହି ଅଭିଗମ୍ୟତାକୁ ବାରଣ କରାହୋଇନାହିଁ।"
 
-#: ../src/setroubleshoot/signature.py:463
+#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr "SELinux %s କୁ ଏକ ପ୍ରକ୍ରିୟାରେ %s କୁ ବ୍ୟବହାର କରିବାରୁ ବାରଣ କରିଥାଏ।"
 
-#: ../src/setroubleshoot/signature.py:463
+#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr "SELinux %s କୁ ଏକ ପ୍ରକ୍ରିୟାରେ '%s' କୁ ବ୍ୟବହାର କରିବାରୁ ବାରଣ କରିଥାଏ।"
 
-#: ../src/setroubleshoot/signature.py:466
+#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "SELinux %s କୁ ଏକ ପ୍ରକ୍ରିୟାରେ %s କ୍ଷମତାକୁ ବ୍ୟବହାର କରିବାରୁ ବାରଣ କରିଥାଏ।"
 
-#: ../src/setroubleshoot/signature.py:466
+#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr ""
 "SELinux %s କୁ ଏକ ପ୍ରକ୍ରିୟାରେ '%s' କ୍ଷମତାକୁ ବ୍ୟବହାର କରିବାରୁ ବାରଣ କରିଥାଏ।"
 
-#: ../src/setroubleshoot/signature.py:468
+#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr "SELinux %s କୁ %s ପ୍ରବେଶାନୁମତି ପାଇଁ %s ନାମକ %s ଉପରେ ବାରଣ କରିଛି।"
 
-#: ../src/setroubleshoot/signature.py:468
+#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr ""
 
-#: ../src/setroubleshoot/signature.py:469
+#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux %s କୁ %s ଅଭିଗମ୍ୟରୁ %s %s ଉପରେ ବାରଣ କରିଥାଏ।"
 
-#: ../src/setroubleshoot/signature.py:469
+#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux %s କୁ '%s' ଅଭିଗମ୍ୟରୁ %s %s ଉପରେ ବାରଣ କରିଥାଏ।"
 
-#: ../src/setroubleshoot/signature.py:514
+#: ../src/setroubleshoot/signature.py:526
 msgid "Additional Information:\n"
 msgstr "ଅତିରିକ୍ତ ସୂଚନା:\n"
 
-#: ../src/setroubleshoot/signature.py:515
+#: ../src/setroubleshoot/signature.py:527
 msgid "Source Context"
 msgstr "ଉତ୍ସ ପ୍ରସଙ୍ଗ"
 
-#: ../src/setroubleshoot/signature.py:516
+#: ../src/setroubleshoot/signature.py:528
 msgid "Target Context"
 msgstr "ଲକ୍ଷ୍ଯ ପ୍ରସଙ୍ଗ"
 
-#: ../src/setroubleshoot/signature.py:517
+#: ../src/setroubleshoot/signature.py:529
 msgid "Target Objects"
 msgstr "ଲକ୍ଷ୍ଯ ବସ୍ତୁ"
 
-#: ../src/setroubleshoot/signature.py:518
+#: ../src/setroubleshoot/signature.py:530
 msgid "Source"
 msgstr "ଉତ୍ସ"
 
-#: ../src/setroubleshoot/signature.py:519
+#: ../src/setroubleshoot/signature.py:531
 msgid "Source Path"
 msgstr "ଉତ୍ସ ପଥ"
 
-#: ../src/setroubleshoot/signature.py:520
+#: ../src/setroubleshoot/signature.py:532
 msgid "Port"
 msgstr "ସଂଯୋଗିକୀ"
 
-#: ../src/setroubleshoot/signature.py:522
-#: ../src/setroubleshoot/signature.py:524
+#: ../src/setroubleshoot/signature.py:534
+#: ../src/setroubleshoot/signature.py:536
 msgid "Host"
 msgstr "ଆଧାର"
 
-#: ../src/setroubleshoot/signature.py:525
+#: ../src/setroubleshoot/signature.py:537
 msgid "Source RPM Packages"
 msgstr "ଉତ୍ସ RPM ପ୍ଯାକେଜମାନ"
 
-#: ../src/setroubleshoot/signature.py:526
+#: ../src/setroubleshoot/signature.py:538
 msgid "Target RPM Packages"
 msgstr "ଲକ୍ଷ୍ୟ RPM ପ୍ଯାକେଜ ମାନ"
 
-#: ../src/setroubleshoot/signature.py:527
-msgid "Policy RPM"
-msgstr "ନୀତି RPM"
+#: ../src/setroubleshoot/signature.py:539
+msgid "SELinux Policy RPM"
+msgstr ""
 
-#: ../src/setroubleshoot/signature.py:528
+#: ../src/setroubleshoot/signature.py:540
+msgid "Local Policy RPM"
+msgstr ""
+
+#: ../src/setroubleshoot/signature.py:541
 msgid "Selinux Enabled"
 msgstr "Selinux ସାମର୍ଥିକରଣ ଥିବା"
 
-#: ../src/setroubleshoot/signature.py:529
+#: ../src/setroubleshoot/signature.py:542
 msgid "Policy Type"
 msgstr "ନୀତି ପ୍ରକାର"
 
-#: ../src/setroubleshoot/signature.py:530
+#: ../src/setroubleshoot/signature.py:543
 msgid "Enforcing Mode"
 msgstr "ବଳପୂର୍ବକ ଧାରା"
 
-#: ../src/setroubleshoot/signature.py:532
-#: ../src/setroubleshoot/signature.py:534
+#: ../src/setroubleshoot/signature.py:545
+#: ../src/setroubleshoot/signature.py:547
 msgid "Host Name"
 msgstr "ଆଧାର ନାମ"
 
-#: ../src/setroubleshoot/signature.py:539
-#: ../src/setroubleshoot/signature.py:541
+#: ../src/setroubleshoot/signature.py:552
+#: ../src/setroubleshoot/signature.py:554
 msgid "Platform"
 msgstr "ପ୍ଲାଟଫର୍ମ"
 
-#: ../src/setroubleshoot/signature.py:542
+#: ../src/setroubleshoot/signature.py:555
 msgid "Alert Count"
 msgstr "ସତର୍କ ଗଣନା"
 
-#: ../src/setroubleshoot/signature.py:544
+#: ../src/setroubleshoot/signature.py:557
 msgid "First Seen"
 msgstr "ପ୍ରଥମ ସାକ୍ଷାତ"
 
-#: ../src/setroubleshoot/signature.py:545
+#: ../src/setroubleshoot/signature.py:558
 msgid "Last Seen"
 msgstr "ଅନ୍ତିମ ସାକ୍ଷାତ"
 
-#: ../src/setroubleshoot/signature.py:546
+#: ../src/setroubleshoot/signature.py:559
 msgid "Local ID"
 msgstr "ସ୍ଥାନିୟ ପରିଚୟ"
 
-#: ../src/setroubleshoot/signature.py:548
+#: ../src/setroubleshoot/signature.py:561
 msgid "Raw Audit Messages"
 msgstr "ପ୍ରକୃତ ସମୀକ୍ଷଣ ସନ୍ଦେଶ"
 
-#: ../src/setroubleshoot/signature.py:602
+#: ../src/setroubleshoot/signature.py:615
 #, python-format
 msgid "\n"
 "\n"
@@ -580,42 +576,32 @@ msgstr "\n"
 "\n"
 "*****  ପ୍ଲଗଇନ %s (%.4s ବିଶ୍ୱାସ) ପ୍ରସ୍ଥାବ ଦେଇଥାଏ"
 
-#: ../src/setroubleshoot/signature.py:605
+#: ../src/setroubleshoot/signature.py:618
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:606
-#: ../src/setroubleshoot/signature.py:608
+#: ../src/setroubleshoot/signature.py:619
+#: ../src/setroubleshoot/signature.py:621
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:610
+#: ../src/setroubleshoot/signature.py:623
 msgid "\n"
 "Then "
 msgstr "\n"
 "ତେବେ"
 
-#: ../src/setroubleshoot/signature.py:613
+#: ../src/setroubleshoot/signature.py:626
 msgid "\n"
 "Do\n"
 msgstr "\n"
 "କରନ୍ତୁ\n"
 
-#: ../src/setroubleshoot/signature.py:615
+#: ../src/setroubleshoot/signature.py:628
 msgid "\n"
 "\n"
 msgstr "\n"
 "\n"
-
-#: ../src/updater.py:18
-#, python-format
-msgid "current: %s "
-msgstr "ଚଳିତ: %s "
-
-#: ../src/updater.py:27
-#, python-format
-msgid "newer: %s "
-msgstr "ନୂତନ: %s "
 
 #: ../src/seappletlegacy.c:189 ../src/seapplet:133
 msgid "New SELinux security alert"
@@ -635,7 +621,7 @@ msgid "Show"
 msgstr "ଦର୍ଶାନ୍ତୁ"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:72
+#: ../src/seappletlegacy.c:440 ../src/sealert:71
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC ଅସ୍ୱୀକରଣ, ଦେଖିବାପାଇଁ ଦବାନ୍ତୁ"
 
@@ -643,21 +629,21 @@ msgstr "SELinux AVC ଅସ୍ୱୀକରଣ, ଦେଖିବାପାଇଁ ଦ
 msgid "SELinux Troubleshooter: Applet requires SELinux be enabled to run"
 msgstr ""
 
-#: ../src/sealert:122
+#: ../src/sealert:121
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
 "SELinux ସକ୍ରିୟ ନାହିଁ, sealert SELinux ହୋଇନଥିବା ତନ୍ତ୍ରଗୁଡ଼ିକୁ ଚଲାଇବ ନାହିଁ"
 
-#: ../src/sealert:172
+#: ../src/sealert:171
 msgid "Not fixable."
 msgstr "ଠିକ ହେବା ଯୋଗ୍ୟ ନୁହଁ।"
 
-#: ../src/sealert:179
+#: ../src/sealert:178
 #, c-format
 msgid "Successfully ran %s"
 msgstr "ସଫଳତାର ସହିତ %s କୁ ଚଲାଉଛି"
 
-#: ../src/sealert:186
+#: ../src/sealert:185
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "ପ୍ଲଗଇନ %s %s id ପାଇଁ ବୈଧ ନୁହଁ"
