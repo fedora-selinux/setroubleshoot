@@ -114,6 +114,12 @@ hex_re = re.compile('^[A-Fa-f0-9]+$')
 href_re = re.compile(r'<a\s*href="([^"]+)"[^<]*</a>')
 name_at_domain_re = re.compile(r'^([^\s@]+)@([^\s@]+)$')
 audit_decode_re = re.compile(r'^\s*"([^"]+)"\s*$')
+# regexp matching lines containing type definitions, eg. (type lib_t)
+# contains only 1 group that matches the type name
+typedef_regexp = re.compile(r"\s*\(\s*type\s+([\w-]+)\s*\)\s*")
+#Dictionary with all types defined in the module store as keys
+#and corresponding module paths as values. Used by get_package_nvr_by_name
+module_type_cache = None
 
 log_level = syslog.LOG_WARNING
 
@@ -425,33 +431,71 @@ Finds an SELinux module which defines given SELinux type
 'mysql-selinux-...
 
     """
+
+    if module_type_cache is None:
+        build_module_type_cache()
+        if module_type_cache is None:
+            return None
+
+    path = module_type_cache.get(selinux_type, None)
+
+    return get_package_nvr_by_file_path(path)
+
+# check if given string represents an integer
+def __str_is_int(str):
+    try:
+        int(str)
+        return True
+    except:
+        return False
+
+def build_module_type_cache():
+    """
+Creates a dictionary with all types defined in the module store as keys
+and corresponding module paths as values.
+The dictionary is stored in "module_type_cache" to be used by
+"get_rpm_nvr_by_type"
+    """
     retval, policytype = selinux.selinux_getpolicytype()
+
     if retval != 0:
-        return None
-    typedef = "(type {})\n".format(selinux_type)
-    modules = []
-    for (dirpath, dirnames, filenames) in os.walk("/var/lib/selinux/{}/active/modules".format(policytype)):
-        if "cil" in filenames:
-            try:
-                defined = False
+        return
+
+    module_type_dict = dict()
+
+    priorities = []
+
+    # get list of module priorities, present in the module store, sorted by integer value
+    with os.scandir("/var/lib/selinux/{}/active/modules".format(policytype)) as module_store:
+        priorities = sorted([x.name for x in module_store if x.is_dir() and __str_is_int(x.name)], key = lambda x: int(x))
+
+    for dir in priorities:
+        # find individual modules in each priority and identify type definitions
+        for (dirpath, dirnames, filenames) in os.walk("/var/lib/selinux/{}/active/modules/{}".format(policytype,dir)):
+            if "cil" in filenames:
                 try:
-                    # cil files are bzip2'ed by default
-                    defined = typedef.encode() in bz2.open("{}/cil".format(dirpath))
+                    try:
+                        # cil files are bzip2'ed by default
+                        f = bz2.open("{}/cil".format(dirpath), mode = 'rt')
+
+                    except:
+                        # maybe cil file is not bzip2'ed, try plain text
+                        f = open("{}/cil".format(dirpath))
+
+                    for line in f:
+                        result = typedef_regexp.match(line)
+                        if result:
+                            module_type_dict[result.group(1)] = dirpath
+
+                    f.close()
+
                 except:
-                    # maybe cil file is not bzip2'ed, try plain text
-                    defined = typedef in open("{}/cil".format(dirpath))
+                    # something's wrong, move on
+                    # FIXME: log a problem?
+                    pass
 
-                if defined:
-                    modules.append(dirpath)
-            except:
-                # something's wrong, move on
-                # FIXME: log a problem?
-                pass
-
-    if len(modules) > 0:
-        return get_package_nvr_by_file_path(sorted(modules)[-1])
-
-    return None
+    global module_type_cache
+    module_type_cache = module_type_dict
 
 def get_rpm_nvr_by_scontext(scontext, use_dbus=False):
     """
