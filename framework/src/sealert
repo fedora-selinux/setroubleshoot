@@ -488,7 +488,7 @@ class SECommandLine(object):
     def on_connection_state_change(self, connection, connection_state, flags, flags_added, flags_removed):
         log_debug("%s.on_connection_state_change: connection_state=%s flags_added=%s flags_removed=%s address=%s" % (self.__class__.__name__, connection_state, connection_state.flags_to_string(flags_added), connection_state.flags_to_string(flags_removed), connection.socket_address))
 
-        if flags_added & ConnectionState.ERROR:
+        if (flags_added & (ConnectionState.ERROR | ConnectionState.HUP)) or (flags_removed & ConnectionState.OPEN):
             errno, strerror = connection_state.get_result()
             print("failed to connect to server: %s" % (strerror), file=sys.stderr)
             sys.exit(1)
