@@ -277,7 +277,7 @@ class BrowserApplet:
         self.alert_list_window.hide()
         self.empty_load()
         self.load_data()
-        self.liststore = Gtk.ListStore(int, str, str, str, int, str)
+        self.liststore = Gtk.ListStore(int, str, str, str, int, str, str)
         self.make_treeview()
         self.troubleshoot_visible = False
         self.current_alert = -1
@@ -304,7 +304,7 @@ class BrowserApplet:
     def make_treeview(self):
         tmsort = Gtk.TreeModelSort(model=self.liststore)
 
-        cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occurred"), _("Status")]
+        cols = [_("#"), _("Source Process"), _("Attempted Access"), _("On this"), _("Occurred"), _("Last Seen"), _("Status")]
         self.treeview.set_model(tmsort)
         x = 0
         for c in cols:
@@ -861,7 +861,9 @@ class BrowserApplet:
             else:
                 status = _("Notify")
 
-            self.liststore.append([ctr, spath, ",".join(alert.sig.access), tpath, alert.report_count, status])
+            last_seen = alert.last_seen_date.format("%F %T")
+
+            self.liststore.append([ctr, spath, ",".join(alert.sig.access), tpath, alert.report_count, last_seen, status])
             ctr = ctr + 1
 
     def on_list_all_button_clicked(self, widget):
