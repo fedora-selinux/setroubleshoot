@@ -19,23 +19,23 @@
 # 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 
 from gi.repository import GLib
-from pydbus import SystemBus
+from dasbus.connection import SystemMessageBus
 import setroubleshoot.util
 import signal
 
 loop = GLib.MainLoop()
 
 class Privileged(object):
-    """
-		<node>
-			<interface name='org.fedoraproject.SetroubleshootPrivileged'>
-				<method name='get_rpm_nvr_by_scontext'>
-					<arg type='s' name='scontext' direction='in'/>
-    				<arg type='s' name='rpmnvr' direction='out'/>
-				</method>
-				<method name='finish'/>
-			</interface>
-		</node>
+    __dbus_xml__ = """
+    <node>
+        <interface name='org.fedoraproject.SetroubleshootPrivileged'>
+            <method name='get_rpm_nvr_by_scontext'>
+                <arg type='s' name='scontext' direction='in'/>
+                <arg type='s' name='rpmnvr' direction='out'/>
+            </method>
+            <method name='finish'/>
+        </interface>
+    </node>
     """
 
     def __init__(self, timeout=10):
@@ -58,6 +58,10 @@ class Privileged(object):
         loop.quit()
 
 if __name__ == "__main__":
-    bus = SystemBus()
-    bus.publish("org.fedoraproject.SetroubleshootPrivileged", Privileged())
-    loop.run()
+    bus = SystemMessageBus()
+    try:
+        bus.publish_object("/org/fedoraproject/SetroubleshootPrivileged", Privileged())
+        bus.register_service("org.fedoraproject.SetroubleshootPrivileged")
+        loop.run()
+    finally:
+        bus.disconnect()

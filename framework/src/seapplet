@@ -26,7 +26,7 @@ from gi.repository import Gtk
 gi.require_version('Notify', '0.7')
 from gi.repository import Notify
 
-from pydbus import SystemBus
+from dasbus.connection import SystemMessageBus
 
 import selinux
 import sys
@@ -52,12 +52,13 @@ class SEApplet(GObject.Object):
 
     def __init__(self):
 
-        bus = SystemBus()
-        self.bus_signal = bus.subscribe(
-            iface='org.fedoraproject.SetroubleshootdIface',
-            signal='alert',
-            signal_fired=self.send_notification
+        bus = SystemMessageBus()
+        Setroubleshootd = bus.get_proxy(
+            'org.fedoraproject.Setroubleshootd',
+            '/org/fedoraproject/Setroubleshootd'
         )
+
+        Setroubleshootd.alert.connect(self.send_notification)
 
         super(SEApplet, self).__init__()
         Notify.init("seapplet")
@@ -79,11 +80,6 @@ class SEApplet(GObject.Object):
                         break
         except:
             pass
-
-        Setroubleshootd = bus.get(
-            'org.fedoraproject.Setroubleshootd',
-            '/org/fedoraproject/Setroubleshootd'
-        )
 
         (count, red) = Setroubleshootd.check_for_new(last_id)
 
@@ -119,8 +115,7 @@ class SEApplet(GObject.Object):
         launcher.launch(None, context)
         self.status_icon.set_visible(False)
 
-    def send_notification(self, sender, dobject, iface, signal, params):
-
+    def send_notification(self, *params):
         status_icon = self.__init_status_icon()
         status_icon.set_visible(True)
 

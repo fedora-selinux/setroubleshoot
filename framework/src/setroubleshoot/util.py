@@ -69,7 +69,7 @@ __all__ = [
 import bz2
 import six
 import datetime
-from pydbus import SystemBus
+from dasbus.connection import SystemMessageBus
 import glob
 from gi.repository import GObject
 import os
@@ -522,8 +522,11 @@ Finds an SELinux module which defines given SELinux context
 
     """
     if use_dbus:
-        bus = SystemBus()
-        remote_object = bus.get("org.fedoraproject.SetroubleshootPrivileged")
+        bus = SystemMessageBus()
+        remote_object = bus.get_proxy(
+            "org.fedoraproject.SetroubleshootPrivileged",
+            "/org/fedoraproject/SetroubleshootPrivileged"
+        )
         return str(remote_object.get_rpm_nvr_by_scontext(str(scontext)))
     else:
         context = selinux.context_new(str(scontext))

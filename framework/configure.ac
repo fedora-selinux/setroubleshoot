@@ -70,13 +70,13 @@ else
                    $python_module_result])
 fi
 
-AC_MSG_CHECKING([for the pydbus python3 module])
-python_module_result=`$PYTHON -c "import pydbus" 2>&1`
+AC_MSG_CHECKING([for the dasbus python3 module])
+python_module_result=`$PYTHON -c "import dasbus" 2>&1`
 if test -z "$python_module_result"; then
 	AC_MSG_RESULT([yes])
 else
 	AC_MSG_RESULT([no])
-	AC_MSG_ERROR([cannot import Python3 module pydbus.
+	AC_MSG_ERROR([cannot import Python3 module dasbus.
                    Please check your Python3 installation. The error was:
                    $python_module_result])
 fi
