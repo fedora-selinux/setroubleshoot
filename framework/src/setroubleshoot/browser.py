@@ -1008,7 +1008,7 @@ class BugReport:
         local_policy_package = get_rpm_source_package(self.alert.environment.local_policy_rpm)
         if local_policy_package is None:
             local_policy_package = self.alert.environment.policy_rpm
-        signature = report.createAlertSignature(local_policy_package,
+        signature = report.createAlertSignature(str(local_policy_package),
                                                 "setroubleshoot",
                                                 self.alert.get_hash(),
                                                 self.summary,
