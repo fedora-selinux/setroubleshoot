@@ -30,9 +30,10 @@ build:debian:
   script:
     - echo "Do your build here"
     - apt-get update
-    - apt-get -y install autoconf automake libglib2.0-dev libdbus-glib-1-dev libnotify-dev libgtk-3-dev gcc
-    - apt-get -y install python3-selinux python3-gi python3-dbus python3-six python3-sepolicy
-    - apt-get -y install xdg-utils make intltool libaudit-dev libauparse-dev python3-pip
+    - >
+      apt-get -y install autoconf automake libglib2.0-dev libdbus-glib-1-dev libnotify-dev
+      libgtk-3-dev gcc python3-selinux python3-gi python3-dbus python3-six python3-sepolicy
+      xdg-utils make intltool libaudit-dev libauparse-dev python3-pip
     - pip3 install dasbus
     - cd framework
     - ./autogen.sh
@@ -44,8 +45,11 @@ build:fedora:
   stage: build
   script:
     - echo "Do your build here"
-    - dnf -y install 'dnf-command(builddep)' make gcc automake autoconf
-    - dnf -y builddep setroubleshoot
+    - >
+      dnf -y install make gcc automake autoconf libcap-ng-devel intltool gettext
+      python3 python3-devel desktop-file-utils dbus-glib-devel gtk2-devel libnotify-devel
+      audit-libs-devel libselinux-devel polkit-devel python3-libselinux python3-dasbus
+      python3-gobject gtk3-devel xdg-utils intltool gettext python3 python3-devel
     - cd framework
     - ./autogen.sh
     - make
