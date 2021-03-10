@@ -480,6 +480,10 @@ class SetroubleshootdDBusObject(dbus.service.Object):
     def restart(self, reason):
         pass
 
+    @dbus.service.signal(dbus_system_interface, signature='ss')
+    def alert(self, level, local_id):
+        pass
+
     @dbus.service.method(dbus_system_interface)
     def start(self):
         self.alarm(0)
