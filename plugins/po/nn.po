@@ -1,22 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: setroubleshoot\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-22 08:27+0200\n"
-"PO-Revision-Date: 2013-11-20 12:27+0000\n"
-"Last-Translator: dwalsh <dwalsh@redhat.com>\n"
-"Language-Team: Norwegian Nynorsk (http://www.transifex.com/projects/p/fedora/"
-"language/nn/)\n"
+"POT-Creation-Date: 2021-03-24 13:53+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
 "Language: nn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../src/allow_anon_write.py:27
 msgid ""
@@ -604,19 +602,25 @@ msgid ""
 "default."
 msgstr ""
 
-#: ../src/catchall.py:53
+#: ../src/catchall.py:54
+msgid ""
+"If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
+"$TARGET_CLASS labeled $TARGET_TYPE by default."
+msgstr ""
+
+#: ../src/catchall.py:55
 msgid ""
 "If you believe that $SOURCE_BASE_PATH should be allowed $ACCESS access on "
 "the $TARGET_BASE_PATH $TARGET_CLASS by default."
 msgstr ""
 
-#: ../src/catchall.py:55
+#: ../src/catchall.py:57
 msgid ""
 "You should report this as a bug.\n"
 "You can generate a local policy module to allow this access."
 msgstr ""
 
-#: ../src/catchall.py:56
+#: ../src/catchall.py:58
 msgid ""
 "Allow this access for now by executing:\n"
 "# ausearch -c '$SOURCE' --raw | audit2allow -M my-$MODULE_NAME\n"
@@ -869,19 +873,19 @@ msgstr ""
 #: ../src/file.py:27
 msgid ""
 "\n"
-"    SELinux is preventing access to files with the label, file_t.\n"
+"    SELinux is preventing access to a file labeled unlabeled_t.\n"
 "    "
 msgstr ""
 
 #: ../src/file.py:31
 msgid ""
 "\n"
-"    SELinux permission checks on files labeled file_t are being\n"
-"    denied.  file_t is the context the SELinux kernel gives to files\n"
+"    SELinux permission checks on files labeled unlabeled_t are being\n"
+"    denied. unlabeled_t is a context the SELinux kernel gives to files\n"
 "    that do not have a label. This indicates a serious labeling\n"
-"    problem. No files on an SELinux box should ever be labeled file_t.\n"
-"    If you have just added a disk drive to the system you can\n"
-"    relabel it using the restorecon command.  For example if you saved the\n"
+"    problem. No files on an SELinux box should ever be labeled unlabeled_t.\n"
+"    If you have just added a disk drive to the system, you can\n"
+"    relabel it using the restorecon command. For example if you saved the\n"
 "home directory from a previous installation that did not use SELinux, "
 "'restorecon -R -v /home' will fix the labels.  Otherwise you should\n"
 "    relabel the entire file system.\n"
@@ -910,6 +914,14 @@ msgstr ""
 
 #: ../src/file.py:57
 msgid "you need to fully relabel."
+msgstr ""
+
+#: ../src/file.py:73
+msgid "Try to fix the label."
+msgstr ""
+
+#: ../src/file.py:76
+msgid "Relabel the whole file system. Includes reboot!"
 msgstr ""
 
 #: ../src/filesystem_associate.py:27
@@ -1360,13 +1372,13 @@ msgstr ""
 #: ../src/qemu_blk_image.py:31
 msgid ""
 "\n"
-"    SELinux denied qemu access to the block device $TARGET_PATH.\n"
+"    SELinux denied svirt access to the block device $TARGET_PATH.\n"
 "    If this is a virtualization image, it needs to be labeled with a "
 "virtualization file context (virt_image_t). You can relabel $TARGET_PATH to "
 "be virt_image_t using chcon.  You also need to execute semanage fcontext -a -"
 "t virt_image_t '$FIX_TARGET_PATH' to add this\n"
 "    new path to the system defaults. If you did not intend to use "
-"$TARGET_PATH as a qemu\n"
+"$TARGET_PATH as a virtualization\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
@@ -1388,22 +1400,26 @@ msgid ""
 "# restorecon -v '$FIX_TARGET_PATH'"
 msgstr ""
 
+#: ../src/qemu_blk_image.py:53 ../src/qemu_file_image.py:57
+msgid "Set the image label to virt_image_t."
+msgstr ""
+
 #: ../src/qemu_file_image.py:31
 msgid ""
 "\n"
-"    SELinux denied qemu access to $TARGET_PATH.\n"
+"    SELinux denied svirt access to $TARGET_PATH.\n"
 "    If this is a virtualization image, it has to have a file context label "
 "of\n"
 "    virt_image_t. The system is setup to label image files in directory./var/"
 "lib/libvirt/images\n"
 "    correctly.  We recommend that you copy your image file to /var/lib/"
 "libvirt/images.\n"
-"    If you really want to have your qemu image files in the current "
-"directory, you can relabel $TARGET_PATH to be virt_image_t using chcon.  You "
-"also need to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' "
-"to add this\n"
+"    If you really want to have your image files in the current directory, "
+"you can relabel $TARGET_PATH to be virt_image_t using chcon.  You also need "
+"to execute semanage fcontext -a -t virt_image_t '$FIX_TARGET_PATH' to add "
+"this\n"
 "    new path to the system defaults. If you did not intend to use "
-"$TARGET_PATH as a qemu\n"
+"$TARGET_PATH as a virtualization\n"
 "    image it could indicate either a bug or an intrusion attempt.\n"
 "    "
 msgstr ""
@@ -1442,8 +1458,8 @@ msgid ""
 "in a directory labeled B\n"
 "            will instead create the file with label C. An example of this "
 "would be the dhcp client running\n"
-"            with the dhclient_t type and creating a file in the directory /"
-"etc. This file would normally\n"
+"            with the dhcpc_t type and creating a file in the directory /etc. "
+"This file would normally\n"
 "            receive the etc_t type due to parental inheritance but instead "
 "the file\n"
 "            is labeled with the net_conf_t type because the SELinux policy "
@@ -1957,4 +1973,8 @@ msgid ""
 "order to preserve them even on a full relabel.  \"semanage fcontext -a -t "
 "xen_image_t '$FIX_TARGET_PATH'\"\n"
 "    "
+msgstr ""
+
+#: ../src/xen_image.py:56
+msgid "Change the file label to xen_image_t."
 msgstr ""

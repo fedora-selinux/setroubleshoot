@@ -15,15 +15,10 @@ AC_SUBST(GETTEXT_PACKAGE)
 AM_GLIB_GNU_GETTEXT
 IT_PROG_INTLTOOL
 ALL_LINGUAS="\
-af aln am ang ar as ast az bal be be@latin bg bn bn_IN bo br brx bs ca \
-ca@valencia crh cs cy da de dz el en_GB en@shaw eo es et eu fa fi fr fur ga gl \
-gu he hi hr hu hy ia id ilo io is it ja ka kg kk km kn ko ks ku ky la lg \
-li lo lt lv mai mg mi mk ml mn mr ms my nb nds ne nl nn nso oc or pa pl ps \
-pt pt_BR ro ru rw si sk sl sq sr sr@latin sv ta te tg th tk tl tr tt ug uk \
-ur uz uz@cyrillic vi wa wo xh yi zh_CN zh_HK zh_TW zu
+as bg bn bn_IN ca cs da de el en_GB es eu fi fr fur gl gu he hi hr hu it ja \
+kn ko mai ml mr ms nb_NO nds nl nn or pa pl pt pt_BR ru si sk sr sr_Latn sv \
+ta te th tr uk zh_CN zh_TW
 "
-# the following localizations are enabled in zanata, but currently contain no translations
-# anp de_CH fil gd kdt kw kw@kkcor kw@uccor kw_GB tw wba yo
 
 AC_PROG_LN_S
 AM_PATH_PYTHON([3])
