@@ -14,41 +14,34 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 17:47+0200\n"
-"PO-Revision-Date: 2020-07-24 04:30-0400\n"
-"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
-"Language-Team: Korean (http://www.transifex.com/projects/p/fedora/language/ko/)\n"
+"POT-Creation-Date: 2021-03-24 13:52+0100\n"
+"PO-Revision-Date: 2021-03-25 04:02+0000\n"
+"Last-Translator: simmon <simmon@nplob.com>\n"
+"Language-Team: Korean <https://translate.fedoraproject.org/projects/"
+"setroubleshoot/setroubleshoot/ko/>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Zanata 4.6.2\n"
+"X-Generator: Weblate 4.5.1\n"
 
-#: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
 msgstr "SELinux 문제 해결사"
 
-#: ../setroubleshoot.desktop.in.h:2
 msgid "Troubleshoot SELinux access denials"
 msgstr "SELinux 액세스 거부 문제 해결"
 
-#: ../setroubleshoot.desktop.in.h:3
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "policy;security;selinux;avc;permission;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:923
 #, python-format
 msgid "port %s"
 msgstr "포트 %s"
 
-#: ../src/setroubleshoot/audit_data.py:925
-#: ../src/setroubleshoot/browser.py:779 ../src/setroubleshoot/browser.py:854
-#: ../src/setroubleshoot/rpc.py:558 ../src/setroubleshoot/util.py:306
 msgid "Unknown"
 msgstr "알려지지 않음"
 
-#: ../src/setroubleshoot/audit_data.py:1007
 #, python-format
 msgid ""
 "%s \n"
@@ -57,20 +50,19 @@ msgstr ""
 "%s \n"
 "**** 기록된 AVC는 현재 정책에서 허용됩니다 ****\n"
 
-#: ../src/setroubleshoot/audit_data.py:1009
 #, python-format
 msgid ""
 "%s \n"
-"**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn on dontaudit rules ****\n"
+"**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn "
+"on dontaudit rules ****\n"
 msgstr ""
 "%s \n"
-"**** 기록된 AVC가 현재 정책에서 dontaudit되었습니다. 'semodule -B'는 dontaudit 규칙을 활성화하게 됩니다. ***\n"
+"**** 기록된 AVC가 현재 정책에서 dontaudit되었습니다. 'semodule -B'는 "
+"dontaudit 규칙을 활성화하게 됩니다. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1011
 msgid "Must call policy_init first"
 msgstr "반드시 policy_init이 먼저 호출돼야합니다"
 
-#: ../src/setroubleshoot/audit_data.py:1013
 #, python-format
 msgid ""
 "%s \n"
@@ -79,7 +71,6 @@ msgstr ""
 "%s \n"
 "**** 잘못된 AVC 잘못된 대상 문맥. ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1015
 #, python-format
 msgid ""
 "%s \n"
@@ -88,7 +79,6 @@ msgstr ""
 "%s \n"
 "**** 잘못된 AVC 잘못된 소스 문맥 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1017
 #, python-format
 msgid ""
 "%s \n"
@@ -97,7 +87,6 @@ msgstr ""
 "%s \n"
 "**** 잘못된 AVC 잘못된 유형 클래스 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1019
 #, python-format
 msgid ""
 "%s \n"
@@ -106,110 +95,84 @@ msgstr ""
 "%s \n"
 "**** 잘못된 AVC 잘못된 권한 ***\n"
 
-#: ../src/setroubleshoot/audit_data.py:1021
 msgid "Error during access vector computation"
 msgstr "액세스 벡터 연산시 오류 발생"
 
-#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:14
 msgid "SELinux Alert Browser"
 msgstr "SELinux 보안 통지 브라우저"
 
-#: ../src/setroubleshoot/browser.py:212 ../gui/browser.glade.h:21
 msgid "The source process:"
 msgstr "문제가 발생한 프로세스:"
 
-#: ../src/setroubleshoot/browser.py:217 ../gui/browser.glade.h:17
 msgid "Yes"
 msgstr "예"
 
-#: ../src/setroubleshoot/browser.py:219 ../gui/browser.glade.h:19
 msgid "No"
 msgstr "아니오"
 
-#: ../src/setroubleshoot/browser.py:224 ../gui/browser.glade.h:22
 msgid "Attempted this access:"
 msgstr "시도한 접근:"
 
-#: ../src/setroubleshoot/browser.py:238 ../gui/browser.glade.h:12
 msgid "SETroubleshoot Details Window"
 msgstr "SETrouble 세부 정보 창"
 
-#: ../src/setroubleshoot/browser.py:241 ../gui/browser.glade.h:16
 msgid "Would you like to receive alerts?"
 msgstr "이 통지를 받으시겠습니까?"
 
-#: ../src/setroubleshoot/browser.py:245 ../gui/browser.glade.h:26
 msgid "Notify Admin"
 msgstr "관리자에게 알리기"
 
-#: ../src/setroubleshoot/browser.py:248 ../src/setroubleshoot/browser.py:254
-#: ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "문제 해결"
 
-#: ../src/setroubleshoot/browser.py:251 ../gui/browser.glade.h:28
 msgid "Details"
 msgstr "세부 정보"
 
-#: ../src/setroubleshoot/browser.py:258 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot 통지 목록"
 
-#: ../src/setroubleshoot/browser.py:260 ../gui/browser.glade.h:37
 msgid "List All Alerts"
 msgstr "모든 통지 목록"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "#"
 msgstr "#"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Source Process"
 msgstr "문제 발생 프로세스"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Attempted Access"
 msgstr "시도한 접근"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "On this"
 msgstr "시도한 곳"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Occurred"
 msgstr "발생 횟수"
 
-#: ../src/setroubleshoot/browser.py:307
+msgid "Last Seen"
+msgstr "마지막 화면"
+
 msgid "Status"
 msgstr "상태"
 
-#: ../src/setroubleshoot/browser.py:382 ../src/setroubleshoot/browser.py:818
-#: ../src/setroubleshoot/browser.py:862
 msgid "Notify"
 msgstr "알림"
 
-#: ../src/setroubleshoot/browser.py:383
 msgid "Notify alert in the future."
 msgstr "나중에 통지를 표시합니다."
 
-#: ../src/setroubleshoot/browser.py:386 ../src/setroubleshoot/browser.py:820
-#: ../src/setroubleshoot/browser.py:860 ../gui/browser.glade.h:29
 msgid "Ignore"
 msgstr "무시"
 
-#: ../src/setroubleshoot/browser.py:387 ../gui/browser.glade.h:30
 msgid "Ignore alert in the future."
 msgstr "앞으로 이 통지를 무시합니다."
 
-#: ../src/setroubleshoot/browser.py:424
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>다음을 시도하려고 하였다면...</b>"
 
-#: ../src/setroubleshoot/browser.py:433
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>이 방법이 그 해답일 것입니다.</b>"
 
-#: ../src/setroubleshoot/browser.py:531
 msgid ""
 "Plugin\n"
 "Details"
@@ -217,7 +180,6 @@ msgstr ""
 "플러그인\n"
 "세부 정보"
 
-#: ../src/setroubleshoot/browser.py:546
 msgid ""
 "Report\n"
 "Bug"
@@ -225,368 +187,278 @@ msgstr ""
 "버그\n"
 "보고"
 
-#: ../src/setroubleshoot/browser.py:576
 #, python-format
 msgid "Plugin: %s "
 msgstr "플러그인: %s "
 
-#: ../src/setroubleshoot/browser.py:643
 msgid "Unable to grant access."
 msgstr "액세스 권한을 부여할 수 없습니다."
 
-#: ../src/setroubleshoot/browser.py:674 ../src/setroubleshoot/browser.py:816
 #, python-format
 msgid "Alert %d of %d"
 msgstr "%d번째 보고/ 총 %d개"
 
-#: ../src/setroubleshoot/browser.py:799
 #, python-format
 msgid "On this %s:"
 msgstr "%s 에서:"
 
-#: ../src/setroubleshoot/browser.py:847 ../src/setroubleshoot/browser.py:853
-#: ../src/setroubleshoot/signature.py:434
 msgid "N/A"
 msgstr "없음"
 
-#: ../src/setroubleshoot/browser.py:894 ../src/setroubleshoot/browser.py:895
-#: ../gui/browser.glade.h:34
 msgid "No Alerts"
 msgstr "경고 없음"
 
-#: ../src/setroubleshoot/browser.py:913
 msgid "SELinux has detected a problem."
 msgstr "SELinux가 문제를 발견했습니다."
 
-#: ../src/setroubleshoot/browser.py:1032
 msgid "Sealert Error"
 msgstr "Sealert 오류"
 
-#: ../src/setroubleshoot/browser.py:1045
 msgid "Sealert Message"
 msgstr "Sealert 메세지"
 
 #. -----------------------------------------------------------------------------
-#: ../src/setroubleshoot/errcode.py:83
 msgid "signature not found"
 msgstr "서명을 찾을 수 없음"
 
-#: ../src/setroubleshoot/errcode.py:84
 msgid "multiple signatures matched"
 msgstr "여러개의 서명이 일치함"
 
-#: ../src/setroubleshoot/errcode.py:85
 msgid "id not found"
 msgstr "id를 찾을 수 없음"
 
-#: ../src/setroubleshoot/errcode.py:86
 msgid "database not found"
 msgstr "데이터베이스를 찾을 수 없음"
 
-#: ../src/setroubleshoot/errcode.py:87
 msgid "item is not a member"
 msgstr "멤버가 아닌 항목임"
 
-#: ../src/setroubleshoot/errcode.py:88
 msgid "illegal to change user"
 msgstr "사용자 변경이 잘못됨"
 
-#: ../src/setroubleshoot/errcode.py:89
 msgid "method not found"
 msgstr "방식을 찾을 수 없음"
 
-#: ../src/setroubleshoot/errcode.py:90
 msgid "cannot create GUI"
 msgstr "GUI를 생성할 수 없음"
 
-#: ../src/setroubleshoot/errcode.py:91
 msgid "value unknown"
 msgstr "값이 알려지지 않음"
 
-#: ../src/setroubleshoot/errcode.py:92
 msgid "cannot open file"
 msgstr "파일을 열 수 없음"
 
-#: ../src/setroubleshoot/errcode.py:93
 msgid "invalid email address"
 msgstr "잘못된 이메일 주소"
 
 #. gobject IO Errors
-#: ../src/setroubleshoot/errcode.py:96
 msgid "socket error"
 msgstr "소켓 오류"
 
-#: ../src/setroubleshoot/errcode.py:97
 msgid "connection has been broken"
 msgstr "연결이 차단됨"
 
-#: ../src/setroubleshoot/errcode.py:98
 msgid "Invalid request. The file descriptor is not open"
 msgstr "잘못된 요청입니다. 파일 기술자는 공개되지 않습니다"
 
-#: ../src/setroubleshoot/errcode.py:100
 msgid "insufficient permission to modify user"
 msgstr "사용자를 수정하는데 충분한 권한이 없습니다"
 
-#: ../src/setroubleshoot/errcode.py:101
 msgid "authentication failed"
 msgstr "인증 실패"
 
-#: ../src/setroubleshoot/errcode.py:102
 msgid "user prohibited"
 msgstr "사용자 금지"
 
-#: ../src/setroubleshoot/errcode.py:103
 msgid "not authenticated"
 msgstr "인증되지 않음"
 
-#: ../src/setroubleshoot/errcode.py:104
 msgid "user lookup failed"
 msgstr "사용자 검색 실패"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:565
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "%s이(가) 오류를 발생시켰습니다!"
 
-#: ../src/setroubleshoot/gui_utils.py:58 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "오류"
 
-#: ../src/setroubleshoot/Plugin.py:92
 msgid ""
 "If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
-"허용하려는 경우 $SOURCE가질 _BASE_PATH $ACCESS 에 대한 액세스 $TARGET_BASE_PATH $TARGET_수업"
+"허용하려는 경우 $SOURCE가질 _BASE_PATH $ACCESS 에 대한 액세스 "
+"$TARGET_BASE_PATH $TARGET_수업"
 
-#: ../src/setroubleshoot/server.py:226
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
 msgstr " 완전한 SELinux 메시지를 실행하려면 : sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:414
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "사용자 (%s)는 (%s)에 대한 데이터를 수정할 수 없습니다"
 
-#: ../src/setroubleshoot/server.py:486 ../src/sealert:318
 msgid "Started"
 msgstr "시작"
 
-#: ../src/setroubleshoot/server.py:684
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:775
 msgid "Audit Listener"
 msgstr "청취자 감사"
 
-#: ../src/setroubleshoot/signature.py:89
 msgid "Never Ignore"
 msgstr "절대 무시하지 않음"
 
-#: ../src/setroubleshoot/signature.py:90
 msgid "Ignore Always"
 msgstr "항상 무시"
 
-#: ../src/setroubleshoot/signature.py:91
 msgid "Ignore After First Alert"
 msgstr "첫 번째 통지 이후는 무시"
 
-#: ../src/setroubleshoot/signature.py:213
 msgid "directory"
 msgstr "디렉토리"
 
-#: ../src/setroubleshoot/signature.py:214
 msgid "semaphore"
 msgstr "세마포어"
 
-#: ../src/setroubleshoot/signature.py:215
 msgid "shared memory"
 msgstr "공유 메모리"
 
-#: ../src/setroubleshoot/signature.py:216
 msgid "message queue"
 msgstr "메세지 큐"
 
-#: ../src/setroubleshoot/signature.py:217
 msgid "message"
 msgstr "메세지"
 
-#: ../src/setroubleshoot/signature.py:218
 msgid "file"
 msgstr "파일"
 
-#: ../src/setroubleshoot/signature.py:219
 msgid "socket"
 msgstr "소켓"
 
-#: ../src/setroubleshoot/signature.py:220
 msgid "process"
 msgstr "프로세스"
 
-#: ../src/setroubleshoot/signature.py:221
 msgid "process2"
 msgstr "process2"
 
-#: ../src/setroubleshoot/signature.py:222
 msgid "filesystem"
 msgstr "파일 시스템"
 
-#: ../src/setroubleshoot/signature.py:223
 msgid "node"
 msgstr "노드"
 
-#: ../src/setroubleshoot/signature.py:224
 msgid "capability"
 msgstr "기능"
 
-#: ../src/setroubleshoot/signature.py:225
 msgid "capability2"
 msgstr "능력 2"
 
-#: ../src/setroubleshoot/signature.py:418
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr "%s은(는) 허용 유형 (%s)이 있습니다. 이 액세스는 거부되지 않습니다."
 
-#: ../src/setroubleshoot/signature.py:421
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr "SELinux가 허용 모드입니다. 이 접근은 거부되지 않습니다."
 
-#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr "SELinux는 프로세스에서 %s가 %s 액세스를 사용하지 못하게 합니다."
 
-#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr "SELinux는 프로세스에서 %s가 '%s' 액세스를 사용하지 못하게 합니다."
 
-#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "SELinux는 %s가 %s 기능을 사용하지 못하게 합니다."
 
-#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux는 %s가 '%s' 기능을 사용하지 못하게 합니다."
 
-#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
-msgstr "SELinux는 %s (%s로/으로 레이블됨)에서 %s가 %s 액세스하지 못하게 합니다."
+msgstr ""
+"SELinux는 %s (%s로/으로 레이블됨)에서 %s가 %s 액세스하지 못하게 합니다."
 
-#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
-msgstr "SELinux는 %s (%s로/으로 레이블됨)에서 %s가 '%s' 액세스하지 못하게 합니다."
+msgstr ""
+"SELinux는 %s (%s로/으로 레이블됨)에서 %s가 '%s' 액세스하지 못하게 합니다."
 
-#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux는 %s %s에서 %s가 %s 액세스하지 못하게 합니다."
 
-#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux는 %s %s에서 %s가 '%s' 액세스하지 못하게 합니다."
 
-#: ../src/setroubleshoot/signature.py:526
 msgid "Additional Information:\n"
 msgstr "추가 정보:\n"
 
-#: ../src/setroubleshoot/signature.py:527
 msgid "Source Context"
 msgstr "소스 문맥"
 
-#: ../src/setroubleshoot/signature.py:528
 msgid "Target Context"
 msgstr "대상 문맥"
 
-#: ../src/setroubleshoot/signature.py:529
 msgid "Target Objects"
 msgstr "대상 객체"
 
-#: ../src/setroubleshoot/signature.py:530
 msgid "Source"
 msgstr "소스"
 
-#: ../src/setroubleshoot/signature.py:531
 msgid "Source Path"
 msgstr "소스 경로"
 
-#: ../src/setroubleshoot/signature.py:532
 msgid "Port"
 msgstr "포트"
 
-#: ../src/setroubleshoot/signature.py:534
-#: ../src/setroubleshoot/signature.py:536
 msgid "Host"
 msgstr "호스트"
 
-#: ../src/setroubleshoot/signature.py:537
 msgid "Source RPM Packages"
-msgstr "소스 RPM 패키지"
+msgstr "소스 RPM 꾸러미(package)"
 
-#: ../src/setroubleshoot/signature.py:538
 msgid "Target RPM Packages"
-msgstr "대상 RPM 패키지"
+msgstr "대상 RPM 꾸러미(package)"
 
-#: ../src/setroubleshoot/signature.py:539
 msgid "SELinux Policy RPM"
 msgstr "SELinux 정책 RPM"
 
-#: ../src/setroubleshoot/signature.py:540
 msgid "Local Policy RPM"
 msgstr "로컬 정책 RPM"
 
-#: ../src/setroubleshoot/signature.py:541
 msgid "Selinux Enabled"
 msgstr "Selinux 활성화"
 
-#: ../src/setroubleshoot/signature.py:542
 msgid "Policy Type"
 msgstr "정책 유형"
 
-#: ../src/setroubleshoot/signature.py:543
 msgid "Enforcing Mode"
 msgstr "강제 모드"
 
-#: ../src/setroubleshoot/signature.py:545
-#: ../src/setroubleshoot/signature.py:547
 msgid "Host Name"
 msgstr "호스트명"
 
-#: ../src/setroubleshoot/signature.py:552
-#: ../src/setroubleshoot/signature.py:554
 msgid "Platform"
 msgstr "플랫폼"
 
-#: ../src/setroubleshoot/signature.py:555
 msgid "Alert Count"
 msgstr "통지 카운트"
 
-#: ../src/setroubleshoot/signature.py:557
 msgid "First Seen"
 msgstr "초기 화면"
 
-#: ../src/setroubleshoot/signature.py:558
-msgid "Last Seen"
-msgstr "마지막 화면"
-
-#: ../src/setroubleshoot/signature.py:559
 msgid "Local ID"
 msgstr "로컬 ID"
 
-#: ../src/setroubleshoot/signature.py:561
 msgid "Raw Audit Messages"
 msgstr "원 감사 메세지"
 
-#: ../src/setroubleshoot/signature.py:615
 #, python-format
 msgid ""
 "\n"
@@ -597,16 +469,12 @@ msgstr ""
 "\n"
 "*****  플러그인 %s (%.4s confidence) 제안   "
 
-#: ../src/setroubleshoot/signature.py:618
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:619
-#: ../src/setroubleshoot/signature.py:621
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:623
 msgid ""
 "\n"
 "Then "
@@ -614,7 +482,6 @@ msgstr ""
 "\n"
 "Then "
 
-#: ../src/setroubleshoot/signature.py:626
 msgid ""
 "\n"
 "Do\n"
@@ -622,7 +489,6 @@ msgstr ""
 "\n"
 "Do\n"
 
-#: ../src/setroubleshoot/signature.py:628
 msgid ""
 "\n"
 "\n"
@@ -630,60 +496,47 @@ msgstr ""
 "\n"
 "\n"
 
-#: ../src/seappletlegacy.c:189 ../src/seapplet:133
 msgid "New SELinux security alert"
 msgstr "새 SELinux 보안 통지"
 
-#: ../src/seappletlegacy.c:189 ../src/seapplet:134
 msgid "AVC denial, click icon to view"
 msgstr "AVC 거부, 아이콘 클릭하여 보기"
 
-#: ../src/seappletlegacy.c:195 ../src/seappletlegacy.c:246 ../src/seapplet:137
 msgid "Dismiss"
 msgstr "취소"
 
-#: ../src/seappletlegacy.c:205 ../src/seappletlegacy.c:256 ../src/seapplet:138
-#: ../src/seapplet:139
 msgid "Show"
 msgstr "보기"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:71
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC 거부, 클릭하여 보기"
 
-#: ../src/seapplet:160
 msgid "SELinux Troubleshooter: Applet requires SELinux be enabled to run"
 msgstr "SELinux 문제 해결사 : 애플릿을 실행하려면 SELinux를 활성화해야합니다"
 
-#: ../src/sealert:121
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
-msgstr "SELinux가 활성화되어있지 않습니다. sealert는 SELinux 시스템에서만 작동합니다"
+msgstr ""
+"SELinux가 활성화되어있지 않습니다. sealert는 SELinux 시스템에서만 작동합니다"
 
-#: ../src/sealert:171
 msgid "Not fixable."
 msgstr "수정할 수 없음."
 
-#: ../src/sealert:178
 #, c-format
 msgid "Successfully ran %s"
 msgstr "성공적으로 %s 실행"
 
-#: ../src/sealert:185
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "플러그인 %s가 플러그인 %s에 유효하지 않습니다"
 
-#: ../src/setroubleshootd:79
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux가 활성화되어 있지 않습니다. setroubleshootd를 종료합니다..."
 
-#: ../src/setroubleshootd:111
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork #1 실패: %d (%s)"
 
-#: ../gui/browser.glade.h:1
 msgid ""
 "Copyright (c) 2010\n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -697,107 +550,97 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "문제 해결이 경고 선택"
 
-#: ../gui/browser.glade.h:10
 msgid "Delete"
 msgstr "삭제"
 
-#: ../gui/browser.glade.h:11
 msgid "Delete Selected Alerts"
 msgstr "선택된 경고"
 
-#: ../gui/browser.glade.h:13
 msgid "Close"
 msgstr "닫기"
 
-#: ../gui/browser.glade.h:15
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux가 문제를 발견했습니다.</b>"
 
-#: ../gui/browser.glade.h:18
 msgid "Turn on alert pop-ups."
 msgstr "알림 팝업창을 활성화."
 
-#: ../gui/browser.glade.h:20
 msgid "Turn off alert pop-ups."
 msgstr "알림 팝업창을 비활성화."
 
-#: ../gui/browser.glade.h:23
 msgid "On this file:"
 msgstr "시도한 파일:"
 
-#: ../gui/browser.glade.h:24
 msgid "label"
 msgstr "레이블"
 
-#: ../gui/browser.glade.h:25
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
-msgstr "문제 해결 정보를 읽어보십시오.  관리자 권한 회복이 필요할 수도 있습니다."
+msgstr ""
+"문제 해결 정보를 읽어보십시오.  관리자 권한 회복이 필요할 수도 있습니다."
 
-#: ../gui/browser.glade.h:27
 msgid "Email alert to system administrator."
 msgstr "시스템 관리자에게 문제에 대해 이메일을 보내세요."
 
-#: ../gui/browser.glade.h:31
 msgid "Delete current alert from the database."
 msgstr "데이터베이스에서 현재 경고."
 
-#: ../gui/browser.glade.h:32
 msgid "Previous"
 msgstr "이전"
 
-#: ../gui/browser.glade.h:33
 msgid "Show previous alert."
 msgstr "이전 통지 보기."
 
-#: ../gui/browser.glade.h:35
 msgid "Next"
 msgstr "다음"
 
-#: ../gui/browser.glade.h:36
 msgid "Show next alert."
 msgstr "다음 통지 보기."
 
-#: ../gui/browser.glade.h:38
 msgid "List all alerts in the database."
 msgstr "데이터베이스에 있는 모든 통지 목록을 보여줍니다."
 
-#: ../gui/bug_report.glade.h:1
 msgid "Review and Submit Bug Report"
 msgstr "버그 리포트를 검토하고 제출합니다"
 
-#: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
 msgstr "<span size='large' weight='bold'>버그 보고 검색 및 제출</span>"
 
-#: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
-msgstr "이 버그 보고에 포함된 오류 출력 결과를 다시 확인하여 기밀 데이터를 제외시키실 수도 있습니다."
+msgstr ""
+"이 버그 보고에 포함된 오류 출력 결과를 다시 확인하여 기밀 데이터를 제외시키"
+"실 수도 있습니다."
 
-#: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
 msgstr "포함할 오류 출력 결과:"
 
-#: ../gui/bug_report.glade.h:5
 msgid "Submit Report"
 msgstr "보고서 제출"
 
-#: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
-msgstr "이 작업이 완료되었습니다.  The quick brown fox jumped over the lazy dog."
+msgstr ""
+"이 작업이 완료되었습니다.  The quick brown fox jumped over the lazy dog."
 
-#: ../gui/success_dialog.glade.h:1
 msgid "Success!"
 msgstr "성공!"
 
-#: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "버튼"
+
+#, fuzzy
+#~| msgid ""
+#~| "%s \n"
+#~| "**** Invalid AVC: bad source context ****\n"
+#~ msgid ""
+#~ "%s \n"
+#~ "**** TEST OF method source - ATTEMPT #2 ****\n"
+#~ msgstr ""
+#~ "%s \n"
+#~ "**** 잘못된 AVC 잘못된 소스 문맥 ***\n"

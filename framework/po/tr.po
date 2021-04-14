@@ -10,591 +10,477 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 17:47+0200\n"
-"PO-Revision-Date: 2019-03-07 07:26-0500\n"
-"Last-Translator: Serdar Sağlam <teknomobil@msn.com>\n"
-"Language-Team: Turkish (http://www.transifex.com/projects/p/fedora/language/tr/)\n"
+"POT-Creation-Date: 2021-03-24 13:52+0100\n"
+"PO-Revision-Date: 2020-09-14 14:29+0000\n"
+"Last-Translator: Oğuz Ersen <oguzersen@protonmail.com>\n"
+"Language-Team: Turkish <https://translate.fedoraproject.org/projects/"
+"setroubleshoot/setroubleshoot/tr/>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Zanata 4.6.2\n"
+"Plural-Forms: nplurals=2; plural=(n>1);\n"
+"X-Generator: Weblate 4.2.2\n"
 
-#: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
-msgstr ""
+msgstr "SELinux Sorun Giderici"
 
-#: ../setroubleshoot.desktop.in.h:2
 msgid "Troubleshoot SELinux access denials"
-msgstr ""
+msgstr "SELinux erişim reddi sorunlarını giderin"
 
-#: ../setroubleshoot.desktop.in.h:3
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr ""
+"policy;security;selinux;avc;permission;mac;alert;sealert;politika;güvenlik;"
+"izin;uyarı;"
 
-#: ../src/setroubleshoot/audit_data.py:923
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/setroubleshoot/audit_data.py:925
-#: ../src/setroubleshoot/browser.py:779 ../src/setroubleshoot/browser.py:854
-#: ../src/setroubleshoot/rpc.py:558 ../src/setroubleshoot/util.py:306
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: ../src/setroubleshoot/audit_data.py:1007
 #, python-format
 msgid ""
 "%s \n"
 "**** Recorded AVC is allowed in current policy ****\n"
 msgstr ""
+"%s \n"
+"**** Geçerli politikada kayıtlı AVC'ye izin veriliyor ****\n"
 
-#: ../src/setroubleshoot/audit_data.py:1009
 #, python-format
 msgid ""
 "%s \n"
-"**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn on dontaudit rules ****\n"
+"**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn "
+"on dontaudit rules ****\n"
 msgstr ""
+"%s \n"
+"**** Kayıtlı AVC geçerli politikada denetlenmiyor (dontaudit). 'semodule -B' "
+"dontaudit kurallarını etkinleştirecektir ****\n"
 
-#: ../src/setroubleshoot/audit_data.py:1011
 msgid "Must call policy_init first"
 msgstr "İlk olarak policy_init çağırılmalı"
 
-#: ../src/setroubleshoot/audit_data.py:1013
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC: bad target context ****\n"
 msgstr ""
+"%s \n"
+"**** Geçersiz AVC: yanlış hedef bağlamı ****\n"
 
-#: ../src/setroubleshoot/audit_data.py:1015
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC: bad source context ****\n"
 msgstr ""
+"%s \n"
+"**** Geçersiz AVC: yanlış kaynak bağlamı ****\n"
 
-#: ../src/setroubleshoot/audit_data.py:1017
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC: bad type class ****\n"
 msgstr ""
+"%s \n"
+"**** Geçersiz AVC: yanlış tür sınıfı ****\n"
 
-#: ../src/setroubleshoot/audit_data.py:1019
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC: bad permission ****\n"
 msgstr ""
+"%s \n"
+"**** Geçersiz AVC: yanlış izin ****\n"
 
-#: ../src/setroubleshoot/audit_data.py:1021
 msgid "Error during access vector computation"
 msgstr "Vector hesaplaması erişimi sırasında hata"
 
-#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:14
 msgid "SELinux Alert Browser"
 msgstr "SELinux Uyarı Tarayıcı"
 
-#: ../src/setroubleshoot/browser.py:212 ../gui/browser.glade.h:21
 msgid "The source process:"
 msgstr "Kaynak işlem:"
 
-#: ../src/setroubleshoot/browser.py:217 ../gui/browser.glade.h:17
 msgid "Yes"
 msgstr "Evet"
 
-#: ../src/setroubleshoot/browser.py:219 ../gui/browser.glade.h:19
 msgid "No"
 msgstr "Hayır"
 
-#: ../src/setroubleshoot/browser.py:224 ../gui/browser.glade.h:22
 msgid "Attempted this access:"
 msgstr "Bu erişim denendi:"
 
-#: ../src/setroubleshoot/browser.py:238 ../gui/browser.glade.h:12
 msgid "SETroubleshoot Details Window"
-msgstr "SETroubleshoot Detaylar Penceresi"
+msgstr "SETroubleshoot Ayrıntıları Penceresi"
 
-#: ../src/setroubleshoot/browser.py:241 ../gui/browser.glade.h:16
 msgid "Would you like to receive alerts?"
 msgstr "Uyarıları almak ister misiniz?"
 
-#: ../src/setroubleshoot/browser.py:245 ../gui/browser.glade.h:26
 msgid "Notify Admin"
 msgstr "Yöneticiye Bildir"
 
-#: ../src/setroubleshoot/browser.py:248 ../src/setroubleshoot/browser.py:254
-#: ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "Sorun Giderme"
 
-#: ../src/setroubleshoot/browser.py:251 ../gui/browser.glade.h:28
 msgid "Details"
-msgstr "Detaylar"
+msgstr "Ayrıntılar"
 
-#: ../src/setroubleshoot/browser.py:258 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "SETroubleshoot Uyarı Listesi"
 
-#: ../src/setroubleshoot/browser.py:260 ../gui/browser.glade.h:37
 msgid "List All Alerts"
 msgstr "Tüm Uyarıları Listele"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "#"
 msgstr "#"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Source Process"
 msgstr "Kaynak işlem"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Attempted Access"
-msgstr ""
+msgstr "Erişim Denemesi"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "On this"
-msgstr ""
+msgstr "Bunda"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Occurred"
 msgstr "Meydana geldi"
 
-#: ../src/setroubleshoot/browser.py:307
+msgid "Last Seen"
+msgstr "Son Görülme"
+
 msgid "Status"
 msgstr "Durum"
 
-#: ../src/setroubleshoot/browser.py:382 ../src/setroubleshoot/browser.py:818
-#: ../src/setroubleshoot/browser.py:862
 msgid "Notify"
 msgstr "Bildir"
 
-#: ../src/setroubleshoot/browser.py:383
 msgid "Notify alert in the future."
 msgstr "Bundan sonra uyarıları bildir."
 
-#: ../src/setroubleshoot/browser.py:386 ../src/setroubleshoot/browser.py:820
-#: ../src/setroubleshoot/browser.py:860 ../gui/browser.glade.h:29
 msgid "Ignore"
-msgstr "Yoksay"
+msgstr "Yok say"
 
-#: ../src/setroubleshoot/browser.py:387 ../gui/browser.glade.h:30
 msgid "Ignore alert in the future."
-msgstr "Gelecekteki uyarıları yoksay"
+msgstr "Gelecekteki uyarıları yok say."
 
-#: ../src/setroubleshoot/browser.py:424
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Denediğiniz şey...</b>"
 
-#: ../src/setroubleshoot/browser.py:433
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Çözüm budur.</b>"
 
-#: ../src/setroubleshoot/browser.py:531
 msgid ""
 "Plugin\n"
 "Details"
 msgstr ""
-"Eklenti\\n\n"
-"Detaylar"
+"Eklenti\n"
+"Ayrıntıları"
 
-#: ../src/setroubleshoot/browser.py:546
 msgid ""
 "Report\n"
 "Bug"
 msgstr ""
-"Rapor\\n\n"
-"Hata\\n"
+"Hata\n"
+"Bildir"
 
-#: ../src/setroubleshoot/browser.py:576
 #, python-format
 msgid "Plugin: %s "
-msgstr "Eklenti: %s"
+msgstr "Eklenti: %s "
 
-#: ../src/setroubleshoot/browser.py:643
 msgid "Unable to grant access."
 msgstr "Erişim sağlanamadı."
 
-#: ../src/setroubleshoot/browser.py:674 ../src/setroubleshoot/browser.py:816
 #, python-format
 msgid "Alert %d of %d"
 msgstr "%d nin %d uyarısı"
 
-#: ../src/setroubleshoot/browser.py:799
 #, python-format
 msgid "On this %s:"
 msgstr "%s üzerinde:"
 
-#: ../src/setroubleshoot/browser.py:847 ../src/setroubleshoot/browser.py:853
-#: ../src/setroubleshoot/signature.py:434
 msgid "N/A"
 msgstr "N/A"
 
-#: ../src/setroubleshoot/browser.py:894 ../src/setroubleshoot/browser.py:895
-#: ../gui/browser.glade.h:34
 msgid "No Alerts"
 msgstr "Uyarı yok"
 
-#: ../src/setroubleshoot/browser.py:913
 msgid "SELinux has detected a problem."
 msgstr "SELinux bir problem tespti etti."
 
-#: ../src/setroubleshoot/browser.py:1032
 msgid "Sealert Error"
 msgstr "Sealert Hatası"
 
-#: ../src/setroubleshoot/browser.py:1045
 msgid "Sealert Message"
 msgstr "Sealert Mesajı"
 
 #. -----------------------------------------------------------------------------
-#: ../src/setroubleshoot/errcode.py:83
 msgid "signature not found"
 msgstr "imza bulunamadı"
 
-#: ../src/setroubleshoot/errcode.py:84
 msgid "multiple signatures matched"
-msgstr ""
+msgstr "birden fazla imza eşleşti"
 
-#: ../src/setroubleshoot/errcode.py:85
 msgid "id not found"
 msgstr "id bulunamadı"
 
-#: ../src/setroubleshoot/errcode.py:86
 msgid "database not found"
-msgstr "veritabanı bulunamadı"
+msgstr "veri tabanı bulunamadı"
 
-#: ../src/setroubleshoot/errcode.py:87
 msgid "item is not a member"
 msgstr "öğe bir üye değil"
 
-#: ../src/setroubleshoot/errcode.py:88
 msgid "illegal to change user"
 msgstr "kullanıcı değiştirme geçersiz"
 
-#: ../src/setroubleshoot/errcode.py:89
 msgid "method not found"
-msgstr "metot bulunamadı"
+msgstr "yöntem bulunamadı"
 
-#: ../src/setroubleshoot/errcode.py:90
 msgid "cannot create GUI"
 msgstr "GUI yaratma"
 
-#: ../src/setroubleshoot/errcode.py:91
 msgid "value unknown"
 msgstr "bilinmeyen değer"
 
-#: ../src/setroubleshoot/errcode.py:92
 msgid "cannot open file"
 msgstr "dosyayı açma"
 
-#: ../src/setroubleshoot/errcode.py:93
 msgid "invalid email address"
 msgstr "geçersiz email adresi"
 
 #. gobject IO Errors
-#: ../src/setroubleshoot/errcode.py:96
 msgid "socket error"
 msgstr "soket hatası"
 
-#: ../src/setroubleshoot/errcode.py:97
 msgid "connection has been broken"
 msgstr "bağlantı koptu"
 
-#: ../src/setroubleshoot/errcode.py:98
 msgid "Invalid request. The file descriptor is not open"
 msgstr "Geçersiz istek. File belirteci açık değil"
 
-#: ../src/setroubleshoot/errcode.py:100
 msgid "insufficient permission to modify user"
-msgstr ""
+msgstr "kullanıcıyı değiştirmek için yeterli izin yok"
 
-#: ../src/setroubleshoot/errcode.py:101
 msgid "authentication failed"
 msgstr "kimlik denetimi başarısız oldu"
 
-#: ../src/setroubleshoot/errcode.py:102
 msgid "user prohibited"
 msgstr "kullanıcı yasaklandı"
 
-#: ../src/setroubleshoot/errcode.py:103
 msgid "not authenticated"
 msgstr "yetkilendirilmemiş"
 
-#: ../src/setroubleshoot/errcode.py:104
 msgid "user lookup failed"
 msgstr "kullanıcı arama başarısız"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:565
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
-msgstr ""
+msgstr "Tüh, %s bir hatayla karşılaştı!"
 
-#: ../src/setroubleshoot/gui_utils.py:58 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "Hata"
 
-#: ../src/setroubleshoot/Plugin.py:92
 msgid ""
 "If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
 msgstr ""
+"$SOURCE_BASE_PATH’ın $TARGET_BASE_PATH $TARGET_CLASS için $ACCESS erişimine "
+"sahip olmasına izin vermek istiyorsanız"
 
-#: ../src/setroubleshoot/server.py:226
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
-msgstr ""
+msgstr " Tam SELinux mesajları için şu komutu çalıştırın: sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:414
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
-msgstr ""
+msgstr "(%s) kullanıcısı, (%s) için verileri değiştiremez"
 
-#: ../src/setroubleshoot/server.py:486 ../src/sealert:318
 msgid "Started"
 msgstr "Başladı"
 
-#: ../src/setroubleshoot/server.py:684
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:775
 msgid "Audit Listener"
 msgstr "Denetim Dinleyici"
 
-#: ../src/setroubleshoot/signature.py:89
 msgid "Never Ignore"
-msgstr "Asla Yoksayma"
+msgstr "Asla Yok Sayma"
 
-#: ../src/setroubleshoot/signature.py:90
 msgid "Ignore Always"
-msgstr "Her zaman Yoksay"
+msgstr "Her Zaman Yok Say"
 
-#: ../src/setroubleshoot/signature.py:91
 msgid "Ignore After First Alert"
-msgstr "İlk Uyarıdan Sonra Yoksay"
+msgstr "İlk Uyarıdan Sonra Yok Say"
 
-#: ../src/setroubleshoot/signature.py:213
 msgid "directory"
 msgstr "dizin"
 
-#: ../src/setroubleshoot/signature.py:214
 msgid "semaphore"
 msgstr "semafor"
 
-#: ../src/setroubleshoot/signature.py:215
 msgid "shared memory"
 msgstr "paylaşılan bellek"
 
-#: ../src/setroubleshoot/signature.py:216
 msgid "message queue"
 msgstr "mesaj kuyruğu"
 
-#: ../src/setroubleshoot/signature.py:217
 msgid "message"
 msgstr "mesaj"
 
-#: ../src/setroubleshoot/signature.py:218
 msgid "file"
 msgstr "dosya"
 
-#: ../src/setroubleshoot/signature.py:219
 msgid "socket"
 msgstr "soket"
 
-#: ../src/setroubleshoot/signature.py:220
 msgid "process"
 msgstr "işlem"
 
-#: ../src/setroubleshoot/signature.py:221
 msgid "process2"
-msgstr ""
+msgstr "işlem2"
 
-#: ../src/setroubleshoot/signature.py:222
 msgid "filesystem"
 msgstr "dosya sistemi"
 
-#: ../src/setroubleshoot/signature.py:223
 msgid "node"
 msgstr "düğüm"
 
-#: ../src/setroubleshoot/signature.py:224
 msgid "capability"
-msgstr "kapasite"
+msgstr "kabiliyet"
 
-#: ../src/setroubleshoot/signature.py:225
 msgid "capability2"
-msgstr ""
+msgstr "kabiliyet2"
 
-#: ../src/setroubleshoot/signature.py:418
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
-msgstr ""
+msgstr "%s, izin veren bir türe sahip (%s). Bu erişim reddedilmedi."
 
-#: ../src/setroubleshoot/signature.py:421
 msgid "SELinux is in permissive mode. This access was not denied."
-msgstr ""
+msgstr "SELinux izin veren modda. Bu erişim reddedilmedi."
 
-#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr ""
+"SELinux, %s'nin bir işlem üzerinde %s erişimini kullanmasını engelliyor."
 
-#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr ""
+"SELinux, %s'nin bir işlem üzerinde '%s' erişimlerini kullanmasını engelliyor."
 
-#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
-msgstr ""
+msgstr "SELinux, %s'nin %s kabiliyetini kullanmasını engelliyor."
 
-#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
-msgstr ""
+msgstr "SELinux, %s'nin '%s' kabiliyetlerini kullanmasını engelliyor."
 
-#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
-msgstr ""
+msgstr "SELinux, %s'nin %s erişimini %s üzerinde (%s etiketli) engelliyor."
 
-#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr ""
+"SELinux, %s'nin '%s' erişimlerini %s üzerinde (%s etiketli) engelliyor."
 
-#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
-msgstr ""
+msgstr "SELinux, %s'nin %s erişimini %s %s üzerinde engelliyor."
 
-#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
-msgstr ""
+msgstr "SELinux, %s'nin '%s' erişimlerini %s %s üzerinde engelliyor."
 
-#: ../src/setroubleshoot/signature.py:526
 msgid "Additional Information:\n"
 msgstr "Ek Bilgi:\n"
 
-#: ../src/setroubleshoot/signature.py:527
 msgid "Source Context"
-msgstr "Kaynak İçerik"
+msgstr "Kaynak Bağlam"
 
-#: ../src/setroubleshoot/signature.py:528
 msgid "Target Context"
-msgstr "Hedef İçerik"
+msgstr "Hedef Bağlam"
 
-#: ../src/setroubleshoot/signature.py:529
 msgid "Target Objects"
 msgstr "Hedef Nesneler"
 
-#: ../src/setroubleshoot/signature.py:530
 msgid "Source"
 msgstr "Kaynak"
 
-#: ../src/setroubleshoot/signature.py:531
 msgid "Source Path"
 msgstr "Kaynak Yol"
 
-#: ../src/setroubleshoot/signature.py:532
 msgid "Port"
 msgstr "Port"
 
-#: ../src/setroubleshoot/signature.py:534
-#: ../src/setroubleshoot/signature.py:536
 msgid "Host"
 msgstr "Ana Makine"
 
-#: ../src/setroubleshoot/signature.py:537
 msgid "Source RPM Packages"
 msgstr "Kaynak RPM Paketleri"
 
-#: ../src/setroubleshoot/signature.py:538
 msgid "Target RPM Packages"
 msgstr "Hedef RPM Paketleri"
 
-#: ../src/setroubleshoot/signature.py:539
 msgid "SELinux Policy RPM"
-msgstr ""
+msgstr "SELinux Politikası RPM'i"
 
-#: ../src/setroubleshoot/signature.py:540
 msgid "Local Policy RPM"
-msgstr ""
+msgstr "Yerel Politika RPM'i"
 
-#: ../src/setroubleshoot/signature.py:541
 msgid "Selinux Enabled"
-msgstr ""
+msgstr "SELinux Etkin"
 
-#: ../src/setroubleshoot/signature.py:542
 msgid "Policy Type"
-msgstr "Politika Tipi"
+msgstr "Politika Türü"
 
-#: ../src/setroubleshoot/signature.py:543
 msgid "Enforcing Mode"
 msgstr "Zorlama Modu"
 
-#: ../src/setroubleshoot/signature.py:545
-#: ../src/setroubleshoot/signature.py:547
 msgid "Host Name"
 msgstr "Ana Makine Adı"
 
-#: ../src/setroubleshoot/signature.py:552
-#: ../src/setroubleshoot/signature.py:554
 msgid "Platform"
 msgstr "Platform"
 
-#: ../src/setroubleshoot/signature.py:555
 msgid "Alert Count"
 msgstr "Alarm Sayısı"
 
-#: ../src/setroubleshoot/signature.py:557
 msgid "First Seen"
 msgstr "İlk Görülme"
 
-#: ../src/setroubleshoot/signature.py:558
-msgid "Last Seen"
-msgstr "Son Görülme"
-
-#: ../src/setroubleshoot/signature.py:559
 msgid "Local ID"
 msgstr "Yerel ID"
 
-#: ../src/setroubleshoot/signature.py:561
 msgid "Raw Audit Messages"
-msgstr ""
+msgstr "Ham Denetim Mesajları"
 
-#: ../src/setroubleshoot/signature.py:615
 #, python-format
 msgid ""
 "\n"
 "\n"
 "*****  Plugin %s (%.4s confidence) suggests   "
 msgstr ""
+"\n"
+"\n"
+"*****  %s eklentisi (%.4s güvenilirlik) şunları öneriyor   "
 
-#: ../src/setroubleshoot/signature.py:618
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:619
-#: ../src/setroubleshoot/signature.py:621
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:623
 msgid ""
 "\n"
 "Then "
 msgstr ""
 "\n"
-"Then"
+"Sonra "
 
-#: ../src/setroubleshoot/signature.py:626
 msgid ""
 "\n"
 "Do\n"
@@ -602,7 +488,6 @@ msgstr ""
 "\n"
 "Do\n"
 
-#: ../src/setroubleshoot/signature.py:628
 msgid ""
 "\n"
 "\n"
@@ -610,60 +495,49 @@ msgstr ""
 "\n"
 "\n"
 
-#: ../src/seappletlegacy.c:189 ../src/seapplet:133
 msgid "New SELinux security alert"
-msgstr ""
+msgstr "Yeni SELinux güvenlik uyarısı"
 
-#: ../src/seappletlegacy.c:189 ../src/seapplet:134
 msgid "AVC denial, click icon to view"
-msgstr ""
+msgstr "AVC reddi, görüntülemek için simgeye tıklayın"
 
-#: ../src/seappletlegacy.c:195 ../src/seappletlegacy.c:246 ../src/seapplet:137
 msgid "Dismiss"
 msgstr "Reddet"
 
-#: ../src/seappletlegacy.c:205 ../src/seappletlegacy.c:256 ../src/seapplet:138
-#: ../src/seapplet:139
 msgid "Show"
 msgstr "Göster"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:71
 msgid "SELinux AVC denial, click to view"
-msgstr ""
+msgstr "SELinux AVC reddi, görüntülemek için tıklayın"
 
-#: ../src/seapplet:160
 msgid "SELinux Troubleshooter: Applet requires SELinux be enabled to run"
 msgstr ""
+"SELinux Sorun Giderici: Uygulamanın çalışması için SELinux "
+"etkinleştirilmelidir"
 
-#: ../src/sealert:121
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
+"SELinux etkin değil, sealert SELinux olmayan sistemlerde çalışmayacaktır"
 
-#: ../src/sealert:171
 msgid "Not fixable."
 msgstr "Düzeltilebilir değil."
 
-#: ../src/sealert:178
 #, c-format
 msgid "Successfully ran %s"
 msgstr "%s başarılı bir şekilde çalıştı"
 
-#: ../src/sealert:185
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "%s eklentisi %s id si için geçerli değil"
 
-#: ../src/setroubleshootd:79
 msgid "SELinux not enabled, setroubleshootd exiting..."
-msgstr ""
+msgstr "SELinux etkin değil, setroubleshootd çıkış yapıyor..."
 
-#: ../src/setroubleshootd:111
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "fork#1 başarısız: %d(%s)"
 
-#: ../gui/browser.glade.h:1
 msgid ""
 "Copyright (c) 2010\n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -671,110 +545,101 @@ msgid ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 msgstr ""
+"Telif Hakkı (c) 2010\n"
+"Thomas Liu <tliu@redhat.com>\n"
+"Máirín Duffy <duffy@redhat.com>\n"
+"Daniel Walsh <dwalsh@redhat.com>\n"
+"John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
-msgstr ""
+msgstr "Seçili uyarıyla ilgili sorunları gider"
 
-#: ../gui/browser.glade.h:10
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
-#: ../gui/browser.glade.h:11
 msgid "Delete Selected Alerts"
 msgstr "Seçili Uyarıları Sil"
 
-#: ../gui/browser.glade.h:13
 msgid "Close"
-msgstr ""
+msgstr "Kapat"
 
-#: ../gui/browser.glade.h:15
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux hata tespit etti.</b>"
 
-#: ../gui/browser.glade.h:18
 msgid "Turn on alert pop-ups."
 msgstr "Açılır pencere uyarılarını aç."
 
-#: ../gui/browser.glade.h:20
 msgid "Turn off alert pop-ups."
 msgstr "Açılır pencere uyarılarını kapat."
 
-#: ../gui/browser.glade.h:23
 msgid "On this file:"
 msgstr "Bu dosya üzerinde:"
 
-#: ../gui/browser.glade.h:24
 msgid "label"
 msgstr "label"
 
-#: ../gui/browser.glade.h:25
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr ""
+"Uyarıyla ilgili sorun giderme bilgilerini okuyun. Düzeltmek için yönetici "
+"ayrıcalıkları gerekebilir."
 
-#: ../gui/browser.glade.h:27
 msgid "Email alert to system administrator."
-msgstr ""
+msgstr "Uyarıyla ilgili sistem yöneticisine e-posta gönder."
 
-#: ../gui/browser.glade.h:31
 msgid "Delete current alert from the database."
-msgstr "Mevcut uyarıyı veritabanından sil"
+msgstr "Geçerli uyarıyı veri tabanından sil."
 
-#: ../gui/browser.glade.h:32
 msgid "Previous"
-msgstr ""
+msgstr "Önceki"
 
-#: ../gui/browser.glade.h:33
 msgid "Show previous alert."
 msgstr "Önceki uyarıyı göster."
 
-#: ../gui/browser.glade.h:35
 msgid "Next"
-msgstr ""
+msgstr "Sonraki"
 
-#: ../gui/browser.glade.h:36
 msgid "Show next alert."
 msgstr "Sonraki uyarıyı göster."
 
-#: ../gui/browser.glade.h:38
 msgid "List all alerts in the database."
-msgstr "Veritabanındaki Tüm Uyarıları Listele"
+msgstr "Veri tabanındaki tüm uyarıları listele."
 
-#: ../gui/bug_report.glade.h:1
 msgid "Review and Submit Bug Report"
 msgstr "Gözden Geçir ve Hata Raporunu Gönder"
 
-#: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
 msgstr ""
 "<span size='large' weight='bold'>Gözden Geçir ve Hata Raporunu Gönder</span>"
 
-#: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
 msgstr ""
+"Bu hata bildirimine dahil edilecek hata çıktısını incelemek ve aşağıda "
+"hassas verileri hariç tutmak için değiştirmek isteyebilirsiniz."
 
-#: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
-msgstr ""
+msgstr "Dahil edilen hata çıktısı:"
 
-#: ../gui/bug_report.glade.h:5
 msgid "Submit Report"
 msgstr "Raporu Gönder"
 
-#: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
 msgstr ""
 "Bu işlem tamamlandı. Hızlı kahverengi tilki, aptal köpeğin üzerinden atladı."
 
-#: ../gui/success_dialog.glade.h:1
 msgid "Success!"
 msgstr "Başarılı!"
 
-#: ../gui/success_dialog.glade.h:3
 msgid "button"
-msgstr "button"
+msgstr "düğme"
+
+#~ msgid ""
+#~ "%s \n"
+#~ "**** TEST OF method source - ATTEMPT #2 ****\n"
+#~ msgstr ""
+#~ "%s \n"
+#~ "**** yöntem kaynağının TEST EDİLMESİ - DENEME #2 ****\n"

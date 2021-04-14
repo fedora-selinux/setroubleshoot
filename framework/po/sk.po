@@ -10,10 +10,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-30 17:47+0200\n"
+"POT-Creation-Date: 2021-03-24 13:52+0100\n"
 "PO-Revision-Date: 2019-07-04 01:03-0400\n"
 "Last-Translator: Lukas Vrabec <lvrabec@redhat.com>\n"
-"Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/sk/)\n"
+"Language-Team: Slovak (http://www.transifex.com/projects/p/fedora/language/"
+"sk/)\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,179 +22,140 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Zanata 4.6.2\n"
 
-#: ../setroubleshoot.desktop.in.h:1
 msgid "SELinux Troubleshooter"
 msgstr "SELinux vyhľadávač porúch"
 
-#: ../setroubleshoot.desktop.in.h:2
 msgid "Troubleshoot SELinux access denials"
 msgstr "Vyhľadanie SELinux porúch zamietnutých prístupov"
 
-#: ../setroubleshoot.desktop.in.h:3
 msgid "policy;security;selinux;avc;permission;mac;alert;sealert;"
 msgstr "politika;bezpečnosť;selinux;avc;oprávnenie;mac;alert;sealert;"
 
-#: ../src/setroubleshoot/audit_data.py:923
 #, python-format
 msgid "port %s"
 msgstr "port %s"
 
-#: ../src/setroubleshoot/audit_data.py:925
-#: ../src/setroubleshoot/browser.py:779 ../src/setroubleshoot/browser.py:854
-#: ../src/setroubleshoot/rpc.py:558 ../src/setroubleshoot/util.py:306
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: ../src/setroubleshoot/audit_data.py:1007
 #, python-format
 msgid ""
 "%s \n"
 "**** Recorded AVC is allowed in current policy ****\n"
 msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1009
 #, python-format
 msgid ""
 "%s \n"
-"**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn on dontaudit rules ****\n"
+"**** Recorded AVC is dontaudited in current policy. 'semodule -B' will turn "
+"on dontaudit rules ****\n"
 msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1011
 msgid "Must call policy_init first"
 msgstr "Najskôr musí byť zavolané policy_init"
 
-#: ../src/setroubleshoot/audit_data.py:1013
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC: bad target context ****\n"
 msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1015
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC: bad source context ****\n"
 msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1017
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC: bad type class ****\n"
 msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1019
 #, python-format
 msgid ""
 "%s \n"
 "**** Invalid AVC: bad permission ****\n"
 msgstr ""
 
-#: ../src/setroubleshoot/audit_data.py:1021
 msgid "Error during access vector computation"
 msgstr "Chyba počas prístupu k vektorovému výpočtu"
 
-#: ../src/setroubleshoot/browser.py:208 ../gui/browser.glade.h:14
 msgid "SELinux Alert Browser"
 msgstr "Prehliadač SELinux výstrah"
 
-#: ../src/setroubleshoot/browser.py:212 ../gui/browser.glade.h:21
 msgid "The source process:"
 msgstr "Zdrojový proces:"
 
-#: ../src/setroubleshoot/browser.py:217 ../gui/browser.glade.h:17
 msgid "Yes"
 msgstr "Áno"
 
-#: ../src/setroubleshoot/browser.py:219 ../gui/browser.glade.h:19
 msgid "No"
 msgstr "Nie"
 
-#: ../src/setroubleshoot/browser.py:224 ../gui/browser.glade.h:22
 msgid "Attempted this access:"
 msgstr "Pokus o tento prístup:"
 
-#: ../src/setroubleshoot/browser.py:238 ../gui/browser.glade.h:12
 msgid "SETroubleshoot Details Window"
 msgstr "Okno s podrobnosťami SETroubleshoot"
 
-#: ../src/setroubleshoot/browser.py:241 ../gui/browser.glade.h:16
 msgid "Would you like to receive alerts?"
 msgstr "Chcete prijímať výstrahy?"
 
-#: ../src/setroubleshoot/browser.py:245 ../gui/browser.glade.h:26
 msgid "Notify Admin"
 msgstr "Oznámiť administrátorovi"
 
-#: ../src/setroubleshoot/browser.py:248 ../src/setroubleshoot/browser.py:254
-#: ../gui/browser.glade.h:8
 msgid "Troubleshoot"
 msgstr "Riešiť problém"
 
-#: ../src/setroubleshoot/browser.py:251 ../gui/browser.glade.h:28
 msgid "Details"
 msgstr "Podrobnosti"
 
-#: ../src/setroubleshoot/browser.py:258 ../gui/browser.glade.h:7
 msgid "SETroubleshoot Alert List"
 msgstr "Zoznam výstrah SETroubleshoot"
 
-#: ../src/setroubleshoot/browser.py:260 ../gui/browser.glade.h:37
 msgid "List All Alerts"
 msgstr "Zoznam všetkých výstrah"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "#"
 msgstr "#"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Source Process"
 msgstr "Zdrojový proces"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Attempted Access"
 msgstr "Pokus o prístup"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "On this"
 msgstr "Na tomto"
 
-#: ../src/setroubleshoot/browser.py:307
 msgid "Occurred"
 msgstr "Nastal"
 
-#: ../src/setroubleshoot/browser.py:307
+msgid "Last Seen"
+msgstr "Naposledy videné"
+
 msgid "Status"
 msgstr "Stav"
 
-#: ../src/setroubleshoot/browser.py:382 ../src/setroubleshoot/browser.py:818
-#: ../src/setroubleshoot/browser.py:862
 msgid "Notify"
 msgstr "Oznámiť"
 
-#: ../src/setroubleshoot/browser.py:383
 msgid "Notify alert in the future."
 msgstr "Oznámiť výstrahu v budúcnosti"
 
-#: ../src/setroubleshoot/browser.py:386 ../src/setroubleshoot/browser.py:820
-#: ../src/setroubleshoot/browser.py:860 ../gui/browser.glade.h:29
 msgid "Ignore"
 msgstr "Ignorovať"
 
-#: ../src/setroubleshoot/browser.py:387 ../gui/browser.glade.h:30
 msgid "Ignore alert in the future."
 msgstr "Ignorovať výstrahu v budúcnosti"
 
-#: ../src/setroubleshoot/browser.py:424
 msgid "<b>If you were trying to...</b>"
 msgstr "<b>Ak ste sa pokúšali o...</b>"
 
-#: ../src/setroubleshoot/browser.py:433
 msgid "<b>Then this is the solution.</b>"
 msgstr "<b>Potom toto je riešenie.</b>"
 
-#: ../src/setroubleshoot/browser.py:531
 msgid ""
 "Plugin\n"
 "Details"
@@ -201,7 +163,6 @@ msgstr ""
 "Detaily\n"
 "zás. modulu"
 
-#: ../src/setroubleshoot/browser.py:546
 msgid ""
 "Report\n"
 "Bug"
@@ -209,135 +170,102 @@ msgstr ""
 "Nahlásiť\n"
 "chybu"
 
-#: ../src/setroubleshoot/browser.py:576
 #, python-format
 msgid "Plugin: %s "
 msgstr "Zásuvný modul: %s "
 
-#: ../src/setroubleshoot/browser.py:643
 msgid "Unable to grant access."
 msgstr "Nedá sa udeliť prístup."
 
-#: ../src/setroubleshoot/browser.py:674 ../src/setroubleshoot/browser.py:816
 #, python-format
 msgid "Alert %d of %d"
 msgstr "Výstraha %d z %d"
 
-#: ../src/setroubleshoot/browser.py:799
 #, python-format
 msgid "On this %s:"
 msgstr "Na tomto %s:"
 
-#: ../src/setroubleshoot/browser.py:847 ../src/setroubleshoot/browser.py:853
-#: ../src/setroubleshoot/signature.py:434
 msgid "N/A"
 msgstr "Nedostupné"
 
-#: ../src/setroubleshoot/browser.py:894 ../src/setroubleshoot/browser.py:895
-#: ../gui/browser.glade.h:34
 msgid "No Alerts"
 msgstr "Žiadne výstrahy"
 
-#: ../src/setroubleshoot/browser.py:913
 msgid "SELinux has detected a problem."
 msgstr "SELinux zistil problém."
 
-#: ../src/setroubleshoot/browser.py:1032
 msgid "Sealert Error"
 msgstr "Sealert chyba"
 
-#: ../src/setroubleshoot/browser.py:1045
 msgid "Sealert Message"
 msgstr "Sealert správa"
 
 #. -----------------------------------------------------------------------------
-#: ../src/setroubleshoot/errcode.py:83
 msgid "signature not found"
 msgstr "podpis nenájdený"
 
-#: ../src/setroubleshoot/errcode.py:84
 msgid "multiple signatures matched"
 msgstr "odpovedá viacerým podpisom"
 
-#: ../src/setroubleshoot/errcode.py:85
 msgid "id not found"
 msgstr "id nenájdené"
 
-#: ../src/setroubleshoot/errcode.py:86
 msgid "database not found"
 msgstr "databáza nenájdená"
 
-#: ../src/setroubleshoot/errcode.py:87
 msgid "item is not a member"
 msgstr "položka nie je členom"
 
-#: ../src/setroubleshoot/errcode.py:88
 msgid "illegal to change user"
 msgstr "neplatná zmena používateľa"
 
-#: ../src/setroubleshoot/errcode.py:89
 msgid "method not found"
 msgstr "metóda nenájdená"
 
-#: ../src/setroubleshoot/errcode.py:90
 msgid "cannot create GUI"
 msgstr "nedá sa vytvoriť grafické rozhranie"
 
-#: ../src/setroubleshoot/errcode.py:91
 msgid "value unknown"
 msgstr "hodnota neznáma"
 
-#: ../src/setroubleshoot/errcode.py:92
 msgid "cannot open file"
 msgstr "nedá sa otvoriť súbor"
 
-#: ../src/setroubleshoot/errcode.py:93
 msgid "invalid email address"
 msgstr "neplatná emailová adresa"
 
 #. gobject IO Errors
-#: ../src/setroubleshoot/errcode.py:96
 msgid "socket error"
 msgstr "chyba soketu"
 
-#: ../src/setroubleshoot/errcode.py:97
 msgid "connection has been broken"
 msgstr "spojenie bolo prerušené"
 
-#: ../src/setroubleshoot/errcode.py:98
 msgid "Invalid request. The file descriptor is not open"
 msgstr "Neplatná požiadavka. Popisovač súboru nie je otvorený"
 
-#: ../src/setroubleshoot/errcode.py:100
 msgid "insufficient permission to modify user"
 msgstr "nedostatočné oprávnenia na zmenu užívateľa"
 
-#: ../src/setroubleshoot/errcode.py:101
 msgid "authentication failed"
 msgstr "autorizácia zlyhala"
 
-#: ../src/setroubleshoot/errcode.py:102
 msgid "user prohibited"
 msgstr "užívateľ zakázaný"
 
-#: ../src/setroubleshoot/errcode.py:103
 msgid "not authenticated"
 msgstr "neautorizovaný"
 
-#: ../src/setroubleshoot/errcode.py:104
 msgid "user lookup failed"
 msgstr "hľadanie používateľa zlyhalo"
 
-#: ../src/setroubleshoot/gui_utils.py:56 ../src/sealert:565
 #, c-format, python-format
 msgid "Opps, %s hit an error!"
 msgstr "Ale nie, %s nastala chyba!"
 
-#: ../src/setroubleshoot/gui_utils.py:58 ../gui/fail_dialog.glade.h:1
 msgid "Error"
 msgstr "Chyba"
 
-#: ../src/setroubleshoot/Plugin.py:92
 msgid ""
 "If you want to allow $SOURCE_BASE_PATH to have $ACCESS access on the "
 "$TARGET_BASE_PATH $TARGET_CLASS"
@@ -345,237 +273,175 @@ msgstr ""
 "Ak chcete povoliť $SOURCE_BASE_PATH prístup $ACCESS k $TARGET_BASE_PATH  "
 "triedy $TARGET_CLASS"
 
-#: ../src/setroubleshoot/server.py:226
 #, python-format
 msgid " For complete SELinux messages run: sealert -l %s"
 msgstr "Pre kompletnú SELinux správu spusti: sealert -l %s"
 
-#: ../src/setroubleshoot/server.py:414
 #, python-format
 msgid "The user (%s) cannot modify data for (%s)"
 msgstr "Užívateľ (%s) nemôže meniť údaje pre (%s)"
 
-#: ../src/setroubleshoot/server.py:486 ../src/sealert:318
 msgid "Started"
 msgstr "Spustené"
 
-#: ../src/setroubleshoot/server.py:684
 msgid "AVC"
 msgstr "AVC"
 
-#: ../src/setroubleshoot/server.py:775
 msgid "Audit Listener"
 msgstr "Sledovanie auditu"
 
-#: ../src/setroubleshoot/signature.py:89
 msgid "Never Ignore"
 msgstr "Nikdy neignorovať"
 
-#: ../src/setroubleshoot/signature.py:90
 msgid "Ignore Always"
 msgstr "Ignorovať vždy"
 
-#: ../src/setroubleshoot/signature.py:91
 msgid "Ignore After First Alert"
 msgstr "Ignorovať po prvej výstrahe"
 
-#: ../src/setroubleshoot/signature.py:213
 msgid "directory"
 msgstr "adresár"
 
-#: ../src/setroubleshoot/signature.py:214
 msgid "semaphore"
 msgstr "semafor"
 
-#: ../src/setroubleshoot/signature.py:215
 msgid "shared memory"
 msgstr "zdieľaná pamäť"
 
-#: ../src/setroubleshoot/signature.py:216
 msgid "message queue"
 msgstr "fronta správ"
 
-#: ../src/setroubleshoot/signature.py:217
 msgid "message"
 msgstr "správa"
 
-#: ../src/setroubleshoot/signature.py:218
 msgid "file"
 msgstr "súbor"
 
-#: ../src/setroubleshoot/signature.py:219
 msgid "socket"
 msgstr "soket"
 
-#: ../src/setroubleshoot/signature.py:220
 msgid "process"
 msgstr "proces"
 
-#: ../src/setroubleshoot/signature.py:221
 msgid "process2"
 msgstr "process2"
 
-#: ../src/setroubleshoot/signature.py:222
 msgid "filesystem"
 msgstr "súborový systém"
 
-#: ../src/setroubleshoot/signature.py:223
 msgid "node"
 msgstr "uzol"
 
-#: ../src/setroubleshoot/signature.py:224
 msgid "capability"
 msgstr "schopnosť"
 
-#: ../src/setroubleshoot/signature.py:225
 msgid "capability2"
 msgstr "capability2"
 
-#: ../src/setroubleshoot/signature.py:418
 #, python-format
 msgid "%s has a permissive type (%s). This access was not denied."
 msgstr ""
-"%s je v tolerantnom (permissive) režime (%s). Tento prístup nebol "
-"zamietnutý."
+"%s je v tolerantnom (permissive) režime (%s). Tento prístup nebol zamietnutý."
 
-#: ../src/setroubleshoot/signature.py:421
 msgid "SELinux is in permissive mode. This access was not denied."
 msgstr ""
-"SELinux je v tolerantnom (permissive) režime. Tento prístup nebol "
-"zamietnutý."
+"SELinux je v tolerantnom (permissive) režime. Tento prístup nebol zamietnutý."
 
-#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the %s access on a process."
 msgstr "SELinux bráni %s využívať %s prístup k procesu."
 
-#: ../src/setroubleshoot/signature.py:475
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' accesses on a process."
 msgstr "SELinux bráni %s využívať '%s' prístup k procesu."
 
-#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the %s capability."
 msgstr "SELinux bráni %s využívať funkciu %s."
 
-#: ../src/setroubleshoot/signature.py:478
 #, python-format
 msgid "SELinux is preventing %s from using the '%s' capabilities."
 msgstr "SELinux bráni %s využívať funkciu '%s'."
 
-#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s labeled %s."
 msgstr "SELinux bráni %s prístupu %s k %s označený ako %s."
 
-#: ../src/setroubleshoot/signature.py:480
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s labeled %s."
 msgstr "SELinux bráni %s prístupu '%s' k %s označený ako %s."
 
-#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from %s access on the %s %s."
 msgstr "SELinux bráni %s prístupu %s k %s %s."
 
-#: ../src/setroubleshoot/signature.py:481
 #, python-format
 msgid "SELinux is preventing %s from '%s' accesses on the %s %s."
 msgstr "SELinux bráni %s prístupu '%s' k %s %s."
 
-#: ../src/setroubleshoot/signature.py:526
 msgid "Additional Information:\n"
 msgstr "Dodatočné informácie:\n"
 
-#: ../src/setroubleshoot/signature.py:527
 msgid "Source Context"
 msgstr "Zdrojový kontext"
 
-#: ../src/setroubleshoot/signature.py:528
 msgid "Target Context"
 msgstr "Cieľový kontext"
 
-#: ../src/setroubleshoot/signature.py:529
 msgid "Target Objects"
 msgstr "Cieľové objekty"
 
-#: ../src/setroubleshoot/signature.py:530
 msgid "Source"
 msgstr "Zdroj"
 
-#: ../src/setroubleshoot/signature.py:531
 msgid "Source Path"
 msgstr "Zdrojová cesta"
 
-#: ../src/setroubleshoot/signature.py:532
 msgid "Port"
 msgstr "Port"
 
-#: ../src/setroubleshoot/signature.py:534
-#: ../src/setroubleshoot/signature.py:536
 msgid "Host"
 msgstr "Počítač"
 
-#: ../src/setroubleshoot/signature.py:537
 msgid "Source RPM Packages"
 msgstr "Zdrojové RPM balíčky"
 
-#: ../src/setroubleshoot/signature.py:538
 msgid "Target RPM Packages"
 msgstr "Cieľové RPM balíčky"
 
-#: ../src/setroubleshoot/signature.py:539
 msgid "SELinux Policy RPM"
 msgstr ""
 
-#: ../src/setroubleshoot/signature.py:540
 msgid "Local Policy RPM"
 msgstr ""
 
-#: ../src/setroubleshoot/signature.py:541
 msgid "Selinux Enabled"
 msgstr "SELinux je povolený"
 
-#: ../src/setroubleshoot/signature.py:542
 msgid "Policy Type"
 msgstr "Typ politiky"
 
-#: ../src/setroubleshoot/signature.py:543
 msgid "Enforcing Mode"
 msgstr "Vynucovací režim"
 
-#: ../src/setroubleshoot/signature.py:545
-#: ../src/setroubleshoot/signature.py:547
 msgid "Host Name"
 msgstr "Názov počítača"
 
-#: ../src/setroubleshoot/signature.py:552
-#: ../src/setroubleshoot/signature.py:554
 msgid "Platform"
 msgstr "Platforma"
 
-#: ../src/setroubleshoot/signature.py:555
 msgid "Alert Count"
 msgstr "Počet výstrah"
 
-#: ../src/setroubleshoot/signature.py:557
 msgid "First Seen"
 msgstr "Prvýkrát videné"
 
-#: ../src/setroubleshoot/signature.py:558
-msgid "Last Seen"
-msgstr "Naposledy videné"
-
-#: ../src/setroubleshoot/signature.py:559
 msgid "Local ID"
 msgstr "Lokálne ID"
 
-#: ../src/setroubleshoot/signature.py:561
 msgid "Raw Audit Messages"
 msgstr "Pôvodná správa z auditu"
 
-#: ../src/setroubleshoot/signature.py:615
 #, python-format
 msgid ""
 "\n"
@@ -586,16 +452,12 @@ msgstr ""
 "\n"
 "*****  Zásuvný modul %s (%.4s dôvernosť) navrhuje   "
 
-#: ../src/setroubleshoot/signature.py:618
 msgid "*"
 msgstr "*"
 
-#: ../src/setroubleshoot/signature.py:619
-#: ../src/setroubleshoot/signature.py:621
 msgid "\n"
 msgstr "\n"
 
-#: ../src/setroubleshoot/signature.py:623
 msgid ""
 "\n"
 "Then "
@@ -603,7 +465,6 @@ msgstr ""
 "\n"
 "Potom "
 
-#: ../src/setroubleshoot/signature.py:626
 msgid ""
 "\n"
 "Do\n"
@@ -611,7 +472,6 @@ msgstr ""
 "\n"
 "Urobte\n"
 
-#: ../src/setroubleshoot/signature.py:628
 msgid ""
 "\n"
 "\n"
@@ -619,61 +479,47 @@ msgstr ""
 "\n"
 "\n"
 
-#: ../src/seappletlegacy.c:189 ../src/seapplet:133
 msgid "New SELinux security alert"
 msgstr "Nová SELinux bezpečnostná výstraha"
 
-#: ../src/seappletlegacy.c:189 ../src/seapplet:134
 msgid "AVC denial, click icon to view"
 msgstr "AVC odmietnutie, kliknite na zobrazenie"
 
-#: ../src/seappletlegacy.c:195 ../src/seappletlegacy.c:246 ../src/seapplet:137
 msgid "Dismiss"
 msgstr "Zrušiť"
 
-#: ../src/seappletlegacy.c:205 ../src/seappletlegacy.c:256 ../src/seapplet:138
-#: ../src/seapplet:139
 msgid "Show"
 msgstr "Zobraziť"
 
 #. set tooltip
-#: ../src/seappletlegacy.c:440 ../src/sealert:71
 msgid "SELinux AVC denial, click to view"
 msgstr "SELinux AVC odmietnutie, kliknite na zobrazenie"
 
-#: ../src/seapplet:160
 msgid "SELinux Troubleshooter: Applet requires SELinux be enabled to run"
 msgstr "SELinux Troubleshooter: Aplikácia vyžaduje povolený SELinux"
 
-#: ../src/sealert:121
 msgid "SELinux not enabled, sealert will not run on non SELinux systems"
 msgstr ""
 "SELinux nie je povolený, sealert sa nespúšťa na systémoch bez SELinuxu."
 
-#: ../src/sealert:171
 msgid "Not fixable."
 msgstr "Neopraviteľné."
 
-#: ../src/sealert:178
 #, c-format
 msgid "Successfully ran %s"
 msgstr "Úspešne spustené %s"
 
-#: ../src/sealert:185
 #, c-format
 msgid "Plugin %s not valid for %s id"
 msgstr "Zásuvný modul %s nie je platný pre %s id"
 
-#: ../src/setroubleshootd:79
 msgid "SELinux not enabled, setroubleshootd exiting..."
 msgstr "SELinux nie je povolený, setroubleshootd bude ukončený..."
 
-#: ../src/setroubleshootd:111
 #, c-format
 msgid "fork #1 failed: %d (%s)"
 msgstr "spustenie #1 zlyhalo: %d (%s)"
 
-#: ../gui/browser.glade.h:1
 msgid ""
 "Copyright (c) 2010\n"
 "Thomas Liu <tliu@redhat.com>\n"
@@ -687,87 +533,67 @@ msgstr ""
 "Daniel Walsh <dwalsh@redhat.com>\n"
 "John Dennis <jdennis@redhat.com>\n"
 
-#: ../gui/browser.glade.h:9
 msgid "Troubleshoot selected alert"
 msgstr "Riešiť vybranú výstrahu"
 
-#: ../gui/browser.glade.h:10
 msgid "Delete"
 msgstr "Zmazať"
 
-#: ../gui/browser.glade.h:11
 msgid "Delete Selected Alerts"
 msgstr "Zmazať zvolené výstrahy"
 
-#: ../gui/browser.glade.h:13
 msgid "Close"
 msgstr "Zavrieť"
 
-#: ../gui/browser.glade.h:15
 msgid "<b>SELinux has detected a problem.</b>"
 msgstr "<b>SELinux narazil na problém.</b>"
 
-#: ../gui/browser.glade.h:18
 msgid "Turn on alert pop-ups."
 msgstr "Zapnúť vyskakovacie okná s výstrahami."
 
-#: ../gui/browser.glade.h:20
 msgid "Turn off alert pop-ups."
 msgstr "Vypnúť vyskakovacie okná s výstrahami."
 
-#: ../gui/browser.glade.h:23
 msgid "On this file:"
 msgstr "Na tento súbor:"
 
-#: ../gui/browser.glade.h:24
 msgid "label"
 msgstr "menovka"
 
-#: ../gui/browser.glade.h:25
 msgid ""
 "Read alert troubleshoot information.  May require administrative privileges "
 "to remedy."
 msgstr "Prečítať informácie o výstrahe. Môže vyžadovať oprávnenia správcu."
 
-#: ../gui/browser.glade.h:27
 msgid "Email alert to system administrator."
 msgstr "Odoslať výstrahu e-mailom administrátorovi."
 
-#: ../gui/browser.glade.h:31
 msgid "Delete current alert from the database."
 msgstr "Zmazať aktuálnu výstrahu z databázy."
 
-#: ../gui/browser.glade.h:32
 msgid "Previous"
 msgstr "Predchádzajúci"
 
-#: ../gui/browser.glade.h:33
 msgid "Show previous alert."
 msgstr "Zobraziť predošlú výstrahu."
 
-#: ../gui/browser.glade.h:35
 msgid "Next"
 msgstr "Ďalej"
 
-#: ../gui/browser.glade.h:36
 msgid "Show next alert."
 msgstr "Zobraziť nasledujúcu výstrahu."
 
-#: ../gui/browser.glade.h:38
 msgid "List all alerts in the database."
 msgstr "Zoznam všetkých výstrah v databáze."
 
-#: ../gui/bug_report.glade.h:1
 msgid "Review and Submit Bug Report"
 msgstr "Skontrolovať a odoslať hlásenie o chybe"
 
-#: ../gui/bug_report.glade.h:2
 msgid "<span size='large' weight='bold'>Review and Submit Bug Report</span>"
 msgstr ""
-"<span size='large' weight='bold'>Skontrolovať a odoslať hlásenie o "
-"chybe</span>"
+"<span size='large' weight='bold'>Skontrolovať a odoslať hlásenie o chybe</"
+"span>"
 
-#: ../gui/bug_report.glade.h:3
 msgid ""
 "You may wish to review the error output that will be included in this bug "
 "report and modify it to exclude any sensitive data below."
@@ -775,23 +601,18 @@ msgstr ""
 "Možno si budete nižšie chcieť prezrieť chybový výstup, ktorý bude zahrnutý "
 "do hlásenia o chybe a upraviť ho, aby ste odstránili citlivé údaje."
 
-#: ../gui/bug_report.glade.h:4
 msgid "Included error output:"
 msgstr "Zahrnutý chybový výstup:"
 
-#: ../gui/bug_report.glade.h:5
 msgid "Submit Report"
 msgstr "Odoslať hlásenie"
 
-#: ../gui/fail_dialog.glade.h:2 ../gui/success_dialog.glade.h:2
 msgid ""
 "This operation was completed.  The quick brown fox jumped over the lazy dog."
 msgstr "Operácia bola dokončená. "
 
-#: ../gui/success_dialog.glade.h:1
 msgid "Success!"
 msgstr "Úspech!"
 
-#: ../gui/success_dialog.glade.h:3
 msgid "button"
 msgstr "tlačidlo"
