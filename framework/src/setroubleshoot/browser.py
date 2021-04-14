@@ -65,8 +65,6 @@ from setroubleshoot.util import *
 from setroubleshoot.html_util import html_to_text
 import re
 import dbus
-import slip.dbus.service
-from slip.dbus import polkit
 import report
 import report.io
 import report.io.GTKIO
@@ -933,7 +931,6 @@ class DBusProxy (object):
         self.bus = dbus.SystemBus()
         self.dbus_object = self.bus.get_object("org.fedoraproject.SetroubleshootFixit", "/org/fedoraproject/SetroubleshootFixit/object")
 
-    @polkit.enable_proxy
     def run_fix(self, local_id, plugin_name):
         return self.dbus_object.run_fix(local_id, plugin_name, dbus_interface="org.fedoraproject.SetroubleshootFixit")
 
