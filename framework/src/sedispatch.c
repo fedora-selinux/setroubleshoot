@@ -1,5 +1,5 @@
 /* sedispatch.c --
- * Copyright 2009 Red Hat Inc., Durham, North Carolina.
+ * Copyright 2009,2021 Red Hat Inc.
  * All Rights Reserved.
  *
  * This program is free software; you can redistribute it and/or modify
@@ -30,14 +30,14 @@
  *
  */
 
-#define _GNU_SOURCE
-#include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
 #include <string.h>
 #include <sys/time.h>
 #include <sys/types.h>
 #include <unistd.h>
+#include <fcntl.h>
+#include <errno.h>
 #include "libaudit.h"
 #include "auparse.h"
 #include "sedbus.h"
@@ -101,8 +101,6 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 {
 	char tmp[MAX_AUDIT_MESSAGE_LENGTH+1];
 	struct sigaction sa;
-	fd_set rfds;
-	struct timeval tv;
 
 	/* Register sighandlers */
 	sa.sa_flags = 0;
@@ -113,6 +111,9 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 	sa.sa_handler = hup_handler;
 	sigaction(SIGHUP, &sa, NULL);
 
+	/* Set STDIN non-blocking */
+	fcntl(0, F_SETFL, O_NONBLOCK);
+
 	/* Initialize the auparse library */
 	au = auparse_init(AUSOURCE_FEED, 0);
 	if (au == NULL) {
@@ -120,37 +121,49 @@ int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 		return -1;
 	}
 
+	auparse_set_eoe_timeout(2);
 	auparse_add_callback(au, handle_event, NULL, NULL);
+
 #ifdef HAVE_LIBCAP_NG
 	capng_clear(CAPNG_SELECT_BOTH);
 	capng_apply(CAPNG_SELECT_BOTH);
 #endif
+
 	do {
+		fd_set rfds;
+		int retval;
+		int read_size = 1; /* Set to 1 so it's not EOF */
+
 		/* Load configuration */
 		if (hup) {
 			reload_config();
 		}
 
-		/* Now the event loop */
-		while (fgets_unlocked(tmp, MAX_AUDIT_MESSAGE_LENGTH, stdin) &&
-							hup==0 && stop==0) {
-			auparse_feed(au, tmp, strnlen(tmp,
-						MAX_AUDIT_MESSAGE_LENGTH));
-
-			/* Wait for 3 seconds and if nothing has happen expect that the event
-			 * is complete and flush parser's feed
-			 * FIXME: in future, libaudit will provide a better mechanism for aging
-			 * events
-			 */
+		do {
 			FD_ZERO(&rfds);
 			FD_SET(0, &rfds);
-			tv.tv_sec = 3;
-			tv.tv_usec = 0;
-			if (select(1, &rfds, NULL, NULL, &tv) == 0)
-				/* The timeout occurred, the event is probably complete */
-				auparse_flush_feed(au);
+
+			if (auparse_feed_has_data(au)) {
+				// We'll do a 1 second timeout to try to
+				// age events as quick as possible
+				struct timeval tv;
+				tv.tv_sec = 1;
+				tv.tv_usec = 0;
+				retval = select(1, &rfds, NULL, NULL, &tv);
+			} else
+				retval = select(1, &rfds, NULL, NULL, NULL);
+
+			/* If we timed out & have events, shake them loose */
+			if (retval == 0 && auparse_feed_has_data(au))
+				auparse_feed_age_events(au);
+		} while (retval == -1 && errno == EINTR && !hup && !stop);
+
+		/* Handle the event */
+		if (!hup && !stop && retval > 0) {
+			read_size = read(0, tmp, MAX_AUDIT_MESSAGE_LENGTH);
+			auparse_feed(au, tmp, read_size);
 		}
-		if (feof(stdin))
+		if (read_size == 0) /* EOF */
 			break;
 	} while (stop == 0);
 
@@ -178,7 +191,6 @@ static void dump_whole_record(auparse_state_t *au, void *conn)
 {
 	size_t size = 1;
         char *tmp = NULL, *end=NULL;
-	int i = 0;
 	const char * rec = NULL;
 	const char *scon = auparse_find_field(au, "scontext");
 	const char *tcon = auparse_find_field(au, "tcontext");
@@ -234,19 +246,11 @@ static void handle_event(auparse_state_t *au,
 	   move the cursor accidentally skipping a record. */
 	while (auparse_goto_record_num(au, num) > 0) {
 		type = auparse_get_type(au);
-		/* Now we can branch based on what record type we find.
-		   This is just a few suggestions, but it could be anything. */
+		/* Only handle AVCs. */
 		switch (type) {
 			case AUDIT_AVC:
-				dump_whole_record(au, conn); 
-				break;
-			case AUDIT_SYSCALL:
-				break;
-			case AUDIT_USER_LOGIN:
-				break;
-			case AUDIT_ANOM_ABEND:
-				break;
-			case AUDIT_MAC_STATUS:
+				dump_whole_record(au, conn);
+				return;
 				break;
 			default:
 				break;
