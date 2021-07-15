@@ -187,7 +187,7 @@ static int is_setroubleshoot(const char *context) {
 }
 
 /* This function shows how to dump a whole record's text */
-static void dump_whole_record(auparse_state_t *au, void *conn)
+static void dump_whole_record(auparse_state_t *au)
 {
 	size_t size = 1;
         char *tmp = NULL, *end=NULL;
@@ -228,35 +228,21 @@ static void dump_whole_record(auparse_state_t *au, void *conn)
 }
 
 
-/* This function receives a single complete event at a time from the auparse
- * library. This is where the main analysis code would be added. */
+/* This function receives a single complete event from auparse. Internal
+ * cursors are on the first record. This is where the analysis occurs. */
 static void handle_event(auparse_state_t *au,
 		auparse_cb_event_t cb_event_type, void *user_data)
 {
-	int type, num=0;
-
-	DBusConnection* conn = 
-		(DBusConnection*) user_data; 
-
-	if (cb_event_type != AUPARSE_CB_EVENT_READY)
-		return;
-
-	/* Loop through the records in the event looking for one to process.
-	   We use physical record number because we may search around and
-	   move the cursor accidentally skipping a record. */
-	while (auparse_goto_record_num(au, num) > 0) {
-		type = auparse_get_type(au);
+	/* Loop through the records looking for an AVC. If we ever process
+	 * other record types without directly returning, we may need to use
+	 * auparse_goto_record_num() to ensure seeing each record. */
+	do {
 		/* Only handle AVCs. */
-		switch (type) {
-			case AUDIT_AVC:
-				dump_whole_record(au, conn);
-				return;
-				break;
-			default:
-				break;
+		if (auparse_get_type(au) == AUDIT_AVC) {
+			dump_whole_record(au);
+			return;
 		}
-		num++;
-	}
+	} while (auparse_next_record(au) > 0);
 }
 
 #ifdef NOTUSED
