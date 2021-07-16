@@ -13,6 +13,8 @@ PKG_CHECK_MODULES([NOTIFY], [libnotify])
 PKG_CHECK_MODULES([SEAPPLETLEGACY], [gtk+-2.0 gio-unix-2.0 libnotify dbus-glib-1],
 				    [seappletlegacy=yes], [seappletlegacy=no])
 PKG_CHECK_MODULES([SEAPPLET], [gtk+-3.0])
+# auparse_set_eoe_timeout() requires libauparse 3.0.1
+PKG_CHECK_MODULES([SEDISPATCH], [auparse >= 3.0.1])
 
 # make sure we keep ACLOCAL_FLAGS around for maintainer builds to work
 AC_SUBST(ACLOCAL_AMFLAGS, "\${ACLOCAL_FLAGS}")
