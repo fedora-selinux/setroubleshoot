@@ -30,14 +30,9 @@ import syslog
 import sys
 import textwrap
 if sys.version_info > (3,):
-    import html
-    import html.entities
     from html.parser import HTMLParser
 else:
-    import htmllib
     from HTMLParser import HTMLParser
-import string
-from types import *
 
 #------------------------------------------------------------------------------
 
