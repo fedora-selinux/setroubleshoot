@@ -28,109 +28,28 @@ __all__ = [
 
 import syslog
 import sys
+import textwrap
 if sys.version_info > (3,):
     import html
-    import html.parser
     import html.entities
-    from io import StringIO
+    from html.parser import HTMLParser
 else:
     import htmllib
-    from StringIO import StringIO
-import formatter as Formatter
+    from HTMLParser import HTMLParser
 import string
 from types import *
 
 #------------------------------------------------------------------------------
 
+class HTMLFilter(HTMLParser):
+    def __init__(self):
+        HTMLParser.__init__(self)
+        self.text = ""
 
-class TextWriter(Formatter.DumbWriter):
-
-    def __init__(self, file=None, maxcol=80, indent_width=4):
-        Formatter.DumbWriter.__init__(self, file, maxcol)
-        self.indent_level = 0
-        self.indent_width = indent_width
-        self._set_indent()
-
-    def _set_indent(self):
-        self.indent_col = self.indent_level * self.indent_width
-        self.indent = ' ' * self.indent_col
-
-    def new_margin(self, margin, level):
-        self.indent_level = level
-        self._set_indent()
-
-    def send_label_data(self, data):
-        data = data + ' '
-        if len(data) > self.indent_col:
-            self.send_literal_data(data)
-        else:
-            offset = self.indent_col - len(data)
-            self.send_literal_data(' ' * offset + data)
-
-    def send_flowing_data(self, data):
-        if not data:
-            return
-        atbreak = self.atbreak or data[0] in string.whitespace
-        col = self.col
-        maxcol = self.maxcol
-        write = self.file.write
-        col = self.col
-        if col == 0:
-            write(self.indent)
-            col = self.indent_col
-        for word in data.split():
-            if atbreak:
-                if col + len(word) >= maxcol:
-                    write('\n' + self.indent)
-                    col = self.indent_col
-                else:
-                    write(' ')
-                    col = col + 1
-            write(word)
-            col = col + len(word)
-            atbreak = 1
-        self.col = col
-        self.atbreak = data[-1] in string.whitespace
-
-if sys.version_info > (3,):
-    class HTMLParserAnchor(html.parser.HTMLParser):
-
-        def __init__(self, formatter, strict=False, convert_charrefs=False):
-            super(HTMLParserAnchor, self).__init__()
-            self.formatter = formatter
-            self.anchor_href = None
-
-        def handle_starttag(self, tag, attrs):
-            if tag == 'a':
-                for key, value in attrs:
-                    if key == 'href':
-                        self.anchor_href = value
-
-        def handle_endtag(self, tag):
-            if tag == 'a':
-                if self.anchor_href != None:
-                    self.formatter.writer.send_flowing_data('(' + self.anchor_href + ')')
-                self.anchor_href = None
-
-        def handle_data(self, data):
-            self.formatter.writer.send_flowing_data(data)
-
-else:
-    class HTMLParserAnchor(htmllib.HTMLParser):
-
-        def __init__(self, formatter, verbose=0):
-            htmllib.HTMLParser.__init__(self, formatter, verbose)
-
-        def anchor_bgn(self, href, name, type):
-            self.anchor = href
-
-        def anchor_end(self):
-            if self.anchor:
-                self.handle_data(' (%s) ' % self.anchor)
-                self.anchor = None
+    def handle_data(self, data):
+        self.text += data
 
 #------------------------------------------------------------------------------
-
 
 def escape_html(s):
     if s is None:
@@ -161,14 +80,9 @@ def unescape_html(s):
 
 def html_to_text(html, maxcol=80):
     try:
-        buffer = StringIO()
-        formatter = Formatter.AbstractFormatter(TextWriter(buffer, maxcol))
-        parser = HTMLParserAnchor(formatter)
-        parser.feed(html)
-        parser.close()
-        text = buffer.getvalue()
-        buffer.close()
-        return text
+        filter = HTMLFilter()
+        filter.feed(html)
+        return textwrap.fill(filter.text, width=maxcol)
     except Exception as e:
         syslog.syslog(syslog.LOG_ERR, 'cannot convert html to text: %s' % e)
         return None
