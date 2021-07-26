@@ -22,8 +22,6 @@ __all__ = [
     'escape_html',
     'unescape_html',
     'html_to_text',
-
-    'html_document',
 ]
 
 import syslog
@@ -81,35 +79,3 @@ def html_to_text(html, maxcol=80):
     except Exception as e:
         syslog.syslog(syslog.LOG_ERR, 'cannot convert html to text: %s' % e)
         return None
-
-
-def html_document(*body_components):
-    '''Wrap the body components in a HTML document structure with a valid header.
-    Accepts a variable number of arguments of of which canb be:
-    * string
-    * a sequences of strings (tuple or list).
-    * a callable object taking no parameters and returning a string or sequence of strings.
-    '''
-    head = '<html>\n  <head>\n    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>\n  </head>\n  <body>\n'
-    tail = '\n  </body>\n</html>'
-
-    doc = head
-
-    for body_component in body_components:
-        if isinstance(body_component, six.string_types):
-            doc += body_component
-        elif isinstance(body_component, (tuple, list)):
-            for item in body_component:
-                doc += item
-        elif callable(body_component):
-            result = body_component()
-            if isinstance(result, (tuple, list)):
-                for item in result:
-                    doc += item
-            else:
-                doc += result
-        else:
-            doc += body_component
-
-    doc += tail
-    return doc
