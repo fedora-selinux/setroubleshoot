@@ -39,7 +39,7 @@ def customizable(target):
 
 
 # List of path prefixes for which this plugin is not executed
-excluded_paths = ["/sys/fs"]
+excluded_paths = ["/sys/", "/proc/", "/memfd:"]
 # Test if the specified path starts with some excluded prefix
 def excluded_path(target_path):
     for path in excluded_paths:
